@@ -301,7 +301,7 @@ const Index = () => {
             </p>
 
             {/* Typewriter headline */}
-            <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl tracking-[0.08em] text-foreground leading-tight">
+            <h1 className="font-display text-[2rem] sm:text-7xl lg:text-8xl tracking-[0.08em] text-foreground leading-tight w-full max-w-full overflow-hidden">
               {/* Line 1 */}
               <span className="block">
                 {line1.displayed}
@@ -325,7 +325,7 @@ const Index = () => {
             animate={{ opacity: line3.done ? 1 : 0 }}
             transition={{ duration: 1 }}
           >
-            <p className="mt-8 font-narrative text-lg sm:text-xl text-foreground/70 italic max-w-lg mx-auto">
+            <p className="mt-8 font-narrative text-[1.0625rem] sm:text-xl text-foreground/70 italic max-w-lg mx-auto leading-[1.8] px-5 sm:px-0">
               "In the shadow of brass towers and steam-choked skies, an empire
               holds its breath. The fire below is rising."
             </p>
@@ -335,19 +335,19 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: line3.done ? 1 : 0, y: line3.done ? 0 : 20 }}
             transition={{ duration: 0.8 }}
-            className="mt-12 flex flex-col sm:flex-row gap-4"
+            className="mt-12 flex flex-col items-center sm:flex-row gap-4 w-full px-5 sm:px-0"
           >
             {/* Pulsing glow CTA */}
             <Link
               to="/world"
-              className="btn-pulse-glow px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow"
+              className="btn-pulse-glow w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow"
               style={{ cursor: "none" }}
             >
               Enter the Empire
             </Link>
             <Link
               to="/characters"
-              className="px-8 py-3 border border-primary/40 text-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/80 transition-colors"
+              className="w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 border border-primary/40 text-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/80 transition-colors"
               style={{ cursor: "none" }}
             >
               Meet the Players
@@ -365,7 +365,7 @@ const Index = () => {
           </motion.div>
 
           {/* Hidden Orb 1 — tucked near bottom-right of hero */}
-          <HiddenOrb id={1} className="absolute bottom-24 right-8 sm:right-16" />
+          <HiddenOrb id={1} className="absolute bottom-24 right-5 sm:right-16" />
 
           {/* Scroll indicator */}
           <motion.div
@@ -386,7 +386,7 @@ const Index = () => {
         {/* ── Below-fold sections (scroll reveal) ─────────────────────── */}
         <div className="relative z-10 bg-background">
           {/* World teaser */}
-          <section className="py-24 px-4">
+          <section className="py-16 sm:py-24 px-5 sm:px-4">
             <div className="max-w-4xl mx-auto text-center relative">
               {/* Hidden Orb 2 — blends into decorative divider */}
               <HiddenOrb id={2} className="absolute top-0 right-4 opacity-60" />
@@ -399,7 +399,7 @@ const Index = () => {
                 </h2>
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
-                <p className="mt-6 font-narrative text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                <p className="mt-6 font-narrative text-[1.0625rem] sm:text-lg text-muted-foreground leading-[1.8] max-w-2xl mx-auto w-full">
                   The empire was built on steam and iron, on the bones of the conquered
                   and the dreams of the powerful. For three centuries, the Voss dynasty
                   has maintained order through a machine of control — military, political,

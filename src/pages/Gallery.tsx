@@ -26,13 +26,13 @@ const Gallery = () => {
 
   return (
     <Layout>
-      <div className="pt-24 pb-20 px-4">
+      <div className="pt-24 pb-20 px-4 overflow-x-hidden">
         <SectionHeader
           title="Visual Gallery"
           subtitle="Cinematic visions from the world of Laurel Crowns Above"
         />
 
-        <div className="max-w-6xl mx-auto columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+        <div className="max-w-6xl mx-auto columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4 w-full">
           {galleryItems.map((item, i) => (
             <motion.div
               key={`${item.title}-${i}`}

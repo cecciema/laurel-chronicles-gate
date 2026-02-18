@@ -12,7 +12,7 @@ const WorldMap = () => {
 
   return (
     <Layout>
-      <div className="pt-24 pb-20 px-4">
+      <div className="pt-24 pb-20 px-4 overflow-x-hidden">
         <SectionHeader
           title="World Map"
           subtitle="Select a region to uncover its lore and secrets"
@@ -37,7 +37,7 @@ const WorldMap = () => {
               <button
                 key={r.id}
                 onClick={() => setSelectedRegion(r.id)}
-                className={`px-4 py-2 text-xs tracking-[0.15em] uppercase font-body border transition-all ${
+                className={`min-h-[44px] px-4 py-2 text-xs tracking-[0.15em] uppercase font-body border transition-all ${
                   selectedRegion === r.id
                     ? "border-primary text-primary shadow-brass"
                     : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
@@ -54,15 +54,15 @@ const WorldMap = () => {
               key={region.id}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              className="max-w-2xl mx-auto bg-card border border-border p-6"
+              className="max-w-2xl mx-auto bg-card border border-border p-5 sm:p-6"
             >
               <span className="text-[10px] tracking-[0.3em] text-primary uppercase font-body">
                 {region.faction}
               </span>
-              <h3 className="font-display text-2xl tracking-wide text-foreground mt-1">
+              <h3 className="font-display text-[1.625rem] sm:text-2xl tracking-wide text-foreground mt-1">
                 {region.name}
               </h3>
-              <p className="mt-4 text-sm text-foreground/70 font-body leading-relaxed">
+              <p className="mt-4 text-[0.9375rem] sm:text-sm text-foreground/70 font-body leading-[1.8]">
                 {region.description}
               </p>
               <div className="mt-4 flex flex-wrap gap-2">

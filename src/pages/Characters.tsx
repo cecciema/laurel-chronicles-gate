@@ -12,7 +12,7 @@ const Characters = () => {
 
   return (
     <Layout>
-      <div className="pt-24 pb-20 px-4">
+      <div className="pt-24 pb-20 px-4 overflow-x-hidden">
         <div className="relative">
           <SectionHeader
             title="Character Database"
@@ -64,9 +64,9 @@ const Characters = () => {
               exit={{ opacity: 0, y: 20 }}
               className="max-w-4xl mx-auto mt-12"
             >
-              <div className="bg-card border border-border p-6 sm:p-8">
-                <div className="flex flex-col sm:flex-row gap-6">
-                  <div className="w-full sm:w-48 flex-shrink-0">
+              <div className="bg-card border border-border p-5 sm:p-8">
+                <div className="flex flex-col gap-6">
+                  <div className="w-full sm:w-48 mx-auto sm:mx-0 sm:flex-shrink-0 max-w-[240px]">
                     <img
                       src={characterImageMap[selectedChar.image]}
                       alt={selectedChar.name}
@@ -78,10 +78,10 @@ const Characters = () => {
                       <p className="text-[10px] tracking-[0.3em] text-primary uppercase font-body">
                         {selectedChar.magistry ?? selectedChar.faction}
                       </p>
-                      <h3 className="font-display text-2xl tracking-wide text-foreground mt-1">
+                      <h3 className="font-display text-[1.625rem] sm:text-2xl tracking-wide text-foreground mt-1">
                         {selectedChar.name}
                       </h3>
-                      <p className="font-narrative text-lg text-foreground/70 italic">
+                      <p className="font-narrative text-[1.0625rem] sm:text-lg text-foreground/70 italic leading-[1.8]">
                         {selectedChar.title}
                       </p>
                     </div>
@@ -93,7 +93,7 @@ const Characters = () => {
                         <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
                           Philosophy
                         </h4>
-                        <p className="text-sm text-foreground/80 font-narrative italic">"{selectedChar.philosophy}"</p>
+                        <p className="text-[0.9375rem] sm:text-sm text-foreground/80 font-narrative italic leading-[1.8]">"{selectedChar.philosophy}"</p>
                       </div>
                     )}
 
@@ -101,7 +101,7 @@ const Characters = () => {
                       <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
                         Alignment
                       </h4>
-                      <p className="text-sm text-foreground/80 font-body">{selectedChar.alignment}</p>
+                      <p className="text-[0.9375rem] sm:text-sm text-foreground/80 font-body leading-[1.8]">{selectedChar.alignment}</p>
                     </div>
 
                     <div>
@@ -124,7 +124,7 @@ const Characters = () => {
                       <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
                         Background
                       </h4>
-                      <p className="text-sm text-foreground/70 font-narrative leading-relaxed">
+                      <p className="text-[0.9375rem] sm:text-sm text-foreground/70 font-narrative leading-[1.8]">
                         {selectedChar.background}
                       </p>
                     </div>
@@ -133,7 +133,7 @@ const Characters = () => {
                       <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
                         Relationships
                       </h4>
-                      <p className="text-sm text-foreground/70 font-narrative leading-relaxed italic">
+                      <p className="text-[0.9375rem] sm:text-sm text-foreground/70 font-narrative leading-[1.8] italic">
                         {selectedChar.relationships}
                       </p>
                     </div>
