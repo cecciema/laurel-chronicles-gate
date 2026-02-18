@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Compass } from "lucide-react";
+import { GUIDE_STORAGE_KEY } from "@/components/GuideOnboarding";
+import { guideCharacters } from "@/data/world-data";
 
 const navItems = [
   { path: "/", label: "Enter" },
@@ -16,6 +18,13 @@ const navItems = [
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const savedGuideId = localStorage.getItem(GUIDE_STORAGE_KEY);
+  const activeGuide = guideCharacters.find((g) => g.id === savedGuideId);
+
+  const handleChangeGuide = () => {
+    localStorage.removeItem(GUIDE_STORAGE_KEY);
+    window.location.reload();
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -46,6 +55,16 @@ const Navigation = () => {
                 {item.label}
               </Link>
             ))}
+            {activeGuide && (
+              <button
+                onClick={handleChangeGuide}
+                title={`Guide: ${activeGuide.name} · Click to change`}
+                className="ml-2 flex items-center gap-1.5 px-3 py-1.5 border border-primary/30 text-primary/70 hover:border-primary hover:text-primary transition-colors"
+              >
+                <Compass size={10} />
+                <span className="text-[9px] tracking-[0.15em] uppercase font-body">{activeGuide.name}</span>
+              </button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -82,6 +101,15 @@ const Navigation = () => {
                   {item.label}
                 </Link>
               ))}
+              {activeGuide && (
+                <button
+                  onClick={handleChangeGuide}
+                  className="flex items-center gap-2 px-3 py-2 text-sm tracking-[0.15em] uppercase font-body text-primary/70 border border-primary/30 w-full mt-2"
+                >
+                  <Compass size={12} />
+                  Change Guide ({activeGuide.name})
+                </button>
+              )}
             </div>
           </motion.div>
         )}
