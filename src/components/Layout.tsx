@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import Navigation from "./Navigation";
+import BottomNav from "./BottomNav";
 
 interface LayoutProps {
   children: ReactNode;
@@ -7,7 +8,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-hidden pb-[60px] sm:pb-0">
       <Navigation />
       <main>{children}</main>
       <footer className="border-t border-border py-8 px-4 text-center">
@@ -18,6 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
           © 2026 All Rights Reserved. This is an original intellectual property.
         </p>
       </footer>
+      <BottomNav />
     </div>
   );
 };
