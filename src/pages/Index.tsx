@@ -450,8 +450,7 @@ const Index = () => {
         </div>
       </div>
 
-      {/* ── Mobile Bottom Navigation ─────────────────────────────────── */}
-      <BottomNav />
+      {/* BottomNav is rendered globally in Layout.tsx */}
     </>
   );
 };
