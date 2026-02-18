@@ -79,7 +79,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
     setTimeout(() => {
       localStorage.setItem(GUIDE_STORAGE_KEY, selected.id);
       onComplete(selected.id);
-    }, 3200);
+    }, 6500);
   };
 
   const msg = selected ? welcomeMessages[selected.welcomeTone] : null;
@@ -341,7 +341,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 2.6 }}
+              transition={{ delay: 5.0 }}
               className="mt-10 text-xs tracking-[0.3em] text-muted-foreground uppercase font-body"
             >
               Entering the world…
