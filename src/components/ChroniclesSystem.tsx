@@ -240,7 +240,26 @@ export const HiddenSigil = ({ className }: { className?: string }) => {
 };
 
 export const QuestTrigger = ({ className }: { className?: string }) => {
-  const { startQuest } = useGame();
+  const { startQuest, questCompleted, questArchetype } = useGame();
+
+  if (questCompleted && questArchetype) {
+    const archetype = ARCHETYPES[questArchetype as keyof typeof ARCHETYPES];
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        className={cn(
+          "inline-flex items-center gap-2 px-4 py-2 border border-primary/40 text-primary font-display text-xs tracking-widest uppercase",
+          className
+        )}
+      >
+        <span>{archetype?.sigil}</span>
+        <span>{archetype?.name}</span>
+      </motion.div>
+    );
+  }
+
   return (
     <button
       onClick={startQuest}
@@ -333,6 +352,7 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
   const [sceneIndex, setSceneIndex] = useState(0);
   const [scores, setScores] = useState({ devoted: 0, architect: 0, witness: 0 });
   const [result, setResult] = useState<string | null>(null);
+  const [confirmed, setConfirmed] = useState(false);
 
   const handleChoice = (type: string) => {
     const newScores = { ...scores, [type]: scores[type as keyof typeof scores] + 1 };
@@ -345,12 +365,17 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
     }
   };
 
-  const handleConfirm = () => { if (result) onComplete(result); };
+  const handleConfirm = () => {
+    if (!result) return;
+    setConfirmed(true);
+    setTimeout(() => onComplete(result), 2500);
+  };
+
   const currentScene = QUEST_SCENES[sceneIndex];
   const archetype = result ? ARCHETYPES[result as keyof typeof ARCHETYPES] : null;
 
   return (
-    <ModalBackdrop onClick={result ? handleConfirm : onClose}>
+    <ModalBackdrop onClick={confirmed ? undefined : (result ? handleConfirm : onClose)}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -358,48 +383,97 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
         onClick={(e) => e.stopPropagation()}
         className="w-full max-w-4xl mx-auto flex flex-col items-center justify-start sm:justify-center text-center p-4 sm:p-6 py-10 min-h-full"
       >
-        {!result ? (
-          <>
-            <h2 className="font-display text-[1.6rem] sm:text-5xl text-amber-100 tracking-[0.08em] sm:tracking-[0.1em] mb-6 sm:mb-12 drop-shadow-lg leading-tight">
-              Where Does Your Loyalty Lie?
-            </h2>
+        <AnimatePresence mode="wait">
+          {confirmed ? (
+            /* ── Cinematic seal screen ── */
             <motion.div
-              key={sceneIndex}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="bg-black/80 border border-amber-900/50 p-6 sm:p-12 max-w-2xl w-full backdrop-blur-md"
+              key="cinematic"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+              className="fixed inset-0 z-[110] flex flex-col items-center justify-center bg-black"
             >
-              <div className="text-amber-500/50 text-xs tracking-[0.3em] uppercase mb-4 sm:mb-6">Scene {sceneIndex + 1} of 4</div>
-              <p className="font-narrative text-[1.0625rem] sm:text-xl text-amber-50 mb-6 sm:mb-10 leading-[1.8]">"{currentScene.text}"</p>
-              <div className="space-y-3 sm:space-y-4">
-                {currentScene.options.map((opt) => (
-                  <button key={opt.id} onClick={() => handleChoice(opt.type)}
-                    className="w-full text-left p-4 min-h-[56px] border border-amber-900/30 hover:border-amber-500/80 hover:bg-amber-900/20 text-amber-100/80 hover:text-white transition-all duration-300 font-body text-[0.9375rem] sm:text-sm tracking-wide leading-[1.6]">
-                    <span className="text-amber-500 mr-3 font-display">{opt.id}.</span> {opt.text}
-                  </button>
-                ))}
-              </div>
+              <motion.div
+                initial={{ scale: 0.6, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-[5rem] sm:text-[7rem] mb-6"
+                style={{ textShadow: "0 0 60px hsl(38 72% 50% / 0.8), 0 0 120px hsl(38 72% 50% / 0.4)" }}
+              >
+                {archetype?.sigil}
+              </motion.div>
+              <motion.h2
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.7 }}
+                className="font-display text-2xl sm:text-4xl text-amber-400 tracking-[0.15em] sm:tracking-[0.2em] mb-5"
+              >
+                {archetype?.name}
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.9, duration: 0.8 }}
+                className="font-narrative italic text-amber-100/60 text-base sm:text-lg"
+              >
+                "Your allegiance is sealed. The world remembers."
+              </motion.p>
+              {/* Fade-to-black veil */}
+              <motion.div
+                className="absolute inset-0 bg-black pointer-events-none"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.7, duration: 0.8 }}
+              />
             </motion.div>
-          </>
-        ) : (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="bg-[#0d0a06] border border-amber-800/40 p-8 sm:p-12 max-w-xl w-full text-center shadow-[0_0_80px_rgba(245,158,11,0.08)]"
-          >
-            <div className="text-amber-600/40 text-xs tracking-[0.4em] uppercase mb-6">Your Allegiance Is Revealed</div>
-            <div className="text-4xl sm:text-5xl text-amber-500/60 mb-6">{archetype?.sigil}</div>
-            <h2 className="font-display text-[1.6rem] sm:text-3xl text-amber-400 tracking-[0.12em] sm:tracking-[0.15em] mb-6">{archetype?.name}</h2>
-            <div className="h-px w-20 bg-amber-800/50 mx-auto mb-6" />
-            <p className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/70 italic leading-[1.8] mb-8 sm:mb-10">"{archetype?.desc}"</p>
-            <button onClick={handleConfirm}
-              className="min-h-[44px] text-xs tracking-[0.3em] uppercase text-amber-700 hover:text-amber-500 transition-colors font-body border border-amber-900/40 hover:border-amber-700/60 px-6 py-3">
-              Seal Your Fate
-            </button>
-          </motion.div>
-        )}
+          ) : !result ? (
+            /* ── Scene questions ── */
+            <motion.div key="scenes" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full flex flex-col items-center">
+              <h2 className="font-display text-[1.6rem] sm:text-5xl text-amber-100 tracking-[0.08em] sm:tracking-[0.1em] mb-6 sm:mb-12 drop-shadow-lg leading-tight">
+                Where Does Your Loyalty Lie?
+              </h2>
+              <motion.div
+                key={sceneIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="bg-black/80 border border-amber-900/50 p-6 sm:p-12 max-w-2xl w-full backdrop-blur-md"
+              >
+                <div className="text-amber-500/50 text-xs tracking-[0.3em] uppercase mb-4 sm:mb-6">Scene {sceneIndex + 1} of 4</div>
+                <p className="font-narrative text-[1.0625rem] sm:text-xl text-amber-50 mb-6 sm:mb-10 leading-[1.8]">"{currentScene.text}"</p>
+                <div className="space-y-3 sm:space-y-4">
+                  {currentScene.options.map((opt) => (
+                    <button key={opt.id} onClick={() => handleChoice(opt.type)}
+                      className="w-full text-left p-4 min-h-[56px] border border-amber-900/30 hover:border-amber-500/80 hover:bg-amber-900/20 text-amber-100/80 hover:text-white transition-all duration-300 font-body text-[0.9375rem] sm:text-sm tracking-wide leading-[1.6]">
+                      <span className="text-amber-500 mr-3 font-display">{opt.id}.</span> {opt.text}
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+          ) : (
+            /* ── Archetype reveal ── */
+            <motion.div
+              key="reveal"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.8 }}
+              className="bg-[#0d0a06] border border-amber-800/40 p-8 sm:p-12 max-w-xl w-full text-center shadow-[0_0_80px_rgba(245,158,11,0.08)]"
+            >
+              <div className="text-amber-600/40 text-xs tracking-[0.4em] uppercase mb-6">Your Allegiance Is Revealed</div>
+              <div className="text-4xl sm:text-5xl text-amber-500/60 mb-6">{archetype?.sigil}</div>
+              <h2 className="font-display text-[1.6rem] sm:text-3xl text-amber-400 tracking-[0.12em] sm:tracking-[0.15em] mb-6">{archetype?.name}</h2>
+              <div className="h-px w-20 bg-amber-800/50 mx-auto mb-6" />
+              <p className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/70 italic leading-[1.8] mb-8 sm:mb-10">"{archetype?.desc}"</p>
+              <button onClick={handleConfirm}
+                className="min-h-[44px] text-xs tracking-[0.3em] uppercase text-amber-700 hover:text-amber-500 transition-colors font-body border border-amber-900/40 hover:border-amber-700/60 px-6 py-3">
+                Seal Your Fate
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </ModalBackdrop>
   );
