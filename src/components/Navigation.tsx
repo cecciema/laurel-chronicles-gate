@@ -42,7 +42,7 @@ const Navigation = () => {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden sm:flex items-center gap-1">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
@@ -71,7 +71,7 @@ const Navigation = () => {
             {/* Mobile Hamburger — 44×44 touch target */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden flex items-center justify-center w-11 h-11 text-foreground"
+              className="sm:hidden flex items-center justify-center w-11 h-11 text-foreground"
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               <Menu size={22} />
