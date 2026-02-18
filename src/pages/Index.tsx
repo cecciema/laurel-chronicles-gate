@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { HiddenOrb, QuestTrigger } from "@/components/ChroniclesSystem";
-import { Home, Globe, Users, Shield, Map } from "lucide-react";
 import heroCityscape from "@/assets/hero-cityscape.jpg";
 
 // Detect touch-only devices (no hover support)
