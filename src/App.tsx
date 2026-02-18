@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Volume2, VolumeX } from "lucide-react";
 import { motion } from "framer-motion";
 import GuideOnboarding, { GUIDE_STORAGE_KEY } from "@/components/GuideOnboarding";
+import { GameProvider } from "@/components/ChroniclesSystem";
 import Index from "./pages/Index";
 import WorldOverview from "./pages/WorldOverview";
 import Characters from "./pages/Characters";
@@ -83,13 +84,15 @@ const AppInner = () => {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <AppInner />
-      </BrowserRouter>
-    </TooltipProvider>
+    <GameProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <AppInner />
+        </BrowserRouter>
+      </TooltipProvider>
+    </GameProvider>
   </QueryClientProvider>
 );
 
