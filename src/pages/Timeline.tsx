@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
+import { HiddenOrb } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import { timeline, type TimelineEvent } from "@/data/world-data";
 
@@ -44,6 +45,8 @@ const Timeline = () => {
         <div className="max-w-3xl mx-auto relative">
           {/* Vertical line */}
           <div className="absolute left-8 sm:left-1/2 top-0 bottom-0 w-px bg-border" />
+          {/* Hidden Orb 6 — camouflaged near the timeline line top */}
+          <HiddenOrb id={6} className="absolute left-[27px] sm:left-[calc(50%-6px)] top-[-12px] z-20" />
 
           <div className="space-y-8">
             {filtered.map((event, i) => (

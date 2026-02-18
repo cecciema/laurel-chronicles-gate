@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
+import { HiddenOrb } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import { worldRegions } from "@/data/world-data";
 import worldMap from "@/assets/world-map.jpg";
@@ -26,6 +27,8 @@ const WorldMap = () => {
               className="w-full max-w-2xl mx-auto border border-border shadow-deep"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent pointer-events-none" />
+            {/* Hidden Orb 7 — blends into map corner */}
+            <HiddenOrb id={7} className="absolute bottom-3 left-[calc(50%-460px+8px)] sm:left-[calc(50%-390px+8px)]" />
           </div>
 
           {/* Region Selector */}

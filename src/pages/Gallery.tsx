@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
+import { HiddenOrb, HiddenSigil } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import { characters } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
@@ -63,6 +64,11 @@ const Gallery = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Hidden Sigil — barely visible laurel, triggers riddle sequence */}
+        <div className="flex justify-center mt-16 mb-4">
+          <HiddenSigil />
         </div>
       </div>
     </Layout>

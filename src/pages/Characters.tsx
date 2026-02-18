@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
+import { HiddenOrb } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import { characters } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
@@ -12,10 +13,14 @@ const Characters = () => {
   return (
     <Layout>
       <div className="pt-24 pb-20 px-4">
-        <SectionHeader
-          title="Character Database"
-          subtitle="The key figures whose choices will shape the fate of Panterra"
-        />
+        <div className="relative">
+          <SectionHeader
+            title="Character Database"
+            subtitle="The key figures whose choices will shape the fate of Panterra"
+          />
+          {/* Hidden Orb 4 — hidden in section header decoration */}
+          <HiddenOrb id={4} className="absolute top-2 right-4 sm:right-12" />
+        </div>
 
         {/* Character Grid */}
         <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">

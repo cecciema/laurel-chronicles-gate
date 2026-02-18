@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
+import { HiddenOrb, QuestTrigger } from "@/components/ChroniclesSystem";
 import heroCityscape from "@/assets/hero-cityscape.jpg";
 
 // ─── Typewriter Hook ───────────────────────────────────────────────────────────
@@ -353,6 +354,19 @@ const Index = () => {
             </Link>
           </motion.div>
 
+          {/* Chronicles Quest — allegiance trigger */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: line3.done ? 1 : 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-6"
+          >
+            <QuestTrigger />
+          </motion.div>
+
+          {/* Hidden Orb 1 — tucked near bottom-right of hero */}
+          <HiddenOrb id={1} className="absolute bottom-24 right-8 sm:right-16" />
+
           {/* Scroll indicator */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -373,7 +387,9 @@ const Index = () => {
         <div className="relative z-10 bg-background">
           {/* World teaser */}
           <section className="py-24 px-4">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="max-w-4xl mx-auto text-center relative">
+              {/* Hidden Orb 2 — blends into decorative divider */}
+              <HiddenOrb id={2} className="absolute top-0 right-4 opacity-60" />
               <ScrollReveal>
                 <div className="steampunk-divider max-w-xs mx-auto mb-8" />
               </ScrollReveal>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
+import { HiddenOrb } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import { worldRegions } from "@/data/world-data";
 import heroCityscape from "@/assets/hero-cityscape.jpg";
@@ -34,7 +35,9 @@ const WorldOverview = () => {
             title="The Empire of the Brass Crown"
             subtitle="Three centuries of dominion. An industrial civilization powered by the fires beneath the earth."
           />
-          <div className="space-y-6 font-narrative text-base text-foreground/80 leading-relaxed">
+          <div className="space-y-6 font-narrative text-base text-foreground/80 leading-relaxed relative">
+            {/* Hidden Orb 3 — nestled at end of first paragraph */}
+            <HiddenOrb id={3} className="absolute -right-2 top-1" />
             <p>
               The empire spans a vast continent, its cities connected by steam-powered rail lines
               and its skies darkened by the exhaust of a thousand factories. At its heart lies the
