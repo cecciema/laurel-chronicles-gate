@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Volume2, VolumeX } from "lucide-react";
 import heroCityscape from "@/assets/hero-cityscape.jpg";
 
 // ─── Typewriter Hook ───────────────────────────────────────────────────────────
@@ -221,8 +220,6 @@ const ScrollReveal = ({ children, delay = 0, className = "" }: { children: React
 // ─── Main Component ────────────────────────────────────────────────────────────
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
-  const [muted, setMuted] = useState(true);
-  const audioRef = useRef<HTMLAudioElement>(null);
   const mousePos = useRef({ x: 0, y: 0 });
   const bgRef = useRef<HTMLDivElement>(null);
   const midRef = useRef<HTMLDivElement>(null);
@@ -248,20 +245,6 @@ const Index = () => {
     }
   }, []);
 
-  // Audio toggle
-  const toggleAudio = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    if (muted) {
-      audio.volume = 0.3;
-      audio.play().catch(() => {});
-      setMuted(false);
-    } else {
-      audio.pause();
-      setMuted(true);
-    }
-  };
-
   return (
     <>
       <CustomCursor />
@@ -270,24 +253,6 @@ const Index = () => {
         {showIntro && <CinematicIntro onDone={() => setShowIntro(false)} />}
       </AnimatePresence>
 
-      {/* Ambient audio — "Twilight Piano loop" by Mark_Murray on Freesound (CC Attribution) */}
-      <audio ref={audioRef} loop src="https://cdn.freesound.org/previews/639/639958_13315998-lq.mp3" />
-
-      {/* Audio toggle */}
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: showIntro ? 0 : 1 }}
-        transition={{ delay: 0.5, duration: 0.6 }}
-        onClick={toggleAudio}
-        className="fixed top-4 right-4 z-[150] w-9 h-9 flex items-center justify-center border border-primary/30 bg-background/60 backdrop-blur-sm hover:border-primary/70 transition-colors"
-        style={{ boxShadow: "0 0 12px hsl(38 72% 50% / 0.1)" }}
-        aria-label={muted ? "Unmute ambient audio" : "Mute ambient audio"}
-      >
-        {muted
-          ? <VolumeX size={14} className="text-muted-foreground" />
-          : <Volume2 size={14} className="text-primary" />
-        }
-      </motion.button>
 
       <div
         className="relative min-h-screen overflow-hidden"
