@@ -181,7 +181,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
               </motion.p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-3 sm:gap-4">
+            <div className="grid grid-cols-5 gap-3 sm:gap-4">
               {guideCharacters.map((guide, i) => (
                 <motion.button
                   key={guide.id}
