@@ -184,6 +184,38 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes brassPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 12px hsl(38 72% 50% / 0.4),
+      0 0 28px hsl(38 72% 50% / 0.25),
+      0 0 50px hsl(25 80% 45% / 0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 20px hsl(38 80% 60% / 0.7),
+      0 0 45px hsl(38 72% 50% / 0.45),
+      0 0 80px hsl(25 80% 45% / 0.3);
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.btn-pulse-glow {
+  animation: brassPulse 2.4s ease-in-out infinite;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  animation: cursorBlink 0.9s step-end infinite;
+  color: hsl(var(--primary));
+  font-weight: 300;
+  margin-left: 1px;
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
