@@ -6,27 +6,6 @@ import SectionHeader from "@/components/SectionHeader";
 import { characters } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
 
-// Detect how many columns the grid is rendering by measuring the grid container width
-const useColumnCount = (ref: React.RefObject<HTMLDivElement>) => {
-  const [cols, setCols] = useState(5);
-
-  const update = useCallback(() => {
-    const w = ref.current?.offsetWidth ?? 0;
-    if (w < 640) setCols(2);
-    else if (w < 1024) setCols(3);
-    else setCols(5);
-  }, [ref]);
-
-  useEffect(() => {
-    update();
-    const ro = new ResizeObserver(update);
-    if (ref.current) ro.observe(ref.current);
-    return () => ro.disconnect();
-  }, [update, ref]);
-
-  return cols;
-};
-
 // Group an array into chunks of `size`
 function chunk<T>(arr: T[], size: number): T[][] {
   const rows: T[][] = [];
@@ -34,27 +13,51 @@ function chunk<T>(arr: T[], size: number): T[][] {
   return rows;
 }
 
+// Detect column count by measuring the grid container's width
+function getColCount(width: number): number {
+  if (width < 640) return 2;
+  if (width < 1024) return 3;
+  return 5;
+}
+
 const Characters = () => {
   const [selected, setSelected] = useState<string | null>(null);
+  const [cols, setCols] = useState(5);
   const selectedChar = characters.find((c) => c.id === selected);
   const gridRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
-  const cols = useColumnCount(gridRef);
 
-  // Scroll the panel into view when it appears or changes
+  // Measure grid width to determine column count
+  const measureCols = useCallback(() => {
+    if (gridRef.current) {
+      setCols(getColCount(gridRef.current.offsetWidth));
+    }
+  }, []);
+
+  useEffect(() => {
+    measureCols();
+    const ro = new ResizeObserver(measureCols);
+    if (gridRef.current) ro.observe(gridRef.current);
+    return () => ro.disconnect();
+  }, [measureCols]);
+
+  // Scroll the panel into view smoothly when selection changes
   useEffect(() => {
     if (selected && panelRef.current) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         panelRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }, 80);
+      }, 100);
+      return () => clearTimeout(timer);
     }
   }, [selected]);
 
   const rows = chunk(characters, cols);
   const selectedIndex = characters.findIndex((c) => c.id === selected);
   const selectedRow = selectedIndex >= 0 ? Math.floor(selectedIndex / cols) : -1;
-  // Position within its row (0-indexed) — used for the caret offset
   const selectedColInRow = selectedIndex >= 0 ? selectedIndex % cols : 0;
+
+  // Caret horizontal offset: center of the selected card's column
+  const caretLeft = `calc(${selectedColInRow} * (100% / ${cols}) + (100% / ${cols} / 2) - 10px)`;
 
   return (
     <Layout>
@@ -67,13 +70,13 @@ const Characters = () => {
           <HiddenOrb id={4} className="absolute top-2 right-4 sm:right-12" />
         </div>
 
-        {/* Character Grid — flex-wrap so we can splice rows */}
+        {/* Outer grid ref — used only for width measurement */}
         <div ref={gridRef} className="max-w-6xl mx-auto">
           {rows.map((row, rowIdx) => {
-            const showPanel = rowIdx === selectedRow;
+            const isSelectedRow = rowIdx === selectedRow;
             return (
-              <div key={rowIdx}>
-                {/* Row of character cards */}
+              <div key={rowIdx} className="mb-4">
+                {/* Row of cards */}
                 <div
                   className="grid gap-4"
                   style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
@@ -112,41 +115,51 @@ const Characters = () => {
                   })}
                 </div>
 
-                {/* Inline detail panel — inserted directly below this row */}
+                {/* Inline detail panel — spliced below matching row */}
                 <AnimatePresence>
-                  {showPanel && selectedChar && (
+                  {isSelectedRow && selectedChar && (
                     <motion.div
                       ref={panelRef}
-                      key={selected}
-                      initial={{ opacity: 0, y: -8 }}
+                      key={`panel-${selected}`}
+                      initial={{ opacity: 0, y: -6 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -8 }}
+                      exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
-                      className="mt-1 relative"
+                      className="relative mt-3"
                     >
-                      {/* Upward caret aligned with selected card */}
+                      {/* Caret — outer (border color) */}
                       <div
-                        className="absolute -top-2 h-0 w-0 border-l-[10px] border-r-[10px] border-b-[10px] border-l-transparent border-r-transparent border-b-border"
+                        className="absolute -top-3 z-10 h-0 w-0 pointer-events-none"
                         style={{
-                          left: `calc(${selectedColInRow / cols} * 100% + ${100 / cols / 2}% - 10px)`
+                          left: caretLeft,
+                          borderLeft: "10px solid transparent",
+                          borderRight: "10px solid transparent",
+                          borderBottom: "10px solid hsl(var(--border))",
                         }}
                       />
+                      {/* Caret — inner (card bg color) */}
                       <div
-                        className="absolute -top-[7px] h-0 w-0 border-l-[9px] border-r-[9px] border-b-[9px] border-l-transparent border-r-transparent border-b-card z-10"
+                        className="absolute -top-[10px] z-20 h-0 w-0 pointer-events-none"
                         style={{
-                          left: `calc(${selectedColInRow / cols} * 100% + ${100 / cols / 2}% - 9px)`
+                          left: `calc(${selectedColInRow} * (100% / ${cols}) + (100% / ${cols} / 2) - 9px)`,
+                          borderLeft: "9px solid transparent",
+                          borderRight: "9px solid transparent",
+                          borderBottom: "9px solid hsl(var(--card))",
                         }}
                       />
 
                       <div className="bg-card border border-border p-5 sm:p-8">
                         <div className="flex flex-col sm:flex-row gap-6">
-                          <div className="w-full sm:w-48 mx-auto sm:mx-0 sm:flex-shrink-0 max-w-[180px]">
+                          {/* Portrait */}
+                          <div className="w-full sm:w-44 mx-auto sm:mx-0 sm:flex-shrink-0 max-w-[160px]">
                             <img
                               src={characterImageMap[selectedChar.image]}
                               alt={selectedChar.name}
                               className="w-full aspect-[2/3] object-cover border border-border"
                             />
                           </div>
+
+                          {/* Details */}
                           <div className="flex-1 space-y-4">
                             <div>
                               <p className="text-[10px] tracking-[0.3em] text-primary uppercase font-body">
