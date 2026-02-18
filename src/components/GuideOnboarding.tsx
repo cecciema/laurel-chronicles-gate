@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { guideCharacters, type GuideCharacter } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
@@ -56,10 +56,21 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
   const [step, setStep] = useState<"welcome" | "choose" | "confirm" | "reveal">("welcome");
   const [selected, setSelected] = useState<GuideCharacter | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
+  const [tapped, setTapped] = useState<string | null>(null);
+
+  const isTouch = typeof window !== "undefined" && window.matchMedia("(hover: none)").matches;
 
   const handleSelect = (guide: GuideCharacter) => {
     setSelected(guide);
     setStep("confirm");
+  };
+
+  const handleCardClick = (guide: GuideCharacter) => {
+    if (isTouch && tapped !== guide.id) {
+      setTapped(guide.id);
+    } else {
+      handleSelect(guide);
+    }
   };
 
   const handleConfirm = () => {
@@ -101,7 +112,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 0.97 }}
             transition={{ duration: 1.2 }}
-            className="text-center px-6 max-w-2xl mx-auto"
+            className="text-center px-6 max-w-2xl mx-auto py-12"
           >
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -137,7 +148,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2.2 }}
               onClick={() => setStep("choose")}
-              className="mt-12 px-10 py-3 border border-primary/50 text-primary font-display text-sm tracking-[0.25em] uppercase hover:border-primary hover:shadow-glow transition-all"
+              className="mt-8 sm:mt-12 px-10 py-3 border border-primary/50 text-primary font-display text-sm tracking-[0.25em] uppercase hover:border-primary hover:shadow-glow transition-all"
             >
               Enter the World
             </motion.button>
@@ -181,14 +192,14 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
               </motion.p>
             </div>
 
-            <div className="grid grid-cols-5 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4">
               {guideCharacters.map((guide, i) => (
                 <motion.button
                   key={guide.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 + i * 0.08 }}
-                  onClick={() => handleSelect(guide)}
+                  onClick={() => handleCardClick(guide)}
                   onMouseEnter={() => setHovered(guide.id)}
                   onMouseLeave={() => setHovered(null)}
                   className="relative group aspect-[2/3] border border-border hover:border-primary/60 overflow-hidden transition-all duration-300 hover:shadow-glow"
@@ -200,9 +211,9 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
 
-                  {/* Hover philosophy reveal */}
+                  {/* Hover / tap philosophy reveal */}
                   <AnimatePresence>
-                    {hovered === guide.id && (
+                    {(hovered === guide.id || tapped === guide.id) && (
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -216,11 +227,11 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
                     )}
                   </AnimatePresence>
 
-                  <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3">
-                    <p className="font-display text-[9px] sm:text-[11px] tracking-wider text-foreground leading-tight">
+                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-2">
+                    <p className="font-display text-[11px] sm:text-[11px] tracking-wider text-foreground leading-tight">
                       {guide.name}
                     </p>
-                    <p className="text-[7px] sm:text-[9px] tracking-wider text-primary uppercase font-body mt-0.5">
+                    <p className="text-[9px] sm:text-[9px] tracking-wider text-primary uppercase font-body mt-0.5">
                       {guide.magistry}
                     </p>
                   </div>
@@ -234,7 +245,8 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
               transition={{ delay: 1.2 }}
               className="text-center text-[10px] tracking-[0.25em] text-muted-foreground uppercase font-body mt-8"
             >
-              Hover to reveal their philosophy · Click to choose
+              <span className="hidden sm:inline">Hover to reveal their philosophy · Click to choose</span>
+              <span className="sm:hidden">Tap to preview · Tap again to choose</span>
             </motion.p>
           </motion.div>
         )}
@@ -249,7 +261,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
             transition={{ duration: 0.6 }}
             className="max-w-lg mx-auto px-6 text-center"
           >
-            <div className="relative w-32 h-48 mx-auto mb-8">
+            <div className="relative w-28 h-40 sm:w-32 sm:h-48 mx-auto mb-6 sm:mb-8">
               <img
                 src={characterImageMap[selected.image]}
                 alt={selected.name}

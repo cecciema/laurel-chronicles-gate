@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@400;500&family=Crimson+Text:ital,wght@0,400;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -232,4 +232,22 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(38 72% 50% / 0.5);
+}
+
+@media (max-width: 639px) {
+  body {
+    font-size: 16px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn-pulse-glow {
+    animation: none;
+    box-shadow: 0 0 20px hsl(38 72% 50% / 0.4);
+  }
+  h1 {
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
