@@ -270,8 +270,8 @@ const Index = () => {
         {showIntro && <CinematicIntro onDone={() => setShowIntro(false)} />}
       </AnimatePresence>
 
-      {/* Ambient audio — silent placeholder; swap src for real track */}
-      <audio ref={audioRef} loop src="" />
+      {/* Ambient audio — "Twilight Piano loop" by Mark_Murray on Freesound (CC Attribution) */}
+      <audio ref={audioRef} loop src="https://cdn.freesound.org/previews/639/639958_13315998-lq.mp3" />
 
       {/* Audio toggle */}
       <motion.button
