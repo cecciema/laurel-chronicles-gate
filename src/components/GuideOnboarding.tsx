@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { guideCharacters, type GuideCharacter } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
 
-const welcomeMessages: Record<GuideCharacter["welcomeTone"], { title: string; body: string }> = {
+const welcomeMessages: Record<string, { title: string; body: string }> = {
   analytical: {
     title: "The data is incomplete. So is every map ever drawn of this world.",
     body: "You've chosen to see clearly. That comes with a cost — you will question things others accept. Welcome to Panterra. The truth is out there if you're willing to look past the doctrine.",
@@ -27,6 +27,22 @@ const welcomeMessages: Record<GuideCharacter["welcomeTone"], { title: string; bo
   raw: {
     title: "Everything they told you about this world is a version. I'll show you a different one.",
     body: "You want the real story? It's not in the archives or the Parliament records. It's out here, on the edge of what they govern. Keep your eyes open. The institutions don't control everything — yet.",
+  },
+  ceremonial: {
+    title: "Every great institution was built by those who chose continuity over comfort.",
+    body: "You have entered through the proper door. That matters here. The Sanctorium endures not because it is powerful — but because it is patient. I will show you how this world was written, and by whom.",
+  },
+  authoritative: {
+    title: "This world does not run on philosophy. It runs on decision.",
+    body: "Parliament did not build Panterra by asking permission. Every law, every boundary, every protected corridor was a choice made under pressure. You are about to learn how those choices were made — and at what cost.",
+  },
+  radiant: {
+    title: "They will tell you this world is about power. They are half right.",
+    body: "Power without presence is just force. What moves people — truly moves them — is the image of what they could become. I am that image. Welcome to Panterra. Let me show you what this world aspires to be.",
+  },
+  precise: {
+    title: "I noticed you before you noticed me. That is how it always works.",
+    body: "Insight is not about information — it is about timing. You have arrived at a world full of gatekeepers, and I know all of them. Follow carefully. The most important things happen in the spaces between the official story.",
   },
 };
 
@@ -136,7 +152,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.8 }}
-            className="w-full max-w-6xl mx-auto px-4 sm:px-6"
+            className="w-full max-w-7xl mx-auto px-4 sm:px-6"
           >
             <div className="text-center mb-10">
               <motion.p
@@ -165,7 +181,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
               </motion.p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-3 sm:gap-4">
               {guideCharacters.map((guide, i) => (
                 <motion.button
                   key={guide.id}
