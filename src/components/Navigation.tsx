@@ -88,7 +88,7 @@ const Navigation = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden fixed inset-0 z-[60] bg-background flex flex-col"
+            className="sm:hidden fixed inset-0 z-[60] bg-background flex flex-col"
           >
             {/* Top bar with close button */}
             <div className="flex items-center justify-between px-5 h-16 border-b border-border flex-shrink-0">
