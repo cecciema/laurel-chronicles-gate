@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { HiddenOrb, QuestTrigger } from "@/components/ChroniclesSystem";
+import { Home, Globe, Users, Shield, Map } from "lucide-react";
 import heroCityscape from "@/assets/hero-cityscape.jpg";
+
+// Detect touch-only devices (no hover support)
+const isTouch = typeof window !== "undefined" && window.matchMedia("(hover: none)").matches;
 
 // ─── Typewriter Hook ───────────────────────────────────────────────────────────
 const useTypewriter = (text: string, speed = 60, startDelay = 800) => {
@@ -51,7 +55,8 @@ const ParticleCanvas = () => {
       size: number; alpha: number; alphaDir: number;
     };
 
-    const particles: Particle[] = Array.from({ length: 55 }, () => ({
+    const particleCount = window.innerWidth < 640 ? 18 : 55;
+    const particles: Particle[] = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * 0.3,
@@ -218,6 +223,38 @@ const ScrollReveal = ({ children, delay = 0, className = "" }: { children: React
   );
 };
 
+// ─── Mobile Bottom Navigation ─────────────────────────────────────────────────
+const bottomNavItems = [
+  { path: "/", label: "Home", Icon: Home },
+  { path: "/world", label: "World", Icon: Globe },
+  { path: "/characters", label: "Chars", Icon: Users },
+  { path: "/factions", label: "Factions", Icon: Shield },
+  { path: "/map", label: "Map", Icon: Map },
+];
+
+const BottomNav = () => {
+  const location = useLocation();
+  return (
+    <nav className="fixed bottom-0 left-0 right-0 z-[140] flex justify-around items-center bg-background/95 backdrop-blur-sm border-t border-border py-2 sm:hidden">
+      {bottomNavItems.map(({ path, label, Icon }) => {
+        const active = location.pathname === path;
+        return (
+          <Link
+            key={path}
+            to={path}
+            className={`flex flex-col items-center justify-center min-h-[44px] min-w-[44px] gap-1 transition-colors ${
+              active ? "text-primary" : "text-muted-foreground"
+            }`}
+          >
+            <Icon size={18} />
+            <span className="text-[9px] tracking-widest uppercase font-body">{label}</span>
+          </Link>
+        );
+      })}
+    </nav>
+  );
+};
+
 // ─── Main Component ────────────────────────────────────────────────────────────
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -248,7 +285,7 @@ const Index = () => {
 
   return (
     <>
-      <CustomCursor />
+      {!isTouch && <CustomCursor />}
 
       <AnimatePresence>
         {showIntro && <CinematicIntro onDone={() => setShowIntro(false)} />}
@@ -258,7 +295,7 @@ const Index = () => {
       <div
         className="relative min-h-screen overflow-hidden"
         onMouseMove={handleMouseMove}
-        style={{ cursor: "none" }}
+        style={isTouch ? undefined : { cursor: "none" }}
       >
         {/* ── Hero Background (parallax layers) ──────────────────────── */}
         <div className="absolute inset-0 overflow-hidden">
@@ -290,7 +327,7 @@ const Index = () => {
         </div>
 
         {/* ── Hero Content ────────────────────────────────────────────── */}
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center pt-20 sm:pt-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 30 : 0 }}
@@ -303,17 +340,17 @@ const Index = () => {
             {/* Typewriter headline */}
             <h1 className="font-display text-[2rem] sm:text-7xl lg:text-8xl tracking-[0.08em] text-foreground leading-tight w-full max-w-full overflow-hidden">
               {/* Line 1 */}
-              <span className="block">
+              <span className="block pb-1">
                 {line1.displayed}
                 {!line1.done && <span className="typewriter-cursor">|</span>}
               </span>
               {/* Line 2 */}
-              <span className="text-brass-glow block min-h-[1em]">
+              <span className="text-brass-glow block min-h-[1em] pb-1">
                 {line1.done && line2.displayed}
                 {line1.done && !line2.done && <span className="typewriter-cursor">|</span>}
               </span>
               {/* Line 3 */}
-              <span className="block min-h-[1em]">
+              <span className="block min-h-[1em] pb-1">
                 {line2.done && line3.displayed}
                 {line2.done && !line3.done && <span className="typewriter-cursor">|</span>}
               </span>
@@ -341,14 +378,14 @@ const Index = () => {
             <Link
               to="/world"
               className="btn-pulse-glow w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow"
-              style={{ cursor: "none" }}
+              style={isTouch ? undefined : { cursor: "none" }}
             >
               Enter the Empire
             </Link>
             <Link
               to="/characters"
               className="w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 border border-primary/40 text-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/80 transition-colors"
-              style={{ cursor: "none" }}
+              style={isTouch ? undefined : { cursor: "none" }}
             >
               Meet the Players
             </Link>
@@ -428,13 +465,13 @@ const Index = () => {
                 <ScrollReveal key={card.to} delay={i * 0.08}>
                   <Link
                     to={card.to}
-                    className="block p-6 bg-card border border-border hover:border-primary/40 transition-all hover:shadow-brass group"
-                    style={{ cursor: "none" }}
+                    className="block p-4 sm:p-6 bg-card border border-border hover:border-primary/40 transition-all hover:shadow-brass group"
+                    style={isTouch ? undefined : { cursor: "none" }}
                   >
                     <h3 className="font-display text-sm tracking-[0.15em] text-primary group-hover:text-brass-glow transition-colors">
                       {card.title}
                     </h3>
-                    <p className="mt-2 text-sm text-muted-foreground font-body">
+                    <p className="mt-2 text-xs sm:text-sm text-muted-foreground font-body">
                       {card.desc}
                     </p>
                   </Link>
@@ -444,6 +481,9 @@ const Index = () => {
           </section>
         </div>
       </div>
+
+      {/* ── Mobile Bottom Navigation ─────────────────────────────────── */}
+      <BottomNav />
     </>
   );
 };
