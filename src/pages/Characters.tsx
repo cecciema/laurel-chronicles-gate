@@ -3,22 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import SectionHeader from "@/components/SectionHeader";
 import { characters } from "@/data/world-data";
-
-import charEmperor from "@/assets/char-emperor.jpg";
-import charRebel from "@/assets/char-rebel.jpg";
-import charAristocrat from "@/assets/char-aristocrat.jpg";
-import charSpymaster from "@/assets/char-spymaster.jpg";
-import charEngineer from "@/assets/char-engineer.jpg";
-import charOracle from "@/assets/char-oracle.jpg";
-
-const imageMap: Record<string, string> = {
-  "char-emperor": charEmperor,
-  "char-rebel": charRebel,
-  "char-aristocrat": charAristocrat,
-  "char-spymaster": charSpymaster,
-  "char-engineer": charEngineer,
-  "char-oracle": charOracle,
-};
+import { characterImageMap } from "@/data/guide-images";
 
 const Characters = () => {
   const [selected, setSelected] = useState<string | null>(null);
@@ -29,18 +14,18 @@ const Characters = () => {
       <div className="pt-24 pb-20 px-4">
         <SectionHeader
           title="Character Database"
-          subtitle="The key players whose choices will shape the empire's fate"
+          subtitle="The key figures whose choices will shape the fate of Panterra"
         />
 
         {/* Character Grid */}
-        <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {characters.map((char, i) => (
             <motion.button
               key={char.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              onClick={() => setSelected(char.id)}
+              transition={{ delay: i * 0.07 }}
+              onClick={() => setSelected(char.id === selected ? null : char.id)}
               className={`relative group overflow-hidden aspect-[2/3] border transition-all ${
                 selected === char.id
                   ? "border-primary shadow-glow"
@@ -48,17 +33,17 @@ const Characters = () => {
               }`}
             >
               <img
-                src={imageMap[char.image]}
+                src={characterImageMap[char.image]}
                 alt={char.name}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-3">
                 <p className="font-display text-[10px] sm:text-xs tracking-wider text-foreground leading-tight">
-                  {char.name.split(" ").slice(-1)}
+                  {char.name.split(" ")[0]}
                 </p>
                 <p className="text-[8px] sm:text-[10px] tracking-wider text-primary uppercase font-body mt-0.5">
-                  {char.title}
+                  {char.magistry ?? char.faction}
                 </p>
               </div>
             </motion.button>
@@ -78,7 +63,7 @@ const Characters = () => {
                 <div className="flex flex-col sm:flex-row gap-6">
                   <div className="w-full sm:w-48 flex-shrink-0">
                     <img
-                      src={imageMap[selectedChar.image]}
+                      src={characterImageMap[selectedChar.image]}
                       alt={selectedChar.name}
                       className="w-full aspect-[2/3] object-cover border border-border"
                     />
@@ -86,7 +71,7 @@ const Characters = () => {
                   <div className="flex-1 space-y-4">
                     <div>
                       <p className="text-[10px] tracking-[0.3em] text-primary uppercase font-body">
-                        {selectedChar.faction}
+                        {selectedChar.magistry ?? selectedChar.faction}
                       </p>
                       <h3 className="font-display text-2xl tracking-wide text-foreground mt-1">
                         {selectedChar.name}
@@ -97,6 +82,15 @@ const Characters = () => {
                     </div>
 
                     <div className="steampunk-divider" />
+
+                    {selectedChar.philosophy && (
+                      <div>
+                        <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
+                          Philosophy
+                        </h4>
+                        <p className="text-sm text-foreground/80 font-narrative italic">"{selectedChar.philosophy}"</p>
+                      </div>
+                    )}
 
                     <div>
                       <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
