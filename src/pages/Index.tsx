@@ -343,22 +343,24 @@ const Index = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: line3.done ? 1 : 0, y: line3.done ? 0 : 20 }}
               transition={{ duration: 0.8 }}
-              className="flex flex-col sm:flex-row items-center gap-4 w-full"
+              className="w-full"
             >
-              <Link
-                to="/world"
-                className="btn-pulse-glow w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow"
-                style={isTouch ? undefined : { cursor: "none" }}
-              >
-                Enter the Empire
-              </Link>
-              <Link
-                to="/characters"
-                className="w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 border border-primary/40 text-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/80 transition-colors"
-                style={isTouch ? undefined : { cursor: "none" }}
-              >
-                Meet the Players
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+                <Link
+                  to="/world"
+                  className="btn-pulse-glow w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow"
+                  style={isTouch ? undefined : { cursor: "none" }}
+                >
+                  Enter the Empire
+                </Link>
+                <Link
+                  to="/characters"
+                  className="w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 border border-primary/40 text-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/80 transition-colors"
+                  style={isTouch ? undefined : { cursor: "none" }}
+                >
+                  Meet the Players
+                </Link>
+              </div>
             </motion.div>
 
             {/* Row 2: QuestTrigger — centered below, full-width on mobile */}
