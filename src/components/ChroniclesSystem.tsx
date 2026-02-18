@@ -323,27 +323,34 @@ const ScrollModal = ({ id, count, onClose }: { id: number, count: number, onClos
   );
 };
 
+const ARCHETYPES = {
+  devoted: { name: "The Devoted", sigil: "✦", desc: "Like Culver, you love with everything and fight for what's right even when it costs you. Your greatest strength is also your blindspot." },
+  architect: { name: "The Architect", sigil: "⬡", desc: "Like Remsays or Verlaine, you see the board before others see the pieces. The question is: who will you sacrifice to win?" },
+  witness: { name: "The Witness", sigil: "◎", desc: "Like Quinn or Carmela, you carry the weight of what you know and what you cannot change. History will be written by others — but you were there when it happened." }
+};
+
 const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: (a: string) => void }) => {
   const [sceneIndex, setSceneIndex] = useState(0);
   const [scores, setScores] = useState({ devoted: 0, architect: 0, witness: 0 });
+  const [result, setResult] = useState<string | null>(null);
 
   const handleChoice = (type: string) => {
     const newScores = { ...scores, [type]: scores[type as keyof typeof scores] + 1 };
     setScores(newScores);
-
     if (sceneIndex < QUEST_SCENES.length - 1) {
       setSceneIndex(prev => prev + 1);
     } else {
-      // Determine winner
       const winner = Object.entries(newScores).reduce((a, b) => a[1] > b[1] ? a : b)[0];
-      onComplete(winner);
+      setResult(winner);
     }
   };
 
+  const handleConfirm = () => { if (result) onComplete(result); };
   const currentScene = QUEST_SCENES[sceneIndex];
+  const archetype = result ? ARCHETYPES[result as keyof typeof ARCHETYPES] : null;
 
   return (
-    <ModalBackdrop onClick={onClose}>
+    <ModalBackdrop onClick={result ? handleConfirm : onClose}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -351,32 +358,48 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
         onClick={(e) => e.stopPropagation()}
         className="w-full h-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center p-6"
       >
-        <h2 className="font-display text-3xl sm:text-5xl text-amber-100 tracking-[0.1em] mb-12 drop-shadow-lg">
-          Where Does Your Loyalty Lie?
-        </h2>
-        <motion.div
-          key={sceneIndex}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="bg-black/80 border border-amber-900/50 p-8 sm:p-12 max-w-2xl w-full backdrop-blur-md"
-        >
-            <div className="text-amber-500/50 text-xs tracking-[0.3em] uppercase mb-6">Scene {sceneIndex + 1} of 4</div>
-            <p className="font-narrative text-xl text-amber-50 mb-10 leading-relaxed">
-            "{currentScene.text}"
-            </p>
-            <div className="space-y-4">
-            {currentScene.options.map((opt) => (
-                <button
-                key={opt.id}
-                onClick={() => handleChoice(opt.type)}
-                className="w-full text-left p-4 border border-amber-900/30 hover:border-amber-500/80 hover:bg-amber-900/20 text-amber-100/80 hover:text-white transition-all duration-300 font-body text-sm tracking-wide"
-                >
-                <span className="text-amber-500 mr-4 font-display">{opt.id}.</span> {opt.text}
-                </button>
-            ))}
-            </div>
-        </motion.div>
+        {!result ? (
+          <>
+            <h2 className="font-display text-3xl sm:text-5xl text-amber-100 tracking-[0.1em] mb-12 drop-shadow-lg">
+              Where Does Your Loyalty Lie?
+            </h2>
+            <motion.div
+              key={sceneIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="bg-black/80 border border-amber-900/50 p-8 sm:p-12 max-w-2xl w-full backdrop-blur-md"
+            >
+              <div className="text-amber-500/50 text-xs tracking-[0.3em] uppercase mb-6">Scene {sceneIndex + 1} of 4</div>
+              <p className="font-narrative text-xl text-amber-50 mb-10 leading-relaxed">"{currentScene.text}"</p>
+              <div className="space-y-4">
+                {currentScene.options.map((opt) => (
+                  <button key={opt.id} onClick={() => handleChoice(opt.type)}
+                    className="w-full text-left p-4 border border-amber-900/30 hover:border-amber-500/80 hover:bg-amber-900/20 text-amber-100/80 hover:text-white transition-all duration-300 font-body text-sm tracking-wide">
+                    <span className="text-amber-500 mr-4 font-display">{opt.id}.</span> {opt.text}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          </>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="bg-[#0d0a06] border border-amber-800/40 p-12 max-w-xl w-full text-center shadow-[0_0_80px_rgba(245,158,11,0.08)]"
+          >
+            <div className="text-amber-600/40 text-xs tracking-[0.4em] uppercase mb-6">Your Allegiance Is Revealed</div>
+            <div className="text-5xl text-amber-500/60 mb-6">{archetype?.sigil}</div>
+            <h2 className="font-display text-3xl text-amber-400 tracking-[0.15em] mb-6">{archetype?.name}</h2>
+            <div className="h-px w-20 bg-amber-800/50 mx-auto mb-6" />
+            <p className="font-narrative text-lg text-amber-100/70 italic leading-relaxed mb-10">"{archetype?.desc}"</p>
+            <button onClick={handleConfirm}
+              className="text-xs tracking-[0.3em] uppercase text-amber-700 hover:text-amber-500 transition-colors font-body border border-amber-900/40 hover:border-amber-700/60 px-6 py-2">
+              Seal Your Fate
+            </button>
+          </motion.div>
+        )}
       </motion.div>
     </ModalBackdrop>
   );
