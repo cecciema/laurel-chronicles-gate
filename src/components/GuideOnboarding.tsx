@@ -85,7 +85,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
   const msg = selected ? welcomeMessages[selected.welcomeTone] : null;
 
   return (
-    <div className="fixed inset-0 z-[100] bg-background flex items-center justify-center overflow-hidden">
+    <div className="fixed inset-0 z-[100] bg-background flex items-center justify-center overflow-x-hidden overflow-y-auto">
       {/* Atmospheric background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,hsl(var(--primary)/0.12),transparent_70%)]" />
