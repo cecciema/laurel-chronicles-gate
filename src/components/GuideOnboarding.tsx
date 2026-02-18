@@ -234,7 +234,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
               transition={{ delay: 1.2 }}
               className="text-center text-[10px] tracking-[0.25em] text-muted-foreground uppercase font-body mt-8"
             >
-              Hover to hear their voice · Click to choose
+              Hover to reveal their philosophy · Click to choose
             </motion.p>
           </motion.div>
         )}
