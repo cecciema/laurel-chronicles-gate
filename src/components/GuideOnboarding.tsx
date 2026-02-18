@@ -163,7 +163,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.8 }}
-            className="w-full max-w-7xl mx-auto px-4 sm:px-6"
+            className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-0"
           >
             <div className="text-center mb-10">
               <motion.p
