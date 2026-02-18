@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
+import { HiddenOrb } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import { factions } from "@/data/world-data";
 
@@ -50,8 +51,12 @@ const Factions = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6 space-y-4">
+                    <div className="px-6 pb-6 space-y-4 relative">
                       <div className="steampunk-divider" />
+                      {/* Hidden Orb 5 — tucked beside the divider, only first faction */}
+                      {faction.id === "crown" && (
+                        <HiddenOrb id={5} className="absolute top-4 right-2" />
+                      )}
                       <p className="text-sm text-foreground/70 font-body leading-relaxed">
                         {faction.description}
                       </p>
