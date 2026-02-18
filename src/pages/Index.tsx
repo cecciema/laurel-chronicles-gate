@@ -337,14 +337,14 @@ const Index = () => {
           </motion.div>
 
           {/* CTA buttons + QuestTrigger — single centered column */}
-          <div className="mt-12 flex flex-col items-center gap-4 w-full px-5 sm:px-0">
+          <div className="mt-12 flex flex-col items-center gap-4 w-full px-6 sm:px-0">
+            {/* Row 1: Enter + Meet — side by side on desktop, stacked on mobile */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: line3.done ? 1 : 0, y: line3.done ? 0 : 20 }}
               transition={{ duration: 0.8 }}
-              className="flex flex-col items-center sm:flex-row gap-4 w-full"
+              className="flex flex-col sm:flex-row items-center gap-4 w-full"
             >
-              {/* Pulsing glow CTA */}
               <Link
                 to="/world"
                 className="btn-pulse-glow w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow"
@@ -361,11 +361,12 @@ const Index = () => {
               </Link>
             </motion.div>
 
-            {/* Chronicles Quest — allegiance trigger */}
+            {/* Row 2: QuestTrigger — centered below, full-width on mobile */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: line3.done ? 1 : 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
+              className="w-full flex justify-center"
             >
               <QuestTrigger />
             </motion.div>
