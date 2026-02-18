@@ -258,7 +258,7 @@ const ModalBackdrop = ({ children, onClick }: { children: React.ReactNode, onCli
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm overflow-y-auto"
+    className="fixed inset-0 z-[100] bg-black/95 flex items-start justify-center p-4 sm:items-center backdrop-blur-sm overflow-y-auto"
     onClick={onClick}
   >
     {children}
@@ -297,14 +297,14 @@ const ScrollModal = ({ id, count, onClose }: { id: number, count: number, onClos
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative max-w-lg w-full bg-[#e8dcc0] text-amber-950 p-8 sm:p-12 shadow-[0_0_50px_rgba(0,0,0,0.8)] font-serif border-4 border-double border-amber-900/40"
+        className="relative max-w-lg w-full bg-[#e8dcc0] text-amber-950 p-6 sm:p-12 shadow-[0_0_50px_rgba(0,0,0,0.8)] font-serif border-4 border-double border-amber-900/40 my-auto mt-6 sm:mt-0"
         style={{ clipPath: "polygon(0% 0%, 100% 2%, 98% 100%, 2% 98%)" }}
       >
-        <div className="absolute top-2 left-2 text-amber-900/20"><Scroll className="w-8 h-8" /></div>
-        <h3 className="text-center font-display text-xl tracking-[0.2em] mb-6 text-amber-900 border-b border-amber-900/20 pb-4">
+        <div className="absolute top-2 left-2 text-amber-900/20"><Scroll className="w-6 h-6 sm:w-8 sm:h-8" /></div>
+        <h3 className="text-center font-display text-lg sm:text-xl tracking-[0.2em] mb-4 sm:mb-6 text-amber-900 border-b border-amber-900/20 pb-4">
           {scroll?.title}
         </h3>
-        <p className="text-lg leading-relaxed italic mb-8 font-narrative">
+        <p className="text-[1.0625rem] sm:text-lg leading-[1.8] italic mb-6 sm:mb-8 font-narrative">
           "{scroll?.text}"
         </p>
         <div className="text-center text-xs font-sans tracking-widest uppercase text-amber-900/60">
@@ -313,7 +313,7 @@ const ScrollModal = ({ id, count, onClose }: { id: number, count: number, onClos
         {allFound && id === 7 && (
             <div className="mt-8 pt-6 border-t border-amber-900/20 text-center animate-fade-in">
                 <p className="text-sm font-display tracking-widest text-red-900 mb-2">FINAL REVELATION</p>
-                <p className="font-narrative italic text-amber-950">
+                <p className="font-narrative italic text-amber-950 leading-[1.8]">
                     "You now know what the Parliament fears most: that the people will learn the laws were written by those who never intended to follow them."
                 </p>
             </div>
@@ -356,11 +356,11 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={(e) => e.stopPropagation()}
-        className="w-full h-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center p-6"
+        className="w-full max-w-4xl mx-auto flex flex-col items-center justify-start sm:justify-center text-center p-4 sm:p-6 py-10 min-h-full"
       >
         {!result ? (
           <>
-            <h2 className="font-display text-3xl sm:text-5xl text-amber-100 tracking-[0.1em] mb-12 drop-shadow-lg">
+            <h2 className="font-display text-[1.6rem] sm:text-5xl text-amber-100 tracking-[0.08em] sm:tracking-[0.1em] mb-6 sm:mb-12 drop-shadow-lg leading-tight">
               Where Does Your Loyalty Lie?
             </h2>
             <motion.div
@@ -368,15 +368,15 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="bg-black/80 border border-amber-900/50 p-8 sm:p-12 max-w-2xl w-full backdrop-blur-md"
+              className="bg-black/80 border border-amber-900/50 p-6 sm:p-12 max-w-2xl w-full backdrop-blur-md"
             >
-              <div className="text-amber-500/50 text-xs tracking-[0.3em] uppercase mb-6">Scene {sceneIndex + 1} of 4</div>
-              <p className="font-narrative text-xl text-amber-50 mb-10 leading-relaxed">"{currentScene.text}"</p>
-              <div className="space-y-4">
+              <div className="text-amber-500/50 text-xs tracking-[0.3em] uppercase mb-4 sm:mb-6">Scene {sceneIndex + 1} of 4</div>
+              <p className="font-narrative text-[1.0625rem] sm:text-xl text-amber-50 mb-6 sm:mb-10 leading-[1.8]">"{currentScene.text}"</p>
+              <div className="space-y-3 sm:space-y-4">
                 {currentScene.options.map((opt) => (
                   <button key={opt.id} onClick={() => handleChoice(opt.type)}
-                    className="w-full text-left p-4 border border-amber-900/30 hover:border-amber-500/80 hover:bg-amber-900/20 text-amber-100/80 hover:text-white transition-all duration-300 font-body text-sm tracking-wide">
-                    <span className="text-amber-500 mr-4 font-display">{opt.id}.</span> {opt.text}
+                    className="w-full text-left p-4 min-h-[56px] border border-amber-900/30 hover:border-amber-500/80 hover:bg-amber-900/20 text-amber-100/80 hover:text-white transition-all duration-300 font-body text-[0.9375rem] sm:text-sm tracking-wide leading-[1.6]">
+                    <span className="text-amber-500 mr-3 font-display">{opt.id}.</span> {opt.text}
                   </button>
                 ))}
               </div>
@@ -387,15 +387,15 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="bg-[#0d0a06] border border-amber-800/40 p-12 max-w-xl w-full text-center shadow-[0_0_80px_rgba(245,158,11,0.08)]"
+            className="bg-[#0d0a06] border border-amber-800/40 p-8 sm:p-12 max-w-xl w-full text-center shadow-[0_0_80px_rgba(245,158,11,0.08)]"
           >
             <div className="text-amber-600/40 text-xs tracking-[0.4em] uppercase mb-6">Your Allegiance Is Revealed</div>
-            <div className="text-5xl text-amber-500/60 mb-6">{archetype?.sigil}</div>
-            <h2 className="font-display text-3xl text-amber-400 tracking-[0.15em] mb-6">{archetype?.name}</h2>
+            <div className="text-4xl sm:text-5xl text-amber-500/60 mb-6">{archetype?.sigil}</div>
+            <h2 className="font-display text-[1.6rem] sm:text-3xl text-amber-400 tracking-[0.12em] sm:tracking-[0.15em] mb-6">{archetype?.name}</h2>
             <div className="h-px w-20 bg-amber-800/50 mx-auto mb-6" />
-            <p className="font-narrative text-lg text-amber-100/70 italic leading-relaxed mb-10">"{archetype?.desc}"</p>
+            <p className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/70 italic leading-[1.8] mb-8 sm:mb-10">"{archetype?.desc}"</p>
             <button onClick={handleConfirm}
-              className="text-xs tracking-[0.3em] uppercase text-amber-700 hover:text-amber-500 transition-colors font-body border border-amber-900/40 hover:border-amber-700/60 px-6 py-2">
+              className="min-h-[44px] text-xs tracking-[0.3em] uppercase text-amber-700 hover:text-amber-500 transition-colors font-body border border-amber-900/40 hover:border-amber-700/60 px-6 py-3">
               Seal Your Fate
             </button>
           </motion.div>
@@ -438,15 +438,15 @@ const RiddleModal = ({ solvedCount, onSolve, onClose }: { solvedCount: number, o
         <ModalBackdrop onClick={onClose}>
             <motion.div 
                 onClick={(e) => e.stopPropagation()}
-                className="max-w-xl w-full bg-zinc-950 border border-amber-900 p-10 text-center relative"
+                className="max-w-xl w-full bg-zinc-950 border border-amber-900 p-6 sm:p-10 text-center relative my-auto mt-6 sm:mt-0"
             >
                 <div className="absolute top-4 right-4 text-amber-900/40 font-display text-4xl opacity-20">III</div>
-                <h3 className="font-display text-2xl text-amber-500 tracking-[0.2em] mb-2">The Sanctorium's Final Test</h3>
-                <div className="h-px w-24 bg-gradient-to-r from-transparent via-amber-700 to-transparent mx-auto mb-8" />
+                <h3 className="font-display text-[1.375rem] sm:text-2xl text-amber-500 tracking-[0.2em] mb-2">The Sanctorium's Final Test</h3>
+                <div className="h-px w-24 bg-gradient-to-r from-transparent via-amber-700 to-transparent mx-auto mb-6 sm:mb-8" />
                 
-                <p className="font-display text-xs text-amber-700 uppercase tracking-widest mb-6">Gate {solvedCount + 1}</p>
+                <p className="font-display text-xs text-amber-700 uppercase tracking-widest mb-4 sm:mb-6">Gate {solvedCount + 1}</p>
                 
-                <p className="font-narrative text-lg text-amber-100/90 italic mb-8 leading-relaxed">
+                <p className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/90 italic mb-6 sm:mb-8 leading-[1.8]">
                     "{currentRiddle.question}"
                 </p>
 
@@ -458,7 +458,7 @@ const RiddleModal = ({ solvedCount, onSolve, onClose }: { solvedCount: number, o
                         onChange={(e) => setAnswer(e.target.value)}
                         placeholder="Speak the word..."
                         className={cn(
-                            "w-full bg-transparent border-b border-amber-900/50 py-2 text-center text-amber-100 focus:outline-none focus:border-amber-500 font-display tracking-widest uppercase transition-colors",
+                            "w-full bg-transparent border-b border-amber-900/50 py-3 text-center text-amber-100 focus:outline-none focus:border-amber-500 font-display tracking-widest uppercase transition-colors text-base",
                             error && "border-red-500 text-red-500 animate-pulse"
                         )}
                     />
@@ -475,19 +475,19 @@ const RiddleSuccessModal = ({ onClose }: { onClose: () => void }) => (
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             onClick={(e) => e.stopPropagation()}
-            className="max-w-2xl w-full bg-transparent text-center"
+            className="max-w-2xl w-full bg-transparent text-center my-auto mt-6 sm:mt-0"
         >
             <motion.div 
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 1.5 }}
-                className="bg-[#1a1510] p-12 border border-amber-900/30 shadow-[0_0_100px_rgba(245,158,11,0.1)] relative overflow-hidden"
+                className="bg-[#1a1510] p-7 sm:p-12 border border-amber-900/30 shadow-[0_0_100px_rgba(245,158,11,0.1)] relative overflow-hidden"
             >
                 {/* Burn effect overlay */}
                 <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]" />
                 
-                <h2 className="font-display text-3xl text-amber-500 tracking-[0.15em] mb-8 relative z-10">What the Laurels Buried</h2>
-                <div className="font-narrative text-lg text-amber-100/70 italic leading-loose relative z-10 space-y-6">
+                <h2 className="font-display text-[1.5rem] sm:text-3xl text-amber-500 tracking-[0.12em] sm:tracking-[0.15em] mb-6 sm:mb-8 relative z-10">What the Laurels Buried</h2>
+                <div className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/70 italic leading-[1.8] relative z-10 space-y-4 sm:space-y-6">
                     <p>"The satellite net will fail. The meteor shower will come."</p>
                     <p>"The Convoy knows. Gable knows. Remsays knows. And the twelve Sol Deos knew thirty years ago when it happened to Rockfall — and chose silence then too."</p>
                     <p className="text-amber-50">"The soul is the world's most valued currency. Now ask yourself: who has been collecting?"</p>

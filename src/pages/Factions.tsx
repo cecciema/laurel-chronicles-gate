@@ -10,7 +10,7 @@ const Factions = () => {
 
   return (
     <Layout>
-      <div className="pt-24 pb-20 px-4">
+      <div className="pt-24 pb-20 px-4 overflow-x-hidden">
         <SectionHeader
           title="Factions & Powers"
           subtitle="Five forces locked in a struggle that will determine the empire's future"
@@ -27,17 +27,17 @@ const Factions = () => {
             >
               <button
                 onClick={() => setExpanded(expanded === faction.id ? null : faction.id)}
-                className="w-full p-6 text-left flex items-center justify-between hover:bg-secondary/30 transition-colors"
+                className="w-full p-5 sm:p-6 text-left flex items-center justify-between hover:bg-secondary/30 transition-colors min-h-[64px]"
               >
-                <div>
-                  <h3 className="font-display text-lg tracking-wide text-foreground">
+                <div className="flex-1 pr-4">
+                  <h3 className="font-display text-[1.0625rem] sm:text-lg tracking-wide text-foreground">
                     {faction.name}
                   </h3>
-                  <p className="font-narrative text-sm text-primary italic mt-1">
+                  <p className="font-narrative text-sm text-primary italic mt-1 leading-[1.6]">
                     "{faction.motto}"
                   </p>
                 </div>
-                <span className="text-muted-foreground text-xl font-body">
+                <span className="text-muted-foreground text-xl font-body flex-shrink-0 w-8 text-center">
                   {expanded === faction.id ? "−" : "+"}
                 </span>
               </button>
@@ -51,13 +51,13 @@ const Factions = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6 space-y-4 relative">
+                    <div className="px-5 sm:px-6 pb-6 space-y-4 relative">
                       <div className="steampunk-divider" />
                       {/* Hidden Orb 5 — tucked beside the divider, only first faction */}
                       {faction.id === "crown" && (
                         <HiddenOrb id={5} className="absolute top-4 right-2" />
                       )}
-                      <p className="text-sm text-foreground/70 font-body leading-relaxed">
+                      <p className="text-[0.9375rem] sm:text-sm text-foreground/70 font-body leading-[1.8]">
                         {faction.description}
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
@@ -65,19 +65,19 @@ const Factions = () => {
                           <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-1">
                             Leader
                           </h4>
-                          <p className="text-sm text-foreground font-body">{faction.leader}</p>
+                          <p className="text-[0.9375rem] sm:text-sm text-foreground font-body">{faction.leader}</p>
                         </div>
                         <div>
                           <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-1">
                             Strength
                           </h4>
-                          <p className="text-sm text-foreground/70 font-body">{faction.strength}</p>
+                          <p className="text-[0.9375rem] sm:text-sm text-foreground/70 font-body">{faction.strength}</p>
                         </div>
                         <div>
                           <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-1">
                             Ideology
                           </h4>
-                          <p className="text-sm text-foreground/70 font-narrative italic">{faction.ideology}</p>
+                          <p className="text-[0.9375rem] sm:text-sm text-foreground/70 font-narrative italic leading-[1.8]">{faction.ideology}</p>
                         </div>
                       </div>
                     </div>
