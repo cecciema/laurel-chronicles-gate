@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import { HiddenOrb } from "@/components/ChroniclesSystem";
@@ -7,9 +7,6 @@ import { worldRegions } from "@/data/world-data";
 import { X } from "lucide-react";
 
 // ── Region shape definitions ──────────────────────────────────────────────────
-// Each region maps to a worldRegions id with SVG polygon points, label position,
-// base fill, hover glow color, and a city pulse dot position.
-
 const REGION_SHAPES = [
   {
     id: "panterra",
@@ -70,18 +67,13 @@ const OCEAN_SHAPE = {
 // ── Compass Rose ──────────────────────────────────────────────────────────────
 const CompassRose = () => (
   <g transform="translate(905, 500)" opacity="0.5">
-    {/* Cardinal spokes */}
     <line x1="0" y1="-38" x2="0" y2="38" stroke="#d4a832" strokeWidth="1" />
     <line x1="-38" y1="0" x2="38" y2="0" stroke="#d4a832" strokeWidth="1" />
-    {/* Diagonal spokes */}
     <line x1="-27" y1="-27" x2="27" y2="27" stroke="#d4a832" strokeWidth="0.5" />
     <line x1="27" y1="-27" x2="-27" y2="27" stroke="#d4a832" strokeWidth="0.5" />
-    {/* North arrow */}
     <polygon points="0,-38 -5,-20 0,-26 5,-20" fill="#d4a832" />
-    {/* Center circle */}
     <circle r="5" fill="none" stroke="#d4a832" strokeWidth="1" />
     <circle r="2" fill="#d4a832" />
-    {/* Cardinal labels */}
     <text x="0" y="-44" textAnchor="middle" fill="#d4a832" fontSize="8" fontFamily="Cinzel, serif">N</text>
     <text x="0" y="54" textAnchor="middle" fill="#d4a832" fontSize="8" fontFamily="Cinzel, serif">S</text>
     <text x="46" y="4" textAnchor="middle" fill="#d4a832" fontSize="8" fontFamily="Cinzel, serif">E</text>
@@ -93,12 +85,10 @@ const CompassRose = () => (
 const CityPulse = ({ x, y, name }: { x: number; y: number; name: string }) => (
   <g>
     <title>{name}</title>
-    {/* Animated outer ring */}
     <circle cx={x} cy={y} r="4" fill="rgba(212,168,50,0.2)">
       <animate attributeName="r" from="4" to="14" dur="2s" repeatCount="indefinite" />
       <animate attributeName="opacity" from="0.6" to="0" dur="2s" repeatCount="indefinite" />
     </circle>
-    {/* Static inner dot */}
     <circle cx={x} cy={y} r="3.5" fill="#d4a832" />
     <circle cx={x} cy={y} r="1.5" fill="#fff8e0" />
   </g>
@@ -108,8 +98,18 @@ const CityPulse = ({ x, y, name }: { x: number; y: number; name: string }) => (
 const WorldMap = () => {
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
+
+  useEffect(() => {
+    const handler = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
+
+  const isMobile = windowWidth < 640;
   const region = worldRegions.find((r) => r.id === selectedRegion);
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
 
   const handleRegionClick = (id: string) => {
     setSelectedRegion(prev => prev === id ? null : id);
@@ -152,14 +152,6 @@ const WorldMap = () => {
                   <feGaussianBlur stdDeviation="4" result="coloredBlur" />
                   <feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>
                 </filter>
-                <filter id="glow-blue">
-                  <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-                  <feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                </filter>
-                <filter id="glow-orange">
-                  <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-                  <feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                </filter>
               </defs>
 
               {/* ── Background ── */}
@@ -182,33 +174,17 @@ const WorldMap = () => {
                 <text key={i} x={cx} y={cy + 5} textAnchor="middle" fill="rgba(212,168,50,0.3)" fontSize="14" fontFamily="Cinzel, serif">✦</text>
               ))}
 
-              {/* ── Decorative ocean fill (background territory) ── */}
+              {/* ── Decorative ocean fill ── */}
               <polygon
                 points={OCEAN_SHAPE.points}
                 fill={OCEAN_SHAPE.fill}
                 stroke="rgba(212,168,50,0.1)"
                 strokeWidth="1"
               />
-              <text
-                x={OCEAN_SHAPE.labelX}
-                y={OCEAN_SHAPE.labelY}
-                textAnchor="middle"
-                fill="rgba(220,190,120,0.4)"
-                fontSize="11"
-                fontFamily="Cinzel, serif"
-                letterSpacing="3"
-              >
+              <text x={OCEAN_SHAPE.labelX} y={OCEAN_SHAPE.labelY} textAnchor="middle" fill="rgba(220,190,120,0.4)" fontSize="11" fontFamily="Cinzel, serif" letterSpacing="3">
                 {OCEAN_SHAPE.label}
               </text>
-              <text
-                x={OCEAN_SHAPE.labelX}
-                y={OCEAN_SHAPE.labelY + 16}
-                textAnchor="middle"
-                fill="rgba(220,190,120,0.3)"
-                fontSize="9"
-                fontFamily="Cinzel, serif"
-                letterSpacing="2"
-              >
+              <text x={OCEAN_SHAPE.labelX} y={OCEAN_SHAPE.labelY + 16} textAnchor="middle" fill="rgba(220,190,120,0.3)" fontSize="9" fontFamily="Cinzel, serif" letterSpacing="2">
                 REACHES
               </text>
 
@@ -232,7 +208,6 @@ const WorldMap = () => {
                       onMouseEnter={() => setHoveredRegion(shape.id)}
                       onMouseLeave={() => setHoveredRegion(null)}
                     />
-                    {/* Region label */}
                     <text
                       x={shape.labelX}
                       y={shape.labelY + 18}
@@ -245,7 +220,6 @@ const WorldMap = () => {
                     >
                       {regionData?.name.split(" ")[0].toUpperCase()}
                     </text>
-                    {/* Faction sub-label */}
                     <text
                       x={shape.labelX}
                       y={shape.labelY + 31}
@@ -258,15 +232,8 @@ const WorldMap = () => {
                     >
                       {regionData?.faction.split(" ").slice(0, 2).join(" ").toUpperCase()}
                     </text>
-                    {/* Selected indicator ring */}
                     {isSelected && (
-                      <circle
-                        cx={shape.labelX}
-                        cy={shape.labelY}
-                        r="5"
-                        fill="#d4a832"
-                        opacity="0.7"
-                      />
+                      <circle cx={shape.labelX} cy={shape.labelY} r="5" fill="#d4a832" opacity="0.7" />
                     )}
                   </g>
                 );
@@ -281,37 +248,25 @@ const WorldMap = () => {
               <CompassRose />
 
               {/* ── Decorative coastline dashes ── */}
-              <path
-                d="M 60,260 Q 30,320 40,400 Q 50,460 80,480"
-                fill="none"
-                stroke="rgba(212,168,50,0.1)"
-                strokeWidth="1"
-                strokeDasharray="4,6"
-              />
-              <path
-                d="M 560,255 Q 650,248 760,258"
-                fill="none"
-                stroke="rgba(212,168,50,0.1)"
-                strokeWidth="1"
-                strokeDasharray="4,6"
-              />
+              <path d="M 60,260 Q 30,320 40,400 Q 50,460 80,480" fill="none" stroke="rgba(212,168,50,0.1)" strokeWidth="1" strokeDasharray="4,6" />
+              <path d="M 560,255 Q 650,248 760,258" fill="none" stroke="rgba(212,168,50,0.1)" strokeWidth="1" strokeDasharray="4,6" />
 
-              {/* ── Hidden Orb 7 — tucked at bottom-left landmark ── */}
+              {/* ── Hidden Orb 7 ── */}
               <foreignObject x="32" y="492" width="24" height="24">
                 <HiddenOrb id={7} className="w-3 h-3" />
               </foreignObject>
             </svg>
 
-            {/* ── Desktop side panel ── */}
+            {/* ── Desktop side panel (JS breakpoint, not CSS) ── */}
             <AnimatePresence>
-              {region && (
+              {region && !isMobile && (
                 <motion.div
                   key={region.id + "-desktop"}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20 }}
                   transition={{ duration: 0.3 }}
-                  className="hidden sm:block absolute top-0 right-0 w-64 h-full bg-[#0f0b06]/95 border-l border-amber-900/30 p-5 overflow-y-auto z-20"
+                  className="absolute top-0 right-0 w-64 h-full bg-[#0f0b06]/95 border-l border-amber-900/30 p-5 overflow-y-auto z-20"
                 >
                   <button
                     onClick={() => setSelectedRegion(null)}
@@ -347,16 +302,16 @@ const WorldMap = () => {
           </p>
         </div>
 
-        {/* ── Mobile detail panel (slides up from bottom) ── */}
+        {/* ── Mobile detail panel — JS-gated, slides up from bottom ── */}
         <AnimatePresence>
-          {region && (
+          {region && isMobile && (
             <motion.div
               key={region.id + "-mobile"}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3 }}
-              className="sm:hidden fixed bottom-[60px] left-0 right-0 z-50 bg-[#0f0b06] border-t border-amber-900/30 p-5 max-h-[45vh] overflow-y-auto"
+              className="fixed bottom-[60px] left-0 right-0 z-50 bg-[#0f0b06] border-t border-amber-900/30 p-5 max-h-[45vh] overflow-y-auto"
             >
               <div className="flex items-start justify-between mb-2">
                 <div>
