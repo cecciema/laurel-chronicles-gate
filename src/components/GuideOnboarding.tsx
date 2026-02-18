@@ -37,8 +37,8 @@ const welcomeMessages: Record<string, { title: string; body: string }> = {
     body: "Parliament did not build Panterra by asking permission. Every law, every boundary, every protected corridor was a choice made under pressure. You are about to learn how those choices were made — and at what cost.",
   },
   radiant: {
-    title: "They will tell you this world is about power. They are half right.",
-    body: "Power without presence is just force. What moves people — truly moves them — is the image of what they could become. I am that image. Welcome to Panterra. Let me show you what this world aspires to be.",
+    title: "The ocean doesn't forgive hesitation. Neither does the mission.",
+    body: "You've chosen a guide who works where the theory meets the water. The Magistry of Ocean isn't just science — it's survival. I'll show you what planetary restoration actually looks like from the field. Keep up.",
   },
   precise: {
     title: "I noticed you before you noticed me. That is how it always works.",
