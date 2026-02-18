@@ -336,38 +336,40 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: line3.done ? 1 : 0, y: line3.done ? 0 : 20 }}
-            transition={{ duration: 0.8 }}
-            className="mt-12 flex flex-col items-center sm:flex-row gap-4 w-full px-5 sm:px-0"
-          >
-            {/* Pulsing glow CTA */}
-            <Link
-              to="/world"
-              className="btn-pulse-glow w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow"
-              style={isTouch ? undefined : { cursor: "none" }}
+          {/* CTA buttons + QuestTrigger — single centered column */}
+          <div className="mt-12 flex flex-col items-center gap-4 w-full px-5 sm:px-0">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: line3.done ? 1 : 0, y: line3.done ? 0 : 20 }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col items-center sm:flex-row gap-4 w-full"
             >
-              Enter the Empire
-            </Link>
-            <Link
-              to="/characters"
-              className="w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 border border-primary/40 text-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/80 transition-colors"
-              style={isTouch ? undefined : { cursor: "none" }}
-            >
-              Meet the Players
-            </Link>
-          </motion.div>
+              {/* Pulsing glow CTA */}
+              <Link
+                to="/world"
+                className="btn-pulse-glow w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow"
+                style={isTouch ? undefined : { cursor: "none" }}
+              >
+                Enter the Empire
+              </Link>
+              <Link
+                to="/characters"
+                className="w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 border border-primary/40 text-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/80 transition-colors"
+                style={isTouch ? undefined : { cursor: "none" }}
+              >
+                Meet the Players
+              </Link>
+            </motion.div>
 
-          {/* Chronicles Quest — allegiance trigger */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: line3.done ? 1 : 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-6"
-          >
-            <QuestTrigger />
-          </motion.div>
+            {/* Chronicles Quest — allegiance trigger */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: line3.done ? 1 : 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <QuestTrigger />
+            </motion.div>
+          </div>
 
           {/* Hidden Orb 1 — tucked near bottom-right of hero */}
           <HiddenOrb id={1} className="absolute bottom-24 right-5 sm:right-16" />
