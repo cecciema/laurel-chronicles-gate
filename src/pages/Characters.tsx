@@ -37,14 +37,16 @@ function shuffle<T>(arr: T[]): T[] {
 // ─── The Unmasked — Game Data ──────────────────────────────────────────────────
 const UNMASKED_SCROLL_ID = 10;
 
-type RoundDef = {
-  answerId: string;
+type QuestionDef = {
+  id: string;
+  answer: string;
+  image: string;
   clues: [string, string, string];
 };
 
-const ROUNDS: RoundDef[] = [
+const ALL_QUESTIONS: QuestionDef[] = [
   {
-    answerId: "lockland",
+    id: "lockland", answer: "Lockland", image: "char-lockland",
     clues: [
       "This person smells of something that no longer grows on Panterra.",
       "This person chose the moment of their own ending with more care than most people choose anything.",
@@ -52,7 +54,7 @@ const ROUNDS: RoundDef[] = [
     ],
   },
   {
-    answerId: "aspen",
+    id: "aspen", answer: "Aspen", image: "char-aspen",
     clues: [
       "Everyone in the room trusts this person. That should worry you.",
       "This person rose faster than the system allows. The system made an exception.",
@@ -60,7 +62,7 @@ const ROUNDS: RoundDef[] = [
     ],
   },
   {
-    answerId: "verlaine",
+    id: "verlaine", answer: "Verlaine", image: "char-verlaine",
     clues: [
       "This person arrived with a new name and a borrowed history.",
       "This person had a parent who watched from a distance and called it love.",
@@ -68,7 +70,7 @@ const ROUNDS: RoundDef[] = [
     ],
   },
   {
-    answerId: "wintry",
+    id: "wintry", answer: "Wintry", image: "char-wintry",
     clues: [
       "This person built someone else's power so carefully they never noticed it was theirs.",
       "This person carries a secret about what waits after Apotheosis that has never been spoken aloud.",
@@ -76,21 +78,108 @@ const ROUNDS: RoundDef[] = [
     ],
   },
   {
-    answerId: "remsays",
+    id: "remsays", answer: "Remsays", image: "char-remsays",
     clues: [
       "This person was offered the highest seat and turned it down. That was not humility.",
       "This person built a machine to make a lie look like truth. They called it an algorithm.",
       "This person loves someone. That is the most dangerous thing about them.",
     ],
   },
+  {
+    id: "quinn", answer: "Quinnevere", image: "char-quinn",
+    clues: [
+      "This person reads languages that no one else in the room can understand.",
+      "This person stands between two people who would destroy each other and has not yet chosen a side.",
+      "This person was admired so completely that no one thought to ask what they wanted.",
+    ],
+  },
+  {
+    id: "carmela", answer: "Carmela", image: "char-carmela",
+    clues: [
+      "This person served faithfully for years before beginning to question what they were serving.",
+      "This person was trusted with proximity to power they never sought for themselves.",
+      "This person held the room together after the person who built it was gone.",
+    ],
+  },
+  {
+    id: "jude", answer: "Jude", image: "char-jude",
+    clues: [
+      "This person held the highest seat and grew tired of it long before they left.",
+      "This person chose a successor and then quietly ensured the choice would stick.",
+      "This person knew the meteor was coming and decided who would be told first.",
+    ],
+  },
+  {
+    id: "nefertar", answer: "Nefertar", image: "char-nefertar",
+    clues: [
+      "This person wears something across their face that others have stopped questioning.",
+      "This person governs with amusement. That is either wisdom or something colder.",
+      "This person has presided over more endings than anyone has counted.",
+    ],
+  },
+  {
+    id: "culver", answer: "Culver", image: "char-culver",
+    clues: [
+      "This person found something in the black sea that was not supposed to be findable.",
+      "This person believes the world can be restored. Most people stopped believing that before they were born.",
+      "This person's idealism is either the most useful thing about them or the most dangerous.",
+    ],
+  },
+  {
+    id: "sailor", answer: "Sailor", image: "char-sailor",
+    clues: [
+      "This person is liked by everyone who meets them. That is not an accident.",
+      "This person operates at the edges of things — the frontier, the boundary, the almost-outside.",
+      "This person knows more than they say and says more than they know.",
+    ],
+  },
+  {
+    id: "gemma", answer: "Gemma", image: "char-gemma",
+    clues: [
+      "This person carries a rank that was earned under circumstances no one discusses publicly.",
+      "This person has a scar that marks more than just skin.",
+      "This person chose the harder path every time one was available.",
+    ],
+  },
+  {
+    id: "norstrand", answer: "Norstrand", image: "char-norstrand",
+    clues: [
+      "This person has presided over ceremonies they no longer fully believe in.",
+      "This person kissed someone in front of the dead. They have never explained why.",
+      "This person builds things meant to outlast them and is only now asking whether they should.",
+    ],
+  },
+  {
+    id: "soleil", answer: "Soleil", image: "char-soleil",
+    clues: [
+      "This person is far more observant than their warmth suggests.",
+      "This person moves through institutions as if they were built for them.",
+      "This person has access to rooms that most people do not know exist.",
+    ],
+  },
+  {
+    id: "kotani", answer: "Kotani", image: "char-kotani",
+    clues: [
+      "This person understood what the meteor meant before anyone else in the room.",
+      "This person lost someone to a ceremony and never recovered from what that loss revealed.",
+      "This person accepted the end with a calm that frightened the people standing next to them.",
+    ],
+  },
+  {
+    id: "cora", answer: "Cora", image: "char-cora",
+    clues: [
+      "This person sits in rooms where the future of Panterra is decided and says very little.",
+      "This person loves their children completely and has made choices that contradict that love.",
+      "This person knows where Valorica is. They have known for a long time.",
+    ],
+  },
 ];
 
-const TOTAL_ROUNDS = ROUNDS.length;
+const TOTAL_ROUNDS = 8;
 const TOTAL_LIVES = 3;
 const CHOICE_COUNT = 6;
 const CLUE_COUNT = 3;
 
-// Base score for a round = 6 - (2 × clues revealed so far). Correct adds 3 bonus.
 const BASE_SCORE_START = 6;
 const CLUE_PENALTY = 2;
 const CORRECT_BONUS = 3;
@@ -99,10 +188,22 @@ function roundScore(cluesRevealed: number): number {
   return Math.max(0, BASE_SCORE_START - (cluesRevealed - 1) * CLUE_PENALTY);
 }
 
-// Build choice pool: correct + 5 random others from character list
+/** Select 8 random questions, ensuring meaningfully different from previous set */
+function selectGameQuestions(prevIds: string[]): QuestionDef[] {
+  const MAX_OVERLAP = 6; // at most 6 can repeat — guarantees at least 2 new
+  for (let attempt = 0; attempt < 50; attempt++) {
+    const shuffled = shuffle(ALL_QUESTIONS);
+    const picked = shuffled.slice(0, TOTAL_ROUNDS);
+    const overlap = picked.filter((q) => prevIds.includes(q.id)).length;
+    if (prevIds.length === 0 || overlap <= MAX_OVERLAP) return picked;
+  }
+  return shuffle(ALL_QUESTIONS).slice(0, TOTAL_ROUNDS);
+}
+
+/** Build 6 choices: correct + 5 random from the full 16 pool (excluding correct) */
 function buildChoices(correctId: string): string[] {
-  const others = characters.filter((c) => c.id !== correctId);
-  const pool = shuffle(others).slice(0, CHOICE_COUNT - 1).map((c) => c.id);
+  const others = ALL_QUESTIONS.filter((q) => q.id !== correctId);
+  const pool = shuffle(others).slice(0, CHOICE_COUNT - 1).map((q) => q.id);
   return shuffle([correctId, ...pool]);
 }
 
@@ -142,9 +243,11 @@ const ChoiceCard = ({
     return () => clearTimeout(t1);
   }, [glitching]);
 
-  const char = characters.find((c) => c.id === charId);
-  if (!char) return null;
-  const imgSrc = resolveImage(char.image);
+  // Look up from ALL_QUESTIONS first, then fall back to characters array
+  const qMatch = ALL_QUESTIONS.find((q) => q.id === charId);
+  const displayName = qMatch?.answer ?? characters.find((c) => c.id === charId)?.name ?? charId;
+  const imgKey = qMatch?.image ?? characters.find((c) => c.id === charId)?.image ?? "";
+  const imgSrc = resolveImage(imgKey);
 
   return (
     <motion.button
@@ -152,9 +255,7 @@ const ChoiceCard = ({
       disabled={disabled || state !== "idle"}
       whileHover={!disabled ? { scale: 1.03 } : {}}
       className="relative aspect-[2/3] overflow-hidden border border-border hover:border-primary/60 transition-colors group focus:outline-none"
-      style={{ borderColor: !disabled && state === "idle" ? undefined : undefined }}
     >
-      {/* Portrait / silhouette */}
       {state === "silhouette" ? (
         <div className="w-full h-full bg-muted flex items-center justify-center">
           <svg viewBox="0 0 60 90" className="w-1/2 h-auto opacity-30" fill="currentColor">
@@ -165,25 +266,19 @@ const ChoiceCard = ({
       ) : (
         <img
           src={imgSrc}
-          alt={char.name}
+          alt={displayName}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-          style={
-            state === "glitch"
-              ? { animation: "unmasked-glitch 1s steps(1) forwards" }
-              : {}
-          }
+          style={state === "glitch" ? { animation: "unmasked-glitch 1s steps(1) forwards" } : {}}
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
-      {/* Name label */}
       {state === "idle" && (
         <div className="absolute bottom-0 left-0 right-0 p-1.5 sm:p-2">
           <p className="font-display text-[9px] sm:text-[10px] tracking-wider text-foreground leading-tight truncate">
-            {char.name.split(" ")[0]}
+            {displayName}
           </p>
         </div>
       )}
-      {/* Hover brass border glow */}
       <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/40 transition-colors pointer-events-none" />
     </motion.button>
   );
@@ -203,8 +298,12 @@ const TheUnmasked = () => {
   const alreadyWon = foundScrolls.includes(UNMASKED_SCROLL_ID);
   const [bestiaryUnlocked, setBestiaryUnlocked] = useState(alreadyWon);
 
+  // Game questions state
+  const [gameQuestions, setGameQuestions] = useState<QuestionDef[]>(() => selectGameQuestions([]));
+  const [prevIds, setPrevIds] = useState<string[]>([]);
+
   const [roundIdx, setRoundIdx] = useState(0);
-  const [cluesRevealed, setCluesRevealed] = useState(1); // start with clue 1 visible
+  const [cluesRevealed, setCluesRevealed] = useState(1);
   const [lives, setLives] = useState(TOTAL_LIVES);
   const [score, setScore] = useState(0);
   const [phase, setPhase] = useState<GamePhase>("playing");
@@ -212,16 +311,26 @@ const TheUnmasked = () => {
   const [wrongMessage, setWrongMessage] = useState(false);
   const [lastRoundPts, setLastRoundPts] = useState(0);
 
-  // Choices for current round — rebuild when round changes
-  const choices = useMemo(
-    () => buildChoices(ROUNDS[roundIdx]?.answerId ?? ""),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [roundIdx]
+  // Shuffled clues for current round — re-shuffled each time roundIdx changes
+  const [shuffledClues, setShuffledClues] = useState<string[]>(() =>
+    shuffle([...gameQuestions[0].clues])
   );
 
-  const currentRound = ROUNDS[roundIdx];
+  // Whenever roundIdx changes, shuffle clues for that round
+  useEffect(() => {
+    const q = gameQuestions[roundIdx];
+    if (q) setShuffledClues(shuffle([...q.clues]));
+  }, [roundIdx, gameQuestions]);
 
-  // Live score available this round: 6 - (cluesRevealed - 1) * 2 + 3 bonus on correct
+  const currentRound = gameQuestions[roundIdx];
+
+  // Choices for current round
+  const choices = useMemo(
+    () => buildChoices(currentRound?.id ?? ""),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [roundIdx, gameQuestions]
+  );
+
   const availableClueScore = roundScore(cluesRevealed);
 
   const resetRound = useCallback(() => {
@@ -232,6 +341,10 @@ const TheUnmasked = () => {
   }, []);
 
   const fullReset = useCallback(() => {
+    const currentIds = gameQuestions.map((q) => q.id);
+    const newQuestions = selectGameQuestions(currentIds);
+    setPrevIds(currentIds);
+    setGameQuestions(newQuestions);
     setRoundIdx(0);
     setLives(TOTAL_LIVES);
     setScore(0);
@@ -240,9 +353,8 @@ const TheUnmasked = () => {
     setWrongMessage(false);
     setLastRoundPts(0);
     setPhase("playing");
-  }, []);
+  }, [gameQuestions]);
 
-  // Auto-subtract clue penalty when a new clue is revealed
   const revealNextClue = () => {
     if (cluesRevealed < CLUE_COUNT) setCluesRevealed((n) => n + 1);
   };
@@ -251,8 +363,7 @@ const TheUnmasked = () => {
     (guessId: string) => {
       if (phase !== "playing" || !currentRound) return;
 
-      if (guessId === currentRound.answerId) {
-        // Correct: clue score + 3 bonus
+      if (guessId === currentRound.id) {
         const pts = roundScore(cluesRevealed) + CORRECT_BONUS;
         const newScore = score + pts;
         setScore(newScore);
@@ -263,7 +374,6 @@ const TheUnmasked = () => {
           setBestiaryUnlocked(true);
           if (!alreadyWon) awardScroll(UNMASKED_SCROLL_ID);
         } else {
-          // Show per-round summary briefly then advance
           setPhase("round-summary");
           setTimeout(() => {
             setRoundIdx((r) => r + 1);
@@ -273,7 +383,6 @@ const TheUnmasked = () => {
           }, 2200);
         }
       } else {
-        // Wrong
         const newLives = lives - 1;
         setLives(newLives);
         setPhase("wrong");
@@ -295,10 +404,8 @@ const TheUnmasked = () => {
     [phase, currentRound, cluesRevealed, score, roundIdx, lives, alreadyWon, awardScroll, resetRound]
   );
 
-  // ── Render ──
   return (
     <section className="py-16 sm:py-20 px-4">
-      {/* Inject glitch keyframes */}
       <style>{glitchKeyframes}</style>
 
       {/* Steampunk divider */}
@@ -485,7 +592,7 @@ const TheUnmasked = () => {
                 </div>
               </div>
 
-              {/* Clues */}
+              {/* Clues — shown in shuffled order */}
               <div className="flex-1 flex flex-col gap-2.5">
                 <p className="text-[8px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body">
                   Evidence — {cluesRevealed} of {CLUE_COUNT} revealed
@@ -500,7 +607,7 @@ const TheUnmasked = () => {
                       style={{ borderColor: "hsl(38 72% 50% / 0.5)" }}
                     >
                       <p className="font-narrative italic text-foreground/80 text-[0.875rem] leading-[1.7]">
-                        "{currentRound.clues[i]}"
+                        "{shuffledClues[i]}"
                       </p>
                     </motion.div>
                   </AnimatePresence>
@@ -533,7 +640,7 @@ const TheUnmasked = () => {
               )}
             </AnimatePresence>
 
-            {/* Choice grid: 3×2 on mobile, 3×2 on desktop (6 portraits) */}
+            {/* Choice grid: 3×2 */}
             <div className="grid grid-cols-3 sm:grid-cols-3 gap-2 sm:gap-3">
               {choices.map((charId) => (
                 <ChoiceCard
@@ -563,15 +670,12 @@ const TheUnmasked = () => {
         className="max-w-2xl mx-auto mt-10 border border-border bg-card p-6 sm:p-8"
       >
         <div className="flex items-start gap-4">
-          {/* Unmasked silhouette icon */}
           <div className="flex-shrink-0 w-12 h-14 border border-border flex items-end justify-center pb-1 overflow-hidden">
             {bestiaryUnlocked || alreadyWon ? (
               <svg width="22" height="40" viewBox="0 0 22 40" fill="none">
-                {/* Two layered faces */}
                 <ellipse cx="11" cy="8" rx="8" ry="7" fill="hsl(38 20% 22%)" />
                 <ellipse cx="11" cy="10" rx="6" ry="5.5" fill="hsl(38 20% 14%)" opacity="0.7" />
                 <path d="M4 16 Q2 30 2 40 L7 40 L8 28 L11 30 L14 28 L15 40 L20 40 Q20 30 18 16 Z" fill="hsl(38 20% 12%)" />
-                {/* Mask overlay */}
                 <path d="M5 6 Q11 0 17 6 L16 12 Q11 16 6 12 Z" fill="hsl(38 20% 18%)" opacity="0.6" />
               </svg>
             ) : (
@@ -602,7 +706,7 @@ const TheUnmasked = () => {
               {!(bestiaryUnlocked || alreadyWon) && (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <p className="text-[9px] tracking-[0.25em] text-muted-foreground/50 uppercase font-body">
-                    See through all five masks to unlock
+                    See through all eight masks to unlock
                   </p>
                 </div>
               )}
