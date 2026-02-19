@@ -3,6 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { guideCharacters, type GuideCharacter } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
 
+// Resolve guide portrait: new guides use a full path string, legacy guides use a key in characterImageMap
+const resolveGuideImage = (image: string): string =>
+  image.startsWith("/") ? image : (characterImageMap[image] ?? image);
+
 const welcomeMessages: Record<string, { title: string; body: string }> = {
   analytical: {
     title: "The data is incomplete. So is every map ever drawn of this world.",
@@ -205,7 +209,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
                   className="relative group aspect-[2/3] border border-border hover:border-primary/60 overflow-hidden transition-all duration-300 hover:shadow-glow"
                 >
                   <img
-                    src={characterImageMap[guide.image]}
+                    src={resolveGuideImage(guide.image)}
                     alt={guide.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -263,7 +267,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
           >
             <div className="relative w-28 h-40 sm:w-32 sm:h-48 mx-auto mb-6 sm:mb-8">
               <img
-                src={characterImageMap[selected.image]}
+                src={resolveGuideImage(selected.image)}
                 alt={selected.name}
                 className="w-full h-full object-cover border border-primary/40"
               />
