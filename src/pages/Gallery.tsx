@@ -6,8 +6,7 @@ import { characters } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
 
 import heroCityscape from "@/assets/hero-cityscape.jpg";
-import worldMap from "@/assets/world-map.jpg";
-import gearsTexture from "@/assets/gears-texture.jpg";
+import panterraMap from "@/assets/panterra-map.jpg";
 
 const Gallery = () => {
   // Combine static environmental shots with character portraits
@@ -20,8 +19,7 @@ const Gallery = () => {
       subtitle: char.title,
       magistry: char.magistry ?? char.faction
     })),
-    { src: gearsTexture, title: "Imperial Machinery", category: "Detail", subtitle: "The engine of the world" },
-    { src: worldMap, title: "Empire Territorial Map", category: "Cartography", subtitle: "Known world borders" },
+    { src: panterraMap, title: "Empire Territorial Map", category: "Cartography", subtitle: "Known world borders" },
   ];
 
   return (
