@@ -10,6 +10,14 @@ import charSoleil from "@/assets/char-soleil.jpg";
 import charSailor from "@/assets/char-sailor.jpg";
 import charGemma from "@/assets/char-gemma.jpg";
 
+// New guide portraits
+import guideWintry from "@/assets/guides/wintry.jpg";
+import guideKotani from "@/assets/guides/kotani.jpg";
+import guideNorstrand from "@/assets/guides/norstrand.jpg";
+import guideAspen from "@/assets/guides/aspen.jpg";
+import guideLockland from "@/assets/guides/lockland.jpg";
+import guideCora from "@/assets/guides/cora.jpg";
+
 export const characterImageMap: Record<string, string> = {
   "char-culver": charCulver,
   "char-quinn": charQuinn,
@@ -21,4 +29,10 @@ export const characterImageMap: Record<string, string> = {
   "char-soleil": charSoleil,
   "char-sailor": charSailor,
   "char-gemma": charGemma,
+  "guide-wintry": guideWintry,
+  "guide-kotani": guideKotani,
+  "guide-norstrand": guideNorstrand,
+  "guide-aspen": guideAspen,
+  "guide-lockland": guideLockland,
+  "guide-cora": guideCora,
 };
