@@ -6,6 +6,10 @@ import SectionHeader from "@/components/SectionHeader";
 import { characters } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
 
+// Resolve character portrait: new characters use a full path, legacy ones use a key
+const resolveImage = (image: string): string =>
+  image.startsWith("/") ? image : (characterImageMap[image] ?? image);
+
 // Group an array into chunks of `size`
 function chunk<T>(arr: T[], size: number): T[][] {
   const rows: T[][] = [];
@@ -97,7 +101,7 @@ const Characters = () => {
                         }`}
                       >
                         <img
-                          src={characterImageMap[char.image]}
+                          src={resolveImage(char.image)}
                           alt={char.name}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
@@ -153,7 +157,7 @@ const Characters = () => {
                           {/* Portrait */}
                           <div className="w-full sm:w-44 mx-auto sm:mx-0 sm:flex-shrink-0 max-w-[160px]">
                             <img
-                              src={characterImageMap[selectedChar.image]}
+                              src={resolveImage(selectedChar.image)}
                               alt={selectedChar.name}
                               className="w-full aspect-[2/3] object-cover border border-border"
                             />
@@ -186,48 +190,85 @@ const Characters = () => {
                               </div>
                             )}
 
-                            <div>
-                              <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
-                                Alignment
-                              </h4>
-                              <p className="text-[0.9375rem] sm:text-sm text-foreground/80 font-body leading-[1.8]">
-                                {selectedChar.alignment}
-                              </p>
-                            </div>
-
-                            <div>
-                              <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
-                                Personality
-                              </h4>
-                              <div className="flex flex-wrap gap-2">
-                                {selectedChar.personality.map((trait) => (
-                                  <span
-                                    key={trait}
-                                    className="text-[10px] tracking-wider bg-secondary text-foreground/70 px-2 py-1 font-body"
-                                  >
-                                    {trait}
-                                  </span>
-                                ))}
+                            {selectedChar.description && (
+                              <div>
+                                <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
+                                  About
+                                </h4>
+                                <p className="text-[0.9375rem] sm:text-sm text-foreground/80 font-narrative leading-[1.8]">
+                                  {selectedChar.description}
+                                </p>
                               </div>
-                            </div>
+                            )}
 
-                            <div>
-                              <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
-                                Background
-                              </h4>
-                              <p className="text-[0.9375rem] sm:text-sm text-foreground/70 font-narrative leading-[1.8]">
-                                {selectedChar.background}
-                              </p>
-                            </div>
+                            {selectedChar.alignment && (
+                              <div>
+                                <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
+                                  Alignment
+                                </h4>
+                                <p className="text-[0.9375rem] sm:text-sm text-foreground/80 font-body leading-[1.8]">
+                                  {selectedChar.alignment}
+                                </p>
+                              </div>
+                            )}
 
-                            <div>
-                              <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
-                                Relationships
-                              </h4>
-                              <p className="text-[0.9375rem] sm:text-sm text-foreground/70 font-narrative leading-[1.8] italic">
-                                {selectedChar.relationships}
-                              </p>
-                            </div>
+                            {selectedChar.personality && selectedChar.personality.length > 0 && (
+                              <div>
+                                <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
+                                  Personality
+                                </h4>
+                                <div className="flex flex-wrap gap-2">
+                                  {selectedChar.personality.map((trait) => (
+                                    <span
+                                      key={trait}
+                                      className="text-[10px] tracking-wider bg-secondary text-foreground/70 px-2 py-1 font-body"
+                                    >
+                                      {trait}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+
+                            {selectedChar.tags && selectedChar.tags.length > 0 && !selectedChar.personality && (
+                              <div>
+                                <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
+                                  Tags
+                                </h4>
+                                <div className="flex flex-wrap gap-2">
+                                  {selectedChar.tags.map((tag) => (
+                                    <span
+                                      key={tag}
+                                      className="text-[10px] tracking-wider bg-secondary text-foreground/70 px-2 py-1 font-body"
+                                    >
+                                      {tag}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+
+                            {selectedChar.background && (
+                              <div>
+                                <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
+                                  Background
+                                </h4>
+                                <p className="text-[0.9375rem] sm:text-sm text-foreground/70 font-narrative leading-[1.8]">
+                                  {selectedChar.background}
+                                </p>
+                              </div>
+                            )}
+
+                            {selectedChar.relationships && (
+                              <div>
+                                <h4 className="text-[10px] tracking-[0.2em] text-muted-foreground uppercase font-body mb-2">
+                                  Relationships
+                                </h4>
+                                <p className="text-[0.9375rem] sm:text-sm text-foreground/70 font-narrative leading-[1.8] italic">
+                                  {selectedChar.relationships}
+                                </p>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
