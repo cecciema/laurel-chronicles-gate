@@ -3,13 +3,16 @@ export interface Character {
   name: string;
   title: string;
   faction: string;
-  alignment: string;
-  personality: string[];
-  background: string;
-  relationships: string;
   image: string;
+  alignment?: string;
+  personality?: string[];
+  background?: string;
+  relationships?: string;
   magistry?: string;
   philosophy?: string;
+  region?: string;
+  description?: string;
+  tags?: string[];
 }
 
 export interface GuideCharacter {
@@ -182,6 +185,66 @@ export const characters: Character[] = [
     image: "char-gemma",
     magistry: "Pantheon Prisma",
     philosophy: "Power does not shout. It whispers in the right ear at the right moment.",
+  },
+  {
+    id: "wintry",
+    name: "Wintry",
+    title: "Senior Council Member, Space Sciences",
+    faction: "Parliament",
+    region: "The Sanctorium",
+    image: "/src/assets/guides/wintry.jpg",
+    description: "An elegant and quietly formidable council member who has spent decades shaping the Parliament's scientific direction from behind the scenes. Wintry carries herself with effortless authority and genuine warmth — which makes her the most dangerous person in any room she enters.",
+    tags: ["Parliament", "Space Sciences", "Council"],
+  },
+  {
+    id: "kotani",
+    name: "Kotani",
+    title: "Sol Deus of Pantheon Canvas",
+    faction: "Pantheon",
+    region: "The Sanctorium",
+    image: "/src/assets/guides/kotani.jpg",
+    description: "The Sol Deus of Canvas presides over the Southwest Quadrant with a stillness that unsettles those who mistake it for passivity. Kotani has seen more than she speaks of, and carries the weight of knowledge that most people in Panterra will never be permitted to have.",
+    tags: ["Pantheon", "Southwest Quadrant", "Canvas"],
+  },
+  {
+    id: "norstrand",
+    name: "Norstrand",
+    title: "Sol Deus of Pantheon Finnrare",
+    faction: "Pantheon",
+    region: "The Sanctorium",
+    image: "/src/assets/guides/norstrand.jpg",
+    description: "Tall, commanding, and quietly tormented, Norstrand has governed Pantheon Finnrare with institutional precision for years. He believes in the structures he has built — or did, until certain nights forced him to question whether what he built was ever truly his to build.",
+    tags: ["Pantheon", "Northeast Quadrant", "Finnrare"],
+  },
+  {
+    id: "aspen",
+    name: "Aspen",
+    title: "Director of Peace, Northeast",
+    faction: "Parliament",
+    region: "The Frontier Borderlands",
+    image: "/src/assets/guides/aspen.jpg",
+    description: "Charming, brilliant, and universally liked, Aspen rose through the Parliament faster than anyone thought possible. Jude trusts him completely. The Pantheon Gods adore him. Whether Aspen has earned that trust — or simply learned to wear it — is a question the story has not yet finished answering.",
+    tags: ["Parliament", "Director of Peace", "Northeast"],
+  },
+  {
+    id: "lockland",
+    name: "Lockland",
+    title: "Sol Deus of Pantheon Ivory",
+    faction: "Pantheon",
+    region: "The Sanctorium",
+    image: "/src/assets/guides/lockland.jpg",
+    description: "The former Sol Deus of Ivory is remembered by everyone who knew him as something close to irreplaceable. Patient, wise, and smelling faintly of lavender, Lockland spent his reign cultivating people as carefully as he cultivated the gardens of his Pantheon. He chose his moment to ascend with the same deliberate grace.",
+    tags: ["Pantheon", "Northwest Quadrant", "Ivory"],
+  },
+  {
+    id: "cora",
+    name: "Cora",
+    title: "Parliament Council Member",
+    faction: "Parliament",
+    region: "The Sanctorium",
+    image: "/src/assets/guides/cora.jpg",
+    description: "A composed and well-connected Parliament council member whose devotion to her daughters — Kotani and Nari — is the most honest thing about her. Cora moves comfortably in the inner circles of power, which means she has made choices she does not speak of, and knows things she wishes she did not.",
+    tags: ["Parliament", "Council", "Cannon Family"],
   },
 ];
 
