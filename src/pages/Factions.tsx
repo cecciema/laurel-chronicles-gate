@@ -55,12 +55,14 @@ const CollectorFigure = ({ step }: { step: number }) => {
 
 // ─── Branch Data ──────────────────────────────────────────────────────────────
 // Correct path: A → B → B → C → A (wins)
-// Any wrong choice adds a warning; second wrong triggers Collector
+// Warning only appears after the SECOND wrong choice total
 
 interface Beat {
   id: number;
   situation: string;
-  warning?: string; // shown after first wrong choice at this beat
+  // Atmospheric follow-on text — shown between beats depending on last choice
+  afterCorrect: string;
+  afterWrong: string;
   choices: { label: string; correct: boolean }[];
 }
 
@@ -69,68 +71,68 @@ const BEATS: Beat[] = [
     id: 1,
     situation:
       "You receive your Apotheosis summons. The paper is warm — they are always warm. You have three days. You look at the date stamp and notice it was issued yesterday, but delivered today. That means someone held it.",
+    afterCorrect:
+      "The ceremony hall is exactly as described. Order. Purpose. The feeling of a city that works.",
+    afterWrong:
+      "Something in the air is different. A frequency you cannot name. The hall ahead seems brighter than it should be.",
     choices: [
-      { label: "Go willingly. You have prepared for this.", correct: true },
-      { label: "Investigate who held the letter before you.", correct: false },
-      { label: "Try to delay. You need more time to think.", correct: false },
+      { label: "Report at the appointed time. You are a citizen in good standing.", correct: true },
+      { label: "Go early. Being first demonstrates commitment to the process.", correct: false },
+      { label: "Send a proxy notice — the forms allow it once.", correct: false },
     ],
   },
   {
     id: 2,
     situation:
       "At the ceremony gates a Pantheon Devotee in a pale robe extends his hand for your semper scan. The scanner light is green. But the buttons on his robe are on the wrong side — every Devotee's are on the right. His are on the left.",
-    warning:
-      "Something is following you. The air has changed. Choose carefully.",
+    afterCorrect:
+      "He seems satisfied. The line moves forward. You feel, for a moment, that you said the right thing to the wrong person.",
+    afterWrong:
+      "He nods, once. His eyes do not match his expression. Something behind you shifts. You do not turn around.",
     choices: [
-      { label: "Comply with the scan without acknowledging the buttons.", correct: false },
-      {
-        label:
-          "Ask a quiet question — compliment the ceremony, let him speak first.",
-        correct: true,
-      },
-      {
-        label: "Point out the wrong buttons directly.",
-        correct: false,
-      },
+      { label: "Offer a formal greeting and follow his lead into the hall.", correct: false },
+      { label: "Ask a quiet question — compliment the ceremony, let him speak first.", correct: true },
+      { label: "Complete the scan efficiently and move through. Time is structured here.", correct: false },
     ],
   },
   {
     id: 3,
     situation:
       "Inside the chamber the crowd is given small cups — the ceremony drink. Everyone lifts theirs. Around you, faces change after the first sip. Not pain. Something else. Like something leaving.",
+    afterCorrect:
+      "You feel nothing. That is good. That means you are still here.",
+    afterWrong:
+      "The room is warmer than it was. The people around you have stopped blinking.",
     choices: [
-      { label: "Drink. You don't want to stand out.", correct: false },
-      {
-        label:
-          "Pretend to drink — tilt the cup to your lips and let nothing pass.",
-        correct: true,
-      },
-      { label: "Watch the others carefully before deciding.", correct: false },
+      { label: "Drink when the others drink. Ceremony requires participation.", correct: false },
+      { label: "Pretend to drink — tilt the cup to your lips and let nothing pass.", correct: true },
+      { label: "Hold the cup reverently. A small delay is a sign of contemplation, not refusal.", correct: false },
     ],
   },
   {
     id: 4,
     situation:
       "After the ceremony, soldiers enter in formation. They move between the rows. People who finished their cups are guided — gently, with a hand on the elbow — toward a separate door. Nobody resists. Nobody looks afraid. That is the thing that frightens you.",
-    warning: "Something is following you. The air has changed. Choose carefully.",
+    afterCorrect:
+      "The soldiers pass within arm's reach. One looks directly at you and then past you. You are unremarkable. You are invisible. You are still here.",
+    afterWrong:
+      "A soldier pauses near you. He does not stop. He does not move on. The moment stretches like wire.",
     choices: [
-      { label: "Hide behind the crowd and stay very still.", correct: false },
-      { label: "Run for the nearest exit.", correct: false },
-      {
-        label:
-          "Stand still and let the soldiers pass. Do not make eye contact.",
-        correct: true,
-      },
+      { label: "Move toward the main exit with quiet purpose — leaving is permitted.", correct: false },
+      { label: "Join the line being guided. Compliance is the safest path through any room.", correct: false },
+      { label: "Stand still and let the soldiers pass. Do not make eye contact.", correct: true },
     ],
   },
   {
     id: 5,
     situation:
       "When the soldiers leave, a door appears in the east wall. It was not there before. The stone around it is warm. It opens inward. Beyond it you can see a corridor that leads somewhere the chamber does not account for.",
+    afterCorrect: "",
+    afterWrong: "",
     choices: [
-      { label: "Go through. Whatever is beyond it wanted you to find it.", correct: true },
-      { label: "Wait — it could be a test.", correct: false },
-      { label: "Call out to see if anyone else sees it.", correct: false },
+      { label: "Go through. Whatever is beyond it intended to be found.", correct: true },
+      { label: "Report the anomaly to the nearest official. Unexplained doors are a safety concern.", correct: false },
+      { label: "Wait. If others see it, the correct response will become clear.", correct: false },
     ],
   },
 ];
@@ -147,20 +149,21 @@ const ApotheosisPath = () => {
 
   const [beatIndex, setBeatIndex]       = useState(0);
   const [wrongCount, setWrongCount]     = useState(0);
-  const [warningShown, setWarningShown] = useState(false);
   const [showWarning, setShowWarning]   = useState(false);
   const [phase, setPhase]               = useState<Phase>("playing");
   const [bestiaryUnlocked, setBestiaryUnlocked] = useState(alreadyWon);
   const [collectorStep, setCollectorStep] = useState(0);
+  // Atmospheric text shown between beats
+  const [atmosphereText, setAtmosphereText] = useState<string | null>(null);
 
   // Reset everything
   const handleRestart = () => {
     setBeatIndex(0);
     setWrongCount(0);
-    setWarningShown(false);
     setShowWarning(false);
     setPhase("playing");
     setCollectorStep(0);
+    setAtmosphereText(null);
   };
 
   const handleChoice = (correct: boolean) => {
@@ -170,13 +173,28 @@ const ApotheosisPath = () => {
 
     if (correct) {
       setShowWarning(false);
-      if (beatIndex === BEATS.length - 1) {
-        // Won
-        setPhase("won");
-        setBestiaryUnlocked(true);
-        if (!alreadyWon) foundScroll(SCROLL_ID);
+      // Show calming atmospheric text, then advance
+      const atmo = beat.afterCorrect;
+      if (atmo) {
+        setAtmosphereText(atmo);
+        setTimeout(() => {
+          setAtmosphereText(null);
+          if (beatIndex === BEATS.length - 1) {
+            setPhase("won");
+            setBestiaryUnlocked(true);
+            if (!alreadyWon) foundScroll(SCROLL_ID);
+          } else {
+            setBeatIndex((i) => i + 1);
+          }
+        }, 2200);
       } else {
-        setBeatIndex((i) => i + 1);
+        if (beatIndex === BEATS.length - 1) {
+          setPhase("won");
+          setBestiaryUnlocked(true);
+          if (!alreadyWon) foundScroll(SCROLL_ID);
+        } else {
+          setBeatIndex((i) => i + 1);
+        }
       }
     } else {
       // Wrong choice
@@ -185,19 +203,21 @@ const ApotheosisPath = () => {
       const newStep = Math.min(collectorStep + 1, 3);
       setCollectorStep(newStep);
 
-      const hasWarning = !!beat.warning;
-
       if (newStep >= 3) {
         // Caught
         setPhase("blackout");
         setTimeout(() => setPhase("caught"), 2800);
-      } else if (hasWarning && !warningShown) {
-        // First warning at this beat
-        setWarningShown(true);
-        setShowWarning(true);
       } else {
-        // No warning or already warned — just darken atmosphere and stay on beat
-        setShowWarning(false);
+        // Show unsettling atmospheric text briefly
+        const atmo = beat.afterWrong;
+        if (atmo) {
+          setAtmosphereText(atmo);
+          setTimeout(() => setAtmosphereText(null), 2200);
+        }
+        // Warning only after SECOND wrong choice total
+        if (newWrong >= 2) {
+          setShowWarning(true);
+        }
       }
     }
   };
@@ -395,12 +415,29 @@ const ApotheosisPath = () => {
               )}
             </AnimatePresence>
 
+            {/* Atmospheric transition text */}
+            <AnimatePresence>
+              {atmosphereText && (
+                <motion.p
+                  key="atmo"
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="font-narrative italic text-[0.9375rem] leading-[1.9] text-center px-2"
+                  style={{ color: "hsl(38 25% 60%)" }}
+                >
+                  {atmosphereText}
+                </motion.p>
+              )}
+            </AnimatePresence>
+
             {/* Beat narrative */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={beatIndex + "-" + wrongCount}
                 initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={{ opacity: atmosphereText ? 0.25 : 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.35 }}
                 className="flex flex-col gap-5"
@@ -417,8 +454,9 @@ const ApotheosisPath = () => {
                   {beat.choices.map((choice, i) => (
                     <button
                       key={i}
-                      onClick={() => handleChoice(choice.correct)}
-                      className="w-full text-left px-4 py-3 border font-body text-[0.8125rem] leading-[1.6] tracking-wide transition-all duration-200 hover:bg-primary/8 hover:border-primary/50 hover:text-foreground active:scale-[0.99] min-h-[44px]"
+                      onClick={() => !atmosphereText && handleChoice(choice.correct)}
+                      disabled={!!atmosphereText}
+                      className="w-full text-left px-4 py-3 border font-body text-[0.8125rem] leading-[1.6] tracking-wide transition-all duration-200 hover:bg-primary/8 hover:border-primary/50 hover:text-foreground active:scale-[0.99] min-h-[44px] disabled:opacity-40 disabled:cursor-wait"
                       style={{
                         borderColor: "hsl(38 20% 22%)",
                         color: "hsl(38 20% 58%)",
