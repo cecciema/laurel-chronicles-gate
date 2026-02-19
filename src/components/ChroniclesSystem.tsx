@@ -286,7 +286,6 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     }}>
       {children}
       <GameUI />
-      <BestiaryCompletePopup />
     </GameContext.Provider>
   );
 };
@@ -681,7 +680,7 @@ const BestiaryCompleteBanner = () => {
 };
 
 // ── Bestiary Complete Popup ──────────────────────────────────────────────────
-const BestiaryCompletePopup = () => {
+export const BestiaryCompletePopup = () => {
   const { foundScrolls } = useGame();
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
