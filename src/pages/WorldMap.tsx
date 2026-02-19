@@ -726,10 +726,6 @@ const WorldMap = () => {
 
               </div>{/* end zoomable wrapper */}
 
-              {/* HiddenOrb — outside transform so it stays stable */}
-              <div className="absolute bottom-2 left-2 z-30">
-                <HiddenOrb id={7} className="w-3 h-3" />
-              </div>
 
               {/* ── Zoom controls (bottom-right) ── */}
               <div className="absolute bottom-3 right-3 z-30 flex flex-col gap-1.5">
