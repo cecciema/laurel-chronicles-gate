@@ -95,6 +95,43 @@ const SilencerFigure = ({ step }: { step: number }) => {
   );
 };
 
+// ─── Cipher key reference — 8 of 26 mappings revealed ────────────────────────
+// Shift = 7, so encoded = plain + 7. We pick 8 strategically spread letters.
+const CIPHER_KEY_HINTS: { encoded: string; decoded: string }[] = [
+  { encoded: "H", decoded: "A" },
+  { encoded: "L", decoded: "E" },
+  { encoded: "P", decoded: "I" },
+  { encoded: "U", decoded: "N" },
+  { encoded: "V", decoded: "O" },
+  { encoded: "A", decoded: "T" },
+  { encoded: "B", decoded: "U" },
+  { encoded: "F", decoded: "Y" },
+];
+
+// ─── Hint helpers ─────────────────────────────────────────────────────────────
+const VOWELS = new Set(["A", "E", "I", "O", "U"]);
+
+function buildHint(decoded: string, tier: 0 | 1 | 2): string {
+  // Strip punctuation for hint building, reattach at end
+  const letters = decoded.replace(/[^A-Z]/g, "");
+  if (tier === 0) {
+    // Blank dashes — one per letter
+    return letters.split("").map(() => "_").join(" ");
+  }
+  if (tier === 1) {
+    // Reveal first and last, dash middle
+    return letters
+      .split("")
+      .map((ch, i) => (i === 0 || i === letters.length - 1 ? ch : "_"))
+      .join(" ");
+  }
+  // tier 2 — reveal consonants, hide vowels
+  return letters
+    .split("")
+    .map((ch) => (VOWELS.has(ch) ? "_" : ch))
+    .join(" ");
+}
+
 // ─── Forbidden Transmission Game ──────────────────────────────────────────────
 type GamePhase = "playing" | "won" | "lost";
 
@@ -105,8 +142,10 @@ const ForbiddenTransmission = () => {
   const [lockedWords, setLockedWords] = useState<string[]>([]); // correctly decoded so far
   const [inputValue, setInputValue] = useState("");
   const [shakeInput, setShakeInput] = useState(false);
-  const [hint, setHint] = useState<string | null>(null);
+  // wrongAttempts = total across all words (drives Silencer)
   const [wrongAttempts, setWrongAttempts] = useState(0);
+  // wordWrongAttempts = wrong attempts on the CURRENT word only (drives hint tier)
+  const [wordWrongAttempts, setWordWrongAttempts] = useState(0);
   const [phase, setPhase] = useState<GamePhase>("playing");
   const [timeLeft, setTimeLeft] = useState(TIMER_SECONDS);
   const [blackout, setBlackout] = useState(false);
@@ -116,6 +155,10 @@ const ForbiddenTransmission = () => {
 
   const alreadyWon = foundScrolls.includes(SCROLL_ID);
   const currentPair = WORD_PAIRS[wordIndex];
+
+  // Derive current hint tier (0 = no guess yet, 1 = after 1st wrong, 2 = after 2nd wrong)
+  const hintTier = Math.min(wordWrongAttempts, 2) as 0 | 1 | 2;
+  const hintDisplay = currentPair ? buildHint(currentPair.decoded.replace(/[^A-Z]/g, ""), hintTier) : null;
 
   // ── Timer
   useEffect(() => {
@@ -141,45 +184,58 @@ const ForbiddenTransmission = () => {
     }, 3000);
   };
 
+  const advanceWord = (locked: string[], nextIdx: number) => {
+    setLockedWords(locked);
+    setInputValue("");
+    setWordWrongAttempts(0);
+    if (nextIdx >= WORD_PAIRS.length) {
+      clearInterval(timerRef.current!);
+      setPhase("won");
+      setBestiaryUnlocked(true);
+      if (!alreadyWon) foundScroll(SCROLL_ID);
+    } else {
+      setWordIndex(nextIdx);
+      setTimeout(() => inputRef.current?.focus(), 50);
+    }
+  };
+
   const handleDecode = useCallback(() => {
     if (phase !== "playing" || !currentPair) return;
     const typed = inputValue.trim().toUpperCase();
-    // Strip trailing punctuation from expected so "SALVATION." matches "SALVATION"
     const expected = currentPair.decoded.replace(/[^A-Z]/g, "");
     const typedClean = typed.replace(/[^A-Z]/g, "");
 
     if (typedClean === expected) {
-      // Correct
-      const newLocked = [...lockedWords, currentPair.decoded];
-      setLockedWords(newLocked);
-      setInputValue("");
-      setHint(null);
-      const nextIdx = wordIndex + 1;
-      if (nextIdx >= WORD_PAIRS.length) {
-        // All words decoded — win
-        clearInterval(timerRef.current!);
-        setPhase("won");
-        setBestiaryUnlocked(true);
-        if (!alreadyWon) foundScroll(SCROLL_ID);
-      } else {
-        setWordIndex(nextIdx);
-        setTimeout(() => inputRef.current?.focus(), 50);
-      }
+      // Correct — advance, reset per-word counter
+      advanceWord([...lockedWords, currentPair.decoded], wordIndex + 1);
     } else {
       // Wrong
       setShakeInput(true);
       setTimeout(() => setShakeInput(false), 600);
-      const next = wrongAttempts + 1;
-      setWrongAttempts(next);
-      // Show first letter hint
-      setHint(`First letter: ${currentPair.decoded[0]}`);
       setInputValue("");
-      if (next >= MAX_WRONG) {
-        clearInterval(timerRef.current!);
-        triggerLoss();
+
+      const nextWordWrong = wordWrongAttempts + 1;
+      const nextTotal = wrongAttempts + 1;
+      setWrongAttempts(nextTotal);
+
+      if (nextWordWrong >= 3) {
+        // Third wrong on this word — auto-reveal, lock in, Silencer step
+        setWordWrongAttempts(0);
+        advanceWord([...lockedWords, currentPair.decoded], wordIndex + 1);
+        // Silencer already stepped via wrongAttempts; check loss threshold
+        if (nextTotal >= MAX_WRONG) {
+          clearInterval(timerRef.current!);
+          triggerLoss();
+        }
+      } else {
+        setWordWrongAttempts(nextWordWrong);
+        if (nextTotal >= MAX_WRONG) {
+          clearInterval(timerRef.current!);
+          triggerLoss();
+        }
       }
     }
-  }, [phase, currentPair, inputValue, lockedWords, wordIndex, wrongAttempts, alreadyWon, foundScroll]);
+  }, [phase, currentPair, inputValue, lockedWords, wordIndex, wrongAttempts, wordWrongAttempts, alreadyWon, foundScroll]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") { e.preventDefault(); handleDecode(); }
@@ -189,9 +245,9 @@ const ForbiddenTransmission = () => {
     setWordIndex(0);
     setLockedWords([]);
     setInputValue("");
-    setHint(null);
     setShakeInput(false);
     setWrongAttempts(0);
+    setWordWrongAttempts(0);
     setPhase("playing");
     setTimeLeft(TIMER_SECONDS);
   };
@@ -418,19 +474,40 @@ const ForbiddenTransmission = () => {
                 </div>
               </div>
 
-              {/* Hint */}
-              <AnimatePresence>
-                {hint && (
-                  <motion.p
-                    initial={{ opacity: 0, y: -4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    className="text-[9px] tracking-[0.2em] font-body uppercase text-center"
+              {/* Three-tier hint display — always shown */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`hint-${wordIndex}-${hintTier}`}
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="flex flex-col items-center gap-1"
+                >
+                  {/* Dash/letter hint */}
+                  <p
+                    className="font-display text-sm tracking-[0.4em] text-center"
                     style={{ color: "hsl(38 60% 55%)" }}
                   >
-                    ◈ {hint}
-                  </motion.p>
-                )}
+                    {hintDisplay}
+                  </p>
+                  {/* Tier label */}
+                  <p className="text-[8px] tracking-[0.25em] text-muted-foreground/40 uppercase font-body">
+                    {hintTier === 0 && `${currentPair.decoded.replace(/[^A-Z]/g, "").length} letters`}
+                    {hintTier === 1 && "◈ First & last letter revealed"}
+                    {hintTier === 2 && "◈ Consonants revealed"}
+                  </p>
+                  {/* Tier 3 auto-reveal notice */}
+                  {wordWrongAttempts === 2 && (
+                    <motion.p
+                      animate={{ opacity: [0.5, 1, 0.5] }}
+                      transition={{ duration: 1.2, repeat: Infinity }}
+                      className="text-[8px] tracking-[0.2em] font-body uppercase"
+                      style={{ color: "hsl(0 65% 55%)" }}
+                    >
+                      ⚠ One more miss reveals the word — Silencer advances
+                    </motion.p>
+                  )}
+                </motion.div>
               </AnimatePresence>
 
               {/* Input + decode button */}
@@ -466,12 +543,38 @@ const ForbiddenTransmission = () => {
                   Decode
                 </button>
               </motion.div>
+
+              {/* ── Cipher Key Reference Panel ── */}
+              <div className="border border-border/30 bg-background/20 px-3 py-2.5 mt-1">
+                <p className="text-[7px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body mb-2">
+                  Intercepted Cipher Key — partial decode
+                </p>
+                <div className="grid grid-cols-8 gap-1">
+                  {CIPHER_KEY_HINTS.map(({ encoded, decoded }) => (
+                    <div key={encoded} className="flex flex-col items-center gap-0.5">
+                      <span
+                        className="font-display text-[11px] tracking-wider"
+                        style={{ color: "hsl(38 50% 45%)" }}
+                      >
+                        {encoded}
+                      </span>
+                      <div className="w-px h-2.5 bg-border/40" />
+                      <span className="font-display text-[11px] tracking-wider text-foreground/60">
+                        {decoded}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-[7px] tracking-[0.2em] text-muted-foreground/30 uppercase font-body mt-2">
+                  Encoded → Decoded · 8 of 26 pairs recovered
+                </p>
+              </div>
             </div>
           )}
         </div>
       </motion.div>
 
-      {/* Hint */}
+      {/* Footer note */}
       <p className="max-w-2xl mx-auto mt-2 text-[9px] tracking-[0.2em] text-muted-foreground/30 font-body text-right px-1 uppercase">
         Caesar cipher · type each decoded word · wrong = Silencer advances
       </p>
