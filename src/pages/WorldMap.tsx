@@ -522,7 +522,7 @@ const WorldMap = () => {
         <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-4 mb-3">
           <div className="flex flex-wrap gap-x-5 gap-y-1 justify-center">
             <span className="font-body text-[9px] tracking-[0.25em] uppercase text-muted-foreground">
-              Scrolls: {foundScrolls.filter(id => id <= 7).length}/7
+              Scrolls: {foundScrolls.filter(id => id >= 1 && id <= 12).length}/12
             </span>
             <span
               className="font-body text-[9px] tracking-[0.25em] uppercase"
@@ -644,14 +644,14 @@ const WorldMap = () => {
                   );
                 })}
 
-                {/* === ARBORWELL — clicking awards Scroll 6 on first visit === */}
+                {/* === ARBORWELL — region panel only, no scroll award === */}
                 <div className="absolute z-20" style={ARBORWELL_STYLE}>
                   <div
                     role="button"
                     tabIndex={0}
                     aria-label={arborwellUnlocked ? "Arborwell" : "Unknown territory"}
-                    onClick={() => { if (!hasDragged.current) foundScroll(6); }}
-                    onKeyDown={(e) => e.key === "Enter" && foundScroll(6)}
+                    onClick={() => { if (!hasDragged.current) toggleRegion("arborwell"); }}
+                    onKeyDown={(e) => e.key === "Enter" && toggleRegion("arborwell")}
                     onMouseDown={(e) => e.stopPropagation()}
                     className="relative w-full h-full cursor-pointer"
                   >
@@ -887,7 +887,7 @@ export default WorldMap;
 // THE KNOWN WORLD — placement mini-game
 // ─────────────────────────────────────────────────────────────────────────────
 
-const KNOWN_WORLD_SCROLL_ID = 5;
+const KNOWN_WORLD_SCROLL_ID = 11;
 const KW_TOTAL_ROUNDS = 5;
 const KW_TOTAL_LIVES  = 3;
 
@@ -1084,7 +1084,7 @@ const ZoneButton = ({
 
 // ── Main game component ──────────────────────────────────────────────────────
 const TheKnownWorld = () => {
-  const { foundScrolls, awardScrollFive } = useGame();
+  const { foundScrolls, awardScroll } = useGame();
   const alreadyWon = foundScrolls.includes(KNOWN_WORLD_SCROLL_ID);
   const [bestiaryUnlocked, setBestiaryUnlocked] = useState(alreadyWon);
 
@@ -1116,7 +1116,7 @@ const TheKnownWorld = () => {
       if (roundIdx + 1 >= KW_TOTAL_ROUNDS) {
         setGamePhase("won");
         setBestiaryUnlocked(true);
-        if (!alreadyWon) awardScrollFive();
+        if (!alreadyWon) awardScroll(KNOWN_WORLD_SCROLL_ID);
       } else {
         setTimeout(() => {
           setRoundIdx((r) => r + 1);

@@ -147,7 +147,7 @@ const MazeCanvas = ({ player, enemies, won }: MazeCanvasProps) => (
 // ─── Main Component ───────────────────────────────────────────────────────────
 type GamePhase = "playing" | "dead" | "won";
 
-const SCROLL_ID = 1;
+const SCROLL_ID = 7;
 const BESTIARY_FIRST_WIN_KEY = "bestiary_first_win_dead_corridors";
 
 const makeEnemy = (patrol: Pos[], idx = 0): Enemy => ({ pos: patrol[idx], patrolIdx: idx, progress: 0 });

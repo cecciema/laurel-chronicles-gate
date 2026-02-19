@@ -10,56 +10,105 @@ const SCROLLS = [
   {
     id: 1,
     title: "The Southern Burn",
-    hint: "Somewhere in the dead world",
+    hint: "Hidden somewhere in the world",
     text: "The southern hemisphere was not destroyed by war. The burn was controlled. Someone needed it empty.",
-    source: "Found in the Dead Corridors maze"
+    source: "World page orb",
+    type: "discoverable" as const,
   },
   {
     id: 2,
     title: "The Convoy's Origin",
-    hint: "Encoded in the old transmissions",
+    hint: "Hidden somewhere in the world",
     text: "The Convoy's first recorded communication predates the Great War by 40 years. They did not form in response to the system. They built it.",
-    source: "Found in the Forbidden Transmission cipher"
+    source: "Timeline page orb",
+    type: "discoverable" as const,
   },
   {
     id: 3,
     title: "The Apotheosis Data",
-    hint: "The path to ascension holds secrets",
+    hint: "Hidden somewhere in the world",
     text: "Apotheosis yields are tracked by quadrant, by season, and by soul mass. The data is sent somewhere. The destination is not listed in any Parliament record.",
-    source: "Found on the Apotheosis Path"
+    source: "Factions page orb",
+    type: "discoverable" as const,
   },
   {
     id: 4,
     title: "The Placed Ones",
-    hint: "Among the characters, a deeper truth",
+    hint: "Hidden somewhere in the world",
     text: "Not all Sol Deus are born. Some are placed. The selection criteria have never been made public. The criteria exist.",
-    source: "Awaiting discovery"
+    source: "Characters page orb",
+    type: "discoverable" as const,
   },
   {
     id: 5,
     title: "The Boundary Signal",
-    hint: "Study the world from above",
+    hint: "Hidden somewhere in the world",
     text: "The satellites do not only herd the moon. They also maintain a boundary. Inside the boundary, signals cannot leave. Outside the boundary, one location is always excluded from surveillance.",
-    source: "Awaiting discovery"
+    source: "Map page orb",
+    type: "discoverable" as const,
   },
   {
     id: 6,
     title: "The Excluded Place",
-    hint: "The unknown holds answers",
+    hint: "Hidden somewhere in the world",
     text: "The excluded location has a name. It was removed from all maps after the Great War. It was not destroyed. It was protected.",
-    source: "Found in the unknown territory"
+    source: "Enter page easter egg glyph",
+    type: "discoverable" as const,
   },
   {
     id: 7,
+    title: "The Unmarked Ratio",
+    hint: "Complete a game to unlock",
+    text: "The Unmarked are not accidents. The ratio of incomplete Apotheosis events has remained statistically constant for 60 years. Constant ratios do not happen by chance.",
+    source: "Win The Dead Corridors",
+    type: "earned" as const,
+  },
+  {
+    id: 8,
+    title: "The Embedded Operatives",
+    hint: "Complete a game to unlock",
+    text: "Three Convoy operatives were embedded in the Parliament Science Division at the time of the meteor discovery. Their names appear in the attendance records. Their employment history does not exist.",
+    source: "Win Forbidden Transmission",
+    type: "earned" as const,
+  },
+  {
+    id: 9,
+    title: "The Optimized Yield",
+    hint: "Complete a game to unlock",
+    text: "The soul mass collected at peak Apotheosis events is 40 percent higher than at standard events. Someone is timing the ceremonies. Someone is optimizing the yield.",
+    source: "Win The Apotheosis Path",
+    type: "earned" as const,
+  },
+  {
+    id: 10,
+    title: "The Erased Constellations",
+    hint: "Complete a game to unlock",
+    text: "There are 14 Sol Deus positions across Panterra's history. Only 11 constellations are publicly recognized. The other 3 have been erased from all star charts produced after the Great War.",
+    source: "Win The Unmasked",
+    type: "earned" as const,
+  },
+  {
+    id: 11,
     title: "Those Who Stayed",
-    hint: "Your allegiance reveals more than you know",
+    hint: "Complete a game to unlock",
     text: "There are people who did not take their Apotheosis. There are people who were not required to. They live outside the boundary. They have always lived there. They have been watching.",
-    source: "Revealed through allegiance"
+    source: "Win The Known World",
+    type: "earned" as const,
+  },
+  {
+    id: 12,
+    title: "The Remembered Place",
+    hint: "This one was never meant to be found",
+    text: "You kept looking at the thing that was never meant to be found. That says everything about you. Valorica is not a place that was built. It is a place that was remembered.",
+    source: "The Unnamed — Bestiary",
+    type: "secret" as const,
   },
 ];
 
+const TOTAL_SCROLLS = SCROLLS.length;
+
 // ── Sealed document correct order ─────────────────────────────────────────────
-const CORRECT_ORDER = [1, 2, 3, 4, 5, 6, 7];
+const CORRECT_ORDER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 // ── Quest scenes ───────────────────────────────────────────────────────────────
 const QUEST_SCENES = [
@@ -145,8 +194,7 @@ interface GameContextType extends GameState {
   completeQuest: (archetype: string) => void;
   startRiddle: () => void;
   solveRiddle: () => void;
-  awardScrollFour: () => void;
-  awardScrollFive: () => void;
+  awardScroll: (id: number) => void;
   triggerValoricaReveal: () => void;
 }
 
@@ -199,20 +247,14 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  const awardScroll = (id: number) => foundScroll(id);
+
   const closeModal = () => setState(prev => ({ ...prev, activeModal: null, activeScrollId: null }));
   const startQuest  = () => setState(prev => ({ ...prev, activeModal: "quest" }));
 
   const completeQuest = (archetype: string) => {
     setState(prev => {
       const newState = { ...prev, questCompleted: true, questArchetype: archetype, activeModal: null as GameState["activeModal"] };
-      // Award scroll 7 if archetype is "devoted"
-      if (archetype === "devoted" && !prev.foundScrolls.includes(7)) {
-        newState.foundScrolls = [...prev.foundScrolls, 7];
-        // Show it after a brief delay
-        setTimeout(() => {
-          setState(s => ({ ...s, activeModal: "scroll", activeScrollId: 7 }));
-        }, 3200);
-      }
       return newState;
     });
   };
@@ -226,10 +268,6 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     });
   };
 
-  // Placeholder award functions for games not yet built
-  const awardScrollFour = () => foundScroll(4);
-  const awardScrollFive = () => foundScroll(5);
-
   const triggerValoricaReveal = () => {
     setState(prev => ({ ...prev, valoricaRevealed: true, activeModal: "valoricaReveal" }));
   };
@@ -239,7 +277,7 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
       ...state,
       foundScroll, closeModal, startQuest, completeQuest,
       startRiddle, solveRiddle,
-      awardScrollFour, awardScrollFive,
+      awardScroll,
       triggerValoricaReveal
     }}>
       {children}
@@ -257,16 +295,16 @@ export const HiddenOrb = ({ id, className }: { id: number; className?: string })
       onClick={() => foundScroll(id)}
       className={cn(
         "relative w-3 h-3 sm:w-4 sm:h-4 rounded-full cursor-pointer z-40 group",
-        isFound ? "opacity-30" : "animate-pulse",
+        isFound ? "opacity-20" : "animate-pulse",
         className
       )}
       whileHover={{ scale: 1.5 }}
     >
       <div className={cn(
         "absolute inset-0 rounded-full blur-[2px]",
-        isFound ? "bg-amber-900" : "bg-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.8)]"
+        isFound ? "bg-amber-900/40" : "bg-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.8)]"
       )} />
-      <div className={cn("absolute inset-0 rounded-full", isFound ? "bg-amber-950" : "bg-amber-400")} />
+      <div className={cn("absolute inset-0 rounded-full", isFound ? "bg-amber-950/60" : "bg-amber-400")} />
       <span className="sr-only">Hidden Orb</span>
     </motion.button>
   );
@@ -312,8 +350,8 @@ export const QuestTrigger = ({ className }: { className?: string }) => {
 // ── Scroll collection display (used on Index / dedicated pages) ───────────────
 export const ScrollCollection = ({ className }: { className?: string }) => {
   const { foundScrolls } = useGame();
-  const total = SCROLLS.length;
-  const recovered = foundScrolls.filter(id => id >= 1 && id <= 7).length;
+  const total = TOTAL_SCROLLS;
+  const recovered = foundScrolls.filter(id => id >= 1 && id <= 12).length;
 
   return (
     <div className={cn("space-y-6", className)}>
@@ -361,7 +399,11 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
                 {found ? (
                   <Sparkles size={11} className="text-amber-600/60 flex-shrink-0" />
                 ) : (
-                  <Lock size={10} className="text-muted-foreground/40 flex-shrink-0" />
+                  /* Dimmed glowing orb icon for locked scrolls */
+                  <div className="relative w-3 h-3 flex-shrink-0">
+                    <div className="absolute inset-0 rounded-full bg-amber-800/20 blur-[1px]" />
+                    <div className="absolute inset-0.5 rounded-full bg-amber-900/30" />
+                  </div>
                 )}
               </div>
 
@@ -608,7 +650,7 @@ const GameUI = () => {
   return (
     <AnimatePresence>
       {activeModal === "scroll" && activeScrollId && (
-        <ScrollModal id={activeScrollId} count={foundScrolls.filter(id => id <= 7).length} onClose={closeModal} />
+        <ScrollModal id={activeScrollId} count={foundScrolls.filter(id => id >= 1 && id <= 12).length} onClose={closeModal} />
       )}
       {activeModal === "quest" && (
         <QuestModal onClose={closeModal} onComplete={completeQuest} />
@@ -629,7 +671,7 @@ const GameUI = () => {
 // ── ScrollModal ───────────────────────────────────────────────────────────────
 const ScrollModal = ({ id, count, onClose }: { id: number; count: number; onClose: () => void }) => {
   const scroll = SCROLLS.find(s => s.id === id);
-  const allFound = count >= 7;
+  const allFound = count >= TOTAL_SCROLLS;
   return (
     <ModalBackdrop onClick={onClose}>
       <motion.div
@@ -651,7 +693,7 @@ const ScrollModal = ({ id, count, onClose }: { id: number; count: number; onClos
           "{scroll?.text}"
         </p>
         <div className="text-center text-xs font-sans tracking-widest uppercase text-amber-900/60">
-          {count} of 7 Fragments Recovered
+          {count} of {TOTAL_SCROLLS} Fragments Recovered
         </div>
         {allFound && (
           <div className="mt-6 pt-5 border-t border-amber-900/20 text-center">
@@ -781,11 +823,6 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: 
               <h2 className="font-display text-[1.6rem] sm:text-3xl text-amber-400 tracking-[0.12em] sm:tracking-[0.15em] mb-6">{archetype?.name}</h2>
               <div className="h-px w-20 bg-amber-800/50 mx-auto mb-6" />
               <p className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/70 italic leading-[1.8] mb-8 sm:mb-10">"{archetype?.desc}"</p>
-              {result === "devoted" && (
-                <p className="font-body text-[9px] tracking-[0.2em] uppercase text-amber-700/50 mb-6">
-                  ✦ A fragment of truth will be revealed to you
-                </p>
-              )}
               <button onClick={handleConfirm}
                 className="min-h-[44px] text-xs tracking-[0.3em] uppercase text-amber-700 hover:text-amber-500 transition-colors font-body border border-amber-900/40 hover:border-amber-700/60 px-6 py-3">
                 Seal Your Fate

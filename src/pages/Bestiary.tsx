@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
@@ -117,7 +118,7 @@ interface MonsterDef {
 const MONSTERS: MonsterDef[] = [
   {
     key: "unmarked",
-    scrollId: 1,
+    scrollId: 7,
     name: "The Unmarked",
     accentColor: "#b8960c",
     origin: "A soul too fractured to pass through Apotheosis. The body did not receive the message.",
@@ -128,7 +129,7 @@ const MONSTERS: MonsterDef[] = [
   },
   {
     key: "silencer",
-    scrollId: 2,
+    scrollId: 8,
     name: "The Silencer",
     accentColor: "#6b6b6b",
     origin: "Selected young. Trained in isolation. Branded on the back of the neck so they cannot be identified in a crowd.",
@@ -139,7 +140,7 @@ const MONSTERS: MonsterDef[] = [
   },
   {
     key: "collector",
-    scrollId: 3,
+    scrollId: 9,
     name: "The Collector",
     accentColor: "#2d5a3d",
     origin: "Synthesized Intelligence given a single directive and enough time to optimize for it perfectly. Its directive is harvest.",
@@ -150,7 +151,7 @@ const MONSTERS: MonsterDef[] = [
   },
   {
     key: "unmasked",
-    scrollId: 4,
+    scrollId: 10,
     name: "The Unmasked",
     accentColor: "#8b8b9b",
     origin: "The logical end of a society where a semper scar is the only proof of existence.",
@@ -161,7 +162,7 @@ const MONSTERS: MonsterDef[] = [
   },
   {
     key: "lost",
-    scrollId: 5,
+    scrollId: 11,
     name: "The Lost",
     accentColor: "#c8d8e8",
     origin: "Someone who crossed the boundary of the mapped world without knowing where they were going. Not dead. Not alive. Just displaced.",
@@ -280,61 +281,122 @@ const MonsterCard = ({
 };
 
 // ── The Unnamed — permanently locked card ──────────────────────────────────────
-const UnnamedCard = ({ allFiveUnlocked }: { allFiveUnlocked: boolean }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 24 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.6 }}
-  >
-    {allFiveUnlocked && (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="text-center mb-4"
-      >
-        <p className="font-narrative italic text-[0.875rem] leading-[1.8]" style={{ color: "hsl(38 15% 40%)" }}>
-          You have found everything Panterra will let you find. Something remains.
-        </p>
-      </motion.div>
-    )}
-    <div
-      className="border border-dashed p-6 sm:p-8 flex flex-col sm:flex-row gap-6"
-      style={{
-        borderColor: "hsl(38 8% 16%)",
-        background:  "hsl(20 8% 4%)",
-      }}
-    >
-      {/* Silhouette */}
-      <div className="flex-shrink-0 flex items-center justify-center w-full sm:w-24 mx-auto sm:mx-0">
-        <UnnamedSilhouette />
-      </div>
+const UnnamedCard = ({ allFiveUnlocked }: { allFiveUnlocked: boolean }) => {
+  const [clickCount, setClickCount] = useState(0);
+  const [scroll12Awarded, setScroll12Awarded] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
 
-      {/* Content */}
-      <div className="flex-1 min-w-0 flex flex-col gap-3">
-        <div>
-          <p className="font-body text-[8px] tracking-[0.35em] uppercase mb-1" style={{ color: "hsl(38 8% 22%)" }}>
-            Classification Unknown
+  const handleClick = () => {
+    if (scroll12Awarded) return;
+    const next = clickCount + 1;
+    setClickCount(next);
+    if (next >= 3) {
+      // Award scroll 12
+      try {
+        const saved = localStorage.getItem("chronicles_game_state_v2");
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (!parsed.foundScrolls?.includes(12)) {
+            parsed.foundScrolls = [...(parsed.foundScrolls || []), 12];
+            localStorage.setItem("chronicles_game_state_v2", JSON.stringify(parsed));
+          }
+        }
+      } catch {}
+      setScroll12Awarded(true);
+      setShowOverlay(true);
+      setTimeout(() => setShowOverlay(false), 3000);
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.6 }}
+    >
+      {allFiveUnlocked && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-4"
+        >
+          <p className="font-narrative italic text-[0.875rem] leading-[1.8]" style={{ color: "hsl(38 15% 40%)" }}>
+            You have found everything Panterra will let you find. Something remains.
           </p>
-          <h3 className="font-display text-xl tracking-[0.08em]" style={{ color: "hsl(38 8% 30%)" }}>
-            ? ? ? ? ? ? ? ?
-          </h3>
+        </motion.div>
+      )}
+
+      {/* Scroll 12 overlay */}
+      <AnimatePresence>
+        {showOverlay && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90"
+          >
+            <p
+              className="font-display text-lg sm:text-xl tracking-[0.1em] text-center px-8"
+              style={{ color: "hsl(38 60% 50%)" }}
+            >
+              You kept looking. Most people don't.
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div
+        onClick={handleClick}
+        className="border border-dashed p-6 sm:p-8 flex flex-col sm:flex-row gap-6 cursor-pointer transition-all duration-500"
+        style={{
+          borderColor: scroll12Awarded ? "hsl(38 40% 30% / 0.3)" : "hsl(38 8% 16%)",
+          background: scroll12Awarded ? "hsl(20 10% 5%)" : "hsl(20 8% 4%)",
+          boxShadow: scroll12Awarded
+            ? "0 0 20px hsl(38 60% 40% / 0.08)"
+            : "none",
+          animation: !scroll12Awarded ? "unnamed-pulse 4s ease-in-out infinite" : "none",
+        }}
+      >
+        {/* Pulsing border animation */}
+        <style>{`
+          @keyframes unnamed-pulse {
+            0%, 100% { border-color: hsl(38 8% 16%); }
+            50% { border-color: hsl(38 20% 22%); }
+          }
+        `}</style>
+
+        {/* Silhouette */}
+        <div className="flex-shrink-0 flex items-center justify-center w-full sm:w-24 mx-auto sm:mx-0">
+          <UnnamedSilhouette />
         </div>
-        <p className="font-narrative italic text-[0.9375rem] leading-[1.85]" style={{ color: "hsl(38 8% 28%)" }}>
-          It has been seen in all four quadrants in the same week. It does not appear on any surveillance. Children describe it before they are old enough to have heard of it. The Pantheon has been petitioned for guidance. The Pantheon has not responded.
-        </p>
-        <p className="font-body text-[8px] tracking-[0.2em] uppercase mt-1" style={{ color: "hsl(38 6% 18%)" }}>
-          ◈ Some things are not meant to be found.
-        </p>
+
+        {/* Content */}
+        <div className="flex-1 min-w-0 flex flex-col gap-3">
+          <div>
+            <p className="font-body text-[8px] tracking-[0.35em] uppercase mb-1" style={{ color: "hsl(38 8% 22%)" }}>
+              Classification Unknown
+            </p>
+            <h3 className="font-display text-xl tracking-[0.08em]" style={{ color: "hsl(38 8% 30%)" }}>
+              ? ? ? ? ? ? ? ?
+            </h3>
+          </div>
+          <p className="font-narrative italic text-[0.9375rem] leading-[1.85]" style={{ color: "hsl(38 8% 28%)" }}>
+            It has been seen in all four quadrants in the same week. It does not appear on any surveillance. Children describe it before they are old enough to have heard of it. The Pantheon has been petitioned for guidance. The Pantheon has not responded.
+          </p>
+          <p className="font-body text-[8px] tracking-[0.2em] uppercase mt-1" style={{ color: "hsl(38 6% 18%)" }}>
+            ◈ Some things are not meant to be found.
+          </p>
+        </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 // ── Main Bestiary Page ─────────────────────────────────────────────────────────
 const Bestiary = () => {
   const foundScrolls = getFoundScrolls();
-  const allFiveUnlocked = [1, 2, 3, 4, 5].every((id) => foundScrolls.includes(id));
+  const allFiveUnlocked = [7, 8, 9, 10, 11].every((id) => foundScrolls.includes(id));
 
   return (
     <Layout>
