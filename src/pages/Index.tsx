@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
-import { HiddenOrb, QuestTrigger } from "@/components/ChroniclesSystem";
+import { HiddenOrb, QuestTrigger, ScrollCollection } from "@/components/ChroniclesSystem";
 import heroCityscape from "@/assets/hero-cityscape.jpg";
 
 // Detect touch-only devices (no hover support)
@@ -420,6 +420,26 @@ const Index = () => {
               </ScrollReveal>
               <ScrollReveal delay={0.3}>
                 <div className="steampunk-divider max-w-xs mx-auto mt-8" />
+              </ScrollReveal>
+            </div>
+          </section>
+
+          {/* Chronicles Scroll Collection */}
+          <section className="py-16 sm:py-20 px-5 sm:px-8 border-t border-border/30">
+            <div className="max-w-3xl mx-auto">
+              <ScrollReveal>
+                <div className="text-center mb-10">
+                  <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
+                    ✦ The Chronicles of Panterra ✦
+                  </p>
+                  <h2 className="font-display text-xl sm:text-2xl tracking-[0.15em] text-foreground">
+                    Fragments of Forbidden Truth
+                  </h2>
+                  <div className="steampunk-divider max-w-xs mx-auto mt-4" />
+                </div>
+              </ScrollReveal>
+              <ScrollReveal delay={0.1}>
+                <ScrollCollection />
               </ScrollReveal>
             </div>
           </section>

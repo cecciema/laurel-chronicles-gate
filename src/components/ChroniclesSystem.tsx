@@ -399,7 +399,18 @@ const SealedDocumentPuzzle = ({ foundScrolls }: { foundScrolls: number[] }) => {
   const { triggerValoricaReveal, valoricaRevealed } = useGame();
   const allFound = SCROLLS.every(s => foundScrolls.includes(s.id));
 
-  const [order, setOrder] = useState<number[]>([...SCROLLS.map(s => s.id)]);
+  const [order, setOrder] = useState<number[]>(() => {
+    // Shuffle the IDs so the player can't just immediately submit
+    const ids = SCROLLS.map(s => s.id);
+    for (let i = ids.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [ids[i], ids[j]] = [ids[j], ids[i]];
+    }
+    // Ensure it's not already in correct order (retry once if needed)
+    const alreadyCorrect = ids.every((id, i) => id === CORRECT_ORDER[i]);
+    if (alreadyCorrect) { const tmp = ids[0]; ids[0] = ids[1]; ids[1] = tmp; }
+    return ids;
+  });
   const [draggedId, setDraggedId] = useState<number | null>(null);
   const [result, setResult] = useState<"correct" | "wrong" | null>(null);
   const [submitted, setSubmitted] = useState(false);
@@ -844,8 +855,7 @@ const ValoricaRevealModal = ({ onClose }: { onClose: () => void }) => {
   );
 
   return (
-    <AnimatePresence>
-      <motion.div
+    <motion.div
         key="valorica-reveal"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -931,6 +941,5 @@ const ValoricaRevealModal = ({ onClose }: { onClose: () => void }) => {
           </motion.p>
         </motion.div>
       </motion.div>
-    </AnimatePresence>
   );
 };
