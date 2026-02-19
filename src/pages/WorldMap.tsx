@@ -1068,53 +1068,41 @@ const ZoneButton = ({
   zone,
   onClick,
   disabled,
-  placedChar,
 }: {
   zone: typeof KW_ZONES[0];
   onClick: () => void;
   disabled: boolean;
-  placedChar?: string;
 }) => (
   <button
     onClick={onClick}
     disabled={disabled}
     className="relative flex flex-col items-center justify-center gap-1.5 p-3 border transition-all duration-200 group focus:outline-none"
     style={{
-      borderColor: placedChar ? zone.color : `${zone.color}40`,
-      background:  placedChar ? `${zone.color}18` : "transparent",
-      boxShadow:   placedChar ? `0 0 20px ${zone.color}40` : "none",
+      borderColor: `${zone.color}40`,
+      background:  "transparent",
     }}
     onMouseEnter={(e) => {
-      if (!disabled && !placedChar) {
+      if (!disabled) {
         (e.currentTarget as HTMLButtonElement).style.borderColor = `${zone.color}99`;
         (e.currentTarget as HTMLButtonElement).style.background  = `${zone.color}12`;
       }
     }}
     onMouseLeave={(e) => {
-      if (!disabled && !placedChar) {
+      if (!disabled) {
         (e.currentTarget as HTMLButtonElement).style.borderColor = `${zone.color}40`;
         (e.currentTarget as HTMLButtonElement).style.background  = "transparent";
       }
     }}
   >
-    {/* Placed portrait snap-in */}
-    {placedChar && (
-      <div
-        className="w-10 h-10 rounded-full overflow-hidden border-2 flex-shrink-0"
-        style={{ borderColor: zone.color, animation: "kw-snap 0.5s ease-out forwards" }}
-      >
-        <img src={characterImageMap[placedChar]} alt="" className="w-full h-full object-cover" />
-      </div>
-    )}
     {/* Colour pip */}
     <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: zone.color }} />
     <span
       className="font-display text-[9px] tracking-[0.18em] uppercase text-center leading-tight"
-      style={{ color: placedChar ? zone.color : `${zone.color}99` }}
+      style={{ color: `${zone.color}99` }}
     >
       {zone.label}
     </span>
-    {!placedChar && !disabled && (
+    {!disabled && (
       <span className="text-[7px] tracking-widest uppercase font-body opacity-0 group-hover:opacity-60 transition-opacity" style={{ color: zone.color }}>
         Place here
       </span>
@@ -1135,7 +1123,7 @@ const TheKnownWorld = () => {
   const [roundIdx,    setRoundIdx]    = useState(0);
   const [lives,       setLives]       = useState(KW_TOTAL_LIVES);
   const [wrongCount,  setWrongCount]  = useState(0);
-  const [placedZones, setPlacedZones] = useState<Partial<Record<ZoneId, string>>>({});
+  const [placedRounds, setPlacedRounds] = useState<Record<number, { zone: ZoneId; image: string }>>({});
   const [gamePhase,   setGamePhase]   = useState<"playing" | "wrong-flash" | "won" | "lost">("playing");
 
   const currentRound = gameChars[roundIdx] ?? null;
@@ -1145,7 +1133,7 @@ const TheKnownWorld = () => {
     setRoundIdx(0);
     setLives(KW_TOTAL_LIVES);
     setWrongCount(0);
-    setPlacedZones({});
+    setPlacedRounds({});
     setGamePhase("playing");
   };
 
@@ -1153,9 +1141,8 @@ const TheKnownWorld = () => {
     if (gamePhase !== "playing" || !currentRound) return;
 
     if (zoneId === currentRound.region) {
-      // Correct placement
-      const newPlaced = { ...placedZones, [zoneId]: currentRound.image };
-      setPlacedZones(newPlaced);
+      // Correct placement — track by round index, not by zone
+      setPlacedRounds((prev) => ({ ...prev, [roundIdx]: { zone: zoneId, image: currentRound.image } }));
 
       if (roundIdx + 1 >= KW_TOTAL_ROUNDS) {
         setGamePhase("won");
@@ -1382,8 +1369,7 @@ const TheKnownWorld = () => {
                           key={zone.id}
                           zone={zone}
                           onClick={() => handlePlace(zone.id)}
-                          disabled={gamePhase === "wrong-flash" || !!placedZones[zone.id]}
-                          placedChar={placedZones[zone.id]}
+                          disabled={gamePhase === "wrong-flash"}
                         />
                       ))}
                     </div>
@@ -1393,8 +1379,7 @@ const TheKnownWorld = () => {
                           key={zone.id}
                           zone={zone}
                           onClick={() => handlePlace(zone.id)}
-                          disabled={gamePhase === "wrong-flash" || !!placedZones[zone.id]}
-                          placedChar={placedZones[zone.id]}
+                          disabled={gamePhase === "wrong-flash"}
                         />
                       ))}
                     </div>
