@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
-import { HiddenOrb, QuestTrigger, ScrollCollection } from "@/components/ChroniclesSystem";
+import { HiddenOrb, QuestTrigger, ScrollCollection, useGame } from "@/components/ChroniclesSystem";
 import heroCityscape from "@/assets/hero-cityscape.jpg";
 
 // Detect touch-only devices (no hover support)
@@ -476,19 +476,33 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Hidden bestiary glyph — barely visible, bottom-left corner */}
-      <button
-        onClick={() => navigate("/bestiary")}
-        aria-hidden="true"
-        tabIndex={-1}
-        className="fixed bottom-3 left-3 z-[5] w-6 h-6 flex items-center justify-center select-none"
-        style={{ opacity: 0.15, cursor: "default" }}
-      >
-        <span className="font-display text-base" style={{ color: "hsl(38 30% 40%)" }}>✦</span>
-      </button>
+      <EasterEggGlyph />
 
       {/* BottomNav is rendered globally in Layout.tsx */}
     </>
+  );
+};
+
+// ── Easter egg glyph — awards Scroll 6 + navigates to bestiary ────────────────
+const EasterEggGlyph = () => {
+  const navigate = useNavigate();
+  const { foundScroll } = useGame();
+  
+  const handleClick = () => {
+    foundScroll(6);
+    navigate("/bestiary");
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      aria-hidden="true"
+      tabIndex={-1}
+      className="fixed bottom-3 left-3 z-[5] w-6 h-6 flex items-center justify-center select-none"
+      style={{ opacity: 0.15, cursor: "default" }}
+    >
+      <span className="font-display text-base" style={{ color: "hsl(38 30% 40%)" }}>✦</span>
+    </button>
   );
 };
 

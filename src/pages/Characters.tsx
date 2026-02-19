@@ -35,7 +35,7 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 // ─── The Unmasked — Game Data ──────────────────────────────────────────────────
-const UNMASKED_SCROLL_ID = 4;
+const UNMASKED_SCROLL_ID = 10;
 
 type RoundDef = {
   answerId: string;
@@ -199,7 +199,7 @@ const getWinRank = (score: number): string => {
 };
 
 const TheUnmasked = () => {
-  const { foundScrolls, awardScrollFour } = useGame();
+  const { foundScrolls, awardScroll } = useGame();
   const alreadyWon = foundScrolls.includes(UNMASKED_SCROLL_ID);
   const [bestiaryUnlocked, setBestiaryUnlocked] = useState(alreadyWon);
 
@@ -261,7 +261,7 @@ const TheUnmasked = () => {
         if (roundIdx + 1 >= TOTAL_ROUNDS) {
           setPhase("won");
           setBestiaryUnlocked(true);
-          if (!alreadyWon) awardScrollFour();
+          if (!alreadyWon) awardScroll(UNMASKED_SCROLL_ID);
         } else {
           // Show per-round summary briefly then advance
           setPhase("round-summary");
@@ -292,7 +292,7 @@ const TheUnmasked = () => {
         }, 1000);
       }
     },
-    [phase, currentRound, cluesRevealed, score, roundIdx, lives, alreadyWon, awardScrollFour, resetRound]
+    [phase, currentRound, cluesRevealed, score, roundIdx, lives, alreadyWon, awardScroll, resetRound]
   );
 
   // ── Render ──
