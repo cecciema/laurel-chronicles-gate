@@ -135,7 +135,7 @@ const BEATS: Beat[] = [
   },
 ];
 
-const SCROLL_ID = 8;
+const SCROLL_ID = 3; // labyrinth awards Scroll 3 — "The Apotheosis Data"
 
 // ─── Apotheosis Path Component ────────────────────────────────────────────────
 const ApotheosisPath = () => {

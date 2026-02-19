@@ -248,7 +248,7 @@ export const DeadCorridors = () => {
   const [won, setWon] = useState(false);
   const [bestiaryUnlocked, setBestiaryUnlocked] = useState(false);
 
-  const SCROLL_ID = 8; // maze awards scroll #8 (the hidden 8th)
+  const SCROLL_ID = 1; // maze awards Scroll 1 — "The Southern Burn"
   const alreadyWon = foundScrolls.includes(SCROLL_ID);
 
   // ── Enemy movement along patrol path at ~0.6 tiles/sec

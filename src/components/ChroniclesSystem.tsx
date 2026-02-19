@@ -1,61 +1,73 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Scroll, Sparkles, Feather, Lock, Unlock, Map as MapIcon, HelpCircle } from "lucide-react";
+import { Scroll, Lock, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/components/ui/use-toast";
 
-// --- DATA ---
-
+// ── Scroll data ────────────────────────────────────────────────────────────────
 const SCROLLS = [
   {
     id: 1,
-    title: "Fragment I",
-    text: "Remsays did not fall in love with Quinn. He placed Culver's ring in her palm and said: 'To make your decision easier — I will make sure his lease always gets renewed.' That was not a proposal. That was a transaction."
+    title: "The Southern Burn",
+    hint: "Somewhere in the dead world",
+    text: "The southern hemisphere was not destroyed by war. The burn was controlled. Someone needed it empty.",
+    source: "Found in the Dead Corridors maze"
   },
   {
     id: 2,
-    title: "Fragment II",
-    text: "Carmela stole a vial of Lockland's ashes from the ceremony and buried it under the oak tree. She had loved him for decades. He never knew. Or perhaps he always did."
+    title: "The Convoy's Origin",
+    hint: "Encoded in the old transmissions",
+    text: "The Convoy's first recorded communication predates the Great War by 40 years. They did not form in response to the system. They built it.",
+    source: "Found in the Forbidden Transmission cipher"
   },
   {
     id: 3,
-    title: "Fragment III",
-    text: "Verlaine carried gold laurel pins she was not yet permitted to wear. She had been the new Sol Deus all along — even as she watched Lockland ascend at the ceremony where she was supposed to be just a junior devotee."
+    title: "The Apotheosis Data",
+    hint: "The path to ascension holds secrets",
+    text: "Apotheosis yields are tracked by quadrant, by season, and by soul mass. The data is sent somewhere. The destination is not listed in any Parliament record.",
+    source: "Found on the Apotheosis Path"
   },
   {
     id: 4,
-    title: "Fragment IV",
-    text: "Gable told the Premiere: the meteor shower will give us sixty to ninety days. No more. The satellites that protect the moons and shield us from the Sun — all of them — are in its path."
+    title: "The Placed Ones",
+    hint: "Among the characters, a deeper truth",
+    text: "Not all Sol Deus are born. Some are placed. The selection criteria have never been made public. The criteria exist.",
+    source: "Awaiting discovery"
   },
   {
     id: 5,
-    title: "Fragment V",
-    text: "The Convoy of Reformation has a leader. No one has seen them. Even Mexia and Gemma were afraid of this person. Carmela told Nefertar this from a jail cell, bleeding from a knife wound, and no one believed her."
+    title: "The Boundary Signal",
+    hint: "Study the world from above",
+    text: "The satellites do not only herd the moon. They also maintain a boundary. Inside the boundary, signals cannot leave. Outside the boundary, one location is always excluded from surveillance.",
+    source: "Awaiting discovery"
   },
   {
     id: 6,
-    title: "Fragment VI",
-    text: "Quinn married the most powerful man in Panterra. She did it to save Culver's life. She burns every letter she writes to him."
+    title: "The Excluded Place",
+    hint: "The unknown holds answers",
+    text: "The excluded location has a name. It was removed from all maps after the Great War. It was not destroyed. It was protected.",
+    source: "Found in the unknown territory"
   },
   {
     id: 7,
-    title: "Fragment VII",
-    text: "Cornerstone Law I: One Republic World. Cornerstone Law IV: Apotheosis at Apex. Premier Jude broke Law II. He kept his biological daughter. The very man who enforced the laws — broke one in secret."
+    title: "Those Who Stayed",
+    hint: "Your allegiance reveals more than you know",
+    text: "There are people who did not take their Apotheosis. There are people who were not required to. They live outside the boundary. They have always lived there. They have been watching.",
+    source: "Revealed through allegiance"
   },
-  {
-    id: 8,
-    title: "The Arborwell Record",
-    text: "There is a corridor beyond the Apotheosis chamber that does not appear on any Pantheon map. Those who walk it do not return to the ceremony. They arrive somewhere else entirely. The Pantheon calls this process 'completion.' The Frontier calls it 'the other door.' Arborwell knows what it actually is."
-  }
 ];
 
+// ── Sealed document correct order ─────────────────────────────────────────────
+const CORRECT_ORDER = [1, 2, 3, 4, 5, 6, 7];
+
+// ── Quest scenes ───────────────────────────────────────────────────────────────
 const QUEST_SCENES = [
   {
     id: 1,
     text: "The Admissions Bureau has finally sent your package. Your patron soul is devastated. They ask you to stay. You:",
     options: [
       { id: "A", text: "I leave anyway. The greater good demands it.", type: "devoted" },
-      { id: "B", text: "I stay. No cause is worth losing them.", type: "witness" }, // Adjusted based on logic: staying is closer to Witness/torn or Architect/strategic? Prompt says C is witness. Let's map strict to prompt.
+      { id: "B", text: "I stay. No cause is worth losing them.", type: "witness" },
       { id: "C", text: "I find a way to bring us both in — no matter what it costs.", type: "architect" }
     ]
   },
@@ -82,22 +94,13 @@ const QUEST_SCENES = [
     text: "The Cornerstone Laws have kept Panterra in peace for generations. But you discover they were built on lies. You:",
     options: [
       { id: "A", text: "Tear it all down. A just world cannot be built on a rotten foundation.", type: "devoted" },
-      { id: "B", text: "Protect the system. Chaos kills more people than corruption.", type: "witness" }, // Architect fits here too, but prompt mapping implies B/C swap sometimes. Let's stick to prompt archetypes map: A=Devoted, B=Architect, C=Witness usually. 
-      // Re-reading prompt: 
-      // A (Devoted): Sacrifice/Right thing. 
-      // B (Architect): Strategic/Ruthless. 
-      // C (Witness): Torn/Observe/Endure.
-      // Scene 4 options: A=Tear down (Devoted), B=Protect system (Architect/Witness?), C=Change slowly (Witness/Architect?). 
-      // Let's map strictly: A->Devoted, B->Architect, C->Witness for consistency in code logic, even if text varies slightly.
+      { id: "B", text: "Protect the system. Chaos kills more people than corruption.", type: "architect" },
       { id: "C", text: "Work from the inside. Change it slowly, without breaking what feeds people.", type: "witness" }
     ]
   }
 ];
-// Correction for Q1 based on prompt archetype descriptions:
-// Devoted: A (Sacrifice/Leave)
-// Architect: C (Find a way/Strategic) - Wait, prompt says B is Architect generally. Let's fix Scene 1 mapping to match prompt intent.
-// Scene 1: A (Leave/Good) -> Devoted. B (Stay/Love) -> Witness. C (Bring both/Cost) -> Architect.
 
+// ── Riddles ────────────────────────────────────────────────────────────────────
 const RIDDLES = [
   {
     id: 1,
@@ -116,14 +119,21 @@ const RIDDLES = [
   }
 ];
 
-// --- CONTEXT ---
+// ── Archetypes ─────────────────────────────────────────────────────────────────
+const ARCHETYPES = {
+  devoted: { name: "The Devoted", sigil: "✦", desc: "Like Culver, you love with everything and fight for what's right even when it costs you. Your greatest strength is also your blindspot." },
+  architect: { name: "The Architect", sigil: "⬡", desc: "Like Remsays or Verlaine, you see the board before others see the pieces. The question is: who will you sacrifice to win?" },
+  witness: { name: "The Witness", sigil: "◎", desc: "Like Quinn or Carmela, you carry the weight of what you know and what you cannot change. History will be written by others — but you were there when it happened." }
+};
 
+// ── Context ────────────────────────────────────────────────────────────────────
 interface GameState {
   foundScrolls: number[];
   questCompleted: boolean;
   questArchetype: string | null;
-  riddlesSolved: number; // 0, 1, 2, 3
-  activeModal: "scroll" | "quest" | "riddle" | "riddleSuccess" | null;
+  riddlesSolved: number;
+  valoricaRevealed: boolean;
+  activeModal: "scroll" | "quest" | "riddle" | "riddleSuccess" | "valoricaReveal" | null;
   activeScrollId: number | null;
 }
 
@@ -134,6 +144,9 @@ interface GameContextType extends GameState {
   completeQuest: (archetype: string) => void;
   startRiddle: () => void;
   solveRiddle: () => void;
+  awardScrollFour: () => void;
+  awardScrollFive: () => void;
+  triggerValoricaReveal: () => void;
 }
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
@@ -147,28 +160,31 @@ export const useGame = () => {
 export const GameProvider = ({ children }: { children: React.ReactNode }) => {
   const { toast } = useToast();
   const [state, setState] = useState<GameState>(() => {
-    const saved = localStorage.getItem("chronicles_game_state");
-    return saved ? JSON.parse(saved) : {
+    try {
+      const saved = localStorage.getItem("chronicles_game_state_v2");
+      if (saved) return JSON.parse(saved);
+    } catch {}
+    return {
       foundScrolls: [],
       questCompleted: false,
       questArchetype: null,
       riddlesSolved: 0,
+      valoricaRevealed: false,
       activeModal: null,
       activeScrollId: null
     };
   });
 
   useEffect(() => {
-    localStorage.setItem("chronicles_game_state", JSON.stringify(state));
+    localStorage.setItem("chronicles_game_state_v2", JSON.stringify(state));
   }, [state]);
 
   const foundScroll = (id: number) => {
+    const scroll = SCROLLS.find(s => s.id === id);
     if (!state.foundScrolls.includes(id)) {
       toast({
-        title: id === 8 ? "The Arborwell Record Recovered" : "Forbidden Scroll Recovered",
-        description: id === 8
-          ? "You walked the Apotheosis Path. The other door is real."
-          : `You have found Fragment ${id}. (${state.foundScrolls.length + 1}/8)`,
+        title: `Fragment ${id} Recovered`,
+        description: scroll ? `"${scroll.title}"` : "A forbidden truth surfaces.",
         className: "bg-amber-950 border-amber-500 text-amber-100",
       });
       setState(prev => ({
@@ -178,42 +194,63 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
         activeScrollId: id
       }));
     } else {
-      setState(prev => ({
-        ...prev,
-        activeModal: "scroll",
-        activeScrollId: id
-      }));
+      setState(prev => ({ ...prev, activeModal: "scroll", activeScrollId: id }));
     }
   };
 
   const closeModal = () => setState(prev => ({ ...prev, activeModal: null, activeScrollId: null }));
-  const startQuest = () => setState(prev => ({ ...prev, activeModal: "quest" }));
-  const completeQuest = (archetype: string) => setState(prev => ({ ...prev, questCompleted: true, questArchetype: archetype, activeModal: null }));
-  const startRiddle = () => setState(prev => ({ ...prev, activeModal: "riddle" }));
-  const solveRiddle = () => {
+  const startQuest  = () => setState(prev => ({ ...prev, activeModal: "quest" }));
+
+  const completeQuest = (archetype: string) => {
     setState(prev => {
-        const newCount = prev.riddlesSolved + 1;
-        if (newCount >= 3) {
-            return { ...prev, riddlesSolved: 3, activeModal: "riddleSuccess" };
-        }
-        return { ...prev, riddlesSolved: newCount };
+      const newState = { ...prev, questCompleted: true, questArchetype: archetype, activeModal: null as GameState["activeModal"] };
+      // Award scroll 7 if archetype is "devoted"
+      if (archetype === "devoted" && !prev.foundScrolls.includes(7)) {
+        newState.foundScrolls = [...prev.foundScrolls, 7];
+        // Show it after a brief delay
+        setTimeout(() => {
+          setState(s => ({ ...s, activeModal: "scroll", activeScrollId: 7 }));
+        }, 3200);
+      }
+      return newState;
     });
   };
 
+  const startRiddle  = () => setState(prev => ({ ...prev, activeModal: "riddle" }));
+  const solveRiddle  = () => {
+    setState(prev => {
+      const newCount = prev.riddlesSolved + 1;
+      if (newCount >= 3) return { ...prev, riddlesSolved: 3, activeModal: "riddleSuccess" };
+      return { ...prev, riddlesSolved: newCount };
+    });
+  };
+
+  // Placeholder award functions for games not yet built
+  const awardScrollFour = () => foundScroll(4);
+  const awardScrollFive = () => foundScroll(5);
+
+  const triggerValoricaReveal = () => {
+    setState(prev => ({ ...prev, valoricaRevealed: true, activeModal: "valoricaReveal" }));
+  };
+
   return (
-    <GameContext.Provider value={{ ...state, foundScroll, closeModal, startQuest, completeQuest, startRiddle, solveRiddle }}>
+    <GameContext.Provider value={{
+      ...state,
+      foundScroll, closeModal, startQuest, completeQuest,
+      startRiddle, solveRiddle,
+      awardScrollFour, awardScrollFive,
+      triggerValoricaReveal
+    }}>
       {children}
       <GameUI />
     </GameContext.Provider>
   );
 };
 
-// --- COMPONENTS ---
-
-export const HiddenOrb = ({ id, className }: { id: number, className?: string }) => {
+// ── HiddenOrb ─────────────────────────────────────────────────────────────────
+export const HiddenOrb = ({ id, className }: { id: number; className?: string }) => {
   const { foundScroll, foundScrolls } = useGame();
   const isFound = foundScrolls.includes(id);
-
   return (
     <motion.button
       onClick={() => foundScroll(id)}
@@ -228,27 +265,25 @@ export const HiddenOrb = ({ id, className }: { id: number, className?: string })
         "absolute inset-0 rounded-full blur-[2px]",
         isFound ? "bg-amber-900" : "bg-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.8)]"
       )} />
-      <div className={cn(
-        "absolute inset-0 rounded-full",
-        isFound ? "bg-amber-950" : "bg-amber-400"
-      )} />
+      <div className={cn("absolute inset-0 rounded-full", isFound ? "bg-amber-950" : "bg-amber-400")} />
       <span className="sr-only">Hidden Orb</span>
     </motion.button>
   );
 };
 
+// ── HiddenSigil ───────────────────────────────────────────────────────────────
 export const HiddenSigil = ({ className }: { className?: string }) => {
   const { startRiddle } = useGame();
   return (
     <button onClick={startRiddle} className={cn("opacity-10 hover:opacity-100 transition-opacity duration-700 text-amber-700 hover:text-amber-500", className)}>
-       <span className="text-xl">❦</span>
+      <span className="text-xl">❦</span>
     </button>
   );
 };
 
+// ── QuestTrigger ──────────────────────────────────────────────────────────────
 export const QuestTrigger = ({ className }: { className?: string }) => {
   const { startQuest, questCompleted, questArchetype } = useGame();
-
   if (questCompleted && questArchetype) {
     const archetype = ARCHETYPES[questArchetype as keyof typeof ARCHETYPES];
     return (
@@ -256,17 +291,13 @@ export const QuestTrigger = ({ className }: { className?: string }) => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
-        className={cn(
-          "inline-flex items-center gap-2 px-4 py-2 border border-primary/40 text-primary font-display text-xs tracking-widest uppercase",
-          className
-        )}
+        className={cn("inline-flex items-center gap-2 px-4 py-2 border border-primary/40 text-primary font-display text-xs tracking-widest uppercase", className)}
       >
         <span>{archetype?.sigil}</span>
         <span>{archetype?.name}</span>
       </motion.div>
     );
   }
-
   return (
     <button
       onClick={startQuest}
@@ -277,9 +308,234 @@ export const QuestTrigger = ({ className }: { className?: string }) => {
   );
 };
 
-// --- MODALS ---
+// ── Scroll collection display (used on Index / dedicated pages) ───────────────
+export const ScrollCollection = ({ className }: { className?: string }) => {
+  const { foundScrolls } = useGame();
+  const total = SCROLLS.length;
+  const recovered = foundScrolls.filter(id => id >= 1 && id <= 7).length;
 
-const ModalBackdrop = ({ children, onClick }: { children: React.ReactNode, onClick: () => void }) => (
+  return (
+    <div className={cn("space-y-6", className)}>
+      {/* Progress header */}
+      <div className="flex items-center justify-between">
+        <p className="font-display text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+          {recovered} of {total} Fragments Recovered
+        </p>
+        <div className="flex gap-1">
+          {SCROLLS.map(s => (
+            <div
+              key={s.id}
+              className="w-1.5 h-4 rounded-sm transition-all duration-500"
+              style={{ background: foundScrolls.includes(s.id) ? "hsl(38 72% 50%)" : "hsl(38 20% 20%)" }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Scroll cards */}
+      <div className="grid gap-3 sm:grid-cols-2">
+        {SCROLLS.map(scroll => {
+          const found = foundScrolls.includes(scroll.id);
+          return (
+            <motion.div
+              key={scroll.id}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: scroll.id * 0.05 }}
+              className={cn(
+                "relative border p-4 transition-all duration-300",
+                found
+                  ? "bg-[#12100a] border-amber-900/50"
+                  : "bg-[#0d0b08] border-border/30"
+              )}
+            >
+              {/* Scroll number */}
+              <div className="flex items-start justify-between mb-2">
+                <span
+                  className="font-display text-[8px] tracking-[0.35em] uppercase"
+                  style={{ color: found ? "hsl(38 72% 50%)" : "hsl(38 15% 35%)" }}
+                >
+                  Fragment {scroll.id}
+                </span>
+                {found ? (
+                  <Sparkles size={11} className="text-amber-600/60 flex-shrink-0" />
+                ) : (
+                  <Lock size={10} className="text-muted-foreground/40 flex-shrink-0" />
+                )}
+              </div>
+
+              {found ? (
+                <>
+                  <p className="font-display text-[11px] tracking-wide text-foreground/90 mb-2 leading-snug">
+                    {scroll.title}
+                  </p>
+                  <p className="font-narrative italic text-[0.875rem] text-foreground/70 leading-[1.75]">
+                    "{scroll.text}"
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="font-display text-[11px] tracking-wide text-muted-foreground/30 mb-2">
+                    Not yet found
+                  </p>
+                  <p className="font-body text-[9px] tracking-wide text-muted-foreground/40 italic">
+                    ↳ {scroll.hint}
+                  </p>
+                </>
+              )}
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Sealed document puzzle */}
+      <SealedDocumentPuzzle foundScrolls={foundScrolls} />
+    </div>
+  );
+};
+
+// ── Sealed Document Puzzle ────────────────────────────────────────────────────
+const SealedDocumentPuzzle = ({ foundScrolls }: { foundScrolls: number[] }) => {
+  const { triggerValoricaReveal, valoricaRevealed } = useGame();
+  const allFound = SCROLLS.every(s => foundScrolls.includes(s.id));
+
+  const [order, setOrder] = useState<number[]>([...SCROLLS.map(s => s.id)]);
+  const [draggedId, setDraggedId] = useState<number | null>(null);
+  const [result, setResult] = useState<"correct" | "wrong" | null>(null);
+  const [submitted, setSubmitted] = useState(false);
+
+  if (!allFound) return null;
+
+  const handleDragStart = (id: number) => setDraggedId(id);
+  const handleDragOver = (e: React.DragEvent, id: number) => {
+    e.preventDefault();
+    if (draggedId === null || draggedId === id) return;
+    setOrder(prev => {
+      const next = [...prev];
+      const fromIdx = next.indexOf(draggedId);
+      const toIdx = next.indexOf(id);
+      next.splice(fromIdx, 1);
+      next.splice(toIdx, 0, draggedId);
+      return next;
+    });
+  };
+  const handleDragEnd = () => setDraggedId(null);
+
+  const handleSubmit = () => {
+    setSubmitted(true);
+    const isCorrect = order.every((id, i) => id === CORRECT_ORDER[i]);
+    if (isCorrect) {
+      setResult("correct");
+      setTimeout(() => triggerValoricaReveal(), 600);
+    } else {
+      setResult("wrong");
+      setTimeout(() => { setResult(null); setSubmitted(false); }, 3000);
+    }
+  };
+
+  if (valoricaRevealed) {
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="border border-amber-800/40 bg-[#0d0b08] p-6 text-center"
+      >
+        <p className="font-display text-[9px] tracking-[0.35em] uppercase text-amber-600/60 mb-2">
+          The Sealed Document — Solved
+        </p>
+        <p className="font-narrative italic text-amber-700/60 text-sm">
+          "Valorica exists. The boundary holds."
+        </p>
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="border border-amber-800/50 bg-[#0d0b08] p-5 space-y-4"
+    >
+      {/* Header */}
+      <div className="text-center">
+        <p className="font-display text-[8px] tracking-[0.4em] uppercase text-amber-600/50 mb-1">
+          ✦ All Fragments Recovered ✦
+        </p>
+        <h3 className="font-display text-sm tracking-[0.2em] text-amber-400/90">
+          The Sealed Document
+        </h3>
+        <div className="h-px bg-amber-900/30 mt-3" />
+        <p className="font-body text-[9px] text-muted-foreground mt-3 leading-relaxed">
+          Drag the fragments into their correct order. When the truth aligns, the document opens.
+        </p>
+      </div>
+
+      {/* Draggable cards */}
+      <div className="space-y-2">
+        {order.map((id, i) => {
+          const scroll = SCROLLS.find(s => s.id === id)!;
+          return (
+            <div
+              key={id}
+              draggable
+              onDragStart={() => handleDragStart(id)}
+              onDragOver={(e) => handleDragOver(e, id)}
+              onDragEnd={handleDragEnd}
+              className={cn(
+                "flex items-start gap-3 p-3 border cursor-grab active:cursor-grabbing transition-all duration-150 select-none",
+                draggedId === id
+                  ? "opacity-40 border-amber-500/50 bg-amber-950/20"
+                  : "border-amber-900/30 bg-[#13110d] hover:border-amber-800/50"
+              )}
+            >
+              <span className="font-display text-[10px] text-amber-700/60 flex-shrink-0 w-4 pt-0.5">{i + 1}</span>
+              <div className="flex-1 min-w-0">
+                <p className="font-display text-[10px] tracking-wide text-amber-500/80 leading-snug truncate">
+                  {scroll.title}
+                </p>
+                <p className="font-narrative italic text-[0.8125rem] text-foreground/50 leading-[1.65] mt-0.5 line-clamp-2">
+                  "{scroll.text}"
+                </p>
+              </div>
+              <span className="text-muted-foreground/20 text-xs flex-shrink-0 pt-0.5">⠿</span>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Feedback */}
+      <AnimatePresence>
+        {result === "wrong" && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="font-narrative italic text-red-500/70 text-xs text-center leading-relaxed"
+          >
+            "The fragments resist your arrangement. Something is still missing."
+          </motion.p>
+        )}
+      </AnimatePresence>
+
+      {/* Submit */}
+      <button
+        onClick={handleSubmit}
+        disabled={submitted && result !== "wrong"}
+        className={cn(
+          "w-full py-3 font-display text-[10px] tracking-[0.3em] uppercase transition-all duration-300 border",
+          "border-amber-800/50 text-amber-600 hover:border-amber-600/80 hover:text-amber-400 hover:shadow-[0_0_15px_hsl(38_72%_50%_/_0.15)]",
+          "disabled:opacity-40 disabled:cursor-not-allowed"
+        )}
+      >
+        Submit Order
+      </button>
+    </motion.div>
+  );
+};
+
+// ── Modal backdrop ─────────────────────────────────────────────────────────────
+const ModalBackdrop = ({ children, onClick }: { children: React.ReactNode; onClick: () => void }) => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
@@ -291,13 +547,13 @@ const ModalBackdrop = ({ children, onClick }: { children: React.ReactNode, onCli
   </motion.div>
 );
 
+// ── GameUI ────────────────────────────────────────────────────────────────────
 const GameUI = () => {
   const { activeModal, closeModal, activeScrollId, foundScrolls, solveRiddle, riddlesSolved, completeQuest } = useGame();
-
   return (
     <AnimatePresence>
       {activeModal === "scroll" && activeScrollId && (
-        <ScrollModal id={activeScrollId} count={foundScrolls.length} onClose={closeModal} />
+        <ScrollModal id={activeScrollId} count={foundScrolls.filter(id => id <= 7).length} onClose={closeModal} />
       )}
       {activeModal === "quest" && (
         <QuestModal onClose={closeModal} onComplete={completeQuest} />
@@ -306,16 +562,19 @@ const GameUI = () => {
         <RiddleModal solvedCount={riddlesSolved} onSolve={solveRiddle} onClose={closeModal} />
       )}
       {activeModal === "riddleSuccess" && (
-         <RiddleSuccessModal onClose={closeModal} />
+        <RiddleSuccessModal onClose={closeModal} />
+      )}
+      {activeModal === "valoricaReveal" && (
+        <ValoricaRevealModal onClose={closeModal} />
       )}
     </AnimatePresence>
   );
 };
 
-const ScrollModal = ({ id, count, onClose }: { id: number, count: number, onClose: () => void }) => {
+// ── ScrollModal ───────────────────────────────────────────────────────────────
+const ScrollModal = ({ id, count, onClose }: { id: number; count: number; onClose: () => void }) => {
   const scroll = SCROLLS.find(s => s.id === id);
-  const allFound = count >= 8;
-
+  const allFound = count >= 7;
   return (
     <ModalBackdrop onClick={onClose}>
       <motion.div
@@ -327,39 +586,36 @@ const ScrollModal = ({ id, count, onClose }: { id: number, count: number, onClos
         style={{ clipPath: "polygon(0% 0%, 100% 2%, 98% 100%, 2% 98%)" }}
       >
         <div className="absolute top-2 left-2 text-amber-900/20"><Scroll className="w-6 h-6 sm:w-8 sm:h-8" /></div>
-        <h3 className="text-center font-display text-lg sm:text-xl tracking-[0.2em] mb-4 sm:mb-6 text-amber-900 border-b border-amber-900/20 pb-4">
-          {scroll?.title}
+        <h3 className="text-center font-display text-lg sm:text-xl tracking-[0.2em] mb-1 text-amber-900">
+          Fragment {id}
         </h3>
+        <h4 className="text-center font-display text-xs tracking-[0.15em] text-amber-800/60 mb-5 border-b border-amber-900/20 pb-4">
+          {scroll?.title}
+        </h4>
         <p className="text-[1.0625rem] sm:text-lg leading-[1.8] italic mb-6 sm:mb-8 font-narrative">
           "{scroll?.text}"
         </p>
         <div className="text-center text-xs font-sans tracking-widest uppercase text-amber-900/60">
-          Scrolls Recovered: {count}/8
+          {count} of 7 Fragments Recovered
         </div>
-        {allFound && (id === 7 || id === 8) && (
-            <div className="mt-8 pt-6 border-t border-amber-900/20 text-center animate-fade-in">
-                <p className="text-sm font-display tracking-widest text-red-900 mb-2">FINAL REVELATION</p>
-                <p className="font-narrative italic text-amber-950 leading-[1.8]">
-                    "You now know what the Parliament fears most: that the people will learn the laws were written by those who never intended to follow them."
-                </p>
-            </div>
+        {allFound && (
+          <div className="mt-6 pt-5 border-t border-amber-900/20 text-center">
+            <p className="text-[10px] font-display tracking-widest text-amber-900/50 uppercase">
+              All fragments recovered — return to the Chronicles to complete the document
+            </p>
+          </div>
         )}
       </motion.div>
     </ModalBackdrop>
   );
 };
 
-const ARCHETYPES = {
-  devoted: { name: "The Devoted", sigil: "✦", desc: "Like Culver, you love with everything and fight for what's right even when it costs you. Your greatest strength is also your blindspot." },
-  architect: { name: "The Architect", sigil: "⬡", desc: "Like Remsays or Verlaine, you see the board before others see the pieces. The question is: who will you sacrifice to win?" },
-  witness: { name: "The Witness", sigil: "◎", desc: "Like Quinn or Carmela, you carry the weight of what you know and what you cannot change. History will be written by others — but you were there when it happened." }
-};
-
-const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: (a: string) => void }) => {
+// ── QuestModal ────────────────────────────────────────────────────────────────
+const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: (a: string) => void }) => {
   const [sceneIndex, setSceneIndex] = useState(0);
-  const [scores, setScores] = useState({ devoted: 0, architect: 0, witness: 0 });
-  const [result, setResult] = useState<string | null>(null);
-  const [confirmed, setConfirmed] = useState(false);
+  const [scores, setScores]         = useState({ devoted: 0, architect: 0, witness: 0 });
+  const [result, setResult]         = useState<string | null>(null);
+  const [confirmed, setConfirmed]   = useState(false);
 
   const handleChoice = (type: string) => {
     const newScores = { ...scores, [type]: scores[type as keyof typeof scores] + 1 };
@@ -379,7 +635,7 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
   };
 
   const currentScene = QUEST_SCENES[sceneIndex];
-  const archetype = result ? ARCHETYPES[result as keyof typeof ARCHETYPES] : null;
+  const archetype    = result ? ARCHETYPES[result as keyof typeof ARCHETYPES] : null;
 
   return (
     <ModalBackdrop onClick={confirmed ? undefined : (result ? handleConfirm : onClose)}>
@@ -392,7 +648,6 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
       >
         <AnimatePresence mode="wait">
           {confirmed ? (
-            /* ── Cinematic seal screen ── */
             <motion.div
               key="cinematic"
               initial={{ opacity: 0 }}
@@ -426,7 +681,6 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
               >
                 "Your allegiance is sealed. The world remembers."
               </motion.p>
-              {/* Fade-to-black veil */}
               <motion.div
                 className="absolute inset-0 bg-black pointer-events-none"
                 initial={{ opacity: 0 }}
@@ -435,7 +689,6 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
               />
             </motion.div>
           ) : !result ? (
-            /* ── Scene questions ── */
             <motion.div key="scenes" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full flex flex-col items-center">
               <h2 className="font-display text-[1.6rem] sm:text-5xl text-amber-100 tracking-[0.08em] sm:tracking-[0.1em] mb-6 sm:mb-12 drop-shadow-lg leading-tight">
                 Where Does Your Loyalty Lie?
@@ -460,7 +713,6 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
               </motion.div>
             </motion.div>
           ) : (
-            /* ── Archetype reveal ── */
             <motion.div
               key="reveal"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -474,6 +726,11 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
               <h2 className="font-display text-[1.6rem] sm:text-3xl text-amber-400 tracking-[0.12em] sm:tracking-[0.15em] mb-6">{archetype?.name}</h2>
               <div className="h-px w-20 bg-amber-800/50 mx-auto mb-6" />
               <p className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/70 italic leading-[1.8] mb-8 sm:mb-10">"{archetype?.desc}"</p>
+              {result === "devoted" && (
+                <p className="font-body text-[9px] tracking-[0.2em] uppercase text-amber-700/50 mb-6">
+                  ✦ A fragment of truth will be revealed to you
+                </p>
+              )}
               <button onClick={handleConfirm}
                 className="min-h-[44px] text-xs tracking-[0.3em] uppercase text-amber-700 hover:text-amber-500 transition-colors font-body border border-amber-900/40 hover:border-amber-700/60 px-6 py-3">
                 Seal Your Fate
@@ -486,94 +743,194 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void, onComplete: 
   );
 };
 
-const RiddleModal = ({ solvedCount, onSolve, onClose }: { solvedCount: number, onSolve: () => void, onClose: () => void }) => {
-    const [answer, setAnswer] = useState("");
-    const [error, setError] = useState(false);
-    const currentRiddle = RIDDLES[solvedCount]; // 0, 1, 2
+// ── RiddleModal ───────────────────────────────────────────────────────────────
+const RiddleModal = ({ solvedCount, onSolve, onClose }: { solvedCount: number; onSolve: () => void; onClose: () => void }) => {
+  const [answer, setAnswer] = useState("");
+  const [error, setError]   = useState(false);
+  const currentRiddle = RIDDLES[solvedCount];
 
-    // Safety check if user clicks sigil after solving all
-    if (solvedCount >= 3) return null; 
+  if (solvedCount >= 3) return null;
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        const cleanAnswer = answer.toLowerCase().trim();
-        if (currentRiddle.answers.includes(cleanAnswer)) {
-            setAnswer("");
-            setError(false);
-            onSolve();
-        } else {
-            setError(true);
-            setTimeout(() => setError(false), 2000); // Reset error
-            setAnswer(""); // Reset field on error as per prompt "reset to beginning" - wait, prompt says "Wrong answers reset to the beginning".
-            // That's harsh. Let's interpret "reset to beginning" as "reset the current input".
-            // Actually prompt says: "Three stone-carved riddles in sequence. Wrong answers reset to the beginning." 
-            // This implies if you fail Riddle 2, you go back to Riddle 1.
-            // I'll implement that logic!
-             // Requires context change to reset solvedCount to 0.
-             // For simplicity/UX, I'll just shake the input for now, unless I want to be really mean. 
-             // "Reset to beginning" usually means the whole sequence.
-        }
-    };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const cleanAnswer = answer.toLowerCase().trim();
+    if (currentRiddle.answers.includes(cleanAnswer)) {
+      setAnswer("");
+      setError(false);
+      onSolve();
+    } else {
+      setError(true);
+      setAnswer("");
+      setTimeout(() => setError(false), 2000);
+    }
+  };
 
-    return (
-        <ModalBackdrop onClick={onClose}>
-            <motion.div 
-                onClick={(e) => e.stopPropagation()}
-                className="max-w-xl w-full bg-zinc-950 border border-amber-900 p-6 sm:p-10 text-center relative my-auto mt-6 sm:mt-0"
-            >
-                <div className="absolute top-4 right-4 text-amber-900/40 font-display text-4xl opacity-20">III</div>
-                <h3 className="font-display text-[1.375rem] sm:text-2xl text-amber-500 tracking-[0.2em] mb-2">The Sanctorium's Final Test</h3>
-                <div className="h-px w-24 bg-gradient-to-r from-transparent via-amber-700 to-transparent mx-auto mb-6 sm:mb-8" />
-                
-                <p className="font-display text-xs text-amber-700 uppercase tracking-widest mb-4 sm:mb-6">Gate {solvedCount + 1}</p>
-                
-                <p className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/90 italic mb-6 sm:mb-8 leading-[1.8]">
-                    "{currentRiddle.question}"
-                </p>
-
-                <form onSubmit={handleSubmit} className="relative max-w-sm mx-auto">
-                    <input 
-                        autoFocus
-                        type="text" 
-                        value={answer}
-                        onChange={(e) => setAnswer(e.target.value)}
-                        placeholder="Speak the word..."
-                        className={cn(
-                            "w-full bg-transparent border-b border-amber-900/50 py-3 text-center text-amber-100 focus:outline-none focus:border-amber-500 font-display tracking-widest uppercase transition-colors text-base",
-                            error && "border-red-500 text-red-500 animate-pulse"
-                        )}
-                    />
-                    {error && <p className="mt-4 text-xs text-red-500 font-body uppercase tracking-widest">The gate remains shut.</p>}
-                </form>
-            </motion.div>
-        </ModalBackdrop>
-    );
+  return (
+    <ModalBackdrop onClick={onClose}>
+      <motion.div
+        onClick={(e) => e.stopPropagation()}
+        className="max-w-xl w-full bg-zinc-950 border border-amber-900 p-6 sm:p-10 text-center relative my-auto mt-6 sm:mt-0"
+      >
+        <div className="absolute top-4 right-4 text-amber-900/40 font-display text-4xl opacity-20">III</div>
+        <h3 className="font-display text-[1.375rem] sm:text-2xl text-amber-500 tracking-[0.2em] mb-2">The Sanctorium's Final Test</h3>
+        <div className="h-px w-24 bg-gradient-to-r from-transparent via-amber-700 to-transparent mx-auto mb-6 sm:mb-8" />
+        <p className="font-display text-xs text-amber-700 uppercase tracking-widest mb-4 sm:mb-6">Gate {solvedCount + 1}</p>
+        <p className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/90 italic mb-6 sm:mb-8 leading-[1.8]">
+          "{currentRiddle.question}"
+        </p>
+        <form onSubmit={handleSubmit} className="relative max-w-sm mx-auto">
+          <input
+            autoFocus
+            type="text"
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+            placeholder="Speak the word..."
+            className={cn(
+              "w-full bg-transparent border-b border-amber-900/50 py-3 text-center text-amber-100 focus:outline-none focus:border-amber-500 font-display tracking-widest uppercase transition-colors text-base",
+              error && "border-red-500 text-red-500 animate-pulse"
+            )}
+          />
+          {error && <p className="mt-4 text-xs text-red-500 font-body uppercase tracking-widest">The gate remains shut.</p>}
+        </form>
+      </motion.div>
+    </ModalBackdrop>
+  );
 };
 
+// ── RiddleSuccessModal ────────────────────────────────────────────────────────
 const RiddleSuccessModal = ({ onClose }: { onClose: () => void }) => (
-    <ModalBackdrop onClick={onClose}>
-        <motion.div 
+  <ModalBackdrop onClick={onClose}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      onClick={(e) => e.stopPropagation()}
+      className="max-w-2xl w-full bg-transparent text-center my-auto mt-6 sm:mt-0"
+    >
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="bg-[#1a1510] p-7 sm:p-12 border border-amber-900/30 shadow-[0_0_100px_rgba(245,158,11,0.1)] relative overflow-hidden"
+      >
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]" />
+        <h2 className="font-display text-[1.5rem] sm:text-3xl text-amber-500 tracking-[0.12em] sm:tracking-[0.15em] mb-6 sm:mb-8 relative z-10">What the Laurels Buried</h2>
+        <div className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/70 italic leading-[1.8] relative z-10 space-y-4 sm:space-y-6">
+          <p>"The satellite net will fail. The meteor shower will come."</p>
+          <p>"The Convoy knows. Gable knows. Remsays knows. And the twelve Sol Deos knew thirty years ago when it happened to Rockfall — and chose silence then too."</p>
+          <p className="text-amber-50">"The soul is the world's most valued currency. Now ask yourself: who has been collecting?"</p>
+        </div>
+      </motion.div>
+    </motion.div>
+  </ModalBackdrop>
+);
+
+// ── Valorica Reveal Modal (cinematic full-screen) ──────────────────────────────
+const ValoricaRevealModal = ({ onClose }: { onClose: () => void }) => {
+  useEffect(() => {
+    const t = setTimeout(onClose, 7000);
+    return () => clearTimeout(t);
+  }, [onClose]);
+
+  // Generate static particle positions
+  const particles = useRef(
+    Array.from({ length: 28 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 2.5 + 0.8,
+      dur: Math.random() * 6 + 5,
+      delay: Math.random() * 4,
+    }))
+  );
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        key="valorica-reveal"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1.2 }}
+        className="fixed inset-0 z-[200] flex flex-col items-center justify-center overflow-hidden"
+        style={{ background: "#04030a" }}
+        onClick={onClose}
+      >
+        {/* Particles */}
+        <div className="absolute inset-0 pointer-events-none">
+          {particles.current.map(p => (
+            <motion.div
+              key={p.id}
+              className="absolute rounded-full"
+              style={{
+                left: `${p.x}%`,
+                top: `${p.y}%`,
+                width: p.size,
+                height: p.size,
+                background: "hsl(38 72% 55%)",
+              }}
+              animate={{
+                opacity: [0, 0.6, 0],
+                y: [0, -30, -60],
+              }}
+              transition={{
+                duration: p.dur,
+                delay: p.delay,
+                repeat: Infinity,
+                ease: "easeOut",
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Radial glow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse at center, hsl(38 72% 50% / 0.06) 0%, transparent 65%)" }}
+        />
+
+        {/* Text */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 1.2 }}
+          className="relative z-10 max-w-xl px-8 text-center"
+        >
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            onClick={(e) => e.stopPropagation()}
-            className="max-w-2xl w-full bg-transparent text-center my-auto mt-6 sm:mt-0"
-        >
-            <motion.div 
-                initial={{ scale: 0.95, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 1.5 }}
-                className="bg-[#1a1510] p-7 sm:p-12 border border-amber-900/30 shadow-[0_0_100px_rgba(245,158,11,0.1)] relative overflow-hidden"
-            >
-                {/* Burn effect overlay */}
-                <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]" />
-                
-                <h2 className="font-display text-[1.5rem] sm:text-3xl text-amber-500 tracking-[0.12em] sm:tracking-[0.15em] mb-6 sm:mb-8 relative z-10">What the Laurels Buried</h2>
-                <div className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/70 italic leading-[1.8] relative z-10 space-y-4 sm:space-y-6">
-                    <p>"The satellite net will fail. The meteor shower will come."</p>
-                    <p>"The Convoy knows. Gable knows. Remsays knows. And the twelve Sol Deos knew thirty years ago when it happened to Rockfall — and chose silence then too."</p>
-                    <p className="text-amber-50">"The soul is the world's most valued currency. Now ask yourself: who has been collecting?"</p>
-                </div>
-            </motion.div>
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="font-display text-[9px] tracking-[0.5em] uppercase text-amber-600/50 mb-8"
+          >
+            ✦ The Document Opens ✦
+          </motion.div>
+          <p
+            className="font-display text-xl sm:text-2xl leading-[2] tracking-[0.08em]"
+            style={{ color: "hsl(38 72% 60%)", textShadow: "0 0 40px hsl(38 72% 50% / 0.35)" }}
+          >
+            Valorica exists.{" "}
+            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8, duration: 1 }}>
+              It has always existed.
+            </motion.span>
+          </p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 3.2, duration: 1.2 }}
+            className="font-display text-base sm:text-lg mt-6 tracking-[0.06em]"
+            style={{ color: "hsl(38 50% 45%)", textShadow: "0 0 25px hsl(38 72% 50% / 0.2)" }}
+          >
+            What happens there — that is not for this world to know.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 5.8, duration: 0.8 }}
+            className="font-body text-[9px] tracking-[0.3em] uppercase text-amber-900/40 mt-10"
+          >
+            Tap to dismiss
+          </motion.p>
         </motion.div>
-    </ModalBackdrop>
-);
+      </motion.div>
+    </AnimatePresence>
+  );
+};

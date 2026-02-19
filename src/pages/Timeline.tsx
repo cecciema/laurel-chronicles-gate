@@ -18,7 +18,7 @@ const PLAINTEXT = "THE APOTHEOSIS IS NOT SALVATION. THE SOULS ARE BEING COLLECTE
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const MAX_WRONG = 3;
 const TIMER_SECONDS = 90;
-const SCROLL_ID = 9;
+const SCROLL_ID = 2; // cipher awards Scroll 2 — "The Convoy's Origin"
 
 function caesarEncode(text: string, shift: number): string {
   return text
