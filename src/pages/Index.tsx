@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
-import { HiddenOrb, QuestTrigger, ScrollCollection, useGame } from "@/components/ChroniclesSystem";
+import { QuestTrigger, ScrollCollection, useGame } from "@/components/ChroniclesSystem";
 import heroCityscape from "@/assets/hero-cityscape.jpg";
 
 // Detect touch-only devices (no hover support)
@@ -375,8 +375,6 @@ const Index = () => {
             </motion.div>
           </div>
 
-          {/* Hidden Orb 1 — tucked near bottom-right of hero */}
-          <HiddenOrb id={1} className="absolute bottom-24 right-5 sm:right-16" />
 
           {/* Scroll indicator */}
           <motion.div
@@ -399,8 +397,6 @@ const Index = () => {
           {/* World teaser */}
           <section className="py-16 sm:py-24 px-5 sm:px-4">
             <div className="max-w-4xl mx-auto text-center relative">
-              {/* Hidden Orb 2 — blends into decorative divider */}
-              <HiddenOrb id={2} className="absolute top-0 right-4 opacity-60" />
               <ScrollReveal>
                 <div className="steampunk-divider max-w-xs mx-auto mb-8" />
               </ScrollReveal>

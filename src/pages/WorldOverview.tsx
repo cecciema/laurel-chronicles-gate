@@ -37,8 +37,8 @@ const WorldOverview = () => {
             subtitle="Three centuries of dominion. An industrial civilization powered by the fires beneath the earth."
           />
           <div className="space-y-6 font-narrative text-[1.0625rem] sm:text-base text-foreground/80 leading-[1.8] relative">
-            {/* Hidden Orb 3 — nestled at end of first paragraph */}
-            <HiddenOrb id={3} className="absolute -right-1 top-1" />
+            {/* Hidden Orb 1 — World page scroll */}
+            <HiddenOrb id={1} className="absolute -right-1 top-1" />
             <p>
               The empire spans a vast continent, its cities connected by steam-powered rail lines
               and its skies darkened by the exhaust of a thousand factories. At its heart lies the

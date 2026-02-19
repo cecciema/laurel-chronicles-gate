@@ -681,8 +681,8 @@ const TimelinePage = () => {
         <div className="max-w-3xl mx-auto relative">
           {/* Vertical line — on mobile always left-aligned */}
           <div className="absolute left-5 sm:left-1/2 top-0 bottom-0 w-px bg-border" />
-          {/* Hidden Orb 6 — camouflaged near the timeline line top */}
-          <HiddenOrb id={6} className="absolute left-[14px] sm:left-[calc(50%-6px)] top-[-12px] z-20" />
+          {/* Hidden Orb 2 — Timeline page scroll */}
+          <HiddenOrb id={2} className="absolute left-[14px] sm:left-[calc(50%-6px)] top-[-12px] z-20" />
 
           <div className="space-y-8">
             {filtered.map((event, i) => (

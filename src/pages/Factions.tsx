@@ -618,9 +618,9 @@ const Factions = () => {
                   >
                     <div className="px-5 sm:px-6 pb-6 space-y-4 relative">
                       <div className="steampunk-divider" />
-                      {/* Hidden Orb 5 — tucked beside the divider, only first faction */}
+                      {/* Hidden Orb 3 — Factions page scroll */}
                       {faction.id === "crown" && (
-                        <HiddenOrb id={5} className="absolute top-4 right-2" />
+                        <HiddenOrb id={3} className="absolute top-4 right-2" />
                       )}
                       <p className="text-[0.9375rem] sm:text-sm text-foreground/70 font-body leading-[1.8]">
                         {faction.description}

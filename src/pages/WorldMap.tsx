@@ -503,7 +503,9 @@ const WorldMap = () => {
 
   return (
     <Layout>
-      <div className="pt-20 pb-28 overflow-x-hidden bg-[#0f0b06] min-h-screen">
+      <div className="pt-20 pb-28 overflow-x-hidden bg-[#0f0b06] min-h-screen relative">
+        {/* Hidden Orb 5 — Map page scroll */}
+        <HiddenOrb id={5} className="absolute top-24 right-4 sm:right-12 z-20" />
 
         {/* ── Title ── */}
         <div className="text-center pt-4 pb-2 px-4">
