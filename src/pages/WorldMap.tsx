@@ -119,107 +119,112 @@ const PanelContent = ({
   const accentColor = REGION_COLORS[region.id] ?? "#c9a96e";
 
   return (
-    <div className="relative flex flex-col gap-4 bg-[#0a0804]">
-      {/* Close button */}
-      <button
-        onClick={onClose}
-        className="absolute top-0 right-0 text-muted-foreground hover:text-foreground transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
-        aria-label="Close panel"
-      >
-        ✕
-      </button>
-
-      {/* Region header */}
-      <div>
+    <div className="flex flex-col bg-[#0a0804] h-full">
+      {/* ── Fixed close button header — never scrolls ── */}
+      <div className="flex-shrink-0 flex items-center justify-between pb-3 bg-[#0a0804]">
         <p
-          className="font-body text-[9px] tracking-[0.25em] uppercase mb-1"
+          className="font-body text-[9px] tracking-[0.25em] uppercase"
           style={{ color: accentColor }}
         >
           {region.faction}
         </p>
-        <h3 className="font-display text-xl tracking-wide text-foreground leading-tight pr-8">
-          {region.name}
-        </h3>
-        <div className="h-px mt-3 mb-3" style={{ background: accentColor + "40" }} />
-        <p className="font-narrative italic text-[0.9375rem] text-foreground/90 leading-[1.8]">
-          {region.description}
-        </p>
+        <button
+          onClick={onClose}
+          className="text-muted-foreground hover:text-foreground transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center flex-shrink-0"
+          aria-label="Close panel"
+        >
+          ✕
+        </button>
       </div>
 
-      {/* Feature tags */}
-      <div className="flex flex-wrap gap-1.5">
-        {region.features.map((f) => (
-          <span
-            key={f}
-            className="bg-secondary/80 text-foreground/80 text-[9px] tracking-wider font-body px-2 py-1 border"
-            style={{ borderColor: accentColor + "30" }}
-          >
-            {f}
-          </span>
-        ))}
-      </div>
-
-      {/* Characters */}
-      {characters.length > 0 && (
+      {/* ── Scrollable body ── */}
+      <div className="flex-1 overflow-y-auto map-panel-scroll flex flex-col gap-4 pr-1">
+        {/* Region header */}
         <div>
-          <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-2">
-            Characters Here
+          <h3 className="font-display text-xl tracking-wide text-foreground leading-tight">
+            {region.name}
+          </h3>
+          <div className="h-px mt-3 mb-3" style={{ background: accentColor + "40" }} />
+          <p className="font-narrative italic text-[0.9375rem] text-foreground/90 leading-[1.8]">
+            {region.description}
           </p>
-          <div className="flex flex-col gap-2">
-            {characters.map((char) => (
-              <div key={char.name} className="flex items-center gap-3">
-                <img
-                  src={characterImageMap[char.image]}
-                  alt={char.name}
-                  className="w-8 h-8 rounded-full object-cover border"
-                  style={{ borderColor: accentColor + "60" }}
-                />
-                <div>
-                  <p className="font-display text-[11px] tracking-wide text-foreground leading-tight">
-                    {char.name}
-                  </p>
-                  <p className="font-body text-[9px] text-muted-foreground tracking-wide">
-                    {char.title}
-                  </p>
+        </div>
+
+        {/* Feature tags */}
+        <div className="flex flex-wrap gap-1.5">
+          {region.features.map((f) => (
+            <span
+              key={f}
+              className="bg-secondary/80 text-foreground/80 text-[9px] tracking-wider font-body px-2 py-1 border"
+              style={{ borderColor: accentColor + "30" }}
+            >
+              {f}
+            </span>
+          ))}
+        </div>
+
+        {/* Characters */}
+        {characters.length > 0 && (
+          <div>
+            <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-2">
+              Characters Here
+            </p>
+            <div className="flex flex-col gap-2">
+              {characters.map((char) => (
+                <div key={char.name} className="flex items-center gap-3">
+                  <img
+                    src={characterImageMap[char.image]}
+                    alt={char.name}
+                    className="w-8 h-8 rounded-full object-cover border"
+                    style={{ borderColor: accentColor + "60" }}
+                  />
+                  <div>
+                    <p className="font-display text-[11px] tracking-wide text-foreground leading-tight">
+                      {char.name}
+                    </p>
+                    <p className="font-body text-[9px] text-muted-foreground tracking-wide">
+                      {char.title}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Sanctorium-only: 12 Pantheons */}
+        {isSanctorium && (
+          <div>
+            <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-3">
+              The 12 Pantheons
+            </p>
+            {quadrants.map((q) => (
+              <div key={q} className="mb-4">
+                <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-2" style={{ color: accentColor }}>
+                  {q}
+                </p>
+                <div className="flex flex-col gap-2">
+                  {PANTHEONS.filter((p) => p.quadrant === q).map((p) => (
+                    <div
+                      key={p.id}
+                      className="pl-2 border-l"
+                      style={{ borderColor: p.color + "60" }}
+                    >
+                      <div className="flex items-center gap-2 mb-0.5">
+                        <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
+                        <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
+                      </div>
+                      <p className="font-body text-[8px] text-muted-foreground">{p.specialty}</p>
+                      <p className="font-body text-[8px] text-muted-foreground/70">Sol Deus: {p.solDeus}</p>
+                      <p className="font-body text-[8px] text-muted-foreground/70">Lunary: {p.lunary}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      )}
-
-      {/* Sanctorium-only: 12 Pantheons */}
-      {isSanctorium && (
-        <div>
-          <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-3">
-            The 12 Pantheons
-          </p>
-          {quadrants.map((q) => (
-            <div key={q} className="mb-4">
-              <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-2" style={{ color: accentColor }}>
-                {q}
-              </p>
-              <div className="flex flex-col gap-2">
-                {PANTHEONS.filter((p) => p.quadrant === q).map((p) => (
-                  <div
-                    key={p.id}
-                    className="pl-2 border-l"
-                    style={{ borderColor: p.color + "60" }}
-                  >
-                    <div className="flex items-center gap-2 mb-0.5">
-                      <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
-                      <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
-                    </div>
-                    <p className="font-body text-[8px] text-muted-foreground">{p.specialty}</p>
-                    <p className="font-body text-[8px] text-muted-foreground/70">Sol Deus: {p.solDeus}</p>
-                    <p className="font-body text-[8px] text-muted-foreground/70">Lunary: {p.lunary}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
@@ -448,7 +453,7 @@ const WorldMap = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.3 }}
-                className="hidden sm:block w-80 flex-shrink-0 overflow-y-auto bg-[#0a0804] border-l-2 p-5"
+                className="hidden sm:block w-80 flex-shrink-0 bg-[#0a0804] border-l-2 p-5 max-h-[80vh] flex flex-col"
                 style={{
                   borderColor: REGION_COLORS[selectedData.id] ?? "#c9a96e",
                 }}
@@ -499,10 +504,10 @@ const WorldMap = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-[60px] left-0 right-0 z-50 bg-[#0a0804] border-t p-5 overflow-y-auto"
+            className="fixed bottom-[60px] left-0 right-0 z-50 bg-[#0a0804] border-t p-5 flex flex-col"
             style={{
               borderColor: (REGION_COLORS[selectedData.id] ?? "#c9a96e") + "40",
-              maxHeight:   "55vh",
+              maxHeight:   "65vh",
             }}
           >
             <PanelContent region={selectedData} onClose={() => setSelectedRegion(null)} />
