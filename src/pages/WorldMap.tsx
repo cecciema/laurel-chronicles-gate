@@ -470,22 +470,23 @@ const WorldMap = () => {
     const el = containerRef.current;
     if (!el) return;
     const { width: cw, height: ch } = el.getBoundingClientRect();
-    zoomToward(ZOOM_STEP, cw / 2, ch / 2);
-    // Re-commit with animation flag
-    const s = scaleRef.current;
-    const { tx: cx, ty: cy } = constrain(txRef.current, tyRef.current, s);
-    commitTransform(s, cx, cy, true);
-  }, [zoomToward, constrain, commitTransform]);
+    const curScale = scaleRef.current;
+    const nextScale = Math.min(curScale + ZOOM_STEP, MAX_SCALE);
+    if (nextScale === curScale) return;
+    const { tx: cx, ty: cy } = constrain(txRef.current, tyRef.current, nextScale);
+    commitTransform(nextScale, cx, cy, true);
+  }, [constrain, commitTransform]);
 
   const zoomOut = useCallback(() => {
     const el = containerRef.current;
     if (!el) return;
     const { width: cw, height: ch } = el.getBoundingClientRect();
-    zoomToward(-ZOOM_STEP, cw / 2, ch / 2);
-    const s = scaleRef.current;
-    const { tx: cx, ty: cy } = constrain(txRef.current, tyRef.current, s);
-    commitTransform(s, cx, cy, true);
-  }, [zoomToward, constrain, commitTransform]);
+    const curScale = scaleRef.current;
+    const nextScale = Math.max(curScale - ZOOM_STEP, MIN_SCALE);
+    if (nextScale === curScale) return;
+    const { tx: cx, ty: cy } = constrain(txRef.current, tyRef.current, nextScale);
+    commitTransform(nextScale, cx, cy, true);
+  }, [constrain, commitTransform]);
 
   // ── Cursor (no re-render needed — use CSS class on container ref) ─────────────
   const onContainerMouseDown = useCallback((e: React.MouseEvent) => {
