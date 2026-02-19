@@ -1,6 +1,6 @@
 // Centralized image imports for all character portraits
 import charCulver from "@/assets/char-culver.jpg";
-import charQuinn from "@/assets/char-quinn-new.jpg";
+import charQuinn from "@/assets/char-quinn.jpg";
 import charCarmela from "@/assets/char-carmela.jpg";
 import charVerlaine from "@/assets/char-verlaine.jpg";
 import charJude from "@/assets/char-jude.jpg";

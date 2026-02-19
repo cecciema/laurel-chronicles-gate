@@ -414,38 +414,62 @@ const SealedDocumentPuzzle = ({ foundScrolls }: { foundScrolls: number[] }) => {
   const allFound = SCROLLS.every(s => foundScrolls.includes(s.id));
 
   const [order, setOrder] = useState<number[]>(() => {
-    // Shuffle the IDs so the player can't just immediately submit
     const ids = SCROLLS.map(s => s.id);
     for (let i = ids.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [ids[i], ids[j]] = [ids[j], ids[i]];
     }
-    // Ensure it's not already in correct order (retry once if needed)
-    const alreadyCorrect = ids.every((id, i) => id === CORRECT_ORDER[i]);
+    const alreadyCorrect = ids.every((id, idx) => id === CORRECT_ORDER[idx]);
     if (alreadyCorrect) { const tmp = ids[0]; ids[0] = ids[1]; ids[1] = tmp; }
     return ids;
   });
+
+  // Pointer-based drag state (works on both mouse and touch)
   const [draggedId, setDraggedId] = useState<number | null>(null);
-  const [result, setResult] = useState<"correct" | "wrong" | null>(null);
+  const [overIdx, setOverIdx]     = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const [result, setResult]     = useState<"correct" | "wrong" | null>(null);
   const [submitted, setSubmitted] = useState(false);
 
   if (!allFound) return null;
 
-  const handleDragStart = (id: number) => setDraggedId(id);
-  const handleDragOver = (e: React.DragEvent, id: number) => {
-    e.preventDefault();
-    if (draggedId === null || draggedId === id) return;
-    setOrder(prev => {
-      const next = [...prev];
-      const fromIdx = next.indexOf(draggedId);
-      const toIdx = next.indexOf(id);
-      next.splice(fromIdx, 1);
-      next.splice(toIdx, 0, draggedId);
-      return next;
-    });
+  // ── Pointer handlers ──────────────────────────────────────────────────────────
+  const handlePointerDown = (e: React.PointerEvent, id: number) => {
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    setDraggedId(id);
+    setOverIdx(order.indexOf(id));
   };
-  const handleDragEnd = () => setDraggedId(null);
 
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (draggedId === null || !containerRef.current) return;
+    const items = containerRef.current.querySelectorAll<HTMLElement>("[data-drag-item]");
+    let targetIdx: number | null = null;
+    items.forEach((el, idx) => {
+      const rect = el.getBoundingClientRect();
+      if (e.clientY >= rect.top && e.clientY <= rect.bottom) {
+        targetIdx = idx;
+      }
+    });
+    if (targetIdx !== null && targetIdx !== overIdx) {
+      setOverIdx(targetIdx);
+      setOrder(prev => {
+        const next = [...prev];
+        const fromIdx = next.indexOf(draggedId);
+        if (fromIdx === targetIdx) return prev;
+        next.splice(fromIdx, 1);
+        next.splice(targetIdx!, 0, draggedId);
+        return next;
+      });
+    }
+  };
+
+  const handlePointerUp = () => {
+    setDraggedId(null);
+    setOverIdx(null);
+  };
+
+  // ── Submit ────────────────────────────────────────────────────────────────────
   const handleSubmit = () => {
     setSubmitted(true);
     const isCorrect = order.every((id, i) => id === CORRECT_ORDER[i]);
@@ -496,23 +520,29 @@ const SealedDocumentPuzzle = ({ foundScrolls }: { foundScrolls: number[] }) => {
         </p>
       </div>
 
-      {/* Draggable cards */}
-      <div className="space-y-2">
+      {/* Draggable cards — pointer events work on mouse and touch */}
+      <div
+        ref={containerRef}
+        className="space-y-2 touch-none"
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
+      >
         {order.map((id, i) => {
           const scroll = SCROLLS.find(s => s.id === id)!;
+          const isGrabbed = draggedId === id;
           return (
             <div
               key={id}
-              draggable
-              onDragStart={() => handleDragStart(id)}
-              onDragOver={(e) => handleDragOver(e, id)}
-              onDragEnd={handleDragEnd}
+              data-drag-item
+              onPointerDown={(e) => handlePointerDown(e, id)}
               className={cn(
-                "flex items-start gap-3 p-3 border cursor-grab active:cursor-grabbing transition-all duration-150 select-none",
-                draggedId === id
-                  ? "opacity-40 border-amber-500/50 bg-amber-950/20"
-                  : "border-amber-900/30 bg-[#13110d] hover:border-amber-800/50"
+                "flex items-start gap-3 p-3 border transition-all duration-150 select-none touch-none",
+                isGrabbed
+                  ? "opacity-60 border-amber-500/60 bg-amber-950/30 shadow-[0_4px_20px_rgba(245,158,11,0.15)] scale-[1.01] cursor-grabbing"
+                  : "border-amber-900/30 bg-[#13110d] hover:border-amber-800/50 cursor-grab"
               )}
+              style={{ userSelect: "none" }}
             >
               <span className="font-display text-[10px] text-amber-700/60 flex-shrink-0 w-4 pt-0.5">{i + 1}</span>
               <div className="flex-1 min-w-0">
