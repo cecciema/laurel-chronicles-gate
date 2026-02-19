@@ -41,6 +41,11 @@ const SCROLLS = [
     id: 7,
     title: "Fragment VII",
     text: "Cornerstone Law I: One Republic World. Cornerstone Law IV: Apotheosis at Apex. Premier Jude broke Law II. He kept his biological daughter. The very man who enforced the laws — broke one in secret."
+  },
+  {
+    id: 8,
+    title: "The Arborwell Record",
+    text: "There is a corridor beyond the Apotheosis chamber that does not appear on any Pantheon map. Those who walk it do not return to the ceremony. They arrive somewhere else entirely. The Pantheon calls this process 'completion.' The Frontier calls it 'the other door.' Arborwell knows what it actually is."
   }
 ];
 
@@ -160,8 +165,10 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
   const foundScroll = (id: number) => {
     if (!state.foundScrolls.includes(id)) {
       toast({
-        title: "Forbidden Scroll Recovered",
-        description: `You have found Fragment ${id}. (${state.foundScrolls.length + 1}/7)`,
+        title: id === 8 ? "The Arborwell Record Recovered" : "Forbidden Scroll Recovered",
+        description: id === 8
+          ? "You walked the Apotheosis Path. The other door is real."
+          : `You have found Fragment ${id}. (${state.foundScrolls.length + 1}/8)`,
         className: "bg-amber-950 border-amber-500 text-amber-100",
       });
       setState(prev => ({
@@ -307,7 +314,7 @@ const GameUI = () => {
 
 const ScrollModal = ({ id, count, onClose }: { id: number, count: number, onClose: () => void }) => {
   const scroll = SCROLLS.find(s => s.id === id);
-  const allFound = count >= 7;
+  const allFound = count >= 8;
 
   return (
     <ModalBackdrop onClick={onClose}>
@@ -327,9 +334,9 @@ const ScrollModal = ({ id, count, onClose }: { id: number, count: number, onClos
           "{scroll?.text}"
         </p>
         <div className="text-center text-xs font-sans tracking-widest uppercase text-amber-900/60">
-          Scrolls Recovered: {count}/7
+          Scrolls Recovered: {count}/8
         </div>
-        {allFound && id === 7 && (
+        {allFound && (id === 7 || id === 8) && (
             <div className="mt-8 pt-6 border-t border-amber-900/20 text-center animate-fade-in">
                 <p className="text-sm font-display tracking-widest text-red-900 mb-2">FINAL REVELATION</p>
                 <p className="font-narrative italic text-amber-950 leading-[1.8]">
