@@ -119,7 +119,7 @@ const PanelContent = ({
   const accentColor = REGION_COLORS[region.id] ?? "#c9a96e";
 
   return (
-    <div className="relative flex flex-col gap-4">
+    <div className="relative flex flex-col gap-4 bg-[#0a0804]">
       {/* Close button */}
       <button
         onClick={onClose}
@@ -132,16 +132,16 @@ const PanelContent = ({
       {/* Region header */}
       <div>
         <p
-          className="font-body text-[9px] tracking-[0.35em] uppercase mb-1"
+          className="font-body text-[9px] tracking-[0.25em] uppercase mb-1"
           style={{ color: accentColor }}
         >
           {region.faction}
         </p>
-        <h3 className="font-display text-base sm:text-lg tracking-wide text-foreground leading-tight pr-8">
+        <h3 className="font-display text-xl tracking-wide text-foreground leading-tight pr-8">
           {region.name}
         </h3>
         <div className="h-px mt-3 mb-3" style={{ background: accentColor + "40" }} />
-        <p className="font-narrative italic text-[0.875rem] text-foreground/70 leading-[1.8]">
+        <p className="font-narrative italic text-[0.9375rem] text-foreground/90 leading-[1.8]">
           {region.description}
         </p>
       </div>
@@ -151,8 +151,8 @@ const PanelContent = ({
         {region.features.map((f) => (
           <span
             key={f}
-            className="text-[9px] tracking-wider font-body px-2 py-1"
-            style={{ background: accentColor + "18", color: accentColor, border: `1px solid ${accentColor}30` }}
+            className="bg-secondary/80 text-foreground/80 text-[9px] tracking-wider font-body px-2 py-1 border"
+            style={{ borderColor: accentColor + "30" }}
           >
             {f}
           </span>
@@ -256,11 +256,33 @@ const WorldMap = () => {
           <div className="steampunk-divider max-w-xs mx-auto mt-3" />
         </div>
 
+        {/* ── Discovery status bar — above the map ── */}
+        <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-4 mb-3">
+          <div className="flex flex-wrap gap-x-5 gap-y-1 justify-center">
+            <span className="font-body text-[9px] tracking-[0.25em] uppercase text-muted-foreground">
+              Scrolls: {foundScrolls.length}/7
+            </span>
+            <span
+              className="font-body text-[9px] tracking-[0.25em] uppercase"
+              style={{ color: arborwellUnlocked ? "#c9a96e" : "#6b7280" }}
+            >
+              {arborwellUnlocked ? "✦ Arborwell: Identity Revealed" : "◎ Arborwell: Unknown"}
+            </span>
+            <span
+              className="font-body text-[9px] tracking-[0.25em] uppercase"
+              style={{ color: valoricaUnlocked ? REGION_COLORS.valorica : "#6b7280" }}
+            >
+              {valoricaUnlocked ? "✦ Valorica: Accessible" : "◎ Valorica: Hidden"}
+            </span>
+          </div>
+        </div>
+
         {/* ── Map + panel wrapper ── */}
-        <div className="relative max-w-5xl mx-auto px-3 sm:px-6 mt-6">
+        <div className="max-w-5xl mx-auto px-3 sm:px-6">
+          <div className="flex flex-row items-stretch gap-0">
 
           {/* === MAP IMAGE === */}
-          <div className="relative w-full select-none">
+          <div className="flex-1 relative min-w-0 select-none">
             {/* Vignette */}
             <div
               className="absolute inset-0 pointer-events-none z-10 rounded"
@@ -417,28 +439,7 @@ const WorldMap = () => {
             </div>
           </div>
 
-          {/* === DISCOVERY STATUS BAR === */}
-          <div className="mt-3 px-1">
-            <div className="flex flex-wrap gap-x-5 gap-y-1 justify-center">
-              <span className="font-body text-[9px] tracking-[0.25em] uppercase text-muted-foreground">
-                Scrolls: {foundScrolls.length}/7
-              </span>
-              <span
-                className="font-body text-[9px] tracking-[0.25em] uppercase"
-                style={{ color: arborwellUnlocked ? "#c9a96e" : "#6b7280" }}
-              >
-                {arborwellUnlocked ? "✦ Arborwell: Identity Revealed" : "◎ Arborwell: Unknown"}
-              </span>
-              <span
-                className="font-body text-[9px] tracking-[0.25em] uppercase"
-                style={{ color: valoricaUnlocked ? REGION_COLORS.valorica : "#6b7280" }}
-              >
-                {valoricaUnlocked ? "✦ Valorica: Accessible" : "◎ Valorica: Hidden"}
-              </span>
-            </div>
-          </div>
-
-          {/* === DESKTOP SIDE PANEL === */}
+          {/* === DESKTOP SIDE PANEL — sits beside the map, not on top === */}
           <AnimatePresence>
             {selectedData && !isMobile && (
               <motion.div
@@ -447,18 +448,18 @@ const WorldMap = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.3 }}
-                className="absolute top-0 right-0 w-72 bg-[#0f0b06]/97 border-l p-5 overflow-y-auto z-30 rounded-r"
+                className="hidden sm:block w-80 flex-shrink-0 overflow-y-auto bg-[#0a0804] border-l-2 p-5"
                 style={{
-                  borderColor:  (REGION_COLORS[selectedData.id] ?? "#c9a96e") + "40",
-                  maxHeight:    "calc(100% - 80px)",
-                  top:          "0",
+                  borderColor: REGION_COLORS[selectedData.id] ?? "#c9a96e",
                 }}
               >
                 <PanelContent region={selectedData} onClose={() => setSelectedRegion(null)} />
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+
+          </div>{/* end flex row */}
+        </div>{/* end max-w wrapper */}
 
         {/* === REGION LEGEND BUTTONS === */}
         <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-5">
@@ -498,7 +499,7 @@ const WorldMap = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-[60px] left-0 right-0 z-50 bg-[#0f0b06] border-t p-5 overflow-y-auto"
+            className="fixed bottom-[60px] left-0 right-0 z-50 bg-[#0a0804] border-t p-5 overflow-y-auto"
             style={{
               borderColor: (REGION_COLORS[selectedData.id] ?? "#c9a96e") + "40",
               maxHeight:   "55vh",
