@@ -248,7 +248,7 @@ const WorldMap = () => {
   const [hoveredRegion,  setHoveredRegion]  = useState<string | null>(null);
   const isMobile = useIsMobile();
 
-  const arborwellUnlocked = foundScrolls.length >= 3;
+  const arborwellUnlocked = foundScrolls.length >= 3 || foundScrolls.includes(8);
   const valoricaUnlocked  = questCompleted && arborwellUnlocked;
 
   const selectedData = SUB_REGIONS.find((r) => r.id === selectedRegion) ?? null;
@@ -283,7 +283,7 @@ const WorldMap = () => {
         <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-4 mb-3">
           <div className="flex flex-wrap gap-x-5 gap-y-1 justify-center">
             <span className="font-body text-[9px] tracking-[0.25em] uppercase text-muted-foreground">
-              Scrolls: {foundScrolls.length}/7
+              Scrolls: {foundScrolls.length}/8
             </span>
             <span
               className="font-body text-[9px] tracking-[0.25em] uppercase"
