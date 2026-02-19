@@ -45,41 +45,41 @@ const ROUNDS: RoundDef[] = [
   {
     answerId: "lockland",
     clues: [
-      "He smells of something that no longer grows on Panterra.",
-      "He chose the moment of his own ending with more care than most people choose anything.",
-      "Carmela would have followed him anywhere. He made sure she didn't have to.",
+      "This person smells of something that no longer grows on Panterra.",
+      "This person chose the moment of their own ending with more care than most people choose anything.",
+      "Carmela would have followed this person anywhere. They made sure that never had to happen.",
     ],
   },
   {
     answerId: "aspen",
     clues: [
-      "Everyone in the room trusts him. That should worry you.",
-      "He rose faster than the system allows. The system made an exception.",
-      "He was chosen by one man and used by another. He may not know the difference yet.",
+      "Everyone in the room trusts this person. That should worry you.",
+      "This person rose faster than the system allows. The system made an exception.",
+      "This person was chosen by one and used by another. The difference may not yet be understood.",
     ],
   },
   {
     answerId: "verlaine",
     clues: [
-      "She arrived with a new name and a borrowed history.",
-      "She had a mother who watched from a distance and called it love.",
-      "She burnt down the one person who almost remembered her real face.",
+      "This person arrived with a new name and a borrowed history.",
+      "This person had a parent who watched from a distance and called it love.",
+      "This person burnt down the one who almost remembered their real face.",
     ],
   },
   {
     answerId: "wintry",
     clues: [
-      "She built someone else's power so carefully they never noticed it was hers.",
-      "She carries a secret about what waits after Apotheosis that she has told no one.",
-      "She chose cream. Always cream. Even when the world was ending.",
+      "This person built someone else's power so carefully they never noticed it was theirs.",
+      "This person carries a secret about what waits after Apotheosis that has never been spoken aloud.",
+      "This person chose cream. Always cream. Even when the world was ending.",
     ],
   },
   {
     answerId: "remsays",
     clues: [
-      "He was offered the highest seat and turned it down. That was not humility.",
-      "He built a machine to make a lie look like truth. He called it an algorithm.",
-      "He loves her. That is the most dangerous thing about him.",
+      "This person was offered the highest seat and turned it down. That was not humility.",
+      "This person built a machine to make a lie look like truth. They called it an algorithm.",
+      "This person loves someone. That is the most dangerous thing about them.",
     ],
   },
 ];
@@ -89,8 +89,14 @@ const TOTAL_LIVES = 3;
 const CHOICE_COUNT = 6;
 const CLUE_COUNT = 3;
 
-// Points per clue tier (clue revealed count when guess is made)
-const POINTS_BY_CLUE = [3, 2, 1];
+// Base score for a round = 6 - (2 × clues revealed so far). Correct adds 3 bonus.
+const BASE_SCORE_START = 6;
+const CLUE_PENALTY = 2;
+const CORRECT_BONUS = 3;
+
+function roundScore(cluesRevealed: number): number {
+  return Math.max(0, BASE_SCORE_START - (cluesRevealed - 1) * CLUE_PENALTY);
+}
 
 // Build choice pool: correct + 5 random others from character list
 function buildChoices(correctId: string): string[] {
@@ -183,7 +189,13 @@ const ChoiceCard = ({
 };
 
 // ─── The Unmasked Game ─────────────────────────────────────────────────────────
-type GamePhase = "playing" | "wrong" | "won" | "lost";
+type GamePhase = "playing" | "wrong" | "round-summary" | "won" | "lost";
+
+const getWinRank = (score: number): string => {
+  if (score >= 40) return "The Unmasked cannot deceive you. You see everything.";
+  if (score >= 25) return "You see more than most. That is enough to survive.";
+  return "You found them. But it cost you. Be more careful next time.";
+};
 
 const TheUnmasked = () => {
   const { foundScrolls, awardScrollFour } = useGame();
@@ -197,6 +209,7 @@ const TheUnmasked = () => {
   const [phase, setPhase] = useState<GamePhase>("playing");
   const [glitchingId, setGlitchingId] = useState<string | null>(null);
   const [wrongMessage, setWrongMessage] = useState(false);
+  const [lastRoundPts, setLastRoundPts] = useState(0);
 
   // Choices for current round — rebuild when round changes
   const choices = useMemo(
@@ -206,6 +219,9 @@ const TheUnmasked = () => {
   );
 
   const currentRound = ROUNDS[roundIdx];
+
+  // Live score available this round: 6 - (cluesRevealed - 1) * 2 + 3 bonus on correct
+  const availableClueScore = roundScore(cluesRevealed);
 
   const resetRound = useCallback(() => {
     setCluesRevealed(1);
@@ -221,29 +237,39 @@ const TheUnmasked = () => {
     setCluesRevealed(1);
     setGlitchingId(null);
     setWrongMessage(false);
+    setLastRoundPts(0);
     setPhase("playing");
   }, []);
+
+  // Auto-subtract clue penalty when a new clue is revealed
+  const revealNextClue = () => {
+    if (cluesRevealed < CLUE_COUNT) setCluesRevealed((n) => n + 1);
+  };
 
   const handleGuess = useCallback(
     (guessId: string) => {
       if (phase !== "playing" || !currentRound) return;
 
       if (guessId === currentRound.answerId) {
-        // Correct
-        const pts = POINTS_BY_CLUE[cluesRevealed - 1] ?? 1;
+        // Correct: clue score + 3 bonus
+        const pts = roundScore(cluesRevealed) + CORRECT_BONUS;
         const newScore = score + pts;
         setScore(newScore);
+        setLastRoundPts(pts);
 
         if (roundIdx + 1 >= TOTAL_ROUNDS) {
-          // Final round won
           setPhase("won");
           setBestiaryUnlocked(true);
           if (!alreadyWon) awardScrollFour();
         } else {
-          setRoundIdx((r) => r + 1);
-          setCluesRevealed(1);
-          setGlitchingId(null);
-          setPhase("playing");
+          // Show per-round summary briefly then advance
+          setPhase("round-summary");
+          setTimeout(() => {
+            setRoundIdx((r) => r + 1);
+            setCluesRevealed(1);
+            setGlitchingId(null);
+            setPhase("playing");
+          }, 2200);
         }
       } else {
         // Wrong
@@ -253,7 +279,6 @@ const TheUnmasked = () => {
         setGlitchingId(guessId);
         setWrongMessage(false);
 
-        // After glitch (1s) show silhouette + message, then after 2s more: restart or game over
         setTimeout(() => {
           setWrongMessage(true);
           setTimeout(() => {
@@ -268,10 +293,6 @@ const TheUnmasked = () => {
     },
     [phase, currentRound, cluesRevealed, score, roundIdx, lives, alreadyWon, awardScrollFour, resetRound]
   );
-
-  const revealNextClue = () => {
-    if (cluesRevealed < CLUE_COUNT) setCluesRevealed((n) => n + 1);
-  };
 
   // ── Render ──
   return (
@@ -354,15 +375,20 @@ const TheUnmasked = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="absolute inset-0 bg-background/93 flex flex-col items-center justify-center z-30 gap-5 p-8 text-center"
+              className="absolute inset-0 bg-background/93 flex flex-col items-center justify-center z-30 gap-4 p-8 text-center"
             >
               <p className="font-display text-xs tracking-[0.25em] text-primary uppercase">All Masks Seen Through</p>
               <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.8] max-w-sm">
                 You saw through every mask. In Panterra, that is a rare and dangerous gift. A scroll fragment has been added to your collection.
               </p>
-              <p className="font-display text-sm tracking-widest" style={{ color: "hsl(38 72% 55%)" }}>
-                {score} points
-              </p>
+              <div className="flex flex-col items-center gap-1">
+                <p className="font-display text-2xl tracking-widest" style={{ color: "hsl(38 72% 55%)" }}>
+                  {score} pts
+                </p>
+                <p className="font-narrative italic text-foreground/50 text-[0.8125rem] leading-[1.7] max-w-xs">
+                  {getWinRank(score)}
+                </p>
+              </div>
               <div className="w-8 h-px bg-primary/40" />
               <button
                 onClick={fullReset}
@@ -374,11 +400,34 @@ const TheUnmasked = () => {
           )}
         </AnimatePresence>
 
+        {/* ── Round summary overlay ── */}
+        <AnimatePresence>
+          {phase === "round-summary" && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-background/92 flex flex-col items-center justify-center z-20 gap-3 p-8 text-center"
+            >
+              <p className="font-display text-[10px] tracking-[0.3em] text-primary uppercase">Identity Confirmed</p>
+              <p className="font-narrative italic text-foreground/60 text-[0.875rem]">
+                Round {roundIdx + 1} complete
+              </p>
+              <p className="font-display text-3xl tracking-widest" style={{ color: "hsl(38 72% 55%)" }}>
+                +{lastRoundPts} pts
+              </p>
+              <p className="text-[9px] tracking-[0.2em] text-muted-foreground/40 uppercase font-body">
+                Running total: {score} pts
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* ── Playing / Wrong ── */}
         {(phase === "playing" || phase === "wrong") && currentRound && (
           <div className="p-5 sm:p-6 flex flex-col gap-5">
 
-            {/* Header row: round + lives + score */}
+            {/* Header row: round + lives + live score */}
             <div className="flex items-center justify-between">
               <p className="text-[9px] tracking-[0.3em] text-muted-foreground/50 uppercase font-body">
                 Round {roundIdx + 1} of {TOTAL_ROUNDS}
@@ -400,9 +449,15 @@ const TheUnmasked = () => {
                 ))}
               </div>
 
-              <p className="text-[9px] tracking-[0.2em] font-body" style={{ color: "hsl(38 60% 50%)" }}>
-                {score} pts
-              </p>
+              {/* Live running total */}
+              <div className="flex flex-col items-end">
+                <p className="text-[9px] tracking-[0.2em] font-body" style={{ color: "hsl(38 60% 50%)" }}>
+                  {score} pts total
+                </p>
+                <p className="text-[8px] tracking-[0.15em] font-body text-muted-foreground/40">
+                  +{availableClueScore + CORRECT_BONUS} if correct
+                </p>
+              </div>
             </div>
 
             {/* Face-down card + clues */}
@@ -447,7 +502,7 @@ const TheUnmasked = () => {
                     onClick={revealNextClue}
                     className="self-start mt-1 text-[8px] tracking-[0.25em] uppercase font-body border border-border/40 px-3 py-1.5 hover:border-primary/40 hover:text-primary transition-colors text-muted-foreground/50"
                   >
-                    ◈ Reveal next clue {cluesRevealed < 2 ? `(-${POINTS_BY_CLUE[cluesRevealed]}pts)` : "(−1pt)"}
+                    ◈ Reveal next clue (−{CLUE_PENALTY}pts)
                   </button>
                 )}
               </div>
@@ -483,7 +538,7 @@ const TheUnmasked = () => {
 
             {/* Points legend */}
             <p className="text-[8px] tracking-[0.2em] text-muted-foreground/30 uppercase font-body text-center">
-              Correct on clue 1 = 3pts · clue 2 = 2pts · clue 3 = 1pt · wrong = −1 life
+              Clue 1 = 6pts · Clue 2 = 4pts · Clue 3 = 2pts · +3 bonus on correct · wrong = −1 life
             </p>
           </div>
         )}
