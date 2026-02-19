@@ -3,51 +3,55 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/components/ChroniclesSystem";
 
 // ─── Maze Layout ──────────────────────────────────────────────────────────────
-// 0 = open path, 1 = wall, S = start (player), E = exit, P = patrol path cell
-const RAW_MAZE = [
-  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-  [1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1],
-  [1,0,1,0,1,0,1,1,0,1,1,0,1,0,1,0,1,1,0,1,1],
-  [1,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,1],
-  [1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,0,1],
-  [1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,1],
-  [1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1],
-  [1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1],
-  [1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,0,1],
-  [1,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1],
-  [1,0,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,0,1],
-  [1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,1],
-  [1,1,1,0,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1],
-  [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
-  [1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1],
-  [1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1],
-  [1,1,1,0,1,0,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1],
-  [1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1],
-  [1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,0,0,0,1],
-  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],
-  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+// 0 = open path, 1 = wall
+// 25 × 21 grid — large enough to feel like a real labyrinth
+// Dead-ends are marked by looking like open corridors that terminate abruptly
+const RAW_MAZE: number[][] = [
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  [1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,1],
+  [1,0,1,0,1,0,1,1,0,1,1,0,1,0,1,0,1,1,0,1,1,0,1,0,1],
+  [1,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,1,0,1,0,1],
+  [1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,0,1,0,1,0,1],
+  [1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1],
+  [1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1],
+  [1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
+  [1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
+  [1,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1],
+  [1,0,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,0,1,0,1],
+  [1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1],
+  [1,1,1,0,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,0,1],
+  [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1],
+  [1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1],
+  [1,1,1,0,1,0,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1,1,1,0,1],
+  [1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1],
+  [1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,0,0,0,1,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0],
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 ];
 
-const ROWS = RAW_MAZE.length;
-const COLS = RAW_MAZE[0].length;
+const ROWS = RAW_MAZE.length;      // 21
+const COLS = RAW_MAZE[0].length;   // 25
 const PLAYER_START = { row: 1, col: 1 };
-const EXIT = { row: 19, col: 20 };
-const VISIBILITY = 4; // tiles radius
+const EXIT = { row: 19, col: 24 };
+const VISIBILITY = 4;
 
-// Enemy patrol: a looping list of {row,col} waypoints along open corridors
-const PATROL_PATH = [
-  { row: 5, col: 1 },
-  { row: 5, col: 7 },
-  { row: 7, col: 7 },
-  { row: 7, col: 1 },
-  { row: 5, col: 1 },
-  { row: 13, col: 1 },
-  { row: 13, col: 9 },
-  { row: 13, col: 19 },
-  { row: 19, col: 19 },
-  { row: 19, col: 1 },
-  { row: 13, col: 1 },
-  { row: 5, col: 1 },
+// ── Three separate patrol routes that increasingly overlap as time passes ──────
+const PATROL_A = [
+  { row: 5, col: 1 },  { row: 5, col: 7 },  { row: 7, col: 7 },
+  { row: 7, col: 1 },  { row: 5, col: 1 },  { row: 13, col: 1 },
+  { row: 13, col: 9 }, { row: 13, col: 23 }, { row: 19, col: 23 },
+  { row: 19, col: 1 }, { row: 13, col: 1 },  { row: 5, col: 1 },
+];
+const PATROL_B = [
+  { row: 1, col: 23 }, { row: 1, col: 11 }, { row: 5, col: 11 },
+  { row: 5, col: 23 }, { row: 9, col: 23 }, { row: 9, col: 11 },
+  { row: 13, col: 11 },{ row: 13, col: 23 },{ row: 1, col: 23 },
+];
+const PATROL_C = [
+  { row: 3, col: 5 },  { row: 3, col: 17 }, { row: 9, col: 17 },
+  { row: 9, col: 5 },  { row: 15, col: 5 }, { row: 15, col: 17 },
+  { row: 19, col: 17 },{ row: 19, col: 5 }, { row: 3, col: 5 },
 ];
 
 type Pos = { row: number; col: number };
@@ -63,247 +67,177 @@ function isVisible(player: Pos, cell: Pos): boolean {
   return dr <= VISIBILITY && dc <= VISIBILITY;
 }
 
-// ─── Sub-components ───────────────────────────────────────────────────────────
+// ─── Maze Canvas ──────────────────────────────────────────────────────────────
+const TILE_SIZE = 20;
 
-const TILE_SIZE = 22; // px per tile on desktop; scales on mobile
+interface Enemy { pos: Pos; patrolIdx: number; progress: number; }
 
 interface MazeCanvasProps {
   player: Pos;
-  enemy: Pos;
+  enemies: Enemy[];
   won: boolean;
 }
 
-const MazeCanvas = ({ player, enemy, won }: MazeCanvasProps) => {
-  return (
-    <div
-      className="relative overflow-auto mx-auto"
-      style={{ maxWidth: "100%", overflowX: "auto", overflowY: "auto" }}
-    >
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: `repeat(${COLS}, ${TILE_SIZE}px)`,
-          gridTemplateRows: `repeat(${ROWS}, ${TILE_SIZE}px)`,
-          gap: 0,
-          width: `${COLS * TILE_SIZE}px`,
-          margin: "0 auto",
-        }}
-      >
-        {RAW_MAZE.map((row, r) =>
-          row.map((cell, c) => {
-            const pos = { row: r, col: c };
-            const visible = isVisible(player, pos) || won;
-            const isExit = r === EXIT.row && c === EXIT.col;
-            const isPlayerPos = r === player.row && c === player.col;
-            const isEnemyPos = r === enemy.row && c === enemy.col;
-            const isWallCell = cell === 1;
+const MazeCanvas = ({ player, enemies, won }: MazeCanvasProps) => (
+  <div className="relative overflow-auto mx-auto" style={{ maxWidth: "100%", overflowX: "auto", overflowY: "auto" }}>
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: `repeat(${COLS}, ${TILE_SIZE}px)`,
+      gridTemplateRows: `repeat(${ROWS}, ${TILE_SIZE}px)`,
+      gap: 0,
+      width: `${COLS * TILE_SIZE}px`,
+      margin: "0 auto",
+    }}>
+      {RAW_MAZE.map((row, r) =>
+        row.map((cell, c) => {
+          const pos = { row: r, col: c };
+          const visible = isVisible(player, pos) || won;
+          const isExit = r === EXIT.row && c === EXIT.col;
+          const isPlayerPos = r === player.row && c === player.col;
+          const isEnemyPos = enemies.some(e => e.pos.row === r && e.pos.col === c);
+          const isWallCell = cell === 1;
 
-            let bg = "hsl(20 10% 5%)"; // fog
-            if (visible) {
-              if (isWallCell) bg = "hsl(25 30% 12%)";
-              else bg = "hsl(20 10% 9%)";
-              if (isExit) bg = "hsl(38 50% 18%)";
-            }
+          let bg = "hsl(20 10% 5%)";
+          if (visible) {
+            if (isWallCell) bg = "hsl(25 30% 12%)";
+            else bg = "hsl(20 10% 9%)";
+            if (isExit) bg = "hsl(38 50% 18%)";
+          }
 
-            return (
-              <div
-                key={`${r}-${c}`}
-                style={{
-                  width: TILE_SIZE,
-                  height: TILE_SIZE,
-                  backgroundColor: bg,
-                  borderRight: visible && isWallCell ? "1px solid hsl(30 40% 16%)" : undefined,
-                  borderBottom: visible && isWallCell ? "1px solid hsl(30 40% 14%)" : undefined,
-                  position: "relative",
-                  boxSizing: "border-box",
-                  transition: "background-color 0.15s ease",
-                }}
-              >
-                {/* Exit glow */}
-                {isExit && visible && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 2,
-                      borderRadius: 1,
-                      background: "hsl(38 72% 50% / 0.4)",
-                      boxShadow: "0 0 8px hsl(38 72% 50% / 0.6)",
-                      animation: "pulse 2s ease-in-out infinite",
-                    }}
-                  />
-                )}
-                {/* Player */}
-                {isPlayerPos && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 4,
-                      borderRadius: "50%",
-                      background: "hsl(38 80% 60%)",
-                      boxShadow: "0 0 8px hsl(38 80% 60%), 0 0 16px hsl(38 72% 50% / 0.5)",
-                      zIndex: 10,
-                    }}
-                  />
-                )}
-                {/* Enemy */}
-                {isEnemyPos && visible && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 4,
-                      borderRadius: "50%",
-                      background: "hsl(0 0% 80%)",
-                      boxShadow: "0 0 6px hsl(0 0% 90% / 0.6)",
-                      zIndex: 10,
-                    }}
-                  />
-                )}
-              </div>
-            );
-          })
-        )}
-      </div>
+          return (
+            <div key={`${r}-${c}`} style={{
+              width: TILE_SIZE, height: TILE_SIZE, backgroundColor: bg,
+              borderRight: visible && isWallCell ? "1px solid hsl(30 40% 16%)" : undefined,
+              borderBottom: visible && isWallCell ? "1px solid hsl(30 40% 14%)" : undefined,
+              position: "relative", boxSizing: "border-box", transition: "background-color 0.15s ease",
+            }}>
+              {isExit && visible && (
+                <div style={{
+                  position: "absolute", inset: 2, borderRadius: 1,
+                  background: "hsl(38 72% 50% / 0.4)",
+                  boxShadow: "0 0 8px hsl(38 72% 50% / 0.6)",
+                  animation: "pulse 2s ease-in-out infinite",
+                }} />
+              )}
+              {isPlayerPos && (
+                <div style={{
+                  position: "absolute", inset: 3, borderRadius: "50%",
+                  background: "hsl(38 80% 60%)",
+                  boxShadow: "0 0 8px hsl(38 80% 60%), 0 0 16px hsl(38 72% 50% / 0.5)",
+                  zIndex: 10,
+                }} />
+              )}
+              {isEnemyPos && visible && (
+                <div style={{
+                  position: "absolute", inset: 3, borderRadius: "50%",
+                  background: "hsl(0 0% 80%)",
+                  boxShadow: "0 0 6px hsl(0 0% 90% / 0.6)",
+                  zIndex: 10,
+                }} />
+              )}
+            </div>
+          );
+        })
+      )}
     </div>
-  );
-};
-
-// ─── Escape Bar ───────────────────────────────────────────────────────────────
-
-interface EscapeBarProps {
-  onSuccess: () => void;
-  onFail: () => void;
-}
-
-const EscapeBar = ({ onSuccess, onFail }: EscapeBarProps) => {
-  const [progress, setProgress] = useState(0);
-  const [clickCount, setClickCount] = useState(0);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const successRef = useRef(false);
-
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setProgress((p) => {
-        const next = p + 1.5; // fills in ~66 ticks = ~3s at 50ms
-        if (next >= 100) {
-          clearInterval(intervalRef.current!);
-          if (!successRef.current) onFail();
-          return 100;
-        }
-        return next;
-      });
-    }, 50);
-    return () => clearInterval(intervalRef.current!);
-  }, [onFail]);
-
-  const handleClick = () => {
-    const next = clickCount + 1;
-    setClickCount(next);
-    if (next >= 8) {
-      successRef.current = true;
-      clearInterval(intervalRef.current!);
-      onSuccess();
-    }
-  };
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      className="absolute inset-0 bg-background/90 flex flex-col items-center justify-center z-30 gap-4 p-6"
-    >
-      <p className="font-display text-sm tracking-widest text-primary uppercase">The Unmarked is upon you</p>
-      <p className="font-body text-xs text-muted-foreground">Click rapidly to break free</p>
-      <div className="w-full max-w-xs h-3 bg-secondary border border-border rounded-none overflow-hidden">
-        <motion.div
-          className="h-full"
-          style={{
-            width: `${progress}%`,
-            background: "hsl(0 65% 48%)",
-            transition: "width 0.05s linear",
-          }}
-        />
-      </div>
-      <button
-        onPointerDown={handleClick}
-        className="w-full max-w-xs py-3 border border-primary font-body text-xs tracking-widest uppercase text-primary hover:bg-primary/10 active:scale-95 transition-all select-none touch-none"
-      >
-        Struggle — {Math.max(0, 8 - clickCount)} hits remaining
-      </button>
-    </motion.div>
-  );
-};
+  </div>
+);
 
 // ─── Main Component ───────────────────────────────────────────────────────────
+type GamePhase = "playing" | "dead" | "won";
 
-type GamePhase = "playing" | "escape" | "dead" | "won";
+const SCROLL_ID = 1;
+
+const makeEnemy = (patrol: Pos[], idx = 0): Enemy => ({ pos: patrol[idx], patrolIdx: idx, progress: 0 });
 
 export const DeadCorridors = () => {
   const { foundScrolls, foundScroll } = useGame();
   const [player, setPlayer] = useState<Pos>(PLAYER_START);
-  const [enemy, setEnemy] = useState<Pos>(PATROL_PATH[0]);
-  const [patrolIdx, setPatrolIdx] = useState(0);
-  const [patrolProgress, setPatrolProgress] = useState(0); // 0..1 between waypoints
+  const [enemies, setEnemies] = useState<Enemy[]>([makeEnemy(PATROL_A)]);
   const [phase, setPhase] = useState<GamePhase>("playing");
-  const [escapeFailures, setEscapeFailures] = useState(0);
   const [won, setWon] = useState(false);
   const [bestiaryUnlocked, setBestiaryUnlocked] = useState(false);
+  const [elapsed, setElapsed] = useState(0); // seconds since game start
+  const spawnBRef = useRef(false);
+  const spawnCRef = useRef(false);
 
-  const SCROLL_ID = 1; // maze awards Scroll 1 — "The Southern Burn"
   const alreadyWon = foundScrolls.includes(SCROLL_ID);
 
-  // ── Enemy movement along patrol path at ~0.6 tiles/sec
+  // ── Elapsed timer for spawning ──────────────────────────────────────────────
+  useEffect(() => {
+    if (phase !== "playing") return;
+    const t = setInterval(() => setElapsed(s => s + 1), 1000);
+    return () => clearInterval(t);
+  }, [phase]);
+
+  // ── Spawn second enemy at 15s ───────────────────────────────────────────────
+  useEffect(() => {
+    if (phase !== "playing" || spawnBRef.current || elapsed < 15) return;
+    spawnBRef.current = true;
+    setEnemies(prev => [...prev, makeEnemy(PATROL_B)]);
+  }, [elapsed, phase]);
+
+  // ── Spawn third enemy at 30s ────────────────────────────────────────────────
+  useEffect(() => {
+    if (phase !== "playing" || spawnCRef.current || elapsed < 30) return;
+    spawnCRef.current = true;
+    setEnemies(prev => [...prev, makeEnemy(PATROL_C)]);
+  }, [elapsed, phase]);
+
+  // ── Enemy movement ──────────────────────────────────────────────────────────
+  // Enemy 0 (A): base speed ~0.04/tick @ 40ms = 1 tile/sec
+  // Enemy 1 (B): 1.35× faster
+  // Enemy 2 (C): 1.7× faster
+  const SPEEDS = [0.04, 0.054, 0.068];
+  const PATROLS = [PATROL_A, PATROL_B, PATROL_C];
+
   useEffect(() => {
     if (phase !== "playing") return;
     const interval = setInterval(() => {
-      setPatrolProgress((prev) => {
-        const next = prev + 0.04; // speed: ~25 ticks to cross 1 tile = ~1 tile/sec at 40ms
-        if (next >= 1) {
-          setPatrolIdx((pi) => {
-            const nextIdx = (pi + 1) % (PATROL_PATH.length - 1);
-            setEnemy(PATROL_PATH[nextIdx]);
-            return nextIdx;
-          });
-          return 0;
-        }
-        // interpolate visual position — but we use tile grid, so snap to current waypoint
-        return next;
-      });
+      setEnemies(prev =>
+        prev.map((enemy, idx) => {
+          const patrol = PATROLS[idx];
+          const speed = SPEEDS[idx];
+          const newProgress = enemy.progress + speed;
+          if (newProgress >= 1) {
+            const nextIdx = (enemy.patrolIdx + 1) % (patrol.length - 1);
+            return { pos: patrol[nextIdx], patrolIdx: nextIdx, progress: 0 };
+          }
+          return { ...enemy, progress: newProgress };
+        })
+      );
     }, 40);
     return () => clearInterval(interval);
   }, [phase]);
 
-  // ── Collision detection
+  // ── Collision — instant death on any contact ────────────────────────────────
   useEffect(() => {
     if (phase !== "playing") return;
-    if (enemy.row === player.row && enemy.col === player.col) {
-      setPhase("escape");
-    }
-  }, [enemy, player, phase]);
+    const hit = enemies.some(e => e.pos.row === player.row && e.pos.col === player.col);
+    if (hit) setPhase("dead");
+  }, [enemies, player, phase]);
 
-  // ── Keyboard input
+  // ── Keyboard input ──────────────────────────────────────────────────────────
   useEffect(() => {
     if (phase !== "playing") return;
     const onKey = (e: KeyboardEvent) => {
       const dirs: Record<string, Pos> = {
-        ArrowUp: { row: -1, col: 0 },
-        ArrowDown: { row: 1, col: 0 },
-        ArrowLeft: { row: 0, col: -1 },
-        ArrowRight: { row: 0, col: 1 },
+        ArrowUp: { row: -1, col: 0 }, ArrowDown: { row: 1, col: 0 },
+        ArrowLeft: { row: 0, col: -1 }, ArrowRight: { row: 0, col: 1 },
       };
       const d = dirs[e.key];
       if (!d) return;
       e.preventDefault();
-      setPlayer((p) => {
+      setPlayer(p => {
         const np = { row: p.row + d.row, col: p.col + d.col };
-        if (isWall(np)) return p;
-        return np;
+        return isWall(np) ? p : np;
       });
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [phase]);
 
-  // ── Win detection
+  // ── Win detection ───────────────────────────────────────────────────────────
   useEffect(() => {
     if (player.row === EXIT.row && player.col === EXIT.col && phase === "playing") {
       setPhase("won");
@@ -313,7 +247,7 @@ export const DeadCorridors = () => {
     }
   }, [player, phase, alreadyWon, foundScroll]);
 
-  // ── Swipe support
+  // ── Swipe support ───────────────────────────────────────────────────────────
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const onTouchStart = (e: React.TouchEvent) => {
     touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
@@ -330,42 +264,25 @@ export const DeadCorridors = () => {
     } else {
       d = dy > 0 ? { row: 1, col: 0 } : { row: -1, col: 0 };
     }
-    setPlayer((p) => {
+    setPlayer(p => {
       const np = { row: p.row + d.row, col: p.col + d.col };
-      if (isWall(np)) return p;
-      return np;
+      return isWall(np) ? p : np;
     });
   }, [phase]);
 
-  const handleEscapeSuccess = () => {
-    setEnemy(PATROL_PATH[0]);
-    setPatrolIdx(0);
-    setPatrolProgress(0);
-    setPhase("playing");
-  };
-
-  const handleEscapeFail = () => {
-    const next = escapeFailures + 1;
-    setEscapeFailures(next);
-    if (next >= 2) {
-      setPhase("dead");
-    } else {
-      setEnemy(PATROL_PATH[0]);
-      setPatrolIdx(0);
-      setPatrolProgress(0);
-      setPhase("playing");
-    }
-  };
-
+  // ── Restart ─────────────────────────────────────────────────────────────────
   const handleRestart = () => {
     setPlayer(PLAYER_START);
-    setEnemy(PATROL_PATH[0]);
-    setPatrolIdx(0);
-    setPatrolProgress(0);
-    setEscapeFailures(0);
+    setEnemies([makeEnemy(PATROL_A)]);
     setPhase("playing");
     setWon(false);
+    setElapsed(0);
+    spawnBRef.current = false;
+    spawnCRef.current = false;
   };
+
+  // ── Timer color ─────────────────────────────────────────────────────────────
+  const dangerPct = Math.min(elapsed / 30, 1);
 
   return (
     <section className="py-16 sm:py-20 px-4">
@@ -404,12 +321,32 @@ export const DeadCorridors = () => {
           The southern hemisphere has been burnt for a century. Not everything that was left behind stayed dead.
         </motion.p>
 
-        {/* Controls hint */}
         <p className="mt-2 text-[10px] tracking-widest text-muted-foreground/50 font-body uppercase">
           <span className="hidden sm:inline">Arrow keys to move · </span>
           <span className="sm:hidden">Swipe to move · </span>
-          Reach the glowing exit · Avoid The Unmarked
+          Reach the glowing exit · One touch from The Unmarked ends everything
         </p>
+
+        {/* Threat indicator */}
+        {phase === "playing" && (
+          <div className="mt-3 max-w-xs mx-auto">
+            <div className="flex justify-between text-[8px] tracking-widest text-muted-foreground/40 font-body uppercase mb-1">
+              <span>Threat level</span>
+              <span>
+                {elapsed < 15 ? "1 Unmarked" : elapsed < 30 ? "2 Unmarked" : "3 Unmarked"}
+              </span>
+            </div>
+            <div className="h-1 bg-secondary border border-border/50 overflow-hidden">
+              <div
+                className="h-full transition-all duration-1000"
+                style={{
+                  width: `${dangerPct * 100}%`,
+                  background: dangerPct < 0.5 ? "hsl(38 72% 50%)" : dangerPct < 0.9 ? "hsl(25 80% 45%)" : "hsl(0 65% 48%)",
+                }}
+              />
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Maze container */}
@@ -423,15 +360,9 @@ export const DeadCorridors = () => {
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        {/* Maze grid */}
         <div className="p-2 sm:p-3 overflow-auto">
-          <MazeCanvas player={player} enemy={enemy} won={won} />
+          <MazeCanvas player={player} enemies={enemies} won={won} />
         </div>
-
-        {/* Escape overlay */}
-        {phase === "escape" && (
-          <EscapeBar onSuccess={handleEscapeSuccess} onFail={handleEscapeFail} />
-        )}
 
         {/* Dead screen */}
         <AnimatePresence>

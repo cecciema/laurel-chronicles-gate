@@ -31,11 +31,18 @@ function caesarEncode(text: string, shift: number): string {
     .join("");
 }
 
-function caesarDecode(text: string, shift: number): string {
-  return caesarEncode(text, 26 - (shift % 26));
-}
-
 const CIPHERTEXT = caesarEncode(PLAINTEXT, SHIFT);
+
+// Split into word pairs: { encoded, decoded }
+// We keep punctuation attached to the word it belongs to
+const WORD_PAIRS: { encoded: string; decoded: string }[] = (() => {
+  const plainWords = PLAINTEXT.split(" ");
+  const cipherWords = CIPHERTEXT.split(" ");
+  return plainWords.map((plain, i) => ({
+    decoded: plain,
+    encoded: cipherWords[i] ?? plain,
+  }));
+})();
 
 // ─── The Silencer SVG silhouette ──────────────────────────────────────────────
 const SilencerFigure = ({ step }: { step: number }) => {
@@ -88,111 +95,27 @@ const SilencerFigure = ({ step }: { step: number }) => {
   );
 };
 
-// ─── Decoder Wheel ────────────────────────────────────────────────────────────
-interface DecoderWheelProps {
-  userShift: number;
-  onChange: (shift: number) => void;
-  disabled: boolean;
-}
-
-const DecoderWheel = ({ userShift, onChange, disabled }: DecoderWheelProps) => {
-  const prev = (s: number) => onChange((s + 25) % 26);
-  const next = (s: number) => onChange((s + 1) % 26);
-
-  const visibleCount = 7;
-  const halfVisible = Math.floor(visibleCount / 2);
-
-  // Show a window of decoded letters centred on current shift
-  const windowLetters = Array.from({ length: visibleCount }, (_, i) => {
-    const offset = i - halfVisible;
-    const shiftedShift = (userShift + offset + 26) % 26;
-    const letter = ALPHABET[shiftedShift];
-    const isCentre = i === halfVisible;
-    return { letter, isCentre, shiftedShift };
-  });
-
-  const handleKey = useCallback(
-    (e: React.KeyboardEvent) => {
-      if (disabled) return;
-      if (e.key === "ArrowLeft") { e.preventDefault(); prev(userShift); }
-      if (e.key === "ArrowRight") { e.preventDefault(); next(userShift); }
-    },
-    [userShift, disabled]
-  );
-
-  return (
-    <div className="flex flex-col items-center gap-3 select-none">
-      <p className="text-[9px] tracking-[0.3em] text-muted-foreground/60 uppercase font-body">
-        Shift decoder · align to reveal plaintext
-      </p>
-      <div className="flex items-center gap-2">
-        {/* Decrease shift */}
-        <button
-          onClick={() => prev(userShift)}
-          disabled={disabled}
-          aria-label="Shift left"
-          className="min-w-[44px] min-h-[44px] flex items-center justify-center border border-border text-primary hover:border-primary/50 hover:bg-primary/5 transition-all disabled:opacity-30 font-body text-lg"
-        >
-          ‹
-        </button>
-
-        {/* Letter window */}
-        <div
-          className="flex items-center overflow-hidden border border-border bg-card"
-          style={{ width: `${visibleCount * 44}px`, height: 56 }}
-          tabIndex={0}
-          onKeyDown={handleKey}
-          aria-label="Decoder wheel"
-        >
-          {windowLetters.map(({ letter, isCentre }, i) => (
-            <div
-              key={i}
-              className={`flex-shrink-0 flex items-center justify-center transition-all duration-150 ${
-                isCentre
-                  ? "font-display text-2xl text-primary border-x border-primary/40 bg-primary/8"
-                  : "font-display text-base text-muted-foreground/30"
-              }`}
-              style={{ width: 44, height: 56 }}
-            >
-              {letter}
-            </div>
-          ))}
-        </div>
-
-        {/* Increase shift */}
-        <button
-          onClick={() => next(userShift)}
-          disabled={disabled}
-          aria-label="Shift right"
-          className="min-w-[44px] min-h-[44px] flex items-center justify-center border border-border text-primary hover:border-primary/50 hover:bg-primary/5 transition-all disabled:opacity-30 font-body text-lg"
-        >
-          ›
-        </button>
-      </div>
-
-      {/* Shift indicator */}
-      <p className="text-[9px] tracking-[0.25em] text-muted-foreground/40 font-body uppercase">
-        Shift: {userShift} · Decoding with: {ALPHABET[(userShift + 26) % 26]}→A
-      </p>
-    </div>
-  );
-};
-
 // ─── Forbidden Transmission Game ──────────────────────────────────────────────
 type GamePhase = "playing" | "won" | "lost";
 
 const ForbiddenTransmission = () => {
   const { foundScrolls, foundScroll } = useGame();
-  const [userShift, setUserShift] = useState(0);
+  // Word-by-word state
+  const [wordIndex, setWordIndex] = useState(0);       // which word we're on
+  const [lockedWords, setLockedWords] = useState<string[]>([]); // correctly decoded so far
+  const [inputValue, setInputValue] = useState("");
+  const [shakeInput, setShakeInput] = useState(false);
+  const [hint, setHint] = useState<string | null>(null);
   const [wrongAttempts, setWrongAttempts] = useState(0);
   const [phase, setPhase] = useState<GamePhase>("playing");
   const [timeLeft, setTimeLeft] = useState(TIMER_SECONDS);
   const [blackout, setBlackout] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [bestiaryUnlocked, setBestiaryUnlocked] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const alreadyWon = foundScrolls.includes(SCROLL_ID);
+  const currentPair = WORD_PAIRS[wordIndex];
 
   // ── Timer
   useEffect(() => {
@@ -218,35 +141,61 @@ const ForbiddenTransmission = () => {
     }, 3000);
   };
 
-  const handleSubmit = () => {
-    if (submitted || phase !== "playing") return;
-    const decoded = caesarDecode(CIPHERTEXT, userShift);
-    if (decoded.trim() === PLAINTEXT.trim()) {
-      clearInterval(timerRef.current!);
-      setPhase("won");
-      setBestiaryUnlocked(true);
-      if (!alreadyWon) foundScroll(SCROLL_ID);
+  const handleDecode = useCallback(() => {
+    if (phase !== "playing" || !currentPair) return;
+    const typed = inputValue.trim().toUpperCase();
+    // Strip trailing punctuation from expected so "SALVATION." matches "SALVATION"
+    const expected = currentPair.decoded.replace(/[^A-Z]/g, "");
+    const typedClean = typed.replace(/[^A-Z]/g, "");
+
+    if (typedClean === expected) {
+      // Correct
+      const newLocked = [...lockedWords, currentPair.decoded];
+      setLockedWords(newLocked);
+      setInputValue("");
+      setHint(null);
+      const nextIdx = wordIndex + 1;
+      if (nextIdx >= WORD_PAIRS.length) {
+        // All words decoded — win
+        clearInterval(timerRef.current!);
+        setPhase("won");
+        setBestiaryUnlocked(true);
+        if (!alreadyWon) foundScroll(SCROLL_ID);
+      } else {
+        setWordIndex(nextIdx);
+        setTimeout(() => inputRef.current?.focus(), 50);
+      }
     } else {
+      // Wrong
+      setShakeInput(true);
+      setTimeout(() => setShakeInput(false), 600);
       const next = wrongAttempts + 1;
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 1200);
       setWrongAttempts(next);
+      // Show first letter hint
+      setHint(`First letter: ${currentPair.decoded[0]}`);
+      setInputValue("");
       if (next >= MAX_WRONG) {
         clearInterval(timerRef.current!);
         triggerLoss();
       }
     }
+  }, [phase, currentPair, inputValue, lockedWords, wordIndex, wrongAttempts, alreadyWon, foundScroll]);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") { e.preventDefault(); handleDecode(); }
   };
 
   const handleRestart = () => {
-    setUserShift(0);
+    setWordIndex(0);
+    setLockedWords([]);
+    setInputValue("");
+    setHint(null);
+    setShakeInput(false);
     setWrongAttempts(0);
     setPhase("playing");
     setTimeLeft(TIMER_SECONDS);
-    setSubmitted(false);
   };
 
-  const decoded = caesarDecode(CIPHERTEXT, userShift);
   const timerPct = (timeLeft / TIMER_SECONDS) * 100;
   const timerColor =
     timeLeft > 45
@@ -443,70 +392,88 @@ const ForbiddenTransmission = () => {
             )}
           </div>
 
-          {/* Encoded message */}
-          <div>
-            <p className="text-[9px] tracking-[0.3em] text-muted-foreground/50 uppercase font-body mb-2">
-              Intercepted ciphertext
-            </p>
-            <div className="bg-background/60 border border-border/40 p-3 font-body text-[11px] sm:text-xs tracking-[0.15em] text-primary/80 leading-[2] break-all">
-              {CIPHERTEXT}
+          {/* ── Previously decoded words ── */}
+          {lockedWords.length > 0 && (
+            <div className="bg-background/30 border border-border/30 p-3">
+              <p className="text-[8px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body mb-1.5">
+                Decoded so far
+              </p>
+              <p className="font-body text-[11px] sm:text-xs tracking-[0.15em] leading-[2]" style={{ color: "hsl(38 72% 60%)" }}>
+                {lockedWords.join(" ")}
+              </p>
             </div>
-          </div>
+          )}
 
-          {/* Live decoded preview */}
-          <div>
-            <p className="text-[9px] tracking-[0.3em] text-muted-foreground/50 uppercase font-body mb-2">
-              Decoded output
-            </p>
-            <div
-              className="bg-background/60 border p-3 font-body text-[11px] sm:text-xs tracking-[0.15em] leading-[2] break-all transition-colors duration-300"
-              style={{
-                borderColor:
-                  submitted
-                    ? "hsl(0 65% 48% / 0.6)"
-                    : decoded === PLAINTEXT
-                    ? "hsl(38 72% 50% / 0.5)"
-                    : "hsl(38 20% 20%)",
-                color:
-                  decoded === PLAINTEXT
-                    ? "hsl(38 72% 65%)"
-                    : "hsl(38 25% 55%)",
-              }}
-            >
-              {decoded}
+          {/* ── Current word to decode ── */}
+          {phase === "playing" && currentPair && (
+            <div className="flex flex-col gap-3">
+              <div>
+                <p className="text-[8px] tracking-[0.3em] text-muted-foreground/50 uppercase font-body mb-1.5">
+                  Current word · {wordIndex + 1} of {WORD_PAIRS.length}
+                </p>
+                <div className="bg-background/60 border border-border/40 px-4 py-3 text-center">
+                  <span className="font-display text-xl sm:text-2xl tracking-[0.25em] text-primary/90">
+                    {currentPair.encoded}
+                  </span>
+                </div>
+              </div>
+
+              {/* Hint */}
+              <AnimatePresence>
+                {hint && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="text-[9px] tracking-[0.2em] font-body uppercase text-center"
+                    style={{ color: "hsl(38 60% 55%)" }}
+                  >
+                    ◈ {hint}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+
+              {/* Input + decode button */}
+              <motion.div
+                animate={shakeInput ? { x: [0, -8, 8, -6, 6, -3, 3, 0] } : { x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex gap-2"
+              >
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={inputValue}
+                  onChange={e => setInputValue(e.target.value.toUpperCase())}
+                  onKeyDown={handleKeyDown}
+                  placeholder="Type the decoded word…"
+                  autoComplete="off"
+                  autoCorrect="off"
+                  spellCheck={false}
+                  className="flex-1 bg-background/60 border border-border/60 px-3 py-2.5 font-body text-xs tracking-widest text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:border-primary/50 uppercase"
+                  style={{ minHeight: 44 }}
+                  disabled={phase !== "playing"}
+                />
+                <button
+                  onClick={handleDecode}
+                  disabled={phase !== "playing" || !inputValue.trim()}
+                  className="px-5 py-2.5 border font-body text-[10px] tracking-widest uppercase transition-all disabled:opacity-40 hover:bg-primary/10"
+                  style={{
+                    borderColor: "hsl(38 72% 50%)",
+                    color: "hsl(38 72% 55%)",
+                    minHeight: 44,
+                  }}
+                >
+                  Decode
+                </button>
+              </motion.div>
             </div>
-          </div>
-
-          {/* Decoder wheel */}
-          <DecoderWheel
-            userShift={userShift}
-            onChange={setUserShift}
-            disabled={phase !== "playing"}
-          />
-
-          {/* Submit */}
-          <button
-            onClick={handleSubmit}
-            disabled={phase !== "playing" || submitted}
-            className="w-full py-3 border font-body text-xs tracking-widest uppercase transition-all disabled:opacity-40"
-            style={{
-              borderColor: submitted
-                ? "hsl(0 65% 48%)"
-                : "hsl(38 72% 50%)",
-              color: submitted
-                ? "hsl(0 65% 60%)"
-                : "hsl(38 72% 50%)",
-              background: submitted ? "hsl(0 65% 48% / 0.08)" : "transparent",
-            }}
-          >
-            {submitted ? "Incorrect — The Silencer moves closer" : "Submit Decode"}
-          </button>
+          )}
         </div>
       </motion.div>
 
       {/* Hint */}
       <p className="max-w-2xl mx-auto mt-2 text-[9px] tracking-[0.2em] text-muted-foreground/30 font-body text-right px-1 uppercase">
-        Caesar cipher · shift by a number between 1–25
+        Caesar cipher · type each decoded word · wrong = Silencer advances
       </p>
 
       {/* Bestiary Card */}
