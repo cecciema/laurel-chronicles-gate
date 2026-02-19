@@ -341,7 +341,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 8.0 }}
+              transition={{ delay: 4.5 }}
               className="mt-10 text-xs tracking-[0.3em] text-muted-foreground uppercase font-body"
             >
               Entering the world…
