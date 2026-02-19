@@ -248,13 +248,15 @@ function clamp(value: number, min: number, max: number) {
 
 // ── Main Component ─────────────────────────────────────────────────────────────
 const WorldMap = () => {
-  const { questCompleted, foundScrolls } = useGame();
+  const { questCompleted, foundScrolls, foundScroll, valoricaRevealed } = useGame();
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [hoveredRegion,  setHoveredRegion]  = useState<string | null>(null);
   const isMobile = useIsMobile();
 
-  const arborwellUnlocked = foundScrolls.length >= 3 || foundScrolls.includes(8);
-  const valoricaUnlocked  = questCompleted && arborwellUnlocked;
+  // Arborwell unlocked when ≥3 scrolls found or scroll 6 found
+  const arborwellUnlocked = foundScrolls.length >= 3 || foundScrolls.includes(6);
+  // Valorica only visible after the sealed document puzzle is solved
+  const valoricaUnlocked  = valoricaRevealed;
 
   const selectedData = SUB_REGIONS.find((r) => r.id === selectedRegion) ?? null;
 
@@ -518,7 +520,7 @@ const WorldMap = () => {
         <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-4 mb-3">
           <div className="flex flex-wrap gap-x-5 gap-y-1 justify-center">
             <span className="font-body text-[9px] tracking-[0.25em] uppercase text-muted-foreground">
-              Scrolls: {foundScrolls.length}/8
+              Scrolls: {foundScrolls.filter(id => id <= 7).length}/7
             </span>
             <span
               className="font-body text-[9px] tracking-[0.25em] uppercase"
@@ -640,12 +642,20 @@ const WorldMap = () => {
                   );
                 })}
 
-                {/* === ARBORWELL === */}
+                {/* === ARBORWELL — clicking awards Scroll 6 on first visit === */}
                 <div className="absolute z-20" style={ARBORWELL_STYLE}>
-                  <div className="relative w-full h-full cursor-not-allowed">
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    aria-label={arborwellUnlocked ? "Arborwell" : "Unknown territory"}
+                    onClick={() => { if (!hasDragged.current) foundScroll(6); }}
+                    onKeyDown={(e) => e.key === "Enter" && foundScroll(6)}
+                    onMouseDown={(e) => e.stopPropagation()}
+                    className="relative w-full h-full cursor-pointer"
+                  >
                     <div
-                      className="absolute inset-0 rounded-sm border border-dashed"
-                      style={{ borderColor: "#6b728060", background: "#6b728010" }}
+                      className="absolute inset-0 rounded-sm border border-dashed transition-all duration-300"
+                      style={{ borderColor: foundScrolls.includes(6) ? "#6b728099" : "#6b728060", background: "#6b728010" }}
                     />
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                       <span
