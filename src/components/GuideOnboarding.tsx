@@ -95,12 +95,11 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
   const msg = selected ? welcomeMessages[selected.welcomeTone] : null;
 
   return (
-    <div ref={scrollContainerRef} className="fixed inset-0 z-[100] bg-background flex items-center justify-center overflow-x-hidden overflow-y-auto h-screen">
+    <div ref={scrollContainerRef} className="fixed inset-0 z-[100] bg-background overflow-y-auto overflow-x-hidden">
       {/* Atmospheric background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,hsl(var(--primary)/0.12),transparent_70%)]" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        {/* Subtle animated particles */}
         {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
@@ -114,7 +113,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
 
       <AnimatePresence mode="wait">
 
-        {/* STEP 1: Welcome */}
+        {/* STEP 1: Welcome — vertically centred */}
         {step === "welcome" && (
           <motion.div
             key="welcome"
@@ -122,50 +121,52 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 0.97 }}
             transition={{ duration: 1.2 }}
-            className="text-center px-6 max-w-2xl mx-auto py-12"
+            className="min-h-screen flex items-center justify-center"
           >
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-xs tracking-[0.5em] text-primary/60 uppercase font-body mb-6"
-            >
-              Entering the World
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 1 }}
-              className="font-display text-4xl sm:text-6xl tracking-[0.08em] text-foreground leading-tight"
-            >
-              LAUREL<br />
-              <span className="text-brass-glow">CROWNS</span><br />
-              ABOVE
-            </motion.h1>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.4 }}
-              className="mt-8 space-y-2"
-            >
-              <div className="steampunk-divider max-w-xs mx-auto" />
-              <p className="font-narrative text-lg text-foreground/60 italic mt-6">
-                "The world you are about to enter is older than its own history knows."
-              </p>
-            </motion.div>
-            <motion.button
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 2.2 }}
-              onClick={() => setStep("choose")}
-              className="mt-8 sm:mt-12 px-10 py-3 border border-primary/50 text-primary font-display text-sm tracking-[0.25em] uppercase hover:border-primary hover:shadow-glow transition-all"
-            >
-              Enter the World
-            </motion.button>
+            <div className="text-center px-6 max-w-2xl mx-auto py-12">
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-xs tracking-[0.5em] text-primary/60 uppercase font-body mb-6"
+              >
+                Entering the World
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 1 }}
+                className="font-display text-4xl sm:text-6xl tracking-[0.08em] text-foreground leading-tight"
+              >
+                LAUREL<br />
+                <span className="text-brass-glow">CROWNS</span><br />
+                ABOVE
+              </motion.h1>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.4 }}
+                className="mt-8 space-y-2"
+              >
+                <div className="steampunk-divider max-w-xs mx-auto" />
+                <p className="font-narrative text-lg text-foreground/60 italic mt-6">
+                  "The world you are about to enter is older than its own history knows."
+                </p>
+              </motion.div>
+              <motion.button
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2.2 }}
+                onClick={() => setStep("choose")}
+                className="mt-8 sm:mt-12 px-10 py-3 border border-primary/50 text-primary font-display text-sm tracking-[0.25em] uppercase hover:border-primary hover:shadow-glow transition-all"
+              >
+                Enter the World
+              </motion.button>
+            </div>
           </motion.div>
         )}
 
-        {/* STEP 2: Choose Guide */}
+        {/* STEP 2: Choose Guide — top-aligned, naturally scrollable */}
         {step === "choose" && (
           <motion.div
             key="choose"
@@ -173,7 +174,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.8 }}
-            className="w-full max-w-7xl mx-auto px-4 sm:px-6 pt-20 sm:pt-16 pb-8"
+            className="w-full max-w-7xl mx-auto px-4 sm:px-6 pt-20 sm:pt-16 pb-12"
           >
             <div className="text-center mb-10">
               <motion.p
@@ -221,7 +222,6 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
 
-                  {/* Hover / tap philosophy reveal */}
                   <AnimatePresence>
                     {(hovered === guide.id || tapped === guide.id) && (
                       <motion.div
@@ -261,7 +261,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
           </motion.div>
         )}
 
-        {/* STEP 3: Confirm */}
+        {/* STEP 3: Confirm — vertically centred */}
         {step === "confirm" && selected && (
           <motion.div
             key="confirm"
@@ -269,46 +269,48 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.96 }}
             transition={{ duration: 0.6 }}
-            className="max-w-lg mx-auto px-6 text-center"
+            className="min-h-screen flex items-center justify-center"
           >
-            <div className="relative w-28 h-40 sm:w-32 sm:h-48 mx-auto mb-6 sm:mb-8">
-              <img
-                src={resolveGuideImage(selected.image)}
-                alt={selected.name}
-                className="w-full h-full object-cover border border-primary/40"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-            </div>
+            <div className="max-w-lg mx-auto px-6 text-center py-12">
+              <div className="relative w-28 h-40 sm:w-32 sm:h-48 mx-auto mb-6 sm:mb-8">
+                <img
+                  src={resolveGuideImage(selected.image)}
+                  alt={selected.name}
+                  className="w-full h-full object-cover border border-primary/40"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              </div>
 
-            <p className="text-[10px] tracking-[0.4em] text-primary uppercase font-body mb-2">
-              {selected.magistry}
-            </p>
-            <h3 className="font-display text-2xl tracking-wide text-foreground">
-              {selected.name}
-            </h3>
-            <div className="steampunk-divider max-w-xs mx-auto my-6" />
-            <p className="font-narrative text-base text-foreground/70 italic leading-relaxed mb-8">
-              "{selected.philosophy}"
-            </p>
+              <p className="text-[10px] tracking-[0.4em] text-primary uppercase font-body mb-2">
+                {selected.magistry}
+              </p>
+              <h3 className="font-display text-2xl tracking-wide text-foreground">
+                {selected.name}
+              </h3>
+              <div className="steampunk-divider max-w-xs mx-auto my-6" />
+              <p className="font-narrative text-base text-foreground/70 italic leading-relaxed mb-8">
+                "{selected.philosophy}"
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button
-                onClick={handleConfirm}
-                className="px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase hover:shadow-glow transition-shadow"
-              >
-                Choose This Guide
-              </button>
-              <button
-                onClick={() => { setSelected(null); setStep("choose"); }}
-                className="px-8 py-3 border border-border text-muted-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/40 transition-colors"
-              >
-                Return
-              </button>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <button
+                  onClick={handleConfirm}
+                  className="px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase hover:shadow-glow transition-shadow"
+                >
+                  Choose This Guide
+                </button>
+                <button
+                  onClick={() => { setSelected(null); setStep("choose"); }}
+                  className="px-8 py-3 border border-border text-muted-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/40 transition-colors"
+                >
+                  Return
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
 
-        {/* STEP 4: Reveal */}
+        {/* STEP 4: Reveal — vertically centred */}
         {step === "reveal" && selected && msg && (
           <motion.div
             key="reveal"
@@ -316,46 +318,48 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            className="max-w-2xl mx-auto px-6 text-center"
+            className="min-h-screen flex items-center justify-center"
           >
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-[10px] tracking-[0.5em] text-primary/60 uppercase font-body mb-6"
-            >
-              {selected.name} · {selected.magistry}
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.9 }}
-              className="font-display text-xl sm:text-2xl tracking-wide text-foreground leading-relaxed mb-8"
-            >
-              "{msg.title}"
-            </motion.h2>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.4 }}
-              className="steampunk-divider max-w-xs mx-auto"
-            />
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.8 }}
-              className="mt-8 font-narrative text-base text-foreground/70 italic leading-relaxed"
-            >
-              {msg.body}
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 4.5 }}
-              className="mt-10 text-xs tracking-[0.3em] text-muted-foreground uppercase font-body"
-            >
-              Entering the world…
-            </motion.p>
+            <div className="max-w-2xl mx-auto px-6 text-center py-12">
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-[10px] tracking-[0.5em] text-primary/60 uppercase font-body mb-6"
+              >
+                {selected.name} · {selected.magistry}
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.9 }}
+                className="font-display text-xl sm:text-2xl tracking-wide text-foreground leading-relaxed mb-8"
+              >
+                "{msg.title}"
+              </motion.h2>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.4 }}
+                className="steampunk-divider max-w-xs mx-auto"
+              />
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.8 }}
+                className="mt-8 font-narrative text-base text-foreground/70 italic leading-relaxed"
+              >
+                {msg.body}
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 4.5 }}
+                className="mt-10 text-xs tracking-[0.3em] text-muted-foreground uppercase font-body"
+              >
+                Entering the world…
+              </motion.p>
+            </div>
           </motion.div>
         )}
 
