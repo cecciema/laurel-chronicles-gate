@@ -258,152 +258,117 @@ const WorldMap = () => {
 
   const selectedData = SUB_REGIONS.find((r) => r.id === selectedRegion) ?? null;
 
-  // ── Transform state ──────────────────────────────────────────────────────────
-  const [scale, setScale]   = useState(1);
-  const [tx, setTx]         = useState(0); // translateX in px
-  const [ty, setTy]         = useState(0); // translateY in px
-  // Whether a programmatic (animated) zoom is active
-  const [animated, setAnimated] = useState(false);
+  // ── All live transform values live in refs — never in React state ────────────
+  // This is the key to 60fps: drag/scroll/pinch write directly to the DOM
+  // without triggering a React re-render.
+  const scaleRef  = useRef(1);
+  const txRef     = useRef(0);
+  const tyRef     = useRef(0);
+  const mapInnerRef = useRef<HTMLDivElement>(null);
 
-  // ── Refs ─────────────────────────────────────────────────────────────────────
-  const containerRef  = useRef<HTMLDivElement>(null);
-  const isDragging    = useRef(false);
-  const dragStart     = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
-  const hasDragged    = useRef(false);       // distinguish click vs drag
-  const lastPinchDist = useRef<number | null>(null);
-  const lastPinchMid  = useRef<{ x: number; y: number } | null>(null);
-  const animFrameRef  = useRef<number | null>(null);
+  // ── Other refs ───────────────────────────────────────────────────────────────
+  const containerRef    = useRef<HTMLDivElement>(null);
+  const isDragging      = useRef(false);
+  const hasDragged      = useRef(false);
+  const dragStart       = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
+  const lastPinchDist   = useRef<number | null>(null);
+  const lastPinchMid    = useRef<{ x: number; y: number } | null>(null);
 
-  // ── Constrain translation so map never shows black gaps ─────────────────────
-  const constrain = useCallback(
-    (nextTx: number, nextTy: number, nextScale: number) => {
-      const el = containerRef.current;
-      if (!el) return { tx: nextTx, ty: nextTy };
-      const { width: cw, height: ch } = el.getBoundingClientRect();
-      const mapW = cw * nextScale;
-      const mapH = ch * nextScale;
-      const maxX = (mapW - cw) / 2;
-      const maxY = (mapH - ch) / 2;
-      return {
-        tx: clamp(nextTx, -maxX, maxX),
-        ty: clamp(nextTy, -maxY, maxY),
-      };
-    },
-    []
-  );
+  // ── Write transform directly to DOM (zero React overhead) ────────────────────
+  const commitTransform = useCallback((s: number, x: number, y: number, animated: boolean) => {
+    scaleRef.current = s;
+    txRef.current    = x;
+    tyRef.current    = y;
+    const el = mapInnerRef.current;
+    if (!el) return;
+    el.style.transition = animated
+      ? "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)"
+      : "none";
+    el.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
+  }, []);
 
-  // ── Apply constrained scale + translation ────────────────────────────────────
-  const applyTransform = useCallback(
-    (nextScale: number, nextTx: number, nextTy: number, useAnimation = false) => {
-      const s = clamp(nextScale, MIN_SCALE, MAX_SCALE);
-      const { tx: cx, ty: cy } = constrain(nextTx, nextTy, s);
-      setAnimated(useAnimation);
-      setScale(s);
-      setTx(cx);
-      setTy(cy);
-    },
-    [constrain]
-  );
+  // ── Constrain so map always fills container (no black gaps) ──────────────────
+  const constrain = useCallback((nextTx: number, nextTy: number, nextScale: number) => {
+    const el = containerRef.current;
+    if (!el) return { tx: nextTx, ty: nextTy };
+    const { width: cw, height: ch } = el.getBoundingClientRect();
+    const maxX = (cw * nextScale - cw) / 2;
+    const maxY = (ch * nextScale - ch) / 2;
+    return {
+      tx: clamp(nextTx, -maxX, maxX),
+      ty: clamp(nextTy, -maxY, maxY),
+    };
+  }, []);
 
-  // ── Reset ────────────────────────────────────────────────────────────────────
-  const resetTransform = useCallback(() => {
-    applyTransform(1, 0, 0, true);
-    setSelectedRegion(null);
-  }, [applyTransform]);
-
-  // ── Zoom toward a point (container-relative px) ──────────────────────────────
+  // ── Zoom math (cursor-anchored) ──────────────────────────────────────────────
   const zoomToward = useCallback(
-    (
-      delta: number,
-      originX: number,
-      originY: number,
-      currentScale: number,
-      currentTx: number,
-      currentTy: number
-    ) => {
-      const el = containerRef.current;
-      if (!el) return { scale: currentScale, tx: currentTx, ty: currentTy };
-      const { width: cw, height: ch } = el.getBoundingClientRect();
-
-      const nextScale = clamp(currentScale + delta, MIN_SCALE, MAX_SCALE);
-      if (nextScale === currentScale) return { scale: currentScale, tx: currentTx, ty: currentTy };
-
-      // Point on the image (in image-space) that should stay fixed
-      const imgX = (originX - cw / 2 - currentTx) / currentScale;
-      const imgY = (originY - ch / 2 - currentTy) / currentScale;
-
-      const nextTx = originX - cw / 2 - imgX * nextScale;
-      const nextTy = originY - ch / 2 - imgY * nextScale;
-      const { tx: cx, ty: cy } = constrain(nextTx, nextTy, nextScale);
-
-      return { scale: nextScale, tx: cx, ty: cy };
-    },
-    [constrain]
-  );
-
-  // ── Programmatic region zoom (auto-zoom on hotspot click) ────────────────────
-  const zoomToRegion = useCallback(
-    (regionId: string) => {
+    (delta: number, originX: number, originY: number) => {
       const el = containerRef.current;
       if (!el) return;
       const { width: cw, height: ch } = el.getBoundingClientRect();
-      const focus = REGION_FOCUS[regionId];
-      if (!focus) return;
-
-      const targetScale = isMobile ? 2 : 2.4;
-      const imgX = (focus.x - 0.5) * cw;
-      const imgY = (focus.y - 0.5) * ch;
-      const nextTx = -imgX * targetScale;
-      const nextTy = -imgY * targetScale;
-      const { tx: cx, ty: cy } = constrain(nextTx, nextTy, targetScale);
-
-      setAnimated(true);
-      setScale(targetScale);
-      setTx(cx);
-      setTy(cy);
+      const curScale = scaleRef.current;
+      const nextScale = clamp(curScale + delta, MIN_SCALE, MAX_SCALE);
+      if (nextScale === curScale) return;
+      const imgX  = (originX - cw / 2 - txRef.current) / curScale;
+      const imgY  = (originY - ch / 2 - tyRef.current) / curScale;
+      const nextTx = originX - cw / 2 - imgX * nextScale;
+      const nextTy = originY - ch / 2 - imgY * nextScale;
+      const { tx: cx, ty: cy } = constrain(nextTx, nextTy, nextScale);
+      commitTransform(nextScale, cx, cy, false);
     },
-    [isMobile, constrain]
+    [constrain, commitTransform]
   );
 
-  // ── Toggle region + auto-zoom ────────────────────────────────────────────────
-  const toggleRegion = useCallback(
-    (id: string) => {
-      setSelectedRegion((prev) => {
-        if (prev === id) {
-          // deselect → reset
-          applyTransform(1, 0, 0, true);
-          return null;
-        }
-        return id;
-      });
-    },
-    [applyTransform]
-  );
+  // ── Programmatic animated zoom (region auto-zoom) ────────────────────────────
+  const zoomToRegion = useCallback((regionId: string) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const { width: cw, height: ch } = el.getBoundingClientRect();
+    const focus = REGION_FOCUS[regionId];
+    if (!focus) return;
+    const targetScale = isMobile ? 2 : 2.4;
+    const imgX = (focus.x - 0.5) * cw;
+    const imgY = (focus.y - 0.5) * ch;
+    const { tx: cx, ty: cy } = constrain(-imgX * targetScale, -imgY * targetScale, targetScale);
+    commitTransform(targetScale, cx, cy, true);
+  }, [isMobile, constrain, commitTransform]);
 
-  // Trigger region zoom whenever selectedRegion changes
+  // ── Reset ────────────────────────────────────────────────────────────────────
+  const resetTransform = useCallback(() => {
+    commitTransform(1, 0, 0, true);
+    setSelectedRegion(null);
+  }, [commitTransform]);
+
+  // ── Toggle region ────────────────────────────────────────────────────────────
+  const toggleRegion = useCallback((id: string) => {
+    setSelectedRegion((prev) => {
+      if (prev === id) {
+        commitTransform(1, 0, 0, true);
+        return null;
+      }
+      return id;
+    });
+  }, [commitTransform]);
+
   useEffect(() => {
-    if (selectedRegion) {
-      zoomToRegion(selectedRegion);
-    }
+    if (selectedRegion) zoomToRegion(selectedRegion);
   }, [selectedRegion, zoomToRegion]);
 
   const closeRegion = useCallback(() => {
     setSelectedRegion(null);
-    applyTransform(1, 0, 0, true);
-  }, [applyTransform]);
+    commitTransform(1, 0, 0, true);
+  }, [commitTransform]);
 
-  // ── Mouse drag (desktop) ─────────────────────────────────────────────────────
-  const onMouseDown = useCallback(
-    (e: React.MouseEvent) => {
-      if (e.button !== 0) return;
-      isDragging.current  = true;
-      hasDragged.current  = false;
-      dragStart.current   = { x: e.clientX, y: e.clientY, tx, ty };
-      setAnimated(false);
-      e.preventDefault();
-    },
-    [tx, ty]
-  );
+  // ── Mouse drag ───────────────────────────────────────────────────────────────
+  const onMouseDown = useCallback((e: React.MouseEvent) => {
+    if (e.button !== 0) return;
+    isDragging.current = true;
+    hasDragged.current = false;
+    dragStart.current  = { x: e.clientX, y: e.clientY, tx: txRef.current, ty: tyRef.current };
+    // Kill transition so drag is instant
+    if (mapInnerRef.current) mapInnerRef.current.style.transition = "none";
+    e.preventDefault();
+  }, []);
 
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
@@ -411,9 +376,10 @@ const WorldMap = () => {
       const dx = e.clientX - dragStart.current.x;
       const dy = e.clientY - dragStart.current.y;
       if (Math.abs(dx) > 3 || Math.abs(dy) > 3) hasDragged.current = true;
-      const next = constrain(dragStart.current.tx + dx, dragStart.current.ty + dy, scale);
-      setTx(next.tx);
-      setTy(next.ty);
+      const { tx: cx, ty: cy } = constrain(dragStart.current.tx + dx, dragStart.current.ty + dy, scaleRef.current);
+      txRef.current = cx;
+      tyRef.current = cy;
+      if (mapInnerRef.current) mapInnerRef.current.style.transform = `translate(${cx}px, ${cy}px) scale(${scaleRef.current})`;
     };
     const onMouseUp = () => { isDragging.current = false; };
     window.addEventListener("mousemove", onMouseMove);
@@ -422,55 +388,35 @@ const WorldMap = () => {
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseup",   onMouseUp);
     };
-  }, [scale, constrain]);
+  }, [constrain]);
 
-  // ── Scroll wheel zoom (desktop) ──────────────────────────────────────────────
+  // ── Scroll wheel zoom ────────────────────────────────────────────────────────
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
-      const rect = el.getBoundingClientRect();
-      const originX = e.clientX - rect.left;
-      const originY = e.clientY - rect.top;
-      const delta = e.deltaY < 0 ? ZOOM_STEP : -ZOOM_STEP;
-      setAnimated(false);
-      setScale((prevScale) => {
-        setTx((prevTx) => {
-          setTy((prevTy) => {
-            const result = zoomToward(delta, originX, originY, prevScale, prevTx, prevTy);
-            // We'll apply scale+translation atomically via a single RAF
-            if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-            animFrameRef.current = requestAnimationFrame(() => {
-              setScale(result.scale);
-              setTx(result.tx);
-              setTy(result.ty);
-            });
-            return prevTy;
-          });
-          return prevTx;
-        });
-        return prevScale;
-      });
+      const rect   = el.getBoundingClientRect();
+      const delta  = e.deltaY < 0 ? ZOOM_STEP : -ZOOM_STEP;
+      zoomToward(delta, e.clientX - rect.left, e.clientY - rect.top);
     };
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
   }, [zoomToward]);
 
-  // ── Touch drag + pinch (mobile) ──────────────────────────────────────────────
+  // ── Touch drag + pinch ───────────────────────────────────────────────────────
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
     const onTouchStart = (e: TouchEvent) => {
-      setAnimated(false);
+      if (mapInnerRef.current) mapInnerRef.current.style.transition = "none";
       if (e.touches.length === 1) {
-        isDragging.current = true;
-        hasDragged.current = false;
+        isDragging.current    = true;
+        hasDragged.current    = false;
         const t = e.touches[0];
-        dragStart.current = { x: t.clientX, y: t.clientY, tx, ty };
+        dragStart.current     = { x: t.clientX, y: t.clientY, tx: txRef.current, ty: tyRef.current };
         lastPinchDist.current = null;
-        lastPinchMid.current  = null;
       } else if (e.touches.length === 2) {
         isDragging.current = false;
         const [a, b] = [e.touches[0], e.touches[1]];
@@ -479,44 +425,24 @@ const WorldMap = () => {
       }
     };
 
-    // Keep a live reference to current tx/ty for touch handlers
-    let liveTx = tx;
-    let liveTy = ty;
-    let liveScale = scale;
-
     const onTouchMove = (e: TouchEvent) => {
       e.preventDefault();
-
       if (e.touches.length === 1 && isDragging.current) {
-        const t = e.touches[0];
+        const t  = e.touches[0];
         const dx = t.clientX - dragStart.current.x;
         const dy = t.clientY - dragStart.current.y;
         if (Math.abs(dx) > 3 || Math.abs(dy) > 3) hasDragged.current = true;
-        const next = constrain(dragStart.current.tx + dx, dragStart.current.ty + dy, liveScale);
-        liveTx = next.tx;
-        liveTy = next.ty;
-        setTx(liveTx);
-        setTy(liveTy);
-      } else if (e.touches.length === 2) {
+        const { tx: cx, ty: cy } = constrain(dragStart.current.tx + dx, dragStart.current.ty + dy, scaleRef.current);
+        txRef.current = cx;
+        tyRef.current = cy;
+        if (mapInnerRef.current) mapInnerRef.current.style.transform = `translate(${cx}px, ${cy}px) scale(${scaleRef.current})`;
+      } else if (e.touches.length === 2 && lastPinchDist.current) {
         const [a, b] = [e.touches[0], e.touches[1]];
-        const dist = Math.hypot(b.clientX - a.clientX, b.clientY - a.clientY);
-        const mid  = { x: (a.clientX + b.clientX) / 2, y: (a.clientY + b.clientY) / 2 };
-
-        if (lastPinchDist.current && lastPinchMid.current) {
-          const ratio = dist / lastPinchDist.current;
-          const nextScale = clamp(liveScale * ratio, MIN_SCALE, MAX_SCALE);
-          const rect = el.getBoundingClientRect();
-          const originX = mid.x - rect.left;
-          const originY = mid.y - rect.top;
-          const result = zoomToward(nextScale - liveScale, originX, originY, liveScale, liveTx, liveTy);
-          liveScale = result.scale;
-          liveTx    = result.tx;
-          liveTy    = result.ty;
-          setScale(liveScale);
-          setTx(liveTx);
-          setTy(liveTy);
-        }
-
+        const dist   = Math.hypot(b.clientX - a.clientX, b.clientY - a.clientY);
+        const mid    = { x: (a.clientX + b.clientX) / 2, y: (a.clientY + b.clientY) / 2 };
+        const ratio  = dist / lastPinchDist.current;
+        const rect   = el.getBoundingClientRect();
+        zoomToward((scaleRef.current * ratio) - scaleRef.current, mid.x - rect.left, mid.y - rect.top);
         lastPinchDist.current = dist;
         lastPinchMid.current  = mid;
       }
@@ -525,7 +451,6 @@ const WorldMap = () => {
     const onTouchEnd = () => {
       isDragging.current    = false;
       lastPinchDist.current = null;
-      lastPinchMid.current  = null;
     };
 
     el.addEventListener("touchstart", onTouchStart, { passive: true });
@@ -536,47 +461,41 @@ const WorldMap = () => {
       el.removeEventListener("touchmove",  onTouchMove);
       el.removeEventListener("touchend",   onTouchEnd);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [constrain, zoomToward]);
 
-  // ── Zoom button handlers ─────────────────────────────────────────────────────
-  const zoomIn = () => {
+  // ── Button zoom handlers ─────────────────────────────────────────────────────
+  const zoomIn = useCallback(() => {
     const el = containerRef.current;
     if (!el) return;
     const { width: cw, height: ch } = el.getBoundingClientRect();
-    const result = zoomToward(ZOOM_STEP, cw / 2, ch / 2, scale, tx, ty);
-    applyTransform(result.scale, result.tx, result.ty, true);
-  };
+    zoomToward(ZOOM_STEP, cw / 2, ch / 2);
+    // Re-commit with animation flag
+    const s = scaleRef.current;
+    const { tx: cx, ty: cy } = constrain(txRef.current, tyRef.current, s);
+    commitTransform(s, cx, cy, true);
+  }, [zoomToward, constrain, commitTransform]);
 
-  const zoomOut = () => {
+  const zoomOut = useCallback(() => {
     const el = containerRef.current;
     if (!el) return;
     const { width: cw, height: ch } = el.getBoundingClientRect();
-    const result = zoomToward(-ZOOM_STEP, cw / 2, ch / 2, scale, tx, ty);
-    applyTransform(result.scale, result.tx, result.ty, true);
-  };
+    zoomToward(-ZOOM_STEP, cw / 2, ch / 2);
+    const s = scaleRef.current;
+    const { tx: cx, ty: cy } = constrain(txRef.current, tyRef.current, s);
+    commitTransform(s, cx, cy, true);
+  }, [zoomToward, constrain, commitTransform]);
 
-  // ── Cursor style ─────────────────────────────────────────────────────────────
-  const [cursorGrabbing, setCursorGrabbing] = useState(false);
+  // ── Cursor (no re-render needed — use CSS class on container ref) ─────────────
+  const onContainerMouseDown = useCallback((e: React.MouseEvent) => {
+    if (containerRef.current) containerRef.current.style.cursor = "grabbing";
+    onMouseDown(e);
+  }, [onMouseDown]);
 
   useEffect(() => {
-    const setGrabbing = () => setCursorGrabbing(true);
-    const setGrab     = () => setCursorGrabbing(false);
-    window.addEventListener("mousedown", setGrabbing);
-    window.addEventListener("mouseup",   setGrab);
-    return () => {
-      window.removeEventListener("mousedown", setGrabbing);
-      window.removeEventListener("mouseup",   setGrab);
-    };
+    const reset = () => { if (containerRef.current) containerRef.current.style.cursor = "grab"; };
+    window.addEventListener("mouseup", reset);
+    return () => window.removeEventListener("mouseup", reset);
   }, []);
-
-  // CSS transform string
-  const transformStyle: React.CSSProperties = {
-    transform: `translate(${tx}px, ${ty}px) scale(${scale})`,
-    transformOrigin: "center center",
-    transition: animated ? "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)" : "none",
-    willChange: "transform",
-  };
 
   return (
     <Layout>
@@ -624,14 +543,14 @@ const WorldMap = () => {
             <div
               ref={containerRef}
               className="flex-1 relative min-w-0 select-none overflow-hidden rounded"
-              style={{
-                minHeight: isMobile ? 400 : 600,
-                cursor: cursorGrabbing && isDragging.current ? "grabbing" : "grab",
-              }}
-              onMouseDown={onMouseDown}
+              style={{ minHeight: isMobile ? 400 : 600, cursor: "grab" }}
+              onMouseDown={onContainerMouseDown}
             >
-              {/* ── Zoomable inner wrapper (drag + pan transform) ── */}
-              <div style={{ ...transformStyle, width: "100%", height: "100%", position: "absolute", top: 0, left: 0 }}>
+              {/* ── Zoomable inner wrapper — transform written directly to DOM ── */}
+              <div
+                ref={mapInnerRef}
+                style={{ width: "100%", height: "100%", position: "absolute", top: 0, left: 0, transformOrigin: "center center", willChange: "transform" }}
+              >
 
                 {/* Vignette */}
                 <div
