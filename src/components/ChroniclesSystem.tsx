@@ -1,9 +1,13 @@
-import React, { createContext, useContext, useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { createContext, useContext, useState, useEffect, useRef, useCallback } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Scroll, Lock, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/components/ui/use-toast";
+
+// ── Game win scroll IDs (7–11) ────────────────────────────────────────────────
+const GAME_SCROLL_IDS = [7, 8, 9, 10, 11];
+const BESTIARY_COMPLETE_KEY = "bestiary-complete-seen";
 
 // ── Scroll data ────────────────────────────────────────────────────────────────
 const SCROLLS = [
@@ -282,6 +286,7 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     }}>
       {children}
       <GameUI />
+      <BestiaryCompletePopup />
     </GameContext.Provider>
   );
 };
@@ -355,6 +360,9 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
 
   return (
     <div className={cn("space-y-6", className)}>
+      {/* Bestiary complete persistent banner */}
+      <BestiaryCompleteBanner />
+
       {/* Progress header */}
       <div className="flex items-center justify-between">
         <p className="font-display text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
@@ -632,7 +640,7 @@ const SealedDocumentPuzzle = ({ foundScrolls }: { foundScrolls: number[] }) => {
 };
 
 // ── Modal backdrop ─────────────────────────────────────────────────────────────
-const ModalBackdrop = ({ children, onClick }: { children: React.ReactNode; onClick: () => void }) => (
+const ModalBackdrop = ({ children, onClick }: { children: React.ReactNode; onClick?: () => void }) => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
@@ -643,6 +651,172 @@ const ModalBackdrop = ({ children, onClick }: { children: React.ReactNode; onCli
     {children}
   </motion.div>
 );
+
+// ── Bestiary Complete Persistent Banner ───────────────────────────────────────
+const BestiaryCompleteBanner = () => {
+  const seen = localStorage.getItem(BESTIARY_COMPLETE_KEY) === "true";
+  if (!seen) return null;
+  return (
+    <div
+      className="border px-4 py-2.5 text-center"
+      style={{
+        borderColor: "hsl(38 50% 30% / 0.4)",
+        background: "hsl(20 12% 7%)",
+      }}
+    >
+      <p className="font-narrative italic text-[0.8125rem] text-foreground/50">
+        The Bestiary is complete.{" "}
+        <Link
+          to="/bestiary"
+          className="transition-colors"
+          style={{ color: "hsl(38 60% 50%)" }}
+          onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 72% 60%)")}
+          onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
+        >
+          Something remains.
+        </Link>
+      </p>
+    </div>
+  );
+};
+
+// ── Bestiary Complete Popup ──────────────────────────────────────────────────
+const BestiaryCompletePopup = () => {
+  const { foundScrolls } = useGame();
+  const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+  const triggered = useRef(false);
+
+  // Track previous scroll count to detect the moment the 5th lands
+  const prevCount = useRef(
+    GAME_SCROLL_IDS.filter(id => foundScrolls.includes(id)).length
+  );
+
+  useEffect(() => {
+    if (triggered.current) return;
+    if (localStorage.getItem(BESTIARY_COMPLETE_KEY) === "true") {
+      triggered.current = true;
+      return;
+    }
+    const count = GAME_SCROLL_IDS.filter(id => foundScrolls.includes(id)).length;
+    if (count === 5 && prevCount.current < 5) {
+      triggered.current = true;
+      // Delay 1.5s so the game win screen finishes first
+      setTimeout(() => {
+        localStorage.setItem(BESTIARY_COMPLETE_KEY, "true");
+        setShow(true);
+      }, 1500);
+    }
+    prevCount.current = count;
+  }, [foundScrolls]);
+
+  if (!show) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="fixed inset-0 z-[250] flex items-center justify-center"
+      style={{ background: "rgba(0,0,0,0.92)" }}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.94 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="relative max-w-lg w-full mx-4 p-8 sm:p-10 text-center"
+        style={{
+          background: "hsl(20 12% 7%)",
+          border: "1px solid hsl(38 60% 40% / 0.5)",
+          animation: "bestiaryGlowPulse 3s ease-in-out infinite",
+        }}
+      >
+        {/* Small caps header */}
+        <p
+          className="font-display text-[8px] tracking-[0.5em] uppercase mb-4"
+          style={{ color: "hsl(38 40% 45%)" }}
+        >
+          The Chronicles of Panterra
+        </p>
+
+        {/* Cinematic title — word-by-word fade */}
+        <h2
+          className="font-display text-2xl sm:text-3xl tracking-[0.1em] mb-5"
+          style={{ color: "hsl(38 72% 55%)", textShadow: "0 0 30px hsl(38 72% 50% / 0.3)" }}
+        >
+          {"The Bestiary Is Complete".split(" ").map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 + i * 0.4, duration: 0.6 }}
+              className="inline-block mr-[0.3em]"
+            >
+              {word}
+            </motion.span>
+          ))}
+        </h2>
+
+        {/* Divider */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 2.8, duration: 0.8 }}
+          className="h-px w-32 mx-auto mb-6"
+          style={{ background: "linear-gradient(90deg, transparent, hsl(38 60% 50% / 0.5), transparent)" }}
+        />
+
+        {/* Body */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3.2, duration: 0.8 }}
+          className="font-narrative italic text-[0.9375rem] sm:text-base leading-[1.9] mb-8"
+          style={{ color: "hsl(38 25% 75%)" }}
+        >
+          "You have walked every path Panterra laid before you. Every monster has been named. Every consequence recorded. One thing remains that cannot be named."
+        </motion.p>
+
+        {/* Buttons */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3.8, duration: 0.6 }}
+          className="space-y-3"
+        >
+          <button
+            onClick={() => { setShow(false); navigate("/bestiary"); }}
+            className="w-full py-3 font-display text-[10px] tracking-[0.3em] uppercase border transition-all duration-300 btn-pulse-glow"
+            style={{
+              borderColor: "hsl(38 60% 45% / 0.6)",
+              color: "hsl(38 72% 55%)",
+              background: "transparent",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLButtonElement).style.background = "hsl(38 72% 50% / 0.1)";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(38 72% 50% / 0.8)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLButtonElement).style.background = "transparent";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(38 60% 45% / 0.6)";
+            }}
+          >
+            Enter the Bestiary →
+          </button>
+          <button
+            onClick={() => setShow(false)}
+            className="font-body text-[9px] tracking-[0.2em] uppercase transition-colors"
+            style={{ color: "hsl(38 20% 40%)" }}
+            onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 50% 55%)")}
+            onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 20% 40%)")}
+          >
+            Return to the Chronicles
+          </button>
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 // ── GameUI ────────────────────────────────────────────────────────────────────
 const GameUI = () => {
