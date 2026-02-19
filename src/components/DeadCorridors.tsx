@@ -3,69 +3,150 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/components/ChroniclesSystem";
 
-// ─── Maze Layout ──────────────────────────────────────────────────────────────
-// 0 = open path, 1 = wall
-// 25 × 21 grid — large enough to feel like a real labyrinth
-// Dead-ends are marked by looking like open corridors that terminate abruptly
-const RAW_MAZE: number[][] = [
-  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-  [1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,1],
-  [1,0,1,0,1,0,1,1,0,1,1,0,1,0,1,0,1,1,0,1,1,0,1,0,1],
-  [1,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,1,0,1,0,1],
-  [1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,0,1,0,1,0,1],
-  [1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1],
-  [1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1],
-  [1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1],
-  [1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1],
-  [1,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1],
-  [1,0,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,0,1,0,1],
-  [1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1],
-  [1,1,1,0,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,0,1],
-  [1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-  [1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1],
-  [1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1],
-  [1,1,1,0,1,0,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1,1,1,0,1],
-  [1,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1],
-  [1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,0,0,0,1,0,0,0,1],
-  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0],
-  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-];
+// ─── Maze Layouts (15×15, 0 = open, 1 = wall) ────────────────────────────────
 
-const ROWS = RAW_MAZE.length;      // 21
-const COLS = RAW_MAZE[0].length;   // 25
-const PLAYER_START = { row: 1, col: 1 };
-const EXIT = { row: 19, col: 24 };
-const VISIBILITY = 4;
+// Maze A — exit bottom-right, winding center path, dead ends near bottom
+const MAZE_A: number[][] = [
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  [1,0,0,0,1,0,0,0,0,0,1,0,0,0,1],
+  [1,0,1,0,1,0,1,1,1,0,1,0,1,0,1],
+  [1,0,1,0,0,0,0,0,1,0,0,0,1,0,1],
+  [1,0,1,1,1,1,1,0,1,1,1,0,1,0,1],
+  [1,0,0,0,0,0,1,0,0,0,1,0,0,0,1],
+  [1,1,1,0,1,0,1,1,1,0,1,1,1,0,1],
+  [1,0,0,0,1,0,0,0,0,0,0,0,1,0,1],
+  [1,0,1,1,1,1,1,0,1,1,1,0,1,0,1],
+  [1,0,0,0,0,0,0,0,1,0,0,0,0,0,1],
+  [1,0,1,1,1,0,1,1,1,0,1,1,1,1,1],
+  [1,0,1,0,0,0,1,0,0,0,1,0,0,0,1],
+  [1,0,1,0,1,1,1,0,1,0,1,0,1,0,1],
+  [1,0,0,0,0,0,0,0,1,0,0,0,1,0,0],
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+];
+const START_A = { row: 1, col: 1 };
+const EXIT_A = { row: 13, col: 14 };
 
-// ── Three separate patrol routes that increasingly overlap as time passes ──────
-const PATROL_A = [
-  { row: 5, col: 1 },  { row: 5, col: 7 },  { row: 7, col: 7 },
-  { row: 7, col: 1 },  { row: 5, col: 1 },  { row: 13, col: 1 },
-  { row: 13, col: 9 }, { row: 13, col: 23 }, { row: 19, col: 23 },
-  { row: 19, col: 1 }, { row: 13, col: 1 },  { row: 5, col: 1 },
+// Maze B — exit top-left, start bottom-right, open center trap, path hugs walls
+const MAZE_B: number[][] = [
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  [0,0,0,1,0,0,0,0,0,1,0,0,0,0,1],
+  [1,1,0,1,0,1,1,1,0,1,0,1,1,0,1],
+  [1,0,0,0,0,1,0,0,0,0,0,0,1,0,1],
+  [1,0,1,1,1,1,0,1,1,1,1,0,1,0,1],
+  [1,0,1,0,0,0,0,0,0,0,1,0,0,0,1],
+  [1,0,1,0,1,1,0,0,1,0,1,1,1,0,1],
+  [1,0,0,0,1,0,0,0,0,0,1,0,0,0,1],
+  [1,0,1,0,1,0,0,0,1,0,1,0,1,1,1],
+  [1,0,1,0,1,1,1,0,1,0,0,0,0,0,1],
+  [1,0,1,0,0,0,1,0,1,1,1,1,1,0,1],
+  [1,0,1,1,1,0,1,0,0,0,0,0,1,0,1],
+  [1,0,0,0,0,0,1,1,1,1,1,0,1,0,1],
+  [1,1,1,0,1,0,0,0,0,0,0,0,0,0,0],
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 ];
-const PATROL_B = [
-  { row: 1, col: 23 }, { row: 1, col: 11 }, { row: 5, col: 11 },
-  { row: 5, col: 23 }, { row: 9, col: 23 }, { row: 9, col: 11 },
-  { row: 13, col: 11 },{ row: 13, col: 23 },{ row: 1, col: 23 },
-];
-const PATROL_C = [
-  { row: 3, col: 5 },  { row: 3, col: 17 }, { row: 9, col: 17 },
-  { row: 9, col: 5 },  { row: 15, col: 5 }, { row: 15, col: 17 },
-  { row: 19, col: 17 },{ row: 19, col: 5 }, { row: 3, col: 5 },
-];
+const START_B = { row: 13, col: 14 };
+const EXIT_B = { row: 1, col: 0 };
 
+// Maze C — exit middle-right, start top-left, false bottom corridor, doubling back
+const MAZE_C: number[][] = [
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  [1,0,0,0,0,0,1,0,0,0,1,0,0,0,1],
+  [1,0,1,1,1,0,1,0,1,0,1,0,1,0,1],
+  [1,0,0,0,1,0,0,0,1,0,0,0,1,0,1],
+  [1,1,1,0,1,1,1,1,1,0,1,1,1,0,1],
+  [1,0,0,0,0,0,0,0,0,0,1,0,0,0,1],
+  [1,0,1,1,1,0,1,1,1,1,1,0,1,1,1],
+  [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+  [1,0,1,0,1,1,1,0,1,1,1,1,1,0,1],
+  [1,0,0,0,1,0,0,0,1,0,0,0,0,0,1],
+  [1,1,1,0,1,0,1,1,1,0,1,1,1,0,1],
+  [1,0,0,0,0,0,1,0,0,0,1,0,0,0,1],
+  [1,0,1,1,1,1,1,0,1,1,1,0,1,1,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+];
+const START_C = { row: 1, col: 1 };
+const EXIT_C = { row: 7, col: 14 };
+
+// ─── Per-maze config bundles ──────────────────────────────────────────────────
 type Pos = { row: number; col: number };
 
-function isWall(pos: Pos): boolean {
+interface MazeConfig {
+  grid: number[][];
+  start: Pos;
+  exit: Pos;
+  patrols: Pos[][];
+  flavour: string;
+}
+
+const MAZE_CONFIGS: MazeConfig[] = [
+  {
+    grid: MAZE_A,
+    start: START_A,
+    exit: EXIT_A,
+    flavour: "The corridors shift. What was familiar is no longer safe.",
+    patrols: [
+      // Patrol A-1: top-right sweep (away from player start 1,1)
+      [{ row: 1, col: 9 }, { row: 3, col: 9 }, { row: 3, col: 13 }, { row: 5, col: 13 },
+       { row: 5, col: 9 }, { row: 1, col: 9 }],
+      // Patrol A-2: center vertical
+      [{ row: 5, col: 5 }, { row: 7, col: 5 }, { row: 9, col: 5 }, { row: 9, col: 9 },
+       { row: 7, col: 9 }, { row: 5, col: 9 }, { row: 5, col: 5 }],
+      // Patrol A-3: bottom zone
+      [{ row: 11, col: 5 }, { row: 13, col: 5 }, { row: 13, col: 9 }, { row: 11, col: 9 },
+       { row: 11, col: 13 }, { row: 9, col: 13 }, { row: 9, col: 9 }, { row: 11, col: 5 }],
+    ],
+  },
+  {
+    grid: MAZE_B,
+    start: START_B,
+    exit: EXIT_B,
+    flavour: "The way out is never where you expect it. Start again.",
+    patrols: [
+      // Patrol B-1: outer-left sweep
+      [{ row: 1, col: 1 }, { row: 3, col: 1 }, { row: 5, col: 1 }, { row: 7, col: 1 },
+       { row: 9, col: 1 }, { row: 9, col: 3 }, { row: 5, col: 3 }, { row: 3, col: 3 },
+       { row: 1, col: 1 }],
+      // Patrol B-2: center trap area
+      [{ row: 5, col: 5 }, { row: 5, col: 9 }, { row: 7, col: 9 }, { row: 7, col: 5 },
+       { row: 9, col: 5 }, { row: 9, col: 9 }, { row: 7, col: 9 }, { row: 5, col: 5 }],
+      // Patrol B-3: right-bottom sweep
+      [{ row: 9, col: 13 }, { row: 11, col: 13 }, { row: 13, col: 13 }, { row: 13, col: 9 },
+       { row: 11, col: 9 }, { row: 11, col: 5 }, { row: 13, col: 5 }, { row: 13, col: 9 },
+       { row: 9, col: 13 }],
+    ],
+  },
+  {
+    grid: MAZE_C,
+    start: START_C,
+    exit: EXIT_C,
+    flavour: "Every path that feels right leads deeper in. Trust nothing.",
+    patrols: [
+      // Patrol C-1: top area
+      [{ row: 1, col: 1 }, { row: 1, col: 5 }, { row: 3, col: 5 }, { row: 3, col: 1 },
+       { row: 5, col: 1 }, { row: 5, col: 5 }, { row: 3, col: 5 }, { row: 1, col: 1 }],
+      // Patrol C-2: center corridor
+      [{ row: 5, col: 9 }, { row: 7, col: 9 }, { row: 7, col: 5 }, { row: 9, col: 5 },
+       { row: 9, col: 9 }, { row: 7, col: 9 }, { row: 7, col: 13 }, { row: 5, col: 9 }],
+      // Patrol C-3: bottom sweep
+      [{ row: 9, col: 1 }, { row: 11, col: 1 }, { row: 13, col: 1 }, { row: 13, col: 7 },
+       { row: 13, col: 13 }, { row: 11, col: 13 }, { row: 11, col: 7 }, { row: 9, col: 3 },
+       { row: 9, col: 1 }],
+    ],
+  },
+];
+
+const ROWS = 15;
+const COLS = 15;
+const VISIBILITY = 4;
+
+function isWallIn(grid: number[][], pos: Pos): boolean {
   if (pos.row < 0 || pos.row >= ROWS || pos.col < 0 || pos.col >= COLS) return true;
-  return RAW_MAZE[pos.row][pos.col] === 1;
+  return grid[pos.row][pos.col] === 1;
 }
 
 function isVisible(player: Pos, cell: Pos): boolean {
-  const dr = Math.abs(player.row - cell.row);
-  const dc = Math.abs(player.col - cell.col);
-  return dr <= VISIBILITY && dc <= VISIBILITY;
+  return Math.abs(player.row - cell.row) <= VISIBILITY && Math.abs(player.col - cell.col) <= VISIBILITY;
 }
 
 // ─── Maze Canvas ──────────────────────────────────────────────────────────────
@@ -74,12 +155,14 @@ const TILE_SIZE = 20;
 interface Enemy { pos: Pos; patrolIdx: number; progress: number; }
 
 interface MazeCanvasProps {
+  grid: number[][];
+  exit: Pos;
   player: Pos;
   enemies: Enemy[];
   won: boolean;
 }
 
-const MazeCanvas = ({ player, enemies, won }: MazeCanvasProps) => (
+const MazeCanvas = ({ grid, exit, player, enemies, won }: MazeCanvasProps) => (
   <div className="relative overflow-auto mx-auto" style={{ maxWidth: "100%", overflowX: "auto", overflowY: "auto" }}>
     <div style={{
       display: "grid",
@@ -89,11 +172,11 @@ const MazeCanvas = ({ player, enemies, won }: MazeCanvasProps) => (
       width: `${COLS * TILE_SIZE}px`,
       margin: "0 auto",
     }}>
-      {RAW_MAZE.map((row, r) =>
+      {grid.map((row, r) =>
         row.map((cell, c) => {
           const pos = { row: r, col: c };
           const visible = isVisible(player, pos) || won;
-          const isExit = r === EXIT.row && c === EXIT.col;
+          const isExit = r === exit.row && c === exit.col;
           const isPlayerPos = r === player.row && c === player.col;
           const isEnemyPos = enemies.some(e => e.pos.row === r && e.pos.col === c);
           const isWallCell = cell === 1;
@@ -148,22 +231,39 @@ const MazeCanvas = ({ player, enemies, won }: MazeCanvasProps) => (
 type GamePhase = "playing" | "dead" | "won";
 
 const SCROLL_ID = 7;
-const BESTIARY_FIRST_WIN_KEY = "bestiary_first_win_dead_corridors";
 
 const makeEnemy = (patrol: Pos[], idx = 0): Enemy => ({ pos: patrol[idx], patrolIdx: idx, progress: 0 });
 
+function pickMaze(excludeIdx?: number): number {
+  if (excludeIdx === undefined) return Math.floor(Math.random() * 3);
+  const options = [0, 1, 2].filter(i => i !== excludeIdx);
+  return options[Math.floor(Math.random() * options.length)];
+}
+
 export const DeadCorridors = () => {
   const { foundScrolls, foundScroll } = useGame();
-  const [player, setPlayer] = useState<Pos>(PLAYER_START);
-  const [enemies, setEnemies] = useState<Enemy[]>([makeEnemy(PATROL_A)]);
+  const [mazeIdx, setMazeIdx] = useState<number>(() => pickMaze());
+  const config = MAZE_CONFIGS[mazeIdx];
+
+  const [player, setPlayer] = useState<Pos>(config.start);
+  const [enemies, setEnemies] = useState<Enemy[]>([makeEnemy(config.patrols[0])]);
   const [phase, setPhase] = useState<GamePhase>("playing");
   const [won, setWon] = useState(false);
   const [bestiaryUnlocked, setBestiaryUnlocked] = useState(false);
-  const [elapsed, setElapsed] = useState(0); // seconds since game start
+  const [elapsed, setElapsed] = useState(0);
   const spawnBRef = useRef(false);
   const spawnCRef = useRef(false);
+  const lastMazeRef = useRef(mazeIdx);
 
   const alreadyWon = foundScrolls.includes(SCROLL_ID);
+
+  // Current maze's grid for wall checks
+  const gridRef = useRef(config.grid);
+  const exitRef = useRef(config.exit);
+  const patrolsRef = useRef(config.patrols);
+  gridRef.current = config.grid;
+  exitRef.current = config.exit;
+  patrolsRef.current = config.patrols;
 
   // ── Elapsed timer for spawning ──────────────────────────────────────────────
   useEffect(() => {
@@ -176,29 +276,25 @@ export const DeadCorridors = () => {
   useEffect(() => {
     if (phase !== "playing" || spawnBRef.current || elapsed < 15) return;
     spawnBRef.current = true;
-    setEnemies(prev => [...prev, makeEnemy(PATROL_B)]);
+    setEnemies(prev => [...prev, makeEnemy(patrolsRef.current[1])]);
   }, [elapsed, phase]);
 
   // ── Spawn third enemy at 30s ────────────────────────────────────────────────
   useEffect(() => {
     if (phase !== "playing" || spawnCRef.current || elapsed < 30) return;
     spawnCRef.current = true;
-    setEnemies(prev => [...prev, makeEnemy(PATROL_C)]);
+    setEnemies(prev => [...prev, makeEnemy(patrolsRef.current[2])]);
   }, [elapsed, phase]);
 
   // ── Enemy movement ──────────────────────────────────────────────────────────
-  // Enemy 0 (A): base speed ~0.04/tick @ 40ms = 1 tile/sec
-  // Enemy 1 (B): 1.35× faster
-  // Enemy 2 (C): 1.7× faster
   const SPEEDS = [0.04, 0.054, 0.068];
-  const PATROLS = [PATROL_A, PATROL_B, PATROL_C];
 
   useEffect(() => {
     if (phase !== "playing") return;
     const interval = setInterval(() => {
       setEnemies(prev =>
         prev.map((enemy, idx) => {
-          const patrol = PATROLS[idx];
+          const patrol = patrolsRef.current[idx];
           const speed = SPEEDS[idx];
           const newProgress = enemy.progress + speed;
           if (newProgress >= 1) {
@@ -212,7 +308,7 @@ export const DeadCorridors = () => {
     return () => clearInterval(interval);
   }, [phase]);
 
-  // ── Collision — instant death on any contact ────────────────────────────────
+  // ── Collision — instant death ───────────────────────────────────────────────
   useEffect(() => {
     if (phase !== "playing") return;
     const hit = enemies.some(e => e.pos.row === player.row && e.pos.col === player.col);
@@ -232,7 +328,7 @@ export const DeadCorridors = () => {
       e.preventDefault();
       setPlayer(p => {
         const np = { row: p.row + d.row, col: p.col + d.col };
-        return isWall(np) ? p : np;
+        return isWallIn(gridRef.current, np) ? p : np;
       });
     };
     window.addEventListener("keydown", onKey);
@@ -241,7 +337,7 @@ export const DeadCorridors = () => {
 
   // ── Win detection ───────────────────────────────────────────────────────────
   useEffect(() => {
-    if (player.row === EXIT.row && player.col === EXIT.col && phase === "playing") {
+    if (player.row === exitRef.current.row && player.col === exitRef.current.col && phase === "playing") {
       setPhase("won");
       setWon(true);
       setBestiaryUnlocked(true);
@@ -268,14 +364,18 @@ export const DeadCorridors = () => {
     }
     setPlayer(p => {
       const np = { row: p.row + d.row, col: p.col + d.col };
-      return isWall(np) ? p : np;
+      return isWallIn(gridRef.current, np) ? p : np;
     });
   }, [phase]);
 
   // ── Restart ─────────────────────────────────────────────────────────────────
   const handleRestart = () => {
-    setPlayer(PLAYER_START);
-    setEnemies([makeEnemy(PATROL_A)]);
+    const nextIdx = pickMaze(lastMazeRef.current);
+    lastMazeRef.current = nextIdx;
+    setMazeIdx(nextIdx);
+    const nextConfig = MAZE_CONFIGS[nextIdx];
+    setPlayer(nextConfig.start);
+    setEnemies([makeEnemy(nextConfig.patrols[0])]);
     setPhase("playing");
     setWon(false);
     setElapsed(0);
@@ -320,7 +420,7 @@ export const DeadCorridors = () => {
           transition={{ delay: 0.15 }}
           className="mt-3 font-narrative italic text-muted-foreground text-[0.9375rem] leading-[1.8]"
         >
-          The southern hemisphere has been burnt for a century. Not everything that was left behind stayed dead.
+          {config.flavour}
         </motion.p>
 
         <p className="mt-2 text-[10px] tracking-widest text-muted-foreground/50 font-body uppercase">
@@ -363,7 +463,7 @@ export const DeadCorridors = () => {
         onTouchEnd={onTouchEnd}
       >
         <div className="p-2 sm:p-3 overflow-auto">
-          <MazeCanvas player={player} enemies={enemies} won={won} />
+          <MazeCanvas grid={config.grid} exit={config.exit} player={player} enemies={enemies} won={won} />
         </div>
 
         {/* Dead screen */}
