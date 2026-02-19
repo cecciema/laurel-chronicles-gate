@@ -20,8 +20,7 @@ function chunk<T>(arr: T[], size: number): T[][] {
 // Detect column count by measuring the grid container's width
 function getColCount(width: number): number {
   if (width < 640) return 2;
-  if (width < 1024) return 3;
-  return 5;
+  return 4;
 }
 
 const Characters = () => {
