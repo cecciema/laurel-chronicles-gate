@@ -4,6 +4,7 @@ import { HiddenOrb } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import { worldRegions } from "@/data/world-data";
 import heroCityscape from "@/assets/hero-cityscape.jpg";
+import { DeadCorridors } from "@/components/DeadCorridors";
 
 const WorldOverview = () => {
   return (
@@ -133,7 +134,9 @@ const WorldOverview = () => {
             ))}
           </div>
         </div>
-      </section>
+        </section>
+
+        <DeadCorridors />
     </Layout>
   );
 };
