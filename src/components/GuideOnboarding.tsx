@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { guideCharacters, type GuideCharacter } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
@@ -61,8 +61,14 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
   const [selected, setSelected] = useState<GuideCharacter | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [tapped, setTapped] = useState<string | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const isTouch = typeof window !== "undefined" && window.matchMedia("(hover: none)").matches;
+
+  // Scroll to top of the overlay container whenever the step changes
+  useEffect(() => {
+    scrollContainerRef.current?.scrollTo({ top: 0, behavior: "instant" });
+  }, [step]);
 
   const handleSelect = (guide: GuideCharacter) => {
     setSelected(guide);
@@ -89,7 +95,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
   const msg = selected ? welcomeMessages[selected.welcomeTone] : null;
 
   return (
-    <div className="fixed inset-0 z-[100] bg-background flex items-center justify-center overflow-x-hidden overflow-y-auto">
+    <div ref={scrollContainerRef} className="fixed inset-0 z-[100] bg-background flex items-center justify-center overflow-x-hidden overflow-y-auto h-screen">
       {/* Atmospheric background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,hsl(var(--primary)/0.12),transparent_70%)]" />
@@ -167,7 +173,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.8 }}
-            className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-0"
+            className="w-full max-w-7xl mx-auto px-4 sm:px-6 pt-20 sm:pt-16 pb-8"
           >
             <div className="text-center mb-10">
               <motion.p
