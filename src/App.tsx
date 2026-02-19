@@ -16,6 +16,7 @@ import Factions from "./pages/Factions";
 import WorldMap from "./pages/WorldMap";
 import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
+import Bestiary from "./pages/Bestiary";
 
 const queryClient = new QueryClient();
 
@@ -76,6 +77,7 @@ const AppInner = () => {
         <Route path="/factions" element={<Factions />} />
         <Route path="/map" element={<WorldMap />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/bestiary" element={<Bestiary />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

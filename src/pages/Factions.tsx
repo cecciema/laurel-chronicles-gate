@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
@@ -351,6 +352,15 @@ const ApotheosisPath = () => {
                 <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.85] max-w-sm">
                   You walked the Apotheosis Path and came out the other side. Not everyone does. Arborwell has been marked on your map.
                 </p>
+                {!alreadyWon && (
+                  <Link
+                    to="/bestiary"
+                    className="font-body text-[10px] tracking-[0.25em] uppercase transition-colors"
+                    style={{ color: "hsl(38 72% 50%)" }}
+                  >
+                    A new entry has been added to the Bestiary.
+                  </Link>
+                )}
                 <div className="w-10 h-px bg-primary/20" />
                 <button
                   onClick={handleRestart}

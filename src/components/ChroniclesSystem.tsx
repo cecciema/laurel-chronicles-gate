@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Scroll, Lock, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -390,6 +391,19 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
 
       {/* Sealed document puzzle */}
       <SealedDocumentPuzzle foundScrolls={foundScrolls} />
+
+      {/* Bestiary subtle footer link */}
+      <div className="text-center pt-2">
+        <Link
+          to="/bestiary"
+          className="font-narrative italic text-[0.8125rem] transition-colors"
+          style={{ color: "hsl(38 30% 32%)" }}
+          onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
+          onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 30% 32%)")}
+        >
+          The Bestiary of Panterra →
+        </Link>
+      </div>
     </div>
   );
 };
