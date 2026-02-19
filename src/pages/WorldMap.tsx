@@ -890,32 +890,70 @@ export default WorldMap;
 // ─────────────────────────────────────────────────────────────────────────────
 
 const KNOWN_WORLD_SCROLL_ID = 11;
-const KW_TOTAL_ROUNDS = 5;
+const KW_TOTAL_ROUNDS = 8;
 const KW_TOTAL_LIVES  = 3;
 
-// The four clickable zones the player can place characters into
-type ZoneId = "sanctorium" | "ocean-reaches" | "frontier" | "deepforge";
+// The five clickable zones the player can place characters into
+type ZoneId = "sanctorium" | "parliament" | "ocean-reaches" | "deepforge" | "frontier";
 
 const KW_ZONES: { id: ZoneId; label: string; color: string }[] = [
   { id: "sanctorium",    label: "The Sanctorium",        color: "#c9a96e" },
+  { id: "parliament",    label: "Parliament",            color: "#a37dcf" },
   { id: "deepforge",     label: "The Deep Forge",        color: "#e8640a" },
-  { id: "ocean-reaches", label: "The Ocean Reaches",     color: "#0ea5c9" },
+  { id: "ocean-reaches", label: "Ocean Reaches",         color: "#0ea5c9" },
   { id: "frontier",      label: "Frontier Borderlands",  color: "#6b7280" },
 ];
 
-type KWRound = {
-  charName:  string;
-  imageKey:  string;
-  answer:    ZoneId;
+type KWChar = {
+  id:     string;
+  name:   string;
+  image:  string;
+  region: ZoneId;
 };
 
-const KW_ROUNDS: KWRound[] = [
-  { charName: "Culver Gretell",      imageKey: "char-culver",   answer: "ocean-reaches" },
-  { charName: "Sol Deus Nefertar",   imageKey: "char-nefertar", answer: "sanctorium"    },
-  { charName: "Sailor",              imageKey: "char-sailor",   answer: "frontier"       },
-  { charName: "Gemma Avinas X",      imageKey: "char-gemma",   answer: "sanctorium"    },
-  { charName: "Sol Deus Kotani",     imageKey: "guide-kotani", answer: "sanctorium"    },
+const ALL_KW_CHARACTERS: KWChar[] = [
+  { id: "culver",    name: "Culver",      image: "char-culver",    region: "ocean-reaches" },
+  { id: "quinn",     name: "Quinnevere",  image: "char-quinn",     region: "sanctorium"    },
+  { id: "remsays",   name: "Remsays",     image: "char-remsays",   region: "parliament"    },
+  { id: "verlaine",  name: "Verlaine",    image: "char-verlaine",  region: "sanctorium"    },
+  { id: "gemma",     name: "Gemma",       image: "char-gemma",     region: "deepforge"     },
+  { id: "wintry",    name: "Wintry",      image: "char-wintry",    region: "sanctorium"    },
+  { id: "lockland",  name: "Lockland",    image: "char-lockland",  region: "sanctorium"    },
+  { id: "aspen",     name: "Aspen",       image: "char-aspen",     region: "deepforge"     },
+  { id: "norstrand", name: "Norstrand",   image: "char-norstrand", region: "sanctorium"    },
+  { id: "nefertar",  name: "Nefertar",    image: "char-nefertar",  region: "sanctorium"    },
+  { id: "soleil",    name: "Soleil",      image: "char-soleil",    region: "ocean-reaches" },
+  { id: "carmela",   name: "Carmela",     image: "char-carmela",   region: "sanctorium"    },
+  { id: "jude",      name: "Jude",        image: "char-jude",      region: "parliament"    },
+  { id: "kotani",    name: "Kotani",      image: "char-kotani",    region: "sanctorium"    },
+  { id: "cora",      name: "Cora",        image: "char-cora",      region: "parliament"    },
+  { id: "sailor",    name: "Sailor",      image: "char-sailor",    region: "frontier"      },
 ];
+
+// Fisher-Yates shuffle
+function fisherYatesShuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// Select 8 characters ensuring region diversity
+function selectGameCharacters(): KWChar[] {
+  for (let attempt = 0; attempt < 100; attempt++) {
+    const shuffled = fisherYatesShuffle(ALL_KW_CHARACTERS);
+    const selected = shuffled.slice(0, 8);
+    const regions = new Set(selected.map((c) => c.region));
+    const hasSanctorium = regions.has("sanctorium");
+    const hasParliament = regions.has("parliament");
+    const hasOther = regions.has("ocean-reaches") || regions.has("deepforge") || regions.has("frontier");
+    if (hasSanctorium && hasParliament && hasOther) return selected;
+  }
+  // Fallback — should never happen
+  return fisherYatesShuffle(ALL_KW_CHARACTERS).slice(0, 8);
+}
 
 // CSS keyframes injected once
 const KW_STYLES = `
@@ -1090,16 +1128,20 @@ const TheKnownWorld = () => {
   const alreadyWon = foundScrolls.includes(KNOWN_WORLD_SCROLL_ID);
   const [bestiaryUnlocked, setBestiaryUnlocked] = useState(alreadyWon);
 
+  // Game characters — random 8 per session
+  const [gameChars, setGameChars] = useState<KWChar[]>(() => selectGameCharacters());
+
   // Game state
   const [roundIdx,    setRoundIdx]    = useState(0);
   const [lives,       setLives]       = useState(KW_TOTAL_LIVES);
-  const [wrongCount,  setWrongCount]  = useState(0); // total wrongs this game (controls Lost)
-  const [placedZones, setPlacedZones] = useState<Partial<Record<ZoneId, string>>>({}); // zones with confirmed portraits
-  const [gamePhase,   setGamePhase]   = useState<"playing" | "wrong-flash" | "lost" | "won">("playing");
+  const [wrongCount,  setWrongCount]  = useState(0);
+  const [placedZones, setPlacedZones] = useState<Partial<Record<ZoneId, string>>>({});
+  const [gamePhase,   setGamePhase]   = useState<"playing" | "wrong-flash" | "won" | "lost">("playing");
 
-  const currentRound = KW_ROUNDS[roundIdx];
+  const currentRound = gameChars[roundIdx] ?? null;
 
   const fullReset = () => {
+    setGameChars(selectGameCharacters());
     setRoundIdx(0);
     setLives(KW_TOTAL_LIVES);
     setWrongCount(0);
@@ -1110,9 +1152,9 @@ const TheKnownWorld = () => {
   const handlePlace = (zoneId: ZoneId) => {
     if (gamePhase !== "playing" || !currentRound) return;
 
-    if (zoneId === currentRound.answer) {
+    if (zoneId === currentRound.region) {
       // Correct placement
-      const newPlaced = { ...placedZones, [zoneId]: currentRound.imageKey };
+      const newPlaced = { ...placedZones, [zoneId]: currentRound.image };
       setPlacedZones(newPlaced);
 
       if (roundIdx + 1 >= KW_TOTAL_ROUNDS) {
@@ -1310,14 +1352,14 @@ const TheKnownWorld = () => {
                     style={{ borderColor: "hsl(38 40% 30%)" }}
                   >
                     <img
-                      src={characterImageMap[currentRound.imageKey]}
-                      alt={currentRound.charName}
+                      src={characterImageMap[currentRound.image]}
+                      alt={currentRound.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="text-center">
                     <p className="font-display text-[11px] tracking-[0.15em] text-foreground leading-snug">
-                      {currentRound.charName}
+                      {currentRound.name}
                     </p>
                     <p className="font-body text-[9px] tracking-wider text-muted-foreground/50 mt-0.5 uppercase">
                       Place in their region
@@ -1332,19 +1374,32 @@ const TheKnownWorld = () => {
                     ◈ Panterra — Select Region
                   </p>
 
-                  {/* Zone grid — 2×2 */}
-                  <div className="relative grid grid-cols-2 gap-2 flex-1" style={{ minHeight: 180 }}>
-                    {KW_ZONES.map((zone) => (
-                      <ZoneButton
-                        key={zone.id}
-                        zone={zone}
-                        onClick={() => handlePlace(zone.id)}
-                        disabled={gamePhase === "wrong-flash" || !!placedZones[zone.id]}
-                        placedChar={placedZones[zone.id]}
-                      />
-                    ))}
+                  {/* Zone grid — 3+2 layout for 5 zones */}
+                  <div className="relative flex flex-col gap-2 flex-1" style={{ minHeight: 220 }}>
+                    <div className="grid grid-cols-3 gap-2">
+                      {KW_ZONES.slice(0, 3).map((zone) => (
+                        <ZoneButton
+                          key={zone.id}
+                          zone={zone}
+                          onClick={() => handlePlace(zone.id)}
+                          disabled={gamePhase === "wrong-flash" || !!placedZones[zone.id]}
+                          placedChar={placedZones[zone.id]}
+                        />
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      {KW_ZONES.slice(3).map((zone) => (
+                        <ZoneButton
+                          key={zone.id}
+                          zone={zone}
+                          onClick={() => handlePlace(zone.id)}
+                          disabled={gamePhase === "wrong-flash" || !!placedZones[zone.id]}
+                          placedChar={placedZones[zone.id]}
+                        />
+                      ))}
+                    </div>
 
-                    {/* The Lost overlay — appears inside zone grid */}
+                    {/* The Lost overlay */}
                     <div className="absolute inset-0 pointer-events-none overflow-hidden">
                       <LostFigure wrongCount={wrongCount} />
                     </div>
@@ -1420,7 +1475,7 @@ const TheKnownWorld = () => {
                 {!(bestiaryUnlocked || alreadyWon) && (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <p className="text-[9px] tracking-[0.25em] text-muted-foreground/50 uppercase font-body">
-                      Place all five correctly to unlock
+                      Place all eight correctly to unlock
                     </p>
                   </div>
                 )}
