@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import { worldRegions } from "@/data/world-data";
@@ -1255,6 +1256,15 @@ const TheKnownWorld = () => {
                 <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.8] max-w-sm">
                   You know this world better than most of its citizens do. That makes you either very safe or very dangerous. A scroll fragment has been added to your collection.
                 </p>
+                {!alreadyWon && (
+                  <Link
+                    to="/bestiary"
+                    className="font-body text-[10px] tracking-[0.25em] uppercase transition-colors"
+                    style={{ color: "hsl(38 72% 50%)" }}
+                  >
+                    A new entry has been added to the Bestiary.
+                  </Link>
+                )}
                 <div className="w-8 h-px bg-primary/40" />
                 <button
                   onClick={fullReset}

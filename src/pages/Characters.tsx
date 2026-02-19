@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
@@ -389,6 +390,15 @@ const TheUnmasked = () => {
                   {getWinRank(score)}
                 </p>
               </div>
+              {!alreadyWon && (
+                <Link
+                  to="/bestiary"
+                  className="font-body text-[10px] tracking-[0.25em] uppercase transition-colors"
+                  style={{ color: "hsl(38 72% 50%)" }}
+                >
+                  A new entry has been added to the Bestiary.
+                </Link>
+              )}
               <div className="w-8 h-px bg-primary/40" />
               <button
                 onClick={fullReset}

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/components/ChroniclesSystem";
 
@@ -147,6 +148,7 @@ const MazeCanvas = ({ player, enemies, won }: MazeCanvasProps) => (
 type GamePhase = "playing" | "dead" | "won";
 
 const SCROLL_ID = 1;
+const BESTIARY_FIRST_WIN_KEY = "bestiary_first_win_dead_corridors";
 
 const makeEnemy = (patrol: Pos[], idx = 0): Enemy => ({ pos: patrol[idx], patrolIdx: idx, progress: 0 });
 
@@ -398,6 +400,15 @@ export const DeadCorridors = () => {
               <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.8] max-w-sm">
                 You made it through the Dead Corridors. A scroll fragment has been added to your collection.
               </p>
+              {!alreadyWon && (
+                <Link
+                  to="/bestiary"
+                  className="font-body text-[10px] tracking-[0.25em] uppercase transition-colors"
+                  style={{ color: "hsl(38 72% 50%)" }}
+                >
+                  A new entry has been added to the Bestiary.
+                </Link>
+              )}
               <div className="w-8 h-px bg-primary/40" />
               <button
                 onClick={handleRestart}

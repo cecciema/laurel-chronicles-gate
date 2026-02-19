@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { HiddenOrb, QuestTrigger, ScrollCollection } from "@/components/ChroniclesSystem";
@@ -225,6 +225,7 @@ const ScrollReveal = ({ children, delay = 0, className = "" }: { children: React
 
 // ─── Main Component ────────────────────────────────────────────────────────────
 const Index = () => {
+  const navigate = useNavigate();
   const [showIntro, setShowIntro] = useState(true);
   const mousePos = useRef({ x: 0, y: 0 });
   const bgRef = useRef<HTMLDivElement>(null);
@@ -474,6 +475,17 @@ const Index = () => {
           </section>
         </div>
       </div>
+
+      {/* Hidden bestiary glyph — barely visible, bottom-left corner */}
+      <button
+        onClick={() => navigate("/bestiary")}
+        aria-hidden="true"
+        tabIndex={-1}
+        className="fixed bottom-3 left-3 z-[5] w-6 h-6 flex items-center justify-center select-none"
+        style={{ opacity: 0.15, cursor: "default" }}
+      >
+        <span className="font-display text-base" style={{ color: "hsl(38 30% 40%)" }}>✦</span>
+      </button>
 
       {/* BottomNav is rendered globally in Layout.tsx */}
     </>
