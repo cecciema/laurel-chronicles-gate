@@ -251,6 +251,20 @@ export const characters: Character[] = [
     background: "A well-connected Parliament council member and matriarch of the Cannon family, Cora has spent her life moving between the circles of institutional power with practiced ease. She and her husband Jaden are privy to conversations about Premieres, meteor threats, and Valorican succession that most people will never know happened. Her twin daughters Kotani and Nari are the truest measure of who she is — and the clearest evidence of what she failed to protect.",
     relationships: "Jaden — her husband, her equal, her co-conspirator in navigating a world neither of them fully controls. Kotani and Nari — her daughters, her purpose, the weight she carries. Lockland and Noelle — trusted inner circle. Westwood — knows too much about him for comfort.",
   },
+  {
+    id: "sailor",
+    name: "Sailor",
+    title: "Frontier Edge Survivor",
+    faction: "Frontier / Unaligned",
+    region: "The Frontier Borderlands",
+    image: "char-sailor",
+    philosophy: "The world the institutions built is not the real world. I've seen what's underneath.",
+    alignment: "Unfiltered Truth",
+    personality: ["Direct", "Survival-Hardened", "Deeply Perceptive", "Unflinchingly Honest"],
+    background: "Sailor has traveled further beyond the Republic's governed edge than almost any living person and returned to tell it. A known figure among Frontier survivors, she carries knowledge of pre-war truths and the manufactured nature of the Republic's stability that the institutions spend enormous energy suppressing. A close friend of Aspen, her presence in the story bridges the governed world and everything the maps leave out.",
+    relationships: "Aspen — close friend, trusted colleague, the one person inside the system she still believes in. The Frontier networks — her real community. The Republic — necessary to navigate, never fully trusted.",
+    magistry: "Frontier Edge",
+  },
 ];
 
 // Guide characters — a subset of characters who serve as world entry guides
