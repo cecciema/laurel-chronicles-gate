@@ -7,6 +7,18 @@ import { characterImageMap } from "@/data/guide-images";
 import { useIsMobile } from "@/hooks/use-mobile";
 import panterraMap from "@/assets/panterra-map.jpg";
 
+// ── Zoom targets per region (transform-origin as "x% y%") ─────────────────────
+// Origin is the point the camera pushes toward. Scale is overridden per device.
+const ZOOM_ORIGINS: Record<string, string> = {
+  "sanctorium":    "65% 15%",   // center-north
+  "deepforge":     "46% 60%",   // center
+  "ocean-reaches": "14% 35%",   // left/west
+  "ashfields":     "72% 65%",   // bottom-right
+  "valorica":      "56% 72%",   // center-lower
+  "arborwell":     "25% 78%",   // far-right bottom
+};
+
+
 // ── Region accent colours ──────────────────────────────────────────────────────
 const REGION_COLORS: Record<string, string> = {
   "sanctorium":    "#c9a96e",
@@ -241,8 +253,14 @@ const WorldMap = () => {
 
   const selectedData = SUB_REGIONS.find((r) => r.id === selectedRegion) ?? null;
 
+  // Zoom config
+  const zoomScale  = isMobile ? 1.5 : 1.8;
+  const zoomOrigin = selectedRegion ? (ZOOM_ORIGINS[selectedRegion] ?? "50% 50%") : "50% 50%";
+
   const toggleRegion = (id: string) =>
     setSelectedRegion((prev) => (prev === id ? null : id));
+
+  const closeRegion = () => setSelectedRegion(null);
 
   return (
     <Layout>
@@ -287,17 +305,30 @@ const WorldMap = () => {
           <div className="flex flex-row items-stretch gap-0">
 
           {/* === MAP IMAGE === */}
-          <div className="flex-1 relative min-w-0 select-none">
+          <div
+            className="flex-1 relative min-w-0 select-none overflow-hidden rounded"
+            style={{ minHeight: isMobile ? 400 : 600 }}
+          >
+            {/* ── Zoomable inner wrapper ── */}
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                transform: selectedRegion ? `scale(${zoomScale})` : "scale(1)",
+                transformOrigin: zoomOrigin,
+                transition: "transform 0.6s ease-in-out, transform-origin 0s",
+              }}
+            >
             {/* Vignette */}
             <div
-              className="absolute inset-0 pointer-events-none z-10 rounded"
+              className="absolute inset-0 pointer-events-none z-10"
               style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.65) 100%)" }}
             />
 
             <img
               src={panterraMap}
               alt="Map of Panterra — The Known World"
-              className="w-full h-auto block rounded"
+              className="w-full h-full object-cover block"
               draggable={false}
             />
 
@@ -305,7 +336,7 @@ const WorldMap = () => {
             <motion.div
               animate={{ opacity: [0.08, 0.18, 0.08] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-0 pointer-events-none z-[1] rounded"
+              className="absolute inset-0 pointer-events-none z-[1]"
               style={{ background: "radial-gradient(ellipse at 50% 50%, #c9a96e22 0%, transparent 65%)" }}
             />
 
@@ -438,11 +469,13 @@ const WorldMap = () => {
               )}
             </AnimatePresence>
 
-            {/* HiddenOrb */}
+            </div>{/* end zoomable wrapper */}
+
+            {/* HiddenOrb — outside zoom so it stays stable */}
             <div className="absolute bottom-2 left-2 z-20">
               <HiddenOrb id={7} className="w-3 h-3" />
             </div>
-          </div>
+          </div>{/* end map container */}
 
           {/* === DESKTOP SIDE PANEL — sits beside the map, not on top === */}
           <AnimatePresence>
@@ -458,7 +491,7 @@ const WorldMap = () => {
                   borderColor: REGION_COLORS[selectedData.id] ?? "#c9a96e",
                 }}
               >
-                <PanelContent region={selectedData} onClose={() => setSelectedRegion(null)} />
+                <PanelContent region={selectedData} onClose={closeRegion} />
               </motion.div>
             )}
           </AnimatePresence>
@@ -510,7 +543,7 @@ const WorldMap = () => {
               maxHeight:   "65vh",
             }}
           >
-            <PanelContent region={selectedData} onClose={() => setSelectedRegion(null)} />
+            <PanelContent region={selectedData} onClose={closeRegion} />
           </motion.div>
         )}
       </AnimatePresence>
