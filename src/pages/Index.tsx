@@ -524,7 +524,7 @@ const ResetProgressButton = () => {
     <button
       onClick={handleReset}
       className="fixed bottom-3 right-3 z-[5] select-none font-body text-[9px] text-muted-foreground tracking-wide"
-      style={{ opacity: 0.2, cursor: "default" }}
+      style={{ opacity: 0.35, cursor: "default" }}
     >
       Clear Progress
     </button>
