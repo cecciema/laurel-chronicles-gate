@@ -73,7 +73,7 @@ const PANTHEONS = [
 const SUB_REGIONS = [
   {
     id: "sanctorium",
-    name: "The Sanctorium",
+    name: "Sanctorium",
     description: "The vast knowledge-keeping complex where Pantheon Ivory scholars preserve ancient texts, dead languages, and sacred institutional memory. Access is strictly tiered. At its center stands the Grand Sanctuary — court of trials and seat of divine authority. The 12 Pantheons surround it, each aligned to a quadrant and a constellation.",
     faction: "Pantheon Ivory",
     features: ["The Ivory Vaults", "Dead Language Archives", "Grand Sanctuary", "12 Pantheon Halls", "Ceremony Courts"],
@@ -81,7 +81,7 @@ const SUB_REGIONS = [
   {
     id: "parliament",
     name: "Parliament",
-    description: "The governing body of Panterra, responsible for law, resource allocation, and the management of all four quadrants. The Parliament sits in permanent session. Its deliberations are not public. Its decisions are.",
+    description: "The governing body of Panterra, responsible for law, resource allocation, and the management of all four quadrants. Parliament sits in permanent session. Its deliberations are not public. Its decisions are.",
     faction: "Republic Parliament",
     features: ["Council Chambers", "The Archive", "Premiere's Office", "Intelligence Division"],
   },
@@ -1029,7 +1029,7 @@ const WorldMap = () => {
                 className="font-body text-[8px] tracking-[0.3em] uppercase mb-2"
                 style={{ color: selectedOrb === "grand-sanctuary" ? REGION_COLORS.sanctorium : REGION_COLORS.parliament }}
               >
-                {selectedOrb === "grand-sanctuary" ? "The Sanctorium" : "Parliament"}
+                {selectedOrb === "grand-sanctuary" ? "Sanctorium" : "Parliament"}
               </p>
               <h4 className="font-display text-sm tracking-wide text-foreground mb-2">
                 {selectedOrb === "grand-sanctuary" ? "The Grand Sanctuary" : "Plaza Montecito"}

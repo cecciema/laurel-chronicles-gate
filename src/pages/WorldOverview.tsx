@@ -16,7 +16,7 @@ const socialTiers = [
   {
     tier: "The Leaders",
     level: "Apex Authority",
-    desc: "The twelve Sol Deus of the Sanctorium and the elected Premiere of Parliament. They do not age visibly. They do not explain themselves. Their authority is total and their succession is sacred. Most citizens will never stand in the same room as one of them.",
+    desc: "The twelve Sol Deus of Sanctorium and the elected Premiere of Parliament. They do not age visibly. They do not explain themselves. Their authority is total and their succession is sacred. Most citizens will never stand in the same room as one of them.",
     scale: "text-xl",
     opacity: "text-foreground",
   },
@@ -30,7 +30,7 @@ const socialTiers = [
   {
     tier: "The Public Servants",
     level: "The Devoted",
-    desc: "Those who chose service over Apotheosis. Their bodies and their time belong to the Republic. They serve in the Magistry sectors under Parliament, or as devotees and scholars in the Sanctorium. It is considered an honor. It is also considered the harder path.",
+    desc: "Those who chose service over Apotheosis. Their bodies and their time belong to the Republic. They serve in the Magistry sectors under Parliament, or as devotees and scholars in Sanctorium. It is considered an honor. It is also considered the harder path.",
     scale: "text-base",
     opacity: "text-foreground/80",
   },
@@ -47,11 +47,11 @@ const regions = [
   {
     name: "Parliament",
     tag: "THE GOVERNING BODY",
-    description: "The Forum District is the beating heart of civic Panterra. Cannon Palace houses the Parliament's chambers, Villa Marina is the Premiere's residence, and Plaza Montecito is where announcements are made to the people. Science, law, technology, and resource allocation all flow outward from here. If the Sanctorium governs what happens after death, Parliament governs everything before it.",
+    description: "The Forum District is the beating heart of civic Panterra. Cannon Palace houses Parliament's chambers, Villa Marina is the Premiere's residence, and Plaza Montecito is where announcements are made to the people. Science, law, technology, and resource allocation all flow outward from here. If Sanctorium governs what happens after death, Parliament governs everything before it.",
     features: ["Cannon Palace", "Villa Marina", "Plaza Montecito", "The Magistry Sectors"],
   },
   {
-    name: "The Sanctorium",
+    name: "Sanctorium",
     tag: "THE SPIRITUAL AUTHORITY",
     description: "Twelve Pantheons arranged across all four quadrants, each governed by a Sol Deus and their Lunary. The Grand Sanctuary at the center is the holiest site in Panterra — the seat of the Apotheosis ceremony and the court of divine authority. Access is tiered. Most citizens see only the outer courts. What happens at the center is not discussed.",
     features: ["The Twelve Pantheons", "The Grand Sanctuary", "The Ivory Planetarium", "The Sacred Scrolls"],
@@ -101,7 +101,7 @@ const WorldOverview = () => {
               Beyond Panterra's borders, the world is dead. Bio-warfare consumed every other continent during the Great War, leaving behind a black sea laced with toxins and a wasteland no living thing has crossed in generations. The satellites above maintain a protective boundary against ultraviolet radiation. Without them, Panterra would follow. Everyone knows this. It is the first thing children are taught.
             </p>
             <p>
-              Inside the boundary, life is ordered, purposeful, and finite. Two institutions govern everything: the Parliament, which controls the body — science, technology, resource allocation, civic law — and the Sanctorium, which governs the soul — faith, ceremony, the passage between lives. Together they are called the dual reign. Together they have kept Panterra alive for nearly three hundred years.
+              Inside the boundary, life is ordered, purposeful, and finite. Two institutions govern everything: Parliament, which controls the body — science, technology, resource allocation, civic law — and Sanctorium, which governs the soul — faith, ceremony, the passage between lives. Together they are called the dual reign. Together they have kept Panterra alive for nearly three hundred years.
             </p>
             <p>
               Every citizen is born into the system. Every citizen lives within it. And every citizen, at the moment their body reaches its apex, makes the only choice that has ever truly been theirs.

@@ -71,7 +71,7 @@ const events: TimelineEvent[] = [
     year: "Year 119",
     title: "The Satellite Expansion",
     description:
-      "The protective satellite network doubles in size. Parliament announces it as environmental protection from ultraviolet radiation. The Sanctorium announces it as divine architecture honoring the cosmos. Neither institution explains why the expansion doubled the boundary perimeter rather than the coverage density.",
+      "The protective satellite network doubles in size. Parliament announces it as environmental protection from ultraviolet radiation. Sanctorium announces it as divine architecture honoring the cosmos. Neither institution explains why the expansion doubled the boundary perimeter rather than the coverage density.",
     column: "right",
     order: 5,
   },
@@ -80,7 +80,7 @@ const events: TimelineEvent[] = [
     year: "Year 134",
     title: "The Language Purge",
     description:
-      "The Sanctorium locks away ancient texts deemed destabilizing to social order. Pantheon Ivory scholars become the sole authorized interpreters of pre-war knowledge. Dead languages are reclassified as restricted knowledge. Levilian is among them.",
+      "Sanctorium locks away ancient texts deemed destabilizing to social order. Pantheon Ivory scholars become the sole authorized interpreters of pre-war knowledge. Dead languages are reclassified as restricted knowledge. Levilian is among them.",
     column: "left",
     order: 6,
   },
@@ -125,7 +125,7 @@ const events: TimelineEvent[] = [
     year: "Year 271",
     title: "The Succession Algorithm",
     description:
-      "Parliament introduces a machine-assisted process for selecting its future leadership, presented to the public as the most objective system ever devised. Citizens watch the algorithm run live. The Sanctorium endorses it unanimously and without condition. The algorithm's source code is classified as a state secret the same afternoon.",
+      "Parliament introduces a machine-assisted process for selecting its future leadership, presented to the public as the most objective system ever devised. Citizens watch the algorithm run live. Sanctorium endorses it unanimously and without condition. The algorithm's source code is classified as a state secret the same afternoon.",
     column: "right",
     order: 11,
   },
@@ -319,7 +319,7 @@ const TimelinePage = () => {
     <Layout>
       <div className="pt-24 pb-20 px-4 overflow-x-hidden">
         <SectionHeader
-          title="Timeline of the Empire"
+          title="Timeline of the Republic"
           subtitle="Three centuries of ambition, conflict, and transformation"
         />
 

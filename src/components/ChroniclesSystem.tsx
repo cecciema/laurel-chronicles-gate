@@ -63,7 +63,7 @@ const SCROLLS = [
     id: 7,
     title: "The Embedded Operatives",
     hint: "Complete a game to unlock",
-    text: "Three Convoy operatives were embedded in the Parliament Science Division at the time of the meteor discovery. Their names appear in the attendance records. Their employment history does not exist.",
+    text: "Three Convoy operatives were embedded in Parliament's Science Division at the time of the meteor discovery. Their names appear in the attendance records. Their employment history does not exist.",
     source: "Win Forbidden Transmission — World page",
     type: "earned" as const,
   },
@@ -146,7 +146,7 @@ const ALLEGIANCE_QUESTIONS_SHUFFLEABLE: AllegianceQuestion[] = [
   },
   {
     id: "C",
-    question: "A Sol Deus offers you a position inside the Sanctorium. It is more than you expected. What is your first feeling?",
+    question: "A Sol Deus offers you a position inside Sanctorium. It is more than you expected. What is your first feeling?",
     answers: [
       { text: "Gratitude. This is what devotion is for.", allegiance: "sanctorium" },
       { text: "Calculation. What do they need from you and is it worth giving.", allegiance: "parliament" },
@@ -156,7 +156,7 @@ const ALLEGIANCE_QUESTIONS_SHUFFLEABLE: AllegianceQuestion[] = [
   },
   {
     id: "D",
-    question: "The Parliament passes a new directive that limits movement between quadrants. How do you respond?",
+    question: "Parliament passes a new directive that limits movement between quadrants. How do you respond?",
     answers: [
       { text: "You comply. Order is sacred even when it is inconvenient.", allegiance: "sanctorium" },
       { text: "You study the directive carefully and find the exceptions written into it.", allegiance: "parliament" },
@@ -214,14 +214,14 @@ const ALLEGIANCE_DATA: Record<AllegianceId, {
   scrollAward?: number;
 }> = {
   sanctorium: {
-    name: "The Sanctorium",
-    text: "You are The Sanctorium. You have always understood that faith is not the absence of doubt — it is the decision to act anyway. The Pantheon was built for people like you. Whether it deserves you is a different question.",
+    name: "Sanctorium",
+    text: "You are Sanctorium. You have always understood that faith is not the absence of doubt — it is the decision to act anyway. The Pantheon was built for people like you. Whether it deserves you is a different question.",
     storageKey: "allegiance-scroll-7-awarded",
     scrollAward: 7,
   },
   parliament: {
-    name: "The Parliament",
-    text: "You are The Parliament. You have always known that the most dangerous place to stand is outside a system you do not understand. You prefer to be inside. You prefer to be useful. You prefer to be the reason things did not fall apart.",
+    name: "Parliament",
+    text: "You are Parliament. You have always known that the most dangerous place to stand is outside a system you do not understand. You prefer to be inside. You prefer to be useful. You prefer to be the reason things did not fall apart.",
     storageKey: "parliament-intelligence-unlocked",
   },
   deepforge: {
@@ -1231,7 +1231,7 @@ const RiddleModal = ({ solvedCount, onSolve, onClose }: { solvedCount: number; o
         className="max-w-xl w-full bg-zinc-950 border border-amber-900 p-6 sm:p-10 text-center relative my-auto mt-6 sm:mt-0"
       >
         <div className="absolute top-4 right-4 text-amber-900/40 font-display text-4xl opacity-20">III</div>
-        <h3 className="font-display text-[1.375rem] sm:text-2xl text-amber-500 tracking-[0.2em] mb-2">The Sanctorium's Final Test</h3>
+        <h3 className="font-display text-[1.375rem] sm:text-2xl text-amber-500 tracking-[0.2em] mb-2">Sanctorium's Final Test</h3>
         <div className="h-px w-24 bg-gradient-to-r from-transparent via-amber-700 to-transparent mx-auto mb-6 sm:mb-8" />
         <p className="font-display text-xs text-amber-700 uppercase tracking-widest mb-4 sm:mb-6">Gate {solvedCount + 1}</p>
         <p className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/90 italic mb-6 sm:mb-8 leading-[1.8]">
