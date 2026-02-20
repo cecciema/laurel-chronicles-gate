@@ -186,7 +186,7 @@ export const ForbiddenTransmission = () => {
   };
 
   const timerPct = (timeLeft / TIMER_SECONDS) * 100;
-  const timerColor = timeLeft > 45 ? "hsl(38 72% 50%)" : timeLeft > 20 ? "hsl(25 80% 45%)" : "hsl(0 65% 48%)";
+  const timerColor = timeLeft > 30 ? "#d4a843" : timeLeft > 15 ? "#c97820" : "#8b1a1a";
 
   return (
     <section className="py-16 sm:py-20 px-4">
@@ -269,7 +269,7 @@ export const ForbiddenTransmission = () => {
             </div>
             <div className="flex gap-1.5 flex-shrink-0">
               {Array.from({ length: MAX_WRONG }).map((_, i) => (
-                <div key={i} className="w-2.5 h-2.5 rounded-full border transition-all duration-300" style={{ background: i < wrongAttempts ? "hsl(0 65% 48%)" : "transparent", borderColor: i < wrongAttempts ? "hsl(0 65% 48%)" : "hsl(38 20% 25%)" }} />
+                <div key={i} className="w-2.5 h-2.5 rounded-full border transition-all duration-300" style={{ background: i < wrongAttempts ? "#8b1a1a" : "transparent", borderColor: i < wrongAttempts ? "#8b1a1a" : "hsl(38 20% 25%)" }} />
               ))}
             </div>
           </div>

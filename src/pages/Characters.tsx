@@ -565,17 +565,22 @@ const TheUnmasked = () => {
               {/* Lives — brass orbs */}
               <div className="flex gap-2 items-center">
                 <p className="text-[8px] tracking-[0.2em] text-muted-foreground/40 uppercase font-body mr-1">Lives</p>
-                {Array.from({ length: TOTAL_LIVES }).map((_, i) => (
+                {Array.from({ length: TOTAL_LIVES }).map((_, i) => {
+                  const livesRemaining = lives;
+                  const isActive = i < livesRemaining;
+                  const orbColor = livesRemaining === 1 ? "#8b1a1a" : livesRemaining === 2 ? "#c97820" : "#d4a843";
+                  return (
                   <div
                     key={i}
                     className="w-3 h-3 rounded-full border transition-all duration-500"
                     style={{
-                      background: i < lives ? "hsl(38 72% 50%)" : "transparent",
-                      borderColor: i < lives ? "hsl(38 72% 50%)" : "hsl(38 20% 25%)",
-                      boxShadow: i < lives ? "0 0 6px hsl(38 72% 50% / 0.6)" : "none",
+                      background: isActive ? orbColor : "transparent",
+                      borderColor: isActive ? orbColor : "hsl(38 20% 25%)",
+                      boxShadow: isActive ? `0 0 8px ${orbColor}99` : "none",
                     }}
                   />
-                ))}
+                  );
+                })}
               </div>
 
               {/* Live running total */}
@@ -645,7 +650,7 @@ const TheUnmasked = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                   className="text-center font-narrative italic text-[0.875rem] leading-[1.7]"
-                  style={{ color: "hsl(0 60% 55%)" }}
+                  style={{ color: "#8b1a1a" }}
                 >
                   That is not who you are looking for. Look closer.
                 </motion.p>
