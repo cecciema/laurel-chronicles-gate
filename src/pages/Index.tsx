@@ -456,37 +456,26 @@ const EasterEggGlyph = () => {
 
 // ── Hidden reset button — clears all game progress ────────────────────────────
 const ResetProgressButton = () => {
-  const [cleared, setCleared] = useState(false);
-
   const handleReset = () => {
     localStorage.clear();
     sessionStorage.clear();
-    setCleared(true);
-    setTimeout(() => {
-      window.location.replace("/");
-    }, 600);
+    window.location.replace("/");
   };
 
   return (
     <button
       onClick={handleReset}
-      className="fixed bottom-3 right-3 z-[5] select-none font-display text-[9px] text-muted-foreground tracking-[0.15em] uppercase rounded transition-all duration-200 hover:opacity-80"
+      className="fixed bottom-3 right-3 z-[9999] font-display text-[9px] tracking-[0.15em] uppercase"
       style={{
         opacity: 0.5,
         border: "1px solid rgba(184, 150, 12, 0.6)",
         padding: "4px 12px",
-        cursor: "default",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.opacity = "0.8";
-        e.currentTarget.style.borderColor = "rgba(184, 150, 12, 0.85)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.opacity = "0.5";
-        e.currentTarget.style.borderColor = "rgba(184, 150, 12, 0.6)";
+        color: "hsl(38 60% 55%)",
+        background: "transparent",
+        cursor: "pointer",
       }}
     >
-      {cleared ? "✦ Progress Cleared" : "Clear Progress"}
+      Clear Progress
     </button>
   );
 };
