@@ -32,7 +32,7 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
     { name: "Carmela",          title: "Pantheon Lunary (Ivory)",         image: "char-carmela"  },
     { name: "Verlaine",         title: "Rising Shadow",                   image: "char-verlaine" },
     { name: "Gemma",            title: "Lunary Political Operator",       image: "char-gemma"    },
-    { name: "Sol Deus Nefertar",title: "Divine Ruler",                    image: "char-nefertar" },
+    { name: "Sol Deus Thema",   title: "Divine Ruler",                    image: "char-thema"    },
   ],
   "parliament": [
     { name: "Chief Magister Remsays", title: "Parliament Chief Magister",  image: "char-remsays" },
@@ -42,7 +42,7 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
     { name: "Wintry",                 title: "Senior Council, Space Sci",  image: "char-wintry"  },
   ],
   "deepforge": [
-    { name: "Sol Deus Nefertar",title: "Keeper of the Deep Forge",        image: "char-nefertar" },
+    { name: "Sol Deus Thema",   title: "Keeper of the Deep Forge",        image: "char-thema"    },
     { name: "Culver Gretell",   title: "Paragon of Ocean Magistry",       image: "char-culver"   },
   ],
   "ocean-reaches": [
@@ -56,7 +56,7 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
 
 // ── 12 Pantheons ───────────────────────────────────────────────────────────────
 const PANTHEONS = [
-  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", specialty: "Sculpture",          constellation: "Ram (Aries)",              solDeus: "Nefertar",  lunary: "Gemma Avinas X",           color: "#9b72cf", mapPos: { top: "16%", left: "73%" } },
+  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", specialty: "Sculpture",          constellation: "Ram (Aries)",              solDeus: "Thema",     lunary: "Gemma Avinas X",           color: "#9b72cf", mapPos: { top: "16%", left: "73%" } },
   { id: "greenwood",  name: "Greenwood",  quadrant: "Northeast", specialty: "Mapmaking",          constellation: "Bull (Taurus)",            solDeus: "Gable",     lunary: "Kasen Welliver II",         color: "#4a7c59", mapPos: { top: "20%", left: "76%" } },
   { id: "finnrare",   name: "Finnrare",   quadrant: "Northeast", specialty: "Masonry",            constellation: "Sisters (Gemini)",         solDeus: "Norstrand", lunary: "Reza Centaris XII",         color: "#7a9e9f", mapPos: { top: "25%", left: "76%" } },
   { id: "mist",       name: "Mist",       quadrant: "Southeast", specialty: "Vocal",              constellation: "Lioness (Leo)",            solDeus: "Santos",    lunary: "Wolf Bode III",             color: "#8eb4c8", mapPos: { top: "29%", left: "74%" } },
@@ -1205,7 +1205,7 @@ const ALL_KW_CHARACTERS: KWChar[] = [
   { id: "lockland",  name: "Lockland",    image: "char-lockland",  region: "sanctorium"    },
   { id: "aspen",     name: "Aspen",       image: "char-aspen",     region: "deepforge"     },
   { id: "norstrand", name: "Norstrand",   image: "char-norstrand", region: "sanctorium"    },
-  { id: "nefertar",  name: "Nefertar",    image: "char-nefertar",  region: "sanctorium"    },
+  { id: "thema",     name: "Thema",       image: "char-thema",     region: "sanctorium"    },
   { id: "soleil",    name: "Soleil",      image: "char-soleil",    region: "ocean-reaches" },
   { id: "carmela",   name: "Carmela",     image: "char-carmela",   region: "sanctorium"    },
   { id: "jude",      name: "Jude",        image: "char-jude",      region: "parliament"    },
