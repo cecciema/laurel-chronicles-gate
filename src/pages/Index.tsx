@@ -101,44 +101,65 @@ const ParticleCanvas = () => {
 
 // ─── Cinematic Intro Overlay ──────────────────────────────────────────────────
 const CinematicIntro = ({ onDone }: { onDone: () => void }) => {
-  useEffect(() => {
-    const t = setTimeout(onDone, 2600);
-    return () => clearTimeout(t);
-  }, [onDone]);
+  const [burning, setBurning] = useState(false);
 
   return (
     <motion.div
       className="fixed inset-0 z-[200] bg-background flex items-center justify-center"
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 0 }}
-      transition={{ delay: 1.8, duration: 0.9, ease: "easeInOut" }}
     >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.88 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="text-center"
-      >
-        {/* Sigil / decorative emblem */}
-        <div className="relative mx-auto w-24 h-24 mb-6">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0 rounded-full border border-primary/20"
-            style={{ boxShadow: "0 0 30px hsl(38 72% 50% / 0.15)" }}
-          />
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-2 rounded-full border border-primary/30"
-          />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-display text-2xl text-primary" style={{ textShadow: "0 0 20px hsl(38 72% 50% / 0.6)" }}>
-              ✦
-            </span>
+      {!burning && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.88 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="text-center"
+        >
+          {/* Sigil / decorative emblem */}
+          <div className="relative mx-auto w-24 h-24 mb-6">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 rounded-full border border-primary/20"
+              style={{ boxShadow: "0 0 30px hsl(38 72% 50% / 0.15)" }}
+            />
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-2 rounded-full border border-primary/30"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="font-display text-2xl text-primary" style={{ textShadow: "0 0 20px hsl(38 72% 50% / 0.6)" }}>
+                ✦
+              </span>
+            </div>
           </div>
-        </div>
-      </motion.div>
+
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            onClick={() => setBurning(true)}
+            className="mt-4 px-8 py-3 border border-primary/40 font-display text-sm tracking-[0.2em] uppercase text-foreground hover:border-primary/80 transition-colors"
+            style={isTouch ? undefined : { cursor: "none" }}
+          >
+            Enter the World
+          </motion.button>
+        </motion.div>
+      )}
+
+      {burning && (
+        <motion.div
+          className="fixed inset-0 z-[500]"
+          style={{
+            background: "#e8dcc0",
+            boxShadow: "inset 0 0 120px 60px rgba(200, 80, 20, 0.4), inset 0 0 60px 30px rgba(255, 120, 30, 0.25)",
+          }}
+          initial={{ clipPath: "circle(0% at 50% 50%)" }}
+          animate={{ clipPath: "circle(150% at 50% 50%)" }}
+          transition={{ duration: 1.2, ease: "easeIn" }}
+          onAnimationComplete={onDone}
+        />
+      )}
     </motion.div>
   );
 };
