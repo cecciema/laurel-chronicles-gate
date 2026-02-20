@@ -365,6 +365,7 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
         title: `Fragment ${id} Recovered`,
         description: scroll ? `"${scroll.title}"` : "A forbidden truth surfaces.",
         className: "bg-amber-950 border-amber-500 text-amber-100",
+        duration: 9000,
       });
       setState(prev => ({
         ...prev,
