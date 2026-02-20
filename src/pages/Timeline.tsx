@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { HiddenOrb } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
-import { SemperReviewTrigger } from "@/components/SemperReview";
+import { SemperReview } from "@/components/SemperReview";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 // ─── Event Data ─────────────────────────────────────────────────────────────────
@@ -503,7 +503,7 @@ const TimelinePage = () => {
             </motion.p>
           </div>
 
-          <SemperReviewTrigger />
+          <SemperReview />
         </div>
       </div>
     </Layout>

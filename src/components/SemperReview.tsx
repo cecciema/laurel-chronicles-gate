@@ -184,8 +184,8 @@ const PeaceOfficer = ({
 
 // ── Main Component ─────────────────────────────────────────────────────────────
 export const SemperReview = () => {
-  const [gameState, setGameState] = useState<"idle" | "setup" | "playing" | "win" | "lose">("idle");
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [gameState, setGameState] = useState<"idle" | "setup" | "playing" | "win" | "lose">("setup");
+  const [questions, setQuestions] = useState<Question[]>(() => buildQuestions());
   const [currentQ, setCurrentQ] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
   const [officerPos, setOfficerPos] = useState(0);
@@ -305,6 +305,14 @@ export const SemperReview = () => {
     setTimeout(() => setShowHiddenLine(false), 5000);
   }, []);
 
+  // Auto-start: transition from setup to playing after mount
+  useEffect(() => {
+    if (gameState === "setup") {
+      const t = setTimeout(() => setGameState("playing"), 3000);
+      return () => clearTimeout(t);
+    }
+  }, [gameState]);
+
   if (gameState === "idle") return null;
 
   return (
@@ -313,8 +321,7 @@ export const SemperReview = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[150] flex items-center justify-center"
-        style={{ background: "hsl(0 0% 5% / 0.97)" }}
+        className="w-full"
       >
         <div className="w-full max-w-2xl mx-auto px-4 flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-8">
           {/* The Form */}
