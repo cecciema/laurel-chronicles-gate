@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import { HiddenOrb } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import { timeline, type TimelineEvent } from "@/data/world-data";
+import { SemperReviewTrigger } from "@/components/SemperReview";
 
 const categoryColors: Record<TimelineEvent["category"], string> = {
   political: "bg-primary/20 text-primary",
@@ -79,6 +80,11 @@ const TimelinePage = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+
+        {/* Semper Review game trigger */}
+        <div className="max-w-3xl mx-auto mt-16 mb-8">
+          <SemperReviewTrigger />
         </div>
 
         {/* Parliament intelligence unlock */}
