@@ -348,12 +348,12 @@ const TimelinePage = () => {
           {isMobile ? (
             <div
               className="absolute left-[13px] top-0 w-px"
-              style={{ background: "hsl(38 72% 50% / 0.2)", bottom: 80 }}
+              style={{ background: "hsl(38 72% 50% / 0.2)", bottom: 200 }}
             />
           ) : (
             <div
               className="absolute left-1/2 -translate-x-px top-0 w-px"
-              style={{ background: "hsl(38 72% 50% / 0.2)", bottom: 80 }}
+              style={{ background: "hsl(38 72% 50% / 0.2)", bottom: 200 }}
             />
           )}
 
@@ -400,7 +400,7 @@ const TimelinePage = () => {
 
             {/* Text — below dot with clear spacing */}
             <div
-              className={`mt-6 ${
+              className={`mt-24 ${
                 isMobile ? "self-start pl-10" : "text-center"
               }`}
             >
