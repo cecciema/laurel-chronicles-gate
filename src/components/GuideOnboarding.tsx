@@ -156,7 +156,10 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
               >
                 <div className="steampunk-divider max-w-xs mx-auto" />
                 <p className="font-narrative text-lg text-foreground/60 italic mt-6">
-                  "You were given everything by the Republic. A life, a purpose, an Apotheosis — and yet, here you are."
+                  "You were given everything by the Republic, everything you could ever need..."
+                </p>
+                <p className="font-narrative text-lg text-foreground/60 italic">
+                  "A life, a purpose, and Apotheosis... and yet, here you are."
                 </p>
               </motion.div>
               <motion.button
