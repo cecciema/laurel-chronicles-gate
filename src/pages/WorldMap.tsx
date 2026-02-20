@@ -728,6 +728,11 @@ const WorldMap = () => {
 
               </div>{/* end zoomable wrapper */}
 
+              {/* Unseen marker — outside zoomable, inside map container */}
+              {typeof window !== "undefined" && localStorage.getItem("arborwell-hint-unlocked") === "true" && (
+                <UnseenMarker />
+              )}
+
 
               {/* ── Zoom controls (bottom-right) ── */}
               <div className="absolute bottom-3 right-3 z-30 flex flex-col gap-1.5">
@@ -884,6 +889,54 @@ const WorldMap = () => {
 };
 
 export default WorldMap;
+
+// ── Unseen Marker (far right edge of map) ─────────────────────────────────────
+const UnseenMarker = () => {
+  const { foundScrolls, foundScroll } = useGame();
+  const [showMessage, setShowMessage] = useState(false);
+  const hasScroll6 = foundScrolls.includes(6);
+
+  const handleClick = () => {
+    if (!hasScroll6) {
+      foundScroll(6);
+    }
+    setShowMessage(true);
+    setTimeout(() => setShowMessage(false), 5000);
+  };
+
+  return (
+    <>
+      <button
+        onClick={handleClick}
+        className="absolute z-30 cursor-pointer"
+        style={{ top: "45%", right: "2%", width: 16, height: 16 }}
+        aria-label="Unknown marker"
+      >
+        <motion.div
+          animate={{ opacity: [0.15, 0.4, 0.15], scale: [1, 1.3, 1] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="w-full h-full rounded-full"
+          style={{ background: "hsl(38 72% 50%)", boxShadow: "0 0 12px hsl(38 72% 50% / 0.4)" }}
+        />
+      </button>
+      <AnimatePresence>
+        {showMessage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute z-40 p-4 border max-w-xs"
+            style={{ top: "35%", right: "2%", background: "hsl(20 12% 7% / 0.95)", borderColor: "hsl(38 50% 35% / 0.4)" }}
+          >
+            <p className="font-narrative italic text-[0.875rem] leading-[1.8]" style={{ color: "hsl(38 30% 65%)" }}>
+              "Something exists beyond the boundary. It has no name on this map. It has always been there."
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
 
 // ─────────────────────────────────────────────────────────────────────────────
 // THE KNOWN WORLD — placement mini-game

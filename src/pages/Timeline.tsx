@@ -716,6 +716,28 @@ const TimelinePage = () => {
           </div>
         </div>
 
+        {/* Parliament intelligence unlock */}
+        {typeof window !== "undefined" && localStorage.getItem("parliament-intelligence-unlocked") === "true" && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto mt-12 mb-4 border p-6 relative overflow-hidden"
+            style={{ borderColor: "hsl(0 60% 40% / 0.4)", background: "hsl(20 12% 7%)" }}
+          >
+            <div className="absolute top-3 right-4 font-display text-[9px] tracking-[0.3em] uppercase px-2 py-1 border"
+              style={{ color: "hsl(0 65% 50%)", borderColor: "hsl(0 60% 40% / 0.5)", transform: "rotate(3deg)" }}>
+              Restricted
+            </div>
+            <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-3" style={{ color: "hsl(38 40% 40%)" }}>
+              Classified Parliament Document
+            </p>
+            <p className="font-narrative italic text-[0.9375rem] leading-[1.85]" style={{ color: "hsl(38 25% 65%)" }}>
+              "Premiere succession has been algorithmically managed since Year 12 of the New Republic. No election since has been uninfluenced. The margin of influence has increased every cycle."
+            </p>
+          </motion.div>
+        )}
+
         {/* Forbidden Transmission game */}
         <ForbiddenTransmission />
       </div>

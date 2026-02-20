@@ -114,45 +114,178 @@ const TOTAL_SCROLLS = SCROLLS.length;
 // ── Sealed document correct order ─────────────────────────────────────────────
 const CORRECT_ORDER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-// ── Quest scenes ───────────────────────────────────────────────────────────────
-const QUEST_SCENES = [
+// ── Allegiance Quiz Data ───────────────────────────────────────────────────
+type AllegianceId = "sanctorium" | "parliament" | "deepforge" | "convoy" | "unseen";
+
+interface AllegianceQuestion {
+  id: string;
+  question: string;
+  answers: { text: string; allegiance: Exclude<AllegianceId, "unseen"> }[];
+}
+
+const ALLEGIANCE_QUESTIONS_SHUFFLEABLE: AllegianceQuestion[] = [
   {
-    id: 1,
-    text: "The Admissions Bureau has finally sent your package. Your patron soul is devastated. They ask you to stay. You:",
-    options: [
-      { id: "A", text: "I leave anyway. The greater good demands it.", type: "devoted" },
-      { id: "B", text: "I stay. No cause is worth losing them.", type: "witness" },
-      { id: "C", text: "I find a way to bring us both in — no matter what it costs.", type: "architect" }
-    ]
+    id: "A",
+    question: "You were born in Panterra. You have never questioned this. Then one day you find a document that suggests the world you were shown is not the whole world. What do you do?",
+    answers: [
+      { text: "Put it back. The world you were shown has kept you alive.", allegiance: "sanctorium" },
+      { text: "Report it to the appropriate authority. If it matters, someone above you should know.", allegiance: "parliament" },
+      { text: "Show it to the people in your community. If it affects the world it affects them too.", allegiance: "deepforge" },
+      { text: "Keep it. Add it to everything else you have quietly noticed.", allegiance: "convoy" },
+    ],
   },
   {
-    id: 2,
-    text: "You discover that the most powerful man in the Republic is concealing an apocalyptic meteor shower from the people. You:",
-    options: [
-      { id: "A", text: "Report it. The people deserve the truth, even if it causes panic.", type: "devoted" },
-      { id: "B", text: "Use the information strategically. Knowledge is leverage.", type: "architect" },
-      { id: "C", text: "Trust that the authorities will handle it. That's what they're there for.", type: "witness" }
-    ]
+    id: "B",
+    question: "The Apotheosis ceremony is approaching for someone you love. They are afraid. What do you tell them?",
+    answers: [
+      { text: "That the ceremony is sacred and their fear is part of the passage.", allegiance: "sanctorium" },
+      { text: "That the system has functioned for generations and the odds are in their favor.", allegiance: "parliament" },
+      { text: "That you will be outside waiting and you will not leave until they come back out.", allegiance: "deepforge" },
+      { text: "That they do not have to go. That there are other ways.", allegiance: "convoy" },
+    ],
   },
   {
-    id: 3,
-    text: "Someone you love has married your enemy to protect your life. They meet you in secret and say 'I did this for you.' You:",
-    options: [
-      { id: "A", text: "Accept their sacrifice and vow to save them.", type: "devoted" },
-      { id: "B", text: "Feel rage. They should have let you fight your own battles.", type: "architect" },
-      { id: "C", text: "Understand, but the wound never fully heals.", type: "witness" }
-    ]
+    id: "C",
+    question: "A Sol Deus offers you a position inside the Sanctorium. It is more than you expected. What is your first feeling?",
+    answers: [
+      { text: "Gratitude. This is what devotion is for.", allegiance: "sanctorium" },
+      { text: "Calculation. What do they need from you and is it worth giving.", allegiance: "parliament" },
+      { text: "Suspicion. People from where you come from do not get offered things without a cost.", allegiance: "deepforge" },
+      { text: "Certainty that this is a trap of some kind.", allegiance: "convoy" },
+    ],
   },
   {
-    id: 4,
-    text: "The Cornerstone Laws have kept Panterra in peace for generations. But you discover they were built on lies. You:",
-    options: [
-      { id: "A", text: "Tear it all down. A just world cannot be built on a rotten foundation.", type: "devoted" },
-      { id: "B", text: "Protect the system. Chaos kills more people than corruption.", type: "architect" },
-      { id: "C", text: "Work from the inside. Change it slowly, without breaking what feeds people.", type: "witness" }
-    ]
-  }
+    id: "D",
+    question: "The Parliament passes a new directive that limits movement between quadrants. How do you respond?",
+    answers: [
+      { text: "You comply. Order is sacred even when it is inconvenient.", allegiance: "sanctorium" },
+      { text: "You study the directive carefully and find the exceptions written into it.", allegiance: "parliament" },
+      { text: "You find out which communities are most affected and you help them navigate it.", allegiance: "deepforge" },
+      { text: "You ignore it. You have never needed their permission and you do not intend to start now.", allegiance: "convoy" },
+    ],
+  },
+  {
+    id: "E",
+    question: "You discover that someone in your community has been falsifying their semper record. What do you do?",
+    answers: [
+      { text: "Report it. The semper record is the foundation of everything.", allegiance: "sanctorium" },
+      { text: "Understand why first. Then decide whether it serves anyone to report it.", allegiance: "parliament" },
+      { text: "Ask them what they needed to survive that required this. Then help them.", allegiance: "deepforge" },
+      { text: "Help them do it better so they do not get caught.", allegiance: "convoy" },
+    ],
+  },
+  {
+    id: "F",
+    question: "The meteor is real and it is coming. You have been told privately. You have one hour before the announcement. What do you do with that hour?",
+    answers: [
+      { text: "Pray. If this is the end you want to face it as you have lived.", allegiance: "sanctorium" },
+      { text: "Make three communications that will matter regardless of what happens next.", allegiance: "parliament" },
+      { text: "Go to the people you love and stay with them until the announcement comes.", allegiance: "deepforge" },
+      { text: "Use the hour to access something that will only be accessible while everyone else is unprepared.", allegiance: "convoy" },
+    ],
+  },
+  {
+    id: "G",
+    question: "You are given the choice to leave Panterra's mapped world entirely. No one will know. You can never come back. Do you go?",
+    answers: [
+      { text: "No. Everything that matters to you is here.", allegiance: "sanctorium" },
+      { text: "No. You are more useful inside the system than outside it.", allegiance: "parliament" },
+      { text: "No. The people you are responsible for are here.", allegiance: "deepforge" },
+      { text: "Yes. Without hesitation.", allegiance: "convoy" },
+    ],
+  },
 ];
+
+const ALLEGIANCE_QUESTION_FINAL: AllegianceQuestion = {
+  id: "8",
+  question: "At the end of everything, what do you want to have been?",
+  answers: [
+    { text: "Faithful. To the ceremony, to the order, to the thing that held the world together.", allegiance: "sanctorium" },
+    { text: "Effective. The person who understood the system well enough to actually change it.", allegiance: "parliament" },
+    { text: "Present. There for the people who needed someone to show up.", allegiance: "deepforge" },
+    { text: "Awake. The one who refused to accept the version of reality they were handed.", allegiance: "convoy" },
+  ],
+};
+
+const ALLEGIANCE_DATA: Record<AllegianceId, {
+  name: string;
+  text: string;
+  storageKey: string;
+  scrollAward?: number;
+}> = {
+  sanctorium: {
+    name: "The Sanctorium",
+    text: "You are The Sanctorium. You have always understood that faith is not the absence of doubt — it is the decision to act anyway. The Pantheon was built for people like you. Whether it deserves you is a different question.",
+    storageKey: "allegiance-scroll-7-awarded",
+    scrollAward: 7,
+  },
+  parliament: {
+    name: "The Parliament",
+    text: "You are The Parliament. You have always known that the most dangerous place to stand is outside a system you do not understand. You prefer to be inside. You prefer to be useful. You prefer to be the reason things did not fall apart.",
+    storageKey: "parliament-intelligence-unlocked",
+  },
+  deepforge: {
+    name: "The Deep Forge",
+    text: "You are The Deep Forge. You were never given the things the others were given and you built your life anyway. The institutions of Panterra were not made for you. That has never stopped you and it never will.",
+    storageKey: "deepforge-survival-unlocked",
+  },
+  convoy: {
+    name: "The Convoy Rebellion",
+    text: "You are The Convoy Rebellion. You stopped trusting the version of the world they handed you a long time ago. You are not certain what the truth is. You are certain it is not what you were told.",
+    storageKey: "convoy-message-unlocked",
+  },
+  unseen: {
+    name: "The Unseen",
+    text: "You do not belong to any of them — not fully, not finally. This is not indecision. This is something rarer. There are people who live outside everything Panterra maps and measures. You would recognize them if you met them. You might already be one.",
+    storageKey: "arborwell-hint-unlocked",
+  },
+};
+
+// Fisher-Yates helper
+function shuffleArray<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildQuizQuestions(): AllegianceQuestion[] {
+  const shuffled = shuffleArray(ALLEGIANCE_QUESTIONS_SHUFFLEABLE).map(q => ({
+    ...q,
+    answers: shuffleArray(q.answers),
+  }));
+  return [...shuffled, { ...ALLEGIANCE_QUESTION_FINAL, answers: shuffleArray(ALLEGIANCE_QUESTION_FINAL.answers) }];
+}
+
+function resolveAllegiance(scores: Record<Exclude<AllegianceId, "unseen">, number>, lastAnswer: Exclude<AllegianceId, "unseen">): AllegianceId {
+  const vals = Object.values(scores);
+  if (vals.every(v => v === 2)) return "unseen";
+  const max = Math.max(...vals);
+  const tied = (Object.keys(scores) as Exclude<AllegianceId, "unseen">[]).filter(k => scores[k] === max);
+  if (tied.length === 1) return tied[0];
+  if (tied.includes(lastAnswer)) return lastAnswer;
+  const priority: Exclude<AllegianceId, "unseen">[] = ["convoy", "deepforge", "parliament", "sanctorium"];
+  for (const p of priority) { if (tied.includes(p)) return p; }
+  return tied[0];
+}
+
+const AllegianceSymbol = ({ allegiance }: { allegiance: AllegianceId }) => {
+  const color = "hsl(38 72% 55%)";
+  switch (allegiance) {
+    case "sanctorium":
+      return (<svg width="60" height="80" viewBox="0 0 60 80" fill="none"><path d="M30 8 L30 72" stroke={color} strokeWidth="2.5" /><path d="M22 16 Q30 4 38 16" stroke={color} strokeWidth="2" fill="none" /><path d="M24 12 Q30 0 36 12" stroke={color} strokeWidth="1.5" fill="none" /><ellipse cx="30" cy="20" rx="6" ry="8" fill={color} opacity="0.3" /><ellipse cx="30" cy="16" rx="3" ry="5" fill={color} opacity="0.5" /></svg>);
+    case "parliament":
+      return (<svg width="60" height="60" viewBox="0 0 60 60" fill="none"><polygon points="30,5 55,30 30,55 5,30" stroke={color} strokeWidth="2" fill="none" /><circle cx="30" cy="30" r="8" stroke={color} strokeWidth="1.5" fill="none" /><circle cx="30" cy="30" r="3" fill={color} opacity="0.7" /><line x1="30" y1="22" x2="30" y2="10" stroke={color} strokeWidth="1" /><line x1="30" y1="38" x2="30" y2="50" stroke={color} strokeWidth="1" /><line x1="22" y1="30" x2="10" y2="30" stroke={color} strokeWidth="1" /><line x1="38" y1="30" x2="50" y2="30" stroke={color} strokeWidth="1" /></svg>);
+    case "deepforge":
+      return (<svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="22" stroke={color} strokeWidth="2" fill="none" /><path d="M30 8 L30 12 M30 48 L30 52 M8 30 L12 30 M48 30 L52 30" stroke={color} strokeWidth="2" /><circle cx="30" cy="30" r="10" stroke={color} strokeWidth="1.5" fill="none" /><circle cx="30" cy="30" r="4" fill={color} opacity="0.5" /></svg>);
+    case "convoy":
+      return (<svg width="60" height="60" viewBox="0 0 60 60" fill="none"><path d="M15 20 Q20 15 25 20 L25 28" stroke={color} strokeWidth="2.5" strokeLinecap="round" /><path d="M25 28 L25 32" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeDasharray="2 4" /><path d="M35 28 Q40 33 35 38 L35 32" stroke={color} strokeWidth="2.5" strokeLinecap="round" /><path d="M35 32 L35 28" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeDasharray="2 4" /></svg>);
+    case "unseen":
+      return (<svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="22" stroke={color} strokeWidth="1.5" fill="none" strokeDasharray="3 3" /><circle cx="30" cy="30" r="15" stroke={color} strokeWidth="1" fill="none" opacity="0.4" /></svg>);
+  }
+};
 
 // ── Riddles ────────────────────────────────────────────────────────────────────
 const RIDDLES = [
@@ -172,13 +305,6 @@ const RIDDLES = [
     answers: ["verlaine"]
   }
 ];
-
-// ── Archetypes ─────────────────────────────────────────────────────────────────
-const ARCHETYPES = {
-  devoted: { name: "The Devoted", sigil: "✦", desc: "Like Culver, you love with everything and fight for what's right even when it costs you. Your greatest strength is also your blindspot." },
-  architect: { name: "The Architect", sigil: "⬡", desc: "Like Remsays or Verlaine, you see the board before others see the pieces. The question is: who will you sacrifice to win?" },
-  witness: { name: "The Witness", sigil: "◎", desc: "Like Quinn or Carmela, you carry the weight of what you know and what you cannot change. History will be written by others — but you were there when it happened." }
-};
 
 // ── Context ────────────────────────────────────────────────────────────────────
 interface GameState {
@@ -327,18 +453,31 @@ export const HiddenSigil = ({ className }: { className?: string }) => {
 // ── QuestTrigger ──────────────────────────────────────────────────────────────
 export const QuestTrigger = ({ className }: { className?: string }) => {
   const { startQuest, questCompleted, questArchetype } = useGame();
-  if (questCompleted && questArchetype) {
-    const archetype = ARCHETYPES[questArchetype as keyof typeof ARCHETYPES];
+  const storedResult = typeof window !== "undefined" ? localStorage.getItem("allegiance-result") : null;
+  const allegiance = storedResult ? ALLEGIANCE_DATA[storedResult as AllegianceId] : null;
+
+  if ((questCompleted && questArchetype) || allegiance) {
+    const displayName = allegiance?.name ?? questArchetype ?? "Unknown";
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
-        className={cn("inline-flex items-center gap-2 px-4 py-2 border border-primary/40 text-primary font-display text-xs tracking-widest uppercase", className)}
-      >
-        <span>{archetype?.sigil}</span>
-        <span>{archetype?.name}</span>
-      </motion.div>
+      <div className={cn("flex flex-col items-center gap-3", className)}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2 px-4 py-2 border border-primary/40 text-primary font-display text-xs tracking-widest uppercase"
+        >
+          <span>{displayName}</span>
+        </motion.div>
+        <button
+          onClick={startQuest}
+          className="font-body text-[9px] tracking-[0.2em] uppercase transition-colors"
+          style={{ color: "hsl(38 30% 40%)" }}
+          onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 60% 55%)")}
+          onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 30% 40%)")}
+        >
+          Retake the Quiz
+        </button>
+      </div>
     );
   }
   return (
@@ -880,35 +1019,55 @@ const ScrollModal = ({ id, count, onClose }: { id: number; count: number; onClos
   );
 };
 
-// ── QuestModal ────────────────────────────────────────────────────────────────
+// ── QuestModal (Allegiance Quiz) ──────────────────────────────────────────
 const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: (a: string) => void }) => {
-  const [sceneIndex, setSceneIndex] = useState(0);
-  const [scores, setScores]         = useState({ devoted: 0, architect: 0, witness: 0 });
-  const [result, setResult]         = useState<string | null>(null);
-  const [confirmed, setConfirmed]   = useState(false);
+  const { awardScroll } = useGame();
+  const [questions] = useState(() => buildQuizQuestions());
+  const [qIdx, setQIdx] = useState(0);
+  const [scores, setScores] = useState<Record<Exclude<AllegianceId, "unseen">, number>>({
+    sanctorium: 0, parliament: 0, deepforge: 0, convoy: 0,
+  });
+  const [lastAnswer, setLastAnswer] = useState<Exclude<AllegianceId, "unseen">>("sanctorium");
+  const [result, setResult] = useState<AllegianceId | null>(null);
+  const [revealStage, setRevealStage] = useState(0);
+  const [closing, setClosing] = useState(false);
 
-  const handleChoice = (type: string) => {
-    const newScores = { ...scores, [type]: scores[type as keyof typeof scores] + 1 };
+  const handleAnswer = (allegiance: Exclude<AllegianceId, "unseen">) => {
+    const newScores = { ...scores, [allegiance]: scores[allegiance] + 1 };
     setScores(newScores);
-    if (sceneIndex < QUEST_SCENES.length - 1) {
-      setSceneIndex(prev => prev + 1);
+    setLastAnswer(allegiance);
+
+    if (qIdx < questions.length - 1) {
+      setQIdx(prev => prev + 1);
     } else {
-      const winner = Object.entries(newScores).reduce((a, b) => a[1] > b[1] ? a : b)[0];
-      setResult(winner);
+      const winner = resolveAllegiance(newScores, allegiance);
+      localStorage.setItem("allegiance-result", winner);
+      const data = ALLEGIANCE_DATA[winner];
+      localStorage.setItem(data.storageKey, "true");
+      if (data.scrollAward && !localStorage.getItem("allegiance-scroll-7-awarded")) {
+        awardScroll(data.scrollAward);
+        localStorage.setItem("allegiance-scroll-7-awarded", "true");
+      }
+
+      const delay = winner === "unseen" ? 2000 : 0;
+      setTimeout(() => {
+        setResult(winner);
+        setTimeout(() => setRevealStage(1), 1200);
+        setTimeout(() => setRevealStage(2), 3200);
+        setTimeout(() => setRevealStage(3), 4500);
+      }, delay);
     }
   };
 
-  const handleConfirm = () => {
-    if (!result) return;
-    setConfirmed(true);
-    setTimeout(() => onComplete(result), 2500);
+  const handleClose = () => {
+    setClosing(true);
+    setTimeout(() => onComplete(result ?? "sanctorium"), 600);
   };
 
-  const currentScene = QUEST_SCENES[sceneIndex];
-  const archetype    = result ? ARCHETYPES[result as keyof typeof ARCHETYPES] : null;
+  const currentQ = questions[qIdx];
 
   return (
-    <ModalBackdrop onClick={confirmed ? undefined : (result ? handleConfirm : onClose)}>
+    <ModalBackdrop onClick={!result && !closing ? onClose : undefined}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -917,89 +1076,124 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: 
         className="w-full max-w-4xl mx-auto flex flex-col items-center justify-start sm:justify-center text-center p-4 sm:p-6 py-10 min-h-full"
       >
         <AnimatePresence mode="wait">
-          {confirmed ? (
+          {result ? (
             <motion.div
-              key="cinematic"
+              key="reveal"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
-              className="fixed inset-0 z-[110] flex flex-col items-center justify-center bg-black"
+              className="flex flex-col items-center justify-center gap-6 max-w-xl w-full"
             >
               <motion.div
-                initial={{ scale: 0.6, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-[5rem] sm:text-[7rem] mb-6"
-                style={{ textShadow: "0 0 60px hsl(38 72% 50% / 0.8), 0 0 120px hsl(38 72% 50% / 0.4)" }}
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1 }}
               >
-                {archetype?.sigil}
+                <AllegianceSymbol allegiance={result} />
               </motion.div>
-              <motion.h2
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.7 }}
-                className="font-display text-2xl sm:text-4xl text-amber-400 tracking-[0.15em] sm:tracking-[0.2em] mb-5"
-              >
-                {archetype?.name}
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.9, duration: 0.8 }}
-                className="font-narrative italic text-amber-100/60 text-base sm:text-lg"
-              >
-                "Your allegiance is sealed. The world remembers."
-              </motion.p>
-              <motion.div
-                className="absolute inset-0 bg-black pointer-events-none"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.7, duration: 0.8 }}
-              />
+
+              {revealStage >= 1 && (
+                <h2
+                  className="font-display text-2xl sm:text-4xl tracking-[0.12em]"
+                  style={{ color: "hsl(38 72% 55%)", textShadow: "0 0 30px hsl(38 72% 50% / 0.3)" }}
+                >
+                  {ALLEGIANCE_DATA[result].name.split("").map((ch, i) => (
+                    <motion.span
+                      key={i}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: i * 0.08, duration: 0.3 }}
+                      className="inline-block"
+                      style={{ whiteSpace: ch === " " ? "pre" : undefined }}
+                    >
+                      {ch}
+                    </motion.span>
+                  ))}
+                </h2>
+              )}
+
+              {revealStage >= 2 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                  className="flex flex-col items-center gap-5"
+                >
+                  <div
+                    className="h-px w-24"
+                    style={{ background: "linear-gradient(90deg, transparent, hsl(38 60% 50% / 0.5), transparent)" }}
+                  />
+                  <p
+                    className="font-narrative italic text-[0.9375rem] sm:text-base leading-[1.9] max-w-md"
+                    style={{ color: "hsl(38 25% 75%)" }}
+                  >
+                    "{ALLEGIANCE_DATA[result].text}"
+                  </p>
+                  <p
+                    className="font-display text-[8px] tracking-[0.4em] uppercase"
+                    style={{ color: "hsl(38 40% 40%)" }}
+                  >
+                    Your allegiance has been recorded.
+                  </p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 0.8 }}
+                    className="font-narrative italic text-[0.8125rem]"
+                    style={{ color: "hsl(38 50% 50%)" }}
+                  >
+                    Something has been unlocked.
+                  </motion.p>
+                </motion.div>
+              )}
+
+              {revealStage >= 3 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <button
+                    onClick={handleClose}
+                    className="min-h-[44px] text-xs tracking-[0.3em] uppercase font-body border px-6 py-3 transition-colors"
+                    style={{ color: "hsl(38 50% 50%)", borderColor: "hsl(38 40% 30%)" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(38 60% 50%)"; (e.currentTarget as HTMLButtonElement).style.color = "hsl(38 72% 60%)"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(38 40% 30%)"; (e.currentTarget as HTMLButtonElement).style.color = "hsl(38 50% 50%)"; }}
+                  >
+                    Continue
+                  </button>
+                </motion.div>
+              )}
             </motion.div>
-          ) : !result ? (
-            <motion.div key="scenes" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full flex flex-col items-center">
+          ) : (
+            <motion.div key="questions" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full flex flex-col items-center">
               <h2 className="font-display text-[1.6rem] sm:text-5xl text-amber-100 tracking-[0.08em] sm:tracking-[0.1em] mb-6 sm:mb-12 drop-shadow-lg leading-tight">
-                Where Does Your Loyalty Lie?
+                Choose Your Allegiance
               </h2>
               <motion.div
-                key={sceneIndex}
+                key={qIdx}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 className="bg-black/80 border border-amber-900/50 p-6 sm:p-12 max-w-2xl w-full backdrop-blur-md"
               >
-                <div className="text-amber-500/50 text-xs tracking-[0.3em] uppercase mb-4 sm:mb-6">Scene {sceneIndex + 1} of 4</div>
-                <p className="font-narrative text-[1.0625rem] sm:text-xl text-amber-50 mb-6 sm:mb-10 leading-[1.8]">"{currentScene.text}"</p>
+                <div className="text-amber-500/50 text-xs tracking-[0.3em] uppercase mb-4 sm:mb-6 font-body">
+                  Question {qIdx + 1} of 8
+                </div>
+                <p className="font-narrative text-[1.0625rem] sm:text-xl text-amber-50 mb-6 sm:mb-10 leading-[1.8]">
+                  "{currentQ.question}"
+                </p>
                 <div className="space-y-3 sm:space-y-4">
-                  {currentScene.options.map((opt) => (
-                    <button key={opt.id} onClick={() => handleChoice(opt.type)}
-                      className="w-full text-left p-4 min-h-[56px] border border-amber-900/30 hover:border-amber-500/80 hover:bg-amber-900/20 text-amber-100/80 hover:text-white transition-all duration-300 font-body text-[0.9375rem] sm:text-sm tracking-wide leading-[1.6]">
-                      <span className="text-amber-500 mr-3 font-display">{opt.id}.</span> {opt.text}
+                  {currentQ.answers.map((ans, i) => (
+                    <button
+                      key={i}
+                      onClick={() => handleAnswer(ans.allegiance)}
+                      className="w-full text-left p-4 min-h-[48px] border border-amber-900/30 hover:border-amber-500/80 hover:bg-amber-900/20 text-amber-100/80 hover:text-white transition-all duration-300 font-body text-[0.9375rem] sm:text-sm tracking-wide leading-[1.6]"
+                    >
+                      {ans.text}
                     </button>
                   ))}
                 </div>
               </motion.div>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="reveal"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.8 }}
-              className="bg-[#0d0a06] border border-amber-800/40 p-8 sm:p-12 max-w-xl w-full text-center shadow-[0_0_80px_rgba(245,158,11,0.08)]"
-            >
-              <div className="text-amber-600/40 text-xs tracking-[0.4em] uppercase mb-6">Your Allegiance Is Revealed</div>
-              <div className="text-4xl sm:text-5xl text-amber-500/60 mb-6">{archetype?.sigil}</div>
-              <h2 className="font-display text-[1.6rem] sm:text-3xl text-amber-400 tracking-[0.12em] sm:tracking-[0.15em] mb-6">{archetype?.name}</h2>
-              <div className="h-px w-20 bg-amber-800/50 mx-auto mb-6" />
-              <p className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/70 italic leading-[1.8] mb-8 sm:mb-10">"{archetype?.desc}"</p>
-              <button onClick={handleConfirm}
-                className="min-h-[44px] text-xs tracking-[0.3em] uppercase text-amber-700 hover:text-amber-500 transition-colors font-body border border-amber-900/40 hover:border-amber-700/60 px-6 py-3">
-                Seal Your Fate
-              </button>
             </motion.div>
           )}
         </AnimatePresence>

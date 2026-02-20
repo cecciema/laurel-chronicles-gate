@@ -653,6 +653,28 @@ const Factions = () => {
           ))}
         </div>
 
+        {/* Convoy intercepted message unlock */}
+        {typeof window !== "undefined" && localStorage.getItem("convoy-message-unlocked") === "true" && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto mt-8 mb-4 border p-6 relative overflow-hidden"
+            style={{ borderColor: "hsl(38 50% 30% / 0.4)", background: "hsl(20 12% 7%)" }}
+          >
+            <div className="absolute top-3 right-4 font-display text-[9px] tracking-[0.3em] uppercase px-2 py-1 border"
+              style={{ color: "hsl(38 72% 50%)", borderColor: "hsl(38 50% 40% / 0.5)", transform: "rotate(-2deg)" }}>
+              Intercepted
+            </div>
+            <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-3" style={{ color: "hsl(38 40% 40%)" }}>
+              Intercepted Convoy Transmission
+            </p>
+            <p className="font-narrative italic text-[0.9375rem] leading-[1.85]" style={{ color: "hsl(38 25% 65%)" }}>
+              "Asset confirmed in position. Premiere transition on schedule. The yield from the next ceremony has been pre-allocated. Do not interfere with the Sol Deus selection. We placed three of the current eleven."
+            </p>
+          </motion.div>
+        )}
+
         {/* ── Apotheosis Path game ── */}
         <ApotheosisPath />
 
