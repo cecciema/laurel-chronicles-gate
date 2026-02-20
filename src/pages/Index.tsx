@@ -508,7 +508,7 @@ const ResetProgressButton = () => {
   const [cleared, setCleared] = useState(false);
 
   const handleReset = () => {
-    const keysToRemove = [
+    const keysToDelete = [
       "chronicles_game_state_v2",
       "lca_selected_guide",
       "allegiance-result",
@@ -523,17 +523,38 @@ const ResetProgressButton = () => {
       "unmasked-won",
       "semper-review-won",
       "vial-substitution-won",
+      "valorica-unlocked",
+      "arborwell-unlocked",
+      "bestiary-visited",
+      "dead-corridors-first-win",
+      "forbidden-transmission-first-win",
+      "vial-substitution-first-win",
+      "semper-review-first-win",
+      "unmasked-first-win",
     ];
-    keysToRemove.forEach((key) => localStorage.removeItem(key));
+    keysToDelete.forEach((key) => localStorage.removeItem(key));
     setCleared(true);
-    setTimeout(() => window.location.reload(), 1200);
+    setTimeout(() => window.location.reload(), 800);
   };
 
   return (
     <button
       onClick={handleReset}
-      className="fixed bottom-3 right-3 z-[5] select-none font-body text-[9px] text-muted-foreground tracking-wide border border-border/40 px-2 py-1 rounded hover:border-primary/40 transition-colors"
-      style={{ opacity: 0.5, cursor: "default" }}
+      className="fixed bottom-3 right-3 z-[5] select-none font-display text-[9px] text-muted-foreground tracking-[0.15em] uppercase rounded transition-all duration-200 hover:opacity-80"
+      style={{
+        opacity: 0.5,
+        border: "1px solid rgba(184, 150, 12, 0.6)",
+        padding: "4px 12px",
+        cursor: "default",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.opacity = "0.8";
+        e.currentTarget.style.borderColor = "rgba(184, 150, 12, 0.85)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.opacity = "0.5";
+        e.currentTarget.style.borderColor = "rgba(184, 150, 12, 0.6)";
+      }}
     >
       {cleared ? "✦ Progress Cleared" : "Clear Progress"}
     </button>
