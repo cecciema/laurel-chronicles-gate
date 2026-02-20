@@ -342,6 +342,7 @@ export const DeadCorridors = () => {
       setWon(true);
       setBestiaryUnlocked(true);
       if (!alreadyWon) foundScroll(SCROLL_ID);
+      localStorage.setItem('dead-corridors-won', 'true');
     }
   }, [player, phase, alreadyWon, foundScroll]);
 

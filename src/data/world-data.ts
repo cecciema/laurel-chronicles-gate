@@ -31,16 +31,6 @@ export interface GuideCharacter {
   welcomeMessage?: string;
 }
 
-export interface Faction {
-  id: string;
-  name: string;
-  motto: string;
-  description: string;
-  leader: string;
-  strength: string;
-  ideology: string;
-  color: string;
-}
 
 export interface TimelineEvent {
   year: string;
@@ -504,58 +494,6 @@ export const guideCharacters: GuideCharacter[] = [
   },
 ];
 
-export const factions: Faction[] = [
-  {
-    id: "parliament",
-    name: "Republic Parliament",
-    motto: "Order Through Authority",
-    description: "The governing body of the Republic, Parliament controls law, security, and societal policy. Led by Premiere Jude with enforcement through Chief Magister Remsays, Parliament represents visible civic authority — the counterbalance to Pantheon spiritual power. It is the face of order, but beneath that face lies calculated control.",
-    leader: "Premiere Jude",
-    strength: "Military force, legal authority, Paragon program control",
-    ideology: "Stability requires hierarchy. Sacrifice is not a burden — it is a duty. The planet's survival demands elite governance.",
-    color: "primary",
-  },
-  {
-    id: "pantheon-ivory",
-    name: "Pantheon Ivory",
-    motto: "The Word Endures Beyond All Republics",
-    description: "Sanctorium's intellectual and spiritual authority, Pantheon Ivory is the domain of scholars, scribes, and linguistic custodians. They hold the keys to ancient knowledge, dead languages, and sacred institutional memory. Their power is subtle, patient, and deep — rooted in what others cannot read and what history has forgotten.",
-    leader: "Carmela, Pantheon Lunary",
-    strength: "Ancient knowledge, linguistic mastery, ceremonial authority",
-    ideology: "To control language is to control meaning. To control meaning is to control destiny itself.",
-    color: "brass",
-  },
-  {
-    id: "sol-deus",
-    name: "Pantheon Sol Deus",
-    motto: "The Fire Remembers",
-    description: "The highest tier of Pantheon divine authority, Sol Deus rulers are ancient, observant, and formidable. They hold fragmentary soul knowledge and see across centuries. Their authority transcends institutional politics — they exist at the intersection of faith, prophecy, and existential power. Thema is their most prominent face: godlike, untouchable, and benevolently unknowable.",
-    leader: "Sol Deus Thema",
-    strength: "Divine authority, soul knowledge, multi-Pantheon political influence",
-    ideology: "The system is built on incomplete truths. Whether to preserve or reshape it is the only question that matters.",
-    color: "copper",
-  },
-  {
-    id: "magistry-ocean",
-    name: "Magistry of Ocean",
-    motto: "Restore What Was Taken",
-    description: "A specialized scientific and spiritual body dedicated to planetary recovery — particularly the restoration of the world's oceans. Where other powers fight for control, the Magistry of Ocean fights for continuation. Their candidates, like Culver, are selected for intellect, dedication, and the rare ability to question doctrine while remaining inside the system.",
-    leader: "Culver Gretell (Paragon candidate)",
-    strength: "Scientific innovation, ocean knowledge, planetary survival expertise",
-    ideology: "The planet is the only institution worth protecting. All others are temporary.",
-    color: "accent",
-  },
-  {
-    id: "frontier",
-    name: "The Frontier Edge",
-    motto: "We Know What the Maps Leave Out",
-    description: "Outside the protected systems of Panterra lies the world that institutions do not govern. Frontier survivors carry knowledge of pre-war truths, natural world realities, and the manufactured nature of the Republic's stability. They are unpredictable, useful, and not fully trusted — which makes them dangerous to those who need trust to maintain control.",
-    leader: "None (Sailor is a known figure)",
-    strength: "Survival knowledge, unfiltered truth, ocean-edge access",
-    ideology: "Manufactured stability is still a lie. The real world does not care about your institutions.",
-    color: "muted",
-  },
-];
 
 export const timeline: TimelineEvent[] = [
   { year: "Age Unknown", title: "Before the Veil", description: "The era before Panterra's protective systems. A world of raw ocean, untamed land, and pre-war civilizations whose knowledge would later be locked inside Pantheon archives.", category: "social" },

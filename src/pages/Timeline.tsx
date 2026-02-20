@@ -132,10 +132,10 @@ const events: TimelineEvent[] = [
 ];
 
 const categoryTagColors: Record<Category, { bg: string; text: string }> = {
-  political: { bg: "hsl(220 50% 18% / 0.5)", text: "hsl(220 45% 55%)" },
+  political: { bg: "hsl(38 50% 18% / 0.5)", text: "hsl(38 60% 55%)" },
   military: { bg: "hsl(0 50% 18% / 0.5)", text: "hsl(0 55% 50%)" },
-  social: { bg: "hsl(140 35% 18% / 0.5)", text: "hsl(140 35% 50%)" },
-  technological: { bg: "hsl(38 50% 18% / 0.5)", text: "hsl(30 60% 50%)" },
+  social: { bg: "hsl(35 30% 20% / 0.5)", text: "hsl(35 25% 70%)" },
+  technological: { bg: "hsl(30 50% 18% / 0.5)", text: "hsl(30 60% 50%)" },
 };
 
 const filterBtnColors: Record<string, string> = {
