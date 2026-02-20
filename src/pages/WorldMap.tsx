@@ -166,7 +166,7 @@ const WorldMap = () => {
   const [selectedOrb,    setSelectedOrb]    = useState<string | null>(null);
   const [selectedPantheon, setSelectedPantheon] = useState<string | null>(null);
   const [arborwellMsg,   setArborwellMsg]   = useState(false);
-  const [showVialGame,   setShowVialGame]   = useState(false);
+  
   const isMobile = useIsMobile();
 
   // Arborwell fully unlocked when all 12 scrolls collected
@@ -1196,27 +1196,7 @@ const WorldMap = () => {
           </motion.p>
         </div>
 
-        <AnimatePresence mode="wait">
-          {showVialGame ? (
-            <motion.div
-              key="vial-game"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <VialSubstitutionGame onClose={() => setShowVialGame(false)} />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="vial-trigger"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <VialSubstitutionTrigger onStartGame={() => setShowVialGame(true)} />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <VialSubstitutionGame onClose={() => {}} />
       </div>
     </Layout>
   );
