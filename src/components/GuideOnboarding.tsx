@@ -138,14 +138,6 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
             className="min-h-screen flex items-center justify-center"
           >
             <div className="text-center px-6 max-w-2xl mx-auto py-12">
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="text-xs tracking-[0.5em] text-primary/60 uppercase font-body mb-6"
-              >
-                Entering the World
-              </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -164,7 +156,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
               >
                 <div className="steampunk-divider max-w-xs mx-auto" />
                 <p className="font-narrative text-lg text-foreground/60 italic mt-6">
-                  "The world you are about to enter is older than its own history knows."
+                  "You were given everything by the Republic. A life, a purpose, an Apotheosis — and yet, here you are."
                 </p>
               </motion.div>
               <motion.button
