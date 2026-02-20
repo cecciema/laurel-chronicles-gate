@@ -12,7 +12,7 @@ const Footer = () => {
           className="font-narrative text-[11px] sm:text-xs leading-relaxed"
           style={{ color: "hsl(38 20% 55%)" }}
         >
-          Laurel Crowns Above is an original intellectual property of Cecilia Ma. All rights reserved.
+          LAUREL CROWNS ABOVE — A LIVING WORLD is an original intellectual property of CECILIA MA.
         </p>
         <p
           className="font-narrative text-[11px] sm:text-xs leading-relaxed"
@@ -20,7 +20,7 @@ const Footer = () => {
         >
           For other works please visit{" "}
           <a
-            href="https://www.averydelacruz.com"
+            href="https://www.AverydelaCruz.com"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-colors hover:underline"
@@ -32,7 +32,7 @@ const Footer = () => {
               (e.currentTarget.style.color = "hsl(38 60% 55%)")
             }
           >
-            averydelacruz.com
+            AverydelaCruz.com
           </a>
         </p>
         <p
