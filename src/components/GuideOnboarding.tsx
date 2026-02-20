@@ -56,8 +56,19 @@ interface GuideOnboardingProps {
 
 const GUIDE_STORAGE_KEY = "lca_selected_guide";
 
+// Fisher-Yates shuffle
+function shuffleGuides(arr: GuideCharacter[]): GuideCharacter[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
   const [step, setStep] = useState<"welcome" | "choose" | "confirm" | "reveal">("welcome");
+  const [shuffledGuides] = useState<GuideCharacter[]>(() => shuffleGuides(guideCharacters));
   const [selected, setSelected] = useState<GuideCharacter | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [tapped, setTapped] = useState<string | null>(null);
@@ -207,7 +218,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-              {guideCharacters.map((guide, i) => (
+              {shuffledGuides.map((guide, i) => (
                 <motion.button
                   key={guide.id}
                   initial={{ opacity: 0, y: 20 }}
