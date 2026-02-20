@@ -309,7 +309,7 @@ const Index = () => {
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
                 <p className="mt-6 font-narrative text-[1.0625rem] sm:text-lg text-muted-foreground leading-[1.8] max-w-2xl mx-auto w-full">
-                  The republic was built on steam and iron, on the bones of the conquered
+                  The Republic was built on steam and iron, on the bones of the conquered
                   and the dreams of the powerful. For three centuries, the Republic
                   has maintained order through a machine of control — military, political,
                   and technological. But the machine is breaking. The governed districts rumble
@@ -347,10 +347,10 @@ const Index = () => {
           <section className="py-16 px-4 bg-secondary/30">
             <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { to: "/world", title: "World Overview", desc: "Explore the republic's territories, culture, and power structures" },
+                { to: "/world", title: "World Overview", desc: "Explore the Republic's territories, culture, and power structures" },
                 { to: "/characters", title: "Character Database", desc: "Discover the key figures shaping the fate of the world" },
-                { to: "/timeline", title: "Timeline", desc: "Trace the events that brought the republic to the brink" },
-                { to: "/map", title: "World Map", desc: "Navigate the regions of the republic" },
+                { to: "/timeline", title: "Timeline", desc: "Trace the events that brought the Republic to the brink" },
+                { to: "/map", title: "World Map", desc: "Navigate the regions of the Republic" },
               ].map((card, i) => (
                 <ScrollReveal key={card.to} delay={i * 0.08}>
                   <Link
