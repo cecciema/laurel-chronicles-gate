@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
-import { VialSubstitutionTrigger } from "@/components/VialSubstitution";
+import VialSubstitutionGame, { VialSubstitutionTrigger } from "@/components/VialSubstitution";
 import { characterImageMap } from "@/data/guide-images";
 import { useIsMobile } from "@/hooks/use-mobile";
 import panterraMap from "@/assets/panterra-map.jpg";
@@ -280,6 +280,7 @@ const WorldMap = () => {
   const [selectedOrb,    setSelectedOrb]    = useState<string | null>(null);
   const [selectedPantheon, setSelectedPantheon] = useState<string | null>(null);
   const [arborwellMsg,   setArborwellMsg]   = useState(false);
+  const [showVialGame,   setShowVialGame]   = useState(false);
   const isMobile = useIsMobile();
 
   // Arborwell fully unlocked when all 12 scrolls collected
@@ -1109,11 +1110,30 @@ const WorldMap = () => {
         )}
       </AnimatePresence>
 
-      {/* Vial Substitution game trigger */}
-      <div className="px-4">
-        <VialSubstitutionTrigger />
-      </div>
-
+      {/* Vial Substitution game — inline */}
+      <AnimatePresence mode="wait">
+        {showVialGame ? (
+          <motion.div
+            key="vial-game"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="px-4"
+          >
+            <VialSubstitutionGame onClose={() => setShowVialGame(false)} />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="vial-trigger"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="px-4"
+          >
+            <VialSubstitutionTrigger onStartGame={() => setShowVialGame(true)} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Layout>
   );
 };
