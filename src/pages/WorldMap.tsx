@@ -861,32 +861,36 @@ const WorldMap = () => {
             </div>{/* end map container */}
 
           {/* === REGION NAV BAR — always visible below map === */}
-          <div className="mt-3">
-            <div className="flex flex-nowrap gap-2 justify-center overflow-x-auto pb-1 scrollbar-hide">
-              {SUB_REGIONS.filter((r) => r.id !== "valorica" && (r.id !== "arborwell" || arborwellFullUnlock)).map((r) => {
-                const color = REGION_COLORS[r.id] ?? GLOW_BRASS;
-                const isActive = selectedRegion === r.id;
-                return (
-                  <button
-                    key={r.id}
-                    onClick={() => toggleRegion(r.id)}
-                    className="flex items-center gap-2 px-3 py-2 border transition-all font-body text-[10px] tracking-[0.2em] uppercase min-h-[44px] whitespace-nowrap flex-shrink-0"
-                    style={{
-                      borderColor: isActive ? color : "rgba(255,255,255,0.1)",
-                      color:       isActive ? color : "rgba(255,255,255,0.4)",
-                      boxShadow:   isActive ? `0 0 12px ${color}40` : "none",
-                    }}
-                  >
-                    <span
-                      className="w-2 h-2 rounded-full flex-shrink-0"
-                      style={{ background: isActive ? GLOW_BRASS : GLOW_WHITE, boxShadow: isActive ? `0 0 8px rgba(212,168,67,0.6)` : `0 0 6px rgba(255,255,255,0.4)` }}
-                    />
-                    {r.name}
-                  </button>
-                );
-              })}
+            <div className="mt-3">
+              <div className="flex flex-wrap gap-2 justify-center pb-1">
+                {SUB_REGIONS.filter((r) => r.id !== "valorica" && (r.id !== "arborwell" || arborwellFullUnlock)).map((r, i, arr) => {
+                  const color = REGION_COLORS[r.id] ?? GLOW_BRASS;
+                  const isActive = selectedRegion === r.id;
+                  // Mobile: row 1 = first 3 (33% each), row 2 = last items (50% each)
+                  const mobileWidth = i < 3
+                    ? "w-[calc(33.333%-0.35rem)] sm:w-auto"
+                    : "w-[calc(50%-0.25rem)] sm:w-auto";
+                  return (
+                    <button
+                      key={r.id}
+                      onClick={() => toggleRegion(r.id)}
+                      className={`flex items-center justify-center gap-2 px-2 sm:px-3 py-2 border transition-all font-body text-[8px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.2em] uppercase min-h-[44px] ${mobileWidth}`}
+                      style={{
+                        borderColor: isActive ? color : "rgba(255,255,255,0.1)",
+                        color:       isActive ? color : "rgba(255,255,255,0.4)",
+                        boxShadow:   isActive ? `0 0 12px ${color}40` : "none",
+                      }}
+                    >
+                      <span
+                        className="w-2 h-2 rounded-full flex-shrink-0"
+                        style={{ background: isActive ? GLOW_BRASS : GLOW_WHITE, boxShadow: isActive ? `0 0 8px rgba(212,168,67,0.6)` : `0 0 6px rgba(255,255,255,0.4)` }}
+                      />
+                      {r.name}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
 
           {/* === BOTTOM PANEL — opens below nav bar on region click === */}
           <AnimatePresence>
