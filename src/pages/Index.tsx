@@ -508,31 +508,7 @@ const ResetProgressButton = () => {
   const [cleared, setCleared] = useState(false);
 
   const handleReset = () => {
-    const keysToDelete = [
-      "chronicles_game_state_v2",
-      "lca_selected_guide",
-      "allegiance-result",
-      "allegiance-scroll-7-awarded",
-      "bestiary-complete-seen",
-      "parliament-intelligence-unlocked",
-      "deepforge-survival-unlocked",
-      "convoy-message-unlocked",
-      "arborwell-hint-unlocked",
-      "forbidden-transmission-won",
-      "dead-corridors-won",
-      "unmasked-won",
-      "semper-review-won",
-      "vial-substitution-won",
-      "valorica-unlocked",
-      "arborwell-unlocked",
-      "bestiary-visited",
-      "dead-corridors-first-win",
-      "forbidden-transmission-first-win",
-      "vial-substitution-first-win",
-      "semper-review-first-win",
-      "unmasked-first-win",
-    ];
-    keysToDelete.forEach((key) => localStorage.removeItem(key));
+    localStorage.clear();
     setCleared(true);
     setTimeout(() => window.location.reload(), 800);
   };
