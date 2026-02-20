@@ -12,7 +12,6 @@ const navItems = [
   { path: "/timeline", label: "Timeline" },
   { path: "/factions", label: "Factions" },
   { path: "/map", label: "Map" },
-  { path: "/gallery", label: "Gallery" },
 ];
 
 const Navigation = () => {

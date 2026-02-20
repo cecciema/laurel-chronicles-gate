@@ -450,7 +450,6 @@ const Index = () => {
                 { to: "/timeline", title: "Timeline", desc: "Trace the events that brought the empire to the brink" },
                 { to: "/factions", title: "Factions", desc: "Understand the powers vying for control" },
                 { to: "/map", title: "World Map", desc: "Navigate the regions of the empire" },
-                { to: "/gallery", title: "Visual Gallery", desc: "Cinematic visions of the world" },
               ].map((card, i) => (
                 <ScrollReveal key={card.to} delay={i * 0.08}>
                   <Link
