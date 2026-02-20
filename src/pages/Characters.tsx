@@ -11,6 +11,18 @@ import { characterImageMap } from "@/data/guide-images";
 const resolveImage = (image: string): string =>
   image.startsWith("/") ? image : (characterImageMap[image] ?? image);
 
+// Fixed display order for the character grid
+const CHARACTER_ORDER = [
+  "remsays", "quinn", "thema", "sailor",
+  "kotani", "norstrand", "culver", "carmela",
+  "lockland", "gemma", "verlaine", "jude",
+  "aspen", "wintry", "cora", "soleil",
+];
+
+const orderedCharacters = CHARACTER_ORDER
+  .map((id) => characters.find((c) => c.id === id))
+  .filter(Boolean) as typeof characters;
+
 // Group an array into chunks of `size`
 function chunk<T>(arr: T[], size: number): T[][] {
   const rows: T[][] = [];
@@ -750,8 +762,8 @@ const Characters = () => {
     }
   }, [selected]);
 
-  const rows = chunk(characters, cols);
-  const selectedIndex = characters.findIndex((c) => c.id === selected);
+  const rows = chunk(orderedCharacters, cols);
+  const selectedIndex = orderedCharacters.findIndex((c) => c.id === selected);
   const selectedRow = selectedIndex >= 0 ? Math.floor(selectedIndex / cols) : -1;
   const selectedColInRow = selectedIndex >= 0 ? selectedIndex % cols : 0;
 
