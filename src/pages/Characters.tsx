@@ -47,7 +47,7 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 // ─── The Unmasked — Game Data ──────────────────────────────────────────────────
-const UNMASKED_SCROLL_ID = 10;
+const UNMASKED_SCROLL_ID = 9; // The Unmasked now awards Scroll 9
 
 type QuestionDef = {
   id: string;

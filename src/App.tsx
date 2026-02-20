@@ -12,7 +12,6 @@ import Index from "./pages/Index";
 import WorldOverview from "./pages/WorldOverview";
 import Characters from "./pages/Characters";
 import Timeline from "./pages/Timeline";
-import Factions from "./pages/Factions";
 import WorldMap from "./pages/WorldMap";
 
 import NotFound from "./pages/NotFound";
@@ -74,7 +73,6 @@ const AppInner = () => {
         <Route path="/world" element={<WorldOverview />} />
         <Route path="/characters" element={<Characters />} />
         <Route path="/timeline" element={<Timeline />} />
-        <Route path="/factions" element={<Factions />} />
         <Route path="/map" element={<WorldMap />} />
         
         <Route path="/bestiary" element={<Bestiary />} />
