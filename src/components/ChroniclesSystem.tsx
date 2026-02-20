@@ -778,7 +778,7 @@ const ModalBackdrop = ({ children, onClick }: { children: React.ReactNode; onCli
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    className="fixed inset-0 z-[100] bg-black/95 flex items-start justify-center p-4 sm:items-center backdrop-blur-sm overflow-y-auto"
+    className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm overflow-y-auto"
     onClick={onClick}
   >
     {children}
@@ -986,7 +986,7 @@ const ScrollModal = ({ id, count, onClose }: { id: number; count: number; onClos
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative max-w-lg w-full bg-[#e8dcc0] text-amber-950 p-6 sm:p-12 shadow-[0_0_50px_rgba(0,0,0,0.8)] font-serif border-4 border-double border-amber-900/40 my-auto mt-6 sm:mt-0"
+        className="relative max-w-lg w-full bg-[#e8dcc0] text-amber-950 p-6 sm:p-12 shadow-[0_0_50px_rgba(0,0,0,0.8)] font-serif border-4 border-double border-amber-900/40"
         style={{ clipPath: "polygon(0% 0%, 100% 2%, 98% 100%, 2% 98%)" }}
       >
         <div className="absolute top-2 left-2 text-amber-900/20"><Scroll className="w-6 h-6 sm:w-8 sm:h-8" /></div>
