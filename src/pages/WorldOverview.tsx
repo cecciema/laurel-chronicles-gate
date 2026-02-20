@@ -18,22 +18,16 @@ const socialTiers = [
     tier: "The Leaders",
     level: "Apex Authority",
     desc: "The twelve Sol Deus of Sanctorium and the elected Premiere of Parliament. They do not age visibly. They do not explain themselves. Their authority is total and their succession is sacred. Most citizens will never stand in the same room as one of them.",
-    scale: "text-xl",
-    opacity: "text-foreground",
   },
   {
     tier: "The Citizens",
     level: "The Living",
     desc: "Those who have not yet reached apex live here — in the Deep Forge, in the townships, in the schools and training grounds of the Republic. They are fed, educated, protected, and prepared. Their whole lives are a preparation for the choice that awaits them.",
-    scale: "text-lg",
-    opacity: "text-foreground/90",
   },
   {
     tier: "The Public Servants",
     level: "The Devoted",
     desc: "Those who chose service over Apotheosis. Their bodies and their time belong to the Republic. They serve in the Magistry sectors under Parliament, or as devotees and scholars in Sanctorium. It is considered an honor. It is also considered the harder path.",
-    scale: "text-base",
-    opacity: "text-foreground/80",
   },
 ];
 
@@ -206,14 +200,11 @@ const WorldOverview = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
                 className="p-6 bg-card border border-border"
-                style={{
-                  opacity: 1 - i * 0.08,
-                }}
               >
                 <span className="text-[10px] tracking-[0.3em] text-primary uppercase font-body">
                   {item.level}
                 </span>
-                <h3 className={`font-display ${item.scale} tracking-wide ${item.opacity} mt-2`}>
+                <h3 className="font-display text-base tracking-wide text-foreground mt-2">
                   {item.tier}
                 </h3>
                 <p className="mt-3 text-[0.9375rem] sm:text-sm text-muted-foreground font-body leading-[1.8]">
@@ -251,7 +242,7 @@ const WorldOverview = () => {
                   opacity: transmissionWon ? 1 : 0.4,
                 }}
               >
-                <h3 className="font-display text-sm tracking-wide text-foreground/70 mt-2">
+                <h3 className="font-display text-base tracking-wide text-foreground/70 mt-2">
                   The Convoy
                 </h3>
                 <p className="mt-3 text-[0.9375rem] sm:text-sm text-muted-foreground font-body leading-[1.8]">
