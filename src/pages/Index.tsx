@@ -448,7 +448,6 @@ const Index = () => {
                 { to: "/world", title: "World Overview", desc: "Explore the empire's territories, culture, and power structures" },
                 { to: "/characters", title: "Character Database", desc: "Discover the key figures shaping the fate of the world" },
                 { to: "/timeline", title: "Timeline", desc: "Trace the events that brought the empire to the brink" },
-                { to: "/factions", title: "Factions", desc: "Understand the powers vying for control" },
                 { to: "/map", title: "World Map", desc: "Navigate the regions of the empire" },
               ].map((card, i) => (
                 <ScrollReveal key={card.to} delay={i * 0.08}>

@@ -230,7 +230,7 @@ const MazeCanvas = ({ grid, exit, player, enemies, won }: MazeCanvasProps) => (
 // ─── Main Component ───────────────────────────────────────────────────────────
 type GamePhase = "playing" | "dead" | "won";
 
-const SCROLL_ID = 7;
+const SCROLL_ID = 11; // Dead Corridors now awards Scroll 11 — moved to Bestiary page
 
 const makeEnemy = (patrol: Pos[], idx = 0): Enemy => ({ pos: patrol[idx], patrolIdx: idx, progress: 0 });
 

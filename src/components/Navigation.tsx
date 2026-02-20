@@ -10,7 +10,6 @@ const navItems = [
   { path: "/world", label: "World" },
   { path: "/characters", label: "Characters" },
   { path: "/timeline", label: "Timeline" },
-  { path: "/factions", label: "Factions" },
   { path: "/map", label: "Map" },
 ];
 
