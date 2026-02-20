@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { Toaster } from "@/components/ui/toaster";
+import CustomCursor, { isTouch } from "@/components/CustomCursor";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -49,7 +50,7 @@ const AppInner = () => {
 
   return (
     <>
-      {/* Persistent ambient audio — "Twilight Piano loop" by Mark_Murray (CC Attribution) */}
+      {!isTouch && <CustomCursor />}
       <audio ref={audioRef} loop src="https://cdn.freesound.org/previews/639/639958_13315998-lq.mp3" />
 
       {/* Global audio toggle */}

@@ -5,6 +5,10 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    cursor: none;
+  }
+
   :root {
     /* Dark steampunk republic palette */
     --background: 20 10% 8%;
