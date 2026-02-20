@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Scroll, Lock, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useToast } from "@/components/ui/use-toast";
+
 
 // ── Game win scroll IDs (7–11) ────────────────────────────────────────────────
 const GAME_SCROLL_IDS = [7, 8, 9, 10, 11];
@@ -336,7 +336,7 @@ export const useGame = () => {
 };
 
 export const GameProvider = ({ children }: { children: React.ReactNode }) => {
-  const { toast } = useToast();
+  
   const [state, setState] = useState<GameState>(() => {
     try {
       const saved = localStorage.getItem("chronicles_game_state_v2");
@@ -361,12 +361,6 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
   const foundScroll = (id: number) => {
     const scroll = SCROLLS.find(s => s.id === id);
     if (!state.foundScrolls.includes(id)) {
-      toast({
-        title: `Fragment ${id} Recovered`,
-        description: scroll ? `"${scroll.title}"` : "A forbidden truth surfaces.",
-        className: "bg-amber-950 border-amber-500 text-amber-100",
-        duration: 9000,
-      });
       setState(prev => ({
         ...prev,
         foundScrolls: [...prev.foundScrolls, id],
