@@ -2,6 +2,7 @@ export interface Character {
   id: string;
   name: string;
   title: string;
+  position: string;
   faction: string;
   image: string;
   alignment?: string;
@@ -18,6 +19,7 @@ export interface Character {
 export interface GuideCharacter {
   id: string;
   name: string;
+  title: string;
   magistry: string;
   philosophy: string;
   image: string;
@@ -59,7 +61,8 @@ export const characters: Character[] = [
   {
     id: "remsays",
     name: "Chief Magister Remsays",
-    title: "Parliament Chief Magister",
+    title: "Chief Magister",
+    position: "Paragon Command",
     faction: "The Republic Parliament",
     alignment: "Ruthless Visionary",
     personality: ["Commanding", "Intellectually Intense", "Charismatic", "Predatory Calm"],
@@ -72,7 +75,8 @@ export const characters: Character[] = [
   {
     id: "quinn",
     name: "Quinnevere",
-    title: "Pantheon Ivory Scholar",
+    title: "Scholar",
+    position: "Pantheon Ivory",
     faction: "Sanctorium / Pantheon Ivory",
     alignment: "Devoted Heart",
     personality: ["Emotionally Deep", "Loyal", "Self-Sacrificing", "Highly Observant"],
@@ -85,7 +89,8 @@ export const characters: Character[] = [
   {
     id: "jude",
     name: "Premiere Jude",
-    title: "Head of Parliament",
+    title: "Premiere",
+    position: "Republic of Panterra",
     faction: "The Republic Parliament",
     alignment: "Stabilizing Authority",
     personality: ["Calculated", "Controlled", "Strategic", "Publicly Composed"],
@@ -98,7 +103,8 @@ export const characters: Character[] = [
   {
     id: "verlaine",
     name: "Verlaine",
-    title: "Rising Shadow of the Pantheon",
+    title: "Unknown",
+    position: "Unknown",
     faction: "Pantheon Initiate",
     alignment: "Hidden Architect",
     personality: ["Calculated", "Curious", "Patient", "Ambitious"],
@@ -111,7 +117,8 @@ export const characters: Character[] = [
   {
     id: "gemma",
     name: "Gemma",
-    title: "Lunary Political Operator",
+    title: "Lunary",
+    position: "Pantheon Prisma",
     faction: "Pantheon (Prisma Alignment)",
     alignment: "Precision Instrument",
     personality: ["Disarmingly Warm", "Highly Observant", "Calculating Beneath Surface", "Loyalty-First"],
@@ -124,7 +131,8 @@ export const characters: Character[] = [
   {
     id: "wintry",
     name: "Wintry",
-    title: "Senior Council Member, Space Sciences",
+    title: "High Council",
+    position: "Magistry of Stars",
     faction: "Parliament",
     region: "The Sanctorium",
     image: "char-wintry",
@@ -137,7 +145,8 @@ export const characters: Character[] = [
   {
     id: "lockland",
     name: "Lockland",
-    title: "Sol Deus of Pantheon Ivory",
+    title: "Sol Deus",
+    position: "Pantheon Ivory",
     faction: "Pantheon",
     region: "The Sanctorium",
     image: "char-lockland",
@@ -150,7 +159,8 @@ export const characters: Character[] = [
   {
     id: "aspen",
     name: "Aspen",
-    title: "Director of Peace, Northeast",
+    title: "Council",
+    position: "Magistry of Peace",
     faction: "Parliament",
     region: "The Frontier Borderlands",
     image: "char-aspen",
@@ -163,7 +173,8 @@ export const characters: Character[] = [
   {
     id: "norstrand",
     name: "Norstrand",
-    title: "Sol Deus of Pantheon Finnrare",
+    title: "Sol Deus",
+    position: "Pantheon Finnrare",
     faction: "Pantheon",
     region: "The Sanctorium",
     image: "char-norstrand",
@@ -176,7 +187,8 @@ export const characters: Character[] = [
   {
     id: "thema",
     name: "Sol Deus Thema",
-    title: "Divine Ruler, Keeper of the Flame",
+    title: "Sol Deus",
+    position: "Pantheon Prisma",
     faction: "Pantheon Sol Deus",
     alignment: "Eternal Strategist",
     personality: ["Elegant", "Perceptive", "Emotionally Restrained", "Patient Strategist"],
@@ -189,7 +201,8 @@ export const characters: Character[] = [
   {
     id: "soleil",
     name: "Soleil",
-    title: "Ocean Magistry Field Specialist",
+    title: "Researcher",
+    position: "Magistry of Ocean",
     faction: "Magistry of Ocean",
     alignment: "Aspirational Ideal",
     personality: ["Charismatic", "Physically Capable", "Emotionally Perceptive", "Socially Strategic"],
@@ -202,7 +215,8 @@ export const characters: Character[] = [
   {
     id: "carmela",
     name: "Carmela",
-    title: "Pantheon Lunary (Ivory)",
+    title: "Lunary",
+    position: "Pantheon Ivory",
     faction: "Pantheon Ivory",
     alignment: "Keeper of Order",
     personality: ["Controlled", "Devoted to Tradition", "Emotionally Restrained", "Deeply Loyal"],
@@ -215,7 +229,8 @@ export const characters: Character[] = [
   {
     id: "culver",
     name: "Culver Gretell",
-    title: "Paragon of the Ocean Magistry",
+    title: "Engineer",
+    position: "Magistry of Ocean",
     faction: "Magistry of Ocean",
     alignment: "Analytical Idealist",
     personality: ["Analytical", "Driven", "Emotionally Guarded", "Quietly Rebellious"],
@@ -228,7 +243,8 @@ export const characters: Character[] = [
   {
     id: "kotani",
     name: "Kotani",
-    title: "Sol Deus of Pantheon Canvas",
+    title: "Sol Deus",
+    position: "Pantheon Canvas",
     faction: "Pantheon",
     region: "The Sanctorium",
     image: "char-kotani",
@@ -241,7 +257,8 @@ export const characters: Character[] = [
   {
     id: "cora",
     name: "Cora",
-    title: "Parliament Council Member",
+    title: "High Council",
+    position: "Magistry of Cure",
     faction: "Parliament",
     region: "The Sanctorium",
     image: "char-cora",
@@ -254,7 +271,8 @@ export const characters: Character[] = [
   {
     id: "sailor",
     name: "Sailor",
-    title: "Frontier Edge Survivor",
+    title: "Unknown",
+    position: "Unknown",
     faction: "Frontier / Unaligned",
     region: "The Frontier Borderlands",
     image: "char-sailor",
@@ -273,6 +291,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "remsays",
     name: "Chief Magister Remsays",
+    title: "Chief Magister",
     magistry: "Paragon Command",
     philosophy: "Survival justifies sacrifice. Every great structure is built on what had to be given up.",
     image: "char-remsays",
@@ -285,6 +304,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "quinn",
     name: "Quinnevere",
+    title: "Scholar",
     magistry: "Sanctorium Ivory",
     philosophy: "Every dead language carries the memory of a living truth.",
     image: "char-quinn",
@@ -297,6 +317,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "jude",
     name: "Premiere Jude",
+    title: "Premiere",
     magistry: "Parliament",
     philosophy: "Order is not a cage. It is the only thing keeping the world from collapse.",
     image: "char-jude",
@@ -309,6 +330,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "verlaine",
     name: "Verlaine",
+    title: "Unknown",
     magistry: "Shadow Pantheon",
     philosophy: "The world is built on hidden truths. I intend to find them all.",
     image: "char-verlaine",
@@ -321,6 +343,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "gemma",
     name: "Gemma",
+    title: "Lunary",
     magistry: "Pantheon Prisma",
     philosophy: "Power does not shout. It whispers in the right ear at the right moment.",
     image: "char-gemma",
@@ -333,6 +356,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "wintry",
     name: "Wintry",
+    title: "High Council",
     magistry: "Parliament — Space Sciences Council",
     philosophy: "Power is most dangerous when it wears the face of love.",
     image: "char-wintry",
@@ -346,6 +370,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "lockland",
     name: "Lockland",
+    title: "Sol Deus",
     magistry: "Sanctorium — Sol Deus of Pantheon Ivory",
     philosophy: "The star you see tonight may have burned out a thousand years ago. What you receive is always a message from the past.",
     image: "char-lockland",
@@ -359,6 +384,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "aspen",
     name: "Aspen",
+    title: "Council",
     magistry: "Parliament — Director of Peace, Northeast",
     philosophy: "Every crisis is an opportunity. The question is always — for whom.",
     image: "char-aspen",
@@ -372,6 +398,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "norstrand",
     name: "Norstrand",
+    title: "Sol Deus",
     magistry: "Sanctorium — Sol Deus of Pantheon Finnrare",
     philosophy: "We build structures to outlast ourselves. We never ask whether they should.",
     image: "char-norstrand",
@@ -385,6 +412,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "thema",
     name: "Sol Deus Thema",
+    title: "Sol Deus",
     magistry: "Sol Deus",
     philosophy: "I have watched civilizations decide their own fates. The fire remembers what history forgets.",
     image: "char-thema",
@@ -397,6 +425,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "soleil",
     name: "Soleil",
+    title: "Researcher",
     magistry: "Magistry of Ocean",
     philosophy: "The ocean doesn't care about your rank. It only respects your preparation.",
     image: "char-soleil",
@@ -409,6 +438,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "carmela",
     name: "Carmela",
+    title: "Lunary",
     magistry: "Pantheon Ivory",
     philosophy: "The institution endures when those inside it choose duty over desire.",
     image: "char-carmela",
@@ -421,6 +451,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "culver",
     name: "Culver Gretell",
+    title: "Engineer",
     magistry: "Magistry of Ocean",
     philosophy: "Truth lives where the tide meets the unknown shore.",
     image: "char-culver",
@@ -433,6 +464,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "kotani",
     name: "Kotani",
+    title: "Sol Deus",
     magistry: "Sanctorium — Sol Deus of Pantheon Canvas",
     philosophy: "Some truths are only visible to those who have already accepted the end.",
     image: "char-kotani",
@@ -446,6 +478,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "cora",
     name: "Cora",
+    title: "High Council",
     magistry: "Parliament — Council Member",
     philosophy: "I told myself everything I did was for my daughters. I'm no longer sure that's true.",
     image: "char-cora",
@@ -459,6 +492,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "sailor",
     name: "Sailor",
+    title: "Unknown",
     magistry: "Frontier Edge",
     philosophy: "The world the institutions built is not the real world. I've seen what's underneath.",
     image: "char-sailor",
