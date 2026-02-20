@@ -4,7 +4,7 @@ import { Home, Globe, Users, Clock, Map } from "lucide-react";
 const bottomNavItems = [
   { path: "/", label: "Enter", Icon: Home },
   { path: "/world", label: "World", Icon: Globe },
-  { path: "/characters", label: "Chars", Icon: Users },
+  { path: "/characters", label: "Characters", Icon: Users },
   { path: "/timeline", label: "Timeline", Icon: Clock },
   { path: "/map", label: "Map", Icon: Map },
 ];

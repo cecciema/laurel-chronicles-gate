@@ -324,13 +324,15 @@ const TimelinePage = () => {
         />
 
         {/* Filter buttons */}
-        <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-2 mb-12">
+        <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-2 mb-12 sm:flex-nowrap">
           {(["all", "political", "military", "social", "technological"] as const).map(
             (cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
                 className={`min-h-[44px] px-4 py-2 text-[10px] tracking-[0.2em] uppercase font-body border transition-colors ${
+                  cat === "all" ? "w-full sm:w-auto" : "w-[calc(50%-0.25rem)] sm:w-auto"
+                } ${
                   filter === cat
                     ? "border-primary text-primary"
                     : "border-border text-muted-foreground hover:border-primary/40"
