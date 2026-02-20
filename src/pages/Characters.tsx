@@ -803,10 +803,10 @@ const Characters = () => {
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                         <div className="absolute bottom-0 left-0 right-0 p-3">
                           <p className="font-display text-[10px] sm:text-xs tracking-wider text-foreground leading-tight">
-                            {char.name.split(" ")[0]}
+                            {char.name}
                           </p>
                           <p className="text-[8px] sm:text-[10px] tracking-wider text-primary uppercase font-body mt-0.5">
-                            {char.magistry ?? char.faction}
+                            {char.title}
                           </p>
                         </div>
                       </motion.button>
@@ -861,15 +861,20 @@ const Characters = () => {
                           {/* Details */}
                           <div className="flex-1 space-y-4">
                             <div>
-                              <p className="text-[10px] tracking-[0.3em] text-primary uppercase font-body">
-                                {selectedChar.magistry ?? selectedChar.faction}
-                              </p>
-                              <h3 className="font-display text-[1.625rem] sm:text-2xl tracking-wide text-foreground mt-1">
+                              <h3 className="font-display text-[1.625rem] sm:text-2xl tracking-wide text-foreground">
                                 {selectedChar.name}
                               </h3>
-                              <p className="font-narrative text-[1.0625rem] sm:text-lg text-foreground/70 italic leading-[1.8]">
+                              <p className="text-[10px] tracking-[0.3em] text-primary uppercase font-body mt-1">
                                 {selectedChar.title}
                               </p>
+                              <motion.p
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5 }}
+                                className="font-narrative text-[1.0625rem] sm:text-lg text-foreground/70 italic leading-[1.8] mt-1"
+                              >
+                                {selectedChar.position}
+                              </motion.p>
                             </div>
 
                             <div className="steampunk-divider" />

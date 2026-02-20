@@ -61,6 +61,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
   const [selected, setSelected] = useState<GuideCharacter | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [tapped, setTapped] = useState<string | null>(null);
+  const [revealedPosition, setRevealedPosition] = useState<string | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const isTouch = typeof window !== "undefined" && window.matchMedia("(hover: none)").matches;
@@ -78,7 +79,9 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
   const handleCardClick = (guide: GuideCharacter) => {
     if (isTouch && tapped !== guide.id) {
       setTapped(guide.id);
+      setRevealedPosition(guide.id);
     } else {
+      setRevealedPosition(guide.id);
       handleSelect(guide);
     }
   };
@@ -242,8 +245,21 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
                       {guide.name}
                     </p>
                     <p className="text-[9px] sm:text-[9px] tracking-wider text-primary uppercase font-body mt-0.5">
-                      {guide.magistry}
+                      {guide.title}
                     </p>
+                    <AnimatePresence>
+                      {revealedPosition === guide.id && (
+                        <motion.p
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.5 }}
+                          className="text-[9px] tracking-wider text-foreground/60 font-narrative italic mt-0.5"
+                        >
+                          {guide.magistry}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </motion.button>
               ))}
