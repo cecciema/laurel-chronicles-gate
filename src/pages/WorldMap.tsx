@@ -17,10 +17,12 @@ const ZOOM_STEP = 0.4;
 // ── Region accent colours ──────────────────────────────────────────────────────
 const REGION_COLORS: Record<string, string> = {
   "sanctorium":    "#c9a96e",
+  "parliament":    "#1a3a5c",
   "deepforge":     "#e8640a",
   "ocean-reaches": "#0ea5c9",
   "ashfields":     "#6b7280",
   "valorica":      "#d4a832",
+  "arborwell":     "#4a6741",
 };
 
 // ── Characters per region ──────────────────────────────────────────────────────
@@ -31,6 +33,13 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
     { name: "Verlaine",         title: "Rising Shadow",                   image: "char-verlaine" },
     { name: "Gemma",            title: "Lunary Political Operator",       image: "char-gemma"    },
     { name: "Sol Deus Nefertar",title: "Divine Ruler",                    image: "char-nefertar" },
+  ],
+  "parliament": [
+    { name: "Chief Magister Remsays", title: "Parliament Chief Magister",  image: "char-remsays" },
+    { name: "Premiere Jude",          title: "Head of Parliament",         image: "char-jude"    },
+    { name: "Cora",                   title: "Parliament Council Member",  image: "char-cora"    },
+    { name: "Aspen",                  title: "Director of Peace, NE",      image: "char-aspen"   },
+    { name: "Wintry",                 title: "Senior Council, Space Sci",  image: "char-wintry"  },
   ],
   "deepforge": [
     { name: "Sol Deus Nefertar",title: "Keeper of the Deep Forge",        image: "char-nefertar" },
@@ -47,18 +56,18 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
 
 // ── 12 Pantheons ───────────────────────────────────────────────────────────────
 const PANTHEONS = [
-  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", specialty: "Sculpture",          constellation: "Ram (Aries)",       solDeus: "Nefertar",  lunary: "Gemma Avinas X",           color: "#9b72cf" },
-  { id: "greenwood",  name: "Greenwood",  quadrant: "Northeast", specialty: "Mapmaking",          constellation: "Bull (Taurus)",     solDeus: "Gable",     lunary: "Kasen Welliver II",         color: "#4a7c59" },
-  { id: "finnrare",   name: "Finnrare",   quadrant: "Northeast", specialty: "Masonry",            constellation: "Sisters (Gemini)",  solDeus: "Norstrand", lunary: "Reza Centaris XII",         color: "#7a9e9f" },
-  { id: "mist",       name: "Mist",       quadrant: "Southeast", specialty: "Vocal",              constellation: "Lioness (Leo)",     solDeus: "Santos",    lunary: "Wolf Bode III",             color: "#8eb4c8" },
-  { id: "lighthouse", name: "Lighthouse", quadrant: "Southeast", specialty: "Language",           constellation: "Spider (Cancer)",   solDeus: "Coster",    lunary: "Bristol Safo IX",           color: "#c9a96e" },
-  { id: "ember",      name: "Ember",      quadrant: "Southeast", specialty: "Music Instruments",  constellation: "Warrior (Virgo)",   solDeus: "Finley",    lunary: "Siena Blackridge IV",       color: "#e8640a" },
-  { id: "volcan",     name: "Volcan",     quadrant: "Southwest", specialty: "Breathing",          constellation: "Merchant (Libra)",  solDeus: "Shanren",   lunary: "Rizal Moresea II",          color: "#b5451b" },
-  { id: "rockfall",   name: "Rockfall",   quadrant: "Southwest", specialty: "Stone",              constellation: "Scorpion (Scorpio)",solDeus: "Morrison",  lunary: "Vicente Penna Car XI",      color: "#7a6a5a" },
-  { id: "canvas",     name: "Canvas",     quadrant: "Southwest", specialty: "Religious Studies",  constellation: "Archer (Sagittarius)",solDeus:"Kotani",   lunary: "Nikolai Panaura III",       color: "#c4a35a" },
-  { id: "ivory",      name: "Ivory",      quadrant: "Northwest", specialty: "Paintings",          constellation: "Vixens (Pisces)",   solDeus: "Verlaine",  lunary: "Carmela Faraday VI",        color: "#e8e0c8" },
-  { id: "hedron",     name: "Hedron",     quadrant: "Northwest", specialty: "Fauna",              constellation: "Sailor (Aquarius)", solDeus: "Mexia",     lunary: "Iris Belmiteza V",          color: "#5a8a7a" },
-  { id: "lumin",      name: "Lumin",      quadrant: "Northwest", specialty: "Flora",              constellation: "Siren (Capricorn)", solDeus: "Nolyn",     lunary: "Nova Auburn IV",            color: "#7a9a4a" },
+  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", specialty: "Sculpture",          constellation: "Ram (Aries)",              solDeus: "Nefertar",  lunary: "Gemma Avinas X",           color: "#9b72cf", mapPos: { top: "16%", left: "73%" } },
+  { id: "greenwood",  name: "Greenwood",  quadrant: "Northeast", specialty: "Mapmaking",          constellation: "Bull (Taurus)",            solDeus: "Gable",     lunary: "Kasen Welliver II",         color: "#4a7c59", mapPos: { top: "20%", left: "76%" } },
+  { id: "finnrare",   name: "Finnrare",   quadrant: "Northeast", specialty: "Masonry",            constellation: "Sisters (Gemini)",         solDeus: "Norstrand", lunary: "Reza Centaris XII",         color: "#7a9e9f", mapPos: { top: "25%", left: "76%" } },
+  { id: "mist",       name: "Mist",       quadrant: "Southeast", specialty: "Vocal",              constellation: "Lioness (Leo)",            solDeus: "Santos",    lunary: "Wolf Bode III",             color: "#8eb4c8", mapPos: { top: "29%", left: "74%" } },
+  { id: "lighthouse", name: "Lighthouse", quadrant: "Southeast", specialty: "Language",           constellation: "Spider (Cancer)",          solDeus: "Coster",    lunary: "Bristol Safo IX",           color: "#c9a96e", mapPos: { top: "32%", left: "71%" } },
+  { id: "ember",      name: "Ember",      quadrant: "Southeast", specialty: "Music Instruments",  constellation: "Warrior (Virgo)",          solDeus: "Finley",    lunary: "Siena Blackridge IV",       color: "#e8640a", mapPos: { top: "33%", left: "67%" } },
+  { id: "volcan",     name: "Volcan",     quadrant: "Southwest", specialty: "Breathing",          constellation: "Scales (Libra)",           solDeus: "Shanren",   lunary: "Rizal Moresea II",          color: "#b5451b", mapPos: { top: "31%", left: "63%" } },
+  { id: "rockfall",   name: "Rockfall",   quadrant: "Southwest", specialty: "Stone",              constellation: "Scorpion (Scorpio)",       solDeus: "Morrison",  lunary: "Vicente Penna Car XI",      color: "#7a6a5a", mapPos: { top: "27%", left: "61%" } },
+  { id: "canvas",     name: "Canvas",     quadrant: "Southwest", specialty: "Religious Studies",  constellation: "Archer (Sagittarius)",     solDeus: "Kotani",    lunary: "Nikolai Panaura III",       color: "#c4a35a", mapPos: { top: "22%", left: "61%" } },
+  { id: "ivory",      name: "Ivory",      quadrant: "Northwest", specialty: "Paintings",          constellation: "Fish (Pisces)",            solDeus: "Verlaine",  lunary: "Carmela Faraday VI",        color: "#e8e0c8", mapPos: { top: "17%", left: "63%" } },
+  { id: "hedron",     name: "Hedron",     quadrant: "Northwest", specialty: "Fauna",              constellation: "Goat (Capricorn)",         solDeus: "Mexia",     lunary: "Iris Belmiteza V",          color: "#5a8a7a", mapPos: { top: "14%", left: "66%" } },
+  { id: "lumin",      name: "Lumin",      quadrant: "Northwest", specialty: "Flora",              constellation: "Water Bearer (Aquarius)",  solDeus: "Nolyn",     lunary: "Nova Auburn IV",            color: "#7a9a4a", mapPos: { top: "13%", left: "70%" } },
 ];
 
 // ── Sub-region lore data ───────────────────────────────────────────────────────
@@ -69,6 +78,13 @@ const SUB_REGIONS = [
     description: "The vast knowledge-keeping complex where Pantheon Ivory scholars preserve ancient texts, dead languages, and sacred institutional memory. Access is strictly tiered. At its center stands the Grand Sanctuary — court of trials and seat of divine authority. The 12 Pantheons surround it, each aligned to a quadrant and a constellation.",
     faction: "Pantheon Ivory",
     features: ["The Ivory Vaults", "Dead Language Archives", "Grand Sanctuary", "12 Pantheon Halls", "Ceremony Courts"],
+  },
+  {
+    id: "parliament",
+    name: "Parliament",
+    description: "The governing body of Panterra, responsible for law, resource allocation, and the management of all four quadrants. The Parliament sits in permanent session. Its deliberations are not public. Its decisions are.",
+    faction: "Republic Parliament",
+    features: ["Council Chambers", "The Archive", "Premiere's Office", "Intelligence Division"],
   },
   {
     id: "deepforge",
@@ -98,11 +114,19 @@ const SUB_REGIONS = [
     faction: "Unknown",
     features: ["Soul Testing Grounds", "Restricted Access", "No Public Record"],
   },
+  {
+    id: "arborwell",
+    name: "Arborwell",
+    description: "A territory beyond the mapped edge of Panterra. Its existence is denied by every institution. Its presence is felt by those who have looked long enough. What lives here has no name the Republic will speak aloud.",
+    faction: "Unknown",
+    features: ["Unmapped Territory", "No Official Record", "Beyond the Boundary"],
+  },
 ];
 
 // ── Hotspot positions (percentage-based) ──────────────────────────────────────
 const HOTSPOT_POSITIONS: Record<string, React.CSSProperties> = {
   "sanctorium":    { top: "10%", left: "58%", width: "22%", height: "26%" },
+  "parliament":    { top: "36%", left: "56%", width: "18%", height: "18%" },
   "deepforge":     { top: "50%", left: "36%", width: "20%", height: "26%" },
   "ocean-reaches": { top: "15%", left: "5%",  width: "24%", height: "38%" },
   "ashfields":     { top: "52%", left: "65%", width: "20%", height: "26%" },
@@ -111,10 +135,10 @@ const HOTSPOT_POSITIONS: Record<string, React.CSSProperties> = {
 const ARBORWELL_STYLE: React.CSSProperties  = { top: "72%", left: "18%", width: "18%", height: "20%" };
 const VALORICA_STYLE: React.CSSProperties   = { top: "68%", left: "48%", width: "16%", height: "18%" };
 
-// ── Region auto-zoom targets (used for programmatic zoom-to-region) ────────────
-// Values are the focal point as fractions of the image (0–1)
+// ── Region auto-zoom targets ────────────────────────────────────────────────────
 const REGION_FOCUS: Record<string, { x: number; y: number }> = {
   "sanctorium":    { x: 0.65, y: 0.15 },
+  "parliament":    { x: 0.65, y: 0.45 },
   "deepforge":     { x: 0.46, y: 0.60 },
   "ocean-reaches": { x: 0.14, y: 0.35 },
   "ashfields":     { x: 0.72, y: 0.65 },
@@ -252,18 +276,22 @@ const WorldMap = () => {
   const { questCompleted, foundScrolls, foundScroll, valoricaRevealed } = useGame();
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [hoveredRegion,  setHoveredRegion]  = useState<string | null>(null);
+  const [showOrbs,       setShowOrbs]       = useState(false);
+  const [showPantheons,  setShowPantheons]  = useState(false);
+  const [selectedOrb,    setSelectedOrb]    = useState<string | null>(null);
+  const [selectedPantheon, setSelectedPantheon] = useState<string | null>(null);
+  const [arborwellMsg,   setArborwellMsg]   = useState(false);
   const isMobile = useIsMobile();
 
-  // Arborwell unlocked when ≥3 scrolls found or scroll 6 found
-  const arborwellUnlocked = foundScrolls.length >= 3 || foundScrolls.includes(6);
+  // Arborwell fully unlocked when all 12 scrolls collected
+  const arborwellFullUnlock = foundScrolls.filter(id => id >= 1 && id <= 12).length >= 12;
+  const arborwellUnlocked = arborwellFullUnlock;
   // Valorica only visible after the sealed document puzzle is solved
   const valoricaUnlocked  = valoricaRevealed;
 
   const selectedData = SUB_REGIONS.find((r) => r.id === selectedRegion) ?? null;
 
   // ── All live transform values live in refs — never in React state ────────────
-  // This is the key to 60fps: drag/scroll/pinch write directly to the DOM
-  // without triggering a React re-render.
   const scaleRef  = useRef(1);
   const txRef     = useRef(0);
   const tyRef     = useRef(0);
@@ -279,9 +307,15 @@ const WorldMap = () => {
 
   // ── Write transform directly to DOM (zero React overhead) ────────────────────
   const commitTransform = useCallback((s: number, x: number, y: number, animated: boolean) => {
+    const prevScale = scaleRef.current;
     scaleRef.current = s;
     txRef.current    = x;
     tyRef.current    = y;
+    // Only re-render on visibility threshold crossings
+    const nowOrbs = s >= 1.5;
+    const nowPanth = s >= 2;
+    if ((prevScale >= 1.5) !== nowOrbs) setShowOrbs(nowOrbs);
+    if ((prevScale >= 2) !== nowPanth) setShowPantheons(nowPanth);
     const el = mapInnerRef.current;
     if (!el) return;
     el.style.transition = animated
@@ -344,6 +378,8 @@ const WorldMap = () => {
 
   // ── Toggle region ────────────────────────────────────────────────────────────
   const toggleRegion = useCallback((id: string) => {
+    setSelectedOrb(null);
+    setSelectedPantheon(null);
     setSelectedRegion((prev) => {
       if (prev === id) {
         commitTransform(1, 0, 0, true);
@@ -368,7 +404,6 @@ const WorldMap = () => {
     isDragging.current = true;
     hasDragged.current = false;
     dragStart.current  = { x: e.clientX, y: e.clientY, tx: txRef.current, ty: tyRef.current };
-    // Kill transition so drag is instant
     if (mapInnerRef.current) mapInnerRef.current.style.transition = "none";
     e.preventDefault();
   }, []);
@@ -470,7 +505,6 @@ const WorldMap = () => {
   const zoomIn = useCallback(() => {
     const el = containerRef.current;
     if (!el) return;
-    const { width: cw, height: ch } = el.getBoundingClientRect();
     const curScale = scaleRef.current;
     const nextScale = Math.min(curScale + ZOOM_STEP, MAX_SCALE);
     if (nextScale === curScale) return;
@@ -481,7 +515,6 @@ const WorldMap = () => {
   const zoomOut = useCallback(() => {
     const el = containerRef.current;
     if (!el) return;
-    const { width: cw, height: ch } = el.getBoundingClientRect();
     const curScale = scaleRef.current;
     const nextScale = Math.max(curScale - ZOOM_STEP, MIN_SCALE);
     if (nextScale === curScale) return;
@@ -489,7 +522,7 @@ const WorldMap = () => {
     commitTransform(nextScale, cx, cy, true);
   }, [constrain, commitTransform]);
 
-  // ── Cursor (no re-render needed — use CSS class on container ref) ─────────────
+  // ── Cursor ───────────────────────────────────────────────────────────────────
   const onContainerMouseDown = useCallback((e: React.MouseEvent) => {
     if (containerRef.current) containerRef.current.style.cursor = "grabbing";
     onMouseDown(e);
@@ -528,7 +561,7 @@ const WorldMap = () => {
             </span>
             <span
               className="font-body text-[9px] tracking-[0.25em] uppercase"
-              style={{ color: arborwellUnlocked ? "#c9a96e" : "#6b7280" }}
+              style={{ color: arborwellUnlocked ? "#4a6741" : "#6b7280" }}
             >
               {arborwellUnlocked ? "✦ Arborwell: Identity Revealed" : "◎ Arborwell: Unknown"}
             </span>
@@ -580,7 +613,7 @@ const WorldMap = () => {
                 />
 
                 {/* === SUB-REGION HOTSPOTS === */}
-                {SUB_REGIONS.filter((r) => r.id !== "valorica").map((region) => {
+                {SUB_REGIONS.filter((r) => !["valorica", "arborwell"].includes(r.id)).map((region) => {
                   const pos = HOTSPOT_POSITIONS[region.id];
                   if (!pos) return null;
                   const isSelected = selectedRegion === region.id;
@@ -594,7 +627,6 @@ const WorldMap = () => {
                         tabIndex={0}
                         aria-label={region.name}
                         onClick={(e) => {
-                          // Only trigger if it was a click, not end of drag
                           if (!hasDragged.current) {
                             e.stopPropagation();
                             toggleRegion(region.id);
@@ -603,7 +635,7 @@ const WorldMap = () => {
                         onKeyDown={(e) => e.key === "Enter" && toggleRegion(region.id)}
                         onMouseEnter={() => setHoveredRegion(region.id)}
                         onMouseLeave={() => setHoveredRegion(null)}
-                        onMouseDown={(e) => e.stopPropagation()} // prevent drag starting from hotspot
+                        onMouseDown={(e) => e.stopPropagation()}
                         className="absolute inset-0 cursor-pointer rounded-sm transition-all duration-300"
                         style={{
                           border:     `2px solid ${isSelected ? color : isHovered ? color + "99" : "transparent"}`,
@@ -646,28 +678,69 @@ const WorldMap = () => {
                   );
                 })}
 
-                {/* === ARBORWELL — region panel only, no scroll award === */}
+                {/* === ARBORWELL — unknown until fully unlocked === */}
                 <div className="absolute z-20" style={ARBORWELL_STYLE}>
                   <div
                     role="button"
                     tabIndex={0}
-                    aria-label={arborwellUnlocked ? "Arborwell" : "Unknown territory"}
-                    onClick={() => { if (!hasDragged.current) toggleRegion("arborwell"); }}
-                    onKeyDown={(e) => e.key === "Enter" && toggleRegion("arborwell")}
+                    aria-label={arborwellFullUnlock ? "Arborwell" : "Unknown territory"}
+                    onClick={() => {
+                      if (!hasDragged.current) {
+                        if (arborwellFullUnlock) {
+                          toggleRegion("arborwell");
+                        } else {
+                          setArborwellMsg(true);
+                          setTimeout(() => setArborwellMsg(false), 4000);
+                        }
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        if (arborwellFullUnlock) toggleRegion("arborwell");
+                        else { setArborwellMsg(true); setTimeout(() => setArborwellMsg(false), 4000); }
+                      }
+                    }}
                     onMouseDown={(e) => e.stopPropagation()}
                     className="relative w-full h-full cursor-pointer"
                   >
                     <div
-                      className="absolute inset-0 rounded-sm border border-dashed transition-all duration-300"
-                      style={{ borderColor: foundScrolls.includes(6) ? "#6b728099" : "#6b728060", background: "#6b728010" }}
+                      className="absolute inset-0 rounded-sm border transition-all duration-700"
+                      style={{
+                        borderStyle: arborwellFullUnlock ? "solid" : "dashed",
+                        borderColor: arborwellFullUnlock ? "#4a674180" : "#6b728040",
+                        background: arborwellFullUnlock ? "#4a674118" : "#6b728008",
+                        boxShadow: arborwellFullUnlock ? "0 0 20px #4a674130" : "none",
+                      }}
                     />
+                    {/* Dim glow when locked */}
+                    {!arborwellFullUnlock && (
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                        <motion.div
+                          animate={{ opacity: [0.08, 0.2, 0.08] }}
+                          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                          className="w-4 h-4 rounded-full"
+                          style={{ background: "#6b7280", filter: "blur(3px)" }}
+                        />
+                      </div>
+                    )}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                      <span
-                        className="block bg-[#0f0b06]/90 font-display text-[9px] tracking-[0.2em] uppercase px-2 py-1 rounded-sm whitespace-nowrap shadow-lg border border-dashed"
-                        style={{ color: "#6b7280", borderColor: "#6b728050" }}
-                      >
-                        {arborwellUnlocked ? "Arborwell" : "Unknown"}
-                      </span>
+                      <AnimatePresence mode="wait">
+                        <motion.span
+                          key={arborwellFullUnlock ? "arborwell" : "unknown"}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 1.2 }}
+                          className="block bg-[#0f0b06]/90 font-display text-[9px] tracking-[0.2em] uppercase px-2 py-1 rounded-sm whitespace-nowrap shadow-lg border"
+                          style={{
+                            color: arborwellFullUnlock ? "#4a6741" : "#6b7280",
+                            borderStyle: arborwellFullUnlock ? "solid" : "dashed",
+                            borderColor: arborwellFullUnlock ? "#4a674150" : "#6b728050",
+                          }}
+                        >
+                          {arborwellFullUnlock ? "Arborwell" : "Unknown"}
+                        </motion.span>
+                      </AnimatePresence>
                     </div>
                   </div>
                 </div>
@@ -725,6 +798,64 @@ const WorldMap = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
+
+                {/* === GRAND SANCTUARY ORB (visible at 1.5x+ zoom) === */}
+                {showOrbs && (
+                  <div className="absolute z-[25]" style={{ top: "23%", left: "69%", transform: "translate(-50%, -50%)" }}>
+                    <button
+                      onClick={(e) => { if (!hasDragged.current) { e.stopPropagation(); setSelectedOrb(selectedOrb === "grand-sanctuary" ? null : "grand-sanctuary"); setSelectedPantheon(null); } }}
+                      onMouseDown={(e) => e.stopPropagation()}
+                      className="relative w-3 h-3 cursor-pointer"
+                      aria-label="Grand Sanctuary"
+                    >
+                      <motion.div
+                        animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-full h-full rounded-full"
+                        style={{ background: REGION_COLORS.sanctorium, boxShadow: `0 0 10px ${REGION_COLORS.sanctorium}80` }}
+                      />
+                    </button>
+                  </div>
+                )}
+
+                {/* === PLAZA MONTECITO ORB (visible at 1.5x+ zoom) === */}
+                {showOrbs && (
+                  <div className="absolute z-[25]" style={{ top: "45%", left: "65%", transform: "translate(-50%, -50%)" }}>
+                    <button
+                      onClick={(e) => { if (!hasDragged.current) { e.stopPropagation(); setSelectedOrb(selectedOrb === "plaza-montecito" ? null : "plaza-montecito"); setSelectedPantheon(null); } }}
+                      onMouseDown={(e) => e.stopPropagation()}
+                      className="relative w-3 h-3 cursor-pointer"
+                      aria-label="Plaza Montecito"
+                    >
+                      <motion.div
+                        animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-full h-full rounded-full"
+                        style={{ background: REGION_COLORS.parliament, boxShadow: `0 0 10px ${REGION_COLORS.parliament}80` }}
+                      />
+                    </button>
+                  </div>
+                )}
+
+                {/* === 12 PANTHEON MARKERS (visible at 2x+ zoom) === */}
+                {showPantheons && PANTHEONS.map((p) => (
+                  <div key={p.id} className="absolute z-[25]" style={{ top: p.mapPos.top, left: p.mapPos.left, transform: "translate(-50%, -50%)" }}>
+                    <button
+                      onClick={(e) => { if (!hasDragged.current) { e.stopPropagation(); setSelectedPantheon(selectedPantheon === p.id ? null : p.id); setSelectedOrb(null); } }}
+                      onMouseDown={(e) => e.stopPropagation()}
+                      className="relative w-2 h-2 cursor-pointer group"
+                      aria-label={`Pantheon ${p.name}`}
+                    >
+                      <div className="w-full h-full rounded-full" style={{ background: p.color, boxShadow: `0 0 6px ${p.color}60` }} />
+                      {/* Name on hover */}
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity z-30">
+                        <span className="block bg-[#0f0b06]/90 font-display text-[7px] tracking-[0.15em] uppercase px-1.5 py-0.5 rounded-sm whitespace-nowrap" style={{ color: p.color }}>
+                          {p.name}
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                ))}
 
               </div>{/* end zoomable wrapper */}
 
@@ -833,7 +964,7 @@ const WorldMap = () => {
         {/* === REGION LEGEND BUTTONS === */}
         <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-5">
           <div className="flex flex-wrap gap-2 justify-center">
-            {SUB_REGIONS.filter((r) => r.id !== "valorica").map((r) => {
+            {SUB_REGIONS.filter((r) => r.id !== "valorica" && (r.id !== "arborwell" || arborwellFullUnlock)).map((r) => {
               const color = REGION_COLORS[r.id] ?? "#c9a96e";
               const isActive = selectedRegion === r.id;
               return (
@@ -875,6 +1006,106 @@ const WorldMap = () => {
             }}
           >
             <PanelContent region={selectedData} onClose={closeRegion} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* === ORB TOOLTIP OVERLAY === */}
+      <AnimatePresence>
+        {selectedOrb && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            onClick={() => setSelectedOrb(null)}
+          >
+            <div
+              className="bg-[#0a0804]/95 border p-5 max-w-sm"
+              style={{ borderColor: selectedOrb === "grand-sanctuary" ? REGION_COLORS.sanctorium + "50" : REGION_COLORS.parliament + "50" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <p
+                className="font-body text-[8px] tracking-[0.3em] uppercase mb-2"
+                style={{ color: selectedOrb === "grand-sanctuary" ? REGION_COLORS.sanctorium : REGION_COLORS.parliament }}
+              >
+                {selectedOrb === "grand-sanctuary" ? "The Sanctorium" : "Parliament"}
+              </p>
+              <h4 className="font-display text-sm tracking-wide text-foreground mb-2">
+                {selectedOrb === "grand-sanctuary" ? "The Grand Sanctuary" : "Plaza Montecito"}
+              </h4>
+              <p className="font-narrative italic text-[0.875rem] leading-[1.8] text-foreground/70">
+                {selectedOrb === "grand-sanctuary"
+                  ? "Court of trials and seat of divine authority. Access is tiered. Most who enter do not reach the center."
+                  : "The public face of Parliament governance. Ceremonies, announcements, and executions all happen here. The crowd is always managed."}
+              </p>
+              <button
+                onClick={() => setSelectedOrb(null)}
+                className="mt-3 font-body text-[8px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* === PANTHEON MINI PANEL OVERLAY === */}
+      <AnimatePresence>
+        {selectedPantheon && (() => {
+          const p = PANTHEONS.find(x => x.id === selectedPantheon);
+          if (!p) return null;
+          return (
+            <motion.div
+              key={p.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+              onClick={() => setSelectedPantheon(null)}
+            >
+              <div
+                className="bg-[#0a0804]/95 border p-5 max-w-xs"
+                style={{ borderColor: p.color + "50" }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <p className="font-body text-[8px] tracking-[0.3em] uppercase mb-1" style={{ color: p.color }}>
+                  Pantheon · {p.quadrant}
+                </p>
+                <h4 className="font-display text-sm tracking-wide text-foreground mb-2">{p.name}</h4>
+                <div className="flex flex-col gap-1 text-[10px] font-body text-foreground/70">
+                  <p><span className="text-muted-foreground">Constellation:</span> {p.constellation}</p>
+                  <p><span className="text-muted-foreground">Specialty:</span> {p.specialty}</p>
+                  <p><span className="text-muted-foreground">Sol Deus:</span> {p.solDeus}</p>
+                  <p><span className="text-muted-foreground">Lunary:</span> {p.lunary}</p>
+                </div>
+                <button
+                  onClick={() => setSelectedPantheon(null)}
+                  className="mt-3 font-body text-[8px] tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          );
+        })()}
+      </AnimatePresence>
+
+      {/* === ARBORWELL LOCKED MESSAGE === */}
+      <AnimatePresence>
+        {arborwellMsg && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            onClick={() => setArborwellMsg(false)}
+          >
+            <div className="bg-[#0a0804]/95 border border-[#6b728040] p-6 max-w-sm text-center">
+              <p className="font-narrative italic text-[0.9375rem] leading-[1.8] text-foreground/60">
+                "This location is not recognized. It does not appear on any Parliament map."
+              </p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -1004,7 +1235,6 @@ function selectGameCharacters(): KWChar[] {
     const hasOther = regions.has("ocean-reaches") || regions.has("deepforge") || regions.has("frontier");
     if (hasSanctorium && hasParliament && hasOther) return selected;
   }
-  // Fallback — should never happen
   return fisherYatesShuffle(ALL_KW_CHARACTERS).slice(0, 8);
 }
 
@@ -1057,7 +1287,6 @@ const LostFigure = ({ wrongCount }: { wrongCount: number }) => {
           willChange: "transform, opacity",
         }}
       >
-        {/* Elongated figure silhouette */}
         <svg
           viewBox="0 0 40 90"
           width="40" height="90"
@@ -1070,7 +1299,6 @@ const LostFigure = ({ wrongCount }: { wrongCount: number }) => {
         </svg>
       </div>
 
-      {/* Second apparition (after 2 wrong) */}
       {wrongCount >= 2 && (
         <div
           className="absolute pointer-events-none z-20"
@@ -1091,7 +1319,6 @@ const LostFigure = ({ wrongCount }: { wrongCount: number }) => {
         </div>
       )}
 
-      {/* Center convergence (3 wrong — game over state) */}
       {reachedCenter && (
         <div
           className="absolute pointer-events-none z-20"
@@ -1147,7 +1374,6 @@ const ZoneButton = ({
       }
     }}
   >
-    {/* Colour pip */}
     <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: zone.color }} />
     <span
       className="font-display text-[9px] tracking-[0.18em] uppercase text-center leading-tight"
@@ -1169,10 +1395,8 @@ const TheKnownWorld = () => {
   const alreadyWon = foundScrolls.includes(KNOWN_WORLD_SCROLL_ID);
   const [bestiaryUnlocked, setBestiaryUnlocked] = useState(alreadyWon);
 
-  // Game characters — random 8 per session
   const [gameChars, setGameChars] = useState<KWChar[]>(() => selectGameCharacters());
 
-  // Game state
   const [roundIdx,    setRoundIdx]    = useState(0);
   const [lives,       setLives]       = useState(KW_TOTAL_LIVES);
   const [wrongCount,  setWrongCount]  = useState(0);
@@ -1194,7 +1418,6 @@ const TheKnownWorld = () => {
     if (gamePhase !== "playing" || !currentRound) return;
 
     if (zoneId === currentRound.region) {
-      // Correct placement — track by round index, not by zone
       setPlacedRounds((prev) => ({ ...prev, [roundIdx]: { zone: zoneId, image: currentRound.image } }));
 
       if (roundIdx + 1 >= KW_TOTAL_ROUNDS) {
@@ -1207,7 +1430,6 @@ const TheKnownWorld = () => {
         }, 700);
       }
     } else {
-      // Wrong placement
       const newLives = lives - 1;
       const newWrong = wrongCount + 1;
       setLives(newLives);
@@ -1228,7 +1450,6 @@ const TheKnownWorld = () => {
 
   return (
     <div className="bg-[#0a0804] pb-20">
-      {/* Inject CSS */}
       <style>{KW_STYLES}</style>
 
       {/* ── Steampunk divider ── */}
@@ -1282,7 +1503,7 @@ const TheKnownWorld = () => {
           style={{ minHeight: 340 }}
         >
 
-          {/* ── White flash on wrong (disorienting at 3 wrongs) ── */}
+          {/* ── White flash on wrong ── */}
           <AnimatePresence>
             {isWrong && (
               <motion.div
@@ -1365,7 +1586,6 @@ const TheKnownWorld = () => {
                 <p className="text-[9px] tracking-[0.3em] text-muted-foreground/50 uppercase font-body">
                   Round {roundIdx + 1} of {KW_TOTAL_ROUNDS}
                 </p>
-                {/* Lives */}
                 <div className="flex gap-2 items-center">
                   <p className="text-[8px] tracking-[0.2em] text-muted-foreground/40 uppercase font-body mr-1">Lives</p>
                   {Array.from({ length: KW_TOTAL_LIVES }).map((_, i) => (
@@ -1409,12 +1629,10 @@ const TheKnownWorld = () => {
 
                 {/* Right: map zones + The Lost */}
                 <div className="flex-1 relative flex flex-col gap-2">
-                  {/* Map atmosphere header */}
                   <p className="text-[8px] tracking-[0.3em] text-muted-foreground/30 uppercase font-body">
                     ◈ Panterra — Select Region
                   </p>
 
-                  {/* Zone grid — 3+2 layout for 5 zones */}
                   <div className="relative flex flex-col gap-2 flex-1" style={{ minHeight: 220 }}>
                     <div className="grid grid-cols-3 gap-2">
                       {KW_ZONES.slice(0, 3).map((zone) => (
@@ -1437,13 +1655,11 @@ const TheKnownWorld = () => {
                       ))}
                     </div>
 
-                    {/* The Lost overlay */}
                     <div className="absolute inset-0 pointer-events-none overflow-hidden">
                       <LostFigure wrongCount={wrongCount} />
                     </div>
                   </div>
 
-                  {/* Wrong feedback */}
                   <AnimatePresence>
                     {isWrong && (
                       <motion.p
@@ -1475,13 +1691,11 @@ const TheKnownWorld = () => {
       >
         <div className="border border-border bg-card p-6 sm:p-8">
           <div className="flex items-start gap-4">
-            {/* Ghost icon */}
             <div className="flex-shrink-0 w-12 h-14 border border-border flex items-end justify-center pb-1 overflow-hidden">
               {bestiaryUnlocked || alreadyWon ? (
                 <svg width="22" height="40" viewBox="0 0 22 40" fill="none">
                   <ellipse cx="11" cy="8" rx="7" ry="7" fill="hsl(38 20% 22%)" />
                   <path d="M4 16 Q3 32 2 40 L7 40 L8 28 L11 30 L14 28 L15 40 L20 40 Q19 32 18 16 Z" fill="hsl(38 20% 14%)" />
-                  {/* drift lines */}
                   <path d="M5 20 Q3 26 4 30" stroke="white" strokeWidth="0.5" strokeOpacity="0.3" />
                   <path d="M17 22 Q19 28 18 32" stroke="white" strokeWidth="0.5" strokeOpacity="0.3" />
                 </svg>
@@ -1525,4 +1739,3 @@ const TheKnownWorld = () => {
     </div>
   );
 };
-
