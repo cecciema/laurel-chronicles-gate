@@ -150,126 +150,7 @@ const REGION_FOCUS: Record<string, { x: number; y: number }> = {
   "arborwell":     { x: 0.25, y: 0.78 },
 };
 
-// ── PanelContent ──────────────────────────────────────────────────────────────
-const PanelContent = ({
-  region,
-  onClose,
-}: {
-  region: typeof SUB_REGIONS[0];
-  onClose: () => void;
-}) => {
-  const characters = REGION_CHARACTERS[region.id] ?? [];
-  const isSanctorium = region.id === "sanctorium";
-  const quadrants = ["Northeast", "Southeast", "Southwest", "Northwest"];
-  const accentColor = REGION_COLORS[region.id] ?? "#c9a96e";
-
-  return (
-    <div className="flex flex-col bg-[#0a0804] h-full">
-      {/* Fixed close button header */}
-      <div className="flex-shrink-0 flex items-center justify-between pb-3 bg-[#0a0804]">
-        <p
-          className="font-body text-[9px] tracking-[0.25em] uppercase"
-          style={{ color: accentColor }}
-        >
-          {region.faction}
-        </p>
-        <button
-          onClick={onClose}
-          className="text-muted-foreground hover:text-foreground transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center flex-shrink-0"
-          aria-label="Close panel"
-        >
-          ✕
-        </button>
-      </div>
-
-      {/* Scrollable body */}
-      <div className="flex-1 overflow-y-auto map-panel-scroll flex flex-col gap-4 pr-1">
-        <div>
-          <h3 className="font-display text-xl tracking-wide text-foreground leading-tight">
-            {region.name}
-          </h3>
-          <div className="h-px mt-3 mb-3" style={{ background: accentColor + "40" }} />
-          <p className="font-narrative italic text-[0.9375rem] text-foreground/90 leading-[1.8]">
-            {region.description}
-          </p>
-        </div>
-
-        <div className="flex flex-wrap gap-1.5">
-          {region.features.map((f) => (
-            <span
-              key={f}
-              className="bg-secondary/80 text-foreground/80 text-[9px] tracking-wider font-body px-2 py-1 border"
-              style={{ borderColor: accentColor + "30" }}
-            >
-              {f}
-            </span>
-          ))}
-        </div>
-
-        {characters.length > 0 && (
-          <div>
-            <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-2">
-              Characters Here
-            </p>
-            <div className="flex flex-col gap-2">
-              {characters.map((char) => (
-                <div key={char.name} className="flex items-center gap-3">
-                  <img
-                    src={characterImageMap[char.image]}
-                    alt={char.name}
-                    className="w-8 h-8 rounded-full object-cover border"
-                    style={{ borderColor: accentColor + "60" }}
-                  />
-                  <div>
-                    <p className="font-display text-[11px] tracking-wide text-foreground leading-tight">
-                      {char.name}
-                    </p>
-                    <p className="font-body text-[9px] text-muted-foreground tracking-wide">
-                      {char.title}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {isSanctorium && (
-          <div>
-            <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-3">
-              The 12 Pantheons
-            </p>
-            {quadrants.map((q) => (
-              <div key={q} className="mb-4">
-                <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-2" style={{ color: accentColor }}>
-                  {q}
-                </p>
-                <div className="flex flex-col gap-2">
-                  {PANTHEONS.filter((p) => p.quadrant === q).map((p) => (
-                      <div
-                        key={p.id}
-                        className="pl-2 border-l"
-                        style={{ borderColor: GLOW_BRASS + "60" }}
-                      >
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
-                        <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
-                      </div>
-                      <p className="font-body text-[8px] text-muted-foreground">{p.specialty}</p>
-                      <p className="font-body text-[8px] text-muted-foreground/70">Sol Deus: {p.solDeus}</p>
-                      <p className="font-body text-[8px] text-muted-foreground/70">Lunary: {p.lunary}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
+// (PanelContent removed — inlined into bottom panel)
 // ── Clamp helper ───────────────────────────────────────────────────────────────
 function clamp(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max);
@@ -361,19 +242,21 @@ const WorldMap = () => {
     [constrain, commitTransform]
   );
 
-  // ── Programmatic animated zoom (region auto-zoom) ────────────────────────────
+  // ── Programmatic animated zoom (region auto-zoom — max 30% above current) ──
   const zoomToRegion = useCallback((regionId: string) => {
     const el = containerRef.current;
     if (!el) return;
     const { width: cw, height: ch } = el.getBoundingClientRect();
     const focus = REGION_FOCUS[regionId];
     if (!focus) return;
-    const targetScale = isMobile ? 2 : 2.4;
+    // Cap auto-zoom at +30% above current scale
+    const curScale = scaleRef.current;
+    const targetScale = clamp(curScale + ZOOM_STEP, MIN_SCALE, MAX_SCALE);
     const imgX = (focus.x - 0.5) * cw;
     const imgY = (focus.y - 0.5) * ch;
     const { tx: cx, ty: cy } = constrain(-imgX * targetScale, -imgY * targetScale, targetScale);
     commitTransform(targetScale, cx, cy, true);
-  }, [isMobile, constrain, commitTransform]);
+  }, [constrain, commitTransform]);
 
   // ── Reset ────────────────────────────────────────────────────────────────────
   const resetTransform = useCallback(() => {
@@ -569,30 +452,26 @@ const WorldMap = () => {
               className="font-body text-[9px] tracking-[0.25em] uppercase"
               style={{ color: arborwellUnlocked ? GLOW_BRASS : "#6b7280" }}
             >
-              {arborwellUnlocked ? "✦ Arborwell: Identity Revealed" : "◎ Arborwell: Unknown"}
-            </span>
-            <span
-              className="font-body text-[9px] tracking-[0.25em] uppercase"
-              style={{ color: valoricaUnlocked ? GLOW_BRASS : "#6b7280" }}
-            >
-              {valoricaUnlocked ? "✦ Valorica: Accessible" : "◎ Valorica: Hidden"}
+              {arborwellUnlocked ? (
+                <><span style={{ textShadow: `0 0 8px rgba(212,168,67,0.6)` }}>✦ Arborwell</span></>
+              ) : (
+                <>◎ <span style={{ filter: "blur(3px)", userSelect: "none" }}>█████████</span> : Unknown</>
+              )}
             </span>
           </div>
         </div>
 
-        {/* ── Map + panel wrapper ── */}
+        {/* ── Map + bottom panel wrapper ── */}
         <div className="max-w-5xl mx-auto px-3 sm:px-6">
-          <div className="flex flex-row items-stretch gap-0">
-
             {/* === MAP CONTAINER === */}
             <div
               ref={containerRef}
-              className="flex-1 relative min-w-0 select-none overflow-hidden rounded bg-black"
-              style={{ cursor: "grab" }}
+              className="relative w-full select-none overflow-hidden rounded bg-black"
+              style={{ cursor: "grab", aspectRatio: "16 / 10" }}
               onMouseDown={onContainerMouseDown}
             >
-              {/* Aspect-ratio lock: 16:10 approx (map natural ratio) */}
-              <div style={{ paddingBottom: "62.5%", position: "relative" }}>
+              {/* Aspect-ratio lock via CSS aspect-ratio — never stretches */}
+              <div style={{ width: "100%", height: "100%", position: "relative" }}>
               {/* ── Zoomable inner wrapper — transform written directly to DOM ── */}
               <div
                 ref={mapInnerRef}
@@ -981,76 +860,125 @@ const WorldMap = () => {
 
             </div>{/* end map container */}
 
-            {/* === DESKTOP SIDE PANEL === */}
-            <AnimatePresence>
-              {selectedData && !isMobile && (
-                <motion.div
-                  key={selectedData.id + "-desktop"}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
-                  transition={{ duration: 0.3 }}
-                  className="hidden sm:block w-80 flex-shrink-0 bg-[#0a0804] border-l-2 p-5 max-h-[80vh] flex flex-col"
-                  style={{
-                    borderColor: REGION_COLORS[selectedData.id] ?? "#c9a96e",
-                  }}
-                >
-                  <PanelContent region={selectedData} onClose={closeRegion} />
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-          </div>{/* end flex row */}
-        </div>{/* end max-w wrapper */}
-
-        {/* === REGION LEGEND BUTTONS === */}
-        <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-5">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {SUB_REGIONS.filter((r) => r.id !== "valorica" && (r.id !== "arborwell" || arborwellFullUnlock)).map((r) => {
-              const color = REGION_COLORS[r.id] ?? "#c9a96e";
-              const isActive = selectedRegion === r.id;
-              return (
+          {/* === BOTTOM PANEL (replaces side + mobile panels) === */}
+          <AnimatePresence>
+            {selectedData && (
+              <motion.div
+                key={selectedData.id + "-bottom"}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 30 }}
+                transition={{ duration: 0.3 }}
+                className="relative w-full bg-[#0a0804] border-t-2 overflow-hidden"
+                style={{
+                  borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "60",
+                  aspectRatio: isMobile ? undefined : "16 / 10",
+                  maxHeight: isMobile ? "65vh" : undefined,
+                }}
+              >
+                {/* Close button — fixed top-right */}
                 <button
-                  key={r.id}
-                  onClick={() => toggleRegion(r.id)}
-                  className="flex items-center gap-2 px-3 py-2 border transition-all font-body text-[10px] tracking-[0.2em] uppercase min-h-[44px]"
-                  style={{
-                    borderColor: isActive ? color : "rgba(255,255,255,0.1)",
-                    color:       isActive ? color : "rgba(255,255,255,0.4)",
-                    boxShadow:   isActive ? `0 0 12px ${color}40` : "none",
-                  }}
+                  onClick={closeRegion}
+                  className="absolute top-3 right-3 z-10 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors hover:opacity-80"
+                  style={{ color: GLOW_BRASS }}
+                  aria-label="Close panel"
                 >
-                  <span
-                    className="w-2 h-2 rounded-full flex-shrink-0"
-                    style={{ background: isActive ? GLOW_BRASS : GLOW_WHITE, boxShadow: isActive ? `0 0 8px rgba(212,168,67,0.6)` : `0 0 6px rgba(255,255,255,0.4)` }}
-                  />
-                  {r.name}
+                  <span className="text-lg font-display">✕</span>
                 </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
 
-      {/* === MOBILE SLIDE-UP PANEL === */}
-      <AnimatePresence>
-        {selectedData && isMobile && (
-          <motion.div
-            key={selectedData.id + "-mobile"}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 40 }}
-            transition={{ duration: 0.3 }}
-            className="fixed bottom-[60px] left-0 right-0 z-50 bg-[#0a0804] border-t p-5 flex flex-col"
-            style={{
-              borderColor: (REGION_COLORS[selectedData.id] ?? "#c9a96e") + "40",
-              maxHeight:   "65vh",
-            }}
-          >
-            <PanelContent region={selectedData} onClose={closeRegion} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+                {/* Scrollable interior */}
+                <div className="h-full overflow-y-auto map-panel-scroll p-5 pr-14">
+                  <p className="font-body text-[9px] tracking-[0.25em] uppercase" style={{ color: REGION_COLORS[selectedData.id] ?? GLOW_BRASS, fontVariant: "small-caps" }}>
+                    {selectedData.faction}
+                  </p>
+                  <h3 className="font-display text-xl tracking-wide text-foreground leading-tight mt-1">{selectedData.name}</h3>
+                  <div className="h-px mt-3 mb-3" style={{ background: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "40" }} />
+                  <p className="font-narrative italic text-[0.9375rem] text-foreground/90 leading-[1.8]">{selectedData.description}</p>
+
+                  <div className="flex flex-wrap gap-1.5 mt-4">
+                    {selectedData.features.map((f) => (
+                      <span key={f} className="bg-secondary/80 text-foreground/80 text-[9px] tracking-wider font-body px-2 py-1 border" style={{ borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "30" }}>{f}</span>
+                    ))}
+                  </div>
+
+                  {(() => {
+                    const characters = REGION_CHARACTERS[selectedData.id] ?? [];
+                    if (!characters.length) return null;
+                    return (
+                      <div className="mt-4">
+                        <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-2">Characters Here</p>
+                        <div className="flex flex-col gap-2">
+                          {characters.map((char) => (
+                            <div key={char.name} className="flex items-center gap-3">
+                              <img src={characterImageMap[char.image]} alt={char.name} className="w-8 h-8 rounded-full object-cover border" style={{ borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "60" }} />
+                              <div>
+                                <p className="font-display text-[11px] tracking-wide text-foreground leading-tight">{char.name}</p>
+                                <p className="font-body text-[9px] text-muted-foreground tracking-wide">{char.title}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })()}
+
+                  {selectedData.id === "sanctorium" && (
+                    <div className="mt-4">
+                      <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-3">The 12 Pantheons</p>
+                      {["Northeast", "Southeast", "Southwest", "Northwest"].map((q) => (
+                        <div key={q} className="mb-4">
+                          <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-2" style={{ color: GLOW_BRASS }}>{q}</p>
+                          <div className="flex flex-col gap-2">
+                            {PANTHEONS.filter((p) => p.quadrant === q).map((p) => (
+                              <div key={p.id} className="pl-2 border-l" style={{ borderColor: GLOW_BRASS + "60" }}>
+                                <div className="flex items-center gap-2 mb-0.5">
+                                  <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
+                                  <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
+                                </div>
+                                <p className="font-body text-[8px] text-muted-foreground">{p.specialty}</p>
+                                <p className="font-body text-[8px] text-muted-foreground/70">Sol Deus: {p.solDeus}</p>
+                                <p className="font-body text-[8px] text-muted-foreground/70">Lunary: {p.lunary}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* === REGION LEGEND BUTTONS === */}
+          <div className="mt-5">
+            <div className="flex flex-wrap gap-2 justify-center">
+              {SUB_REGIONS.filter((r) => r.id !== "valorica" && (r.id !== "arborwell" || arborwellFullUnlock)).map((r) => {
+                const color = REGION_COLORS[r.id] ?? "#c9a96e";
+                const isActive = selectedRegion === r.id;
+                return (
+                  <button
+                    key={r.id}
+                    onClick={() => toggleRegion(r.id)}
+                    className="flex items-center gap-2 px-3 py-2 border transition-all font-body text-[10px] tracking-[0.2em] uppercase min-h-[44px]"
+                    style={{
+                      borderColor: isActive ? color : "rgba(255,255,255,0.1)",
+                      color:       isActive ? color : "rgba(255,255,255,0.4)",
+                      boxShadow:   isActive ? `0 0 12px ${color}40` : "none",
+                    }}
+                  >
+                    <span
+                      className="w-2 h-2 rounded-full flex-shrink-0"
+                      style={{ background: isActive ? GLOW_BRASS : GLOW_WHITE, boxShadow: isActive ? `0 0 8px rgba(212,168,67,0.6)` : `0 0 6px rgba(255,255,255,0.4)` }}
+                    />
+                    {r.name}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>{/* end max-w wrapper */}
+      </div>
 
       {/* === ORB TOOLTIP OVERLAY === */}
       <AnimatePresence>
