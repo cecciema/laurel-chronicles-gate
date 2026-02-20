@@ -1,45 +1,39 @@
 const Footer = () => {
   return (
     <footer
-      className="w-full border-t px-5 sm:px-8 py-8 sm:py-10"
+      className="w-full px-5 sm:px-8 py-10 sm:py-12"
       style={{
-        borderColor: "hsl(38 50% 30% / 0.3)",
+        borderTop: "1px solid hsl(30 15% 25% / 0.4)",
         background: "hsl(20 12% 5%)",
       }}
     >
-      <div className="max-w-4xl mx-auto flex flex-col items-center sm:items-start gap-2 text-center sm:text-left">
+      <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-[2px]">
         <p
-          className="font-narrative text-[11px] sm:text-xs leading-relaxed"
-          style={{ color: "hsl(38 20% 55%)" }}
+          className="font-display tracking-[0.22em] uppercase leading-[1.6]"
+          style={{ color: "hsl(30 12% 52%)", fontSize: "10px" }}
         >
           LAUREL CROWNS ABOVE — A LIVING WORLD is an original intellectual property of CECILIA MA.
         </p>
         <p
-          className="font-narrative text-[11px] sm:text-xs leading-relaxed"
-          style={{ color: "hsl(38 20% 55%)" }}
+          className="font-display tracking-[0.22em] uppercase leading-[1.6]"
+          style={{ color: "hsl(30 12% 52%)", fontSize: "10px" }}
+        >
+          © 2026 All rights reserved.
+        </p>
+        <p
+          className="font-display tracking-[0.22em] uppercase leading-[1.6]"
+          style={{ color: "hsl(30 12% 52%)", fontSize: "10px" }}
         >
           For other works please visit{" "}
           <a
             href="https://www.AverydelaCruz.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-colors hover:underline"
-            style={{ color: "hsl(38 60% 55%)" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "hsl(38 72% 65%)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "hsl(38 60% 55%)")
-            }
+            className="transition-all duration-200 hover:underline"
+            style={{ color: "hsl(30 12% 52%)" }}
           >
             AverydelaCruz.com
           </a>
-        </p>
-        <p
-          className="font-narrative text-[10px] sm:text-[11px] mt-1"
-          style={{ color: "hsl(38 15% 40%)" }}
-        >
-          © 2026
         </p>
       </div>
     </footer>
