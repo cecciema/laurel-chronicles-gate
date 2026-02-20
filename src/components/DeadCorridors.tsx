@@ -644,8 +644,8 @@ export const DeadCorridors = () => {
                   userSelect: bestiaryUnlocked || alreadyWon ? "text" : "none",
                 }}
               >
-                The Sanctorium records show 214 incomplete Apotheosis events in the last century.
-                The Parliament records show zero. One of these is lying.
+                Sanctorium records show 214 incomplete Apotheosis events in the last century.
+                Parliament records show zero. One of these is lying.
               </p>
               {!(bestiaryUnlocked || alreadyWon) && (
                 <div className="absolute inset-0 flex items-center justify-center">

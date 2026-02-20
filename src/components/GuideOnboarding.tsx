@@ -30,11 +30,11 @@ const welcomeMessages: Record<string, { title: string; body: string }> = {
   },
   raw: {
     title: "Everything they told you about this world is a version. I'll show you a different one.",
-    body: "You want the real story? It's not in the archives or the Parliament records. It's out here, on the edge of what they govern. Keep your eyes open. The institutions don't control everything — yet.",
+    body: "You want the real story? It's not in the archives or Parliament records. It's out here, on the edge of what they govern. Keep your eyes open. The institutions don't control everything — yet.",
   },
   ceremonial: {
     title: "Every great institution was built by those who chose continuity over comfort.",
-    body: "You have entered through the proper door. That matters here. The Sanctorium endures not because it is powerful — but because it is patient. I will show you how this world was written, and by whom.",
+    body: "You have entered through the proper door. That matters here. Sanctorium endures not because it is powerful — but because it is patient. I will show you how this world was written, and by whom.",
   },
   authoritative: {
     title: "This world does not run on philosophy. It runs on decision.",

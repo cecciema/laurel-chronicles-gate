@@ -276,7 +276,7 @@ const Index = () => {
           >
             <img
               src={heroCityscape}
-              alt="The Empire"
+              alt="The Republic"
               className="w-full h-full object-cover"
             />
           </div>
@@ -333,7 +333,7 @@ const Index = () => {
             transition={{ duration: 1 }}
           >
             <p className="mt-8 font-narrative text-[1.0625rem] sm:text-xl text-foreground/70 italic max-w-lg mx-auto leading-[1.8] px-5 sm:px-0">
-              "In the shadow of brass towers and steam-choked skies, an empire
+              "In the shadow of brass towers and steam-choked skies, a republic
               holds its breath. The fire below is rising."
             </p>
           </motion.div>
@@ -353,7 +353,7 @@ const Index = () => {
                   className="btn-pulse-glow w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow"
                   style={isTouch ? undefined : { cursor: "none" }}
                 >
-                  Enter the Empire
+                  Enter the Republic
                 </Link>
                 <Link
                   to="/characters"
@@ -408,7 +408,7 @@ const Index = () => {
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
                 <p className="mt-6 font-narrative text-[1.0625rem] sm:text-lg text-muted-foreground leading-[1.8] max-w-2xl mx-auto w-full">
-                  The empire was built on steam and iron, on the bones of the conquered
+                  The republic was built on steam and iron, on the bones of the conquered
                   and the dreams of the powerful. For three centuries, the Voss dynasty
                   has maintained order through a machine of control — military, political,
                   and technological. But the machine is breaking. The Lower Wards rumble
@@ -446,10 +446,10 @@ const Index = () => {
           <section className="py-16 px-4 bg-secondary/30">
             <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { to: "/world", title: "World Overview", desc: "Explore the empire's territories, culture, and power structures" },
+                { to: "/world", title: "World Overview", desc: "Explore the republic's territories, culture, and power structures" },
                 { to: "/characters", title: "Character Database", desc: "Discover the key figures shaping the fate of the world" },
-                { to: "/timeline", title: "Timeline", desc: "Trace the events that brought the empire to the brink" },
-                { to: "/map", title: "World Map", desc: "Navigate the regions of the empire" },
+                { to: "/timeline", title: "Timeline", desc: "Trace the events that brought the republic to the brink" },
+                { to: "/map", title: "World Map", desc: "Navigate the regions of the republic" },
               ].map((card, i) => (
                 <ScrollReveal key={card.to} delay={i * 0.08}>
                   <Link
