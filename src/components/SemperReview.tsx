@@ -71,7 +71,7 @@ function buildQuestions(): Question[] {
   return [...easy, ...medium, ...hard, ...FIXED_QUESTIONS];
 }
 
-// ── Peace Officer SVG ──────────────────────────────────────────────────────────
+// ── Peace Officer SVG (Lost-style silhouette) ─────────────────────────────────
 const PeaceOfficer = ({
   position,
   lookingUp,
@@ -84,55 +84,100 @@ const PeaceOfficer = ({
   // position maps to translateX: 0 = 0%, 1 = -25%, 2 = -50%, 3 = -60%
   const tx = position === 0 ? 0 : position === 1 ? -25 : position === 2 ? -50 : -60;
 
+  // Solidify as officer gets closer — matches The Lost translucent→solid progression
+  const baseOpacity = position === 0 ? 0.35 : position === 1 ? 0.55 : position === 2 ? 0.78 : 0.95;
+  const blurPx = position === 0 ? 1.5 : position === 1 ? 1 : position === 2 ? 0.4 : 0;
+  const fillOpacity = position === 0 ? 0.4 : position === 1 ? 0.6 : position === 2 ? 0.8 : 1;
+  const strokeOpacity = position === 0 ? 0.3 : position === 1 ? 0.45 : position === 2 ? 0.65 : 0.85;
+
   return (
     <motion.div
       animate={{ x: `${tx}%` }}
-      transition={{ duration: 1.2, ease: "easeInOut" }}
-      className="flex-shrink-0"
+      transition={{ duration: 2, ease: [0.25, 0.1, 0.25, 1] }}
+      className="flex-shrink-0 relative"
     >
-      <svg
-        viewBox="0 0 100 200"
-        className="w-16 h-28 sm:w-20 sm:h-36"
-        fill="none"
-        aria-hidden="true"
+      {/* Subtle drift animation container */}
+      <motion.div
+        animate={{ y: [0, -3, 0, 2, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
-        {/* Head */}
-        <ellipse cx="50" cy="32" rx="14" ry="16" fill="hsl(0 0% 35%)" />
-        {/* Eyes - only visible when looking up */}
-        {lookingUp && (
-          <>
-            <ellipse cx="44" cy="30" rx="2" ry="2.5" fill="hsl(0 0% 12%)" />
-            <ellipse cx="56" cy="30" rx="2" ry="2.5" fill="hsl(0 0% 12%)" />
-          </>
-        )}
-        {/* Cap */}
-        <rect x="34" y="18" width="32" height="8" rx="2" fill="hsl(0 0% 28%)" />
-        <rect x="30" y="24" width="40" height="4" rx="1" fill="hsl(0 0% 25%)" />
-        {/* Body — grey uniform */}
-        <path
-          d="M36 48 Q32 100 30 190 L42 190 L44 130 L50 140 L56 130 L58 190 L70 190 Q68 100 64 48 Z"
-          fill="hsl(0 0% 30%)"
-        />
-        {/* Collar */}
-        <path d="M36 48 Q50 56 64 48 L62 60 L50 64 L38 60 Z" fill="hsl(0 0% 35%)" />
-        {/* Arms */}
-        <path d="M36 52 Q26 80 24 120 L32 118 Q30 84 38 64 Z" fill="hsl(0 0% 32%)" />
-        <path d="M64 52 Q74 80 76 120 L68 118 Q70 84 62 64 Z" fill="hsl(0 0% 32%)" />
-        {/* Clipboard */}
-        {!settingDown && (
-          <g>
-            <rect x="18" y="100" width="14" height="20" rx="1" fill="hsl(38 20% 30%)" />
-            <rect x="20" y="103" width="10" height="1" fill="hsl(38 20% 45%)" opacity="0.5" />
-            <rect x="20" y="106" width="10" height="1" fill="hsl(38 20% 45%)" opacity="0.5" />
-            <rect x="20" y="109" width="7" height="1" fill="hsl(38 20% 45%)" opacity="0.5" />
-            <rect x="20" y="112" width="10" height="1" fill="hsl(38 20% 45%)" opacity="0.5" />
-          </g>
-        )}
-        {/* Buttons on uniform */}
-        <circle cx="50" cy="72" r="1.5" fill="hsl(0 0% 40%)" />
-        <circle cx="50" cy="82" r="1.5" fill="hsl(0 0% 40%)" />
-        <circle cx="50" cy="92" r="1.5" fill="hsl(0 0% 40%)" />
-      </svg>
+        <motion.div
+          animate={{ opacity: baseOpacity, filter: `blur(${blurPx}px)` }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+        >
+          <svg
+            viewBox="0 0 100 200"
+            className="w-16 h-28 sm:w-20 sm:h-36"
+            fill="none"
+            aria-hidden="true"
+          >
+            <defs>
+              <filter id="officer-glow">
+                <feGaussianBlur stdDeviation="2" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            {/* Head — white translucent like The Lost */}
+            <ellipse cx="50" cy="32" rx="14" ry="16"
+              fill="hsl(210 5% 70%)" opacity={fillOpacity}
+              stroke="white" strokeWidth="0.5" strokeOpacity={strokeOpacity}
+            />
+            {/* Eyes - only visible when looking up */}
+            {lookingUp && (
+              <>
+                <ellipse cx="44" cy="30" rx="2" ry="2.5" fill="hsl(0 0% 12%)" opacity={fillOpacity * 1.2} />
+                <ellipse cx="56" cy="30" rx="2" ry="2.5" fill="hsl(0 0% 12%)" opacity={fillOpacity * 1.2} />
+              </>
+            )}
+            {/* Cap — grey-white, faint outline */}
+            <rect x="34" y="18" width="32" height="8" rx="2"
+              fill="hsl(210 5% 55%)" opacity={fillOpacity * 0.9}
+              stroke="white" strokeWidth="0.4" strokeOpacity={strokeOpacity * 0.6}
+            />
+            <rect x="30" y="24" width="40" height="4" rx="1"
+              fill="hsl(210 5% 50%)" opacity={fillOpacity * 0.8}
+            />
+            {/* Body — grey uniform, translucent like Lost */}
+            <path
+              d="M36 48 Q32 100 30 190 L42 190 L44 130 L50 140 L56 130 L58 190 L70 190 Q68 100 64 48 Z"
+              fill="hsl(210 5% 55%)" opacity={fillOpacity}
+              stroke="white" strokeWidth="0.5" strokeOpacity={strokeOpacity * 0.5}
+            />
+            {/* Collar */}
+            <path d="M36 48 Q50 56 64 48 L62 60 L50 64 L38 60 Z"
+              fill="hsl(210 5% 65%)" opacity={fillOpacity * 0.9}
+            />
+            {/* Arms */}
+            <path d="M36 52 Q26 80 24 120 L32 118 Q30 84 38 64 Z"
+              fill="hsl(210 5% 58%)" opacity={fillOpacity}
+              stroke="white" strokeWidth="0.3" strokeOpacity={strokeOpacity * 0.4}
+            />
+            <path d="M64 52 Q74 80 76 120 L68 118 Q70 84 62 64 Z"
+              fill="hsl(210 5% 58%)" opacity={fillOpacity}
+              stroke="white" strokeWidth="0.3" strokeOpacity={strokeOpacity * 0.4}
+            />
+            {/* Clipboard */}
+            {!settingDown && (
+              <g opacity={fillOpacity * 0.85}>
+                <rect x="18" y="100" width="14" height="20" rx="1"
+                  fill="hsl(38 15% 40%)" stroke="white" strokeWidth="0.3" strokeOpacity={strokeOpacity * 0.5}
+                />
+                <rect x="20" y="103" width="10" height="1" fill="hsl(38 20% 55%)" opacity="0.4" />
+                <rect x="20" y="106" width="10" height="1" fill="hsl(38 20% 55%)" opacity="0.4" />
+                <rect x="20" y="109" width="7" height="1" fill="hsl(38 20% 55%)" opacity="0.4" />
+                <rect x="20" y="112" width="10" height="1" fill="hsl(38 20% 55%)" opacity="0.4" />
+              </g>
+            )}
+            {/* Buttons on uniform */}
+            <circle cx="50" cy="72" r="1.5" fill="hsl(210 5% 70%)" opacity={fillOpacity * 0.7} />
+            <circle cx="50" cy="82" r="1.5" fill="hsl(210 5% 70%)" opacity={fillOpacity * 0.7} />
+            <circle cx="50" cy="92" r="1.5" fill="hsl(210 5% 70%)" opacity={fillOpacity * 0.7} />
+          </svg>
+        </motion.div>
+      </motion.div>
     </motion.div>
   );
 };
