@@ -101,74 +101,56 @@ const ParticleCanvas = () => {
 
 // ─── Cinematic Intro Overlay ──────────────────────────────────────────────────
 const CinematicIntro = ({ onDone }: { onDone: () => void }) => {
-  const [burning, setBurning] = useState(false);
-
   return (
     <motion.div
       className="fixed inset-0 z-[200] bg-background flex items-center justify-center"
     >
-      {!burning && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.88 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="text-center"
+      <motion.div
+        initial={{ opacity: 0, scale: 0.88 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="text-center"
+      >
+        {/* Sigil / decorative emblem */}
+        <div className="relative mx-auto w-24 h-24 mb-6">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 rounded-full border border-primary/20"
+            style={{ boxShadow: "0 0 30px hsl(38 72% 50% / 0.15)" }}
+          />
+          <motion.div
+            animate={{ rotate: -360 }}
+            transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-2 rounded-full border border-primary/30"
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="font-display text-2xl text-primary" style={{ textShadow: "0 0 20px hsl(38 72% 50% / 0.6)" }}>
+              ✦
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-6 space-y-2 max-w-lg mx-auto">
+          <p className="font-narrative text-lg text-foreground/60 italic">
+            "You were given everything by the Republic, everything you could ever need..."
+          </p>
+          <p className="font-narrative text-lg text-foreground/60 italic">
+            "A life, a purpose, and Apotheosis... and yet, here you are."
+          </p>
+        </div>
+
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          onClick={onDone}
+          className="mt-4 px-8 py-3 border border-primary/40 font-display text-sm tracking-[0.2em] uppercase text-foreground hover:border-primary/80 transition-colors"
+          style={isTouch ? undefined : { cursor: "none" }}
         >
-          {/* Sigil / decorative emblem */}
-          <div className="relative mx-auto w-24 h-24 mb-6">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 rounded-full border border-primary/20"
-              style={{ boxShadow: "0 0 30px hsl(38 72% 50% / 0.15)" }}
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-2 rounded-full border border-primary/30"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-display text-2xl text-primary" style={{ textShadow: "0 0 20px hsl(38 72% 50% / 0.6)" }}>
-                ✦
-              </span>
-            </div>
-          </div>
-
-          <div className="mt-6 space-y-2 max-w-lg mx-auto">
-            <p className="font-narrative text-lg text-foreground/60 italic">
-              "You were given everything by the Republic, everything you could ever need..."
-            </p>
-            <p className="font-narrative text-lg text-foreground/60 italic">
-              "A life, a purpose, and Apotheosis... and yet, here you are."
-            </p>
-          </div>
-
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-            onClick={() => setBurning(true)}
-            className="mt-4 px-8 py-3 border border-primary/40 font-display text-sm tracking-[0.2em] uppercase text-foreground hover:border-primary/80 transition-colors"
-            style={isTouch ? undefined : { cursor: "none" }}
-          >
-            Enter the World
-          </motion.button>
-        </motion.div>
-      )}
-
-      {burning && (
-        <motion.div
-          className="fixed inset-0 z-[500]"
-          style={{
-            background: "#e8dcc0",
-            boxShadow: "inset 0 0 120px 60px rgba(200, 80, 20, 0.4), inset 0 0 60px 30px rgba(255, 120, 30, 0.25)",
-          }}
-          initial={{ clipPath: "circle(0% at 50% 50%)" }}
-          animate={{ clipPath: "circle(150% at 50% 50%)" }}
-          transition={{ duration: 1.2, ease: "easeIn" }}
-          onAnimationComplete={onDone}
-        />
-      )}
+          Enter the World
+        </motion.button>
+      </motion.div>
     </motion.div>
   );
 };
