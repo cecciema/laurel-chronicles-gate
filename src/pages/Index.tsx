@@ -503,6 +503,8 @@ const EasterEggGlyph = () => {
 
 // ── Hidden reset button — clears all game progress ────────────────────────────
 const ResetProgressButton = () => {
+  const [cleared, setCleared] = useState(false);
+
   const handleReset = () => {
     const keysToRemove = [
       "chronicles_game_state_v2",
@@ -516,16 +518,17 @@ const ResetProgressButton = () => {
       "arborwell-hint-unlocked",
     ];
     keysToRemove.forEach((key) => localStorage.removeItem(key));
-    window.location.reload();
+    setCleared(true);
+    setTimeout(() => window.location.reload(), 1200);
   };
 
   return (
     <button
       onClick={handleReset}
-      className="fixed bottom-3 right-3 z-[5] select-none font-body text-[9px] text-muted-foreground tracking-wide"
-      style={{ opacity: 0.35, cursor: "default" }}
+      className="fixed bottom-3 right-3 z-[5] select-none font-body text-[9px] text-muted-foreground tracking-wide border border-border/40 px-2 py-1 rounded hover:border-primary/40 transition-colors"
+      style={{ opacity: 0.5, cursor: "default" }}
     >
-      Clear Progress
+      {cleared ? "✦ Progress Cleared" : "Clear Progress"}
     </button>
   );
 };
