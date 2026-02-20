@@ -134,6 +134,15 @@ const CinematicIntro = ({ onDone }: { onDone: () => void }) => {
             </div>
           </div>
 
+          <div className="mt-6 space-y-2 max-w-lg mx-auto">
+            <p className="font-narrative text-lg text-foreground/60 italic">
+              "You were given everything by the Republic, everything you could ever need..."
+            </p>
+            <p className="font-narrative text-lg text-foreground/60 italic">
+              "A life, a purpose, and Apotheosis... and yet, here you are."
+            </p>
+          </div>
+
           <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
