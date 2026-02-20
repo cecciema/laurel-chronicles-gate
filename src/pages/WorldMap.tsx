@@ -900,7 +900,7 @@ const WorldMap = () => {
                 className="relative w-full bg-[#0a0804] border-t-2 overflow-hidden"
                 style={{
                   borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "60",
-                  maxHeight: isMobile ? "65vh" : "50vh",
+                  aspectRatio: "16 / 10",
                 }}
               >
                 {/* Close button — sticky top-right */}
