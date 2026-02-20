@@ -1,4 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { QuestTrigger, ScrollCollection, useGame } from "@/components/ChroniclesSystem";
@@ -467,6 +468,7 @@ const Index = () => {
               ))}
             </div>
           </section>
+          <Footer />
         </div>
       </div>
 
