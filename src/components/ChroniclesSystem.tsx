@@ -216,8 +216,7 @@ const ALLEGIANCE_DATA: Record<AllegianceId, {
   sanctorium: {
     name: "Sanctorium",
     text: "You are Sanctorium. You have always understood that faith is not the absence of doubt — it is the decision to act anyway. The Pantheon was built for people like you. Whether it deserves you is a different question.",
-    storageKey: "allegiance-scroll-7-awarded",
-    scrollAward: 7,
+    storageKey: "sanctorium-allegiance-unlocked",
   },
   parliament: {
     name: "Parliament",
@@ -1045,10 +1044,6 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: 
       localStorage.setItem("allegiance-result", winner);
       const data = ALLEGIANCE_DATA[winner];
       localStorage.setItem(data.storageKey, "true");
-      if (data.scrollAward && !localStorage.getItem("allegiance-scroll-7-awarded")) {
-        awardScroll(data.scrollAward);
-        localStorage.setItem("allegiance-scroll-7-awarded", "true");
-      }
 
       const delay = winner === "unseen" ? 2000 : 0;
       setTimeout(() => {
