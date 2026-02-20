@@ -344,16 +344,16 @@ const TimelinePage = () => {
 
         {/* Timeline */}
         <div className="max-w-4xl mx-auto relative">
-          {/* Vertical center line */}
+          {/* Vertical center line — stops before Present Hour */}
           {isMobile ? (
             <div
-              className="absolute left-[13px] top-0 bottom-0 w-px"
-              style={{ background: "hsl(38 72% 50% / 0.2)" }}
+              className="absolute left-[13px] top-0 w-px"
+              style={{ background: "hsl(38 72% 50% / 0.2)", bottom: 80 }}
             />
           ) : (
             <div
-              className="absolute left-1/2 -translate-x-px top-0 bottom-0 w-px"
-              style={{ background: "hsl(38 72% 50% / 0.2)" }}
+              className="absolute left-1/2 -translate-x-px top-0 w-px"
+              style={{ background: "hsl(38 72% 50% / 0.2)", bottom: 80 }}
             />
           )}
 
@@ -381,13 +381,13 @@ const TimelinePage = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative mt-12"
+            className="relative mt-16 flex flex-col items-center"
           >
-            {/* Dot on center line */}
+            {/* Terminal dot */}
             <div
-              className={`absolute ${
-                isMobile ? "left-[8px]" : "left-1/2 -translate-x-1/2"
-              } top-0`}
+              className={`${
+                isMobile ? "self-start ml-[8px]" : ""
+              }`}
             >
               <div
                 className="w-3 h-3 rounded-full"
@@ -398,10 +398,10 @@ const TimelinePage = () => {
               />
             </div>
 
-            {/* Text */}
+            {/* Text — below dot with clear spacing */}
             <div
-              className={`${
-                isMobile ? "pl-10" : "text-center pt-1"
+              className={`mt-6 ${
+                isMobile ? "self-start pl-10" : "text-center"
               }`}
             >
               <p
