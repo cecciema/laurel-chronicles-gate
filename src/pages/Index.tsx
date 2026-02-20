@@ -472,6 +472,7 @@ const Index = () => {
       </div>
 
       <EasterEggGlyph />
+      <ResetProgressButton />
 
       {/* BottomNav is rendered globally in Layout.tsx */}
     </>
@@ -497,6 +498,35 @@ const EasterEggGlyph = () => {
       style={{ opacity: 0.15, cursor: "default" }}
     >
       <span className="font-display text-base" style={{ color: "hsl(38 30% 40%)" }}>✦</span>
+    </button>
+  );
+};
+
+// ── Hidden reset button — clears all game progress ────────────────────────────
+const ResetProgressButton = () => {
+  const handleReset = () => {
+    const keysToRemove = [
+      "chronicles_game_state_v2",
+      "lca_selected_guide",
+      "allegiance-result",
+      "allegiance-scroll-7-awarded",
+      "bestiary-complete-seen",
+      "parliament-intelligence-unlocked",
+      "deepforge-survival-unlocked",
+      "convoy-message-unlocked",
+      "arborwell-hint-unlocked",
+    ];
+    keysToRemove.forEach((key) => localStorage.removeItem(key));
+    window.location.reload();
+  };
+
+  return (
+    <button
+      onClick={handleReset}
+      className="fixed bottom-3 right-3 z-[5] select-none font-body text-[9px] text-muted-foreground tracking-wide"
+      style={{ opacity: 0.2, cursor: "default" }}
+    >
+      Clear Progress
     </button>
   );
 };
