@@ -347,21 +347,49 @@ export const DeadCorridors = () => {
 
   // ── Swipe support ───────────────────────────────────────────────────────────
   const touchStart = useRef<{ x: number; y: number } | null>(null);
-  const onTouchStart = (e: React.TouchEvent) => {
-    touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-  };
-  const onTouchEnd = useCallback((e: React.TouchEvent) => {
-    if (!touchStart.current || phase !== "playing") return;
-    const dx = e.changedTouches[0].clientX - touchStart.current.x;
-    const dy = e.changedTouches[0].clientY - touchStart.current.y;
-    touchStart.current = null;
-    if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
-    let d: Pos;
-    if (Math.abs(dx) > Math.abs(dy)) {
-      d = dx > 0 ? { row: 0, col: 1 } : { row: 0, col: -1 };
-    } else {
-      d = dy > 0 ? { row: 1, col: 0 } : { row: -1, col: 0 };
-    }
+  const mazeContainerRef = useRef<HTMLDivElement>(null);
+
+  // Attach native touch listeners with { passive: false } to allow preventDefault
+  useEffect(() => {
+    const el = mazeContainerRef.current;
+    if (!el) return;
+    const onTs = (e: TouchEvent) => {
+      e.preventDefault();
+      touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    };
+    const onTm = (e: TouchEvent) => {
+      e.preventDefault();
+    };
+    const onTe = (e: TouchEvent) => {
+      if (!touchStart.current || phase !== "playing") return;
+      const dx = e.changedTouches[0].clientX - touchStart.current.x;
+      const dy = e.changedTouches[0].clientY - touchStart.current.y;
+      touchStart.current = null;
+      if (Math.abs(dx) < 15 && Math.abs(dy) < 15) return;
+      let d: Pos;
+      if (Math.abs(dx) > Math.abs(dy)) {
+        d = dx > 0 ? { row: 0, col: 1 } : { row: 0, col: -1 };
+      } else {
+        d = dy > 0 ? { row: 1, col: 0 } : { row: -1, col: 0 };
+      }
+      setPlayer(p => {
+        const np = { row: p.row + d.row, col: p.col + d.col };
+        return isWallIn(gridRef.current, np) ? p : np;
+      });
+    };
+    el.addEventListener("touchstart", onTs, { passive: false });
+    el.addEventListener("touchmove", onTm, { passive: false });
+    el.addEventListener("touchend", onTe);
+    return () => {
+      el.removeEventListener("touchstart", onTs);
+      el.removeEventListener("touchmove", onTm);
+      el.removeEventListener("touchend", onTe);
+    };
+  }, [phase]);
+
+  // ── D-pad move handler ────────────────────────────────────────────────────
+  const movePlayer = useCallback((d: Pos) => {
+    if (phase !== "playing") return;
     setPlayer(p => {
       const np = { row: p.row + d.row, col: p.col + d.col };
       return isWallIn(gridRef.current, np) ? p : np;
@@ -453,14 +481,13 @@ export const DeadCorridors = () => {
 
       {/* Maze container */}
       <motion.div
+        ref={mazeContainerRef}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2 }}
         className="max-w-2xl mx-auto bg-card border border-border relative overflow-hidden select-none"
-        style={{ minHeight: 200 }}
-        onTouchStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
+        style={{ minHeight: 200, touchAction: "none" }}
       >
         <div className="p-2 sm:p-3 overflow-auto">
           <MazeCanvas grid={config.grid} exit={config.exit} player={player} enemies={enemies} won={won} />
@@ -520,6 +547,52 @@ export const DeadCorridors = () => {
           )}
         </AnimatePresence>
       </motion.div>
+
+      {/* Mobile swipe hint + D-pad */}
+      <div className="sm:hidden max-w-2xl mx-auto mt-4 flex flex-col items-center gap-4">
+        <p className="text-[9px] tracking-[0.3em] text-primary/60 uppercase font-body">
+          Swipe inside the maze to move
+        </p>
+        <div className="grid grid-cols-3 gap-1" style={{ width: 164 }}>
+          <div />
+          <button
+            onClick={() => movePlayer({ row: -1, col: 0 })}
+            className="flex items-center justify-center border border-primary/40 bg-card hover:bg-primary/10 active:bg-primary/20 transition-colors"
+            style={{ width: 52, height: 52 }}
+            aria-label="Move up"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3L3 12h12L9 3z" fill="hsl(38 72% 50%)" /></svg>
+          </button>
+          <div />
+          <button
+            onClick={() => movePlayer({ row: 0, col: -1 })}
+            className="flex items-center justify-center border border-primary/40 bg-card hover:bg-primary/10 active:bg-primary/20 transition-colors"
+            style={{ width: 52, height: 52 }}
+            aria-label="Move left"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9l9-6v12L3 9z" fill="hsl(38 72% 50%)" /></svg>
+          </button>
+          <div />
+          <button
+            onClick={() => movePlayer({ row: 0, col: 1 })}
+            className="flex items-center justify-center border border-primary/40 bg-card hover:bg-primary/10 active:bg-primary/20 transition-colors"
+            style={{ width: 52, height: 52 }}
+            aria-label="Move right"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M15 9L6 3v12l9-6z" fill="hsl(38 72% 50%)" /></svg>
+          </button>
+          <div />
+          <button
+            onClick={() => movePlayer({ row: 1, col: 0 })}
+            className="flex items-center justify-center border border-primary/40 bg-card hover:bg-primary/10 active:bg-primary/20 transition-colors"
+            style={{ width: 52, height: 52 }}
+            aria-label="Move down"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 15l6-9H3l6 9z" fill="hsl(38 72% 50%)" /></svg>
+          </button>
+          <div />
+        </div>
+      </div>
 
       {/* Legend */}
       <div className="max-w-2xl mx-auto mt-2 flex gap-6 px-2 justify-end">
