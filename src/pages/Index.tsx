@@ -508,9 +508,12 @@ const ResetProgressButton = () => {
   const [cleared, setCleared] = useState(false);
 
   const handleReset = () => {
-    localStorage.clear();
     setCleared(true);
-    setTimeout(() => window.location.reload(), 800);
+    localStorage.clear();
+    sessionStorage.clear();
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 600);
   };
 
   return (
