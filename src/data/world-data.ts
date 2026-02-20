@@ -269,8 +269,8 @@ export const characters: Character[] = [
     philosophy: "The world the institutions built is not the real world. I've seen what's underneath.",
     alignment: "Unfiltered Truth",
     personality: ["Direct", "Survival-Hardened", "Deeply Perceptive", "Unflinchingly Honest"],
-    background: "Sailor has traveled further beyond the Republic's governed edge than almost any living person and returned to tell it. A known figure among Frontier survivors, she carries knowledge of pre-war truths and the manufactured nature of the Republic's stability that the institutions spend enormous energy suppressing. A close friend of Aspen, her presence in the story bridges the governed world and everything the maps leave out.",
-    relationships: "Aspen — close friend, trusted colleague, the one person inside the system she still believes in. The Frontier networks — her real community. The Republic — necessary to navigate, never fully trusted.",
+    background: "Sailor has traveled further beyond the Republic's governed edge than almost any living person and returned to tell it. A known figure among Frontier survivors, he carries knowledge of pre-war truths and the manufactured nature of the Republic's stability that the institutions spend enormous energy suppressing. A close friend of Aspen, his presence in the story bridges the governed world and everything the maps leave out.",
+    relationships: "Aspen — close friend, trusted colleague, the one person inside the system he still believes in. The Frontier networks — his real community. The Republic — necessary to navigate, never fully trusted.",
     magistry: "Frontier Edge",
   },
 ];
