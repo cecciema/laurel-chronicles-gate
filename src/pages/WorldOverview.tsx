@@ -1,6 +1,7 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
-import { HiddenOrb } from "@/components/ChroniclesSystem";
+import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import heroCityscape from "@/assets/hero-cityscape.jpg";
 import { ForbiddenTransmission } from "@/components/ForbiddenTransmission";
@@ -71,6 +72,26 @@ const regions = [
 ];
 
 const WorldOverview = () => {
+  const { foundScrolls } = useGame();
+  const transmissionWon = foundScrolls.includes(7);
+
+  const [wasLocked, setWasLocked] = useState(!transmissionWon);
+  const [justUnlocked, setJustUnlocked] = useState(false);
+
+  useEffect(() => {
+    if (transmissionWon && wasLocked) {
+      setJustUnlocked(true);
+      setWasLocked(false);
+      const t = setTimeout(() => setJustUnlocked(false), 1200);
+      return () => clearTimeout(t);
+    }
+  }, [transmissionWon, wasLocked]);
+
+  const scrollToTransmission = (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.getElementById("forbidden-transmission")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Layout>
       {/* Hero */}
@@ -148,7 +169,6 @@ const WorldOverview = () => {
                   backgroundImage: "radial-gradient(ellipse at 30% 20%, hsl(38 20% 14% / 0.5) 0%, transparent 70%)",
                 }}
               >
-                {/* Faint stone/parchment texture via CSS */}
                 <div
                   className="absolute inset-0 opacity-[0.03] pointer-events-none"
                   style={{
@@ -201,6 +221,72 @@ const WorldOverview = () => {
                 </p>
               </motion.div>
             ))}
+
+            {/* ── The Convoy — Fourth Tier ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.45 }}
+              className="p-6 border transition-all duration-1000"
+              style={{
+                background: transmissionWon ? "hsl(var(--card))" : "hsl(0 10% 6%)",
+                borderColor: transmissionWon ? "hsl(38 72% 50% / 0.3)" : "hsl(0 40% 25% / 0.4)",
+                boxShadow: transmissionWon ? "0 0 20px hsl(38 72% 50% / 0.08)" : "none",
+              }}
+            >
+              {/* Tag — always fully visible */}
+              <span
+                className="text-[10px] tracking-[0.3em] uppercase font-body transition-colors duration-1000"
+                style={{ color: transmissionWon ? "hsl(38 50% 45%)" : "hsl(0 50% 40%)" }}
+              >
+                {transmissionWon ? "RECORD RESTORED — CLASSIFIED" : "UNVERIFIED — RECORD DISPUTED"}
+              </span>
+
+              {/* Blurrable content */}
+              <div
+                className="transition-all duration-1000"
+                style={{
+                  filter: transmissionWon ? "blur(0px)" : "blur(4px)",
+                  opacity: transmissionWon ? 1 : 0.4,
+                }}
+              >
+                <h3 className="font-display text-sm tracking-wide text-foreground/70 mt-2">
+                  The Convoy
+                </h3>
+                <p className="mt-3 text-[0.9375rem] sm:text-sm text-muted-foreground font-body leading-[1.8]">
+                  They have no Pantheon. They have no Magistry sector. They hold no seat in Parliament and no pew in any Sol Deus court. They exist in the gaps between the official record — in the unmarked years, the redacted clauses, the citizens who disappeared without an Apotheosis filing. The Convoy of Reformation has been called a rumor for so long that most people stopped asking whether the rumor was true. It is true. It has always been true. They did not form in response to the system. Some believe they helped build it.
+                </p>
+              </div>
+
+              {/* Below-blur messaging */}
+              <div className="mt-4">
+                {transmissionWon ? (
+                  <p
+                    className="font-narrative italic text-[0.875rem] transition-opacity duration-1000"
+                    style={{ color: "hsl(38 40% 55%)" }}
+                  >
+                    Transmission decoded. Record restored.
+                  </p>
+                ) : (
+                  <>
+                    <p
+                      className="font-narrative italic text-[0.875rem]"
+                      style={{ color: "hsl(38 25% 55%)" }}
+                    >
+                      This record has been intercepted. Decode the transmission to access it.
+                    </p>
+                    <button
+                      onClick={scrollToTransmission}
+                      className="mt-2 font-display text-[10px] tracking-[0.3em] uppercase transition-colors hover:underline"
+                      style={{ color: "hsl(38 72% 50% / 0.7)" }}
+                    >
+                      ↓ Forbidden Transmission
+                    </button>
+                  </>
+                )}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -210,7 +296,7 @@ const WorldOverview = () => {
         <div className="max-w-5xl mx-auto">
           <SectionHeader title="THE REGIONS OF PANTERRA" subtitle="Five territories. One Republic. Not everyone agrees on what that means." />
           <div className="space-y-6 sm:space-y-8">
-            {regions.map((region, i) => (
+            {regions.map((region) => (
               <motion.div
                 key={region.name}
                 initial={{ opacity: 0, x: 0 }}
@@ -218,7 +304,6 @@ const WorldOverview = () => {
                 viewport={{ once: true }}
                 className="p-5 sm:p-6 bg-card border border-border hover:border-primary/30 transition-colors relative"
               >
-                {/* Hidden Orb 1 — on Deep Forge region */}
                 {region.hasOrb && <HiddenOrb id={1} className="absolute -right-1 top-1" />}
                 <div className="flex flex-col gap-4">
                   <div className="flex-1">
@@ -249,7 +334,9 @@ const WorldOverview = () => {
         </div>
       </section>
 
-      <ForbiddenTransmission />
+      <div id="forbidden-transmission">
+        <ForbiddenTransmission />
+      </div>
     </Layout>
   );
 };
