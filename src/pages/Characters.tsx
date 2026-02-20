@@ -110,7 +110,7 @@ const ALL_QUESTIONS: QuestionDef[] = [
     ],
   },
   {
-    id: "nefertar", answer: "Nefertar", image: "char-nefertar",
+    id: "thema", answer: "Thema", image: "char-thema",
     clues: [
       "This person wears something across their face that others have stopped questioning.",
       "This person governs with amusement. That is either wisdom or something colder.",
