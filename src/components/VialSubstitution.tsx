@@ -196,11 +196,11 @@ const CeremonyGrid = ({
                   const dist = proximityMap.get(pIdx) ?? 99;
                   const selected = selectedIdx === pIdx;
                   // Safe = no devotee within 2, danger = within 1, blocked = within 2
-                  let ringColor = "hsl(120 40% 40% / 0.5)"; // safe green
-                  if (dist <= 1) ringColor = "hsl(0 60% 50% / 0.7)"; // danger red
-                  else if (dist <= 2) ringColor = "hsl(0 45% 45% / 0.4)"; // blocked red
+                  let ringColor = "rgba(212,168,67,0.5)"; // safe = yellow/brass
+                  if (dist <= 1) ringColor = "rgba(139,26,26,0.7)"; // danger = red
+                  else if (dist <= 2) ringColor = "rgba(201,120,32,0.6)"; // warning = orange
 
-                  const vialColor = swapped ? "hsl(200 55% 65%)" : "hsl(38 72% 55%)";
+                  const vialColor = swapped ? "#ffffff" : "#d4a843";
 
                   return (
                     <>
@@ -232,7 +232,7 @@ const CeremonyGrid = ({
                         style={{
                           inset: 3,
                           background: swapped
-                            ? "radial-gradient(circle, hsl(200 30% 30%), hsl(0 0% 16%))"
+                            ? "radial-gradient(circle, hsl(0 0% 30%), hsl(0 0% 16%))"
                             : "radial-gradient(circle, hsl(30 15% 22%), hsl(0 0% 16%))",
                           border: "1px solid hsl(0 0% 25%)",
                           animation: frozen ? undefined : "steamRise 6s ease-in-out infinite",
@@ -275,8 +275,8 @@ const CeremonyGrid = ({
                     style={{
                       inset: 2,
                       borderRadius: "50%",
-                      background: `hsl(150 15% 15% / ${collectorOpacity})`,
-                      boxShadow: `0 0 ${4 + collectorStage * 3}px hsl(150 40% 30% / ${collectorVialGlow})`,
+                      background: `rgba(139,26,26,${collectorOpacity})`,
+                      boxShadow: `0 0 ${4 + collectorStage * 3}px rgba(139,26,26,${collectorVialGlow})`,
                       transition: "all 1.5s ease",
                     }}
                   />
@@ -502,7 +502,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
   }, [selected, frozen, getMinDevoteeDist, devoteePositions]);
 
   const timerFraction = timeLeft / TOTAL_TIME;
-  const timerColor = timeLeft > 30 ? "hsl(38 60% 50%)" : "hsl(0 55% 50%)";
+  const timerColor = timeLeft > 30 ? "#d4a843" : timeLeft > 15 ? "#c97820" : "#8b1a1a";
 
   return (
     <section
@@ -552,7 +552,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
           Swap the poisoned vials before the ceremony begins. Avoid the Devotees.
         </motion.p>
         <p className="mt-2 text-[10px] tracking-widest text-muted-foreground/50 font-body uppercase">
-          Tap a participant twice to swap · Green ring = safe · Red ring = danger
+          Tap a participant twice to swap · Brass ring = safe · Red ring = danger
         </p>
 
         {/* Swap counter & catches */}
@@ -588,7 +588,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="text-center mb-3 font-display text-[9px] sm:text-[10px] tracking-[0.3em] uppercase"
-            style={{ color: "hsl(0 40% 55%)" }}
+            style={{ color: "#c97820" }}
           >
             The ceremony is accelerating.
           </motion.p>
@@ -603,7 +603,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="text-center mb-3 font-narrative italic text-sm sm:text-[0.9375rem]"
-            style={{ color: "hsl(150 20% 50%)" }}
+            style={{ color: "#8b1a1a" }}
           >
             "{collectorText}"
           </motion.p>
@@ -638,7 +638,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
               animate={{ opacity: 1 }}
               className="absolute inset-0 bg-background/92 flex flex-col items-center justify-center z-30 gap-5 p-8 text-center"
             >
-              <p className="font-display text-xs tracking-[0.25em] uppercase" style={{ color: "hsl(200 40% 70%)" }}>
+              <p className="font-display text-xs tracking-[0.25em] uppercase" style={{ color: "#d4a843" }}>
                 Seven of them will wake up. The Pantheon will not understand why.
               </p>
               <p className="font-narrative italic text-foreground/50 text-[0.9375rem] leading-[1.8] max-w-sm">
@@ -704,15 +704,15 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
       {/* Legend */}
       <div className="max-w-2xl mx-auto mt-2 flex flex-wrap gap-4 sm:gap-6 px-2 justify-center sm:justify-end">
         <div className="flex items-center gap-1.5">
-          <div className="w-2 h-2 rounded-full" style={{ background: "hsl(38 72% 55%)", boxShadow: "0 0 6px hsl(38 72% 55%)" }} />
+          <div className="w-2 h-2 rounded-full" style={{ background: "#d4a843", boxShadow: "0 0 8px rgba(212,168,67,0.6)" }} />
           <span className="text-[9px] tracking-widest text-muted-foreground/50 uppercase font-body">Poisoned</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="w-2 h-2 rounded-full" style={{ background: "hsl(200 55% 65%)", boxShadow: "0 0 6px hsl(200 55% 65%)" }} />
+          <div className="w-2 h-2 rounded-full" style={{ background: "#ffffff", boxShadow: "0 0 8px rgba(255,255,255,0.6)" }} />
           <span className="text-[9px] tracking-widest text-muted-foreground/50 uppercase font-body">Safe</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="w-2 h-2 rounded-full bg-foreground/70" />
+          <div className="w-2 h-2 rounded-full" style={{ background: "#ffffff", boxShadow: "0 0 6px rgba(255,255,255,0.4)" }} />
           <span className="text-[9px] tracking-widest text-muted-foreground/50 uppercase font-body">Devotee</span>
         </div>
       </div>
@@ -731,8 +731,8 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
               <div
                 className="w-4 h-4 rounded-full"
                 style={{
-                  background: "hsl(150 30% 30%)",
-                  boxShadow: "0 0 6px hsl(150 40% 35% / 0.5)",
+                  background: "#d4a843",
+                  boxShadow: "0 0 8px rgba(212,168,67,0.6)",
                 }}
               />
             ) : (

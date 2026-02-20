@@ -206,16 +206,16 @@ const MazeCanvas = ({ grid, exit, player, enemies, won }: MazeCanvasProps) => (
               {isPlayerPos && (
                 <div style={{
                   position: "absolute", inset: 3, borderRadius: "50%",
-                  background: "hsl(38 80% 60%)",
-                  boxShadow: "0 0 8px hsl(38 80% 60%), 0 0 16px hsl(38 72% 50% / 0.5)",
+                  background: "#ffffff",
+                  boxShadow: "0 0 8px rgba(255,255,255,0.6), 0 0 16px rgba(255,255,255,0.3)",
                   zIndex: 10,
                 }} />
               )}
               {isEnemyPos && visible && (
                 <div style={{
                   position: "absolute", inset: 3, borderRadius: "50%",
-                  background: "hsl(0 0% 80%)",
-                  boxShadow: "0 0 6px hsl(0 0% 90% / 0.6)",
+                  background: "#8b1a1a",
+                  boxShadow: "0 0 8px rgba(139,26,26,0.6)",
                   zIndex: 10,
                 }} />
               )}
@@ -471,7 +471,7 @@ export const DeadCorridors = () => {
                 className="h-full transition-all duration-1000"
                 style={{
                   width: `${dangerPct * 100}%`,
-                  background: dangerPct < 0.5 ? "hsl(38 72% 50%)" : dangerPct < 0.9 ? "hsl(25 80% 45%)" : "hsl(0 65% 48%)",
+                  background: dangerPct < 0.5 ? "#d4a843" : dangerPct < 0.9 ? "#c97820" : "#8b1a1a",
                 }}
               />
             </div>
@@ -597,15 +597,15 @@ export const DeadCorridors = () => {
       {/* Legend */}
       <div className="max-w-2xl mx-auto mt-2 flex gap-6 px-2 justify-end">
         <div className="flex items-center gap-1.5">
-          <div className="w-2 h-2 rounded-full" style={{ background: "hsl(38 80% 60%)", boxShadow: "0 0 6px hsl(38 80% 60%)" }} />
+          <div className="w-2 h-2 rounded-full" style={{ background: "#ffffff", boxShadow: "0 0 8px rgba(255,255,255,0.6)" }} />
           <span className="text-[9px] tracking-widest text-muted-foreground/50 uppercase font-body">You</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="w-2 h-2 rounded-full bg-foreground/60" />
+          <div className="w-2 h-2 rounded-full" style={{ background: "#8b1a1a", boxShadow: "0 0 8px rgba(139,26,26,0.6)" }} />
           <span className="text-[9px] tracking-widest text-muted-foreground/50 uppercase font-body">The Unmarked</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="w-2 h-2" style={{ background: "hsl(38 72% 50% / 0.4)", boxShadow: "0 0 4px hsl(38 72% 50% / 0.6)" }} />
+          <div className="w-2 h-2" style={{ background: "#d4a843", boxShadow: "0 0 8px rgba(212,168,67,0.6)" }} />
           <span className="text-[9px] tracking-widest text-muted-foreground/50 uppercase font-body">Exit</span>
         </div>
       </div>
@@ -621,7 +621,7 @@ export const DeadCorridors = () => {
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0 w-12 h-12 border border-border flex items-center justify-center">
             {bestiaryUnlocked || alreadyWon ? (
-              <div className="w-4 h-4 rounded-full bg-foreground/60" style={{ boxShadow: "0 0 6px hsl(0 0% 80% / 0.4)" }} />
+              <div className="w-4 h-4 rounded-full" style={{ background: "#ffffff", boxShadow: "0 0 8px rgba(255,255,255,0.6)" }} />
             ) : (
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-border">
                 <rect x="3" y="7" width="10" height="8" rx="1" stroke="currentColor" strokeWidth="1.2" />

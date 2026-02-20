@@ -15,14 +15,18 @@ const ZOOM_STEP = 0.3;
 const PINCH_DAMPEN = 0.4; // slow down pinch sensitivity
 
 // ── Region accent colours ──────────────────────────────────────────────────────
+// All regions use white at rest, brass when active — unified palette
+const GLOW_WHITE = "#ffffff";
+const GLOW_BRASS = "#d4a843";
+
 const REGION_COLORS: Record<string, string> = {
-  "sanctorium":    "#c9a96e",
-  "parliament":    "#1a3a5c",
-  "deepforge":     "#e8640a",
-  "ocean-reaches": "#0ea5c9",
-  "ashfields":     "#6b7280",
-  "valorica":      "#d4a832",
-  "arborwell":     "#4a6741",
+  "sanctorium":    GLOW_BRASS,
+  "parliament":    GLOW_BRASS,
+  "deepforge":     GLOW_BRASS,
+  "ocean-reaches": GLOW_BRASS,
+  "ashfields":     GLOW_BRASS,
+  "valorica":      GLOW_BRASS,
+  "arborwell":     GLOW_BRASS,
 };
 
 // ── Characters per region ──────────────────────────────────────────────────────
@@ -56,18 +60,18 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
 
 // ── 12 Pantheons ───────────────────────────────────────────────────────────────
 const PANTHEONS = [
-  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", specialty: "Sculpture",          constellation: "Ram (Aries)",              solDeus: "Thema",     lunary: "Gemma Avinas X",           color: "#9b72cf", mapPos: { top: "16%", left: "73%" } },
-  { id: "greenwood",  name: "Greenwood",  quadrant: "Northeast", specialty: "Mapmaking",          constellation: "Bull (Taurus)",            solDeus: "Gable",     lunary: "Kasen Welliver II",         color: "#4a7c59", mapPos: { top: "20%", left: "76%" } },
-  { id: "finnrare",   name: "Finnrare",   quadrant: "Northeast", specialty: "Masonry",            constellation: "Sisters (Gemini)",         solDeus: "Norstrand", lunary: "Reza Centaris XII",         color: "#7a9e9f", mapPos: { top: "25%", left: "76%" } },
-  { id: "mist",       name: "Mist",       quadrant: "Southeast", specialty: "Vocal",              constellation: "Lioness (Leo)",            solDeus: "Santos",    lunary: "Wolf Bode III",             color: "#8eb4c8", mapPos: { top: "29%", left: "74%" } },
-  { id: "lighthouse", name: "Lighthouse", quadrant: "Southeast", specialty: "Language",           constellation: "Spider (Cancer)",          solDeus: "Coster",    lunary: "Bristol Safo IX",           color: "#c9a96e", mapPos: { top: "32%", left: "71%" } },
-  { id: "ember",      name: "Ember",      quadrant: "Southeast", specialty: "Music Instruments",  constellation: "Warrior (Virgo)",          solDeus: "Finley",    lunary: "Siena Blackridge IV",       color: "#e8640a", mapPos: { top: "33%", left: "67%" } },
-  { id: "volcan",     name: "Volcan",     quadrant: "Southwest", specialty: "Breathing",          constellation: "Scales (Libra)",           solDeus: "Shanren",   lunary: "Rizal Moresea II",          color: "#b5451b", mapPos: { top: "31%", left: "63%" } },
-  { id: "rockfall",   name: "Rockfall",   quadrant: "Southwest", specialty: "Stone",              constellation: "Scorpion (Scorpio)",       solDeus: "Morrison",  lunary: "Vicente Penna Car XI",      color: "#7a6a5a", mapPos: { top: "27%", left: "61%" } },
-  { id: "canvas",     name: "Canvas",     quadrant: "Southwest", specialty: "Religious Studies",  constellation: "Archer (Sagittarius)",     solDeus: "Kotani",    lunary: "Nikolai Panaura III",       color: "#c4a35a", mapPos: { top: "22%", left: "61%" } },
-  { id: "ivory",      name: "Ivory",      quadrant: "Northwest", specialty: "Paintings",          constellation: "Fish (Pisces)",            solDeus: "Verlaine",  lunary: "Carmela Faraday VI",        color: "#e8e0c8", mapPos: { top: "17%", left: "63%" } },
-  { id: "hedron",     name: "Hedron",     quadrant: "Northwest", specialty: "Fauna",              constellation: "Goat (Capricorn)",         solDeus: "Mexia",     lunary: "Iris Belmiteza V",          color: "#5a8a7a", mapPos: { top: "14%", left: "66%" } },
-  { id: "lumin",      name: "Lumin",      quadrant: "Northwest", specialty: "Flora",              constellation: "Water Bearer (Aquarius)",  solDeus: "Nolyn",     lunary: "Nova Auburn IV",            color: "#7a9a4a", mapPos: { top: "13%", left: "70%" } },
+  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", specialty: "Sculpture",          constellation: "Ram (Aries)",              solDeus: "Thema",     lunary: "Gemma Avinas X",           color: "#ffffff", mapPos: { top: "16%", left: "73%" } },
+  { id: "greenwood",  name: "Greenwood",  quadrant: "Northeast", specialty: "Mapmaking",          constellation: "Bull (Taurus)",            solDeus: "Gable",     lunary: "Kasen Welliver II",         color: "#ffffff", mapPos: { top: "20%", left: "76%" } },
+  { id: "finnrare",   name: "Finnrare",   quadrant: "Northeast", specialty: "Masonry",            constellation: "Sisters (Gemini)",         solDeus: "Norstrand", lunary: "Reza Centaris XII",         color: "#ffffff", mapPos: { top: "25%", left: "76%" } },
+  { id: "mist",       name: "Mist",       quadrant: "Southeast", specialty: "Vocal",              constellation: "Lioness (Leo)",            solDeus: "Santos",    lunary: "Wolf Bode III",             color: "#ffffff", mapPos: { top: "29%", left: "74%" } },
+  { id: "lighthouse", name: "Lighthouse", quadrant: "Southeast", specialty: "Language",           constellation: "Spider (Cancer)",          solDeus: "Coster",    lunary: "Bristol Safo IX",           color: "#ffffff", mapPos: { top: "32%", left: "71%" } },
+  { id: "ember",      name: "Ember",      quadrant: "Southeast", specialty: "Music Instruments",  constellation: "Warrior (Virgo)",          solDeus: "Finley",    lunary: "Siena Blackridge IV",       color: "#ffffff", mapPos: { top: "33%", left: "67%" } },
+  { id: "volcan",     name: "Volcan",     quadrant: "Southwest", specialty: "Breathing",          constellation: "Scales (Libra)",           solDeus: "Shanren",   lunary: "Rizal Moresea II",          color: "#ffffff", mapPos: { top: "31%", left: "63%" } },
+  { id: "rockfall",   name: "Rockfall",   quadrant: "Southwest", specialty: "Stone",              constellation: "Scorpion (Scorpio)",       solDeus: "Morrison",  lunary: "Vicente Penna Car XI",      color: "#ffffff", mapPos: { top: "27%", left: "61%" } },
+  { id: "canvas",     name: "Canvas",     quadrant: "Southwest", specialty: "Religious Studies",  constellation: "Archer (Sagittarius)",     solDeus: "Kotani",    lunary: "Nikolai Panaura III",       color: "#ffffff", mapPos: { top: "22%", left: "61%" } },
+  { id: "ivory",      name: "Ivory",      quadrant: "Northwest", specialty: "Paintings",          constellation: "Fish (Pisces)",            solDeus: "Verlaine",  lunary: "Carmela Faraday VI",        color: "#ffffff", mapPos: { top: "17%", left: "63%" } },
+  { id: "hedron",     name: "Hedron",     quadrant: "Northwest", specialty: "Fauna",              constellation: "Goat (Capricorn)",         solDeus: "Mexia",     lunary: "Iris Belmiteza V",          color: "#ffffff", mapPos: { top: "14%", left: "66%" } },
+  { id: "lumin",      name: "Lumin",      quadrant: "Northwest", specialty: "Flora",              constellation: "Water Bearer (Aquarius)",  solDeus: "Nolyn",     lunary: "Nova Auburn IV",            color: "#ffffff", mapPos: { top: "13%", left: "70%" } },
 ];
 
 // ── Sub-region lore data ───────────────────────────────────────────────────────
@@ -242,11 +246,11 @@ const PanelContent = ({
                 </p>
                 <div className="flex flex-col gap-2">
                   {PANTHEONS.filter((p) => p.quadrant === q).map((p) => (
-                    <div
-                      key={p.id}
-                      className="pl-2 border-l"
-                      style={{ borderColor: p.color + "60" }}
-                    >
+                      <div
+                        key={p.id}
+                        className="pl-2 border-l"
+                        style={{ borderColor: GLOW_BRASS + "60" }}
+                      >
                       <div className="flex items-center gap-2 mb-0.5">
                         <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
                         <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
@@ -563,13 +567,13 @@ const WorldMap = () => {
             </span>
             <span
               className="font-body text-[9px] tracking-[0.25em] uppercase"
-              style={{ color: arborwellUnlocked ? "#4a6741" : "#6b7280" }}
+              style={{ color: arborwellUnlocked ? GLOW_BRASS : "#6b7280" }}
             >
               {arborwellUnlocked ? "✦ Arborwell: Identity Revealed" : "◎ Arborwell: Unknown"}
             </span>
             <span
               className="font-body text-[9px] tracking-[0.25em] uppercase"
-              style={{ color: valoricaUnlocked ? REGION_COLORS.valorica : "#6b7280" }}
+              style={{ color: valoricaUnlocked ? GLOW_BRASS : "#6b7280" }}
             >
               {valoricaUnlocked ? "✦ Valorica: Accessible" : "◎ Valorica: Hidden"}
             </span>
@@ -622,7 +626,8 @@ const WorldMap = () => {
                   if (!pos) return null;
                   const isSelected = selectedRegion === region.id;
                   const isHovered  = hoveredRegion  === region.id;
-                  const color = REGION_COLORS[region.id] ?? "#c9a96e";
+                  const dotColor = isSelected || isHovered ? GLOW_BRASS : GLOW_WHITE;
+                  const glowColor = GLOW_BRASS;
 
                   return (
                     <div key={region.id} className="absolute z-20" style={pos}>
@@ -650,13 +655,13 @@ const WorldMap = () => {
                         style={{
                           width:  isSelected ? "80%" : isHovered ? "50%" : "0%",
                           height: isSelected ? "80%" : isHovered ? "50%" : "0%",
-                          background: `radial-gradient(circle, ${color}30 0%, ${color}10 40%, transparent 70%)`,
-                          boxShadow: isSelected ? `0 0 40px ${color}25, 0 0 80px ${color}10` : isHovered ? `0 0 20px ${color}15` : "none",
+                          background: `radial-gradient(circle, ${glowColor}30 0%, ${glowColor}10 40%, transparent 70%)`,
+                          boxShadow: isSelected ? `0 0 40px ${glowColor}25, 0 0 80px ${glowColor}10` : isHovered ? `0 0 20px ${glowColor}15` : "none",
                           opacity: isSelected || isHovered ? 1 : 0,
                         }}
                       />
 
-                      {/* Center dot — grows on select */}
+                      {/* Center dot — white at rest, brass on active */}
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                         <motion.span
                           animate={{
@@ -668,8 +673,8 @@ const WorldMap = () => {
                           style={{
                             width:  isSelected ? 12 : 8,
                             height: isSelected ? 12 : 8,
-                            background: color,
-                            boxShadow: isSelected ? `0 0 12px ${color}80` : "none",
+                            background: dotColor,
+                            boxShadow: isSelected ? `0 0 12px ${GLOW_BRASS}80` : `0 0 8px rgba(255,255,255,0.6)`,
                           }}
                         />
                       </div>
@@ -687,7 +692,7 @@ const WorldMap = () => {
                           >
                             <span
                               className="block bg-[#0f0b06]/90 font-display text-[9px] tracking-[0.2em] uppercase px-2 py-1 rounded-sm whitespace-nowrap shadow-lg border"
-                              style={{ color, borderColor: color + "50" }}
+                              style={{ color: GLOW_BRASS, borderColor: GLOW_BRASS + "50" }}
                             >
                               {region.name}
                             </span>
@@ -729,8 +734,8 @@ const WorldMap = () => {
                       style={{
                         width: arborwellFullUnlock && selectedRegion === "arborwell" ? "80%" : "0%",
                         height: arborwellFullUnlock && selectedRegion === "arborwell" ? "80%" : "0%",
-                        background: `radial-gradient(circle, #4a674130 0%, #4a674110 40%, transparent 70%)`,
-                        boxShadow: selectedRegion === "arborwell" ? "0 0 40px #4a674125" : "none",
+                        background: `radial-gradient(circle, ${GLOW_BRASS}30 0%, ${GLOW_BRASS}10 40%, transparent 70%)`,
+                        boxShadow: selectedRegion === "arborwell" ? `0 0 40px ${GLOW_BRASS}25` : "none",
                         opacity: selectedRegion === "arborwell" ? 1 : 0,
                       }}
                     />
@@ -741,7 +746,7 @@ const WorldMap = () => {
                           animate={{ opacity: [0.08, 0.2, 0.08] }}
                           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                           className="w-4 h-4 rounded-full"
-                          style={{ background: "#6b7280", filter: "blur(3px)" }}
+                          style={{ background: GLOW_WHITE, filter: "blur(3px)" }}
                         />
                       </div>
                     )}
@@ -755,9 +760,9 @@ const WorldMap = () => {
                           transition={{ duration: 1.2 }}
                           className="block bg-[#0f0b06]/90 font-display text-[9px] tracking-[0.2em] uppercase px-2 py-1 rounded-sm whitespace-nowrap shadow-lg border"
                           style={{
-                            color: arborwellFullUnlock ? "#4a6741" : "#6b7280",
+                            color: arborwellFullUnlock ? GLOW_BRASS : GLOW_WHITE,
                             borderStyle: arborwellFullUnlock ? "solid" : "dashed",
-                            borderColor: arborwellFullUnlock ? "#4a674150" : "#6b728050",
+                            borderColor: arborwellFullUnlock ? GLOW_BRASS + "50" : "rgba(255,255,255,0.3)",
                           }}
                         >
                           {arborwellFullUnlock ? "Arborwell" : "Unknown"}
@@ -817,15 +822,15 @@ const WorldMap = () => {
                             style={{
                               width: selectedRegion === "valorica" ? 12 : 8,
                               height: selectedRegion === "valorica" ? 12 : 8,
-                              background: REGION_COLORS.valorica,
-                              boxShadow: selectedRegion === "valorica" ? `0 0 12px ${REGION_COLORS.valorica}80` : "none",
+                              background: selectedRegion === "valorica" || hoveredRegion === "valorica" ? GLOW_BRASS : GLOW_WHITE,
+                              boxShadow: selectedRegion === "valorica" ? `0 0 12px ${GLOW_BRASS}80` : `0 0 8px rgba(255,255,255,0.6)`,
                             }}
                           />
                         </div>
                         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 pointer-events-none z-30">
                           <span
                             className="block bg-[#0f0b06]/90 font-display text-[9px] tracking-[0.2em] uppercase px-2 py-1 rounded-sm whitespace-nowrap shadow-lg border"
-                            style={{ color: REGION_COLORS.valorica, borderColor: REGION_COLORS.valorica + "50" }}
+                            style={{ color: GLOW_BRASS, borderColor: GLOW_BRASS + "50" }}
                           >
                             Valorica
                           </span>
@@ -848,7 +853,7 @@ const WorldMap = () => {
                         animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
                         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                         className="w-full h-full rounded-full"
-                        style={{ background: REGION_COLORS.sanctorium, boxShadow: `0 0 10px ${REGION_COLORS.sanctorium}80` }}
+                        style={{ background: GLOW_BRASS, boxShadow: `0 0 10px ${GLOW_BRASS}80` }}
                       />
                     </button>
                   </div>
@@ -867,7 +872,7 @@ const WorldMap = () => {
                         animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
                         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                         className="w-full h-full rounded-full"
-                        style={{ background: REGION_COLORS.parliament, boxShadow: `0 0 10px ${REGION_COLORS.parliament}80` }}
+                        style={{ background: GLOW_BRASS, boxShadow: `0 0 10px ${GLOW_BRASS}80` }}
                       />
                     </button>
                   </div>
@@ -882,10 +887,10 @@ const WorldMap = () => {
                       className="relative w-2 h-2 cursor-pointer group"
                       aria-label={`Pantheon ${p.name}`}
                     >
-                      <div className="w-full h-full rounded-full" style={{ background: p.color, boxShadow: `0 0 6px ${p.color}60` }} />
+                      <div className="w-full h-full rounded-full transition-all duration-200 group-hover:scale-125" style={{ background: GLOW_WHITE, boxShadow: `0 0 8px rgba(255,255,255,0.6)` }} />
                       {/* Name on hover */}
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity z-30">
-                        <span className="block bg-[#0f0b06]/90 font-display text-[7px] tracking-[0.15em] uppercase px-1.5 py-0.5 rounded-sm whitespace-nowrap" style={{ color: p.color }}>
+                        <span className="block bg-[#0f0b06]/90 font-display text-[7px] tracking-[0.15em] uppercase px-1.5 py-0.5 rounded-sm whitespace-nowrap" style={{ color: GLOW_BRASS }}>
                           {p.name}
                         </span>
                       </div>
@@ -1017,7 +1022,7 @@ const WorldMap = () => {
                 >
                   <span
                     className="w-2 h-2 rounded-full flex-shrink-0"
-                    style={{ background: color }}
+                    style={{ background: isActive ? GLOW_BRASS : GLOW_WHITE, boxShadow: isActive ? `0 0 8px rgba(212,168,67,0.6)` : `0 0 6px rgba(255,255,255,0.4)` }}
                   />
                   {r.name}
                 </button>

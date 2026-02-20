@@ -103,7 +103,7 @@ const MONSTERS: MonsterDef[] = [
     key: "unmarked",
     scrollId: 11, // Dead Corridors on Bestiary page
     name: "The Unmarked",
-    accentColor: "#b8960c",
+    accentColor: "#ffffff",
     origin: "A soul too fractured to pass through Apotheosis. The body did not receive the message.",
     lore: "Sanctorium records show 214 incomplete Apotheosis events in the last century. Parliament records show zero. One of these is lying.",
     lockedHint: "Something waits in the dead world.",
@@ -114,7 +114,7 @@ const MONSTERS: MonsterDef[] = [
     key: "silencer",
     scrollId: 7, // Forbidden Transmission on World page
     name: "The Silencer",
-    accentColor: "#6b6b6b",
+    accentColor: "#ffffff",
     origin: "Selected young. Trained in isolation. Branded on the back of the neck so they cannot be identified in a crowd.",
     lore: "There are 7 known gaps in the official Panterra Timeline between the Great War and the present day. Historians who investigated 4 of them are no longer practicing. The other 3 investigators retired early, citing health reasons, within the same calendar month.",
     lockedHint: "The timeline hides more than it reveals.",
@@ -125,7 +125,7 @@ const MONSTERS: MonsterDef[] = [
     key: "collector",
     scrollId: 10, // Vial Substitution on Map page (not yet built)
     name: "The Collector",
-    accentColor: "#2d5a3d",
+    accentColor: "#c97820",
     origin: "Synthesized Intelligence given a single directive and enough time to optimize for it perfectly. Its directive is harvest.",
     lore: "The official record states that SI development was halted after the Great War by unanimous Parliament decree. The decree is dated six years after the first Collector was deployed.",
     lockedHint: "Something harvests inside the ceremony.",
@@ -136,7 +136,7 @@ const MONSTERS: MonsterDef[] = [
     key: "unmasked",
     scrollId: 9, // The Unmasked on Characters page
     name: "The Unmasked",
-    accentColor: "#8b8b9b",
+    accentColor: "#ffffff",
     origin: "The logical end of a society where a semper scar is the only proof of existence.",
     lore: "The semper scar is Panterra's only proof of identity. It can be replicated. Sanctorium has known this since the third year of the New Republic. The record of that discovery was sealed the same afternoon.",
     lockedHint: "Not everyone wearing a face is the person behind it.",
@@ -147,7 +147,7 @@ const MONSTERS: MonsterDef[] = [
     key: "lost",
     scrollId: 8, // Semper Review on Timeline page (not yet built)
     name: "The Lost",
-    accentColor: "#c8d8e8",
+    accentColor: "#ffffff",
     origin: "Someone who crossed the boundary of the mapped world without knowing where they were going. Not dead. Not alive. Just displaced.",
     lore: "The bio-warfare wasteland beyond Panterra's borders has been uninhabitable since the Great War. Expedition records from years 3, 7, and 12 of the New Republic describe figures moving in the dead zones. The expeditions were classified. The figures were not mentioned in the public summary.",
     lockedHint: "The record knows more than you do.",
@@ -335,8 +335,8 @@ const UnnamedCard = ({ allFiveUnlocked }: { allFiveUnlocked: boolean }) => {
       >
         <style>{`
           @keyframes unnamed-pulse {
-            0%, 100% { border-color: hsl(38 8% 16%); }
-            50% { border-color: hsl(38 20% 22%); }
+            0%, 100% { border-color: hsl(38 8% 16%); box-shadow: 0 0 8px rgba(139,26,26,0.1); }
+            50% { border-color: hsl(0 30% 22%); box-shadow: 0 0 12px rgba(139,26,26,0.2); }
           }
         `}</style>
 

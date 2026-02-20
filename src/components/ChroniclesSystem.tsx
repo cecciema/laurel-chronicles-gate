@@ -432,9 +432,9 @@ export const HiddenOrb = ({ id, className }: { id: number; className?: string })
     >
       <div className={cn(
         "absolute inset-0 rounded-full blur-[2px]",
-        isFound ? "bg-amber-900/40" : "bg-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.8)]"
-      )} />
-      <div className={cn("absolute inset-0 rounded-full", isFound ? "bg-amber-950/60" : "bg-amber-400")} />
+        isFound ? "bg-amber-900/40" : "shadow-[0_0_15px_rgba(255,255,255,0.6)]"
+      )} style={{ background: isFound ? undefined : "#ffffff" }} />
+      <div className={cn("absolute inset-0 rounded-full", isFound ? "bg-amber-950/60" : "")} style={{ background: isFound ? undefined : "#ffffff" }} />
       <span className="sr-only">Hidden Orb</span>
     </motion.button>
   );
