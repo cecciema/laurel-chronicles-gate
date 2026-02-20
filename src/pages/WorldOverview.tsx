@@ -17,7 +17,7 @@ const socialTiers = [
   {
     tier: "The Leaders",
     level: "Apex Authority",
-    desc: "The twelve Sol Deus of Sanctorium and the elected Premiere of Parliament. They do not age visibly. They do not explain themselves. Their authority is total and their succession is sacred. Most citizens will never stand in the same room as one of them.",
+    desc: "The twelve Sol Deos of Sanctorium and the elected Premiere of Parliament. They do not age visibly. They do not explain themselves. Their authority is total and their succession is sacred. Most citizens will never stand in the same room as one of them.",
   },
   {
     tier: "The Citizens",
