@@ -385,6 +385,7 @@ const TheUnmasked = () => {
           setPhase("won");
           setBestiaryUnlocked(true);
           if (!alreadyWon) awardScroll(UNMASKED_SCROLL_ID);
+          localStorage.setItem('unmasked-won', 'true');
         } else {
           setPhase("round-summary");
           setTimeout(() => {

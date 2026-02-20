@@ -409,10 +409,10 @@ const Index = () => {
               <ScrollReveal delay={0.2}>
                 <p className="mt-6 font-narrative text-[1.0625rem] sm:text-lg text-muted-foreground leading-[1.8] max-w-2xl mx-auto w-full">
                   The republic was built on steam and iron, on the bones of the conquered
-                  and the dreams of the powerful. For three centuries, the Voss dynasty
+                  and the dreams of the powerful. For three centuries, the Republic
                   has maintained order through a machine of control — military, political,
-                  and technological. But the machine is breaking. The Lower Wards rumble
-                  with revolution. The aristocracy plays its lethal games. And deep
+                  and technological. But the machine is breaking. The governed districts rumble
+                  with unrest. The powerful play their lethal games. And deep
                   beneath the capital, the fire that powers everything grows restless.
                 </p>
               </ScrollReveal>
@@ -518,6 +518,11 @@ const ResetProgressButton = () => {
       "deepforge-survival-unlocked",
       "convoy-message-unlocked",
       "arborwell-hint-unlocked",
+      "forbidden-transmission-won",
+      "dead-corridors-won",
+      "unmasked-won",
+      "semper-review-won",
+      "vial-substitution-won",
     ];
     keysToRemove.forEach((key) => localStorage.removeItem(key));
     setCleared(true);
