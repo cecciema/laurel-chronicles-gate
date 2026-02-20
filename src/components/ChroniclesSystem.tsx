@@ -1137,7 +1137,11 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: 
                     className="font-narrative italic text-[0.8125rem]"
                     style={{ color: "hsl(38 50% 50%)" }}
                   >
-                    Something has been unlocked.
+                    {result === "sanctorium" && "Your devotion has been recorded in the Sanctorium archive."}
+                    {result === "parliament" && "Your profile has been flagged for Parliamentary consideration."}
+                    {result === "deepforge" && "Your name has been added to the community register."}
+                    {result === "convoy" && "A Convoy frequency has been opened for you."}
+                    {result === "unseen" && "No record of you exists. This is not an accident."}
                   </motion.p>
                 </motion.div>
               )}
