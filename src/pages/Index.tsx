@@ -235,7 +235,7 @@ const Index = () => {
             transition={{ duration: 1 }}
           >
             <p className="mt-8 font-narrative text-[1.0625rem] sm:text-xl text-foreground/70 italic max-w-lg mx-auto leading-[1.8] px-5 sm:px-0">
-              "You were given everything by the Republic. A life, a purpose, an Apotheosis — and yet, here you are."
+              "The Republic has no secrets. The records are complete. The ceremonies are sacred. You were not supposed to find this."
             </p>
           </motion.div>
 
