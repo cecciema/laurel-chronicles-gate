@@ -341,7 +341,8 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
   const [state, setState] = useState<GameState>(() => {
     try {
       const saved = localStorage.getItem("chronicles_game_state_v2");
-      if (saved) return JSON.parse(saved);
+      if (!saved) return { foundScrolls: [], questCompleted: false, questArchetype: null, riddlesSolved: 0, valoricaRevealed: false, activeModal: null, activeScrollId: null };
+      return JSON.parse(saved);
     } catch {}
     return {
       foundScrolls: [],

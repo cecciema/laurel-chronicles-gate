@@ -463,8 +463,8 @@ const ResetProgressButton = () => {
     sessionStorage.clear();
     setCleared(true);
     setTimeout(() => {
-      window.location.href = "/";
-    }, 800);
+      window.location.replace("/");
+    }, 600);
   };
 
   return (
