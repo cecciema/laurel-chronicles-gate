@@ -88,7 +88,7 @@ const SCROLLS = [
     title: "The Optimized Yield",
     hint: "Complete a game to unlock",
     text: "The soul mass collected at peak Apotheosis events is 40 percent higher than at standard events. Someone is timing the ceremonies. Someone is optimizing the yield.",
-    source: "Win Vial Substitution — Map page (coming soon)",
+    source: "Win Vial Substitution — Map page",
     type: "earned" as const,
   },
   {
