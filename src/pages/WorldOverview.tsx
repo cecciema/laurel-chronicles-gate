@@ -111,7 +111,7 @@ const WorldOverview = () => {
       {/* Intro */}
       <section className="py-16 sm:py-20 px-5 sm:px-4">
         <div className="max-w-4xl mx-auto w-full">
-          <div className="space-y-6 font-narrative text-[1.0625rem] sm:text-base text-foreground/80 leading-[1.8] relative">
+          <div className="space-y-6 font-narrative text-[1.0625rem] sm:text-lg text-muted-foreground leading-[1.8] relative">
             <p>
               Beyond Panterra's borders, the world is dead. Bio-warfare consumed every other continent during the Great War, leaving behind a black sea laced with toxins and a wasteland no living thing has crossed in generations. The satellites above maintain a protective boundary against ultraviolet radiation. Without them, Panterra would follow. Everyone knows this. It is the first thing children are taught.
             </p>
