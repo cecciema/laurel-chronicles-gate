@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
+import { VialSubstitutionTrigger } from "@/components/VialSubstitution";
 import { characterImageMap } from "@/data/guide-images";
 import { useIsMobile } from "@/hooks/use-mobile";
 import panterraMap from "@/assets/panterra-map.jpg";
@@ -1108,6 +1109,10 @@ const WorldMap = () => {
         )}
       </AnimatePresence>
 
+      {/* Vial Substitution game trigger */}
+      <div className="px-4">
+        <VialSubstitutionTrigger />
+      </div>
 
     </Layout>
   );
