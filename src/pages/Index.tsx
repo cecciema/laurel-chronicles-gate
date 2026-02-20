@@ -443,7 +443,7 @@ const Index = () => {
 
           {/* Navigation Cards */}
           <section className="py-16 px-4 bg-secondary/30">
-            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { to: "/world", title: "World Overview", desc: "Explore the empire's territories, culture, and power structures" },
                 { to: "/characters", title: "Character Database", desc: "Discover the key figures shaping the fate of the world" },
