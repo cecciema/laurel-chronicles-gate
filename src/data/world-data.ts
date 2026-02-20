@@ -60,7 +60,7 @@ export interface WorldRegion {
 export const characters: Character[] = [
   {
     id: "remsays",
-    name: "Chief Magister Remsays",
+    name: "Remsays",
     title: "Chief Magister",
     position: "Paragon Command",
     faction: "The Republic Parliament",
@@ -88,7 +88,7 @@ export const characters: Character[] = [
   },
   {
     id: "jude",
-    name: "Premiere Jude",
+    name: "Jude",
     title: "Premiere",
     position: "Republic of Panterra",
     faction: "The Republic Parliament",
@@ -186,7 +186,7 @@ export const characters: Character[] = [
   },
   {
     id: "thema",
-    name: "Sol Deus Thema",
+    name: "Thema",
     title: "Sol Deus",
     position: "Pantheon Prisma",
     faction: "Pantheon Sol Deus",
@@ -228,7 +228,7 @@ export const characters: Character[] = [
   },
   {
     id: "culver",
-    name: "Culver Gretell",
+    name: "Culver",
     title: "Engineer",
     position: "Magistry of Ocean",
     faction: "Magistry of Ocean",
@@ -290,7 +290,7 @@ export const characters: Character[] = [
 export const guideCharacters: GuideCharacter[] = [
   {
     id: "remsays",
-    name: "Chief Magister Remsays",
+    name: "Remsays",
     title: "Chief Magister",
     magistry: "Paragon Command",
     philosophy: "Survival justifies sacrifice. Every great structure is built on what had to be given up.",
@@ -316,7 +316,7 @@ export const guideCharacters: GuideCharacter[] = [
   },
   {
     id: "jude",
-    name: "Premiere Jude",
+    name: "Jude",
     title: "Premiere",
     magistry: "Parliament",
     philosophy: "Order is not a cage. It is the only thing keeping the world from collapse.",
@@ -411,7 +411,7 @@ export const guideCharacters: GuideCharacter[] = [
   },
   {
     id: "thema",
-    name: "Sol Deus Thema",
+    name: "Thema",
     title: "Sol Deus",
     magistry: "Sol Deus",
     philosophy: "I have watched civilizations decide their own fates. The fire remembers what history forgets.",
@@ -450,7 +450,7 @@ export const guideCharacters: GuideCharacter[] = [
   },
   {
     id: "culver",
-    name: "Culver Gretell",
+    name: "Culver",
     title: "Engineer",
     magistry: "Magistry of Ocean",
     philosophy: "Truth lives where the tide meets the unknown shore.",
