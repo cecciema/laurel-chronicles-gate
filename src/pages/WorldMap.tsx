@@ -1160,42 +1160,6 @@ const WorldMap = () => {
 
       {/* Vial Substitution game section */}
       <div className="px-4">
-        {/* Steampunk divider */}
-        <div className="max-w-2xl mx-auto mb-12 mt-16 flex items-center gap-4">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-          <div className="flex items-center gap-2 px-3">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-primary/60">
-              <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1" />
-              <circle cx="10" cy="10" r="4" stroke="currentColor" strokeWidth="1" />
-              <path d="M10 2v4M10 14v4M2 10h4M14 10h4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-            </svg>
-            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-          </div>
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        </div>
-
-        {/* Title */}
-        <div className="max-w-2xl mx-auto text-center mb-8">
-          <motion.h2
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-display text-2xl sm:text-3xl tracking-[0.12em] text-primary"
-          >
-            The Vial Substitution
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
-            className="mt-3 font-narrative italic text-muted-foreground text-[0.9375rem] leading-[1.8]"
-          >
-            Swap the poisoned vials before the ceremony begins. Avoid the Devotees.
-          </motion.p>
-        </div>
-
         <VialSubstitutionGame onClose={() => {}} />
       </div>
     </Layout>
