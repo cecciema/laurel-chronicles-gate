@@ -9,9 +9,10 @@ import panterraMap from "@/assets/panterra-map.jpg";
 import { Plus, Minus, RotateCcw } from "lucide-react";
 
 // ── Constants ──────────────────────────────────────────────────────────────────
-const MIN_SCALE = 1;
-const MAX_SCALE = 4;
-const ZOOM_STEP = 0.4;
+const MIN_SCALE = 0.5;
+const MAX_SCALE = 3.0;
+const ZOOM_STEP = 0.3;
+const PINCH_DAMPEN = 0.4; // slow down pinch sensitivity
 
 // ── Region accent colours ──────────────────────────────────────────────────────
 const REGION_COLORS: Record<string, string> = {
@@ -324,13 +325,13 @@ const WorldMap = () => {
     el.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
   }, []);
 
-  // ── Constrain so map always fills container (no black gaps) ──────────────────
+  // ── Constrain panning ──────────────────────────────────────────────────────
   const constrain = useCallback((nextTx: number, nextTy: number, nextScale: number) => {
     const el = containerRef.current;
     if (!el) return { tx: nextTx, ty: nextTy };
     const { width: cw, height: ch } = el.getBoundingClientRect();
-    const maxX = (cw * nextScale - cw) / 2;
-    const maxY = (ch * nextScale - ch) / 2;
+    const maxX = Math.max((cw * nextScale - cw) / 2, 0);
+    const maxY = Math.max((ch * nextScale - ch) / 2, 0);
     return {
       tx: clamp(nextTx, -maxX, maxX),
       ty: clamp(nextTy, -maxY, maxY),
@@ -480,7 +481,8 @@ const WorldMap = () => {
         const mid    = { x: (a.clientX + b.clientX) / 2, y: (a.clientY + b.clientY) / 2 };
         const ratio  = dist / lastPinchDist.current;
         const rect   = el.getBoundingClientRect();
-        zoomToward((scaleRef.current * ratio) - scaleRef.current, mid.x - rect.left, mid.y - rect.top);
+        const rawDelta = (scaleRef.current * ratio) - scaleRef.current;
+        zoomToward(rawDelta * PINCH_DAMPEN, mid.x - rect.left, mid.y - rect.top);
         lastPinchDist.current = dist;
         lastPinchMid.current  = mid;
       }
@@ -581,10 +583,12 @@ const WorldMap = () => {
             {/* === MAP CONTAINER === */}
             <div
               ref={containerRef}
-              className="flex-1 relative min-w-0 select-none overflow-hidden rounded"
-              style={{ minHeight: isMobile ? 400 : 600, cursor: "grab" }}
+              className="flex-1 relative min-w-0 select-none overflow-hidden rounded bg-black"
+              style={{ cursor: "grab" }}
               onMouseDown={onContainerMouseDown}
             >
+              {/* Aspect-ratio lock: 16:10 approx (map natural ratio) */}
+              <div style={{ paddingBottom: "62.5%", position: "relative" }}>
               {/* ── Zoomable inner wrapper — transform written directly to DOM ── */}
               <div
                 ref={mapInnerRef}
@@ -600,7 +604,7 @@ const WorldMap = () => {
                 <img
                   src={panterraMap}
                   alt="Map of Panterra — The Known World"
-                  className="w-full h-full object-cover block"
+                  className="w-full h-full object-contain block"
                   draggable={false}
                 />
 
@@ -622,6 +626,7 @@ const WorldMap = () => {
 
                   return (
                     <div key={region.id} className="absolute z-20" style={pos}>
+                      {/* Clickable invisible area */}
                       <div
                         role="button"
                         tabIndex={0}
@@ -636,21 +641,36 @@ const WorldMap = () => {
                         onMouseEnter={() => setHoveredRegion(region.id)}
                         onMouseLeave={() => setHoveredRegion(null)}
                         onMouseDown={(e) => e.stopPropagation()}
-                        className="absolute inset-0 cursor-pointer rounded-sm transition-all duration-300"
+                        className="absolute inset-0 cursor-pointer"
+                      />
+
+                      {/* Radial glow (replaces rectangle) */}
+                      <div
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none rounded-full transition-all duration-700"
                         style={{
-                          border:     `2px solid ${isSelected ? color : isHovered ? color + "99" : "transparent"}`,
-                          background: isSelected ? color + "30" : isHovered ? color + "15" : "transparent",
-                          boxShadow:  isSelected ? `0 0 25px ${color}40` : "none",
+                          width:  isSelected ? "80%" : isHovered ? "50%" : "0%",
+                          height: isSelected ? "80%" : isHovered ? "50%" : "0%",
+                          background: `radial-gradient(circle, ${color}30 0%, ${color}10 40%, transparent 70%)`,
+                          boxShadow: isSelected ? `0 0 40px ${color}25, 0 0 80px ${color}10` : isHovered ? `0 0 20px ${color}15` : "none",
+                          opacity: isSelected || isHovered ? 1 : 0,
                         }}
                       />
 
-                      {/* Pulse dot */}
+                      {/* Center dot — grows on select */}
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                         <motion.span
-                          animate={{ scale: [1, 1.6, 1], opacity: [0.7, 0.2, 0.7] }}
+                          animate={{
+                            scale: isSelected ? [1.2, 1.6, 1.2] : [1, 1.6, 1],
+                            opacity: [0.7, 0.2, 0.7],
+                          }}
                           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                          className="block w-2 h-2 rounded-full"
-                          style={{ background: color }}
+                          className="block rounded-full transition-all duration-300"
+                          style={{
+                            width:  isSelected ? 12 : 8,
+                            height: isSelected ? 12 : 8,
+                            background: color,
+                            boxShadow: isSelected ? `0 0 12px ${color}80` : "none",
+                          }}
                         />
                       </div>
 
@@ -703,13 +723,15 @@ const WorldMap = () => {
                     onMouseDown={(e) => e.stopPropagation()}
                     className="relative w-full h-full cursor-pointer"
                   >
+                    {/* Radial glow instead of rectangle */}
                     <div
-                      className="absolute inset-0 rounded-sm border transition-all duration-700"
+                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none rounded-full transition-all duration-700"
                       style={{
-                        borderStyle: arborwellFullUnlock ? "solid" : "dashed",
-                        borderColor: arborwellFullUnlock ? "#4a674180" : "#6b728040",
-                        background: arborwellFullUnlock ? "#4a674118" : "#6b728008",
-                        boxShadow: arborwellFullUnlock ? "0 0 20px #4a674130" : "none",
+                        width: arborwellFullUnlock && selectedRegion === "arborwell" ? "80%" : "0%",
+                        height: arborwellFullUnlock && selectedRegion === "arborwell" ? "80%" : "0%",
+                        background: `radial-gradient(circle, #4a674130 0%, #4a674110 40%, transparent 70%)`,
+                        boxShadow: selectedRegion === "arborwell" ? "0 0 40px #4a674125" : "none",
+                        opacity: selectedRegion === "arborwell" ? 1 : 0,
                       }}
                     />
                     {/* Dim glow when locked */}
@@ -771,19 +793,33 @@ const WorldMap = () => {
                         onMouseEnter={() => setHoveredRegion("valorica")}
                         onMouseLeave={() => setHoveredRegion(null)}
                         onMouseDown={(e) => e.stopPropagation()}
-                        className="relative w-full h-full cursor-pointer rounded-sm transition-all duration-300"
-                        style={{
-                          border:     `2px solid ${selectedRegion === "valorica" ? REGION_COLORS.valorica : hoveredRegion === "valorica" ? REGION_COLORS.valorica + "99" : REGION_COLORS.valorica + "60"}`,
-                          background: selectedRegion === "valorica" ? REGION_COLORS.valorica + "30" : hoveredRegion === "valorica" ? REGION_COLORS.valorica + "15" : REGION_COLORS.valorica + "08",
-                          boxShadow:  selectedRegion === "valorica" ? `0 0 25px ${REGION_COLORS.valorica}40` : "none",
-                        }}
+                        className="relative w-full h-full cursor-pointer"
                       >
+                        {/* Radial glow */}
+                        <div
+                          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none rounded-full transition-all duration-700"
+                          style={{
+                            width:  selectedRegion === "valorica" ? "80%" : hoveredRegion === "valorica" ? "50%" : "0%",
+                            height: selectedRegion === "valorica" ? "80%" : hoveredRegion === "valorica" ? "50%" : "0%",
+                            background: `radial-gradient(circle, ${REGION_COLORS.valorica}30 0%, ${REGION_COLORS.valorica}10 40%, transparent 70%)`,
+                            boxShadow: selectedRegion === "valorica" ? `0 0 40px ${REGION_COLORS.valorica}25` : "none",
+                            opacity: selectedRegion === "valorica" || hoveredRegion === "valorica" ? 1 : 0,
+                          }}
+                        />
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                           <motion.span
-                            animate={{ scale: [1, 1.6, 1], opacity: [0.7, 0.2, 0.7] }}
+                            animate={{
+                              scale: selectedRegion === "valorica" ? [1.2, 1.6, 1.2] : [1, 1.6, 1],
+                              opacity: [0.7, 0.2, 0.7],
+                            }}
                             transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                            className="block w-2 h-2 rounded-full"
-                            style={{ background: REGION_COLORS.valorica }}
+                            className="block rounded-full transition-all duration-300"
+                            style={{
+                              width: selectedRegion === "valorica" ? 12 : 8,
+                              height: selectedRegion === "valorica" ? 12 : 8,
+                              background: REGION_COLORS.valorica,
+                              boxShadow: selectedRegion === "valorica" ? `0 0 12px ${REGION_COLORS.valorica}80` : "none",
+                            }}
                           />
                         </div>
                         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 pointer-events-none z-30">
@@ -858,6 +894,7 @@ const WorldMap = () => {
                 ))}
 
               </div>{/* end zoomable wrapper */}
+              </div>{/* end aspect-ratio lock */}
 
               {/* Unseen marker — outside zoomable, inside map container */}
               {typeof window !== "undefined" && localStorage.getItem("arborwell-hint-unlocked") === "true" && (
