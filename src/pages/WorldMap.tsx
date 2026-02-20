@@ -860,107 +860,17 @@ const WorldMap = () => {
 
             </div>{/* end map container */}
 
-          {/* === BOTTOM PANEL (replaces side + mobile panels) === */}
-          <AnimatePresence>
-            {selectedData && (
-              <motion.div
-                key={selectedData.id + "-bottom"}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 30 }}
-                transition={{ duration: 0.3 }}
-                className="relative w-full bg-[#0a0804] border-t-2 overflow-hidden"
-                style={{
-                  borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "60",
-                  aspectRatio: isMobile ? undefined : "16 / 10",
-                  maxHeight: isMobile ? "65vh" : undefined,
-                }}
-              >
-                {/* Close button — fixed top-right */}
-                <button
-                  onClick={closeRegion}
-                  className="absolute top-3 right-3 z-10 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors hover:opacity-80"
-                  style={{ color: GLOW_BRASS }}
-                  aria-label="Close panel"
-                >
-                  <span className="text-lg font-display">✕</span>
-                </button>
-
-                {/* Scrollable interior */}
-                <div className="h-full overflow-y-auto map-panel-scroll p-5 pr-14">
-                  <p className="font-body text-[9px] tracking-[0.25em] uppercase" style={{ color: REGION_COLORS[selectedData.id] ?? GLOW_BRASS, fontVariant: "small-caps" }}>
-                    {selectedData.faction}
-                  </p>
-                  <h3 className="font-display text-xl tracking-wide text-foreground leading-tight mt-1">{selectedData.name}</h3>
-                  <div className="h-px mt-3 mb-3" style={{ background: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "40" }} />
-                  <p className="font-narrative italic text-[0.9375rem] text-foreground/90 leading-[1.8]">{selectedData.description}</p>
-
-                  <div className="flex flex-wrap gap-1.5 mt-4">
-                    {selectedData.features.map((f) => (
-                      <span key={f} className="bg-secondary/80 text-foreground/80 text-[9px] tracking-wider font-body px-2 py-1 border" style={{ borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "30" }}>{f}</span>
-                    ))}
-                  </div>
-
-                  {(() => {
-                    const characters = REGION_CHARACTERS[selectedData.id] ?? [];
-                    if (!characters.length) return null;
-                    return (
-                      <div className="mt-4">
-                        <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-2">Characters Here</p>
-                        <div className="flex flex-col gap-2">
-                          {characters.map((char) => (
-                            <div key={char.name} className="flex items-center gap-3">
-                              <img src={characterImageMap[char.image]} alt={char.name} className="w-8 h-8 rounded-full object-cover border" style={{ borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "60" }} />
-                              <div>
-                                <p className="font-display text-[11px] tracking-wide text-foreground leading-tight">{char.name}</p>
-                                <p className="font-body text-[9px] text-muted-foreground tracking-wide">{char.title}</p>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    );
-                  })()}
-
-                  {selectedData.id === "sanctorium" && (
-                    <div className="mt-4">
-                      <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-3">The 12 Pantheons</p>
-                      {["Northeast", "Southeast", "Southwest", "Northwest"].map((q) => (
-                        <div key={q} className="mb-4">
-                          <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-2" style={{ color: GLOW_BRASS }}>{q}</p>
-                          <div className="flex flex-col gap-2">
-                            {PANTHEONS.filter((p) => p.quadrant === q).map((p) => (
-                              <div key={p.id} className="pl-2 border-l" style={{ borderColor: GLOW_BRASS + "60" }}>
-                                <div className="flex items-center gap-2 mb-0.5">
-                                  <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
-                                  <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
-                                </div>
-                                <p className="font-body text-[8px] text-muted-foreground">{p.specialty}</p>
-                                <p className="font-body text-[8px] text-muted-foreground/70">Sol Deus: {p.solDeus}</p>
-                                <p className="font-body text-[8px] text-muted-foreground/70">Lunary: {p.lunary}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* === REGION LEGEND BUTTONS === */}
-          <div className="mt-5">
-            <div className="flex flex-wrap gap-2 justify-center">
+          {/* === REGION NAV BAR — always visible below map === */}
+          <div className="mt-3">
+            <div className="flex flex-nowrap gap-2 justify-center overflow-x-auto pb-1 scrollbar-hide">
               {SUB_REGIONS.filter((r) => r.id !== "valorica" && (r.id !== "arborwell" || arborwellFullUnlock)).map((r) => {
-                const color = REGION_COLORS[r.id] ?? "#c9a96e";
+                const color = REGION_COLORS[r.id] ?? GLOW_BRASS;
                 const isActive = selectedRegion === r.id;
                 return (
                   <button
                     key={r.id}
                     onClick={() => toggleRegion(r.id)}
-                    className="flex items-center gap-2 px-3 py-2 border transition-all font-body text-[10px] tracking-[0.2em] uppercase min-h-[44px]"
+                    className="flex items-center gap-2 px-3 py-2 border transition-all font-body text-[10px] tracking-[0.2em] uppercase min-h-[44px] whitespace-nowrap flex-shrink-0"
                     style={{
                       borderColor: isActive ? color : "rgba(255,255,255,0.1)",
                       color:       isActive ? color : "rgba(255,255,255,0.4)",
@@ -977,6 +887,170 @@ const WorldMap = () => {
               })}
             </div>
           </div>
+
+          {/* === BOTTOM PANEL — opens below nav bar on region click === */}
+          <AnimatePresence>
+            {selectedData && (
+              <motion.div
+                key={selectedData.id + "-bottom"}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 30 }}
+                transition={{ duration: 0.3 }}
+                className="relative w-full bg-[#0a0804] border-t-2 overflow-hidden"
+                style={{
+                  borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "60",
+                  maxHeight: isMobile ? "65vh" : "50vh",
+                }}
+              >
+                {/* Close button — sticky top-right */}
+                <button
+                  onClick={closeRegion}
+                  className="absolute top-3 right-3 z-10 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors hover:opacity-80"
+                  style={{ color: GLOW_BRASS }}
+                  aria-label="Close panel"
+                >
+                  <span className="text-lg font-display">✕</span>
+                </button>
+
+                {/* Scrollable interior — entire panel scrolls as one unit */}
+                <div className="h-full overflow-y-auto map-panel-scroll p-5 pr-14">
+                  {isMobile ? (
+                    /* ── MOBILE: single column ── */
+                    <>
+                      <p className="font-body text-[9px] tracking-[0.25em] uppercase" style={{ color: REGION_COLORS[selectedData.id] ?? GLOW_BRASS, fontVariant: "small-caps" }}>
+                        {selectedData.faction}
+                      </p>
+                      <h3 className="font-display text-xl tracking-wide text-foreground leading-tight mt-1">{selectedData.name}</h3>
+                      <div className="h-px mt-3 mb-3" style={{ background: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "40" }} />
+                      <p className="font-narrative italic text-[0.9375rem] text-foreground/90 leading-[1.8]">{selectedData.description}</p>
+
+                      <div className="flex flex-wrap gap-1.5 mt-4">
+                        {selectedData.features.map((f) => (
+                          <span key={f} className="bg-secondary/80 text-foreground/80 text-[9px] tracking-wider font-body px-2 py-1 border" style={{ borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "30" }}>{f}</span>
+                        ))}
+                      </div>
+
+                      {(() => {
+                        const characters = REGION_CHARACTERS[selectedData.id] ?? [];
+                        if (!characters.length) return null;
+                        return (
+                          <div className="mt-4">
+                            <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-2">Characters Here</p>
+                            <div className="flex flex-col gap-2">
+                              {characters.map((char) => (
+                                <div key={char.name} className="flex items-center gap-3">
+                                  <img src={characterImageMap[char.image]} alt={char.name} className="w-8 h-8 rounded-full object-cover border" style={{ borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "60" }} />
+                                  <div>
+                                    <p className="font-display text-[11px] tracking-wide text-foreground leading-tight">{char.name}</p>
+                                    <p className="font-body text-[9px] text-muted-foreground tracking-wide">{char.title}</p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })()}
+
+                      {selectedData.id === "sanctorium" && (
+                        <div className="mt-4">
+                          <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-3">The 12 Pantheons</p>
+                          {["Northeast", "Southeast", "Southwest", "Northwest"].map((q) => (
+                            <div key={q} className="mb-4">
+                              <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-2" style={{ color: GLOW_BRASS }}>{q}</p>
+                              <div className="flex flex-col gap-2">
+                                {PANTHEONS.filter((p) => p.quadrant === q).map((p) => (
+                                  <div key={p.id} className="pl-2 border-l" style={{ borderColor: GLOW_BRASS + "60" }}>
+                                    <div className="flex items-center gap-2 mb-0.5">
+                                      <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
+                                      <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
+                                    </div>
+                                    <p className="font-body text-[8px] text-muted-foreground">{p.specialty}</p>
+                                    <p className="font-body text-[8px] text-muted-foreground/70">Sol Deus: {p.solDeus}</p>
+                                    <p className="font-body text-[8px] text-muted-foreground/70">Lunary: {p.lunary}</p>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    /* ── DESKTOP: two columns with brass divider ── */
+                    <div className="flex gap-0 min-h-0">
+                      {/* Left column — tag, name, description */}
+                      <div className="w-1/2 pr-5">
+                        <p className="font-body text-[9px] tracking-[0.25em] uppercase" style={{ color: REGION_COLORS[selectedData.id] ?? GLOW_BRASS, fontVariant: "small-caps" }}>
+                          {selectedData.faction}
+                        </p>
+                        <h3 className="font-display text-xl tracking-wide text-foreground leading-tight mt-1">{selectedData.name}</h3>
+                        <div className="h-px mt-3 mb-3" style={{ background: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "40" }} />
+                        <p className="font-narrative italic text-[0.9375rem] text-foreground/90 leading-[1.8]">{selectedData.description}</p>
+                      </div>
+
+                      {/* Brass vertical divider */}
+                      <div className="w-px self-stretch flex-shrink-0" style={{ background: `${GLOW_BRASS}40` }} />
+
+                      {/* Right column — features, characters, pantheons */}
+                      <div className="w-1/2 pl-5">
+                        <div className="flex flex-wrap gap-1.5">
+                          {selectedData.features.map((f) => (
+                            <span key={f} className="bg-secondary/80 text-foreground/80 text-[9px] tracking-wider font-body px-2 py-1 border" style={{ borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "30" }}>{f}</span>
+                          ))}
+                        </div>
+
+                        {(() => {
+                          const characters = REGION_CHARACTERS[selectedData.id] ?? [];
+                          if (!characters.length) return null;
+                          return (
+                            <div className="mt-4">
+                              <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-2">Characters Here</p>
+                              <div className="flex flex-col gap-2">
+                                {characters.map((char) => (
+                                  <div key={char.name} className="flex items-center gap-3">
+                                    <img src={characterImageMap[char.image]} alt={char.name} className="w-8 h-8 rounded-full object-cover border" style={{ borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "60" }} />
+                                    <div>
+                                      <p className="font-display text-[11px] tracking-wide text-foreground leading-tight">{char.name}</p>
+                                      <p className="font-body text-[9px] text-muted-foreground tracking-wide">{char.title}</p>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        })()}
+
+                        {selectedData.id === "sanctorium" && (
+                          <div className="mt-4">
+                            <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-3">The 12 Pantheons</p>
+                            {["Northeast", "Southeast", "Southwest", "Northwest"].map((q) => (
+                              <div key={q} className="mb-4">
+                                <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-2" style={{ color: GLOW_BRASS }}>{q}</p>
+                                <div className="flex flex-col gap-2">
+                                  {PANTHEONS.filter((p) => p.quadrant === q).map((p) => (
+                                    <div key={p.id} className="pl-2 border-l" style={{ borderColor: GLOW_BRASS + "60" }}>
+                                      <div className="flex items-center gap-2 mb-0.5">
+                                        <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
+                                        <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
+                                      </div>
+                                      <p className="font-body text-[8px] text-muted-foreground">{p.specialty}</p>
+                                      <p className="font-body text-[8px] text-muted-foreground/70">Sol Deus: {p.solDeus}</p>
+                                      <p className="font-body text-[8px] text-muted-foreground/70">Lunary: {p.lunary}</p>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>{/* end max-w wrapper */}
       </div>
 
