@@ -823,47 +823,67 @@ const Characters = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: globalIdx * 0.07 }}
                         onClick={() => setSelected(char.id === selected ? null : char.id)}
-                        className="relative group border-transparent transition-all"
+                        className="relative group transition-all"
                       >
-                        {/* Oval portrait frame */}
-                        <div className="relative mx-auto w-full aspect-[3/4]">
-                          <img
-                            src={resolveImage(char.image)}
-                            alt={char.name}
-                            className="w-full h-full object-cover object-top rounded-[50%] transition-transform duration-500 group-hover:scale-105 char-portrait-normalize"
-                          />
-                          {/* Gold frame rings */}
-                          <div
-                            className="absolute inset-0 rounded-[50%] border-4 pointer-events-none"
-                            style={{
-                              borderColor: "#c9a048",
-                              boxShadow: `0 0 0 2px #7a5c1e, 0 0 0 5px #c9a048, 0 0 0 7px #7a5c1e, inset 0 0 20px rgba(0,0,0,0.4)${selected === char.id ? ", 0 0 20px hsl(38 72% 50% / 0.5)" : ""}`,
-                            }}
-                          />
-                          {/* Inner vignette */}
-                          <div
-                            className="absolute inset-0 rounded-[50%] pointer-events-none"
-                            style={{ background: "radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.5) 100%)" }}
-                          />
-                        </div>
+                        <div className="relative mx-auto w-full">
+                          <svg viewBox="0 0 200 260" width="100%" height="auto">
+                            <defs>
+                              <clipPath id={`oval-clip-${char.id}`}>
+                                <ellipse cx="100" cy="108" rx="88" ry="100" />
+                              </clipPath>
+                              <radialGradient id={`vignette-${char.id}`}>
+                                <stop offset="0%" stopOpacity="0" />
+                                <stop offset="60%" stopOpacity="0" />
+                                <stop offset="100%" stopColor="black" stopOpacity="0.6" />
+                              </radialGradient>
+                            </defs>
 
-                        {/* Nameplate plaque */}
-                        <div
-                          className="relative mx-auto mt-2 py-2 px-3"
-                          style={{
-                            width: "85%",
-                            background: "hsl(28 25% 12%)",
-                            border: "1px solid #c9a048",
-                            boxShadow: "0 2px 8px rgba(0,0,0,0.6), inset 0 1px 0 rgba(201,160,72,0.2)",
-                          }}
-                        >
-                          <div className="absolute top-0 left-3 right-3 h-px" style={{ background: "linear-gradient(to right, transparent, #c9a048, transparent)" }} />
-                          <span className="font-display text-[9px] sm:text-[10px] tracking-wider text-foreground text-center leading-tight block">
-                            {char.name}
-                          </span>
-                          <span className="text-[7px] sm:text-[9px] tracking-wider text-primary uppercase font-body mt-0.5 text-center block">
-                            {char.title}
-                          </span>
+                            <g style={{ filter: selected === char.id ? "drop-shadow(0 0 10px rgba(201,160,72,0.7))" : "none" }}>
+                              {/* Portrait image */}
+                              <image
+                                href={resolveImage(char.image)}
+                                x="12" y="8" width="176" height="200"
+                                preserveAspectRatio="xMidYMin slice"
+                                clipPath={`url(#oval-clip-${char.id})`}
+                                className="char-portrait-normalize"
+                              />
+
+                              {/* Vignette */}
+                              <ellipse cx="100" cy="108" rx="88" ry="100" fill={`url(#vignette-${char.id})`} />
+
+                              {/* Frame rings — outer to inner */}
+                              <ellipse cx="100" cy="108" rx="92" ry="104" fill="none" stroke="#3d2800" strokeWidth="3" />
+                              <ellipse cx="100" cy="108" rx="90" ry="102" fill="none" stroke="#c9a048" strokeWidth="4" />
+                              <ellipse cx="100" cy="108" rx="87" ry="99" fill="none" stroke="#f5d98a" strokeWidth="1.5" />
+                              <ellipse cx="100" cy="108" rx="85" ry="97" fill="none" stroke="#b8902a" strokeWidth="3" />
+                              <ellipse cx="100" cy="108" rx="83" ry="95" fill="none" stroke="#7a5c1e" strokeWidth="2" />
+                              <ellipse cx="100" cy="108" rx="81" ry="93" fill="none" stroke="#c9a048" strokeWidth="1.5" />
+                              <ellipse cx="100" cy="108" rx="79" ry="91" fill="none" stroke="#3d2800" strokeWidth="1" />
+
+                              {/* Top ornaments */}
+                              <circle cx="91" cy="6" r="2" fill="#f5d98a" />
+                              <circle cx="100" cy="6" r="4" fill="#c9a048" />
+                              <circle cx="109" cy="6" r="2" fill="#f5d98a" />
+
+                              {/* Bottom ornaments */}
+                              <circle cx="91" cy="210" r="2" fill="#f5d98a" />
+                              <circle cx="100" cy="210" r="4" fill="#c9a048" />
+                              <circle cx="109" cy="210" r="2" fill="#f5d98a" />
+
+                              {/* Plaque — connected to frame */}
+                              <path d="M70 208 Q100 204 130 208" fill="none" stroke="#c9a048" strokeWidth="1.5" />
+                              <rect x="30" y="208" width="140" height="42" rx="3" fill="#1a0f04" stroke="#c9a048" strokeWidth="1.5" />
+                              <rect x="34" y="212" width="132" height="34" rx="2" fill="none" stroke="#7a5c1e" strokeWidth="0.8" />
+
+                              {/* Name & title */}
+                              <text x="100" y="227" textAnchor="middle" fontFamily="var(--font-display, serif)" fontSize="10" letterSpacing="2" fill="#e8d5a0">
+                                {char.name.toUpperCase()}
+                              </text>
+                              <text x="100" y="241" textAnchor="middle" fontFamily="var(--font-body, sans-serif)" fontSize="7" letterSpacing="2.5" fill="#c9a048">
+                                {char.title.toUpperCase()}
+                              </text>
+                            </g>
+                          </svg>
                         </div>
                       </motion.button>
                     );
