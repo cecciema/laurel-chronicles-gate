@@ -116,7 +116,7 @@ const WorldOverview = () => {
               Beyond Panterra's borders, the world is dead. Bio-warfare consumed every other continent during the Great War, leaving behind a black sea laced with toxins and a wasteland no living thing has crossed in generations. The satellites above maintain a protective boundary against ultraviolet radiation. Without them, Panterra would follow. Everyone knows this. It is the first thing children are taught.
             </p>
             <p>
-              Inside the boundary, life is ordered, purposeful, and finite. Two institutions govern everything: Parliament, which controls the body — science, technology, resource allocation, civic law — and Sanctorium, which governs the soul — faith, ceremony, the passage between lives. Together they are called the dual reign. Together they have kept Panterra alive for nearly three hundred years.
+              Inside the boundary, life is ordered, purposeful, and finite. Two institutions govern everything: Parliament, which controls the body - science, technology, resource allocation, civic law - and Sanctorium, which governs the soul - faith, ceremony, the passage between lives. Together they are called the dual reign. Together they have kept Panterra alive for nearly three hundred years.
             </p>
             <p>
               Every citizen is born into the system. Every citizen lives within it. And every citizen, at the moment their body reaches its apex, makes the only choice that has ever truly been theirs.
