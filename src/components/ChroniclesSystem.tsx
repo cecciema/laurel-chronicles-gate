@@ -21,9 +21,9 @@ const SCROLLS = [
   },
   {
     id: 2,
-    title: "Convoy's Origin",
+    title: "Convoy Rebellion's Origin",
     hint: "Hidden somewhere in the world",
-    text: "Convoy's first recorded communication predates the Great War by 40 years. They did not form in response to the system. They built it.",
+    text: "Convoy Rebellion's first recorded communication predates the Great War by 40 years. They did not form in response to the system. They built it.",
     source: "Timeline page orb",
     type: "discoverable" as const,
   },
@@ -63,7 +63,7 @@ const SCROLLS = [
     id: 7,
     title: "The Embedded Operatives",
     hint: "Complete a game to unlock",
-    text: "Three Convoy operatives were embedded in Parliament's Science Division at the time of the meteor discovery. Their names appear in the attendance records. Their employment history does not exist.",
+    text: "Three Convoy Rebellion operatives were embedded in Parliament's Science Division at the time of the meteor discovery. Their names appear in the attendance records. Their employment history does not exist.",
     source: "Win Forbidden Transmission - World page",
     type: "earned" as const,
   },
@@ -290,7 +290,7 @@ const AllegianceSymbol = ({ allegiance }: { allegiance: AllegianceId }) => {
 const RIDDLES = [
   {
     id: 1,
-    question: "I am given at your peak and called a mercy. I am performed at dawn in white cloaks and laurel crowns. The Republic calls me a gift. Convoy calls me a crime. What am I?",
+    question: "I am given at your peak and called a mercy. I am performed at dawn in white cloaks and laurel crowns. The Republic calls me a gift. Convoy Rebellion calls me a crime. What am I?",
     answers: ["apotheosis", "apex", "the ceremony"]
   },
   {
@@ -1235,7 +1235,7 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: 
                     {result === "sanctorium" && "Your devotion has been recorded in the Sanctorium archive."}
                     {result === "parliament" && "Your profile has been flagged for Parliamentary consideration."}
                     {result === "deepforge" && "Your name has been added to the community register."}
-                    {result === "convoy" && "A Convoy frequency has been opened for you."}
+                    {result === "convoy" && "A Convoy Rebellion frequency has been opened for you."}
                     {result === "unseen" && "No record of you exists. This is not an accident."}
                   </motion.p>
                 </motion.div>
