@@ -10,26 +10,17 @@ interface GuideWhisperProps {
 const resolveImage = (image: string): string =>
   image.startsWith("/") ? image : (characterImageMap[image] ?? image);
 
-const ALLEGIANCE_TO_CHARACTER: Record<string, string> = {
-  sanctorium: "thema",
-  parliament: "remsays",
-  deepforge: "culver",
-  convoy: "sailor",
-  unseen: "verlaine",
-};
 
 const GuideWhisper = ({ page }: GuideWhisperProps) => {
   if (typeof window === "undefined") return null;
 
-  const guideId = localStorage.getItem("allegiance-result");
+  const guideId = localStorage.getItem("lca_selected_guide");
   if (!guideId) return null;
 
-  const characterId = ALLEGIANCE_TO_CHARACTER[guideId] ?? guideId;
-
-  const guideContent = GUIDE_CONTENT[characterId];
+  const guideContent = GUIDE_CONTENT[guideId];
   if (!guideContent || !guideContent[page]) return null;
 
-  const character = characters.find((c) => c.id === characterId);
+  const character = characters.find((c) => c.id === guideId);
   if (!character) return null;
 
   const imgSrc = resolveImage(character.image);
