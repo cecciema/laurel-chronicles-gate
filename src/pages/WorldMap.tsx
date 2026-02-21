@@ -1189,6 +1189,17 @@ export default WorldMap;
 // ── Known Institutions Section ─────────────────────────────────────────────────
 const QUADRANTS = [
   {
+    label: "NORTHWEST",
+    magistry: "Magistry of Cure",
+    magistryDesc: "Medical systems, biological research, and Citizen health",
+    magistryCharacters: ["Cora"],
+    pantheons: [
+      { name: "Hedron", constellation: "Sailor (Aquarius)", solDeus: "Mexia" },
+      { name: "Lumin", constellation: "Siren (Capricorn)", solDeus: "Nolyn" },
+      { name: "Finnrare", constellation: "Sisters (Gemini)", solDeus: "Norstrand" },
+    ],
+  },
+  {
     label: "NORTHEAST",
     magistry: "Magistry of Peace",
     magistryDesc: "Civil order, conflict resolution, and border enforcement",
@@ -1197,17 +1208,6 @@ const QUADRANTS = [
       { name: "Prisma", constellation: "Ram (Aries)", solDeus: "Thema" },
       { name: "Greenwood", constellation: "Bull (Taurus)", solDeus: "Gable" },
       { name: "Ivory", constellation: "Vixens (Pisces)", solDeus: "Lockland" },
-    ],
-  },
-  {
-    label: "SOUTHEAST",
-    magistry: "Magistry of Stars",
-    magistryDesc: "Satellite systems, atmospheric monitoring, and boundary maintenance",
-    magistryCharacters: ["Wintry"],
-    pantheons: [
-      { name: "Mist", constellation: "Lioness (Leo)", solDeus: "Santos" },
-      { name: "Lighthouse", constellation: "Spider (Cancer)", solDeus: "Coster" },
-      { name: "Ember", constellation: "Warrior (Virgo)", solDeus: "Finley" },
     ],
   },
   {
@@ -1222,14 +1222,14 @@ const QUADRANTS = [
     ],
   },
   {
-    label: "NORTHWEST",
-    magistry: "Magistry of Cure",
-    magistryDesc: "Medical systems, biological research, and Citizen health",
-    magistryCharacters: ["Cora"],
+    label: "SOUTHEAST",
+    magistry: "Magistry of Stars",
+    magistryDesc: "Satellite systems, atmospheric monitoring, and boundary maintenance",
+    magistryCharacters: ["Wintry"],
     pantheons: [
-      { name: "Hedron", constellation: "Sailor (Aquarius)", solDeus: "Mexia" },
-      { name: "Lumin", constellation: "Siren (Capricorn)", solDeus: "Nolyn" },
-      { name: "Finnrare", constellation: "Sisters (Gemini)", solDeus: "Norstrand" },
+      { name: "Mist", constellation: "Lioness (Leo)", solDeus: "Santos" },
+      { name: "Lighthouse", constellation: "Spider (Cancer)", solDeus: "Coster" },
+      { name: "Ember", constellation: "Warrior (Virgo)", solDeus: "Finley" },
     ],
   },
 ];
