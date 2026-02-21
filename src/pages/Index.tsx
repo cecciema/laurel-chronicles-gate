@@ -188,17 +188,18 @@ const Index = () => {
             className="absolute inset-0 z-[1] pointer-events-none transition-transform duration-100 ease-out"
             style={{ background: "radial-gradient(ellipse at 40% 60%, hsl(38 72% 50% / 0.08) 0%, transparent 60%)" }}
           />
-          {/* Layer 3 - static vignette gradients */}
-          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/10 via-background/10 to-background/20" />
-          <div className="absolute inset-0 z-[1] bg-gradient-to-r from-background/10 via-transparent to-background/10" />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 z-[1] bg-black/30 pointer-events-none" />
+          {/* Vignette */}
+          <div className="absolute inset-0 z-[2] pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.75) 100%)" }} />
 
           {/* Particles */}
-          <div className="absolute inset-0 z-[2] pointer-events-none">
+          <div className="absolute inset-0 z-[3] pointer-events-none">
             <ParticleCanvas />
           </div>
 
           {/* ── Hero Content ────────────────────────────────────────────── */}
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
+          <div className="absolute inset-0 z-[4] flex flex-col items-center justify-center px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 30 : 0 }}
@@ -276,7 +277,7 @@ const Index = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: line3.done ? 1 : 0 }}
               transition={{ delay: 0.8, duration: 1 }}
-              className="absolute bottom-8 left-1/2 -translate-x-1/2"
+              className="mt-4"
             >
               <div className="flex flex-col items-center gap-2 steam-rise">
                 <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-body">
