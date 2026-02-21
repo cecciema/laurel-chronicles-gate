@@ -948,7 +948,7 @@ const WorldMap = () => {
                 </button>
 
                 {/* Scrollable interior - entire panel scrolls as one unit */}
-                <div className="overflow-y-auto map-panel-scroll p-5 pr-14 h-[55vh] sm:h-auto" style={{ aspectRatio: isMobile ? undefined : "16 / 10" }}>
+                <div className="overflow-y-auto map-panel-scroll p-5 pr-14 h-[40vh] sm:h-auto" style={{ aspectRatio: isMobile ? undefined : "16 / 7" }}>
                   {isMobile ? (
                     /* ── MOBILE: single column ── */
                     <>
