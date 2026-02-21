@@ -986,7 +986,7 @@ const ScrollModal = ({ id, count, onClose }: { id: number; count: number; onClos
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative max-w-lg w-full bg-[#e8dcc0] text-amber-950 p-6 sm:p-12 shadow-[0_0_50px_rgba(0,0,0,0.8)] font-serif border-4 border-double border-amber-900/40"
+        className="relative max-w-lg w-full bg-[#e8dcc0] text-amber-950 p-6 sm:p-12 shadow-[0_0_50px_rgba(0,0,0,0.8)] font-narrative border-4 border-double border-amber-900/40"
         style={{ clipPath: "polygon(0% 0%, 100% 2%, 98% 100%, 2% 98%)" }}
       >
         <div className="absolute top-2 left-2 text-amber-900/20"><Scroll className="w-6 h-6 sm:w-8 sm:h-8" /></div>
@@ -999,7 +999,7 @@ const ScrollModal = ({ id, count, onClose }: { id: number; count: number; onClos
         <p className="text-[1.0625rem] sm:text-lg leading-[1.8] italic mb-6 sm:mb-8 font-narrative">
           "{scroll?.text}"
         </p>
-        <div className="text-center text-xs font-sans tracking-widest uppercase text-amber-900/60">
+        <div className="text-center text-xs font-body tracking-widest uppercase text-amber-900/60">
           {count} of {TOTAL_SCROLLS} Fragments Recovered
         </div>
         {allFound && (
