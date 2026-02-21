@@ -54,7 +54,7 @@ const regions = [
     features: ["The Twelve Pantheons", "The Grand Sanctuary", "The Ivory Planetarium", "The Sacred Scrolls"],
   },
   {
-    name: "The Ocean Reaches",
+    name: "Ocean Reaches",
     tag: "MAGISTRY OF OCEAN - PARLIAMENT DIVISION",
     description: "The degraded ocean territories under the research and control of the Magistry of Ocean. What was once a living sea is now a black expanse of toxins and chemical waste - the inheritance of the Great War. Parliament funds ongoing recovery efforts. Progress has been slow for decades. Recently, something changed.",
     features: ["Research Stations", "Degraded Reef Systems", "Field Laboratories", "The Tide Markers"],
