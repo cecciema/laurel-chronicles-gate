@@ -6,6 +6,7 @@ import { HiddenOrb } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import { SemperReview } from "@/components/SemperReview";
 import { useIsMobile } from "@/hooks/use-mobile";
+import GuideWhisper from "@/components/GuideWhisper";
 import heroBg from "@/assets/botanical.jpg";
 
 // ─── Event Data ─────────────────────────────────────────────────────────────────
@@ -331,6 +332,10 @@ const TimelinePage = () => {
           title="Timeline of the Republic"
           subtitle="Three centuries of ambition, conflict, and transformation"
         />
+
+        <div className="max-w-4xl mx-auto mb-8">
+          <GuideWhisper page="timeline" />
+        </div>
 
         {/* Filter buttons */}
         <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-2 mb-12 sm:flex-nowrap">

@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import { HiddenOrb } from "@/components/ChroniclesSystem";
 import { DeadCorridors } from "@/components/DeadCorridors";
 import apotheosisBg from "@/assets/apotheosis.jpg";
+import GuideWhisper from "@/components/GuideWhisper";
 
 // ── Read unlock state from Chronicles localStorage ─────────────────────────────
 // foundScrolls: updated scroll assignments
@@ -413,6 +414,10 @@ const Bestiary = () => {
             <p className="font-narrative italic text-[1.0625rem] sm:text-lg text-foreground/60 leading-[1.85] max-w-lg mx-auto">
               These are not creatures. They are consequences. Every one of them was made by the same system. Every one of them was someone once.
             </p>
+
+            <div className="mt-6 flex justify-center">
+              <GuideWhisper page="bestiary" />
+            </div>
 
             {/* Steampunk divider below subtitle */}
             <div className="flex items-center gap-4 mt-8">
