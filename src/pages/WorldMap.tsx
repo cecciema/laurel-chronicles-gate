@@ -9,6 +9,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import panterraMap from "@/assets/panterra-map.jpg";
 import heroBg from "@/assets/mining.jpg";
 import { Plus, Minus, RotateCcw } from "lucide-react";
+import GuideWhisper from "@/components/GuideWhisper";
 
 // ── Constants ──────────────────────────────────────────────────────────────────
 const MIN_SCALE = 0.5;
@@ -450,6 +451,10 @@ const WorldMap = () => {
             Panterra - The Known World
           </motion.h1>
           <div className="steampunk-divider max-w-xs mx-auto mt-3" />
+        </div>
+
+        <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-4">
+          <GuideWhisper page="map" />
         </div>
 
         {/* ── Discovery status bar ── */}

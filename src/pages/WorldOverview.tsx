@@ -6,6 +6,7 @@ import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import heroBg from "@/assets/waterfall.jpg";
 import { ForbiddenTransmission } from "@/components/ForbiddenTransmission";
+import GuideWhisper from "@/components/GuideWhisper";
 
 const cornerstoneLaws = [
   { numeral: "I", text: "Let there be One Republic, that the world may know peace and the wars of nations never rise again." },
@@ -124,6 +125,10 @@ const WorldOverview = () => {
               Every Citizen is born into the system. Every Citizen lives within it. And every Citizen, at the moment their body reaches its Apex, makes the only choice that has ever truly been theirs.
             </p>
           </div>
+        </div>
+
+        <div className="max-w-4xl mx-auto mt-8">
+          <GuideWhisper page="world" />
         </div>
 
         {/* Deep Forge survival unlock */}

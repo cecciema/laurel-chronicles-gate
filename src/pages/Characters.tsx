@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
+import GuideWhisper from "@/components/GuideWhisper";
 import { characters } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
 import heroBg from "@/assets/pool.jpg";
@@ -794,6 +795,10 @@ const Characters = () => {
             subtitle="The key figures whose choices will shape the fate of Panterra"
           />
           <HiddenOrb id={4} className="absolute top-2 right-4 sm:right-12" />
+        </div>
+
+        <div className="max-w-6xl mx-auto mt-4">
+          <GuideWhisper page="characters" />
         </div>
 
         {/* Outer grid ref - used only for width measurement */}
