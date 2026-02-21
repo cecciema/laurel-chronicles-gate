@@ -986,28 +986,6 @@ const WorldMap = () => {
                         );
                       })()}
 
-                      {selectedData.id === "sanctorium" && (
-                        <div className="mt-4">
-                          <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-3">The 12 Pantheons</p>
-                          {["Northeast", "Southeast", "Southwest", "Northwest"].map((q) => (
-                            <div key={q} className="mb-4">
-                              <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-2" style={{ color: GLOW_BRASS }}>{q}</p>
-                              <div className="flex flex-col gap-2">
-                                {PANTHEONS.filter((p) => p.quadrant === q).map((p) => (
-                                  <div key={p.id} className="pl-2 border-l" style={{ borderColor: GLOW_BRASS + "60" }}>
-                                    <div className="flex items-center gap-2 mb-0.5">
-                                      <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
-                                      <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
-                                    </div>
-                                    <p className="font-body text-[8px] text-muted-foreground/70">Sol Deus: {p.solDeus}</p>
-                                    <p className="font-body text-[8px] text-muted-foreground/70">Lunary: {p.lunary}</p>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
                     </>
                   ) : (
                     /* ── DESKTOP: two columns with brass divider ── */
@@ -1054,29 +1032,6 @@ const WorldMap = () => {
                           );
                         })()}
 
-                        {selectedData.id === "sanctorium" && (
-                          <div className="mt-4">
-                            <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-3">The 12 Pantheons</p>
-                            {["Northeast", "Southeast", "Southwest", "Northwest"].map((q) => (
-                              <div key={q} className="mb-4">
-                                <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-2" style={{ color: GLOW_BRASS }}>{q}</p>
-                                <div className="flex flex-col gap-2">
-                                  {PANTHEONS.filter((p) => p.quadrant === q).map((p) => (
-                                    <div key={p.id} className="pl-2 border-l" style={{ borderColor: GLOW_BRASS + "60" }}>
-                                      <div className="flex items-center gap-2 mb-0.5">
-                                        <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
-                                        <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
-                                      </div>
-                                      
-                                      <p className="font-body text-[8px] text-muted-foreground/70">Sol Deus: {p.solDeus}</p>
-                                      <p className="font-body text-[8px] text-muted-foreground/70">Lunary: {p.lunary}</p>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        )}
                       </div>
                     </div>
                   )}
