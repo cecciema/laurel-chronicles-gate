@@ -323,7 +323,7 @@ export const ForbiddenTransmission = () => {
                   </p>
                   {wordWrongAttempts === 2 && (
                     <motion.p animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 1.2, repeat: Infinity }} className="text-[8px] tracking-[0.2em] font-body uppercase" style={{ color: "hsl(0 65% 55%)" }}>
-                      ⚠ One more miss reveals the word — Silencer advances
+                      ⚠ One more miss reveals the word - Silencer advances
                     </motion.p>
                   )}
                 </motion.div>
@@ -339,7 +339,7 @@ export const ForbiddenTransmission = () => {
 
               {/* Cipher Key Reference Panel */}
               <div className="border border-border/30 bg-background/20 px-3 py-2.5 mt-1">
-                <p className="text-[7px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body mb-2">Intercepted Cipher Key — partial decode</p>
+                <p className="text-[7px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body mb-2">Intercepted Cipher Key - partial decode</p>
                 <div className="grid grid-cols-8 gap-1">
                   {CIPHER_KEY_HINTS.map(({ encoded, decoded }) => (
                     <div key={encoded} className="flex flex-col items-center gap-0.5">

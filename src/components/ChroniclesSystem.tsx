@@ -64,7 +64,7 @@ const SCROLLS = [
     title: "The Embedded Operatives",
     hint: "Complete a game to unlock",
     text: "Three Convoy operatives were embedded in Parliament's Science Division at the time of the meteor discovery. Their names appear in the attendance records. Their employment history does not exist.",
-    source: "Win Forbidden Transmission — World page",
+    source: "Win Forbidden Transmission - World page",
     type: "earned" as const,
   },
   {
@@ -72,7 +72,7 @@ const SCROLLS = [
     title: "The Semper Record",
     hint: "Complete a game to unlock",
     text: "The semper review process has been compromised since Year 12 of the New Republic. The review board knows. They have always known.",
-    source: "Win Semper Review — Timeline page",
+    source: "Win Semper Review - Timeline page",
     type: "earned" as const,
   },
   {
@@ -80,7 +80,7 @@ const SCROLLS = [
     title: "The Erased Constellations",
     hint: "Complete a game to unlock",
     text: "There are 14 Sol Deos positions across Panterra's history. Only 11 constellations are publicly recognized. The other 3 have been erased from all star charts produced after the Great War.",
-    source: "Win The Unmasked — Characters page",
+    source: "Win The Unmasked - Characters page",
     type: "earned" as const,
   },
   {
@@ -88,7 +88,7 @@ const SCROLLS = [
     title: "The Optimized Yield",
     hint: "Complete a game to unlock",
     text: "The soul mass collected at peak Apotheosis events is 40 percent higher than at standard events. Someone is timing the ceremonies. Someone is optimizing the yield.",
-    source: "Win Vial Substitution — Map page",
+    source: "Win Vial Substitution - Map page",
     type: "earned" as const,
   },
   {
@@ -96,7 +96,7 @@ const SCROLLS = [
     title: "The Unmarked Ratio",
     hint: "Complete a game to unlock",
     text: "The Unmarked are not accidents. The ratio of incomplete Apotheosis events has remained statistically constant for 60 years. Constant ratios do not happen by chance.",
-    source: "Win Dead Corridors — Bestiary page",
+    source: "Win Dead Corridors - Bestiary page",
     type: "earned" as const,
   },
   {
@@ -104,7 +104,7 @@ const SCROLLS = [
     title: "The Remembered Place",
     hint: "This one was never meant to be found",
     text: "You kept looking at the thing that was never meant to be found. That says everything about you. Valorica is not a place that was built. It is a place that was remembered.",
-    source: "The Unnamed — Bestiary",
+    source: "The Unnamed - Bestiary",
     type: "secret" as const,
   },
 ];
@@ -215,7 +215,7 @@ const ALLEGIANCE_DATA: Record<AllegianceId, {
 }> = {
   sanctorium: {
     name: "Sanctorium",
-    text: "You are Sanctorium. You have always understood that faith is not the absence of doubt — it is the decision to act anyway. The Pantheon was built for people like you. Whether it deserves you is a different question.",
+    text: "You are Sanctorium. You have always understood that faith is not the absence of doubt - it is the decision to act anyway. The Pantheon was built for people like you. Whether it deserves you is a different question.",
     storageKey: "sanctorium-allegiance-unlocked",
   },
   parliament: {
@@ -1005,7 +1005,7 @@ const ScrollModal = ({ id, count, onClose }: { id: number; count: number; onClos
         {allFound && (
           <div className="mt-6 pt-5 border-t border-amber-900/20 text-center">
             <p className="text-[10px] font-display tracking-widest text-amber-900/50 uppercase">
-              All fragments recovered — return to the Chronicles to complete the document
+              All fragments recovered - return to the Chronicles to complete the document
             </p>
           </div>
         )}
