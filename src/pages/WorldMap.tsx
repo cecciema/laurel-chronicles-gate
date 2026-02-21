@@ -920,7 +920,6 @@ const WorldMap = () => {
                 className="relative w-full bg-[#0a0804] border-t-2 overflow-hidden"
                 style={{
                   borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "60",
-                  aspectRatio: "16 / 10",
                 }}
               >
                 {/* Close button — sticky top-right */}
@@ -934,7 +933,7 @@ const WorldMap = () => {
                 </button>
 
                 {/* Scrollable interior — entire panel scrolls as one unit */}
-                <div className="h-full overflow-y-auto map-panel-scroll p-5 pr-14">
+                <div className="overflow-y-auto map-panel-scroll p-5 pr-14" style={{ aspectRatio: "16 / 10" }}>
                   {isMobile ? (
                     /* ── MOBILE: single column ── */
                     <>
