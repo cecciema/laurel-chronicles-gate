@@ -165,23 +165,21 @@ const Index = () => {
 
 
       <div
-        className="relative min-h-screen overflow-hidden"
+        className="relative overflow-hidden"
         onMouseMove={handleMouseMove}
         style={isTouch ? undefined : { cursor: "none" }}
       >
         {/* ── Hero Background (parallax layers) ──────────────────────── */}
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="relative w-full" style={{ backgroundColor: "#0f0b06" }}>
           {/* Layer 1 - image (most movement) */}
           <div
             ref={bgRef}
-            className="absolute inset-[-3%] transition-transform duration-75 ease-out"
-            style={{ backgroundColor: "#0f0b06" }}
+            className="transition-transform duration-75 ease-out"
           >
             <img
               src={heroBg}
               alt="The Republic"
-              className="w-full h-full object-cover"
-              style={{ objectPosition: "center 60%" }}
+              className="w-full h-auto block"
             />
           </div>
           {/* Layer 2 - mid gradient (medium movement) */}
@@ -191,8 +189,8 @@ const Index = () => {
             style={{ background: "radial-gradient(ellipse at 40% 60%, hsl(38 72% 50% / 0.08) 0%, transparent 60%)" }}
           />
           {/* Layer 3 - static vignette gradients */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/15 to-background/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/15 via-transparent to-background/15" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/10 to-background/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/10 via-transparent to-background/10" />
         </div>
 
         {/* Particles */}
@@ -201,7 +199,7 @@ const Index = () => {
         </div>
 
         {/* ── Hero Content ────────────────────────────────────────────── */}
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center pt-20 sm:pt-0">
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 30 : 0 }}
