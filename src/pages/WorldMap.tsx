@@ -476,7 +476,7 @@ const WorldMap = () => {
             {/* === MAP CONTAINER === */}
             <div
               ref={containerRef}
-              className="relative w-full select-none overflow-hidden rounded bg-black"
+              className="relative w-full select-none overflow-hidden rounded"
               style={{ cursor: "grab", aspectRatio: "16 / 10" }}
               onMouseDown={onContainerMouseDown}
             >
