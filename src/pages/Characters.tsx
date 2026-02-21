@@ -823,25 +823,47 @@ const Characters = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: globalIdx * 0.07 }}
                         onClick={() => setSelected(char.id === selected ? null : char.id)}
-                        className={`relative group overflow-hidden aspect-[2/3] border transition-all ${
-                          selected === char.id
-                            ? "border-primary shadow-glow"
-                            : "border-border hover:border-primary/40"
-                        }`}
+                        className="relative group border-transparent transition-all"
                       >
-                        <img
-                          src={resolveImage(char.image)}
-                          alt={char.name}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 char-portrait-normalize"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                        <div className="absolute bottom-0 left-0 right-0 p-3">
-                          <p className="font-display text-[10px] sm:text-xs tracking-wider text-foreground leading-tight">
+                        {/* Oval portrait frame */}
+                        <div className="relative mx-auto w-full aspect-[3/4]">
+                          <img
+                            src={resolveImage(char.image)}
+                            alt={char.name}
+                            className="w-full h-full object-cover object-top rounded-[50%] transition-transform duration-500 group-hover:scale-105 char-portrait-normalize"
+                          />
+                          {/* Gold frame rings */}
+                          <div
+                            className="absolute inset-0 rounded-[50%] border-4 pointer-events-none"
+                            style={{
+                              borderColor: "#c9a048",
+                              boxShadow: `0 0 0 2px #7a5c1e, 0 0 0 5px #c9a048, 0 0 0 7px #7a5c1e, inset 0 0 20px rgba(0,0,0,0.4)${selected === char.id ? ", 0 0 20px hsl(38 72% 50% / 0.5)" : ""}`,
+                            }}
+                          />
+                          {/* Inner vignette */}
+                          <div
+                            className="absolute inset-0 rounded-[50%] pointer-events-none"
+                            style={{ background: "radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.5) 100%)" }}
+                          />
+                        </div>
+
+                        {/* Nameplate plaque */}
+                        <div
+                          className="relative mx-auto mt-2 py-2 px-3"
+                          style={{
+                            width: "85%",
+                            background: "hsl(28 25% 12%)",
+                            border: "1px solid #c9a048",
+                            boxShadow: "0 2px 8px rgba(0,0,0,0.6), inset 0 1px 0 rgba(201,160,72,0.2)",
+                          }}
+                        >
+                          <div className="absolute top-0 left-3 right-3 h-px" style={{ background: "linear-gradient(to right, transparent, #c9a048, transparent)" }} />
+                          <span className="font-display text-[9px] sm:text-[10px] tracking-wider text-foreground text-center leading-tight block">
                             {char.name}
-                          </p>
-                          <p className="text-[8px] sm:text-[10px] tracking-wider text-primary uppercase font-body mt-0.5">
+                          </span>
+                          <span className="text-[7px] sm:text-[9px] tracking-wider text-primary uppercase font-body mt-0.5 text-center block">
                             {char.title}
-                          </p>
+                          </span>
                         </div>
                       </motion.button>
                     );
