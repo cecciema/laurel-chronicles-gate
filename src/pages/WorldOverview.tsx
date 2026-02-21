@@ -220,7 +220,7 @@ const WorldOverview = () => {
               </motion.div>
             ))}
 
-            {/* ── Convoy - Fourth Tier ── */}
+            {/* ── Convoy Rebellion - Fourth Tier ── */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -250,10 +250,10 @@ const WorldOverview = () => {
                 }}
               >
                 <h3 className="font-display text-base tracking-wide text-foreground/70 mt-2">
-                  Convoy
+                  Convoy Rebellion
                 </h3>
                 <p className="mt-3 text-[0.9375rem] sm:text-sm text-muted-foreground font-body leading-[1.8]">
-                  They have no Pantheon. They have no Magistry sector. They hold no seat in Parliament and no pew in any Sol Deus court. They exist in the gaps between the official record — in the unmarked years, the redacted clauses, the Citizens who disappeared without an Apotheosis filing. Convoy of Reformation has been called a rumor for so long that most people stopped asking whether the rumor was true. It is true. It has always been true. They did not form in response to the system. Some believe they helped build it.
+                  They have no Pantheon. They have no Magistry sector. They hold no seat in Parliament and no pew in any Sol Deus court. They exist in the gaps between the official record — in the unmarked years, the redacted clauses, the Citizens who disappeared without an Apotheosis filing. Convoy Rebellion has been called a rumor for so long that most people stopped asking whether the rumor was true. It is true. It has always been true. They did not form in response to the system. Some believe they helped build it.
                 </p>
               </div>
 

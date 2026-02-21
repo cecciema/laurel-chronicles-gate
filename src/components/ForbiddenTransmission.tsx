@@ -5,7 +5,7 @@ import { useGame } from "@/components/ChroniclesSystem";
 
 // ─── Cipher Constants ──────────────────────────────────────────────────────────
 const SHIFT = 7;
-const PLAINTEXT = "THE APOTHEOSIS IS NOT SALVATION. THE SOULS ARE BEING COLLECTED. CONVOY KNOWS WHERE THEY GO.";
+const PLAINTEXT = "THE APOTHEOSIS IS NOT SALVATION. THE SOULS ARE BEING COLLECTED. CONVOY REBELLION KNOWS WHERE THEY GO.";
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const MAX_WRONG = 3;
 const TIMER_SECONDS = 90;
@@ -212,7 +212,7 @@ export const ForbiddenTransmission = () => {
           Forbidden Transmission
         </motion.h2>
         <motion.p initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }} className="mt-3 font-narrative italic text-muted-foreground text-[0.9375rem] leading-[1.8]">
-          A Convoy message has been intercepted. Decode it before the signal is traced. Once they find you, they will erase you from the record entirely.
+          A Convoy Rebellion message has been intercepted. Decode it before the signal is traced. Once they find you, they will erase you from the record entirely.
         </motion.p>
       </div>
 
