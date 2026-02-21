@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { HiddenOrb } from "@/components/ChroniclesSystem";
 import { DeadCorridors } from "@/components/DeadCorridors";
+import apotheosisBg from "@/assets/apotheosis.jpg";
 
 // ── Read unlock state from Chronicles localStorage ─────────────────────────────
 // foundScrolls: updated scroll assignments
@@ -373,7 +374,13 @@ const Bestiary = () => {
 
   return (
     <Layout>
-      <div className="pt-24 pb-24 px-4 overflow-x-hidden">
+      {/* Hero */}
+      <div className="relative h-[40vh] sm:h-[50vh] overflow-hidden">
+        <img src={apotheosisBg} alt="Bestiary" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" style={{ backgroundImage: "linear-gradient(to bottom, transparent 55%, hsl(var(--background)) 100%)" }} />
+      </div>
+
+      <div className="pt-8 pb-24 px-4 overflow-x-hidden">
         <div className="max-w-2xl mx-auto">
 
           {/* Header */}
