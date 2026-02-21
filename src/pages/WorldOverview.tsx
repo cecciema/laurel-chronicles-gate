@@ -17,7 +17,7 @@ const socialTiers = [
   {
     tier: "The Leaders",
     level: "Apex Authority",
-    desc: "The twelve Sol Deos of Sanctorium and the elected Premiere of Parliament. They do not age visibly. They do not explain themselves. Their authority is total and their succession is sacred. Most citizens will never stand in the same room as one of them.",
+    desc: "The twelve Sol Deos of Sanctorium and the elected Premiere of Parliament. They do not age visibly. They do not explain themselves. Their authority is total and their succession is sacred. Most Citizens will never stand in the same room as one of them.",
   },
   {
     tier: "The Citizens",
@@ -35,7 +35,7 @@ const regions = [
   {
     name: "The Deep Forge",
     tag: "FOUNDATION",
-    description: "Where every citizen of Panterra begins. The townships, the nurseries, the schools, the training grounds — all of it sits above the oldest infrastructure in the Republic. The forges beneath run day and night. Most people never ask what they are for. The children raised here grow up knowing the warmth of them but not the source. There is a reason this place is called what it is. Most people never find out.",
+    description: "Where every Citizen of Panterra begins. The townships, the nurseries, the schools, the training grounds — all of it sits above the oldest infrastructure in the Republic. The forges beneath run day and night. Most people never ask what they are for. The children raised here grow up knowing the warmth of them but not the source. There is a reason this place is called what it is. Most people never find out.",
     features: ["Township Quarters", "Paragon Academies", "Republic Nurseries", "The Forge Districts"],
     hasOrb: true,
   },
@@ -48,7 +48,7 @@ const regions = [
   {
     name: "Sanctorium",
     tag: "THE SPIRITUAL AUTHORITY",
-    description: "Twelve Pantheons arranged across all four quadrants, each governed by a Sol Deus and their Lunary. The Grand Sanctuary at the center is the holiest site in Panterra — the seat of the Apotheosis ceremony and the court of divine authority. Access is tiered. Most citizens see only the outer courts. What happens at the center is not discussed.",
+    description: "Twelve Pantheons arranged across all four quadrants, each governed by a Sol Deus and their Lunary. The Grand Sanctuary at the center is the holiest site in Panterra — the seat of the Apotheosis ceremony and the court of divine authority. Access is tiered. Most Citizens see only the outer courts. What happens at the center is not discussed.",
     features: ["The Twelve Pantheons", "The Grand Sanctuary", "The Ivory Planetarium", "The Sacred Scrolls"],
   },
   {
@@ -119,7 +119,7 @@ const WorldOverview = () => {
               Inside the boundary, life is ordered, purposeful, and finite. Two institutions govern everything: Parliament, which controls the body - science, technology, resource allocation, civic law - and Sanctorium, which governs the soul - faith, ceremony, the passage between lives. Together they are called the Dual Reign. Together they have kept Panterra alive for nearly three hundred years.
             </p>
             <p>
-              Every citizen is born into the system. Every citizen lives within it. And every citizen, at the moment their body reaches its Apex, makes the only choice that has ever truly been theirs.
+              Every Citizen is born into the system. Every Citizen lives within it. And every Citizen, at the moment their body reaches its Apex, makes the only choice that has ever truly been theirs.
             </p>
           </div>
         </div>
@@ -190,7 +190,7 @@ const WorldOverview = () => {
       {/* Social Structure — The Order of Panterra */}
       <section className="py-16 sm:py-20 px-5 sm:px-4">
         <div className="max-w-5xl mx-auto">
-          <SectionHeader title="THE ORDER OF PANTERRA" subtitle="Every citizen has a place. Every place has a purpose." />
+          <SectionHeader title="THE ORDER OF PANTERRA" subtitle="Every Citizen has a place. Every place has a purpose." />
           <div className="space-y-6">
             {socialTiers.map((item, i) => (
               <motion.div
@@ -246,7 +246,7 @@ const WorldOverview = () => {
                   The Convoy
                 </h3>
                 <p className="mt-3 text-[0.9375rem] sm:text-sm text-muted-foreground font-body leading-[1.8]">
-                  They have no Pantheon. They have no Magistry sector. They hold no seat in Parliament and no pew in any Sol Deus court. They exist in the gaps between the official record — in the unmarked years, the redacted clauses, the citizens who disappeared without an Apotheosis filing. The Convoy of Reformation has been called a rumor for so long that most people stopped asking whether the rumor was true. It is true. It has always been true. They did not form in response to the system. Some believe they helped build it.
+                  They have no Pantheon. They have no Magistry sector. They hold no seat in Parliament and no pew in any Sol Deus court. They exist in the gaps between the official record — in the unmarked years, the redacted clauses, the Citizens who disappeared without an Apotheosis filing. The Convoy of Reformation has been called a rumor for so long that most people stopped asking whether the rumor was true. It is true. It has always been true. They did not form in response to the system. Some believe they helped build it.
                 </p>
               </div>
 
