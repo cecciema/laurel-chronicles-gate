@@ -138,7 +138,7 @@
 
   /* Normalize character portrait brightness/contrast */
   .char-portrait-normalize {
-    filter: brightness(0.85) contrast(1.1) saturate(0.9);
+    filter: brightness(1.15) contrast(1.05) saturate(0.95);
   }
 
   .steampunk-divider {
