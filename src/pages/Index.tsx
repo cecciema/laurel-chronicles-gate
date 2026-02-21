@@ -60,7 +60,7 @@ const ParticleCanvas = () => {
       vx: (Math.random() - 0.5) * 0.3,
       vy: -(Math.random() * 0.4 + 0.1),
       size: Math.random() * 1.8 + 0.4,
-      alpha: Math.random() * 0.5 + 0.1,
+      alpha: Math.random() * 0.5 + 0.2,
       alphaDir: Math.random() > 0.5 ? 1 : -1,
     }));
 
@@ -71,7 +71,7 @@ const ParticleCanvas = () => {
         p.x += p.vx;
         p.y += p.vy;
         p.alpha += p.alphaDir * 0.004;
-        if (p.alpha > 0.65 || p.alpha < 0.05) p.alphaDir *= -1;
+        if (p.alpha > 0.75 || p.alpha < 0.05) p.alphaDir *= -1;
         if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
         if (p.x < -10 || p.x > canvas.width + 10) p.x = Math.random() * canvas.width;
 
@@ -189,7 +189,7 @@ const Index = () => {
             style={{ background: "radial-gradient(ellipse at 40% 60%, hsl(38 72% 50% / 0.08) 0%, transparent 60%)" }}
           />
           {/* Dark overlay */}
-          <div className="absolute inset-0 z-[1] bg-black/30 pointer-events-none" />
+          <div className="absolute inset-0 z-[1] bg-black/40 pointer-events-none" />
           {/* Vignette */}
           <div className="absolute inset-0 z-[2] pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.75) 100%)" }} />
 
@@ -277,7 +277,7 @@ const Index = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: line3.done ? 1 : 0 }}
               transition={{ delay: 0.8, duration: 1 }}
-              className="mt-4"
+              className="mt-8"
             >
               <div className="flex flex-col items-center gap-2 steam-rise">
                 <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-body">
