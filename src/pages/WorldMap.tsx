@@ -102,14 +102,14 @@ const SUB_REGIONS = [
   },
   {
     id: "ocean-reaches",
-    name: "Ocean Reaches",
+    name: "The Ocean Reaches",
     description: "The degraded but vast ocean territories where Magistry of Ocean Paragon candidates work. Beautiful and haunting - what the world was before systems of control replaced natural order.",
     faction: "Magistry of Ocean",
     features: ["Research Stations", "Degraded Reef Systems", "Culver's Field Labs", "The Tide Markers"],
   },
   {
     id: "ashfields",
-    name: "Frontier Borderlands",
+    name: "The Frontier Borderlands",
     description: "Beyond the Republic's governed edge - the world the maps leave out. Frontier survivors here know truths the institutions spend enormous energy hiding.",
     faction: "Frontier / Unaligned",
     features: ["Survivor Camps", "Pre-War Ruins", "Sailor's Routes", "Ungoverned Ocean Channels"],
@@ -948,7 +948,7 @@ const WorldMap = () => {
                 </button>
 
                 {/* Scrollable interior - entire panel scrolls as one unit */}
-                <div className="overflow-y-auto map-panel-scroll p-5 pr-14 h-[40vh] sm:h-auto" style={{ aspectRatio: isMobile ? undefined : "16 / 7" }}>
+                <div className="overflow-y-auto map-panel-scroll p-5 pr-14 h-[55vh] sm:h-auto" style={{ aspectRatio: isMobile ? undefined : "16 / 10" }}>
                   {isMobile ? (
                     /* ── MOBILE: single column ── */
                     <>
@@ -986,6 +986,28 @@ const WorldMap = () => {
                         );
                       })()}
 
+                      {selectedData.id === "sanctorium" && (
+                        <div className="mt-4">
+                          <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-3">The 12 Pantheons</p>
+                          {["Northeast", "Southeast", "Southwest", "Northwest"].map((q) => (
+                            <div key={q} className="mb-4">
+                              <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-2" style={{ color: GLOW_BRASS }}>{q}</p>
+                              <div className="flex flex-col gap-2">
+                                {PANTHEONS.filter((p) => p.quadrant === q).map((p) => (
+                                  <div key={p.id} className="pl-2 border-l" style={{ borderColor: GLOW_BRASS + "60" }}>
+                                    <div className="flex items-center gap-2 mb-0.5">
+                                      <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
+                                      <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
+                                    </div>
+                                    <p className="font-body text-[8px] text-muted-foreground/70">Sol Deus: {p.solDeus}</p>
+                                    <p className="font-body text-[8px] text-muted-foreground/70">Lunary: {p.lunary}</p>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </>
                   ) : (
                     /* ── DESKTOP: two columns with brass divider ── */
@@ -1032,6 +1054,29 @@ const WorldMap = () => {
                           );
                         })()}
 
+                        {selectedData.id === "sanctorium" && (
+                          <div className="mt-4">
+                            <p className="font-display text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-3">The 12 Pantheons</p>
+                            {["Northeast", "Southeast", "Southwest", "Northwest"].map((q) => (
+                              <div key={q} className="mb-4">
+                                <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-2" style={{ color: GLOW_BRASS }}>{q}</p>
+                                <div className="flex flex-col gap-2">
+                                  {PANTHEONS.filter((p) => p.quadrant === q).map((p) => (
+                                    <div key={p.id} className="pl-2 border-l" style={{ borderColor: GLOW_BRASS + "60" }}>
+                                      <div className="flex items-center gap-2 mb-0.5">
+                                        <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
+                                        <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
+                                      </div>
+                                      
+                                      <p className="font-body text-[8px] text-muted-foreground/70">Sol Deus: {p.solDeus}</p>
+                                      <p className="font-body text-[8px] text-muted-foreground/70">Lunary: {p.lunary}</p>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}

@@ -60,7 +60,7 @@ const regions = [
     features: ["Research Stations", "Degraded Reef Systems", "Field Laboratories", "The Tide Markers"],
   },
   {
-    name: "Frontier Borderlands",
+    name: "The Frontier Borderlands",
     tag: "UNCHARTED - PROCEED WITH CAUTION",
     description: "Beyond the Republic's governed edge lies what the maps describe as uninhabitable wasteland - scorching desert in the south, glacial ice in the north, and no infrastructure of any kind. Citizens are advised never to attempt crossing. A small number have tried over the years — those who refused Apotheosis and refused service both. The Republic's official record states that none survived. The Republic's official record has been wrong before.",
     features: ["Survivor Camps", "Pre-War Ruins", "Ungoverned Ocean Channels", "The Unmapped Interior"],
