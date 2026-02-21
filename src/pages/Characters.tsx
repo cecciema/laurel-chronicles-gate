@@ -282,7 +282,7 @@ const ChoiceCard = ({
         <img
           src={imgSrc}
           alt={displayName}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 char-portrait-normalize"
           style={state === "glitch" ? { animation: "unmasked-glitch 1s steps(1) forwards" } : {}}
         />
       )}
@@ -832,7 +832,7 @@ const Characters = () => {
                         <img
                           src={resolveImage(char.image)}
                           alt={char.name}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 char-portrait-normalize"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                         <div className="absolute bottom-0 left-0 right-0 p-3">
@@ -888,7 +888,7 @@ const Characters = () => {
                             <img
                               src={resolveImage(selectedChar.image)}
                               alt={selectedChar.name}
-                              className="w-full aspect-[2/3] object-cover border border-border"
+                              className="w-full aspect-[2/3] object-cover border border-border char-portrait-normalize"
                             />
                           </div>
 
