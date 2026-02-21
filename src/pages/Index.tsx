@@ -147,15 +147,15 @@ const Index = () => {
 
               {/* Typewriter headline */}
               <h1 className="font-display text-[2rem] sm:text-7xl lg:text-8xl tracking-[0.08em] text-foreground leading-tight w-full max-w-full overflow-hidden">
-                <span className="block pb-1" style={{ WebkitTextStroke: "1.5px hsl(38 72% 50%)", color: "hsl(0 0% 95%)" }}>
+                <span className="block pb-1" style={{ WebkitTextStroke: "1.5px hsl(0 0% 95%)", color: "hsl(38 72% 50%)" }}>
                   {line1.displayed}
                   {!line1.done && <span className="typewriter-cursor">|</span>}
                 </span>
-                <span className="block min-h-[1em] pb-1" style={{ WebkitTextStroke: "1.5px hsl(0 0% 92%)", color: "hsl(38 72% 50%)" }}>
+                <span className="block min-h-[1em] pb-1" style={{ WebkitTextStroke: "1.5px hsl(38 72% 50%)", color: "hsl(25 35% 35%)" }}>
                   {line1.done && line2.displayed}
                   {line1.done && !line2.done && <span className="typewriter-cursor">|</span>}
                 </span>
-                <span className="block min-h-[1em] pb-1" style={{ WebkitTextStroke: "1.5px hsl(25 35% 45%)", color: "hsl(0 0% 95%)" }}>
+                <span className="block min-h-[1em] pb-1" style={{ WebkitTextStroke: "1.5px hsl(38 72% 50%)", color: "hsl(0 0% 95%)" }}>
                   {line2.done && line3.displayed}
                   {line2.done && !line3.done && <span className="typewriter-cursor">|</span>}
                 </span>
