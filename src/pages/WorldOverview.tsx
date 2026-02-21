@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import ParticleCanvas from "@/components/ParticleCanvas";
 import Layout from "@/components/Layout";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
@@ -92,6 +93,7 @@ const WorldOverview = () => {
       <div className="relative h-[56vh] sm:h-[70vh] overflow-hidden">
         <img src={heroBg} alt="Panterra" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 to-background" />
+        <ParticleCanvas density={0.5} />
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

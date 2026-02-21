@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
+import ParticleCanvas from "@/components/ParticleCanvas";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import VialSubstitutionGame, { VialSubstitutionTrigger } from "@/components/VialSubstitution";
 import { characterImageMap } from "@/data/guide-images";
@@ -431,6 +432,7 @@ const WorldMap = () => {
         <img src={heroBg} alt="World Map" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
         <div className="absolute inset-0 z-10 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 55%, rgba(15,11,6,0.7) 80%, #0f0b06 100%)" }} />
+        <ParticleCanvas density={0.5} />
       </div>
 
       <div className="pb-28 overflow-x-hidden bg-[#0f0b06] min-h-screen relative">
