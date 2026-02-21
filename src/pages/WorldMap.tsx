@@ -757,8 +757,11 @@ const WorldMap = () => {
                   </div>
                 )}
 
-                {/* === 12 PANTHEON MARKERS (visible at 2x+ zoom) === */}
-                {showPantheons && PANTHEONS.map((p) => (
+                {/* === 12 PANTHEON MARKERS (always visible) === */}
+                {PANTHEONS.map((p) => {
+                  const leftNum = parseFloat(p.mapPos.left);
+                  const flipToLeft = leftNum > 75;
+                  return (
                   <div key={p.id} className="absolute z-[25]" style={{ top: p.mapPos.top, left: p.mapPos.left, transform: "translate(-50%, -50%)" }}>
                     <button
                       onClick={(e) => { if (!hasDragged.current) { e.stopPropagation(); setSelectedPantheon(selectedPantheon === p.id ? null : p.id); setSelectedOrb(null); } }}
@@ -767,15 +770,28 @@ const WorldMap = () => {
                       aria-label={`Pantheon ${p.name}`}
                     >
                       <div className="w-full h-full rounded-full transition-all duration-200 group-hover:scale-125" style={{ background: GLOW_WHITE, boxShadow: `0 0 8px rgba(255,255,255,0.6)` }} />
-                      {/* Name on hover */}
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity z-30">
-                        <span className="block bg-[#0f0b06]/90 font-display text-[7px] tracking-[0.15em] uppercase px-1.5 py-0.5 rounded-sm whitespace-nowrap" style={{ color: GLOW_BRASS }}>
-                          {p.name}
-                        </span>
+                      {/* Badge on hover */}
+                      <div
+                        className={`absolute bottom-full mb-1.5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-30 ${flipToLeft ? 'right-1/2' : 'left-1/2'}`}
+                        style={{ transform: flipToLeft ? 'translateX(50%)' : 'translateX(-50%)' }}
+                      >
+                        <div
+                          className="px-2.5 py-1 rounded-sm whitespace-nowrap"
+                          style={{
+                            background: '#0a0804',
+                            border: '1px solid #d4a84350',
+                            boxShadow: '0 0 10px rgba(212,168,67,0.1)',
+                          }}
+                        >
+                          <span className="block font-display text-[8px] tracking-[0.18em] uppercase" style={{ color: GLOW_BRASS }}>
+                            {p.name}
+                          </span>
+                        </div>
                       </div>
                     </button>
                   </div>
-                ))}
+                  );
+                })}
 
               </div>{/* end zoomable wrapper */}
               </div>{/* end aspect-ratio lock */}
