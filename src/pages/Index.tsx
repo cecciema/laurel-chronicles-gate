@@ -170,11 +170,11 @@ const Index = () => {
         style={isTouch ? undefined : { cursor: "none" }}
       >
         {/* ── Hero Background (parallax layers) ──────────────────────── */}
-        <div className="relative w-full" style={{ backgroundColor: "#0f0b06" }}>
+        <div className="relative w-full z-0" style={{ backgroundColor: "#0f0b06" }}>
           {/* Layer 1 - image (most movement) */}
           <div
             ref={bgRef}
-            className="transition-transform duration-75 ease-out"
+            className="relative z-0 transition-transform duration-75 ease-out"
           >
             <img
               src={heroBg}
@@ -185,113 +185,107 @@ const Index = () => {
           {/* Layer 2 - mid gradient (medium movement) */}
           <div
             ref={midRef}
-            className="absolute inset-0 pointer-events-none transition-transform duration-100 ease-out"
+            className="absolute inset-0 z-[1] pointer-events-none transition-transform duration-100 ease-out"
             style={{ background: "radial-gradient(ellipse at 40% 60%, hsl(38 72% 50% / 0.08) 0%, transparent 60%)" }}
           />
           {/* Layer 3 - static vignette gradients */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/10 to-background/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/10 via-transparent to-background/10" />
-        </div>
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/10 via-background/10 to-background/20" />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-r from-background/10 via-transparent to-background/10" />
 
-        {/* Particles */}
-        <div className="absolute inset-0 z-[2] pointer-events-none">
-          <ParticleCanvas />
-        </div>
+          {/* Particles */}
+          <div className="absolute inset-0 z-[2] pointer-events-none">
+            <ParticleCanvas />
+          </div>
 
-        {/* ── Hero Content ────────────────────────────────────────────── */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 30 : 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <p className="text-xs tracking-[0.5em] text-primary/70 uppercase font-body mb-4">
-              An Interactive World Experience
-            </p>
-
-            {/* Typewriter headline */}
-            <h1 className="font-display text-[2rem] sm:text-7xl lg:text-8xl tracking-[0.08em] text-foreground leading-tight w-full max-w-full overflow-hidden">
-              {/* Line 1 */}
-              <span className="block pb-1">
-                {line1.displayed}
-                {!line1.done && <span className="typewriter-cursor">|</span>}
-              </span>
-              {/* Line 2 */}
-              <span className="text-brass-glow block min-h-[1em] pb-1">
-                {line1.done && line2.displayed}
-                {line1.done && !line2.done && <span className="typewriter-cursor">|</span>}
-              </span>
-              {/* Line 3 */}
-              <span className="block min-h-[1em] pb-1">
-                {line2.done && line3.displayed}
-                {line2.done && !line3.done && <span className="typewriter-cursor">|</span>}
-              </span>
-            </h1>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: line3.done ? 1 : 0 }}
-            transition={{ duration: 1 }}
-          >
-            <p className="mt-8 font-narrative text-[1.0625rem] sm:text-xl text-foreground/70 italic max-w-lg mx-auto leading-[1.8] px-5 sm:px-0">
-              "The Republic has no secrets. The records are complete. The ceremonies are sacred. You were not supposed to find this."
-            </p>
-          </motion.div>
-
-          {/* CTA buttons + QuestTrigger - single centered column */}
-          <div className="mt-12 flex flex-col items-center gap-4 w-full px-6 sm:px-0">
-            {/* Row 1: Enter + Meet - side by side on desktop, stacked on mobile */}
+          {/* ── Hero Content ────────────────────────────────────────────── */}
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: line3.done ? 1 : 0, y: line3.done ? 0 : 20 }}
-              transition={{ duration: 0.8 }}
-              className="w-full"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 30 : 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
-                <Link
-                  to="/world"
-                  className="btn-pulse-glow w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow"
-                  style={isTouch ? undefined : { cursor: "none" }}
-                >
-                  Enter the Republic
-                </Link>
-                <Link
-                  to="/characters"
-                  className="w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 border border-primary/40 text-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/80 transition-colors"
-                  style={isTouch ? undefined : { cursor: "none" }}
-                >
-                  Meet the Players
-                </Link>
-              </div>
+              <p className="text-xs tracking-[0.5em] text-primary/70 uppercase font-body mb-4">
+                An Interactive World Experience
+              </p>
+
+              {/* Typewriter headline */}
+              <h1 className="font-display text-[2rem] sm:text-7xl lg:text-8xl tracking-[0.08em] text-foreground leading-tight w-full max-w-full overflow-hidden">
+                <span className="block pb-1">
+                  {line1.displayed}
+                  {!line1.done && <span className="typewriter-cursor">|</span>}
+                </span>
+                <span className="text-brass-glow block min-h-[1em] pb-1">
+                  {line1.done && line2.displayed}
+                  {line1.done && !line2.done && <span className="typewriter-cursor">|</span>}
+                </span>
+                <span className="block min-h-[1em] pb-1">
+                  {line2.done && line3.displayed}
+                  {line2.done && !line3.done && <span className="typewriter-cursor">|</span>}
+                </span>
+              </h1>
             </motion.div>
 
-            {/* Row 2: QuestTrigger - centered below, full-width on mobile */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: line3.done ? 1 : 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="w-full flex justify-center"
+              transition={{ duration: 1 }}
             >
-              <QuestTrigger />
+              <p className="mt-8 font-narrative text-[1.0625rem] sm:text-xl text-foreground/70 italic max-w-lg mx-auto leading-[1.8] px-5 sm:px-0">
+                "The Republic has no secrets. The records are complete. The ceremonies are sacred. You were not supposed to find this."
+              </p>
+            </motion.div>
+
+            {/* CTA buttons + QuestTrigger */}
+            <div className="mt-12 flex flex-col items-center gap-4 w-full px-6 sm:px-0">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: line3.done ? 1 : 0, y: line3.done ? 0 : 20 }}
+                transition={{ duration: 0.8 }}
+                className="w-full"
+              >
+                <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+                  <Link
+                    to="/world"
+                    className="btn-pulse-glow w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow"
+                    style={isTouch ? undefined : { cursor: "none" }}
+                  >
+                    Enter the Republic
+                  </Link>
+                  <Link
+                    to="/characters"
+                    className="w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 border border-primary/40 text-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/80 transition-colors"
+                    style={isTouch ? undefined : { cursor: "none" }}
+                  >
+                    Meet the Players
+                  </Link>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: line3.done ? 1 : 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="w-full flex justify-center"
+              >
+                <QuestTrigger />
+              </motion.div>
+            </div>
+
+            {/* Scroll indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: line3.done ? 1 : 0 }}
+              transition={{ delay: 0.8, duration: 1 }}
+              className="absolute bottom-8 left-1/2 -translate-x-1/2"
+            >
+              <div className="flex flex-col items-center gap-2 steam-rise">
+                <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-body">
+                  Scroll to Explore
+                </span>
+                <div className="w-px h-8 bg-gradient-to-b from-primary/50 to-transparent" />
+              </div>
             </motion.div>
           </div>
-
-
-          {/* Scroll indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: line3.done ? 1 : 0 }}
-            transition={{ delay: 0.8, duration: 1 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          >
-            <div className="flex flex-col items-center gap-2 steam-rise">
-              <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-body">
-                Scroll to Explore
-              </span>
-              <div className="w-px h-8 bg-gradient-to-b from-primary/50 to-transparent" />
-            </div>
-          </motion.div>
         </div>
 
         {/* ── Below-fold sections (scroll reveal) ─────────────────────── */}
