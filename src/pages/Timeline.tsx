@@ -110,7 +110,7 @@ const events: TimelineEvent[] = [
     year: "Year 201",
     title: "The Apotheosis Covenant",
     description:
-      "The Apotheosis ceremony is formalized as a sacred rite of passage rather than a civic obligation. The distinction matters to no one by this point — participation rates are already near total. Carmela's predecessor is appointed the first civilian ceremony orchestrator, marking the first time a non-Sol Deus holds full ceremonial authority over the transition rite.",
+      "The Apotheosis ceremony is formalized as a sacred rite of passage rather than a civic obligation. The distinction matters to no one by this point - participation rates are already near total. Carmela's predecessor is appointed the first civilian ceremony orchestrator, marking the first time a non-Sol Deus holds full ceremonial authority over the transition rite.",
     column: "right",
     order: 9,
   },
@@ -360,7 +360,7 @@ const TimelinePage = () => {
 
         {/* Timeline */}
         <div className="max-w-4xl mx-auto relative">
-          {/* Vertical center line — stops before Present Hour */}
+          {/* Vertical center line - stops before Present Hour */}
           {isMobile ? (
             <div
               className="absolute left-[13px] top-0 w-px"
@@ -414,7 +414,7 @@ const TimelinePage = () => {
               />
             </div>
 
-            {/* Text — below dot with clear spacing */}
+            {/* Text - below dot with clear spacing */}
             <div
               className={`mt-6 ${
                 isMobile ? "self-start pl-10" : "text-center"

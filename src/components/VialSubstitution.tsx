@@ -424,7 +424,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
 
     const pIdx = PARTICIPANTS.findIndex(p => p.row === r && p.col === c);
     if (pIdx < 0) {
-      // Tapped empty — cancel selection
+      // Tapped empty - cancel selection
       setSelected(null);
       return;
     }
@@ -471,7 +471,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
           }, 2000);
         }
       } else if (dist <= 2) {
-        // Blocked — warning pulse, no penalty
+        // Blocked - warning pulse, no penalty
         setSelected(null);
       } else {
         // SUCCESSFUL SWAP

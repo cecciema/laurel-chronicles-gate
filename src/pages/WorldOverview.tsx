@@ -24,7 +24,7 @@ const socialTiers = [
   {
     tier: "The Citizens",
     level: "The Living",
-    desc: "Those who have not yet reached Apex live here — in the Deep Forge, in the townships, in the schools and training grounds of the Republic. They are fed, educated, protected, and prepared. Their whole lives are a preparation for the choice that awaits them.",
+    desc: "Those who have not yet reached Apex live here - in the Deep Forge, in the townships, in the schools and training grounds of the Republic. They are fed, educated, protected, and prepared. Their whole lives are a preparation for the choice that awaits them.",
   },
   {
     tier: "The Public Servants",
@@ -37,7 +37,7 @@ const regions = [
   {
     name: "The Deep Forge",
     tag: "FOUNDATION",
-    description: "Where every Citizen of Panterra begins. The townships, the nurseries, the schools, the training grounds — all of it sits above the oldest infrastructure in the Republic. The forges beneath run day and night. Most people never ask what they are for. The children raised here grow up knowing the warmth of them but not the source. There is a reason this place is called what it is. Most people never find out.",
+    description: "Where every Citizen of Panterra begins. The townships, the nurseries, the schools, the training grounds - all of it sits above the oldest infrastructure in the Republic. The forges beneath run day and night. Most people never ask what they are for. The children raised here grow up knowing the warmth of them but not the source. There is a reason this place is called what it is. Most people never find out.",
     features: ["Township Quarters", "Paragon Academies", "Republic Nurseries", "The Forge Districts"],
     hasOrb: true,
   },
@@ -50,19 +50,19 @@ const regions = [
   {
     name: "Sanctorium",
     tag: "THE SPIRITUAL AUTHORITY",
-    description: "Twelve Pantheons arranged across all four quadrants, each governed by a Sol Deus and their Lunary. The Grand Sanctuary at the center is the holiest site in Panterra — the seat of the Apotheosis ceremony and the court of divine authority. Access is tiered. Most Citizens see only the outer courts. What happens at the center is not discussed.",
+    description: "Twelve Pantheons arranged across all four quadrants, each governed by a Sol Deus and their Lunary. The Grand Sanctuary at the center is the holiest site in Panterra - the seat of the Apotheosis ceremony and the court of divine authority. Access is tiered. Most Citizens see only the outer courts. What happens at the center is not discussed.",
     features: ["The Twelve Pantheons", "The Grand Sanctuary", "The Ivory Planetarium", "The Sacred Scrolls"],
   },
   {
     name: "The Ocean Reaches",
     tag: "MAGISTRY OF OCEAN - PARLIAMENT DIVISION",
-    description: "The degraded ocean territories under the research and control of the Magistry of Ocean. What was once a living sea is now a black expanse of toxins and chemical waste — the inheritance of the Great War. Parliament funds ongoing recovery efforts. Progress has been slow for decades. Recently, something changed.",
+    description: "The degraded ocean territories under the research and control of the Magistry of Ocean. What was once a living sea is now a black expanse of toxins and chemical waste - the inheritance of the Great War. Parliament funds ongoing recovery efforts. Progress has been slow for decades. Recently, something changed.",
     features: ["Research Stations", "Degraded Reef Systems", "Field Laboratories", "The Tide Markers"],
   },
   {
     name: "The Frontier Borderlands",
-    tag: "UNCHARTED — PROCEED WITH CAUTION",
-    description: "Beyond the Republic's governed edge lies what the maps describe as uninhabitable wasteland — scorching desert in the south, glacial ice in the north, and no infrastructure of any kind. Citizens are advised never to attempt crossing. A small number have tried over the years — those who refused Apotheosis and refused service both. The Republic's official record states that none survived. The Republic's official record has been wrong before.",
+    tag: "UNCHARTED - PROCEED WITH CAUTION",
+    description: "Beyond the Republic's governed edge lies what the maps describe as uninhabitable wasteland - scorching desert in the south, glacial ice in the north, and no infrastructure of any kind. Citizens are advised never to attempt crossing. A small number have tried over the years — those who refused Apotheosis and refused service both. The Republic's official record states that none survived. The Republic's official record has been wrong before.",
     features: ["Survivor Camps", "Pre-War Ruins", "Ungoverned Ocean Channels", "The Unmapped Interior"],
   },
 ];
@@ -141,7 +141,7 @@ const WorldOverview = () => {
             style={{ borderColor: "hsl(25 60% 30% / 0.4)", background: "hsl(20 12% 7%)" }}
           >
             <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-3" style={{ color: "hsl(25 60% 40%)" }}>
-              Worn Handwritten Document — Deep Forge Communities
+              Worn Handwritten Document - Deep Forge Communities
             </p>
             <p className="font-narrative italic text-[0.9375rem] leading-[1.85]" style={{ color: "hsl(38 25% 65%)" }}>
               "The Deep Forge communities have maintained an oral record of every person lost to incomplete Apotheosis since Year 4 of the New Republic. The number is 1,847. The official record shows 214."
@@ -220,7 +220,7 @@ const WorldOverview = () => {
               </motion.div>
             ))}
 
-            {/* ── The Convoy — Fourth Tier ── */}
+            {/* ── The Convoy - Fourth Tier ── */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -238,7 +238,7 @@ const WorldOverview = () => {
                 className="text-[10px] tracking-[0.3em] uppercase font-body transition-colors duration-1000"
                 style={{ color: transmissionWon ? "hsl(38 50% 45%)" : "hsl(0 50% 40%)" }}
               >
-                {transmissionWon ? "RECORD RESTORED — CLASSIFIED" : "UNVERIFIED — RECORD DISPUTED"}
+                {transmissionWon ? "RECORD RESTORED - CLASSIFIED" : "UNVERIFIED - RECORD DISPUTED"}
               </span>
 
               {/* Blurrable content */}
