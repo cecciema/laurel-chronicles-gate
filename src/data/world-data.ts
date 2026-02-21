@@ -532,7 +532,7 @@ export const worldRegions: WorldRegion[] = [
   },
   {
     id: "ocean-reaches",
-    name: "The Ocean Reaches",
+    name: "Ocean Reaches",
     description: "The degraded but vast ocean territories where Magistry of Ocean Paragon candidates work. Beautiful and haunting - what the world was before systems of control replaced natural order.",
     faction: "Magistry of Ocean",
     features: ["Research Stations", "Degraded Reef Systems", "Culver's Field Labs", "The Tide Markers"],
