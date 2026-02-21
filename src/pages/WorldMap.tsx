@@ -429,8 +429,8 @@ const WorldMap = () => {
       {/* Hero */}
       <div className="relative h-[40vh] sm:h-[50vh] overflow-hidden">
         <img src={heroBg} alt="World Map" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 to-background" />
-        <div className="absolute inset-0 z-10 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(15,11,6,0.7) 70%, #0f0b06 100%)" }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
+        <div className="absolute inset-0 z-10 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 55%, rgba(15,11,6,0.7) 80%, #0f0b06 100%)" }} />
       </div>
 
       <div className="pb-28 overflow-x-hidden bg-[#0f0b06] min-h-screen relative">
