@@ -1236,7 +1236,7 @@ const QUADRANTS = [
 
 
 const KnownInstitutions = () => (
-  <section className="px-4 sm:px-8 py-20 max-w-6xl mx-auto">
+  <section className="px-4 sm:px-8 pb-20 pt-4 max-w-6xl mx-auto">
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
