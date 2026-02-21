@@ -488,6 +488,7 @@ export const QuestTrigger = ({ className }: { className?: string }) => {
 // ── Scroll collection display (used on Index / dedicated pages) ───────────────
 export const ScrollCollection = ({ className }: { className?: string }) => {
   const { foundScrolls } = useGame();
+  const [bestiaryWarning, setBestiaryWarning] = useState(false);
   const total = TOTAL_SCROLLS;
   const recovered = foundScrolls.filter(id => id >= 1 && id <= 12).length;
 
@@ -577,16 +578,64 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
 
       {/* Bestiary subtle footer link */}
       <div className="text-center pt-2">
-        <Link
-          to="/bestiary"
-          className="font-narrative italic text-[0.8125rem] transition-colors opacity-50"
-          style={{ color: "hsl(38 30% 32%)" }}
+        <button
+          onClick={() => setBestiaryWarning(true)}
+          className="font-narrative italic text-[0.8125rem] transition-colors opacity-50 bg-transparent border-none"
+          style={{ color: "hsl(38 30% 32%)", cursor: "pointer" }}
           onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
           onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 30% 32%)")}
         >
           The Bestiary of Panterra →
-        </Link>
+        </button>
       </div>
+
+      {/* Bestiary warning modal */}
+      <AnimatePresence>
+        {bestiaryWarning && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center p-6"
+            style={{ background: "rgba(0,0,0,0.85)" }}
+            onClick={() => setBestiaryWarning(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 12 }}
+              transition={{ duration: 0.3 }}
+              className="max-w-sm w-full p-8 border text-center"
+              style={{ background: "hsl(20 12% 7%)", borderColor: "hsl(38 50% 35% / 0.4)" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <p className="font-display text-[9px] tracking-[0.4em] uppercase mb-4" style={{ color: "hsl(38 72% 50%)" }}>
+                Restricted Access
+              </p>
+              <p className="font-narrative italic text-[0.9375rem] leading-[1.9] text-foreground/70 mb-6">
+                You are not supposed to be seeing what is behind this veil. Are you certain you wish to proceed?
+              </p>
+              <div className="flex gap-3 justify-center">
+                <button
+                  onClick={() => setBestiaryWarning(false)}
+                  className="px-5 py-2 border font-body text-[9px] tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors"
+                  style={{ borderColor: "hsl(38 20% 25%)" }}
+                >
+                  Turn Back
+                </button>
+                <Link
+                  to="/bestiary"
+                  className="px-5 py-2 border font-body text-[9px] tracking-widest uppercase transition-colors hover:bg-primary/10"
+                  style={{ borderColor: "hsl(38 72% 50%)", color: "hsl(38 72% 55%)" }}
+                  onClick={() => setBestiaryWarning(false)}
+                >
+                  Proceed
+                </Link>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
