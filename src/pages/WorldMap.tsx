@@ -1218,11 +1218,6 @@ const QUADRANTS = [
   },
 ];
 
-const CARD_OFFSETS = [
-  { rotate: "-1.2deg", ml: "0px", mt: "0px" },
-  { rotate: "0.8deg", ml: "12px", mt: "6px" },
-  { rotate: "-0.5deg", ml: "4px", mt: "-2px" },
-];
 
 const KnownInstitutions = () => (
   <section className="px-4 sm:px-8 py-20 max-w-6xl mx-auto">
@@ -1270,19 +1265,12 @@ const KnownInstitutions = () => (
             </p>
           </div>
 
-          {/* Pantheon cards — scattered feel */}
-          <div className="flex flex-col gap-2">
-            {q.pantheons.map((p, pi) => {
-              const off = CARD_OFFSETS[pi];
-              return (
+          {/* Pantheon cards */}
+          <div className="flex flex-col gap-3">
+            {q.pantheons.map((p) => (
                 <div
                   key={p.name}
                   className="border border-primary/20 bg-card/60 p-3 transition-shadow duration-300 hover:shadow-glow"
-                  style={{
-                    transform: `rotate(${off.rotate})`,
-                    marginLeft: off.ml,
-                    marginTop: off.mt,
-                  }}
                 >
                   <h4 className="font-display text-sm tracking-wide text-foreground">
                     {p.name}
@@ -1294,8 +1282,7 @@ const KnownInstitutions = () => (
                     Sol Deus: {p.solDeus}
                   </p>
                 </div>
-              );
-            })}
+            ))}
           </div>
         </motion.div>
       ))}
