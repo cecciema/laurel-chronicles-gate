@@ -60,18 +60,18 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
 
 // ── 12 Pantheons ───────────────────────────────────────────────────────────────
 const PANTHEONS = [
-  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", specialty: "Sculpture",          constellation: "Ram (Aries)",              solDeus: "Thema",     lunary: "Gemma Avinas X",           color: "#ffffff", mapPos: { top: "16%", left: "73%" } },
-  { id: "greenwood",  name: "Greenwood",  quadrant: "Northeast", specialty: "Mapmaking",          constellation: "Bull (Taurus)",            solDeus: "Gable",     lunary: "Kasen Welliver II",         color: "#ffffff", mapPos: { top: "20%", left: "76%" } },
-  { id: "finnrare",   name: "Finnrare",   quadrant: "Northeast", specialty: "Masonry",            constellation: "Sisters (Gemini)",         solDeus: "Norstrand", lunary: "Reza Centaris XII",         color: "#ffffff", mapPos: { top: "25%", left: "76%" } },
-  { id: "mist",       name: "Mist",       quadrant: "Southeast", specialty: "Vocal",              constellation: "Lioness (Leo)",            solDeus: "Santos",    lunary: "Wolf Bode III",             color: "#ffffff", mapPos: { top: "29%", left: "74%" } },
-  { id: "lighthouse", name: "Lighthouse", quadrant: "Southeast", specialty: "Language",           constellation: "Spider (Cancer)",          solDeus: "Coster",    lunary: "Bristol Safo IX",           color: "#ffffff", mapPos: { top: "32%", left: "71%" } },
-  { id: "ember",      name: "Ember",      quadrant: "Southeast", specialty: "Music Instruments",  constellation: "Warrior (Virgo)",          solDeus: "Finley",    lunary: "Siena Blackridge IV",       color: "#ffffff", mapPos: { top: "33%", left: "67%" } },
-  { id: "volcan",     name: "Volcan",     quadrant: "Southwest", specialty: "Breathing",          constellation: "Scales (Libra)",           solDeus: "Shanren",   lunary: "Rizal Moresea II",          color: "#ffffff", mapPos: { top: "31%", left: "63%" } },
-  { id: "rockfall",   name: "Rockfall",   quadrant: "Southwest", specialty: "Stone",              constellation: "Scorpion (Scorpio)",       solDeus: "Morrison",  lunary: "Vicente Penna Car XI",      color: "#ffffff", mapPos: { top: "27%", left: "61%" } },
-  { id: "canvas",     name: "Canvas",     quadrant: "Southwest", specialty: "Religious Studies",  constellation: "Archer (Sagittarius)",     solDeus: "Kotani",    lunary: "Nikolai Panaura III",       color: "#ffffff", mapPos: { top: "22%", left: "61%" } },
-  { id: "ivory",      name: "Ivory",      quadrant: "Northwest", specialty: "Paintings",          constellation: "Fish (Pisces)",            solDeus: "Verlaine",  lunary: "Carmela Faraday VI",        color: "#ffffff", mapPos: { top: "17%", left: "63%" } },
-  { id: "hedron",     name: "Hedron",     quadrant: "Northwest", specialty: "Fauna",              constellation: "Goat (Capricorn)",         solDeus: "Mexia",     lunary: "Iris Belmiteza V",          color: "#ffffff", mapPos: { top: "14%", left: "66%" } },
-  { id: "lumin",      name: "Lumin",      quadrant: "Northwest", specialty: "Flora",              constellation: "Water Bearer (Aquarius)",  solDeus: "Nolyn",     lunary: "Nova Auburn IV",            color: "#ffffff", mapPos: { top: "13%", left: "70%" } },
+  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", constellation: "Ram (Aries)",              solDeus: "Thema",     lunary: "Gemma Avinas X",           color: "#ffffff", mapPos: { top: "16%", left: "73%" } },
+  { id: "greenwood",  name: "Greenwood",  quadrant: "Northeast", constellation: "Bull (Taurus)",            solDeus: "Gable",     lunary: "Kasen Welliver II",         color: "#ffffff", mapPos: { top: "20%", left: "76%" } },
+  { id: "finnrare",   name: "Finnrare",   quadrant: "Northeast", constellation: "Sisters (Gemini)",         solDeus: "Norstrand", lunary: "Reza Centaris XII",         color: "#ffffff", mapPos: { top: "25%", left: "76%" } },
+  { id: "mist",       name: "Mist",       quadrant: "Southeast", constellation: "Lioness (Leo)",            solDeus: "Santos",    lunary: "Wolf Bode III",             color: "#ffffff", mapPos: { top: "29%", left: "74%" } },
+  { id: "lighthouse", name: "Lighthouse", quadrant: "Southeast", constellation: "Spider (Cancer)",          solDeus: "Coster",    lunary: "Bristol Safo IX",           color: "#ffffff", mapPos: { top: "32%", left: "71%" } },
+  { id: "ember",      name: "Ember",      quadrant: "Southeast", constellation: "Warrior (Virgo)",          solDeus: "Finley",    lunary: "Siena Blackridge IV",       color: "#ffffff", mapPos: { top: "33%", left: "67%" } },
+  { id: "volcan",     name: "Volcan",     quadrant: "Southwest", constellation: "Scales (Libra)",           solDeus: "Shanren",   lunary: "Rizal Moresea II",          color: "#ffffff", mapPos: { top: "31%", left: "63%" } },
+  { id: "rockfall",   name: "Rockfall",   quadrant: "Southwest", constellation: "Scorpion (Scorpio)",       solDeus: "Morrison",  lunary: "Vicente Penna Car XI",      color: "#ffffff", mapPos: { top: "27%", left: "61%" } },
+  { id: "canvas",     name: "Canvas",     quadrant: "Southwest", constellation: "Archer (Sagittarius)",     solDeus: "Kotani",    lunary: "Nikolai Panaura III",       color: "#ffffff", mapPos: { top: "22%", left: "61%" } },
+  { id: "ivory",      name: "Ivory",      quadrant: "Northwest", constellation: "Fish (Pisces)",            solDeus: "Verlaine",  lunary: "Carmela Faraday VI",        color: "#ffffff", mapPos: { top: "17%", left: "63%" } },
+  { id: "hedron",     name: "Hedron",     quadrant: "Northwest", constellation: "Goat (Capricorn)",         solDeus: "Mexia",     lunary: "Iris Belmiteza V",          color: "#ffffff", mapPos: { top: "14%", left: "66%" } },
+  { id: "lumin",      name: "Lumin",      quadrant: "Northwest", constellation: "Water Bearer (Aquarius)",  solDeus: "Nolyn",     lunary: "Nova Auburn IV",            color: "#ffffff", mapPos: { top: "13%", left: "70%" } },
 ];
 
 // ── Sub-region lore data ───────────────────────────────────────────────────────
@@ -969,7 +969,6 @@ const WorldMap = () => {
                                       <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
                                       <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
                                     </div>
-                                    <p className="font-body text-[8px] text-muted-foreground">{p.specialty}</p>
                                     <p className="font-body text-[8px] text-muted-foreground/70">Sol Deus: {p.solDeus}</p>
                                     <p className="font-body text-[8px] text-muted-foreground/70">Lunary: {p.lunary}</p>
                                   </div>
@@ -1038,7 +1037,7 @@ const WorldMap = () => {
                                         <span className="font-display text-[10px] tracking-wide text-foreground">{p.name}</span>
                                         <span className="font-body text-[8px] text-muted-foreground">{p.constellation}</span>
                                       </div>
-                                      <p className="font-body text-[8px] text-muted-foreground">{p.specialty}</p>
+                                      
                                       <p className="font-body text-[8px] text-muted-foreground/70">Sol Deus: {p.solDeus}</p>
                                       <p className="font-body text-[8px] text-muted-foreground/70">Lunary: {p.lunary}</p>
                                     </div>
@@ -1123,7 +1122,7 @@ const WorldMap = () => {
                 <h4 className="font-display text-sm tracking-wide text-foreground mb-2">{p.name}</h4>
                 <div className="flex flex-col gap-1 text-[10px] font-body text-foreground/70">
                   <p><span className="text-muted-foreground">Constellation:</span> {p.constellation}</p>
-                  <p><span className="text-muted-foreground">Specialty:</span> {p.specialty}</p>
+                  
                   <p><span className="text-muted-foreground">Sol Deus:</span> {p.solDeus}</p>
                   <p><span className="text-muted-foreground">Lunary:</span> {p.lunary}</p>
                 </div>
@@ -1179,9 +1178,9 @@ const QUADRANTS = [
     magistryDesc: "Civil order, conflict resolution, and border enforcement",
     magistryCharacters: ["Aspen"],
     pantheons: [
-      { name: "Prisma", specialty: "Sculpture", constellation: "Ram (Aries)", solDeus: "Thema" },
-      { name: "Greenwood", specialty: "Mapmaking", constellation: "Bull (Taurus)", solDeus: "Gable" },
-      { name: "Ivory", specialty: "Paintings", constellation: "Vixens (Pisces)", solDeus: "Lockland" },
+      { name: "Prisma", constellation: "Ram (Aries)", solDeus: "Thema" },
+      { name: "Greenwood", constellation: "Bull (Taurus)", solDeus: "Gable" },
+      { name: "Ivory", constellation: "Vixens (Pisces)", solDeus: "Lockland" },
     ],
   },
   {
@@ -1190,9 +1189,9 @@ const QUADRANTS = [
     magistryDesc: "Satellite systems, atmospheric monitoring, and boundary maintenance",
     magistryCharacters: ["Wintry"],
     pantheons: [
-      { name: "Mist", specialty: "Vocal", constellation: "Lioness (Leo)", solDeus: "Santos" },
-      { name: "Lighthouse", specialty: "Language", constellation: "Spider (Cancer)", solDeus: "Coster" },
-      { name: "Ember", specialty: "Music Instruments", constellation: "Warrior (Virgo)", solDeus: "Finley" },
+      { name: "Mist", constellation: "Lioness (Leo)", solDeus: "Santos" },
+      { name: "Lighthouse", constellation: "Spider (Cancer)", solDeus: "Coster" },
+      { name: "Ember", constellation: "Warrior (Virgo)", solDeus: "Finley" },
     ],
   },
   {
@@ -1201,9 +1200,9 @@ const QUADRANTS = [
     magistryDesc: "Ocean recovery, marine research, and field operations",
     magistryCharacters: ["Culver", "Soleil"],
     pantheons: [
-      { name: "Volcan", specialty: "Breathing", constellation: "Merchant (Libra)", solDeus: "Shanren" },
-      { name: "Rockfall", specialty: "Stone", constellation: "Scorpion (Scorpio)", solDeus: "Morrison" },
-      { name: "Canvas", specialty: "Religious Studies", constellation: "Archer (Sagittarius)", solDeus: "Kotani" },
+      { name: "Volcan", constellation: "Merchant (Libra)", solDeus: "Shanren" },
+      { name: "Rockfall", constellation: "Scorpion (Scorpio)", solDeus: "Morrison" },
+      { name: "Canvas", constellation: "Archer (Sagittarius)", solDeus: "Kotani" },
     ],
   },
   {
@@ -1212,9 +1211,9 @@ const QUADRANTS = [
     magistryDesc: "Medical systems, biological research, and Citizen health",
     magistryCharacters: ["Cora"],
     pantheons: [
-      { name: "Hedron", specialty: "Fauna", constellation: "Sailor (Aquarius)", solDeus: "Mexia" },
-      { name: "Lumin", specialty: "Flora", constellation: "Siren (Capricorn)", solDeus: "Nolyn" },
-      { name: "Finnrare", specialty: "Masonry", constellation: "Sisters (Gemini)", solDeus: "Norstrand" },
+      { name: "Hedron", constellation: "Sailor (Aquarius)", solDeus: "Mexia" },
+      { name: "Lumin", constellation: "Siren (Capricorn)", solDeus: "Nolyn" },
+      { name: "Finnrare", constellation: "Sisters (Gemini)", solDeus: "Norstrand" },
     ],
   },
 ];
@@ -1288,9 +1287,6 @@ const KnownInstitutions = () => (
                   <h4 className="font-display text-sm tracking-wide text-foreground">
                     {p.name}
                   </h4>
-                  <p className="font-narrative italic text-xs text-foreground/60 mt-0.5">
-                    {p.specialty}
-                  </p>
                   <p className="font-body text-[9px] tracking-[0.25em] uppercase text-primary/70 mt-1">
                     {p.constellation}
                   </p>
