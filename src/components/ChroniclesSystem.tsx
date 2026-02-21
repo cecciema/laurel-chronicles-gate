@@ -579,7 +579,7 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
       <div className="text-center pt-2">
         <Link
           to="/bestiary"
-          className="font-narrative italic text-[0.8125rem] transition-colors"
+          className="font-narrative italic text-[0.8125rem] transition-colors opacity-50"
           style={{ color: "hsl(38 30% 32%)" }}
           onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
           onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 30% 32%)")}
