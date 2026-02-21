@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { QuestTrigger, ScrollCollection, useGame } from "@/components/ChroniclesSystem";
-import heroCityscape from "@/assets/hero-cityscape.jpg";
+import heroBg from "@/assets/city.jpg";
 import { isTouch } from "@/components/CustomCursor";
 
 // ─── Typewriter Hook ───────────────────────────────────────────────────────────
@@ -177,7 +177,7 @@ const Index = () => {
             className="absolute inset-[-3%] transition-transform duration-75 ease-out"
           >
             <img
-              src={heroCityscape}
+              src={heroBg}
               alt="The Republic"
               className="w-full h-full object-cover"
             />

@@ -6,6 +6,7 @@ import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import { characters } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
+import heroBg from "@/assets/pool.jpg";
 
 // Resolve character portrait: new characters use a full path, legacy ones use a key
 const resolveImage = (image: string): string =>
@@ -778,7 +779,13 @@ const Characters = () => {
 
   return (
     <Layout>
-      <div className="pt-24 pb-20 px-4 overflow-x-hidden">
+      {/* Hero */}
+      <div className="relative h-[40vh] sm:h-[50vh] overflow-hidden">
+        <img src={heroBg} alt="Characters" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 to-background" />
+      </div>
+
+      <div className="pb-20 px-4 overflow-x-hidden">
         <div className="relative">
           <SectionHeader
             title="Character Database"

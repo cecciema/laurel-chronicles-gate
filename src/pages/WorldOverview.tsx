@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
-import heroCityscape from "@/assets/hero-cityscape.jpg";
+import heroBg from "@/assets/waterfall.jpg";
 import { ForbiddenTransmission } from "@/components/ForbiddenTransmission";
 
 const cornerstoneLaws = [
@@ -90,7 +90,7 @@ const WorldOverview = () => {
     <Layout>
       {/* Hero */}
       <div className="relative h-[40vh] sm:h-[50vh] overflow-hidden">
-        <img src={heroCityscape} alt="Panterra" className="w-full h-full object-cover" />
+        <img src={heroBg} alt="Panterra" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 to-background" />
         <div className="absolute inset-0 flex items-end justify-center pb-10 sm:pb-12">
           <motion.div

@@ -6,6 +6,7 @@ import VialSubstitutionGame, { VialSubstitutionTrigger } from "@/components/Vial
 import { characterImageMap } from "@/data/guide-images";
 import { useIsMobile } from "@/hooks/use-mobile";
 import panterraMap from "@/assets/panterra-map.jpg";
+import heroBg from "@/assets/mining.jpg";
 import { Plus, Minus, RotateCcw } from "lucide-react";
 
 // ── Constants ──────────────────────────────────────────────────────────────────
@@ -425,7 +426,13 @@ const WorldMap = () => {
 
   return (
     <Layout>
-      <div className="pt-20 pb-28 overflow-x-hidden bg-[#0f0b06] min-h-screen relative">
+      {/* Hero */}
+      <div className="relative h-[40vh] sm:h-[50vh] overflow-hidden">
+        <img src={heroBg} alt="World Map" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 to-background" />
+      </div>
+
+      <div className="pb-28 overflow-x-hidden bg-[#0f0b06] min-h-screen relative">
         {/* Hidden Orb 5 — Map page scroll */}
         <HiddenOrb id={5} className="absolute top-24 right-4 sm:right-12 z-20" />
 
