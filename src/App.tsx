@@ -17,6 +17,7 @@ import WorldMap from "./pages/WorldMap";
 
 import NotFound from "./pages/NotFound";
 import Bestiary from "./pages/Bestiary";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +70,7 @@ const AppInner = () => {
         }
       </motion.button>
 
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/world" element={<WorldOverview />} />
