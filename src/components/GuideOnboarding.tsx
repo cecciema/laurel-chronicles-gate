@@ -239,7 +239,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
                         exit={{ opacity: 0 }}
                         className="absolute inset-0 bg-background/85 flex items-center justify-center p-3"
                       >
-                        <p className="font-narrative text-[10px] sm:text-xs text-foreground/80 italic text-center leading-relaxed">
+                        <p className="font-narrative text-xl sm:text-2xl text-foreground/80 italic text-center leading-relaxed">
                           "{guide.philosophy}"
                         </p>
                       </motion.div>
