@@ -60,18 +60,18 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
 
 // ── 12 Pantheons ───────────────────────────────────────────────────────────────
 const PANTHEONS = [
-  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", constellation: "Ram (Aries)",              solDeus: "Thema",     lunary: "Gemma Avinas X",           color: "#ffffff", mapPos: { top: "16%", left: "73%" } },
-  { id: "greenwood",  name: "Greenwood",  quadrant: "Northeast", constellation: "Bull (Taurus)",            solDeus: "Gable",     lunary: "Kasen Welliver II",         color: "#ffffff", mapPos: { top: "20%", left: "76%" } },
-  { id: "finnrare",   name: "Finnrare",   quadrant: "Northeast", constellation: "Sisters (Gemini)",         solDeus: "Norstrand", lunary: "Reza Centaris XII",         color: "#ffffff", mapPos: { top: "25%", left: "76%" } },
-  { id: "mist",       name: "Mist",       quadrant: "Southeast", constellation: "Lioness (Leo)",            solDeus: "Santos",    lunary: "Wolf Bode III",             color: "#ffffff", mapPos: { top: "29%", left: "74%" } },
-  { id: "lighthouse", name: "Lighthouse", quadrant: "Southeast", constellation: "Spider (Cancer)",          solDeus: "Coster",    lunary: "Bristol Safo IX",           color: "#ffffff", mapPos: { top: "32%", left: "71%" } },
-  { id: "ember",      name: "Ember",      quadrant: "Southeast", constellation: "Warrior (Virgo)",          solDeus: "Finley",    lunary: "Siena Blackridge IV",       color: "#ffffff", mapPos: { top: "33%", left: "67%" } },
-  { id: "volcan",     name: "Volcan",     quadrant: "Southwest", constellation: "Scales (Libra)",           solDeus: "Shanren",   lunary: "Rizal Moresea II",          color: "#ffffff", mapPos: { top: "31%", left: "63%" } },
-  { id: "rockfall",   name: "Rockfall",   quadrant: "Southwest", constellation: "Scorpion (Scorpio)",       solDeus: "Morrison",  lunary: "Vicente Penna Car XI",      color: "#ffffff", mapPos: { top: "27%", left: "61%" } },
-  { id: "canvas",     name: "Canvas",     quadrant: "Southwest", constellation: "Archer (Sagittarius)",     solDeus: "Kotani",    lunary: "Nikolai Panaura III",       color: "#ffffff", mapPos: { top: "22%", left: "61%" } },
-  { id: "ivory",      name: "Ivory",      quadrant: "Northwest", constellation: "Fish (Pisces)",            solDeus: "Verlaine",  lunary: "Carmela Faraday VI",        color: "#ffffff", mapPos: { top: "17%", left: "63%" } },
-  { id: "hedron",     name: "Hedron",     quadrant: "Northwest", constellation: "Goat (Capricorn)",         solDeus: "Mexia",     lunary: "Iris Belmiteza V",          color: "#ffffff", mapPos: { top: "14%", left: "66%" } },
-  { id: "lumin",      name: "Lumin",      quadrant: "Northwest", constellation: "Water Bearer (Aquarius)",  solDeus: "Nolyn",     lunary: "Nova Auburn IV",            color: "#ffffff", mapPos: { top: "13%", left: "70%" } },
+  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", constellation: "Ram (Aries)",              solDeus: "Thema",     lunary: "Gemma Avinas X",           color: "#ffffff", mapPos: { top: "18%", left: "72%" } },
+  { id: "greenwood",  name: "Greenwood",  quadrant: "Northeast", constellation: "Bull (Taurus)",            solDeus: "Gable",     lunary: "Kasen Welliver II",         color: "#ffffff", mapPos: { top: "14%", left: "78%" } },
+  { id: "ivory",      name: "Ivory",      quadrant: "Northeast", constellation: "Fish (Pisces)",            solDeus: "Verlaine",  lunary: "Carmela Faraday VI",        color: "#ffffff", mapPos: { top: "22%", left: "82%" } },
+  { id: "mist",       name: "Mist",       quadrant: "Southeast", constellation: "Lioness (Leo)",            solDeus: "Santos",    lunary: "Wolf Bode III",             color: "#ffffff", mapPos: { top: "52%", left: "74%" } },
+  { id: "lighthouse", name: "Lighthouse", quadrant: "Southeast", constellation: "Spider (Cancer)",          solDeus: "Coster",    lunary: "Bristol Safo IX",           color: "#ffffff", mapPos: { top: "58%", left: "80%" } },
+  { id: "ember",      name: "Ember",      quadrant: "Southeast", constellation: "Warrior (Virgo)",          solDeus: "Finley",    lunary: "Siena Blackridge IV",       color: "#ffffff", mapPos: { top: "48%", left: "82%" } },
+  { id: "volcan",     name: "Volcan",     quadrant: "Southwest", constellation: "Scales (Libra)",           solDeus: "Shanren",   lunary: "Rizal Moresea II",          color: "#ffffff", mapPos: { top: "52%", left: "28%" } },
+  { id: "rockfall",   name: "Rockfall",   quadrant: "Southwest", constellation: "Scorpion (Scorpio)",       solDeus: "Morrison",  lunary: "Vicente Penna Car XI",      color: "#ffffff", mapPos: { top: "44%", left: "22%" } },
+  { id: "canvas",     name: "Canvas",     quadrant: "Southwest", constellation: "Archer (Sagittarius)",     solDeus: "Kotani",    lunary: "Nikolai Panaura III",       color: "#ffffff", mapPos: { top: "58%", left: "20%" } },
+  { id: "hedron",     name: "Hedron",     quadrant: "Northwest", constellation: "Goat (Capricorn)",         solDeus: "Mexia",     lunary: "Iris Belmiteza V",          color: "#ffffff", mapPos: { top: "18%", left: "24%" } },
+  { id: "lumin",      name: "Lumin",      quadrant: "Northwest", constellation: "Water Bearer (Aquarius)",  solDeus: "Nolyn",     lunary: "Nova Auburn IV",            color: "#ffffff", mapPos: { top: "24%", left: "18%" } },
+  { id: "finnrare",   name: "Finnrare",   quadrant: "Northwest", constellation: "Sisters (Gemini)",         solDeus: "Norstrand", lunary: "Reza Centaris XII",         color: "#ffffff", mapPos: { top: "14%", left: "30%" } },
 ];
 
 // ── Sub-region lore data ───────────────────────────────────────────────────────
