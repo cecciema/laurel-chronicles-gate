@@ -89,7 +89,7 @@ const WorldOverview = () => {
   return (
     <Layout>
       {/* Hero */}
-      <div className="relative h-[80vh] sm:h-[100vh] overflow-hidden">
+      <div className="relative h-[56vh] sm:h-[70vh] overflow-hidden">
         <img src={heroBg} alt="Panterra" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 to-background" />
         <div className="absolute inset-0 flex items-end justify-center pb-10 sm:pb-12">
