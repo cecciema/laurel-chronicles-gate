@@ -818,7 +818,7 @@ const WorldMap = () => {
                 <button
                   onClick={zoomIn}
                   aria-label="Zoom in"
-                  className="w-8 h-8 flex items-center justify-center border transition-all duration-200 rounded-sm"
+                  className="w-10 h-10 flex items-center justify-center border transition-all duration-200 rounded-sm"
                   style={{
                     background:  "rgba(10,8,4,0.85)",
                     borderColor: "hsl(38 40% 30% / 0.6)",
@@ -834,14 +834,14 @@ const WorldMap = () => {
                     (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 8px hsl(38 72% 50% / 0.15)";
                   }}
                 >
-                  <Plus size={13} strokeWidth={2.5} />
+                  <Plus size={15} strokeWidth={2.5} />
                 </button>
 
                 {/* − */}
                 <button
                   onClick={zoomOut}
                   aria-label="Zoom out"
-                  className="w-8 h-8 flex items-center justify-center border transition-all duration-200 rounded-sm"
+                  className="w-10 h-10 flex items-center justify-center border transition-all duration-200 rounded-sm"
                   style={{
                     background:  "rgba(10,8,4,0.85)",
                     borderColor: "hsl(38 40% 30% / 0.6)",
@@ -857,14 +857,14 @@ const WorldMap = () => {
                     (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 8px hsl(38 72% 50% / 0.15)";
                   }}
                 >
-                  <Minus size={13} strokeWidth={2.5} />
+                  <Minus size={15} strokeWidth={2.5} />
                 </button>
 
                 {/* Reset */}
                 <button
                   onClick={resetTransform}
                   aria-label="Reset map view"
-                  className="w-8 h-8 flex items-center justify-center border transition-all duration-200 rounded-sm"
+                  className="w-10 h-10 flex items-center justify-center border transition-all duration-200 rounded-sm"
                   style={{
                     background:  "rgba(10,8,4,0.85)",
                     borderColor: "hsl(38 40% 30% / 0.6)",
@@ -880,7 +880,7 @@ const WorldMap = () => {
                     (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 8px hsl(38 72% 50% / 0.15)";
                   }}
                 >
-                  <RotateCcw size={11} strokeWidth={2.5} />
+                  <RotateCcw size={15} strokeWidth={2.5} />
                 </button>
               </div>
 
@@ -943,7 +943,7 @@ const WorldMap = () => {
                 </button>
 
                 {/* Scrollable interior — entire panel scrolls as one unit */}
-                <div className="overflow-y-auto map-panel-scroll p-5 pr-14" style={{ aspectRatio: "16 / 10" }}>
+                <div className="overflow-y-auto map-panel-scroll p-5 pr-14 h-[55vh] sm:h-auto" style={{ aspectRatio: isMobile ? undefined : "16 / 10" }}>
                   {isMobile ? (
                     /* ── MOBILE: single column ── */
                     <>
