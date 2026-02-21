@@ -105,7 +105,7 @@ const Index = () => {
         style={isTouch ? undefined : { cursor: "none" }}
       >
         {/* ── Hero Background (parallax layers) ──────────────────────── */}
-        <div className="relative w-full z-0" style={{ backgroundColor: "#0f0b06" }}>
+        <div className="relative w-full z-0 bg-background">
           {/* Layer 1 - image (most movement) */}
           <div
             ref={bgRef}
@@ -125,8 +125,8 @@ const Index = () => {
           />
           {/* Dark overlay */}
           <div className="absolute inset-0 z-[1] bg-black/40 pointer-events-none" />
-          {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0 z-[2] h-24 pointer-events-none bg-gradient-to-b from-transparent to-background" />
+          {/* Bottom blend */}
+          <div className="absolute inset-0 z-[2] pointer-events-none bg-gradient-to-b from-transparent via-transparent via-70% to-background" />
           {/* Vignette */}
           <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.75) 100%)" }} />
 
