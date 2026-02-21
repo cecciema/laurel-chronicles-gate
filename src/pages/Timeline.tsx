@@ -5,6 +5,7 @@ import { HiddenOrb } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import { SemperReview } from "@/components/SemperReview";
 import { useIsMobile } from "@/hooks/use-mobile";
+import heroBg from "@/assets/botanical.jpg";
 
 // ─── Event Data ─────────────────────────────────────────────────────────────────
 
@@ -317,7 +318,13 @@ const TimelinePage = () => {
 
   return (
     <Layout>
-      <div className="pt-24 pb-20 px-4 overflow-x-hidden">
+      {/* Hero */}
+      <div className="relative h-[40vh] sm:h-[50vh] overflow-hidden">
+        <img src={heroBg} alt="Timeline" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 to-background" />
+      </div>
+
+      <div className="pb-20 px-4 overflow-x-hidden">
         <SectionHeader
           title="Timeline of the Republic"
           subtitle="Three centuries of ambition, conflict, and transformation"
