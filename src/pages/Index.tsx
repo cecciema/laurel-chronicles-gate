@@ -270,7 +270,7 @@ const Index = () => {
 
           {/* Navigation Cards */}
           <section className="py-16 px-4 bg-secondary/30">
-            <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
               {[
                 { to: "/world", title: "World Overview", desc: "Explore the Republic's territories, culture, and power structures" },
                 { to: "/characters", title: "Character Database", desc: "Discover the key figures shaping the fate of the world" },
@@ -280,7 +280,7 @@ const Index = () => {
                 <ScrollReveal key={card.to} delay={i * 0.08}>
                   <Link
                     to={card.to}
-                    className="block p-4 sm:p-6 bg-card border border-border hover:border-primary/40 transition-all hover:shadow-brass group"
+                    className="block h-full p-4 sm:p-6 bg-card border border-border hover:border-primary/40 transition-all hover:shadow-brass group"
                     style={isTouch ? undefined : { cursor: "none" }}
                   >
                     <h3 className="font-display text-sm tracking-[0.15em] text-primary group-hover:text-brass-glow transition-colors">
