@@ -1055,6 +1055,38 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: 
     setTimeout(() => onComplete(result ?? "sanctorium"), 600);
   };
 
+  const handleContinueToDossier = () => {
+    setRevealStage(4);
+  };
+
+  const DOSSIER_CONTENT: Record<AllegianceId, { letter: string; attribution: string; directive: string }> = {
+    sanctorium: {
+      letter: "You have been assessed. The assessment is complete. Sanctorium does not recruit — it recognizes. What you are has always been what we needed, and the ceremony of your arrival here is simply the formal acknowledgment of something that was already true. You will find that faith, properly understood, is not comfort. It is a tool. We expect you to use it.",
+      attribution: "— Filed under Ivory Seal, by order of the Sol Deos Council",
+      directive: "Your first task is observation. Visit the Bestiary. Note what is named and what is not. The Republic names things it controls. What it cannot control, it does not name. Report what you find to no one. That is also part of the task.",
+    },
+    parliament: {
+      letter: "Your profile has been reviewed at the Senior Council level. This does not happen often. The results of your assessment place you in a category we monitor carefully — not because you are a threat, but because people like you either become essential or they become problems, and Parliament has a strong preference for the former. You will be given access. What you do with it will determine everything.",
+      attribution: "— Office of the Premiere, classified distribution",
+      directive: "Study the Timeline. The official record is accurate as far as it goes. Your task is to identify where it stops going. Gaps in the historical record are not accidents. They are decisions. Find three. Do not report them yet — first, understand why they were made.",
+    },
+    deepforge: {
+      letter: "You found us. That's the thing about the Deep Forge — we're not hidden, we're just not where people think to look. We're the neighbors who show up when something breaks. The ones who remember your name and your grandmother's name and what she liked to cook. We've been here the whole time. Pull up a chair.",
+      attribution: "— From everyone, on behalf of everyone",
+      directive: "Head to the World Map and find the Deep Forge territory. Then go meet the characters who call it home. The community is the point — always has been. Get to know them.",
+    },
+    convoy: {
+      letter: "This message will not be stored. There is no record of your assessment. There is no record of this letter. If you are reading this, you already understand why that matters. You stopped trusting the official version a long time ago. So did we. The difference between you and us is that we've been doing something about it for forty years. You're starting now. Welcome to the only organization in Panterra that knows what the satellite boundary is actually for.",
+      attribution: "— No name. You'll understand later.",
+      directive: "Your first task is the Enter page. There is something hidden there that most visitors walk past. Find it. The thing we need you to find was placed there by someone who wanted it found — just not by the Republic. Prove you're paying attention.",
+    },
+    unseen: {
+      letter: "There is no faction waiting for you. There is no letter from a council. There is no directive from a senior official. What there is: a world that could not categorize you, and a very small number of people throughout Panterra's history who also could not be categorized, and who built something outside every map ever drawn. You may already know where it is.",
+      attribution: "— No institution. No record. No seal.",
+      directive: "Go anywhere. The Unseen are not assigned paths. But pay attention to what pulls at you — the thing you keep returning to, the page you read twice, the fragment that didn't sit right. That is your directive. The Unseen don't follow orders. They follow instinct. Yours brought you here. Trust it.",
+    },
+  };
+
   const currentQ = questions[qIdx];
 
   return (
@@ -1067,7 +1099,75 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: 
         className="w-full max-w-4xl mx-auto flex flex-col items-center justify-start sm:justify-center text-center p-4 sm:p-6 py-10 min-h-full"
       >
         <AnimatePresence mode="wait">
-          {result ? (
+          {result && revealStage >= 4 ? (
+            <motion.div
+              key="dossier"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col items-center gap-6 max-w-xl w-full overflow-y-auto max-h-[90vh] py-4"
+            >
+              {/* Header */}
+              <div className="text-center">
+                <p className="font-display text-[9px] tracking-[0.5em] uppercase text-primary/50">
+                  TRANSMISSION RECEIVED
+                </p>
+                <div
+                  className="h-px w-24 mx-auto mt-4"
+                  style={{ background: "linear-gradient(90deg, transparent, hsl(38 60% 50% / 0.5), transparent)" }}
+                />
+              </div>
+
+              {/* Letter block */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="bg-[#0d0b08] border border-primary/20 p-6 sm:p-8 max-w-lg mx-auto w-full"
+              >
+                <p className="font-narrative italic text-[0.9375rem] leading-[1.9] text-foreground/70">
+                  "{DOSSIER_CONTENT[result].letter}"
+                </p>
+                <p className="font-display text-[9px] tracking-[0.2em] text-primary/40 text-right mt-4">
+                  {DOSSIER_CONTENT[result].attribution}
+                </p>
+              </motion.div>
+
+              {/* Directive block */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2, duration: 0.8 }}
+                className="max-w-lg mx-auto w-full"
+              >
+                <p className="font-display text-[8px] tracking-[0.4em] uppercase text-primary/40 mb-3">
+                  YOUR DIRECTIVE
+                </p>
+                <div className="border-l-2 border-primary/30 pl-4">
+                  <p className="font-body text-sm text-foreground/60 leading-relaxed">
+                    {DOSSIER_CONTENT[result].directive}
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Close button */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2, duration: 0.6 }}
+              >
+                <button
+                  onClick={handleClose}
+                  className="min-h-[44px] text-xs tracking-[0.3em] uppercase font-body border px-6 py-3 transition-colors"
+                  style={{ color: "hsl(38 50% 50%)", borderColor: "hsl(38 40% 30%)" }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(38 60% 50%)"; (e.currentTarget as HTMLButtonElement).style.color = "hsl(38 72% 60%)"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(38 40% 30%)"; (e.currentTarget as HTMLButtonElement).style.color = "hsl(38 50% 50%)"; }}
+                >
+                  Continue
+                </button>
+              </motion.div>
+            </motion.div>
+          ) : result ? (
             <motion.div
               key="reveal"
               initial={{ opacity: 0 }}
@@ -1148,7 +1248,7 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: 
                   transition={{ duration: 0.6 }}
                 >
                   <button
-                    onClick={handleClose}
+                    onClick={handleContinueToDossier}
                     className="min-h-[44px] text-xs tracking-[0.3em] uppercase font-body border px-6 py-3 transition-colors"
                     style={{ color: "hsl(38 50% 50%)", borderColor: "hsl(38 40% 30%)" }}
                     onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(38 60% 50%)"; (e.currentTarget as HTMLButtonElement).style.color = "hsl(38 72% 60%)"; }}
