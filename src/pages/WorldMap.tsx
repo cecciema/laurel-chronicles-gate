@@ -109,7 +109,7 @@ const SUB_REGIONS = [
   },
   {
     id: "ashfields",
-    name: "The Frontier Borderlands",
+    name: "Frontier Borderlands",
     description: "Beyond the Republic's governed edge - the world the maps leave out. Frontier survivors here know truths the institutions spend enormous energy hiding.",
     faction: "Frontier / Unaligned",
     features: ["Survivor Camps", "Pre-War Ruins", "Sailor's Routes", "Ungoverned Ocean Channels"],
