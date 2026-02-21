@@ -823,172 +823,25 @@ const Characters = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: globalIdx * 0.07 }}
                         onClick={() => setSelected(char.id === selected ? null : char.id)}
-                        className="relative group transition-all"
+                        className={`relative group overflow-hidden aspect-[2/3] border transition-all ${
+                          selected === char.id
+                            ? "border-primary shadow-glow"
+                            : "border-border hover:border-primary/40"
+                        }`}
                       >
-                        <div className="relative mx-auto w-full">
-                          <svg viewBox="0 0 220 250" width="100%" height="auto">
-                            <defs>
-                              <clipPath id={`oval-clip-${char.id}`}>
-                                <ellipse cx="110" cy="112" rx="95" ry="105" />
-                              </clipPath>
-                              <radialGradient id={`frame-light-${char.id}`} cx="35%" cy="25%" r="70%">
-                                <stop offset="0%" stopColor="#d4b86a" stopOpacity="0.9" />
-                                <stop offset="40%" stopColor="#8a6820" stopOpacity="0.8" />
-                                <stop offset="100%" stopColor="#2a1500" stopOpacity="1" />
-                              </radialGradient>
-                              <radialGradient id={`inner-shadow-${char.id}`} cx="50%" cy="50%" r="50%">
-                                <stop offset="0%" stopColor="black" stopOpacity="0" />
-                                <stop offset="75%" stopColor="black" stopOpacity="0" />
-                                <stop offset="100%" stopColor="black" stopOpacity="0.7" />
-                              </radialGradient>
-                              <filter id={`worn-${char.id}`}>
-                                <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" />
-                                <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G" />
-                              </filter>
-                            </defs>
-
-                            <g style={{ filter: selected === char.id ? "drop-shadow(0 0 8px rgba(180,140,40,0.5))" : "none" }}>
-                              {/* Shadow depth — offset behind frame */}
-                              <path
-                                d={`M${110+2+107},${112+2} A107,118 0 1,0 ${110+2-107},${112+2} A107,118 0 1,0 ${110+2+107},${112+2} Z M${110+2+92},${112+2} A92,102 0 1,1 ${110+2-92},${112+2} A92,102 0 1,1 ${110+2+92},${112+2} Z`}
-                                fillRule="evenodd"
-                                fill="#0a0500"
-                                opacity="0.6"
-                              />
-
-                              {/* Portrait image */}
-                              <image
-                                href={resolveImage(char.image)}
-                                x="15" y="7" width="190" height="210"
-                                preserveAspectRatio="xMidYMid slice"
-                                clipPath={`url(#oval-clip-${char.id})`}
-                                className="char-portrait-normalize"
-                              />
-
-                              {/* Photo vignette */}
-                              <ellipse cx="110" cy="112" rx="95" ry="105" fill={`url(#inner-shadow-${char.id})`} />
-
-                              {/* Frame body — filled sculptural ring */}
-                              <path
-                                d={`M${110+107},112 A107,118 0 1,0 ${110-107},112 A107,118 0 1,0 ${110+107},112 Z M${110+92},112 A92,102 0 1,1 ${110-92},112 A92,102 0 1,1 ${110+92},112 Z`}
-                                fillRule="evenodd"
-                                fill={`url(#frame-light-${char.id})`}
-                                filter={`url(#worn-${char.id})`}
-                              />
-
-                              {/* Highlight edge — outermost caught light */}
-                              <ellipse cx="110" cy="112" rx="107" ry="118" fill="none" stroke="#e8cc80" strokeWidth="0.8" opacity="0.4" />
-
-                              {/* Inner bevel shadow */}
-                              <ellipse cx="110" cy="112" rx="92" ry="102" fill="none" stroke="#0a0500" strokeWidth="3" opacity="0.8" />
-
-                              {/* Inner bevel highlight */}
-                              <ellipse cx="110" cy="112" rx="90" ry="100" fill="none" stroke="#c4a040" strokeWidth="0.6" opacity="0.35" />
-
-                              {/* Unique ornaments per character */}
-                              {(() => {
-                                const oi = CHARACTER_ORDER.indexOf(char.id);
-                                switch (oi) {
-                                  case 0: return (<>{/* Rivet holes */}
-                                    {[0,45,90,135,180,225,270,315].map(a => {
-                                      const rad = a * Math.PI / 180;
-                                      return <circle key={a} cx={110 + 99 * Math.cos(rad)} cy={112 + 110 * Math.sin(rad)} r="2" fill="#0a0500" opacity="0.5" />;
-                                    })}</>);
-                                  case 1: return <path d="M103 6 L110 2 L117 6 L110 10 Z" fill="#8a6820" />;
-                                  case 2: return (<>{/* Rope binding at cardinal points */}
-                                    <line x1="110" y1="2" x2="110" y2="8" stroke="#5a3e10" strokeWidth="1.5" />
-                                    <line x1="110" y1="222" x2="110" y2="228" stroke="#5a3e10" strokeWidth="1.5" />
-                                    <line x1="2" y1="112" x2="8" y2="112" stroke="#5a3e10" strokeWidth="1.5" />
-                                    <line x1="212" y1="112" x2="218" y2="112" stroke="#5a3e10" strokeWidth="1.5" />
-                                  </>);
-                                  case 3: return (<>{/* Small lozenges top & bottom */}
-                                    <path d="M105 3 L110 0 L115 3 L110 6 Z" fill="#3d2200" opacity="0.7" />
-                                    <path d="M105 225 L110 222 L115 225 L110 228 Z" fill="#3d2200" opacity="0.7" />
-                                  </>);
-                                  case 4: return (<>{/* Corner dots */}
-                                    <circle cx="40" cy="30" r="2.5" fill="#5a3e10" opacity="0.6" />
-                                    <circle cx="180" cy="30" r="2.5" fill="#5a3e10" opacity="0.6" />
-                                    <circle cx="40" cy="195" r="2.5" fill="#5a3e10" opacity="0.6" />
-                                    <circle cx="180" cy="195" r="2.5" fill="#5a3e10" opacity="0.6" />
-                                  </>);
-                                  case 5: return (<>{/* Notches at top */}
-                                    <rect x="95" y="1" width="3" height="5" rx="1" fill="#4a3010" />
-                                    <rect x="105" y="0" width="3" height="5" rx="1" fill="#4a3010" />
-                                    <rect x="115" y="1" width="3" height="5" rx="1" fill="#4a3010" />
-                                  </>);
-                                  case 6: return (<>{/* Paired dashes */}
-                                    <line x1="85" y1="3" x2="95" y2="3" stroke="#6a4a18" strokeWidth="1.2" />
-                                    <line x1="125" y1="3" x2="135" y2="3" stroke="#6a4a18" strokeWidth="1.2" />
-                                  </>);
-                                  case 7: return (<>{/* Triple dots top center */}
-                                    <circle cx="100" cy="4" r="1.8" fill="#8a6820" opacity="0.6" />
-                                    <circle cx="110" cy="2" r="2.2" fill="#8a6820" opacity="0.7" />
-                                    <circle cx="120" cy="4" r="1.8" fill="#8a6820" opacity="0.6" />
-                                  </>);
-                                  case 8: return <path d="M106 2 L110 0 L114 2 L114 8 L106 8 Z" fill="#3d2200" opacity="0.6" />;
-                                  case 9: return (<>{/* Small cross at top */}
-                                    <line x1="110" y1="1" x2="110" y2="9" stroke="#5a3e10" strokeWidth="1" />
-                                    <line x1="106" y1="5" x2="114" y2="5" stroke="#5a3e10" strokeWidth="1" />
-                                  </>);
-                                  case 10: return (<>{/* Rope dashes at sides */}
-                                    {[60,90,120].map(a => {
-                                      const rad = a * Math.PI / 180;
-                                      const x1 = 110 + 103 * Math.cos(rad), y1 = 112 + 114 * Math.sin(rad);
-                                      const x2 = 110 + 99 * Math.cos(rad), y2 = 112 + 110 * Math.sin(rad);
-                                      return <line key={a} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#5a3e10" strokeWidth="1.5" />;
-                                    })}
-                                  </>);
-                                  case 11: return (<>{/* Double diamond */}
-                                    <path d="M100 3 L104 0 L108 3 L104 6 Z" fill="#4a3010" opacity="0.6" />
-                                    <path d="M112 3 L116 0 L120 3 L116 6 Z" fill="#4a3010" opacity="0.6" />
-                                  </>);
-                                  case 12: return (<>{/* Dot arc at top */}
-                                    {[-20,-10,0,10,20].map(a => {
-                                      const rad = (a - 90) * Math.PI / 180;
-                                      return <circle key={a} cx={110 + 103 * Math.cos(rad)} cy={112 + 114 * Math.sin(rad)} r="1.5" fill="#3d2200" opacity="0.5" />;
-                                    })}
-                                  </>);
-                                  case 13: return (<>{/* Chevron at top */}
-                                    <path d="M104 6 L110 2 L116 6" fill="none" stroke="#6a4a18" strokeWidth="1.2" />
-                                  </>);
-                                  case 14: return (<>{/* Hash marks */}
-                                    <line x1="100" y1="2" x2="100" y2="7" stroke="#3d2200" strokeWidth="0.8" />
-                                    <line x1="105" y1="1" x2="105" y2="6" stroke="#3d2200" strokeWidth="0.8" />
-                                    <line x1="115" y1="1" x2="115" y2="6" stroke="#3d2200" strokeWidth="0.8" />
-                                    <line x1="120" y1="2" x2="120" y2="7" stroke="#3d2200" strokeWidth="0.8" />
-                                  </>);
-                                  case 15: return (<>{/* Small star */}
-                                    <path d="M110 1 L111.5 4 L115 4.5 L112.5 7 L113 10.5 L110 9 L107 10.5 L107.5 7 L105 4.5 L108.5 4 Z" fill="#5a3e10" opacity="0.5" />
-                                  </>);
-                                  default: return null;
-                                }
-                              })()}
-
-                              {/* Plaque — top shelf connecting to frame */}
-                              <rect x="58" y="206" width="104" height="4" rx="1" fill="#5a3e10" />
-
-                              {/* Plaque connection curves */}
-                              <path d="M62 213 Q74 208 86 210" fill="#4a3010" stroke="#6a4a18" strokeWidth="0.8" />
-                              <path d="M158 213 Q146 208 134 210" fill="#4a3010" stroke="#6a4a18" strokeWidth="0.8" />
-
-                              {/* Main plaque body */}
-                              <rect x="62" y="207" width="96" height="38" rx="2.5" fill="#120a01" />
-
-                              {/* Outer plaque border */}
-                              <rect x="62" y="207" width="96" height="38" rx="2.5" fill="none" stroke="#7a5818" strokeWidth="1.2" />
-
-                              {/* Inner plaque line */}
-                              <rect x="66" y="211" width="88" height="30" rx="1.5" fill="none" stroke="#3d2800" strokeWidth="0.6" />
-
-                              {/* Name & title */}
-                              <text x="110" y="226" textAnchor="middle" fontSize="9" letterSpacing="2" fill="#c8a84a" opacity="0.9" fontFamily="Georgia, serif">
-                                {char.name.toUpperCase()}
-                              </text>
-                              <text x="110" y="238" textAnchor="middle" fontSize="6.5" letterSpacing="2.5" fill="#8a6820" opacity="0.8" fontFamily="Georgia, serif">
-                                {char.title.toUpperCase()}
-                              </text>
-                            </g>
-                          </svg>
+                        <img
+                          src={resolveImage(char.image)}
+                          alt={char.name}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 p-3">
+                          <p className="font-display text-[10px] sm:text-xs tracking-wider text-foreground leading-tight">
+                            {char.name}
+                          </p>
+                          <p className="text-[8px] sm:text-[10px] tracking-wider text-primary uppercase font-body mt-0.5">
+                            {char.title}
+                          </p>
                         </div>
                       </motion.button>
                     );
