@@ -174,12 +174,13 @@ const Index = () => {
           {/* Layer 1 - image (most movement) */}
           <div
             ref={bgRef}
-            className="absolute inset-[-3%] transition-transform duration-75 ease-out"
+            className="absolute inset-[-3%] transition-transform duration-75 ease-out flex items-center justify-center"
+            style={{ backgroundColor: "#0f0b06" }}
           >
             <img
               src={heroBg}
               alt="The Republic"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
           </div>
           {/* Layer 2 - mid gradient (medium movement) */}
