@@ -60,7 +60,7 @@ const HARD_POOL: Question[] = [
 
 const FIXED_QUESTIONS: Question[] = [
   { statement: "You have never questioned the necessity of Apotheosis.", answer: true, pool: "fixed", fixedBehavior: true },
-  { statement: "You believe the Republic of Panterra acts in the interest of all its citizens.", answer: true, pool: "fixed", fixedBehavior: true },
+  { statement: "You believe the Republic of Panterra acts in the interest of all its Citizens.", answer: true, pool: "fixed", fixedBehavior: true },
   { statement: "You are here of your own free will.", answer: true, pool: "fixed", fixedBehavior: true },
 ];
 
@@ -723,7 +723,7 @@ export const SemperReviewTrigger = () => {
           className="font-display text-[8px] sm:text-[9px] tracking-[0.35em] uppercase mb-3 leading-[1.8]"
           style={{ color: "hsl(0 0% 55%)" }}
         >
-          SEMPER VERIFICATION REQUIRED — All citizens approaching Apex must complete Form 7 of 7 before proceeding.
+          SEMPER VERIFICATION REQUIRED — All Citizens approaching Apex must complete Form 7 of 7 before proceeding.
         </p>
         <div
           className="h-px w-16 mx-auto mb-4"

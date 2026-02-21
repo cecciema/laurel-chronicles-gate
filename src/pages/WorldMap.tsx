@@ -114,7 +114,7 @@ const SUB_REGIONS = [
   {
     id: "valorica",
     name: "Valorica",
-    description: "A secret island known only to the innermost circle of Arborwell. Its purpose is unknown to the citizens of Panterra. Souls are said to be tested here — and not all of them return.",
+    description: "A secret island known only to the innermost circle of Arborwell. Its purpose is unknown to the Citizens of Panterra. Souls are said to be tested here — and not all of them return.",
     faction: "Unknown",
     features: ["Soul Testing Grounds", "Restricted Access", "No Public Record"],
   },
