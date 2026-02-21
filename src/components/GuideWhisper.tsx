@@ -32,7 +32,7 @@ const GuideWhisper = ({ page }: GuideWhisperProps) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="flex items-start gap-3 p-4 bg-card/60 border border-border/50 max-w-sm">
+      <div className="flex items-center gap-3 p-4 bg-card/60 border border-border/50 max-w-sm">
         <img
           src={imgSrc}
           alt={character.name}
