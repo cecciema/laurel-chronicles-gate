@@ -723,7 +723,7 @@ export const SemperReviewTrigger = () => {
           className="font-display text-[8px] sm:text-[9px] tracking-[0.35em] uppercase mb-3 leading-[1.8]"
           style={{ color: "hsl(0 0% 55%)" }}
         >
-          SEMPER VERIFICATION REQUIRED — All citizens approaching apex must complete Form 7 of 7 before proceeding.
+          SEMPER VERIFICATION REQUIRED — All citizens approaching Apex must complete Form 7 of 7 before proceeding.
         </p>
         <div
           className="h-px w-16 mx-auto mb-4"

@@ -309,7 +309,7 @@ const Index = () => {
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
                 <p className="mt-6 font-narrative text-[1.0625rem] sm:text-lg text-muted-foreground leading-[1.8] max-w-2xl mx-auto w-full">
-                  Panterra was built on the Cornerstone Laws, the bones of the conquered, and the dreams of the powerful. For nearly three centuries, the Republic has maintained order through the dual reign - Parliament, Sanctorium, and the Magistries between them. But there are signs of fracture within the order - growing more difficult to ignore by the day. The governed districts rumble with unrest, and yet the powerful still play their lethal games. All round the Known World, whispers of defiance are simmering into an uproar.
+                  Panterra was built on the Cornerstone Laws, the bones of the conquered, and the dreams of the powerful. For nearly three centuries, the Republic has maintained order through the Dual Reign - Parliament, Sanctorium, and the Magistries between them. But there are signs of fracture within the order - growing more difficult to ignore by the day. The governed districts rumble with unrest, and yet the powerful still play their lethal games. All round the Known World, whispers of defiance are simmering into an uproar.
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.3}>
