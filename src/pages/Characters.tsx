@@ -797,8 +797,10 @@ const Characters = () => {
           <HiddenOrb id={4} className="absolute top-2 right-4 sm:right-12" />
         </div>
 
-        <div className="max-w-6xl mx-auto mt-4 mb-10">
-          <GuideWhisper page="characters" />
+        <div className="max-w-6xl mx-auto mt-4">
+          <div className="mb-8 sm:mb-10 px-4 sm:px-0">
+            <GuideWhisper page="characters" />
+          </div>
         </div>
 
         {/* Outer grid ref - used only for width measurement */}
