@@ -1158,6 +1158,9 @@ const WorldMap = () => {
         )}
       </AnimatePresence>
 
+      {/* === THE KNOWN INSTITUTIONS === */}
+      <KnownInstitutions />
+
       {/* Vial Substitution game section */}
       <div className="px-4">
         <VialSubstitutionGame onClose={() => {}} />
@@ -1167,6 +1170,153 @@ const WorldMap = () => {
 };
 
 export default WorldMap;
+
+// ── Known Institutions Section ─────────────────────────────────────────────────
+const QUADRANTS = [
+  {
+    label: "NORTHEAST",
+    magistry: "Magistry of Peace",
+    magistryDesc: "Civil order, conflict resolution, and border enforcement",
+    magistryCharacters: ["Aspen"],
+    pantheons: [
+      { name: "Prisma", specialty: "Sculpture", constellation: "Ram (Aries)", solDeus: "Thema" },
+      { name: "Greenwood", specialty: "Mapmaking", constellation: "Bull (Taurus)", solDeus: "Gable" },
+      { name: "Ivory", specialty: "Paintings", constellation: "Vixens (Pisces)", solDeus: "Lockland" },
+    ],
+  },
+  {
+    label: "SOUTHEAST",
+    magistry: "Magistry of Stars",
+    magistryDesc: "Satellite systems, atmospheric monitoring, and boundary maintenance",
+    magistryCharacters: ["Wintry"],
+    pantheons: [
+      { name: "Mist", specialty: "Vocal", constellation: "Lioness (Leo)", solDeus: "Santos" },
+      { name: "Lighthouse", specialty: "Language", constellation: "Spider (Cancer)", solDeus: "Coster" },
+      { name: "Ember", specialty: "Music Instruments", constellation: "Warrior (Virgo)", solDeus: "Finley" },
+    ],
+  },
+  {
+    label: "SOUTHWEST",
+    magistry: "Magistry of Ocean",
+    magistryDesc: "Ocean recovery, marine research, and field operations",
+    magistryCharacters: ["Culver", "Soleil"],
+    pantheons: [
+      { name: "Volcan", specialty: "Breathing", constellation: "Merchant (Libra)", solDeus: "Shanren" },
+      { name: "Rockfall", specialty: "Stone", constellation: "Scorpion (Scorpio)", solDeus: "Morrison" },
+      { name: "Canvas", specialty: "Religious Studies", constellation: "Archer (Sagittarius)", solDeus: "Kotani" },
+    ],
+  },
+  {
+    label: "NORTHWEST",
+    magistry: "Magistry of Cure",
+    magistryDesc: "Medical systems, biological research, and Citizen health",
+    magistryCharacters: ["Cora"],
+    pantheons: [
+      { name: "Hedron", specialty: "Fauna", constellation: "Sailor (Aquarius)", solDeus: "Mexia" },
+      { name: "Lumin", specialty: "Flora", constellation: "Siren (Capricorn)", solDeus: "Nolyn" },
+      { name: "Finnrare", specialty: "Masonry", constellation: "Sisters (Gemini)", solDeus: "Norstrand" },
+    ],
+  },
+];
+
+const CARD_OFFSETS = [
+  { rotate: "-1.2deg", ml: "0px", mt: "0px" },
+  { rotate: "0.8deg", ml: "12px", mt: "6px" },
+  { rotate: "-0.5deg", ml: "4px", mt: "-2px" },
+];
+
+const KnownInstitutions = () => (
+  <section className="px-4 sm:px-8 py-20 max-w-6xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-16"
+    >
+      <div className="steampunk-divider max-w-xs mx-auto mb-6" />
+      <h2 className="font-display text-3xl sm:text-4xl tracking-[0.1em] text-foreground">
+        THE KNOWN INSTITUTIONS
+      </h2>
+      <p className="mt-4 text-muted-foreground font-narrative text-lg italic max-w-2xl mx-auto">
+        Twelve Pantheons. Four Magistries. One Republic.
+      </p>
+      <div className="steampunk-divider max-w-xs mx-auto mt-6" />
+    </motion.div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
+      {QUADRANTS.map((q, qi) => (
+        <motion.div
+          key={q.label}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: qi * 0.1 }}
+        >
+          {/* Quadrant label */}
+          <p className="font-body text-[10px] tracking-[0.35em] uppercase text-muted-foreground mb-4">
+            {q.label}
+          </p>
+
+          {/* Magistry card */}
+          <div className="border-2 border-primary/40 bg-card/80 p-4 mb-5 shadow-brass">
+            <h3 className="font-display text-base sm:text-lg tracking-wide text-primary mb-1">
+              {q.magistry}
+            </h3>
+            <p className="font-narrative italic text-sm text-foreground/70 mb-2">
+              {q.magistryDesc}
+            </p>
+            <p className="font-body text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+              Key: {q.magistryCharacters.join(", ")}
+            </p>
+          </div>
+
+          {/* Pantheon cards — scattered feel */}
+          <div className="flex flex-col gap-2">
+            {q.pantheons.map((p, pi) => {
+              const off = CARD_OFFSETS[pi];
+              return (
+                <div
+                  key={p.name}
+                  className="border border-primary/20 bg-card/60 p-3 transition-shadow duration-300 hover:shadow-glow"
+                  style={{
+                    transform: `rotate(${off.rotate})`,
+                    marginLeft: off.ml,
+                    marginTop: off.mt,
+                  }}
+                >
+                  <h4 className="font-display text-sm tracking-wide text-foreground">
+                    {p.name}
+                  </h4>
+                  <p className="font-narrative italic text-xs text-foreground/60 mt-0.5">
+                    {p.specialty}
+                  </p>
+                  <p className="font-body text-[9px] tracking-[0.25em] uppercase text-primary/70 mt-1">
+                    {p.constellation}
+                  </p>
+                  <p className="font-body text-[9px] text-muted-foreground mt-0.5">
+                    Sol Deus: {p.solDeus}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
+      ))}
+    </div>
+
+    {/* Footnote */}
+    <motion.p
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: 0.4 }}
+      className="font-narrative italic text-sm text-foreground/40 text-center mt-14 max-w-2xl mx-auto leading-relaxed"
+    >
+      The Grand Sanctuary and Parliament buildings are located in the Northeast quadrant. Pantheon Ivory and Pantheon Prisma are considered the most politically connected of the twelve.
+    </motion.p>
+  </section>
+);
 
 // ── Unseen Marker (far right edge of map) ─────────────────────────────────────
 const UnseenMarker = () => {
