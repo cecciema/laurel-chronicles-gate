@@ -295,7 +295,7 @@ export const guideCharacters: GuideCharacter[] = [
     id: "quinn",
     name: "Quinnevere",
     title: "Scholar",
-    magistry: "Sanctorium Ivory",
+    magistry: "Pantheon Ivory",
     philosophy: "Every dead language carries the memory of a living truth.",
     image: "char-quinn",
     welcomeTone: "poetic",
