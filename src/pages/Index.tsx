@@ -53,14 +53,14 @@ const ParticleCanvas = () => {
       size: number; alpha: number; alphaDir: number;
     };
 
-    const particleCount = window.innerWidth < 640 ? 18 : 55;
+    const particleCount = window.innerWidth < 640 ? 24 : 65;
     const particles: Particle[] = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * 0.3,
       vy: -(Math.random() * 0.4 + 0.1),
-      size: Math.random() * 1.8 + 0.4,
-      alpha: Math.random() * 0.5 + 0.2,
+      size: Math.random() * 2.5 + 0.8,
+      alpha: Math.random() * 0.5 + 0.3,
       alphaDir: Math.random() > 0.5 ? 1 : -1,
     }));
 
@@ -71,7 +71,7 @@ const ParticleCanvas = () => {
         p.x += p.vx;
         p.y += p.vy;
         p.alpha += p.alphaDir * 0.004;
-        if (p.alpha > 0.75 || p.alpha < 0.05) p.alphaDir *= -1;
+        if (p.alpha > 0.85 || p.alpha < 0.1) p.alphaDir *= -1;
         if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
         if (p.x < -10 || p.x > canvas.width + 10) p.x = Math.random() * canvas.width;
 
