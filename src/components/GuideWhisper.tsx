@@ -36,7 +36,7 @@ const GuideWhisper = ({ page }: GuideWhisperProps) => {
         <img
           src={imgSrc}
           alt={character.name}
-          className="w-10 h-14 object-cover border border-border/50 flex-shrink-0"
+          className="w-16 h-20 object-cover object-top rounded-[50%] border-2 border-primary/50 flex-shrink-0"
         />
         <div className="flex flex-col">
           <span className="font-display text-[9px] tracking-[0.25em] uppercase text-primary">
