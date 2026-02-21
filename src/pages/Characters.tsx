@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
+import ParticleCanvas from "@/components/ParticleCanvas";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import { characters } from "@/data/world-data";
@@ -783,6 +784,7 @@ const Characters = () => {
       <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
         <img src={heroBg} alt="Characters" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
+        <ParticleCanvas density={0.5} />
       </div>
 
       <div className="pb-20 px-4 overflow-x-hidden">

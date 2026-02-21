@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
+import ParticleCanvas from "@/components/ParticleCanvas";
 import { HiddenOrb } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import { SemperReview } from "@/components/SemperReview";
@@ -322,6 +323,7 @@ const TimelinePage = () => {
       <div className="relative h-[40vh] sm:h-[50vh] overflow-hidden">
         <img src={heroBg} alt="Timeline" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
+        <ParticleCanvas density={0.5} />
       </div>
 
       <div className="pb-20 px-4 overflow-x-hidden">
