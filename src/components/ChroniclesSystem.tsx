@@ -235,7 +235,7 @@ const ALLEGIANCE_DATA: Record<AllegianceId, {
   },
   unseen: {
     name: "The Unseen",
-    text: "You do not belong to any of them — not fully, not finally. This is not indecision. This is something rarer. There are people who live outside everything Panterra maps and measures. You would recognize them if you met them. You might already be one.",
+    text: "You do not belong to any of them - not fully, not finally. This is not indecision. This is something rarer. There are people who live outside everything Panterra maps and measures. You would recognize them if you met them. You might already be one.",
     storageKey: "arborwell-hint-unlocked",
   },
 };
@@ -673,7 +673,7 @@ const SealedDocumentPuzzle = ({ foundScrolls }: { foundScrolls: number[] }) => {
         className="border border-amber-800/40 bg-[#0d0b08] p-6 text-center"
       >
         <p className="font-display text-[9px] tracking-[0.35em] uppercase text-amber-600/60 mb-2">
-          The Sealed Document — Solved
+          The Sealed Document - Solved
         </p>
         <p className="font-narrative italic text-amber-700/60 text-sm">
           "Valorica exists. The boundary holds."
@@ -1061,29 +1061,29 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: 
 
   const DOSSIER_CONTENT: Record<AllegianceId, { letter: string; attribution: string; directive: string }> = {
     sanctorium: {
-      letter: "You have been assessed. The assessment is complete. Sanctorium does not recruit — it recognizes. What you are has always been what we needed, and the ceremony of your arrival here is simply the formal acknowledgment of something that was already true. You will find that faith, properly understood, is not comfort. It is a tool. We expect you to use it.",
-      attribution: "— Filed under Ivory Seal, by order of the Sol Deos Council",
+      letter: "You have been assessed. The assessment is complete. Sanctorium does not recruit - it recognizes. What you are has always been what we needed, and the ceremony of your arrival here is simply the formal acknowledgment of something that was already true. You will find that faith, properly understood, is not comfort. It is a tool. We expect you to use it.",
+      attribution: "- Filed under Ivory Seal, by order of the Sol Deos Council",
       directive: "Your first task is observation. Visit the Bestiary. Note what is named and what is not. The Republic names things it controls. What it cannot control, it does not name. Report what you find to no one. That is also part of the task.",
     },
     parliament: {
       letter: "Your profile has been reviewed at the Senior Council level. This does not happen often. The results of your assessment place you in a category we monitor carefully — not because you are a threat, but because people like you either become essential or they become problems, and Parliament has a strong preference for the former. You will be given access. What you do with it will determine everything.",
-      attribution: "— Office of the Premiere, classified distribution",
-      directive: "Study the Timeline. The official record is accurate as far as it goes. Your task is to identify where it stops going. Gaps in the historical record are not accidents. They are decisions. Find three. Do not report them yet — first, understand why they were made.",
+      attribution: "- Office of the Premiere, classified distribution",
+      directive: "Study the Timeline. The official record is accurate as far as it goes. Your task is to identify where it stops going. Gaps in the historical record are not accidents. They are decisions. Find three. Do not report them yet - first, understand why they were made.",
     },
     deepforge: {
-      letter: "You found us. That's the thing about the Deep Forge — we're not hidden, we're just not where people think to look. We're the neighbors who show up when something breaks. The ones who remember your name and your grandmother's name and what she liked to cook. We've been here the whole time. Pull up a chair.",
-      attribution: "— From everyone, on behalf of everyone",
-      directive: "Head to the World Map and find the Deep Forge territory. Then go meet the characters who call it home. The community is the point — always has been. Get to know them.",
+      letter: "You found us. That's the thing about the Deep Forge - we're not hidden, we're just not where people think to look. We're the neighbors who show up when something breaks. The ones who remember your name and your grandmother's name and what she liked to cook. We've been here the whole time. Pull up a chair.",
+      attribution: "- From everyone, on behalf of everyone",
+      directive: "Head to the World Map and find the Deep Forge territory. Then go meet the characters who call it home. The community is the point - always has been. Get to know them.",
     },
     convoy: {
       letter: "This message will not be stored. There is no record of your assessment. There is no record of this letter. If you are reading this, you already understand why that matters. You stopped trusting the official version a long time ago. So did we. The difference between you and us is that we've been doing something about it for forty years. You're starting now. Welcome to the only organization in Panterra that knows what the satellite boundary is actually for.",
-      attribution: "— No name. You'll understand later.",
-      directive: "Your first task is the Enter page. There is something hidden there that most visitors walk past. Find it. The thing we need you to find was placed there by someone who wanted it found — just not by the Republic. Prove you're paying attention.",
+      attribution: "- No name. You'll understand later.",
+      directive: "Your first task is the Enter page. There is something hidden there that most visitors walk past. Find it. The thing we need you to find was placed there by someone who wanted it found - just not by the Republic. Prove you're paying attention.",
     },
     unseen: {
       letter: "There is no faction waiting for you. There is no letter from a council. There is no directive from a senior official. What there is: a world that could not categorize you, and a very small number of people throughout Panterra's history who also could not be categorized, and who built something outside every map ever drawn. You may already know where it is.",
-      attribution: "— No institution. No record. No seal.",
-      directive: "Go anywhere. The Unseen are not assigned paths. But pay attention to what pulls at you — the thing you keep returning to, the page you read twice, the fragment that didn't sit right. That is your directive. The Unseen don't follow orders. They follow instinct. Yours brought you here. Trust it.",
+      attribution: "- No institution. No record. No seal.",
+      directive: "Go anywhere. The Unseen are not assigned paths. But pay attention to what pulls at you - the thing you keep returning to, the page you read twice, the fragment that didn't sit right. That is your directive. The Unseen don't follow orders. They follow instinct. Yours brought you here. Trust it.",
     },
   };
 
@@ -1472,7 +1472,7 @@ const ValoricaRevealModal = ({ onClose }: { onClose: () => void }) => {
             className="font-display text-base sm:text-lg mt-6 tracking-[0.06em]"
             style={{ color: "hsl(38 50% 45%)", textShadow: "0 0 25px hsl(38 72% 50% / 0.2)" }}
           >
-            What happens there — that is not for this world to know.
+            What happens there - that is not for this world to know.
           </motion.p>
           <motion.p
             initial={{ opacity: 0 }}

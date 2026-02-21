@@ -307,7 +307,7 @@ const Index = () => {
   );
 };
 
-// ── Easter egg glyph — awards Scroll 6 + navigates to bestiary ────────────────
+// ── Easter egg glyph - awards Scroll 6 + navigates to bestiary ────────────────
 const EasterEggGlyph = () => {
   const navigate = useNavigate();
   const { foundScroll } = useGame();
@@ -330,7 +330,7 @@ const EasterEggGlyph = () => {
   );
 };
 
-// ── Hidden reset button — clears all game progress ────────────────────────────
+// ── Hidden reset button - clears all game progress ────────────────────────────
 const ResetProgressButton = () => {
   const handleReset = () => {
     localStorage.clear();

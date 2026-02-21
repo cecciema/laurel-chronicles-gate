@@ -22,7 +22,7 @@ function getFoundScrolls(): number[] {
   return [];
 }
 
-// ── Silhouettes — pure SVG, no external images ─────────────────────────────────
+// ── Silhouettes - pure SVG, no external images ─────────────────────────────────
 
 const UnmarkedSilhouette = () => (
   <svg viewBox="0 0 80 140" width="80" height="140" fill="none" aria-hidden="true">
@@ -109,7 +109,7 @@ const MONSTERS: MonsterDef[] = [
     origin: "A soul too fractured to pass through Apotheosis. The body did not receive the message.",
     lore: "Sanctorium records show 214 incomplete Apotheosis events in the last century. Parliament records show zero. One of these is lying.",
     lockedHint: "Something waits in the dead world.",
-    firstEncountered: "The Dead Corridors — Bestiary",
+    firstEncountered: "The Dead Corridors - Bestiary",
     Silhouette: UnmarkedSilhouette,
   },
   {
@@ -259,7 +259,7 @@ const MonsterCard = ({
   );
 };
 
-// ── The Unnamed — permanently locked card ──────────────────────────────────────
+// ── The Unnamed - permanently locked card ──────────────────────────────────────
 const UnnamedCard = ({ allFiveUnlocked }: { allFiveUnlocked: boolean }) => {
   const [clickCount, setClickCount] = useState(0);
   const [scroll12Awarded, setScroll12Awarded] = useState(false);
@@ -391,7 +391,7 @@ const Bestiary = () => {
             transition={{ duration: 0.7 }}
             className="text-center mb-10 relative"
           >
-            {/* Hidden Orb 3 — Bestiary page scroll */}
+            {/* Hidden Orb 3 - Bestiary page scroll */}
             <HiddenOrb id={3} className="absolute -right-1 top-0" />
 
             {/* Steampunk divider */}

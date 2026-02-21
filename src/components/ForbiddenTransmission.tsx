@@ -9,7 +9,7 @@ const PLAINTEXT = "THE APOTHEOSIS IS NOT SALVATION. THE SOULS ARE BEING COLLECTE
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const MAX_WRONG = 3;
 const TIMER_SECONDS = 90;
-const SCROLL_ID = 7; // cipher awards Scroll 7 — moved to World page
+const SCROLL_ID = 7; // cipher awards Scroll 7 - moved to World page
 
 function caesarEncode(text: string, shift: number): string {
   return text

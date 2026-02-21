@@ -18,7 +18,7 @@ const ZOOM_STEP = 0.3;
 const PINCH_DAMPEN = 0.4; // slow down pinch sensitivity
 
 // ── Region accent colours ──────────────────────────────────────────────────────
-// All regions use white at rest, brass when active — unified palette
+// All regions use white at rest, brass when active - unified palette
 const GLOW_WHITE = "#ffffff";
 const GLOW_BRASS = "#d4a843";
 
@@ -82,7 +82,7 @@ const SUB_REGIONS = [
   {
     id: "sanctorium",
     name: "Sanctorium",
-    description: "The vast knowledge-keeping complex where Pantheon Ivory scholars preserve ancient texts, dead languages, and sacred institutional memory. Access is strictly tiered. At its center stands the Grand Sanctuary — court of trials and seat of divine authority. The 12 Pantheons surround it, each aligned to a quadrant and a constellation.",
+    description: "The vast knowledge-keeping complex where Pantheon Ivory scholars preserve ancient texts, dead languages, and sacred institutional memory. Access is strictly tiered. At its center stands the Grand Sanctuary - court of trials and seat of divine authority. The 12 Pantheons surround it, each aligned to a quadrant and a constellation.",
     faction: "Pantheon Ivory",
     features: ["The Ivory Vaults", "Dead Language Archives", "Grand Sanctuary", "12 Pantheon Halls", "Ceremony Courts"],
   },
@@ -103,21 +103,21 @@ const SUB_REGIONS = [
   {
     id: "ocean-reaches",
     name: "The Ocean Reaches",
-    description: "The degraded but vast ocean territories where Magistry of Ocean Paragon candidates work. Beautiful and haunting — what the world was before systems of control replaced natural order.",
+    description: "The degraded but vast ocean territories where Magistry of Ocean Paragon candidates work. Beautiful and haunting - what the world was before systems of control replaced natural order.",
     faction: "Magistry of Ocean",
     features: ["Research Stations", "Degraded Reef Systems", "Culver's Field Labs", "The Tide Markers"],
   },
   {
     id: "ashfields",
     name: "The Frontier Borderlands",
-    description: "Beyond the Republic's governed edge — the world the maps leave out. Frontier survivors here know truths the institutions spend enormous energy hiding.",
+    description: "Beyond the Republic's governed edge - the world the maps leave out. Frontier survivors here know truths the institutions spend enormous energy hiding.",
     faction: "Frontier / Unaligned",
     features: ["Survivor Camps", "Pre-War Ruins", "Sailor's Routes", "Ungoverned Ocean Channels"],
   },
   {
     id: "valorica",
     name: "Valorica",
-    description: "A secret island known only to the innermost circle of Arborwell. Its purpose is unknown to the Citizens of Panterra. Souls are said to be tested here — and not all of them return.",
+    description: "A secret island known only to the innermost circle of Arborwell. Its purpose is unknown to the Citizens of Panterra. Souls are said to be tested here - and not all of them return.",
     faction: "Unknown",
     features: ["Soul Testing Grounds", "Restricted Access", "No Public Record"],
   },
@@ -245,7 +245,7 @@ const WorldMap = () => {
     [constrain, commitTransform]
   );
 
-  // ── Programmatic animated zoom (region auto-zoom — max 30% above current) ──
+  // ── Programmatic animated zoom (region auto-zoom - max 30% above current) ──
   const zoomToRegion = useCallback((regionId: string) => {
     const el = containerRef.current;
     if (!el) return;
@@ -437,7 +437,7 @@ const WorldMap = () => {
       </div>
 
       <div className="pb-28 overflow-x-hidden bg-[#0f0b06] min-h-screen relative">
-        {/* Hidden Orb 5 — Map page scroll */}
+        {/* Hidden Orb 5 - Map page scroll */}
         <HiddenOrb id={5} className="absolute top-24 right-4 sm:right-12 z-20" />
 
         {/* ── Title ── */}
@@ -555,7 +555,7 @@ const WorldMap = () => {
                         }}
                       />
 
-                      {/* Center dot — white at rest, brass on active */}
+                      {/* Center dot - white at rest, brass on active */}
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                         <motion.span
                           animate={{
@@ -937,7 +937,7 @@ const WorldMap = () => {
                   borderColor: (REGION_COLORS[selectedData.id] ?? GLOW_BRASS) + "60",
                 }}
               >
-                {/* Close button — sticky top-right */}
+                {/* Close button - sticky top-right */}
                 <button
                   onClick={closeRegion}
                   className="absolute top-3 right-3 z-10 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors hover:opacity-80"
@@ -947,7 +947,7 @@ const WorldMap = () => {
                   <span className="text-lg font-display">✕</span>
                 </button>
 
-                {/* Scrollable interior — entire panel scrolls as one unit */}
+                {/* Scrollable interior - entire panel scrolls as one unit */}
                 <div className="overflow-y-auto map-panel-scroll p-5 pr-14 h-[55vh] sm:h-auto" style={{ aspectRatio: isMobile ? undefined : "16 / 10" }}>
                   {isMobile ? (
                     /* ── MOBILE: single column ── */

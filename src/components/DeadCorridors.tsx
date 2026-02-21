@@ -5,7 +5,7 @@ import { useGame } from "@/components/ChroniclesSystem";
 
 // ─── Maze Layouts (15×15, 0 = open, 1 = wall) ────────────────────────────────
 
-// Maze A — exit bottom-right, winding center path, dead ends near bottom
+// Maze A - exit bottom-right, winding center path, dead ends near bottom
 const MAZE_A: number[][] = [
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
   [1,0,0,0,1,0,0,0,0,0,1,0,0,0,1],
@@ -26,7 +26,7 @@ const MAZE_A: number[][] = [
 const START_A = { row: 1, col: 1 };
 const EXIT_A = { row: 13, col: 14 };
 
-// Maze B — exit top-left, start bottom-right, open center trap, path hugs walls
+// Maze B - exit top-left, start bottom-right, open center trap, path hugs walls
 const MAZE_B: number[][] = [
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
   [0,0,0,1,0,0,0,0,0,1,0,0,0,0,1],
@@ -47,7 +47,7 @@ const MAZE_B: number[][] = [
 const START_B = { row: 13, col: 14 };
 const EXIT_B = { row: 1, col: 0 };
 
-// Maze C — exit middle-right, start top-left, false bottom corridor, doubling back
+// Maze C - exit middle-right, start top-left, false bottom corridor, doubling back
 const MAZE_C: number[][] = [
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
   [1,0,0,0,0,0,1,0,0,0,1,0,0,0,1],
@@ -230,7 +230,7 @@ const MazeCanvas = ({ grid, exit, player, enemies, won }: MazeCanvasProps) => (
 // ─── Main Component ───────────────────────────────────────────────────────────
 type GamePhase = "playing" | "dead" | "won";
 
-const SCROLL_ID = 11; // Dead Corridors now awards Scroll 11 — moved to Bestiary page
+const SCROLL_ID = 11; // Dead Corridors now awards Scroll 11 - moved to Bestiary page
 
 const makeEnemy = (patrol: Pos[], idx = 0): Enemy => ({ pos: patrol[idx], patrolIdx: idx, progress: 0 });
 
@@ -308,7 +308,7 @@ export const DeadCorridors = () => {
     return () => clearInterval(interval);
   }, [phase]);
 
-  // ── Collision — instant death ───────────────────────────────────────────────
+  // ── Collision - instant death ───────────────────────────────────────────────
   useEffect(() => {
     if (phase !== "playing") return;
     const hit = enemies.some(e => e.pos.row === player.row && e.pos.col === player.col);
