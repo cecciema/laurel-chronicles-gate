@@ -162,7 +162,7 @@ export const characters: Character[] = [
   },
   {
     id: "norstrand",
-    name: "Nordstrand",
+    name: "Norstrand",
     title: "Sol Deus",
     position: "Pantheon Finnrare",
     faction: "Pantheon",
@@ -387,7 +387,7 @@ export const guideCharacters: GuideCharacter[] = [
   },
   {
     id: "norstrand",
-    name: "Nordstrand",
+    name: "Norstrand",
     title: "Sol Deus",
     magistry: "Pantheon Finnrare",
     philosophy: "We build structures to outlast ourselves. We never ask whether they should.",
