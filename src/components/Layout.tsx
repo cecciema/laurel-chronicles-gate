@@ -12,7 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden pb-[60px] sm:pb-0 flex flex-col">
       <Navigation />
-      <ParticleCanvas />
+      <ParticleCanvas density={0.5} />
       <main className="flex-1">{children}</main>
       <Footer />
       <BottomNav />

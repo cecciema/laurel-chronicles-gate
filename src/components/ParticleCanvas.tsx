@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 
-const ParticleCanvas = () => {
+const ParticleCanvas = ({ density = 1 }: { density?: number }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const ParticleCanvas = () => {
       size: number; alpha: number; alphaDir: number;
     };
 
-    const particleCount = window.innerWidth < 640 ? 24 : 65;
+    const particleCount = Math.round((window.innerWidth < 640 ? 24 : 65) * density);
     const particles: Particle[] = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
