@@ -180,7 +180,8 @@ const Index = () => {
             <img
               src={heroBg}
               alt="The Republic"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: "center 60%" }}
             />
           </div>
           {/* Layer 2 - mid gradient (medium movement) */}
