@@ -208,7 +208,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
                 transition={{ delay: 0.7 }}
                 className="mt-4 font-narrative text-base text-foreground/50 italic max-w-xl mx-auto"
               >
-                Each Guide represents a different allegiance - Sanctorium, Parliament, Deep Forge, and The Convoy. Your choice will shape the path ahead.
+                Each Guide represents a different allegiance: Sanctorium, Parliament, Deep Forge, Convoy, and perhaps a hidden fifth... Your choice will shape the path ahead.
               </motion.p>
             </div>
 
