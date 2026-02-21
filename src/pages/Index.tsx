@@ -194,9 +194,7 @@ const Index = () => {
           <div className="absolute inset-0 z-[2] pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.75) 100%)" }} />
 
           {/* Particles */}
-          <div className="absolute inset-0 z-[4] pointer-events-none">
-            <ParticleCanvas />
-          </div>
+          <ParticleCanvas />
 
           {/* ── Hero Content ────────────────────────────────────────────── */}
           <div className="absolute inset-0 z-[5] flex flex-col items-center justify-center px-6 text-center">
