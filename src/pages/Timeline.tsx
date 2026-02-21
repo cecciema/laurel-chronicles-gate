@@ -410,7 +410,7 @@ const TimelinePage = () => {
                 className="font-display text-[10px] sm:text-xs tracking-[0.25em] uppercase"
                 style={{ color: "hsl(38 60% 55%)" }}
               >
-                Year 293 — The Present Hour
+                Year 293 - The Present Hour
               </p>
               <p
                 className="font-narrative italic text-sm sm:text-[0.9375rem] leading-[1.85] mt-3 max-w-2xl mx-auto"

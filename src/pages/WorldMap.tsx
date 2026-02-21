@@ -50,7 +50,7 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
     { name: "Culver Gretell",   title: "Paragon of Ocean Magistry",       image: "char-culver"   },
   ],
   "ocean-reaches": [
-    { name: "Culver Gretell",   title: "Paragon — Field Operations",      image: "char-culver"   },
+    { name: "Culver Gretell",   title: "Paragon - Field Operations",      image: "char-culver"   },
     { name: "Soleil",           title: "Field Specialist",                 image: "char-soleil"   },
   ],
   "ashfields": [
@@ -437,7 +437,7 @@ const WorldMap = () => {
             transition={{ duration: 0.7 }}
             className="font-display text-xl sm:text-2xl tracking-[0.2em] text-foreground"
           >
-            Panterra — The Known World
+            Panterra - The Known World
           </motion.h1>
           <div className="steampunk-divider max-w-xs mx-auto mt-3" />
         </div>

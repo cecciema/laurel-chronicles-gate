@@ -342,7 +342,7 @@ export const SemperReview = () => {
                   className="font-display text-[8px] sm:text-[9px] tracking-[0.4em] uppercase mb-6 text-center"
                   style={{ color: "hsl(0 0% 60%)" }}
                 >
-                  SEMPER VERIFICATION — PRE-APOTHEOSIS CLEARANCE — FORM 7 OF 7
+                  SEMPER VERIFICATION - PRE-APOTHEOSIS CLEARANCE - FORM 7 OF 7
                 </p>
                 <div
                   className="h-px w-full mb-6"
@@ -388,7 +388,7 @@ export const SemperReview = () => {
                   transition={{ duration: 2 }}
                   className="font-display text-[7px] sm:text-[8px] tracking-[0.4em] uppercase mb-6 text-center relative z-10"
                 >
-                  SEMPER VERIFICATION — PRE-APOTHEOSIS CLEARANCE — FORM 7 OF 7
+                  SEMPER VERIFICATION - PRE-APOTHEOSIS CLEARANCE - FORM 7 OF 7
                 </motion.p>
 
                 <div
@@ -415,7 +415,7 @@ export const SemperReview = () => {
                       className="font-display text-[8px] tracking-[0.3em] uppercase mb-4 relative z-10"
                       style={{ color: "hsl(0 50% 45%)" }}
                     >
-                      ANOMALY FLAGGED — EXTENDED REVIEW INITIATED
+                    ANOMALY FLAGGED - EXTENDED REVIEW INITIATED
                     </motion.p>
                   )}
                 </AnimatePresence>
@@ -607,7 +607,7 @@ export const SemperReview = () => {
                         className="font-body text-[8px] tracking-[0.2em] uppercase"
                         style={{ color: "hsl(0 0% 30%)" }}
                       >
-                        Form 7 of 7 — Complete
+                       Form 7 of 7 - Complete
                       </p>
                     </motion.div>
                   )}
@@ -891,7 +891,7 @@ const SemperReviewGame = ({ onClose }: { onClose: () => void }) => {
               style={{ borderColor: "hsl(0 0% 25%)", background: "hsl(0 0% 8%)" }}
             >
               <p className="font-display text-[8px] sm:text-[9px] tracking-[0.4em] uppercase mb-6 text-center" style={{ color: "hsl(0 0% 60%)" }}>
-                SEMPER VERIFICATION — PRE-APOTHEOSIS CLEARANCE — FORM 7 OF 7
+                SEMPER VERIFICATION - PRE-APOTHEOSIS CLEARANCE - FORM 7 OF 7
               </p>
               <div className="h-px w-full mb-6" style={{ background: "hsl(0 0% 20%)" }} />
               <motion.p
@@ -932,7 +932,7 @@ const SemperReviewGame = ({ onClose }: { onClose: () => void }) => {
                 transition={{ duration: 2 }}
                 className="font-display text-[7px] sm:text-[8px] tracking-[0.4em] uppercase mb-6 text-center relative z-10"
               >
-                SEMPER VERIFICATION — PRE-APOTHEOSIS CLEARANCE — FORM 7 OF 7
+                SEMPER VERIFICATION - PRE-APOTHEOSIS CLEARANCE - FORM 7 OF 7
               </motion.p>
 
               <div className="h-px w-full mb-6 relative z-10" style={{ background: "hsl(0 0% 20%)" }} />
@@ -952,7 +952,7 @@ const SemperReviewGame = ({ onClose }: { onClose: () => void }) => {
                     className="font-display text-[8px] tracking-[0.3em] uppercase mb-4 relative z-10"
                     style={{ color: "hsl(0 50% 45%)" }}
                   >
-                    ANOMALY FLAGGED — EXTENDED REVIEW INITIATED
+                    ANOMALY FLAGGED - EXTENDED REVIEW INITIATED
                   </motion.p>
                 )}
               </AnimatePresence>
@@ -1085,7 +1085,7 @@ const SemperReviewGame = ({ onClose }: { onClose: () => void }) => {
                   <motion.div exit={{ opacity: 0, filter: "blur(8px)" }} transition={{ duration: 2 }} className="mb-6">
                     <div className="h-px w-full mb-3" style={{ background: "hsl(0 0% 20%)" }} />
                     <p className="font-body text-[8px] tracking-[0.2em] uppercase" style={{ color: "hsl(0 0% 30%)" }}>
-                      Form 7 of 7 — Complete
+                      Form 7 of 7 - Complete
                     </p>
                   </motion.div>
                 )}

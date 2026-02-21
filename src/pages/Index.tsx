@@ -138,7 +138,7 @@ const Index = () => {
   const bgRef = useRef<HTMLDivElement>(null);
   const midRef = useRef<HTMLDivElement>(null);
 
-  // Headline typewriter — starts after intro fades (2.6s) + small gap
+  // Headline typewriter - starts after intro fades (2.6s) + small gap
   const line1 = useTypewriter("LAUREL", 80, 3200);
   const line2 = useTypewriter("CROWNS", 80, 3800);
   const line3 = useTypewriter("ABOVE", 80, 4400);
@@ -171,7 +171,7 @@ const Index = () => {
       >
         {/* ── Hero Background (parallax layers) ──────────────────────── */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Layer 1 — image (most movement) */}
+          {/* Layer 1 - image (most movement) */}
           <div
             ref={bgRef}
             className="absolute inset-[-3%] transition-transform duration-75 ease-out"
@@ -182,13 +182,13 @@ const Index = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          {/* Layer 2 — mid gradient (medium movement) */}
+          {/* Layer 2 - mid gradient (medium movement) */}
           <div
             ref={midRef}
             className="absolute inset-0 pointer-events-none transition-transform duration-100 ease-out"
             style={{ background: "radial-gradient(ellipse at 40% 60%, hsl(38 72% 50% / 0.08) 0%, transparent 60%)" }}
           />
-          {/* Layer 3 — static vignette gradients */}
+          {/* Layer 3 - static vignette gradients */}
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/70" />
         </div>
@@ -239,9 +239,9 @@ const Index = () => {
             </p>
           </motion.div>
 
-          {/* CTA buttons + QuestTrigger — single centered column */}
+          {/* CTA buttons + QuestTrigger - single centered column */}
           <div className="mt-12 flex flex-col items-center gap-4 w-full px-6 sm:px-0">
-            {/* Row 1: Enter + Meet — side by side on desktop, stacked on mobile */}
+            {/* Row 1: Enter + Meet - side by side on desktop, stacked on mobile */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: line3.done ? 1 : 0, y: line3.done ? 0 : 20 }}
@@ -266,7 +266,7 @@ const Index = () => {
               </div>
             </motion.div>
 
-            {/* Row 2: QuestTrigger — centered below, full-width on mobile */}
+            {/* Row 2: QuestTrigger - centered below, full-width on mobile */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: line3.done ? 1 : 0 }}

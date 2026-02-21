@@ -46,7 +46,7 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-// ─── The Unmasked — Game Data ──────────────────────────────────────────────────
+// ─── The Unmasked - Game Data ──────────────────────────────────────────────────
 const UNMASKED_SCROLL_ID = 9; // The Unmasked now awards Scroll 9
 
 type QuestionDef = {
@@ -141,7 +141,7 @@ const ALL_QUESTIONS: QuestionDef[] = [
     id: "sailor", answer: "Sailor", image: "char-sailor",
     clues: [
       "This person is liked by everyone who meets them. That is not an accident.",
-      "This person operates at the edges of things — the frontier, the boundary, the almost-outside.",
+      "This person operates at the edges of things - the frontier, the boundary, the almost-outside.",
       "This person knows more than they say and says more than they know.",
     ],
   },
@@ -202,7 +202,7 @@ function roundScore(cluesRevealed: number): number {
 
 /** Select 8 random questions, ensuring meaningfully different from previous set */
 function selectGameQuestions(prevIds: string[]): QuestionDef[] {
-  const MAX_OVERLAP = 6; // at most 6 can repeat — guarantees at least 2 new
+  const MAX_OVERLAP = 6; // at most 6 can repeat - guarantees at least 2 new
   for (let attempt = 0; attempt < 50; attempt++) {
     const shuffled = shuffle(ALL_QUESTIONS);
     const picked = shuffled.slice(0, TOTAL_ROUNDS);
@@ -323,7 +323,7 @@ const TheUnmasked = () => {
   const [wrongMessage, setWrongMessage] = useState(false);
   const [lastRoundPts, setLastRoundPts] = useState(0);
 
-  // Shuffled clues for current round — re-shuffled each time roundIdx changes
+  // Shuffled clues for current round - re-shuffled each time roundIdx changes
   const [shuffledClues, setShuffledClues] = useState<string[]>(() =>
     shuffle([...gameQuestions[0].clues])
   );
@@ -563,7 +563,7 @@ const TheUnmasked = () => {
                 Round {roundIdx + 1} of {TOTAL_ROUNDS}
               </p>
 
-              {/* Lives — brass orbs */}
+              {/* Lives - brass orbs */}
               <div className="flex gap-2 items-center">
                 <p className="text-[8px] tracking-[0.2em] text-muted-foreground/40 uppercase font-body mr-1">Lives</p>
                 {Array.from({ length: TOTAL_LIVES }).map((_, i) => {
@@ -610,10 +610,10 @@ const TheUnmasked = () => {
                 </div>
               </div>
 
-              {/* Clues — shown in shuffled order */}
+              {/* Clues - shown in shuffled order */}
               <div className="flex-1 flex flex-col gap-2.5">
                 <p className="text-[8px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body">
-                  Evidence — {cluesRevealed} of {CLUE_COUNT} revealed
+                  Evidence - {cluesRevealed} of {CLUE_COUNT} revealed
                 </p>
                 {Array.from({ length: cluesRevealed }).map((_, i) => (
                   <AnimatePresence key={i}>
@@ -787,7 +787,7 @@ const Characters = () => {
           <HiddenOrb id={4} className="absolute top-2 right-4 sm:right-12" />
         </div>
 
-        {/* Outer grid ref — used only for width measurement */}
+        {/* Outer grid ref - used only for width measurement */}
         <div ref={gridRef} className="max-w-6xl mx-auto">
           {rows.map((row, rowIdx) => {
             const isSelectedRow = rowIdx === selectedRow;
@@ -832,7 +832,7 @@ const Characters = () => {
                   })}
                 </div>
 
-                {/* Inline detail panel — spliced below matching row */}
+                {/* Inline detail panel - spliced below matching row */}
                 <AnimatePresence>
                   {isSelectedRow && selectedChar && (
                     <motion.div
@@ -844,7 +844,7 @@ const Characters = () => {
                       transition={{ duration: 0.3, ease: "easeOut" }}
                       className="relative mt-3"
                     >
-                      {/* Caret — outer (border color) */}
+                      {/* Caret - outer (border color) */}
                       <div
                         className="absolute -top-3 z-10 h-0 w-0 pointer-events-none"
                         style={{
@@ -854,7 +854,7 @@ const Characters = () => {
                           borderBottom: "10px solid hsl(var(--border))",
                         }}
                       />
-                      {/* Caret — inner (card bg color) */}
+                      {/* Caret - inner (card bg color) */}
                       <div
                         className="absolute -top-[10px] z-20 h-0 w-0 pointer-events-none"
                         style={{
@@ -998,7 +998,7 @@ const Characters = () => {
           })}
         </div>
 
-        {/* The Unmasked — identity mini-game */}
+        {/* The Unmasked - identity mini-game */}
         <TheUnmasked />
       </div>
     </Layout>

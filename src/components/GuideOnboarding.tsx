@@ -10,15 +10,15 @@ const resolveGuideImage = (image: string): string =>
 const welcomeMessages: Record<string, { title: string; body: string }> = {
   analytical: {
     title: "The data is incomplete. So is every map ever drawn of this world.",
-    body: "You've chosen to see clearly. That comes with a cost — you will question things others accept. Welcome to Panterra. The truth is out there if you're willing to look past the doctrine.",
+    body: "You've chosen to see clearly. That comes with a cost - you will question things others accept. Welcome to Panterra. The truth is out there if you're willing to look past the doctrine.",
   },
   poetic: {
     title: "Every archive holds a word no one has read in centuries. You may be the first.",
-    body: "Language is memory. You've arrived at a world full of both — some of it preserved, some of it deliberately buried. Let us begin with what is visible before we search for what is hidden.",
+    body: "Language is memory. You've arrived at a world full of both - some of it preserved, some of it deliberately buried. Let us begin with what is visible before we search for what is hidden.",
   },
   mysterious: {
     title: "Every institution in this world was built on a secret. Some were built to keep one.",
-    body: "You've chosen wisely. The path is not obvious — but then, the most important truths never are. Observe everything. Trust nothing at face value. That is how you survive here.",
+    body: "You've chosen wisely. The path is not obvious - but then, the most important truths never are. Observe everything. Trust nothing at face value. That is how you survive here.",
   },
   commanding: {
     title: "You are here because the planet needs you. That is not sentiment. It is fact.",
@@ -26,11 +26,11 @@ const welcomeMessages: Record<string, { title: string; body: string }> = {
   },
   divine: {
     title: "I have watched this civilization grow from its first fire. I will watch where yours leads.",
-    body: "The system was designed to endure — not by force alone, but by belief. You are entering a world older than its own history knows. Some questions have answers. Some answers are best found slowly.",
+    body: "The system was designed to endure - not by force alone, but by belief. You are entering a world older than its own history knows. Some questions have answers. Some answers are best found slowly.",
   },
   raw: {
     title: "Everything they told you about this world is a version. I'll show you a different one.",
-    body: "You want the real story? It's not in the archives or Parliament records. It's out here, on the edge of what they govern. Keep your eyes open. The institutions don't control everything — yet.",
+    body: "You want the real story? It's not in the archives or Parliament records. It's out here, on the edge of what they govern. Keep your eyes open. The institutions don't control everything - yet.",
   },
   ceremonial: {
     title: "Every great institution was built by those who chose continuity over comfort.",
@@ -38,11 +38,11 @@ const welcomeMessages: Record<string, { title: string; body: string }> = {
   },
   authoritative: {
     title: "This world does not run on philosophy. It runs on decision.",
-    body: "Parliament did not build Panterra by asking permission. Every law, every boundary, every protected corridor was a choice made under pressure. You are about to learn how those choices were made — and at what cost.",
+    body: "Parliament did not build Panterra by asking permission. Every law, every boundary, every protected corridor was a choice made under pressure. You are about to learn how those choices were made - and at what cost.",
   },
   radiant: {
     title: "The ocean doesn't forgive hesitation. Neither does the mission.",
-    body: "You've chosen a guide who works where the theory meets the water. The Magistry of Ocean isn't just science — it's survival. I'll show you what planetary restoration actually looks like from the field. Keep up.",
+    body: "You've chosen a guide who works where the theory meets the water. The Magistry of Ocean isn't just science - it's survival. I'll show you what planetary restoration actually looks like from the field. Keep up.",
   },
   precise: {
     title: "I noticed you before you noticed me. That is how it always works.",
@@ -208,7 +208,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
                 transition={{ delay: 0.7 }}
                 className="mt-4 font-narrative text-base text-foreground/50 italic max-w-xl mx-auto"
               >
-                Each Guide represents a different allegiance — Sanctorium, Parliament, Deep Forge, and The Convoy. Your choice will shape the path ahead.
+                Each Guide represents a different allegiance - Sanctorium, Parliament, Deep Forge, and The Convoy. Your choice will shape the path ahead.
               </motion.p>
             </div>
 

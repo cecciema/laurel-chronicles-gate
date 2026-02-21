@@ -12,7 +12,7 @@ const Footer = () => {
           className="font-body tracking-[0.22em] uppercase leading-[1.6]"
           style={{ color: "hsl(30 12% 52%)", fontSize: "10px" }}
         >
-          LAUREL CROWNS ABOVE — A LIVING WORLD is an original intellectual property of CECILIA MA.
+          LAUREL CROWNS ABOVE - A LIVING WORLD is an original intellectual property of CECILIA MA.
         </p>
         <p
           className="font-body tracking-[0.22em] uppercase leading-[1.6]"
