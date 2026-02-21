@@ -61,7 +61,8 @@ const ParticleCanvas = ({ density = 1 }: { density?: number }) => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none z-[4]"
+      className="fixed top-0 left-0 w-full pointer-events-none z-[4]"
+      style={{ height: "60vh", maskImage: "linear-gradient(to bottom, black 50%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, black 50%, transparent 100%)" }}
     />
   );
 };
