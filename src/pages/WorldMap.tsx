@@ -49,7 +49,7 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
     { name: "Wintry",                 title: "Senior Council, Space Sci",  image: "char-wintry"  },
   ],
   "deepforge": [
-    { name: "Sol Deus Thema",   title: "Keeper of the Deep Forge",        image: "char-thema"    },
+    { name: "Sol Deus Thema",   title: "Keeper of Deep Forge",             image: "char-thema"    },
     { name: "Culver Gretell",   title: "Paragon of Ocean Magistry",       image: "char-culver"   },
   ],
   "ocean-reaches": [
@@ -95,7 +95,7 @@ const SUB_REGIONS = [
   },
   {
     id: "deepforge",
-    name: "The Deep Forge",
+    name: "Deep Forge",
     description: "Below the visible world, the geothermal nexus that powers all of Panterra's systems. Ancient carvings predate the Republic. The Sol Deus order watches over it. Something about it is growing unstable.",
     faction: "Pantheon Sol Deus",
     features: ["Geothermal Vents", "Ancient Pre-Republic Carvings", "Oracle Chamber", "The Memory Pools"],

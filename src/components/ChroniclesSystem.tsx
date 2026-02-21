@@ -21,9 +21,9 @@ const SCROLLS = [
   },
   {
     id: 2,
-    title: "The Convoy's Origin",
+    title: "Convoy's Origin",
     hint: "Hidden somewhere in the world",
-    text: "The Convoy's first recorded communication predates the Great War by 40 years. They did not form in response to the system. They built it.",
+    text: "Convoy's first recorded communication predates the Great War by 40 years. They did not form in response to the system. They built it.",
     source: "Timeline page orb",
     type: "discoverable" as const,
   },
@@ -224,13 +224,13 @@ const ALLEGIANCE_DATA: Record<AllegianceId, {
     storageKey: "parliament-intelligence-unlocked",
   },
   deepforge: {
-    name: "The Deep Forge",
-    text: "You are The Deep Forge. You were never given the things the others were given and you built your life anyway. The institutions of Panterra were not made for you. That has never stopped you and it never will.",
+    name: "Deep Forge",
+    text: "You are Deep Forge. You were never given the things the others were given and you built your life anyway. The institutions of Panterra were not made for you. That has never stopped you and it never will.",
     storageKey: "deepforge-survival-unlocked",
   },
   convoy: {
-    name: "The Convoy Rebellion",
-    text: "You are The Convoy Rebellion. You stopped trusting the version of the world they handed you a long time ago. You are not certain what the truth is. You are certain it is not what you were told.",
+    name: "Convoy Rebellion",
+    text: "You are Convoy Rebellion. You stopped trusting the version of the world they handed you a long time ago. You are not certain what the truth is. You are certain it is not what you were told.",
     storageKey: "convoy-message-unlocked",
   },
   unseen: {
@@ -290,7 +290,7 @@ const AllegianceSymbol = ({ allegiance }: { allegiance: AllegianceId }) => {
 const RIDDLES = [
   {
     id: 1,
-    question: "I am given at your peak and called a mercy. I am performed at dawn in white cloaks and laurel crowns. The Republic calls me a gift. The Convoy calls me a crime. What am I?",
+    question: "I am given at your peak and called a mercy. I am performed at dawn in white cloaks and laurel crowns. The Republic calls me a gift. Convoy calls me a crime. What am I?",
     answers: ["apotheosis", "apex", "the ceremony"]
   },
   {
@@ -1370,7 +1370,7 @@ const RiddleSuccessModal = ({ onClose }: { onClose: () => void }) => (
         <h2 className="font-display text-[1.5rem] sm:text-3xl text-amber-500 tracking-[0.12em] sm:tracking-[0.15em] mb-6 sm:mb-8 relative z-10">What the Laurels Buried</h2>
         <div className="font-narrative text-[1.0625rem] sm:text-lg text-amber-100/70 italic leading-[1.8] relative z-10 space-y-4 sm:space-y-6">
           <p>"The satellite net will fail. The meteor shower will come."</p>
-          <p>"The Convoy knows. Gable knows. Remsays knows. And the twelve Sol Deos knew thirty years ago when it happened to Rockfall — and chose silence then too."</p>
+          <p>"Convoy knows. Gable knows. Remsays knows. And the twelve Sol Deos knew thirty years ago when it happened to Rockfall — and chose silence then too."</p>
           <p className="text-amber-50">"The soul is the world's most valued currency. Now ask yourself: who has been collecting?"</p>
         </div>
       </motion.div>

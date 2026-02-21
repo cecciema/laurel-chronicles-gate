@@ -158,7 +158,7 @@ export const characters: Character[] = [
     alignment: "The Instrument",
     personality: ["Charismatic", "Brilliant", "Universally Trusted", "Unknowable"],
     background: "Born in Hampshire near Pantheon Lighthouse, Aspen rose through Parliament in just two years to become Director of Peace for the Northeast - a pace that shocked even his supporters. Jude chose him as his successor and had Remsays build an algorithm to ensure his selection appeared fair. He is the first person to present the meteor threat to the board and see it as an opportunity. By the end of book one, someone far more powerful than Jude has already decided what Aspen will do next.",
-    relationships: "Jude - mentor, sponsor, the man who selected him. Sailor - close friend, trusted colleague. Remsays - uneasy alliance, mutual awareness. The Convoy - the relationship neither of them has named yet.",
+    relationships: "Jude - mentor, sponsor, the man who selected him. Sailor - close friend, trusted colleague. Remsays - uneasy alliance, mutual awareness. Convoy - the relationship neither of them has named yet.",
   },
   {
     id: "norstrand",
@@ -525,7 +525,7 @@ export const worldRegions: WorldRegion[] = [
   },
   {
     id: "deepforge",
-    name: "The Deep Forge",
+    name: "Deep Forge",
     description: "Below the visible world, the geothermal nexus that powers Panterra's systems. Ancient carvings predate the Republic. The Sol Deus order watches over it. Something about it is growing unstable.",
     faction: "Pantheon Sol Deus",
     features: ["Geothermal Vents", "Ancient Pre-Republic Carvings", "Oracle Chamber", "The Memory Pools"],
