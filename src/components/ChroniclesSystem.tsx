@@ -1144,7 +1144,7 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: 
                   YOUR DIRECTIVE
                 </p>
                 <div className="border-l-2 border-primary/30 pl-4">
-                  <p className="font-body text-sm text-foreground/60 leading-relaxed">
+                  <p className="font-narrative italic text-[0.9375rem] leading-[1.9] text-foreground/70">
                     {DOSSIER_CONTENT[result].directive}
                   </p>
                 </div>
