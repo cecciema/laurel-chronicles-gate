@@ -35,7 +35,7 @@ const socialTiers = [
 
 const regions = [
   {
-    name: "The Deep Forge",
+    name: "Deep Forge",
     tag: "FOUNDATION",
     description: "Where every Citizen of Panterra begins. The townships, the nurseries, the schools, the training grounds - all of it sits above the oldest infrastructure in the Republic. The forges beneath run day and night. Most people never ask what they are for. The children raised here grow up knowing the warmth of them but not the source. There is a reason this place is called what it is. Most people never find out.",
     features: ["Township Quarters", "Paragon Academies", "Republic Nurseries", "The Forge Districts"],
@@ -144,7 +144,7 @@ const WorldOverview = () => {
               Worn Handwritten Document - Deep Forge Communities
             </p>
             <p className="font-narrative italic text-[0.9375rem] leading-[1.85]" style={{ color: "hsl(38 25% 65%)" }}>
-              "The Deep Forge communities have maintained an oral record of every person lost to incomplete Apotheosis since Year 4 of the New Republic. The number is 1,847. The official record shows 214."
+              "Deep Forge communities have maintained an oral record of every person lost to incomplete Apotheosis since Year 4 of the New Republic. The number is 1,847. The official record shows 214."
             </p>
           </motion.div>
         )}
@@ -220,7 +220,7 @@ const WorldOverview = () => {
               </motion.div>
             ))}
 
-            {/* ── The Convoy - Fourth Tier ── */}
+            {/* ── Convoy - Fourth Tier ── */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -250,10 +250,10 @@ const WorldOverview = () => {
                 }}
               >
                 <h3 className="font-display text-base tracking-wide text-foreground/70 mt-2">
-                  The Convoy
+                  Convoy
                 </h3>
                 <p className="mt-3 text-[0.9375rem] sm:text-sm text-muted-foreground font-body leading-[1.8]">
-                  They have no Pantheon. They have no Magistry sector. They hold no seat in Parliament and no pew in any Sol Deus court. They exist in the gaps between the official record — in the unmarked years, the redacted clauses, the Citizens who disappeared without an Apotheosis filing. The Convoy of Reformation has been called a rumor for so long that most people stopped asking whether the rumor was true. It is true. It has always been true. They did not form in response to the system. Some believe they helped build it.
+                  They have no Pantheon. They have no Magistry sector. They hold no seat in Parliament and no pew in any Sol Deus court. They exist in the gaps between the official record — in the unmarked years, the redacted clauses, the Citizens who disappeared without an Apotheosis filing. Convoy of Reformation has been called a rumor for so long that most people stopped asking whether the rumor was true. It is true. It has always been true. They did not form in response to the system. Some believe they helped build it.
                 </p>
               </div>
 

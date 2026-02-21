@@ -19,7 +19,7 @@ export const GUIDE_CONTENT: Record<string, Record<GuidePage, string>> = {
     world: "The Republic is very old and very tired and does not know it yet. I have watched younger things than this believe themselves permanent. They were not.",
     characters: "Everyone you see here has already made their most important choice. Most of them do not realize which one it was.",
     timeline: "I have presided over ceremonies in every era on this record. The ones that were not recorded were more interesting.",
-    map: "The Deep Forge predates every institution on this map. What is underneath it predates the Forge. I suggest you think carefully about what that means.",
+    map: "Deep Forge predates every institution on this map. What is underneath it predates the Forge. I suggest you think carefully about what that means.",
     bestiary: "These are not cautionary tales. They are descriptions. There is a distinction the Republic has always preferred you not make.",
   },
   sailor: {

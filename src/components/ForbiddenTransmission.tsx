@@ -5,7 +5,7 @@ import { useGame } from "@/components/ChroniclesSystem";
 
 // ─── Cipher Constants ──────────────────────────────────────────────────────────
 const SHIFT = 7;
-const PLAINTEXT = "THE APOTHEOSIS IS NOT SALVATION. THE SOULS ARE BEING COLLECTED. THE CONVOY KNOWS WHERE THEY GO.";
+const PLAINTEXT = "THE APOTHEOSIS IS NOT SALVATION. THE SOULS ARE BEING COLLECTED. CONVOY KNOWS WHERE THEY GO.";
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const MAX_WRONG = 3;
 const TIMER_SECONDS = 90;
