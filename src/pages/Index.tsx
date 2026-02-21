@@ -105,16 +105,16 @@ const Index = () => {
         style={isTouch ? undefined : { cursor: "none" }}
       >
         {/* ── Hero Background (parallax layers) ──────────────────────── */}
-        <div className="relative w-full z-0 bg-background">
+        <div className="relative w-full z-0 bg-background min-h-screen">
           {/* Layer 1 - image (most movement) */}
           <div
             ref={bgRef}
-            className="relative z-0 transition-transform duration-75 ease-out"
+            className="absolute inset-0 z-0 transition-transform duration-75 ease-out"
           >
             <img
               src={heroBg}
               alt="The Republic"
-              className="w-full h-auto block"
+              className="w-full h-full object-cover"
             />
           </div>
           {/* Layer 2 - mid gradient (medium movement) */}
@@ -134,7 +134,7 @@ const Index = () => {
           <ParticleCanvas />
 
           {/* ── Hero Content ────────────────────────────────────────────── */}
-          <div className="absolute inset-0 z-[5] flex flex-col items-center justify-center px-6 text-center">
+          <div className="absolute inset-0 z-[5] flex flex-col items-center justify-end pb-10 pt-24 px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 30 : 0 }}
