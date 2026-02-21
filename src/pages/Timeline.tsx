@@ -411,7 +411,7 @@ const TimelinePage = () => {
 
             {/* Text — below dot with clear spacing */}
             <div
-              className={`mt-24 ${
+              className={`mt-6 ${
                 isMobile ? "self-start pl-10" : "text-center"
               }`}
             >

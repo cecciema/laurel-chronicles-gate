@@ -661,7 +661,7 @@ const TheUnmasked = () => {
             </AnimatePresence>
 
             {/* Choice grid: 3×2 */}
-            <div className="grid grid-cols-3 sm:grid-cols-3 gap-2 sm:gap-3">
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-3">
               {choices.map((charId) => (
                 <ChoiceCard
                   key={`${roundIdx}-${charId}`}
