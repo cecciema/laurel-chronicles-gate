@@ -125,8 +125,10 @@ const Index = () => {
           />
           {/* Dark overlay */}
           <div className="absolute inset-0 z-[1] bg-black/40 pointer-events-none" />
+          {/* Bottom fade */}
+          <div className="absolute bottom-0 left-0 right-0 z-[2] h-24 pointer-events-none bg-gradient-to-b from-transparent to-background" />
           {/* Vignette */}
-          <div className="absolute inset-0 z-[2] pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.75) 100%)" }} />
+          <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.75) 100%)" }} />
 
           {/* Particles */}
           <ParticleCanvas />
