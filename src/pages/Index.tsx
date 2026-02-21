@@ -174,13 +174,13 @@ const Index = () => {
           {/* Layer 1 - image (most movement) */}
           <div
             ref={bgRef}
-            className="absolute inset-[-3%] transition-transform duration-75 ease-out flex items-center justify-center"
+            className="absolute inset-[-3%] transition-transform duration-75 ease-out"
             style={{ backgroundColor: "#0f0b06" }}
           >
             <img
               src={heroBg}
               alt="The Republic"
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover object-center"
             />
           </div>
           {/* Layer 2 - mid gradient (medium movement) */}
@@ -190,8 +190,8 @@ const Index = () => {
             style={{ background: "radial-gradient(ellipse at 40% 60%, hsl(38 72% 50% / 0.08) 0%, transparent 60%)" }}
           />
           {/* Layer 3 - static vignette gradients */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/15 to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/15 via-transparent to-background/15" />
         </div>
 
         {/* Particles */}
