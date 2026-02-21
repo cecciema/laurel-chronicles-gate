@@ -21,6 +21,23 @@ import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
+const AudioToggle = ({ muted, onToggle }: { muted: boolean; onToggle: () => void }) => (
+  <motion.button
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.5, duration: 0.6 }}
+    onClick={onToggle}
+    className="fixed top-4 right-4 z-[150] w-9 h-9 flex items-center justify-center border border-primary/30 bg-background/60 backdrop-blur-sm hover:border-primary/70 transition-colors"
+    style={{ boxShadow: "0 0 12px hsl(38 72% 50% / 0.1)" }}
+    aria-label={muted ? "Unmute ambient audio" : "Mute ambient audio"}
+  >
+    {muted
+      ? <VolumeX size={14} className="text-muted-foreground" />
+      : <Volume2 size={14} className="text-primary" />
+    }
+  </motion.button>
+);
+
 const AppInner = () => {
   const [onboardingComplete, setOnboardingComplete] = useState<boolean>(() => {
     return !!localStorage.getItem(GUIDE_STORAGE_KEY);
@@ -46,29 +63,20 @@ const AppInner = () => {
   };
 
   if (!onboardingComplete) {
-    return <GuideOnboarding onComplete={handleOnboardingComplete} />;
+    return (
+      <>
+        <audio ref={audioRef} loop src="https://cdn.freesound.org/previews/639/639958_13315998-lq.mp3" />
+        <AudioToggle muted={muted} onToggle={toggleAudio} />
+        <GuideOnboarding onComplete={handleOnboardingComplete} />
+      </>
+    );
   }
 
   return (
     <>
       {!isTouch && <CustomCursor />}
       <audio ref={audioRef} loop src="https://cdn.freesound.org/previews/639/639958_13315998-lq.mp3" />
-
-      {/* Global audio toggle */}
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.6 }}
-        onClick={toggleAudio}
-        className="fixed top-4 right-4 z-[150] w-9 h-9 flex items-center justify-center border border-primary/30 bg-background/60 backdrop-blur-sm hover:border-primary/70 transition-colors"
-        style={{ boxShadow: "0 0 12px hsl(38 72% 50% / 0.1)" }}
-        aria-label={muted ? "Unmute ambient audio" : "Mute ambient audio"}
-      >
-        {muted
-          ? <VolumeX size={14} className="text-muted-foreground" />
-          : <Volume2 size={14} className="text-primary" />
-        }
-      </motion.button>
+      <AudioToggle muted={muted} onToggle={toggleAudio} />
 
       <ScrollToTop />
       <Routes>
