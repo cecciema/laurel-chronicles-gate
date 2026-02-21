@@ -54,6 +54,7 @@ const ScrollReveal = ({ children, delay = 0, className = "" }: { children: React
   return (
     <div ref={ref} className={className}>
       <motion.div
+        className="h-full"
         initial={{ opacity: 0, y: 32 }}
         animate={visible ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.75, ease: "easeOut", delay }}
@@ -277,7 +278,7 @@ const Index = () => {
                 { to: "/timeline", title: "Timeline", desc: "Trace the events that brought the Republic to the brink" },
                 { to: "/map", title: "World Map", desc: "Navigate the regions of the Republic" },
               ].map((card, i) => (
-                <ScrollReveal key={card.to} delay={i * 0.08}>
+                <ScrollReveal key={card.to} delay={i * 0.08} className="h-full">
                   <Link
                     to={card.to}
                     className="block h-full p-4 sm:p-6 bg-card border border-border hover:border-primary/40 transition-all hover:shadow-brass group"
