@@ -2,22 +2,10 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { useGame } from "@/components/ChroniclesSystem";
 
-// ── Scroll award helper ────────────────────────────────────────────────────────
+// ── Constants ──────────────────────────────────────────────────────────────────
 const SCROLL_ID = 10;
-
-function awardScroll(id: number) {
-  try {
-    const saved = localStorage.getItem("chronicles_game_state_v2");
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      if (!parsed.foundScrolls?.includes(id)) {
-        parsed.foundScrolls = [...(parsed.foundScrolls || []), id];
-        localStorage.setItem("chronicles_game_state_v2", JSON.stringify(parsed));
-      }
-    }
-  } catch {}
-}
 
 // ── Constants ──────────────────────────────────────────────────────────────────
 const ROWS = 15;
@@ -295,6 +283,7 @@ const CeremonyGrid = ({
 type Phase = "playing" | "win" | "lose";
 
 const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
+  const { foundScroll } = useGame();
   const [phase, setPhase] = useState<Phase>("playing");
   const [swapped, setSwapped] = useState<boolean[]>(Array(TOTAL_PARTICIPANTS).fill(false));
   const [selected, setSelected] = useState<number | null>(null);
@@ -490,7 +479,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
           setFrozen(true);
           setTimeout(() => {
             setPhase("win");
-            awardScroll(SCROLL_ID);
+            foundScroll(SCROLL_ID);
             const isFirst = !localStorage.getItem("vial-substitution-won");
             localStorage.setItem("vial-substitution-won", "true");
             setFirstWin(isFirst);
@@ -705,33 +694,14 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
               ✦ Scroll 10 Recovered ✦
             </motion.p>
 
-            {/* Fragment reveal card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 3.5, duration: 1 }}
-              className="mx-auto max-w-sm w-full bg-[#e8dcc0] text-amber-950 p-5 sm:p-8 shadow-[0_0_30px_rgba(0,0,0,0.5)] font-narrative border-4 border-double border-amber-900/40"
-              style={{ clipPath: "polygon(0% 0%, 100% 2%, 98% 100%, 2% 98%)" }}
-            >
-              <h3 className="text-center font-display text-base sm:text-lg tracking-[0.2em] mb-1 text-amber-900">
-                Fragment 10
-              </h3>
-              <h4 className="text-center font-display text-[10px] tracking-[0.15em] text-amber-800/60 mb-4 border-b border-amber-900/20 pb-3">
-                The Ceremony
-              </h4>
-              <p className="text-sm sm:text-[0.9375rem] leading-[1.8] italic font-narrative">
-                "Seven of them will wake up. The Pantheon will not understand why. The ceremony's records will show ten successful ascensions."
-              </p>
-            </motion.div>
-
             {firstWin && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 5, duration: 1 }}
-                className="mt-2"
+                transition={{ delay: 3.5, duration: 1 }}
+                className="mt-2 flex flex-col items-center gap-2"
               >
-                <p className="font-narrative italic text-xs mb-2" style={{ color: "hsl(38 30% 55%)" }}>
+                <p className="font-narrative italic text-xs" style={{ color: "hsl(38 30% 55%)" }}>
                   A new entry has been added to the Bestiary.
                 </p>
                 <Link

@@ -1,22 +1,10 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useGame } from "@/components/ChroniclesSystem";
 
-// ── Scroll award helper ────────────────────────────────────────────────────────
+// ── Constants ──────────────────────────────────────────────────────────────────
 const SCROLL_ID = 8;
-
-function awardScroll(id: number) {
-  try {
-    const saved = localStorage.getItem("chronicles_game_state_v2");
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      if (!parsed.foundScrolls?.includes(id)) {
-        parsed.foundScrolls = [...(parsed.foundScrolls || []), id];
-        localStorage.setItem("chronicles_game_state_v2", JSON.stringify(parsed));
-      }
-    }
-  } catch {}
-}
 
 // ── Fisher-Yates ───────────────────────────────────────────────────────────────
 function shuffle<T>(arr: T[]): T[] {
@@ -184,6 +172,7 @@ const PeaceOfficer = ({
 
 // ── Main Component ─────────────────────────────────────────────────────────────
 export const SemperReview = () => {
+  const { foundScroll } = useGame();
   const [gameState, setGameState] = useState<"idle" | "setup" | "playing" | "win" | "lose">("setup");
   const [questions, setQuestions] = useState<Question[]>(() => buildQuestions());
   const [currentQ, setCurrentQ] = useState(0);
@@ -291,8 +280,8 @@ export const SemperReview = () => {
 
   const handleWin = useCallback(() => {
     setGameState("win");
-    // Award scroll
-    awardScroll(SCROLL_ID);
+    // Award scroll via context (triggers ScrollModal)
+    foundScroll(SCROLL_ID);
     setScrollAwarded(true);
     // Set localStorage flag
     const isFirst = !localStorage.getItem("semper-review-won");
@@ -642,36 +631,16 @@ export const SemperReview = () => {
                   </motion.p>
                 )}
 
-                {/* Fragment reveal card — matches ScrollModal parchment style */}
-                {scrollAwarded && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.92 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 6.5, duration: 1 }}
-                    className="mb-6 mx-auto max-w-sm w-full bg-[#e8dcc0] text-amber-950 p-5 sm:p-8 shadow-[0_0_30px_rgba(0,0,0,0.5)] font-narrative border-4 border-double border-amber-900/40"
-                    style={{ clipPath: "polygon(0% 0%, 100% 2%, 98% 100%, 2% 98%)" }}
-                  >
-                    <h3 className="text-center font-display text-base sm:text-lg tracking-[0.2em] mb-1 text-amber-900">
-                      Fragment 8
-                    </h3>
-                    <h4 className="text-center font-display text-[10px] tracking-[0.15em] text-amber-800/60 mb-4 border-b border-amber-900/20 pb-3">
-                      The Semper Record
-                    </h4>
-                    <p className="text-sm sm:text-[0.9375rem] leading-[1.8] italic font-narrative">
-                      "The Semper review process has been compromised since Year 12 of the New Republic. The review board knows. They have always known."
-                    </p>
-                  </motion.div>
-                )}
-
                 {/* Bestiary discovery — first win only */}
                 {firstWin && (
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 8, duration: 1 }}
+                    transition={{ delay: 6.5, duration: 1 }}
+                    className="flex flex-col items-center gap-2"
                   >
                     <p
-                      className="font-narrative italic text-xs sm:text-sm mb-2"
+                      className="font-narrative italic text-xs sm:text-sm"
                       style={{ color: "hsl(38 25% 55%)" }}
                     >
                       A new entry has been added to the Bestiary.
@@ -683,7 +652,7 @@ export const SemperReview = () => {
                       onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(38 72% 55%)")}
                       onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(38 50% 45%)")}
                     >
-                      ◈ Open the Bestiary ◈
+                      View the Bestiary →
                     </Link>
                   </motion.div>
                 )}
@@ -692,7 +661,7 @@ export const SemperReview = () => {
                 <motion.button
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 9, duration: 0.6 }}
+                  transition={{ delay: 7.5, duration: 0.6 }}
                   onClick={() => setGameState("idle")}
                   className="block mx-auto mt-6 font-body text-[9px] tracking-[0.2em] uppercase transition-colors"
                   style={{ color: "hsl(0 0% 35%)" }}
@@ -777,6 +746,7 @@ export const SemperReviewTrigger = () => {
 
 // ── Wrapper that passes onClose ────────────────────────────────────────────────
 const SemperReviewGame = ({ onClose }: { onClose: () => void }) => {
+  const { foundScroll } = useGame();
   const [gameState, setGameState] = useState<"setup" | "playing" | "win" | "lose">("setup");
   const [questions, setQuestions] = useState<Question[]>(() => buildQuestions());
   const [currentQ, setCurrentQ] = useState(0);
@@ -822,7 +792,7 @@ const SemperReviewGame = ({ onClose }: { onClose: () => void }) => {
       if (nextQ >= questions.length) {
         // Win
         setGameState("win");
-        awardScroll(SCROLL_ID);
+        foundScroll(SCROLL_ID);
         setScrollAwarded(true);
         const isFirst = !localStorage.getItem("semper-review-won");
         localStorage.setItem("semper-review-won", "true");
@@ -1144,8 +1114,9 @@ const SemperReviewGame = ({ onClose }: { onClose: () => void }) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 6.5, duration: 1 }}
+                  className="flex flex-col items-center gap-2"
                 >
-                  <p className="font-narrative italic text-xs sm:text-sm mb-2" style={{ color: "hsl(38 25% 55%)" }}>
+                  <p className="font-narrative italic text-xs sm:text-sm" style={{ color: "hsl(38 25% 55%)" }}>
                     A new entry has been added to the Bestiary.
                   </p>
                   <Link
@@ -1155,7 +1126,7 @@ const SemperReviewGame = ({ onClose }: { onClose: () => void }) => {
                     onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(38 72% 55%)")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(38 50% 45%)")}
                   >
-                    ◈ Open the Bestiary ◈
+                    View the Bestiary →
                   </Link>
                 </motion.div>
               )}

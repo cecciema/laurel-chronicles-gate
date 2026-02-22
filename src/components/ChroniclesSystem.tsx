@@ -358,6 +358,43 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.setItem("chronicles_game_state_v2", JSON.stringify(state));
   }, [state]);
 
+  // Re-sync state when returning to tab (same-tab navigation)
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible") {
+        try {
+          const saved = localStorage.getItem("chronicles_game_state_v2");
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            setState(prev => ({
+              ...prev,
+              foundScrolls: parsed.foundScrolls ?? prev.foundScrolls,
+            }));
+          }
+        } catch {}
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => document.removeEventListener("visibilitychange", handleVisibility);
+  }, []);
+
+  // Re-sync state when localStorage changes from another tab
+  useEffect(() => {
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === "chronicles_game_state_v2" && e.newValue) {
+        try {
+          const parsed = JSON.parse(e.newValue);
+          setState(prev => ({
+            ...prev,
+            foundScrolls: parsed.foundScrolls ?? prev.foundScrolls,
+          }));
+        } catch {}
+      }
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
+
   const foundScroll = (id: number) => {
     const scroll = SCROLLS.find(s => s.id === id);
     if (!state.foundScrolls.includes(id)) {
