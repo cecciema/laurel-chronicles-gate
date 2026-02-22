@@ -139,8 +139,8 @@ const MONSTERS: MonsterDef[] = [
     scrollId: 9, // The Unmasked on Characters page
     name: "The Unmasked",
     accentColor: "#ffffff",
-    origin: "The logical end of a society where a semper scar is the only proof of existence.",
-    lore: "The semper scar is Panterra's only proof of identity. It can be replicated. Sanctorium has known this since the third year of the New Republic. The record of that discovery was sealed the same afternoon.",
+    origin: "The logical end of a society where a Semper scar is the only proof of existence.",
+    lore: "The Semper scar is Panterra's only proof of identity. It can be replicated. Sanctorium has known this since the third year of the New Republic. The record of that discovery was sealed the same afternoon.",
     lockedHint: "Not everyone wearing a face is the person behind it.",
     firstEncountered: "The Unmasked - Characters",
     Silhouette: UnmaskedSilhouette,

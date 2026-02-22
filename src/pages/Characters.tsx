@@ -722,7 +722,7 @@ const TheUnmasked = () => {
                   userSelect: bestiaryUnlocked || alreadyWon ? "text" : "none",
                 }}
               >
-                The semper scar is Panterra's only proof of identity. It can be replicated. Sanctorium has known this since the third year of the New Republic. The record of that discovery was sealed the same afternoon.
+                The Semper scar is Panterra's only proof of identity. It can be replicated. Sanctorium has known this since the third year of the New Republic. The record of that discovery was sealed the same afternoon.
               </p>
               {!(bestiaryUnlocked || alreadyWon) && (
                 <div className="absolute inset-0 flex items-center justify-center">

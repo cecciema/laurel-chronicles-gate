@@ -45,7 +45,7 @@ const EASY_POOL: Question[] = [
 ];
 
 const MEDIUM_POOL: Question[] = [
-  { statement: "The semper scan is administered by Sanctorium.", answer: false, pool: "medium" },
+  { statement: "The Semper scan is administered by Sanctorium.", answer: false, pool: "medium" },
   { statement: "Plaza Montecito is located inside Sanctorium.", answer: false, pool: "medium" },
   { statement: "A Lunary ranks above a Sol Deus.", answer: false, pool: "medium" },
   { statement: "The Grand Sanctuary is the holiest location in Panterra.", answer: true, pool: "medium" },
@@ -54,7 +54,7 @@ const MEDIUM_POOL: Question[] = [
 
 const HARD_POOL: Question[] = [
   { statement: "The Apotheosis ceremony has been conducted the same way at every Pantheon since its founding.", answer: false, pool: "hard" },
-  { statement: "A Sol Deus can have their semper mark removed.", answer: true, pool: "hard" },
+  { statement: "A Sol Deus can have their Semper mark removed.", answer: true, pool: "hard" },
   { statement: "Parliament has jurisdiction over what happens after Apotheosis.", answer: false, pool: "hard" },
 ];
 

@@ -71,7 +71,7 @@ const SCROLLS = [
     id: 8,
     title: "The Semper Record",
     hint: "Complete a game to unlock",
-    text: "The semper review process has been compromised since Year 12 of the New Republic. The review board knows. They have always known.",
+    text: "The Semper review process has been compromised since Year 12 of the New Republic. The review board knows. They have always known.",
     source: "Win Semper Review - Timeline page",
     type: "earned" as const,
   },
@@ -166,9 +166,9 @@ const ALLEGIANCE_QUESTIONS_SHUFFLEABLE: AllegianceQuestion[] = [
   },
   {
     id: "E",
-    question: "You discover that someone in your community has been falsifying their semper record. What do you do?",
+    question: "You discover that someone in your community has been falsifying their Semper record. What do you do?",
     answers: [
-      { text: "Report it. The semper record is the foundation of everything.", allegiance: "sanctorium" },
+      { text: "Report it. The Semper record is the foundation of everything.", allegiance: "sanctorium" },
       { text: "Understand why first. Then decide whether it serves anyone to report it.", allegiance: "parliament" },
       { text: "Ask them what they needed to survive that required this. Then help them.", allegiance: "deepforge" },
       { text: "Help them do it better so they do not get caught.", allegiance: "convoy" },
