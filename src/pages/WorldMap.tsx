@@ -82,7 +82,7 @@ const SUB_REGIONS = [
   {
     id: "sanctorium",
     name: "Sanctorium",
-    description: "The vast knowledge-keeping complex where Pantheon Ivory scholars preserve ancient texts, dead languages, and sacred institutional memory. Access is strictly tiered. At its center stands the Grand Sanctuary - court of trials and seat of divine authority. The 12 Pantheons surround it, each aligned to a quadrant and a constellation.",
+    description: "The vast knowledge-keeping complex where Pantheon Ivory scholars preserve ancient texts, dead languages, and sacred institutional memory. Access is strictly tiered. At its center stands the Grand Sanctuary - court of trials and seat of divine authority. The 12 Pantheons surround it, each aligned to a Quadrant and a constellation.",
     faction: "Pantheon Ivory",
     features: ["The Ivory Vaults", "Dead Language Archives", "Grand Sanctuary", "12 Pantheon Halls", "Ceremony Courts"],
   },
