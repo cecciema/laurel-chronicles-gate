@@ -72,7 +72,7 @@ const DEVOTEE_CONFIGS: DevoteeConfig[] = [
       { row: 6, col: 8 }, { row: 6, col: 7 }, { row: 6, col: 6 }, { row: 6, col: 5 },
       { row: 6, col: 4 }, { row: 6, col: 3 }, { row: 6, col: 2 },
     ],
-    speed: 0.8,
+    speed: 2.0,
     active: true,
   },
   // Devotee 2: vertical down column 7 (between the two rows)
@@ -85,7 +85,7 @@ const DEVOTEE_CONFIGS: DevoteeConfig[] = [
       { row: 10, col: 7 }, { row: 9, col: 8 }, { row: 8, col: 7 }, { row: 7, col: 8 },
       { row: 6, col: 7 }, { row: 5, col: 7 }, { row: 4, col: 7 }, { row: 3, col: 7 },
     ],
-    speed: 0.7,
+    speed: 1.8,
     active: true,
   },
   // Devotee 3: diagonal/wide route, faster, enters at 45s
@@ -97,7 +97,7 @@ const DEVOTEE_CONFIGS: DevoteeConfig[] = [
       { row: 7, col: 11 }, { row: 6, col: 10 }, { row: 5, col: 9 }, { row: 4, col: 8 },
       { row: 3, col: 7 }, { row: 2, col: 7 },
     ],
-    speed: 1.1,
+    speed: 2.5,
     active: false,
   },
 ];
@@ -142,6 +142,7 @@ const CeremonyGrid = ({
   return (
     <div className="relative overflow-auto mx-auto" style={{ maxWidth: "100%", overflowX: "auto", overflowY: "auto" }}>
       <div
+        key={devotees.map(d => `${d.row},${d.col}`).join("|")}
         style={{
           display: "grid",
           gridTemplateColumns: `repeat(${COLS}, ${TILE_SIZE}px)`,
@@ -610,60 +611,147 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
         )}
       </AnimatePresence>
 
-      {/* Game grid */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        className="max-w-2xl mx-auto bg-card border border-border relative overflow-hidden select-none"
-        style={{ minHeight: 200 }}
-      >
-        <div className="p-2 sm:p-3 overflow-auto">
-          <CeremonyGrid
-            devotees={devoteePositions}
-            participantStates={swapped}
-            collectorStage={collectorStage}
-            proximityMap={proximityMap}
-            selectedIdx={selected}
-            onTapCell={handleTapCell}
-            frozen={frozen}
-          />
-        </div>
+      {/* Game grid — hidden when won */}
+      {phase !== "win" && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="max-w-2xl mx-auto bg-card border border-border relative overflow-hidden select-none"
+          style={{ minHeight: 200 }}
+        >
+          <div className="p-2 sm:p-3 overflow-auto">
+            <CeremonyGrid
+              devotees={devoteePositions}
+              participantStates={swapped}
+              collectorStage={collectorStage}
+              proximityMap={proximityMap}
+              selectedIdx={selected}
+              onTapCell={handleTapCell}
+              frozen={frozen}
+            />
+          </div>
 
-        {/* Win overlay */}
-        <AnimatePresence>
-          {phase === "win" && (
+          {/* Lose overlay */}
+          <AnimatePresence>
+            {phase === "lose" && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="absolute inset-0 bg-background/95 flex flex-col items-center justify-center z-30 gap-6 p-8 text-center"
+              >
+                <p className="font-display text-xs tracking-[0.25em] text-destructive uppercase">
+                  {loseReason === "caught" ? "The harvest continues." : "The ceremony has begun. You were not fast enough."}
+                </p>
+                <p className="font-narrative italic text-foreground/50 text-[0.9375rem] leading-[1.8] max-w-xs">
+                  {loseReason === "caught"
+                    ? "You were seen. The Collector has your record now."
+                    : "Ten vials. Ten ascensions. The records will show nothing unusual."}
+                </p>
+                <button
+                  onClick={resetGame}
+                  className="px-8 py-2.5 border border-primary text-primary font-body text-xs tracking-widest uppercase hover:bg-primary/10 transition-colors"
+                >
+                  Try Again
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      )}
+
+      {/* Win screen — standalone section, replaces grid */}
+      <AnimatePresence>
+        {phase === "win" && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="max-w-2xl mx-auto flex flex-col items-center text-center gap-5 py-12 px-8"
+          >
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="font-display text-lg sm:text-xl tracking-[0.15em] text-primary"
+            >
+              The substitution is complete.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="font-display text-xs tracking-[0.25em] uppercase"
+              style={{ color: "#d4a843" }}
+            >
+              Seven of them will wake up. The Pantheon will not understand why.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.5, duration: 0.8 }}
+              className="font-narrative italic text-foreground/50 text-[0.9375rem] leading-[1.8] max-w-sm"
+            >
+              The ceremony's records will show ten successful ascensions.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2.5, duration: 0.8 }}
+              className="font-display text-[9px] tracking-[0.4em] uppercase"
+              style={{ color: "hsl(38 50% 50%)" }}
+            >
+              ✦ Scroll 10 Recovered ✦
+            </motion.p>
+
+            {/* Fragment reveal card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 3.5, duration: 1 }}
+              className="mx-auto max-w-sm w-full bg-[#e8dcc0] text-amber-950 p-5 sm:p-8 shadow-[0_0_30px_rgba(0,0,0,0.5)] font-narrative border-4 border-double border-amber-900/40"
+              style={{ clipPath: "polygon(0% 0%, 100% 2%, 98% 100%, 2% 98%)" }}
+            >
+              <h3 className="text-center font-display text-base sm:text-lg tracking-[0.2em] mb-1 text-amber-900">
+                Fragment 10
+              </h3>
+              <h4 className="text-center font-display text-[10px] tracking-[0.15em] text-amber-800/60 mb-4 border-b border-amber-900/20 pb-3">
+                The Ceremony
+              </h4>
+              <p className="text-sm sm:text-[0.9375rem] leading-[1.8] italic font-narrative">
+                "Seven of them will wake up. The Pantheon will not understand why. The ceremony's records will show ten successful ascensions."
+              </p>
+            </motion.div>
+
+            {firstWin && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 5, duration: 1 }}
+                className="mt-2"
+              >
+                <p className="font-narrative italic text-xs mb-2" style={{ color: "hsl(38 30% 55%)" }}>
+                  A new entry has been added to the Bestiary.
+                </p>
+                <Link
+                  to="/bestiary"
+                  className="font-body text-[9px] tracking-[0.3em] uppercase transition-colors"
+                  style={{ color: "hsl(38 60% 50%)" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 72% 60%)")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
+                >
+                  View the Bestiary →
+                </Link>
+              </motion.div>
+            )}
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="absolute inset-0 bg-background/92 flex flex-col items-center justify-center z-30 gap-5 p-8 text-center"
+              transition={{ delay: 5.5, duration: 0.6 }}
             >
-              <p className="font-display text-xs tracking-[0.25em] uppercase" style={{ color: "#d4a843" }}>
-                Seven of them will wake up. The Pantheon will not understand why.
-              </p>
-              <p className="font-narrative italic text-foreground/50 text-[0.9375rem] leading-[1.8] max-w-sm">
-                The ceremony's records will show ten successful ascensions.
-              </p>
-              <p className="font-display text-[9px] tracking-[0.4em] uppercase" style={{ color: "hsl(38 50% 50%)" }}>
-                ✦ Scroll 10 Recovered ✦
-              </p>
-              {firstWin && (
-                <div className="mt-2">
-                  <p className="font-narrative italic text-xs mb-2" style={{ color: "hsl(38 30% 55%)" }}>
-                    A new entry has been added to the Bestiary.
-                  </p>
-                  <Link
-                    to="/bestiary"
-                    className="font-body text-[9px] tracking-[0.3em] uppercase transition-colors"
-                    style={{ color: "hsl(38 60% 50%)" }}
-                    onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 72% 60%)")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
-                  >
-                    View the Bestiary →
-                  </Link>
-                </div>
-              )}
-              <div className="w-8 h-px bg-primary/40" />
+              <div className="w-8 h-px bg-primary/40 mx-auto mb-5" />
               <button
                 onClick={onClose}
                 className="px-8 py-2.5 border border-border text-muted-foreground font-body text-xs tracking-widest uppercase hover:border-primary/40 hover:text-primary transition-colors"
@@ -671,35 +759,9 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
                 Return to the Map
               </button>
             </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Lose overlay */}
-        <AnimatePresence>
-          {phase === "lose" && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="absolute inset-0 bg-background/95 flex flex-col items-center justify-center z-30 gap-6 p-8 text-center"
-            >
-              <p className="font-display text-xs tracking-[0.25em] text-destructive uppercase">
-                {loseReason === "caught" ? "The harvest continues." : "The ceremony has begun. You were not fast enough."}
-              </p>
-              <p className="font-narrative italic text-foreground/50 text-[0.9375rem] leading-[1.8] max-w-xs">
-                {loseReason === "caught"
-                  ? "You were seen. The Collector has your record now."
-                  : "Ten vials. Ten ascensions. The records will show nothing unusual."}
-              </p>
-              <button
-                onClick={resetGame}
-                className="px-8 py-2.5 border border-primary text-primary font-body text-xs tracking-widest uppercase hover:bg-primary/10 transition-colors"
-              >
-                Try Again
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Legend */}
       <div className="max-w-2xl mx-auto mt-2 flex flex-wrap gap-4 sm:gap-6 px-2 justify-center sm:justify-end">
