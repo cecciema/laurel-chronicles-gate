@@ -309,7 +309,7 @@ const getWinRank = (score: number): string => {
 };
 
 const TheUnmasked = () => {
-  const { foundScrolls, awardScroll } = useGame();
+  const { foundScrolls, foundScroll } = useGame();
   const alreadyWon = foundScrolls.includes(UNMASKED_SCROLL_ID);
   const [bestiaryUnlocked, setBestiaryUnlocked] = useState(alreadyWon);
 
@@ -387,7 +387,7 @@ const TheUnmasked = () => {
         if (roundIdx + 1 >= TOTAL_ROUNDS) {
           setPhase("won");
           setBestiaryUnlocked(true);
-          if (!alreadyWon) awardScroll(UNMASKED_SCROLL_ID);
+          if (!alreadyWon) foundScroll(UNMASKED_SCROLL_ID);
           localStorage.setItem('unmasked-won', 'true');
         } else {
           setPhase("round-summary");
@@ -417,7 +417,7 @@ const TheUnmasked = () => {
         }, 1000);
       }
     },
-    [phase, currentRound, cluesRevealed, score, roundIdx, lives, alreadyWon, awardScroll, resetRound]
+    [phase, currentRound, cluesRevealed, score, roundIdx, lives, alreadyWon, foundScroll, resetRound]
   );
 
   return (
@@ -514,13 +514,20 @@ const TheUnmasked = () => {
                 </p>
               </div>
               {!alreadyWon && (
-                <Link
-                  to="/bestiary"
-                  className="font-body text-[10px] tracking-[0.25em] uppercase transition-colors"
-                  style={{ color: "hsl(38 72% 50%)" }}
-                >
-                  A new entry has been added to the Bestiary.
-                </Link>
+                <div className="flex flex-col items-center gap-2">
+                  <p className="font-narrative italic text-xs" style={{ color: "hsl(38 30% 55%)" }}>
+                    A new entry has been added to the Bestiary.
+                  </p>
+                  <Link
+                    to="/bestiary"
+                    className="font-body text-[9px] tracking-[0.25em] uppercase transition-colors"
+                    style={{ color: "hsl(38 60% 50%)" }}
+                    onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 72% 60%)")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
+                  >
+                    View the Bestiary →
+                  </Link>
+                </div>
               )}
               <div className="w-8 h-px bg-primary/40" />
               <button
