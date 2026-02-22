@@ -68,7 +68,7 @@ export const GUIDE_CONTENT: Record<string, Record<GuidePage, string>> = {
     world: "The Magistry of Peace is not what its name suggests. I say this as its Director. Names in this Republic are chosen for what they make people believe, not for what they describe.",
     characters: "Everyone in a room trusts me. I have worked very hard to make that true. I am still deciding whether I deserve it.",
     timeline: "The expansion of the Unmarking Orders in Year 178 - the classified one - I have seen the expanded list. I wish I had not.",
-    map: "The Northeast quadrant has the most institutional concentration of any region on this map. Power clusters. It always clusters. That is the first thing they teach you and the last thing you understand.",
+    map: "The Northeast Quadrant has the most institutional concentration of any region on this map. Power clusters. It always clusters. That is the first thing they teach you and the last thing you understand.",
     bestiary: "I was chosen for my position by someone who believed in me. I was used in that position by someone who believed in something else. The things in here were made the same way.",
   },
   wintry: {
@@ -89,7 +89,7 @@ export const GUIDE_CONTENT: Record<string, Record<GuidePage, string>> = {
     world: "The political structure of Panterra is elegant from a distance. Up close it is held together with threats and memory. I have been both the threat and the memory at different points in my career.",
     characters: "I have worked alongside, beneath, and occasionally against most of the people in this record. My assessments would not match the official ones. I consider that a credential.",
     timeline: "My rank was earned during an event that does not appear on this timeline. The event was real. The omission was deliberate. I was in the room when they decided to omit it.",
-    map: "The Sanctorium's political reach extends into every quadrant on this map. It does not appear on maps because maps show territory. The Sanctorium's hold is not territorial. It is personal.",
+    map: "The Sanctorium's political reach extends into every Quadrant on this map. It does not appear on maps because maps show territory. The Sanctorium's hold is not territorial. It is personal.",
     bestiary: "I have a scar. The scar marks something that happened during a ceremony. The ceremony is not in any official record. Whatever made this mark - it knew what it was doing.",
   },
   verlaine: {

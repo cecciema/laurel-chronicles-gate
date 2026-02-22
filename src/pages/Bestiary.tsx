@@ -356,7 +356,7 @@ const UnnamedCard = ({ allFiveUnlocked }: { allFiveUnlocked: boolean }) => {
             </h3>
           </div>
           <p className="font-narrative italic text-[0.9375rem] leading-[1.85]" style={{ color: "hsl(38 8% 28%)" }}>
-            It has been seen in all four quadrants in the same week. It does not appear on any surveillance. Children describe it before they are old enough to have heard of it. The Pantheon has been petitioned for guidance. The Pantheon has not responded.
+            It has been seen in all four Quadrants in the same week. It does not appear on any surveillance. Children describe it before they are old enough to have heard of it. The Pantheon has been petitioned for guidance. The Pantheon has not responded.
           </p>
           <p className="font-body text-[8px] tracking-[0.2em] uppercase mt-1" style={{ color: "hsl(38 6% 18%)" }}>
             ◈ Some things are not meant to be found.
