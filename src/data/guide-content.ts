@@ -94,7 +94,7 @@ export const GUIDE_CONTENT: Record<string, Record<GuidePage, string>> = {
   },
   verlaine: {
     world: "I arrived in Panterra with a name that was not mine and a history that was not entirely fabricated. The parts that were real were the dangerous parts. I have spent considerable effort making sure no one knows which parts those were.",
-    characters: "Identity in Panterra is whatever your semper scar says it is. I found that useful. Most people find it reassuring. We are looking at the same fact from different directions.",
+    characters: "Identity in Panterra is whatever your Semper scar says it is. I found that useful. Most people find it reassuring. We are looking at the same fact from different directions.",
     timeline: "The Language Purge of Year 134 destroyed documents that would have identified me. I did not arrange that. But I have been grateful for it every year since.",
     map: "The Ivory vaults contain records I cannot allow to be read. I have taken steps. The steps were sufficient - at least until today.",
     bestiary: "The Unmasked entry is the one I read most carefully. I read it to understand what I am not. I am not always certain the distinction holds.",

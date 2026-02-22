@@ -92,7 +92,7 @@ const events: TimelineEvent[] = [
     year: "Year 156",
     title: "The First Marked Generation",
     description:
-      "The first generation born entirely under the semper system comes of age. The last Citizens who remembered life before the mark have died. Panterra has no living memory of what it felt like to exist without one. The Cornerstones stop feeling like laws and start feeling like nature.",
+      "The first generation born entirely under the Semper system comes of age. The last Citizens who remembered life before the mark have died. Panterra has no living memory of what it felt like to exist without one. The Cornerstones stop feeling like laws and start feeling like nature.",
     column: "right",
     order: 7,
   },
@@ -101,7 +101,7 @@ const events: TimelineEvent[] = [
     year: "Year 178",
     title: "The Unmarking Orders",
     description:
-      "Parliament quietly expands the list of authorized entities permitted to remove a Citizen's semper mark. The expansion is classified. The original list had two names on it. The expanded list has not been disclosed. The number of names it now contains is not public record.",
+      "Parliament quietly expands the list of authorized entities permitted to remove a Citizen's Semper mark. The expansion is classified. The original list had two names on it. The expanded list has not been disclosed. The number of names it now contains is not public record.",
     column: "left",
     order: 8,
   },
