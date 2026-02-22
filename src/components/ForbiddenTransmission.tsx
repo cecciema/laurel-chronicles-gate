@@ -8,7 +8,7 @@ const SHIFT = 7;
 const PLAINTEXT = "THE APOTHEOSIS IS NOT SALVATION. THE SOULS ARE BEING COLLECTED. CONVOY REBELLION KNOWS WHERE THEY GO.";
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const MAX_WRONG = 3;
-const TIMER_SECONDS = 90;
+const TIMER_SECONDS = 120;
 const SCROLL_ID = 7; // cipher awards Scroll 7 - moved to World page
 
 function caesarEncode(text: string, shift: number): string {
