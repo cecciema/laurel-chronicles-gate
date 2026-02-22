@@ -642,12 +642,33 @@ export const SemperReview = () => {
                   </motion.p>
                 )}
 
+                {/* Fragment reveal card — matches ScrollModal parchment style */}
+                {scrollAwarded && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.92 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 6.5, duration: 1 }}
+                    className="mb-6 mx-auto max-w-sm w-full bg-[#e8dcc0] text-amber-950 p-5 sm:p-8 shadow-[0_0_30px_rgba(0,0,0,0.5)] font-narrative border-4 border-double border-amber-900/40"
+                    style={{ clipPath: "polygon(0% 0%, 100% 2%, 98% 100%, 2% 98%)" }}
+                  >
+                    <h3 className="text-center font-display text-base sm:text-lg tracking-[0.2em] mb-1 text-amber-900">
+                      Fragment 8
+                    </h3>
+                    <h4 className="text-center font-display text-[10px] tracking-[0.15em] text-amber-800/60 mb-4 border-b border-amber-900/20 pb-3">
+                      The Semper Record
+                    </h4>
+                    <p className="text-sm sm:text-[0.9375rem] leading-[1.8] italic font-narrative">
+                      "The Semper review process has been compromised since Year 12 of the New Republic. The review board knows. They have always known."
+                    </p>
+                  </motion.div>
+                )}
+
                 {/* Bestiary discovery — first win only */}
                 {firstWin && (
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 6.5, duration: 1 }}
+                    transition={{ delay: 8, duration: 1 }}
                   >
                     <p
                       className="font-narrative italic text-xs sm:text-sm mb-2"
@@ -671,7 +692,7 @@ export const SemperReview = () => {
                 <motion.button
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 7.5, duration: 0.6 }}
+                  transition={{ delay: 9, duration: 0.6 }}
                   onClick={() => setGameState("idle")}
                   className="block mx-auto mt-6 font-body text-[9px] tracking-[0.2em] uppercase transition-colors"
                   style={{ color: "hsl(0 0% 35%)" }}
