@@ -269,6 +269,26 @@ const Index = () => {
             </div>
           </section>
 
+          {/* Sample Chapters */}
+          <section className="py-16 sm:py-20 px-5 sm:px-8 border-t border-border/30">
+            <div className="max-w-3xl mx-auto">
+              <ScrollReveal>
+                <div className="text-center mb-10">
+                  <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
+                    ✦ Sample Chapters ✦
+                  </p>
+                  <h2 className="font-display text-xl sm:text-2xl tracking-[0.15em] text-foreground">
+                    Read the First Four Chapters
+                  </h2>
+                  <div className="steampunk-divider max-w-xs mx-auto mt-4" />
+                </div>
+              </ScrollReveal>
+              <ScrollReveal delay={0.15}>
+                <SampleChapters />
+              </ScrollReveal>
+            </div>
+          </section>
+
           {/* Navigation Cards */}
           <section className="py-16 px-4 bg-secondary/30">
             <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
@@ -304,6 +324,89 @@ const Index = () => {
 
       {/* BottomNav is rendered globally in Layout.tsx */}
     </>
+  );
+};
+
+// ── Sample Chapters Reader ────────────────────────────────────────────────────
+const CHAPTERS = [
+  { number: 1, title: "Chapter I: The Wedding", content: `` },
+  { number: 2, title: "Chapter II: The Crash", content: `` },
+  { number: 3, title: "Chapter III: Pantheon Ivory", content: `` },
+  { number: 4, title: "Chapter IV: Chief Magister Remsays", content: `` },
+];
+
+const SampleChapters = () => {
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const chapter = CHAPTERS[currentIdx];
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentIdx]);
+
+  return (
+    <div className="max-w-2xl mx-auto">
+      <div className="steampunk-divider max-w-xs mx-auto mb-6" />
+
+      <div className="text-center mb-1">
+        <h3 className="font-display text-xl tracking-[0.12em] text-primary">
+          {chapter.title}
+        </h3>
+      </div>
+      <p className="text-center font-body text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
+        Chapter {chapter.number} of {CHAPTERS.length}
+      </p>
+      <div className="steampunk-divider max-w-[120px] mx-auto mb-6" />
+
+      <div
+        ref={scrollRef}
+        className="chapter-scroll-container"
+        style={{ maxHeight: "60vh", overflowY: "auto" }}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIdx}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.4 }}
+          >
+            <p className="font-narrative text-[0.9375rem] leading-[1.9] text-foreground/80 text-left whitespace-pre-line">
+              {chapter.content}
+            </p>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="flex items-center justify-center gap-6 mt-8">
+        <button
+          onClick={() => setCurrentIdx((i) => i - 1)}
+          disabled={currentIdx === 0}
+          className="font-body text-[10px] tracking-[0.25em] uppercase border border-border/40 px-5 py-2 min-h-[44px] hover:border-primary/40 hover:text-primary transition-colors disabled:opacity-30 disabled:pointer-events-none"
+          style={isTouch ? undefined : { cursor: "none" }}
+        >
+          ← Previous Chapter
+        </button>
+
+        <div className="flex gap-1.5">
+          {CHAPTERS.map((_, i) => (
+            <span
+              key={i}
+              className={`block w-1.5 h-1.5 rounded-full transition-colors ${i === currentIdx ? "bg-primary" : "bg-border"}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={() => setCurrentIdx((i) => i + 1)}
+          disabled={currentIdx === CHAPTERS.length - 1}
+          className="font-body text-[10px] tracking-[0.25em] uppercase border border-border/40 px-5 py-2 min-h-[44px] hover:border-primary/40 hover:text-primary transition-colors disabled:opacity-30 disabled:pointer-events-none"
+          style={isTouch ? undefined : { cursor: "none" }}
+        >
+          Next Chapter →
+        </button>
+      </div>
+    </div>
   );
 };
 
