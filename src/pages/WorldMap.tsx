@@ -811,10 +811,6 @@ const WorldMap = () => {
               </div>{/* end zoomable wrapper */}
               </div>{/* end aspect-ratio lock */}
 
-              {/* Unseen marker — outside zoomable, inside map container */}
-              {typeof window !== "undefined" && localStorage.getItem("arborwell-hint-unlocked") === "true" && (
-                <UnseenMarker />
-              )}
 
 
               {/* ── Zoom controls (bottom-right) ── */}

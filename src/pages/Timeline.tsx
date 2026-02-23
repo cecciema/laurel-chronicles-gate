@@ -439,7 +439,9 @@ const TimelinePage = () => {
           </motion.div>
         </div>
 
-        {/* Parliament intelligence unlock */}
+        {/* ── Allegiance-locked intelligence unlocks ── */}
+
+        {/* Parliament */}
         {typeof window !== "undefined" &&
           localStorage.getItem("parliament-intelligence-unlocked") === "true" && (
             <motion.div
@@ -475,6 +477,158 @@ const TimelinePage = () => {
                 "Premiere succession has been algorithmically managed since Year
                 12 of the New Republic. No election since has been uninfluenced.
                 The margin of influence has increased every cycle."
+              </p>
+            </motion.div>
+          )}
+
+        {/* Deep Forge */}
+        {typeof window !== "undefined" &&
+          localStorage.getItem("deepforge-survival-unlocked") === "true" && (
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-3xl mx-auto mt-12 mb-4 border p-6 relative overflow-hidden"
+              style={{
+                borderColor: "hsl(25 60% 30% / 0.4)",
+                background: "hsl(20 12% 7%)",
+              }}
+            >
+              <div
+                className="absolute top-3 right-4 font-display text-[9px] tracking-[0.3em] uppercase px-2 py-1 border"
+                style={{
+                  color: "hsl(25 60% 40%)",
+                  borderColor: "hsl(25 60% 30% / 0.5)",
+                  transform: "rotate(3deg)",
+                }}
+              >
+                Restricted
+              </div>
+              <p
+                className="font-display text-[8px] tracking-[0.4em] uppercase mb-3"
+                style={{ color: "hsl(25 60% 40%)" }}
+              >
+                Classified Survival Lore
+              </p>
+              <p
+                className="font-narrative italic text-[0.9375rem] leading-[1.85]"
+                style={{ color: "hsl(38 25% 65%)" }}
+              >
+                "Deep Forge communities have maintained an oral record of every person lost to incomplete Apotheosis since Year 4 of the New Republic. The number is 1,847. The official record shows 214."
+              </p>
+            </motion.div>
+          )}
+
+        {/* Sanctorium */}
+        {typeof window !== "undefined" &&
+          localStorage.getItem("sanctorium-allegiance-unlocked") === "true" && (
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-3xl mx-auto mt-12 mb-4 border p-6 relative overflow-hidden"
+              style={{
+                borderColor: "hsl(270 40% 35% / 0.4)",
+                background: "hsl(20 12% 7%)",
+              }}
+            >
+              <div
+                className="absolute top-3 right-4 font-display text-[9px] tracking-[0.3em] uppercase px-2 py-1 border"
+                style={{
+                  color: "hsl(270 40% 55%)",
+                  borderColor: "hsl(270 40% 35% / 0.5)",
+                  transform: "rotate(3deg)",
+                }}
+              >
+                Restricted
+              </div>
+              <p
+                className="font-display text-[8px] tracking-[0.4em] uppercase mb-3"
+                style={{ color: "hsl(270 40% 45%)" }}
+              >
+                Classified Sanctorium Document
+              </p>
+              <p
+                className="font-narrative italic text-[0.9375rem] leading-[1.85]"
+                style={{ color: "hsl(38 25% 65%)" }}
+              >
+                "The Sol Deos do not age. This is presented as divine blessing. Internal Sanctorium records from Year 87 show three Sol Deos were replaced without public announcement. The names were reused. The faces were not the same."
+              </p>
+            </motion.div>
+          )}
+
+        {/* The Unseen */}
+        {typeof window !== "undefined" &&
+          localStorage.getItem("arborwell-hint-unlocked") === "true" && (
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-3xl mx-auto mt-12 mb-4 border p-6 relative overflow-hidden"
+              style={{
+                borderColor: "hsl(38 50% 35% / 0.4)",
+                background: "hsl(20 12% 7%)",
+              }}
+            >
+              <div
+                className="absolute top-3 right-4 font-display text-[9px] tracking-[0.3em] uppercase px-2 py-1 border"
+                style={{
+                  color: "hsl(38 60% 50%)",
+                  borderColor: "hsl(38 50% 35% / 0.5)",
+                  transform: "rotate(3deg)",
+                }}
+              >
+                Restricted
+              </div>
+              <p
+                className="font-display text-[8px] tracking-[0.4em] uppercase mb-3"
+                style={{ color: "hsl(38 50% 40%)" }}
+              >
+                Records of Unknown Territories
+              </p>
+              <p
+                className="font-narrative italic text-[0.9375rem] leading-[1.85]"
+                style={{ color: "hsl(38 25% 65%)" }}
+              >
+                "Something exists beyond the boundary. It has no name on this map. It has always been there. Expedition logs from Years 3, 7, and 12 reference coordinates that do not correspond to any charted territory. The logs were sealed. The coordinates were removed from navigational records."
+              </p>
+            </motion.div>
+          )}
+
+        {/* Convoy Rebellion */}
+        {typeof window !== "undefined" &&
+          localStorage.getItem("convoy-message-unlocked") === "true" && (
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-3xl mx-auto mt-12 mb-4 border p-6 relative overflow-hidden"
+              style={{
+                borderColor: "hsl(15 50% 30% / 0.4)",
+                background: "hsl(20 12% 7%)",
+              }}
+            >
+              <div
+                className="absolute top-3 right-4 font-display text-[9px] tracking-[0.3em] uppercase px-2 py-1 border"
+                style={{
+                  color: "hsl(15 50% 45%)",
+                  borderColor: "hsl(15 50% 30% / 0.5)",
+                  transform: "rotate(3deg)",
+                }}
+              >
+                Restricted
+              </div>
+              <p
+                className="font-display text-[8px] tracking-[0.4em] uppercase mb-3"
+                style={{ color: "hsl(15 50% 40%)" }}
+              >
+                Reconstructed Codex
+              </p>
+              <p
+                className="font-narrative italic text-[0.9375rem] leading-[1.85]"
+                style={{ color: "hsl(38 25% 65%)" }}
+              >
+                "The supply convoys were never random. Route assignments from Year 140 onward follow a pattern that matches Sanctorium ceremony schedules exactly. Every convoy delay coincided with a Pantheon event. The drivers noticed. Their reports were filed. The reports were never acknowledged."
               </p>
             </motion.div>
           )}
