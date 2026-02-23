@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Link } from "react-router-dom";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/components/ChroniclesSystem";
 
@@ -529,20 +529,9 @@ export const DeadCorridors = () => {
                 You made it through the Dead Corridors. A scroll fragment has been added to your collection.
               </p>
               {!alreadyWon && (
-                <div className="flex flex-col items-center gap-2">
-                  <p className="font-narrative italic text-xs" style={{ color: "hsl(38 30% 55%)" }}>
-                    A new entry has been added to the Bestiary.
-                  </p>
-                  <Link
-                    to="/bestiary"
-                    className="font-body text-[9px] tracking-[0.25em] uppercase transition-colors"
-                    style={{ color: "hsl(38 60% 50%)" }}
-                    onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 72% 60%)")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
-                  >
-                    View the Bestiary →
-                  </Link>
-                </div>
+                <p className="font-narrative italic text-xs" style={{ color: "hsl(38 30% 55%)" }}>
+                  A new entry has been added to the Bestiary.
+                </p>
               )}
               <div className="w-8 h-px bg-primary/40" />
               <button

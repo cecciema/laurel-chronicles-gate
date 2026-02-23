@@ -295,7 +295,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
   const [showAccelMsg, setShowAccelMsg] = useState(false);
   const [collectorText, setCollectorText] = useState<string | null>(null);
   const [loseReason, setLoseReason] = useState<"caught" | "time">("caught");
-  const [firstWin, setFirstWin] = useState(false);
+  const [firstWin, setFirstWin] = useState(!localStorage.getItem("vial-substitution-won"));
   const [devoteePositions, setDevoteePositions] = useState<Pos[]>(
     DEVOTEE_CONFIGS.map(d => d.route[0])
   );
@@ -324,7 +324,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
     setFrozen(false);
     setShowAccelMsg(false);
     setCollectorText(null);
-    setFirstWin(false);
+    // firstWin is initialized from localStorage at mount, no need to reset
     setLoseReason("caught");
     startTimeRef.current = performance.now();
     phaseRef.current = "playing";
@@ -471,9 +471,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
           setTimeout(() => {
             setPhase("win");
             foundScroll(SCROLL_ID);
-            const isFirst = !localStorage.getItem("vial-substitution-won");
             localStorage.setItem("vial-substitution-won", "true");
-            setFirstWin(isFirst);
           }, 1500);
         }
       }
