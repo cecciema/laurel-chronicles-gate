@@ -385,7 +385,7 @@ const TheUnmasked = () => {
           if (timerRef.current) clearInterval(timerRef.current);
           setPhase("won");
           setBestiaryUnlocked(true);
-          if (!alreadyWon) foundScroll(UNMASKED_SCROLL_ID);
+          if (!alreadyWon) foundScroll(UNMASKED_SCROLL_ID, { silent: true });
           localStorage.setItem('unmasked-won', 'true');
         } else {
           // Brief delay then advance

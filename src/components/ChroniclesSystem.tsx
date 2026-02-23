@@ -317,7 +317,7 @@ interface GameState {
 }
 
 interface GameContextType extends GameState {
-  foundScroll: (id: number) => void;
+  foundScroll: (id: number, opts?: { silent?: boolean }) => void;
   closeModal: () => void;
   startQuest: () => void;
   completeQuest: (archetype: string) => void;
@@ -395,16 +395,15 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
-  const foundScroll = (id: number) => {
-    const scroll = SCROLLS.find(s => s.id === id);
+  const foundScroll = (id: number, opts?: { silent?: boolean }) => {
+    const silent = opts?.silent ?? false;
     if (!state.foundScrolls.includes(id)) {
       setState(prev => ({
         ...prev,
         foundScrolls: [...prev.foundScrolls, id],
-        activeModal: "scroll",
-        activeScrollId: id
+        ...(silent ? {} : { activeModal: "scroll" as const, activeScrollId: id }),
       }));
-    } else {
+    } else if (!silent) {
       setState(prev => ({ ...prev, activeModal: "scroll", activeScrollId: id }));
     }
   };
