@@ -581,15 +581,20 @@ export const DeadCorridors = () => {
               </motion.div>
 
               {(!alreadyWon || bestiaryUnlocked) && (
-                <motion.p
+                <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 4, duration: 1 }}
-                  className="font-narrative italic text-xs"
-                  style={{ color: "hsl(38 30% 55%)" }}
+                  style={{ marginTop: "2.5rem" }}
+                  className="flex flex-col items-center gap-2"
                 >
-                  Something new has been uncovered in the Bestiary, take a look there if you dare.
-                </motion.p>
+                  <p
+                    className="font-narrative italic text-xs"
+                    style={{ color: "hsl(38 30% 55%)" }}
+                  >
+                    Something new has been uncovered in the Bestiary, take a look there if you dare.
+                  </p>
+                </motion.div>
               )}
 
               <motion.div
