@@ -283,3 +283,17 @@
 .map-panel-scroll::-webkit-scrollbar-thumb:hover {
   background: hsl(38 55% 40%);
 }
+
+.chapter-scroll-container::-webkit-scrollbar {
+  width: 5px;
+}
+.chapter-scroll-container::-webkit-scrollbar-track {
+  background: hsl(20 10% 8%);
+}
+.chapter-scroll-container::-webkit-scrollbar-thumb {
+  background: hsl(38 40% 28%);
+  border-radius: 2px;
+}
+.chapter-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: hsl(38 55% 40%);
+}
