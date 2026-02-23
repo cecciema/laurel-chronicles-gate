@@ -666,6 +666,7 @@ export const SemperReview = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 7, duration: 1 }}
+                    style={{ marginTop: "2.5rem" }}
                     className="flex flex-col items-center gap-2"
                   >
                     <p

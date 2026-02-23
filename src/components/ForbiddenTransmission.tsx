@@ -285,7 +285,8 @@ export const ForbiddenTransmission = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 4, duration: 1 }}
-                className="mt-2 flex flex-col items-center gap-2"
+                style={{ marginTop: "2.5rem" }}
+                className="flex flex-col items-center gap-2"
               >
                 <p className="font-narrative italic text-xs" style={{ color: "hsl(38 30% 55%)" }}>
                   Something new has been uncovered in the Bestiary, take a look there if you dare.
