@@ -518,6 +518,60 @@ const TimelinePage = () => {
           </div>
 
           <SemperReview />
+
+          {/* ── Bestiary Card ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="max-w-2xl mx-auto mt-10 border border-border bg-card p-6 sm:p-8"
+          >
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-12 h-14 border border-border flex items-end justify-center pb-1 overflow-hidden">
+                {localStorage.getItem("semper-review-won") === "true" ? (
+                  <svg viewBox="0 0 80 140" width="22" height="40" fill="none" aria-hidden="true"
+                    style={{ filter: "blur(0.5px)", opacity: 0.8 }}>
+                    <ellipse cx="40" cy="18" rx="13" ry="14" fill="white" opacity="0.5" />
+                    <path d="M26 32 Q22 75 19 140 L30 140 L32 88 L40 98 L48 88 L50 140 L61 140 Q58 75 54 32 Z" fill="white" opacity="0.4" />
+                    <path d="M26 40 Q17 62 19 86 L25 83 Q23 63 30 48 Z" fill="white" opacity="0.35" />
+                    <path d="M54 40 Q63 62 61 86 L55 83 Q57 63 50 48 Z" fill="white" opacity="0.35" />
+                  </svg>
+                ) : (
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-border mb-1">
+                    <rect x="3" y="7" width="10" height="8" rx="1" stroke="currentColor" strokeWidth="1.2" />
+                    <path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" strokeWidth="1.2" />
+                  </svg>
+                )}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-[9px] tracking-[0.3em] text-primary uppercase font-body mb-1">
+                  Bestiary · Displacement Entity
+                </p>
+                <h3 className="font-display text-base tracking-wide text-foreground">
+                  The Lost
+                </h3>
+                <div className="mt-3 relative">
+                  <p
+                    className="font-narrative text-[0.875rem] text-foreground/70 leading-[1.8] transition-all duration-700"
+                    style={{
+                      filter: localStorage.getItem("semper-review-won") === "true" ? "none" : "blur(4px)",
+                      userSelect: localStorage.getItem("semper-review-won") === "true" ? "text" : "none",
+                    }}
+                  >
+                    The bio-warfare wasteland beyond Panterra's borders has been uninhabitable since the Great War. Expedition records from years 3, 7, and 12 of the New Republic describe figures moving in the dead zones. The expeditions were classified. The figures were not mentioned in the public summary.
+                  </p>
+                  {localStorage.getItem("semper-review-won") !== "true" && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <p className="text-[9px] tracking-[0.25em] text-muted-foreground/50 uppercase font-body">
+                        Pass the review to unlock
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </Layout>
