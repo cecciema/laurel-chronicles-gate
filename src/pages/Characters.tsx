@@ -190,22 +190,15 @@ const ALL_QUESTIONS: QuestionDef[] = [
   },
 ];
 
-const TOTAL_ROUNDS = 8;
+const TOTAL_ROUNDS = 6;
 const TOTAL_LIVES = 3;
 const CHOICE_COUNT = 6;
 const CLUE_COUNT = 3;
+const TIMER_SECONDS = 30;
 
-const BASE_SCORE_START = 6;
-const CLUE_PENALTY = 2;
-const CORRECT_BONUS = 3;
-
-function roundScore(cluesRevealed: number): number {
-  return Math.max(0, BASE_SCORE_START - (cluesRevealed - 1) * CLUE_PENALTY);
-}
-
-/** Select 8 random questions, ensuring meaningfully different from previous set */
+/** Select 6 random questions, ensuring meaningfully different from previous set */
 function selectGameQuestions(prevIds: string[]): QuestionDef[] {
-  const MAX_OVERLAP = 6; // at most 6 can repeat - guarantees at least 2 new
+  const MAX_OVERLAP = 4;
   for (let attempt = 0; attempt < 50; attempt++) {
     const shuffled = shuffle(ALL_QUESTIONS);
     const picked = shuffled.slice(0, TOTAL_ROUNDS);
@@ -258,7 +251,6 @@ const ChoiceCard = ({
     return () => clearTimeout(t1);
   }, [glitching]);
 
-  // Look up from ALL_QUESTIONS first, then fall back to characters array
   const qMatch = ALL_QUESTIONS.find((q) => q.id === charId);
   const displayName = qMatch?.answer ?? characters.find((c) => c.id === charId)?.name ?? charId;
   const imgKey = qMatch?.image ?? characters.find((c) => c.id === charId)?.image ?? "";
@@ -300,38 +292,31 @@ const ChoiceCard = ({
 };
 
 // ─── The Unmasked Game ─────────────────────────────────────────────────────────
-type GamePhase = "playing" | "wrong" | "round-summary" | "won" | "lost";
-
-const getWinRank = (score: number): string => {
-  if (score >= 40) return "The Unmasked cannot deceive you. You see everything.";
-  if (score >= 25) return "You see more than most. That is enough to survive.";
-  return "You found them. But it cost you. Be more careful next time.";
-};
+type GamePhase = "playing" | "wrong" | "won" | "lost";
 
 const TheUnmasked = () => {
   const { foundScrolls, foundScroll } = useGame();
   const alreadyWon = foundScrolls.includes(UNMASKED_SCROLL_ID);
   const [bestiaryUnlocked, setBestiaryUnlocked] = useState(alreadyWon);
+  const [firstWin] = useState(!localStorage.getItem("unmasked-won"));
 
-  // Game questions state
   const [gameQuestions, setGameQuestions] = useState<QuestionDef[]>(() => selectGameQuestions([]));
   const [prevIds, setPrevIds] = useState<string[]>([]);
 
   const [roundIdx, setRoundIdx] = useState(0);
   const [cluesRevealed, setCluesRevealed] = useState(1);
   const [lives, setLives] = useState(TOTAL_LIVES);
-  const [score, setScore] = useState(0);
   const [phase, setPhase] = useState<GamePhase>("playing");
   const [glitchingId, setGlitchingId] = useState<string | null>(null);
   const [wrongMessage, setWrongMessage] = useState(false);
-  const [lastRoundPts, setLastRoundPts] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(TIMER_SECONDS);
+  const [loseReason, setLoseReason] = useState<"time" | "lives">("lives");
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Shuffled clues for current round - re-shuffled each time roundIdx changes
   const [shuffledClues, setShuffledClues] = useState<string[]>(() =>
     shuffle([...gameQuestions[0].clues])
   );
 
-  // Whenever roundIdx changes, shuffle clues for that round
   useEffect(() => {
     const q = gameQuestions[roundIdx];
     if (q) setShuffledClues(shuffle([...q.clues]));
@@ -339,14 +324,31 @@ const TheUnmasked = () => {
 
   const currentRound = gameQuestions[roundIdx];
 
-  // Choices for current round
   const choices = useMemo(
     () => buildChoices(currentRound?.id ?? ""),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [roundIdx, gameQuestions]
   );
 
-  const availableClueScore = roundScore(cluesRevealed);
+  // Timer
+  useEffect(() => {
+    if (phase !== "playing") {
+      if (timerRef.current) clearInterval(timerRef.current);
+      return;
+    }
+    timerRef.current = setInterval(() => {
+      setTimeLeft((t) => {
+        if (t <= 1) {
+          clearInterval(timerRef.current!);
+          setLoseReason("time");
+          setPhase("lost");
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [phase]);
 
   const resetRound = useCallback(() => {
     setCluesRevealed(1);
@@ -362,11 +364,11 @@ const TheUnmasked = () => {
     setGameQuestions(newQuestions);
     setRoundIdx(0);
     setLives(TOTAL_LIVES);
-    setScore(0);
     setCluesRevealed(1);
     setGlitchingId(null);
     setWrongMessage(false);
-    setLastRoundPts(0);
+    setTimeLeft(TIMER_SECONDS);
+    setLoseReason("lives");
     setPhase("playing");
   }, [gameQuestions]);
 
@@ -379,24 +381,23 @@ const TheUnmasked = () => {
       if (phase !== "playing" || !currentRound) return;
 
       if (guessId === currentRound.id) {
-        const pts = roundScore(cluesRevealed) + CORRECT_BONUS;
-        const newScore = score + pts;
-        setScore(newScore);
-        setLastRoundPts(pts);
-
         if (roundIdx + 1 >= TOTAL_ROUNDS) {
+          if (timerRef.current) clearInterval(timerRef.current);
           setPhase("won");
           setBestiaryUnlocked(true);
           if (!alreadyWon) foundScroll(UNMASKED_SCROLL_ID);
           localStorage.setItem('unmasked-won', 'true');
         } else {
-          setPhase("round-summary");
+          // Brief delay then advance
+          setPhase("wrong"); // disable input briefly
           setTimeout(() => {
             setRoundIdx((r) => r + 1);
             setCluesRevealed(1);
             setGlitchingId(null);
+            setWrongMessage(false);
+            setTimeLeft(TIMER_SECONDS);
             setPhase("playing");
-          }, 2200);
+          }, 400);
         }
       } else {
         const newLives = lives - 1;
@@ -409,6 +410,7 @@ const TheUnmasked = () => {
           setWrongMessage(true);
           setTimeout(() => {
             if (newLives <= 0) {
+              setLoseReason("lives");
               setPhase("lost");
             } else {
               resetRound();
@@ -417,8 +419,11 @@ const TheUnmasked = () => {
         }, 1000);
       }
     },
-    [phase, currentRound, cluesRevealed, score, roundIdx, lives, alreadyWon, foundScroll, resetRound]
+    [phase, currentRound, roundIdx, lives, alreadyWon, foundScroll, resetRound]
   );
+
+  const timerPct = (timeLeft / TIMER_SECONDS) * 100;
+  const timerColor = timeLeft > 15 ? "#d4a843" : timeLeft > 8 ? "#c97820" : "#8b1a1a";
 
   return (
     <section className="py-16 sm:py-20 px-4">
@@ -461,233 +466,272 @@ const TheUnmasked = () => {
         </motion.p>
       </div>
 
-      {/* Game Container */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-        className="max-w-2xl mx-auto bg-card border border-border relative overflow-hidden"
-        style={{ minHeight: 400 }}
-      >
-        {/* ── Lost screen ── */}
-        <AnimatePresence>
-          {phase === "lost" && (
-            <motion.div
+      {/* Win screen — standalone section */}
+      <AnimatePresence>
+        {phase === "won" && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="max-w-2xl mx-auto flex flex-col items-center text-center gap-5 py-12 px-8"
+          >
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="font-display text-lg sm:text-xl tracking-[0.15em]"
+              style={{ color: "hsl(38 72% 55%)" }}
+            >
+              All masks seen through.
+            </motion.p>
+
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="absolute inset-0 bg-background/96 flex flex-col items-center justify-center z-30 gap-6 p-8 text-center"
+              transition={{ delay: 1, duration: 0.8 }}
+              className="font-narrative italic text-foreground/50 text-[0.9375rem] leading-[1.8] max-w-sm"
             >
-              <p className="font-display text-xs tracking-[0.25em] text-destructive uppercase">Identity Compromised</p>
-              <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.8] max-w-sm">
-                The Unmasked has worn every face in this room. You can no longer trust what you see.
-              </p>
-              <button
-                onClick={fullReset}
-                className="px-8 py-2.5 border font-body text-[10px] tracking-widest uppercase hover:bg-primary/10 transition-colors"
-                style={{ borderColor: "hsl(38 72% 50%)", color: "hsl(38 72% 55%)" }}
-              >
-                Begin Again
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              You identified all six. In Panterra, the ability to see through a face is either a gift or a curse. You have not yet decided which.
+            </motion.p>
 
-        {/* ── Won screen ── */}
-        <AnimatePresence>
-          {phase === "won" && (
-            <motion.div
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="absolute inset-0 bg-background/93 flex flex-col items-center justify-center z-30 gap-4 p-8 text-center"
+              transition={{ delay: 2, duration: 0.8 }}
+              className="font-display text-[9px] tracking-[0.4em] uppercase"
+              style={{ color: "hsl(38 50% 50%)" }}
             >
-              <p className="font-display text-xs tracking-[0.25em] text-primary uppercase">All Masks Seen Through</p>
-              <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.8] max-w-sm">
-                You saw through every mask. In Panterra, that is a rare and dangerous gift. A scroll fragment has been added to your collection.
-              </p>
-              <div className="flex flex-col items-center gap-1">
-                <p className="font-display text-2xl tracking-widest" style={{ color: "hsl(38 72% 55%)" }}>
-                  {score} pts
-                </p>
-                <p className="font-narrative italic text-foreground/50 text-[0.8125rem] leading-[1.7] max-w-xs">
-                  {getWinRank(score)}
-                </p>
-              </div>
-              {!alreadyWon && (
-                <div className="flex flex-col items-center gap-2">
-                  <p className="font-narrative italic text-xs" style={{ color: "hsl(38 30% 55%)" }}>
-                    A new entry has been added to the Bestiary.
-                  </p>
-                  <Link
-                    to="/bestiary"
-                    className="font-body text-[9px] tracking-[0.25em] uppercase transition-colors"
-                    style={{ color: "hsl(38 60% 50%)" }}
-                    onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 72% 60%)")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
-                  >
-                    View the Bestiary →
-                  </Link>
-                </div>
-              )}
-              <div className="w-8 h-px bg-primary/40" />
-              <button
-                onClick={fullReset}
-                className="px-8 py-2.5 border border-border text-muted-foreground font-body text-[10px] tracking-widest uppercase hover:border-primary/40 hover:text-primary transition-colors"
-              >
-                Play Again
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              ✦ Scroll 9 Recovered ✦
+            </motion.p>
 
-        {/* ── Round summary overlay ── */}
-        <AnimatePresence>
-          {phase === "round-summary" && (
+            {/* Fragment card — parchment style */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-background/92 flex flex-col items-center justify-center z-20 gap-3 p-8 text-center"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 3, duration: 1 }}
+              className="w-full max-w-md mt-2"
+              style={{
+                background: "#e8dcc0",
+                border: "3px double #4a2e0a",
+                padding: "1.5rem 1.75rem",
+              }}
             >
-              <p className="font-display text-[10px] tracking-[0.3em] text-primary uppercase">Identity Confirmed</p>
-              <p className="font-narrative italic text-foreground/60 text-[0.875rem]">
-                Round {roundIdx + 1} complete
+              <p
+                className="font-display text-[10px] tracking-[0.3em] uppercase mb-1"
+                style={{ color: "#4a2e0a" }}
+              >
+                Fragment 9
               </p>
-              <p className="font-display text-3xl tracking-widest" style={{ color: "hsl(38 72% 55%)" }}>
-                +{lastRoundPts} pts
+              <p
+                className="font-display text-sm tracking-wide mb-3"
+                style={{ color: "#4a2e0a" }}
+              >
+                The Erased Constellations
               </p>
-              <p className="text-[9px] tracking-[0.2em] text-muted-foreground/40 uppercase font-body">
-                Running total: {score} pts
+              <p
+                className="font-narrative italic text-[0.875rem] leading-[1.8]"
+                style={{ color: "#4a2e0a" }}
+              >
+                "There are 14 Sol Deos positions across Panterra's history. Only 11 constellations are publicly recognized. The other 3 have been erased from all star charts produced after the Great War."
               </p>
             </motion.div>
-          )}
-        </AnimatePresence>
 
-        {/* ── Playing / Wrong ── */}
-        {(phase === "playing" || phase === "wrong") && currentRound && (
-          <div className="p-5 sm:p-6 flex flex-col gap-5">
-
-            {/* Header row: round + lives + live score */}
-            <div className="flex items-center justify-between">
-              <p className="text-[9px] tracking-[0.3em] text-muted-foreground/50 uppercase font-body">
-                Round {roundIdx + 1} of {TOTAL_ROUNDS}
-              </p>
-
-              {/* Lives - brass orbs */}
-              <div className="flex gap-2 items-center">
-                <p className="text-[8px] tracking-[0.2em] text-muted-foreground/40 uppercase font-body mr-1">Lives</p>
-                {Array.from({ length: TOTAL_LIVES }).map((_, i) => {
-                  const livesRemaining = lives;
-                  const isActive = i < livesRemaining;
-                  const orbColor = livesRemaining === 1 ? "#8b1a1a" : livesRemaining === 2 ? "#c97820" : "#d4a843";
-                  return (
-                  <div
-                    key={i}
-                    className="w-3 h-3 rounded-full border transition-all duration-500"
-                    style={{
-                      background: isActive ? orbColor : "transparent",
-                      borderColor: isActive ? orbColor : "hsl(38 20% 25%)",
-                      boxShadow: isActive ? `0 0 8px ${orbColor}99` : "none",
-                    }}
-                  />
-                  );
-                })}
-              </div>
-
-              {/* Live running total */}
-              <div className="flex flex-col items-end">
-                <p className="text-[9px] tracking-[0.2em] font-body" style={{ color: "hsl(38 60% 50%)" }}>
-                  {score} pts total
-                </p>
-                <p className="text-[8px] tracking-[0.15em] font-body text-muted-foreground/40">
-                  +{availableClueScore + CORRECT_BONUS} if correct
-                </p>
-              </div>
-            </div>
-
-            {/* Face-down card + clues */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              {/* Face-down portrait */}
-              <div
-                className="flex-shrink-0 w-full sm:w-32 mx-auto sm:mx-0 max-w-[120px] aspect-[2/3] border border-border bg-background/60 flex items-center justify-center"
+            {(firstWin || !alreadyWon) && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 4, duration: 1 }}
+                className="mt-2 flex flex-col items-center gap-2"
               >
-                <div className="flex flex-col items-center gap-2 opacity-30">
-                  <svg viewBox="0 0 40 60" className="w-10" fill="currentColor">
-                    <ellipse cx="20" cy="13" rx="10" ry="11" />
-                    <path d="M6 60 Q6 36 20 34 Q34 36 34 60 Z" />
-                  </svg>
-                  <span className="text-[8px] tracking-widest uppercase font-body">Unknown</span>
-                </div>
-              </div>
-
-              {/* Clues - shown in shuffled order */}
-              <div className="flex-1 flex flex-col gap-2.5">
-                <p className="text-[8px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body">
-                  Evidence - {cluesRevealed} of {CLUE_COUNT} revealed
+                <p className="font-narrative italic text-xs" style={{ color: "hsl(38 30% 55%)" }}>
+                  A new entry has been added to the Bestiary.
                 </p>
-                {Array.from({ length: cluesRevealed }).map((_, i) => (
-                  <AnimatePresence key={i}>
-                    <motion.div
-                      initial={{ opacity: 0, x: -6 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.08 }}
-                      className="border-l-2 pl-3 py-1"
-                      style={{ borderColor: "hsl(38 72% 50% / 0.5)" }}
-                    >
-                      <p className="font-narrative italic text-foreground/80 text-[0.875rem] leading-[1.7]">
-                        "{shuffledClues[i]}"
-                      </p>
-                    </motion.div>
-                  </AnimatePresence>
-                ))}
-
-                {/* Reveal next clue */}
-                {cluesRevealed < CLUE_COUNT && phase === "playing" && (
-                  <button
-                    onClick={revealNextClue}
-                    className="self-start mt-1 text-[8px] tracking-[0.25em] uppercase font-body border border-border/40 px-3 py-1.5 hover:border-primary/40 hover:text-primary transition-colors text-muted-foreground/50"
-                  >
-                    ◈ Reveal next clue (−{CLUE_PENALTY}pts)
-                  </button>
-                )}
-              </div>
-            </div>
-
-            {/* Wrong guess message */}
-            <AnimatePresence>
-              {wrongMessage && (
-                <motion.p
-                  initial={{ opacity: 0, y: -4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="text-center font-narrative italic text-[0.875rem] leading-[1.7]"
-                  style={{ color: "#8b1a1a" }}
+                <Link
+                  to="/bestiary"
+                  className="font-body text-[9px] tracking-[0.3em] uppercase transition-colors"
+                  style={{ color: "hsl(38 60% 50%)" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 72% 60%)")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
                 >
-                  That is not who you are looking for. Look closer.
-                </motion.p>
-              )}
-            </AnimatePresence>
+                  View the Bestiary →
+                </Link>
+              </motion.div>
+            )}
 
-            {/* Choice grid: 3×2 */}
-            <div className="grid grid-cols-3 gap-1.5 sm:gap-3">
-              {choices.map((charId) => (
-                <ChoiceCard
-                  key={`${roundIdx}-${charId}`}
-                  charId={charId}
-                  onSelect={() => handleGuess(charId)}
-                  disabled={phase === "wrong"}
-                  glitching={glitchingId === charId}
-                />
-              ))}
-            </div>
-
-            {/* Points legend */}
-            <p className="text-[8px] tracking-[0.2em] text-muted-foreground/30 uppercase font-body text-center">
-              Clue 1 = 6pts · Clue 2 = 4pts · Clue 3 = 2pts · +3 bonus on correct · wrong = −1 life
-            </p>
-          </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 4.5, duration: 0.6 }}
+              className="w-8 h-px bg-primary/40 mt-2"
+            />
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 5, duration: 0.6 }}
+              onClick={fullReset}
+              className="px-8 py-2.5 border border-border text-muted-foreground font-body text-[10px] tracking-widest uppercase hover:border-primary/40 hover:text-primary transition-colors"
+            >
+              Play Again
+            </motion.button>
+          </motion.div>
         )}
-      </motion.div>
+      </AnimatePresence>
+
+      {/* Game Container — hidden when won */}
+      {phase !== "won" && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="max-w-2xl mx-auto bg-card border border-border relative overflow-hidden"
+          style={{ minHeight: 400 }}
+        >
+          {/* ── Lost screen ── */}
+          <AnimatePresence>
+            {phase === "lost" && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="absolute inset-0 bg-background/96 flex flex-col items-center justify-center z-30 gap-6 p-8 text-center"
+              >
+                <p className="font-display text-xs tracking-[0.25em] text-destructive uppercase">Identity Compromised</p>
+                <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.8] max-w-sm">
+                  {loseReason === "time"
+                    ? "Time ran out. The Unmasked slipped away before you could see through them."
+                    : "You ran out of lives. The Unmasked has worn every face in this room. You can no longer trust what you see."}
+                </p>
+                <button
+                  onClick={fullReset}
+                  className="px-8 py-2.5 border font-body text-[10px] tracking-widest uppercase hover:bg-primary/10 transition-colors"
+                  style={{ borderColor: "hsl(38 72% 50%)", color: "hsl(38 72% 55%)" }}
+                >
+                  Begin Again
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* ── Playing / Wrong ── */}
+          {(phase === "playing" || phase === "wrong") && currentRound && (
+            <div className="p-5 sm:p-6 flex flex-col gap-5">
+
+              {/* Header row: round counter centered, lives right */}
+              <div className="flex items-center justify-between">
+                <div className="w-20" />
+                <p className="text-[9px] tracking-[0.3em] text-muted-foreground/50 uppercase font-body text-center">
+                  Round {roundIdx + 1} of {TOTAL_ROUNDS}
+                </p>
+                <div className="flex gap-2 items-center w-20 justify-end">
+                  {Array.from({ length: TOTAL_LIVES }).map((_, i) => {
+                    const isActive = i < lives;
+                    const orbColor = lives === 1 ? "#8b1a1a" : lives === 2 ? "#c97820" : "#d4a843";
+                    return (
+                      <div
+                        key={i}
+                        className="w-3 h-3 rounded-full border transition-all duration-500"
+                        style={{
+                          background: isActive ? orbColor : "transparent",
+                          borderColor: isActive ? orbColor : "hsl(38 20% 25%)",
+                          boxShadow: isActive ? `0 0 8px ${orbColor}99` : "none",
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Timer bar */}
+              <div>
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-[9px] tracking-[0.25em] text-muted-foreground/50 uppercase font-body">Time remaining</span>
+                  <span className="font-display text-sm tabular-nums" style={{ color: timerColor }}>
+                    {timeLeft}s
+                  </span>
+                </div>
+                <div className="h-1.5 bg-secondary border border-border/50 overflow-hidden">
+                  <motion.div className="h-full transition-all duration-1000" style={{ width: `${timerPct}%`, background: timerColor }} />
+                </div>
+              </div>
+
+              {/* Face-down card + clues */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex-shrink-0 w-full sm:w-32 mx-auto sm:mx-0 max-w-[120px] aspect-[2/3] border border-border bg-background/60 flex items-center justify-center">
+                  <div className="flex flex-col items-center gap-2 opacity-30">
+                    <svg viewBox="0 0 40 60" className="w-10" fill="currentColor">
+                      <ellipse cx="20" cy="13" rx="10" ry="11" />
+                      <path d="M6 60 Q6 36 20 34 Q34 36 34 60 Z" />
+                    </svg>
+                    <span className="text-[8px] tracking-widest uppercase font-body">Unknown</span>
+                  </div>
+                </div>
+
+                <div className="flex-1 flex flex-col gap-2.5">
+                  <p className="text-[8px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body">
+                    Evidence - {cluesRevealed} of {CLUE_COUNT} revealed
+                  </p>
+                  {Array.from({ length: cluesRevealed }).map((_, i) => (
+                    <AnimatePresence key={i}>
+                      <motion.div
+                        initial={{ opacity: 0, x: -6 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.08 }}
+                        className="border-l-2 pl-3 py-1"
+                        style={{ borderColor: "hsl(38 72% 50% / 0.5)" }}
+                      >
+                        <p className="font-narrative italic text-foreground/80 text-[0.875rem] leading-[1.7]">
+                          "{shuffledClues[i]}"
+                        </p>
+                      </motion.div>
+                    </AnimatePresence>
+                  ))}
+
+                  {cluesRevealed < CLUE_COUNT && phase === "playing" && (
+                    <button
+                      onClick={revealNextClue}
+                      className="self-start mt-1 text-[8px] tracking-[0.25em] uppercase font-body border border-border/40 px-3 py-1.5 hover:border-primary/40 hover:text-primary transition-colors text-muted-foreground/50"
+                    >
+                      ◈ Reveal next clue
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Wrong guess message */}
+              <AnimatePresence>
+                {wrongMessage && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="text-center font-narrative italic text-[0.875rem] leading-[1.7]"
+                    style={{ color: "#8b1a1a" }}
+                  >
+                    That is not who you are looking for. Look closer.
+                  </motion.p>
+                )}
+              </AnimatePresence>
+
+              {/* Choice grid: 3×2 */}
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-3">
+                {choices.map((charId) => (
+                  <ChoiceCard
+                    key={`${roundIdx}-${charId}`}
+                    charId={charId}
+                    onSelect={() => handleGuess(charId)}
+                    disabled={phase === "wrong"}
+                    glitching={glitchingId === charId}
+                  />
+                ))}
+              </div>
+
+              {/* Legend */}
+              <p className="text-[8px] tracking-[0.2em] text-muted-foreground/30 uppercase font-body text-center">
+                Identify the character from the clues · wrong = −1 life · 30s per round
+              </p>
+            </div>
+          )}
+        </motion.div>
+      )}
 
       {/* ── Bestiary Card ── */}
       <motion.div
@@ -734,7 +778,7 @@ const TheUnmasked = () => {
               {!(bestiaryUnlocked || alreadyWon) && (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <p className="text-[9px] tracking-[0.25em] text-muted-foreground/50 uppercase font-body">
-                    See through all eight masks to unlock
+                    See through all six masks to unlock
                   </p>
                 </div>
               )}
