@@ -135,7 +135,7 @@ export const ForbiddenTransmission = () => {
       clearInterval(timerRef.current!);
       setPhase("won");
       setBestiaryUnlocked(true);
-      if (!alreadyWon) foundScroll(SCROLL_ID);
+      if (!alreadyWon) foundScroll(SCROLL_ID, { silent: true });
       localStorage.setItem('forbidden-transmission-won', 'true');
     } else {
       setWordIndex(nextIdx);

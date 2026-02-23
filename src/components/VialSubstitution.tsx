@@ -470,7 +470,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
           setFrozen(true);
           setTimeout(() => {
             setPhase("win");
-            foundScroll(SCROLL_ID);
+            foundScroll(SCROLL_ID, { silent: true });
             localStorage.setItem("vial-substitution-won", "true");
           }, 1500);
         }

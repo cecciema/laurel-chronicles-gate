@@ -281,7 +281,7 @@ export const SemperReview = () => {
   const handleWin = useCallback(() => {
     setGameState("win");
     // Award scroll via context (triggers ScrollModal)
-    foundScroll(SCROLL_ID);
+    foundScroll(SCROLL_ID, { silent: true });
     setScrollAwarded(true);
     // Set localStorage flag
     const isFirst = !localStorage.getItem("semper-review-won");
@@ -821,7 +821,7 @@ const SemperReviewGame = ({ onClose }: { onClose: () => void }) => {
       if (nextQ >= questions.length) {
         // Win
         setGameState("win");
-        foundScroll(SCROLL_ID);
+        foundScroll(SCROLL_ID, { silent: true });
         setScrollAwarded(true);
         const isFirst = !localStorage.getItem("semper-review-won");
         localStorage.setItem("semper-review-won", "true");
