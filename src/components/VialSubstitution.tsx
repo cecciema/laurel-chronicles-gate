@@ -86,7 +86,7 @@ const DEVOTEE_CONFIGS: DevoteeConfig[] = [
       { row: 3, col: 7 }, { row: 2, col: 7 },
     ],
     speed: 0.16,
-    active: false,
+    active: true,
   },
 ];
 
