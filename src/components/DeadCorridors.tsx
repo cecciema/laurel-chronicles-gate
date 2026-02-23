@@ -524,22 +524,89 @@ export const DeadCorridors = () => {
               animate={{ opacity: 1 }}
               className="absolute inset-0 bg-background/92 flex flex-col items-center justify-center z-30 gap-5 p-8 text-center"
             >
-              <p className="font-display text-xs tracking-[0.25em] text-primary uppercase">You Survived</p>
-              <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.8] max-w-sm">
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="font-display text-lg sm:text-xl tracking-[0.15em]"
+                style={{ color: "hsl(38 72% 55%)" }}
+              >
+                You Survived
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 0.8 }}
+                className="font-narrative italic text-foreground/50 text-[0.9375rem] leading-[1.8] max-w-sm"
+              >
                 You made it through the Dead Corridors. A scroll fragment has been added to your collection.
-              </p>
-              {!alreadyWon && (
-                <p className="font-narrative italic text-xs" style={{ color: "hsl(38 30% 55%)" }}>
-                  A new entry has been added to the Bestiary.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2, duration: 0.8 }}
+                className="font-display text-[9px] tracking-[0.4em] uppercase"
+                style={{ color: "hsl(38 50% 50%)" }}
+              >
+                ✦ Scroll 11 Recovered ✦
+              </motion.p>
+
+              {/* Fragment card — parchment style */}
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 3, duration: 0.8 }}
+                style={{
+                  background: "#e8dcc0",
+                  color: "#4a2e0a",
+                  border: "2px solid rgba(139,90,43,0.35)",
+                  padding: "1.5rem 2rem",
+                  maxWidth: "36rem",
+                  width: "100%",
+                  textAlign: "center",
+                }}
+              >
+                <p style={{ fontSize: "0.625rem", letterSpacing: "0.35em", textTransform: "uppercase", opacity: 0.6, marginBottom: "0.25rem" }} className="font-display">
+                  Fragment 11
                 </p>
+                <p style={{ fontSize: "1rem", letterSpacing: "0.1em", marginBottom: "1rem" }} className="font-display">
+                  The Unmarked Ratio
+                </p>
+                <div style={{ height: 1, background: "rgba(139,90,43,0.25)", marginBottom: "1rem" }} />
+                <p style={{ fontStyle: "italic", fontSize: "0.9375rem", lineHeight: 1.8 }} className="font-narrative">
+                  "The Unmarked are not accidents. The ratio of incomplete Apotheosis events has remained statistically constant for 60 years. Constant ratios do not happen by chance."
+                </p>
+              </motion.div>
+
+              {(!alreadyWon || bestiaryUnlocked) && (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 4, duration: 1 }}
+                  className="font-narrative italic text-xs"
+                  style={{ color: "hsl(38 30% 55%)" }}
+                >
+                  Something new has been uncovered in the Bestiary, take a look there if you dare.
+                </motion.p>
               )}
-              <div className="w-8 h-px bg-primary/40" />
-              <button
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 4.5, duration: 0.6 }}
+                className="w-8 h-px bg-primary/40 mt-2"
+              />
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 5, duration: 0.6 }}
                 onClick={handleRestart}
-                className="px-8 py-2.5 border border-border text-muted-foreground font-body text-xs tracking-widest uppercase hover:border-primary/40 hover:text-primary transition-colors"
+                className="px-8 py-2.5 border border-border text-muted-foreground font-body text-[10px] tracking-widest uppercase hover:border-primary/40 hover:text-primary transition-colors"
               >
                 Run Again
-              </button>
+              </motion.button>
             </motion.div>
           )}
         </AnimatePresence>
