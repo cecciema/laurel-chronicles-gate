@@ -216,156 +216,162 @@ export const ForbiddenTransmission = () => {
         </motion.p>
       </div>
 
-      {/* Game container */}
-      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="max-w-2xl mx-auto bg-card border border-border relative overflow-hidden" style={{ minHeight: 340 }}>
-        {/* Blackout overlay */}
-        <AnimatePresence>{blackout && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-background z-40" />)}</AnimatePresence>
+      {/* Win screen — standalone section, replaces game container */}
+      <AnimatePresence>
+        {phase === "won" && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="max-w-2xl mx-auto flex flex-col items-center text-center gap-5 py-12 px-8"
+          >
+            <p className="font-display text-xs tracking-[0.25em] text-primary uppercase">Transmission Decoded</p>
+            <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.8] max-w-sm">
+              Transmission decoded. The truth has been recorded. A scroll fragment has been added to your collection.
+            </p>
+            {(!alreadyWon || bestiaryUnlocked) && (
+              <div className="flex flex-col items-center gap-2">
+                <p className="font-narrative italic text-xs" style={{ color: "hsl(38 30% 55%)" }}>
+                  A new entry has been added to the Bestiary.
+                </p>
+                <Link
+                  to="/bestiary"
+                  className="font-body text-[9px] tracking-[0.25em] uppercase transition-colors"
+                  style={{ color: "hsl(38 60% 50%)" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 72% 60%)")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
+                >
+                  View the Bestiary →
+                </Link>
+              </div>
+            )}
+            <div className="w-8 h-px bg-primary/40" />
+            <button onClick={handleRestart} className="px-8 py-2.5 border border-border text-muted-foreground font-body text-xs tracking-widest uppercase hover:border-primary/40 hover:text-primary transition-colors">Transmit Again</button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-        {/* Lost screen */}
-        <AnimatePresence>
-          {phase === "lost" && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 bg-background/96 flex flex-col items-center justify-center z-30 gap-6 p-8 text-center">
-              <p className="font-display text-xs tracking-[0.25em] text-destructive uppercase">Signal Traced</p>
-              <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.8] max-w-sm">
-                The transmission has been traced. The Silencer has found you. There is no record you were ever here.
-              </p>
-              <button onClick={handleRestart} className="px-8 py-2.5 border border-primary text-primary font-body text-xs tracking-widest uppercase hover:bg-primary/10 transition-colors">Try Again</button>
-            </motion.div>
-          )}
-        </AnimatePresence>
+      {/* Game container — hidden when won */}
+      {phase !== "won" && (
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="max-w-2xl mx-auto bg-card border border-border relative overflow-hidden" style={{ minHeight: 340 }}>
+          {/* Blackout overlay */}
+          <AnimatePresence>{blackout && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-background z-40" />)}</AnimatePresence>
 
-        {/* Won screen */}
-        <AnimatePresence>
-          {phase === "won" && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 bg-background/93 flex flex-col items-center justify-center z-30 gap-5 p-8 text-center">
-              <p className="font-display text-xs tracking-[0.25em] text-primary uppercase">Transmission Decoded</p>
-              <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.8] max-w-sm">
-                Transmission decoded. The truth has been recorded. A scroll fragment has been added to your collection.
-              </p>
-              {!alreadyWon && (
-                <div className="flex flex-col items-center gap-2">
-                  <p className="font-narrative italic text-xs" style={{ color: "hsl(38 30% 55%)" }}>
-                    A new entry has been added to the Bestiary.
-                  </p>
-                  <Link
-                    to="/bestiary"
-                    className="font-body text-[9px] tracking-[0.25em] uppercase transition-colors"
-                    style={{ color: "hsl(38 60% 50%)" }}
-                    onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 72% 60%)")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
-                  >
-                    View the Bestiary →
-                  </Link>
+          {/* Lost screen */}
+          <AnimatePresence>
+            {phase === "lost" && (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 bg-background/96 flex flex-col items-center justify-center z-30 gap-6 p-8 text-center">
+                <p className="font-display text-xs tracking-[0.25em] text-destructive uppercase">Signal Traced</p>
+                <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.8] max-w-sm">
+                  The transmission has been traced. The Silencer has found you. There is no record you were ever here.
+                </p>
+                <button onClick={handleRestart} className="px-8 py-2.5 border border-primary text-primary font-body text-xs tracking-widest uppercase hover:bg-primary/10 transition-colors">Try Again</button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Playing state */}
+          <div className="p-5 sm:p-6 flex flex-col gap-5">
+            {/* Timer + wrong attempts bar */}
+            <div className="flex items-center gap-4">
+              <div className="flex-1">
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-[9px] tracking-[0.25em] text-muted-foreground/50 uppercase font-body">Signal life</span>
+                  <span className="font-display text-sm tabular-nums" style={{ color: timerColor }}>
+                    {String(Math.floor(timeLeft / 60)).padStart(2, "0")}:{String(timeLeft % 60).padStart(2, "0")}
+                  </span>
                 </div>
+                <div className="h-1.5 bg-secondary border border-border/50 overflow-hidden">
+                  <motion.div className="h-full transition-all duration-1000" style={{ width: `${timerPct}%`, background: timerColor }} />
+                </div>
+              </div>
+              <div className="flex gap-1.5 flex-shrink-0">
+                {Array.from({ length: MAX_WRONG }).map((_, i) => (
+                  <div key={i} className="w-2.5 h-2.5 rounded-full border transition-all duration-300" style={{ background: i < wrongAttempts ? "#8b1a1a" : "transparent", borderColor: i < wrongAttempts ? "#8b1a1a" : "hsl(38 20% 25%)" }} />
+                ))}
+              </div>
+            </div>
+
+            {/* Silencer arena */}
+            <div className="relative border border-border/40 bg-background/40 overflow-hidden" style={{ height: 120 }}>
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-border/30" />
+              <div className="absolute bottom-px left-0 right-0 pointer-events-none opacity-10">
+                {[8, 16, 10, 20, 14, 24, 12, 18, 9, 22, 15, 11, 19].map((h, i) => (
+                  <div key={i} className="inline-block bg-foreground/80" style={{ width: 22, height: h, marginRight: 4, verticalAlign: "bottom" }} />
+                ))}
+              </div>
+              <SilencerFigure step={wrongAttempts} />
+              <div className="absolute top-2 left-3 pointer-events-none">
+                <p className="text-[8px] tracking-[0.3em] text-muted-foreground/30 uppercase font-body">The Silencer</p>
+              </div>
+              {wrongAttempts >= 2 && phase === "playing" && (
+                <motion.p animate={{ opacity: [0.4, 0.9, 0.4] }} transition={{ duration: 0.8, repeat: Infinity }} className="absolute top-2 right-3 text-[8px] tracking-widest text-destructive uppercase font-body">
+                  ◉ Proximity critical
+                </motion.p>
               )}
-              <div className="w-8 h-px bg-primary/40" />
-              <button onClick={handleRestart} className="px-8 py-2.5 border border-border text-muted-foreground font-body text-xs tracking-widest uppercase hover:border-primary/40 hover:text-primary transition-colors">Transmit Again</button>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
 
-        {/* Playing state */}
-        <div className="p-5 sm:p-6 flex flex-col gap-5">
-          {/* Timer + wrong attempts bar */}
-          <div className="flex items-center gap-4">
-            <div className="flex-1">
-              <div className="flex justify-between items-center mb-1">
-                <span className="text-[9px] tracking-[0.25em] text-muted-foreground/50 uppercase font-body">Signal life</span>
-                <span className="font-display text-sm tabular-nums" style={{ color: timerColor }}>
-                  {String(Math.floor(timeLeft / 60)).padStart(2, "0")}:{String(timeLeft % 60).padStart(2, "0")}
-                </span>
+            {/* Previously decoded words */}
+            {lockedWords.length > 0 && (
+              <div className="bg-background/30 border border-border/30 p-3">
+                <p className="text-[8px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body mb-1.5">Decoded so far</p>
+                <p className="font-body text-[11px] sm:text-xs tracking-[0.15em] leading-[2]" style={{ color: "hsl(38 72% 60%)" }}>{lockedWords.join(" ")}</p>
               </div>
-              <div className="h-1.5 bg-secondary border border-border/50 overflow-hidden">
-                <motion.div className="h-full transition-all duration-1000" style={{ width: `${timerPct}%`, background: timerColor }} />
-              </div>
-            </div>
-            <div className="flex gap-1.5 flex-shrink-0">
-              {Array.from({ length: MAX_WRONG }).map((_, i) => (
-                <div key={i} className="w-2.5 h-2.5 rounded-full border transition-all duration-300" style={{ background: i < wrongAttempts ? "#8b1a1a" : "transparent", borderColor: i < wrongAttempts ? "#8b1a1a" : "hsl(38 20% 25%)" }} />
-              ))}
-            </div>
-          </div>
+            )}
 
-          {/* Silencer arena */}
-          <div className="relative border border-border/40 bg-background/40 overflow-hidden" style={{ height: 120 }}>
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-border/30" />
-            <div className="absolute bottom-px left-0 right-0 pointer-events-none opacity-10">
-              {[8, 16, 10, 20, 14, 24, 12, 18, 9, 22, 15, 11, 19].map((h, i) => (
-                <div key={i} className="inline-block bg-foreground/80" style={{ width: 22, height: h, marginRight: 4, verticalAlign: "bottom" }} />
-              ))}
-            </div>
-            <SilencerFigure step={wrongAttempts} />
-            <div className="absolute top-2 left-3 pointer-events-none">
-              <p className="text-[8px] tracking-[0.3em] text-muted-foreground/30 uppercase font-body">The Silencer</p>
-            </div>
-            {wrongAttempts >= 2 && phase === "playing" && (
-              <motion.p animate={{ opacity: [0.4, 0.9, 0.4] }} transition={{ duration: 0.8, repeat: Infinity }} className="absolute top-2 right-3 text-[8px] tracking-widest text-destructive uppercase font-body">
-                ◉ Proximity critical
-              </motion.p>
+            {/* Current word to decode */}
+            {phase === "playing" && currentPair && (
+              <div className="flex flex-col gap-3">
+                <div>
+                  <p className="text-[8px] tracking-[0.3em] text-muted-foreground/50 uppercase font-body mb-1.5">Current word · {wordIndex + 1} of {WORD_PAIRS.length}</p>
+                  <div className="bg-background/60 border border-border/40 px-4 py-3 text-center">
+                    <span className="font-display text-xl sm:text-2xl tracking-[0.25em] text-primary/90">{currentPair.encoded}</span>
+                  </div>
+                </div>
+
+                {/* Three-tier hint display */}
+                <AnimatePresence mode="wait">
+                  <motion.div key={`hint-${wordIndex}-${hintTier}`} initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex flex-col items-center gap-1">
+                    <p className="font-display text-sm tracking-[0.4em] text-center" style={{ color: "hsl(38 60% 55%)" }}>{hintDisplay}</p>
+                    <p className="text-[8px] tracking-[0.25em] text-muted-foreground/40 uppercase font-body">
+                      {hintTier === 0 && `${currentPair.decoded.replace(/[^A-Z]/g, "").length} letters`}
+                      {hintTier === 1 && "◈ First & last letter revealed"}
+                      {hintTier === 2 && "◈ Consonants revealed"}
+                    </p>
+                    {wordWrongAttempts === 2 && (
+                      <motion.p animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 1.2, repeat: Infinity }} className="text-[8px] tracking-[0.2em] font-body uppercase" style={{ color: "hsl(0 65% 55%)" }}>
+                        ⚠ One more miss reveals the word - Silencer advances
+                      </motion.p>
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Input + decode button */}
+                <motion.div animate={shakeInput ? { x: [0, -8, 8, -6, 6, -3, 3, 0] } : { x: 0 }} transition={{ duration: 0.5 }} className="flex gap-2">
+                  <input ref={inputRef} type="text" value={inputValue} onChange={e => setInputValue(e.target.value.toUpperCase())} onKeyDown={handleKeyDown} placeholder="Type the decoded word…" autoComplete="off" autoCorrect="off" spellCheck={false} className="flex-1 bg-background/60 border border-border/60 px-3 py-2.5 font-body text-xs tracking-widest text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:border-primary/50 uppercase" style={{ minHeight: 44 }} disabled={phase !== "playing"} />
+                  <button onClick={handleDecode} disabled={phase !== "playing" || !inputValue.trim()} className="px-5 py-2.5 border font-body text-[10px] tracking-widest uppercase transition-all disabled:opacity-40 hover:bg-primary/10" style={{ borderColor: "hsl(38 72% 50%)", color: "hsl(38 72% 55%)", minHeight: 44 }}>
+                    Decode
+                  </button>
+                </motion.div>
+
+                {/* Cipher Key Reference Panel */}
+                <div className="border border-border/30 bg-background/20 px-3 py-2.5 mt-1">
+                  <p className="text-[7px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body mb-2">Intercepted Cipher Key - partial decode</p>
+                  <div className="grid grid-cols-8 gap-1">
+                    {CIPHER_KEY_HINTS.map(({ encoded, decoded }) => (
+                      <div key={encoded} className="flex flex-col items-center gap-0.5">
+                        <span className="font-display text-[11px] tracking-wider" style={{ color: "hsl(38 50% 45%)" }}>{encoded}</span>
+                        <div className="w-px h-2.5 bg-border/40" />
+                        <span className="font-display text-[11px] tracking-wider text-foreground/60">{decoded}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[7px] tracking-[0.2em] text-muted-foreground/30 uppercase font-body mt-2">Encoded → Decoded · 8 of 26 pairs recovered</p>
+                </div>
+              </div>
             )}
           </div>
-
-          {/* Previously decoded words */}
-          {lockedWords.length > 0 && (
-            <div className="bg-background/30 border border-border/30 p-3">
-              <p className="text-[8px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body mb-1.5">Decoded so far</p>
-              <p className="font-body text-[11px] sm:text-xs tracking-[0.15em] leading-[2]" style={{ color: "hsl(38 72% 60%)" }}>{lockedWords.join(" ")}</p>
-            </div>
-          )}
-
-          {/* Current word to decode */}
-          {phase === "playing" && currentPair && (
-            <div className="flex flex-col gap-3">
-              <div>
-                <p className="text-[8px] tracking-[0.3em] text-muted-foreground/50 uppercase font-body mb-1.5">Current word · {wordIndex + 1} of {WORD_PAIRS.length}</p>
-                <div className="bg-background/60 border border-border/40 px-4 py-3 text-center">
-                  <span className="font-display text-xl sm:text-2xl tracking-[0.25em] text-primary/90">{currentPair.encoded}</span>
-                </div>
-              </div>
-
-              {/* Three-tier hint display */}
-              <AnimatePresence mode="wait">
-                <motion.div key={`hint-${wordIndex}-${hintTier}`} initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex flex-col items-center gap-1">
-                  <p className="font-display text-sm tracking-[0.4em] text-center" style={{ color: "hsl(38 60% 55%)" }}>{hintDisplay}</p>
-                  <p className="text-[8px] tracking-[0.25em] text-muted-foreground/40 uppercase font-body">
-                    {hintTier === 0 && `${currentPair.decoded.replace(/[^A-Z]/g, "").length} letters`}
-                    {hintTier === 1 && "◈ First & last letter revealed"}
-                    {hintTier === 2 && "◈ Consonants revealed"}
-                  </p>
-                  {wordWrongAttempts === 2 && (
-                    <motion.p animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 1.2, repeat: Infinity }} className="text-[8px] tracking-[0.2em] font-body uppercase" style={{ color: "hsl(0 65% 55%)" }}>
-                      ⚠ One more miss reveals the word - Silencer advances
-                    </motion.p>
-                  )}
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Input + decode button */}
-              <motion.div animate={shakeInput ? { x: [0, -8, 8, -6, 6, -3, 3, 0] } : { x: 0 }} transition={{ duration: 0.5 }} className="flex gap-2">
-                <input ref={inputRef} type="text" value={inputValue} onChange={e => setInputValue(e.target.value.toUpperCase())} onKeyDown={handleKeyDown} placeholder="Type the decoded word…" autoComplete="off" autoCorrect="off" spellCheck={false} className="flex-1 bg-background/60 border border-border/60 px-3 py-2.5 font-body text-xs tracking-widest text-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:border-primary/50 uppercase" style={{ minHeight: 44 }} disabled={phase !== "playing"} />
-                <button onClick={handleDecode} disabled={phase !== "playing" || !inputValue.trim()} className="px-5 py-2.5 border font-body text-[10px] tracking-widest uppercase transition-all disabled:opacity-40 hover:bg-primary/10" style={{ borderColor: "hsl(38 72% 50%)", color: "hsl(38 72% 55%)", minHeight: 44 }}>
-                  Decode
-                </button>
-              </motion.div>
-
-              {/* Cipher Key Reference Panel */}
-              <div className="border border-border/30 bg-background/20 px-3 py-2.5 mt-1">
-                <p className="text-[7px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body mb-2">Intercepted Cipher Key - partial decode</p>
-                <div className="grid grid-cols-8 gap-1">
-                  {CIPHER_KEY_HINTS.map(({ encoded, decoded }) => (
-                    <div key={encoded} className="flex flex-col items-center gap-0.5">
-                      <span className="font-display text-[11px] tracking-wider" style={{ color: "hsl(38 50% 45%)" }}>{encoded}</span>
-                      <div className="w-px h-2.5 bg-border/40" />
-                      <span className="font-display text-[11px] tracking-wider text-foreground/60">{decoded}</span>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-[7px] tracking-[0.2em] text-muted-foreground/30 uppercase font-body mt-2">Encoded → Decoded · 8 of 26 pairs recovered</p>
-              </div>
-            </div>
-          )}
-        </div>
-      </motion.div>
+        </motion.div>
+      )}
 
       {/* Footer note */}
       <p className="max-w-2xl mx-auto mt-2 text-[9px] tracking-[0.2em] text-muted-foreground/30 font-body text-right px-1 uppercase">
