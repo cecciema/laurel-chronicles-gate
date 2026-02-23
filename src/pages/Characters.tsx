@@ -194,7 +194,7 @@ const TOTAL_ROUNDS = 6;
 const TOTAL_LIVES = 3;
 const CHOICE_COUNT = 6;
 const CLUE_COUNT = 3;
-const TIMER_SECONDS = 30;
+const TIMER_SECONDS = 10;
 
 /** Select 6 random questions, ensuring meaningfully different from previous set */
 function selectGameQuestions(prevIds: string[]): QuestionDef[] {
@@ -423,7 +423,7 @@ const TheUnmasked = () => {
   );
 
   const timerPct = (timeLeft / TIMER_SECONDS) * 100;
-  const timerColor = timeLeft > 15 ? "#d4a843" : timeLeft > 8 ? "#c97820" : "#8b1a1a";
+  const timerColor = timeLeft > 5 ? "#d4a843" : timeLeft > 3 ? "#c97820" : "#8b1a1a";
 
   return (
     <section className="py-16 sm:py-20 px-4">
