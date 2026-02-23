@@ -60,7 +60,7 @@ const DEVOTEE_CONFIGS: DevoteeConfig[] = [
       { row: 6, col: 8 }, { row: 6, col: 7 }, { row: 6, col: 6 }, { row: 6, col: 5 },
       { row: 6, col: 4 }, { row: 6, col: 3 }, { row: 6, col: 2 },
     ],
-    speed: 2.0,
+    speed: 0.12,
     active: true,
   },
   // Devotee 2: vertical down column 7 (between the two rows)
@@ -73,7 +73,7 @@ const DEVOTEE_CONFIGS: DevoteeConfig[] = [
       { row: 10, col: 7 }, { row: 9, col: 8 }, { row: 8, col: 7 }, { row: 7, col: 8 },
       { row: 6, col: 7 }, { row: 5, col: 7 }, { row: 4, col: 7 }, { row: 3, col: 7 },
     ],
-    speed: 1.8,
+    speed: 0.10,
     active: true,
   },
   // Devotee 3: diagonal/wide route, faster, enters at 45s
@@ -85,7 +85,7 @@ const DEVOTEE_CONFIGS: DevoteeConfig[] = [
       { row: 7, col: 11 }, { row: 6, col: 10 }, { row: 5, col: 9 }, { row: 4, col: 8 },
       { row: 3, col: 7 }, { row: 2, col: 7 },
     ],
-    speed: 2.5,
+    speed: 0.16,
     active: false,
   },
 ];
@@ -334,35 +334,32 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
     setPhase("playing");
   }, []);
 
-  // ── Game loop ────────────────────────────────────────────────────────────────
+  // ── Timer & third devotee activation (every 500ms) ───────────────────────
   useEffect(() => {
     if (phase !== "playing") return;
-    let lastTime = performance.now();
-
-    const loop = (now: number) => {
-      if (phaseRef.current !== "playing") return;
-      const dt = (now - lastTime) / 1000;
-      lastTime = now;
-
-      const elapsed = (now - startTimeRef.current) / 1000;
+    const id = setInterval(() => {
+      const elapsed = (performance.now() - startTimeRef.current) / 1000;
       const remaining = Math.max(0, TOTAL_TIME - elapsed);
       setTimeLeft(remaining);
-
       if (remaining <= 0) {
         phaseRef.current = "lose";
         setLoseReason("time");
         setPhase("lose");
-        return;
       }
-
-      // Activate third devotee at 45s
       if (elapsed >= THIRD_DEVOTEE_TIME && !thirdActivated.current) {
         thirdActivated.current = true;
         setShowAccelMsg(true);
         setTimeout(() => setShowAccelMsg(false), 3000);
       }
+    }, 500);
+    return () => clearInterval(id);
+  }, [phase]);
 
-      // Move devotees
+  // ── Devotee movement (every 80ms) ──────────────────────────────────────────
+  useEffect(() => {
+    if (phase !== "playing") return;
+    const id = setInterval(() => {
+      if (phaseRef.current !== "playing") return;
       const newPositions: Pos[] = [];
       const newProx = new Map<number, number>();
 
@@ -372,14 +369,12 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
           newPositions.push(config.route[0]);
           return;
         }
-
-        devoteeProgress.current[di] += config.speed * dt;
+        devoteeProgress.current[di] += config.speed;
         const routeLen = config.route.length;
         const idx = Math.floor(devoteeProgress.current[di]) % routeLen;
         const pos = config.route[idx];
         newPositions.push(pos);
 
-        // Compute proximity to participants
         for (let pi = 0; pi < TOTAL_PARTICIPANTS; pi++) {
           const dist = chebyshev(pos, PARTICIPANTS[pi]);
           const current = newProx.get(pi) ?? 99;
@@ -387,14 +382,10 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
         }
       });
 
-      setDevoteePositions(newPositions);
-      setProximityMap(newProx);
-
-      requestAnimationFrame(loop);
-    };
-
-    const id = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(id);
+      setDevoteePositions([...newPositions]);
+      setProximityMap(new Map(newProx));
+    }, 80);
+    return () => clearInterval(id);
   }, [phase]);
 
   // ── Tap handler ──────────────────────────────────────────────────────────────
