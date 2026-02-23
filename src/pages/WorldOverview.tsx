@@ -131,23 +131,6 @@ const WorldOverview = () => {
           <GuideWhisper page="world" />
         </div>
 
-        {/* Deep Forge survival unlock */}
-        {typeof window !== "undefined" && localStorage.getItem("deepforge-survival-unlocked") === "true" && (
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-8 border p-6 relative max-w-4xl mx-auto"
-            style={{ borderColor: "hsl(25 60% 30% / 0.4)", background: "hsl(20 12% 7%)" }}
-          >
-            <p className="font-display text-[8px] tracking-[0.4em] uppercase mb-3" style={{ color: "hsl(25 60% 40%)" }}>
-              Worn Handwritten Document - Deep Forge Communities
-            </p>
-            <p className="font-narrative italic text-[0.9375rem] leading-[1.85]" style={{ color: "hsl(38 25% 65%)" }}>
-              "Deep Forge communities have maintained an oral record of every person lost to incomplete Apotheosis since Year 4 of the New Republic. The number is 1,847. The official record shows 214."
-            </p>
-          </motion.div>
-        )}
       </section>
 
       {/* The Four Cornerstone Laws */}
