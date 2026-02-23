@@ -14,7 +14,7 @@ const TILE_SIZE = 20;
 const TOTAL_PARTICIPANTS = 10;
 const SWAPS_TO_WIN = 7;
 const MAX_CATCHES = 3;
-const TOTAL_TIME = 30;
+const TOTAL_TIME = 15;
 const THIRD_DEVOTEE_TIME = 1;
 
 type Pos = { row: number; col: number };
