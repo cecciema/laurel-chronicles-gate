@@ -224,28 +224,99 @@ export const ForbiddenTransmission = () => {
             animate={{ opacity: 1 }}
             className="max-w-2xl mx-auto flex flex-col items-center text-center gap-5 py-12 px-8"
           >
-            <p className="font-display text-xs tracking-[0.25em] text-primary uppercase">Transmission Decoded</p>
-            <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.8] max-w-sm">
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="font-display text-lg sm:text-xl tracking-[0.15em]"
+              style={{ color: "hsl(38 72% 55%)" }}
+            >
+              Transmission Decoded
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="font-narrative italic text-foreground/50 text-[0.9375rem] leading-[1.8] max-w-sm"
+            >
               Transmission decoded. The truth has been recorded. A scroll fragment has been added to your collection.
-            </p>
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2, duration: 0.8 }}
+              className="font-display text-[9px] tracking-[0.4em] uppercase"
+              style={{ color: "hsl(38 50% 50%)" }}
+            >
+              ✦ Scroll 7 Recovered ✦
+            </motion.p>
+
+            {/* Fragment card — parchment style */}
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 3, duration: 0.8 }}
+              style={{
+                background: "#e8dcc0",
+                color: "#4a2e0a",
+                border: "2px solid rgba(139,90,43,0.35)",
+                padding: "1.5rem 2rem",
+                maxWidth: "36rem",
+                width: "100%",
+                textAlign: "center",
+              }}
+            >
+              <p style={{ fontSize: "0.625rem", letterSpacing: "0.35em", textTransform: "uppercase", opacity: 0.6, marginBottom: "0.25rem" }} className="font-display">
+                Fragment 7
+              </p>
+              <p style={{ fontSize: "1rem", letterSpacing: "0.1em", marginBottom: "1rem" }} className="font-display">
+                The Embedded Operatives
+              </p>
+              <div style={{ height: 1, background: "rgba(139,90,43,0.25)", marginBottom: "1rem" }} />
+              <p style={{ fontStyle: "italic", fontSize: "0.9375rem", lineHeight: 1.8 }} className="font-narrative">
+                "Three Convoy Rebellion operatives were embedded in Parliament's Science Division at the time of the meteor discovery. Their names appear in the attendance records. Their employment history does not exist."
+              </p>
+            </motion.div>
+
             {(!alreadyWon || bestiaryUnlocked) && (
-              <div className="flex flex-col items-center gap-2">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 4, duration: 1 }}
+                className="mt-2 flex flex-col items-center gap-2"
+              >
                 <p className="font-narrative italic text-xs" style={{ color: "hsl(38 30% 55%)" }}>
-                  A new entry has been added to the Bestiary.
+                  Something new has been uncovered in the Bestiary, take a look there if you dare.
                 </p>
                 <Link
                   to="/bestiary"
-                  className="font-body text-[9px] tracking-[0.25em] uppercase transition-colors"
+                  className="font-body text-[9px] tracking-[0.3em] uppercase transition-colors"
                   style={{ color: "hsl(38 60% 50%)" }}
                   onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 72% 60%)")}
                   onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
                 >
                   View the Bestiary →
                 </Link>
-              </div>
+              </motion.div>
             )}
-            <div className="w-8 h-px bg-primary/40" />
-            <button onClick={handleRestart} className="px-8 py-2.5 border border-border text-muted-foreground font-body text-xs tracking-widest uppercase hover:border-primary/40 hover:text-primary transition-colors">Transmit Again</button>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 4.5, duration: 0.6 }}
+              className="w-8 h-px bg-primary/40 mt-2"
+            />
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 5, duration: 0.6 }}
+              onClick={handleRestart}
+              className="px-8 py-2.5 border border-border text-muted-foreground font-body text-[10px] tracking-widest uppercase hover:border-primary/40 hover:text-primary transition-colors"
+            >
+              Transmit Again
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>

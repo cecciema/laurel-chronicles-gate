@@ -627,8 +627,37 @@ export const SemperReview = () => {
                     className="font-body text-[9px] tracking-[0.25em] uppercase mb-4"
                     style={{ color: "hsl(38 60% 50%)" }}
                   >
-                    ✦ Scroll 8 discovered ✦
+                    ✦ Scroll 8 Recovered ✦
                   </motion.p>
+                )}
+
+                {/* Fragment card — parchment style */}
+                {scrollAwarded && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 6, duration: 0.8 }}
+                    style={{
+                      background: "#e8dcc0",
+                      color: "#4a2e0a",
+                      border: "2px solid rgba(139,90,43,0.35)",
+                      padding: "1.5rem 2rem",
+                      maxWidth: "36rem",
+                      width: "100%",
+                      textAlign: "center",
+                    }}
+                  >
+                    <p style={{ fontSize: "0.625rem", letterSpacing: "0.35em", textTransform: "uppercase", opacity: 0.6, marginBottom: "0.25rem" }} className="font-display">
+                      Fragment 8
+                    </p>
+                    <p style={{ fontSize: "1rem", letterSpacing: "0.1em", marginBottom: "1rem" }} className="font-display">
+                      The Semper Record
+                    </p>
+                    <div style={{ height: 1, background: "rgba(139,90,43,0.25)", marginBottom: "1rem" }} />
+                    <p style={{ fontStyle: "italic", fontSize: "0.9375rem", lineHeight: 1.8 }} className="font-narrative">
+                      "The Semper review process has been compromised since Year 12 of the New Republic. The review board knows. They have always known."
+                    </p>
+                  </motion.div>
                 )}
 
                 {/* Bestiary discovery — first win only */}
@@ -636,14 +665,14 @@ export const SemperReview = () => {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 6.5, duration: 1 }}
+                    transition={{ delay: 7, duration: 1 }}
                     className="flex flex-col items-center gap-2"
                   >
                     <p
                       className="font-narrative italic text-xs sm:text-sm"
                       style={{ color: "hsl(38 25% 55%)" }}
                     >
-                      A new entry has been added to the Bestiary.
+                      Something new has been uncovered in the Bestiary, take a look there if you dare.
                     </p>
                     <Link
                       to="/bestiary"
@@ -661,7 +690,7 @@ export const SemperReview = () => {
                 <motion.button
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 7.5, duration: 0.6 }}
+                  transition={{ delay: 8, duration: 0.6 }}
                   onClick={() => setGameState("idle")}
                   className="block mx-auto mt-6 font-body text-[9px] tracking-[0.2em] uppercase transition-colors"
                   style={{ color: "hsl(0 0% 35%)" }}

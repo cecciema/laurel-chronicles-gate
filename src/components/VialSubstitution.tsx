@@ -683,15 +683,42 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
               ✦ Scroll 10 Recovered ✦
             </motion.p>
 
+            {/* Fragment card — parchment style */}
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 3, duration: 0.8 }}
+              style={{
+                background: "#e8dcc0",
+                color: "#4a2e0a",
+                border: "2px solid rgba(139,90,43,0.35)",
+                padding: "1.5rem 2rem",
+                maxWidth: "36rem",
+                width: "100%",
+                textAlign: "center",
+              }}
+            >
+              <p style={{ fontSize: "0.625rem", letterSpacing: "0.35em", textTransform: "uppercase", opacity: 0.6, marginBottom: "0.25rem" }} className="font-display">
+                Fragment 10
+              </p>
+              <p style={{ fontSize: "1rem", letterSpacing: "0.1em", marginBottom: "1rem" }} className="font-display">
+                The Optimized Yield
+              </p>
+              <div style={{ height: 1, background: "rgba(139,90,43,0.25)", marginBottom: "1rem" }} />
+              <p style={{ fontStyle: "italic", fontSize: "0.9375rem", lineHeight: 1.8 }} className="font-narrative">
+                "The soul mass collected at peak Apotheosis events is 40 percent higher than at standard events. Someone is timing the ceremonies. Someone is optimizing the yield."
+              </p>
+            </motion.div>
+
             {firstWin && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 3.5, duration: 1 }}
+                transition={{ delay: 4, duration: 1 }}
                 className="mt-2 flex flex-col items-center gap-2"
               >
                 <p className="font-narrative italic text-xs" style={{ color: "hsl(38 30% 55%)" }}>
-                  A new entry has been added to the Bestiary.
+                  Something new has been uncovered in the Bestiary, take a look there if you dare.
                 </p>
                 <Link
                   to="/bestiary"
