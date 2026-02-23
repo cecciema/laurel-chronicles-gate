@@ -15,7 +15,7 @@ const TOTAL_PARTICIPANTS = 10;
 const SWAPS_TO_WIN = 7;
 const MAX_CATCHES = 3;
 const TOTAL_TIME = 30;
-const THIRD_DEVOTEE_TIME = 45;
+const THIRD_DEVOTEE_TIME = 1;
 
 type Pos = { row: number; col: number };
 
@@ -60,7 +60,7 @@ const DEVOTEE_CONFIGS: DevoteeConfig[] = [
       { row: 6, col: 8 }, { row: 6, col: 7 }, { row: 6, col: 6 }, { row: 6, col: 5 },
       { row: 6, col: 4 }, { row: 6, col: 3 }, { row: 6, col: 2 },
     ],
-    speed: 0.12,
+    speed: 0.16,
     active: true,
   },
   // Devotee 2: vertical down column 7 (between the two rows)
@@ -73,7 +73,7 @@ const DEVOTEE_CONFIGS: DevoteeConfig[] = [
       { row: 10, col: 7 }, { row: 9, col: 8 }, { row: 8, col: 7 }, { row: 7, col: 8 },
       { row: 6, col: 7 }, { row: 5, col: 7 }, { row: 4, col: 7 }, { row: 3, col: 7 },
     ],
-    speed: 0.10,
+    speed: 0.16,
     active: true,
   },
   // Devotee 3: diagonal/wide route, faster, enters at 45s
