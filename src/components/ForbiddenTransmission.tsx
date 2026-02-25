@@ -66,7 +66,7 @@ const SilencerFigure = ({ step }: { step: number }) => {
 };
 
 // ─── Cipher key reference ────────────────────────────────────────────────────
-const CIPHER_KEY_HINTS: { encoded: string; decoded: string }[] = [
+const BASE_CIPHER_HINTS: { encoded: string; decoded: string }[] = [
   { encoded: "H", decoded: "A" },
   { encoded: "L", decoded: "E" },
   { encoded: "P", decoded: "I" },
@@ -76,6 +76,19 @@ const CIPHER_KEY_HINTS: { encoded: string; decoded: string }[] = [
   { encoded: "B", decoded: "U" },
   { encoded: "F", decoded: "Y" },
 ];
+
+const getActiveCipherHints = (currentEncodedWord: string): { encoded: string; decoded: string }[] => {
+  const firstLetter = currentEncodedWord.replace(/[^A-Z]/g, "")[0];
+  if (!firstLetter) return BASE_CIPHER_HINTS;
+
+  const alreadyIncluded = BASE_CIPHER_HINTS.some(h => h.encoded === firstLetter);
+  if (alreadyIncluded) return BASE_CIPHER_HINTS;
+
+  const encodedIdx = ALPHABET.indexOf(firstLetter);
+  const decodedLetter = ALPHABET[(encodedIdx - SHIFT + 26) % 26];
+
+  return [...BASE_CIPHER_HINTS.slice(0, 7), { encoded: firstLetter, decoded: decodedLetter }];
+};
 
 // ─── Hint helpers ─────────────────────────────────────────────────────────────
 const VOWELS = new Set(["A", "E", "I", "O", "U"]);
@@ -429,7 +442,7 @@ export const ForbiddenTransmission = () => {
                 <div className="border border-border/30 bg-background/20 px-3 py-2.5 mt-1">
                   <p className="text-[7px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body mb-2">Intercepted Cipher Key - partial decode</p>
                   <div className="grid grid-cols-8 gap-1">
-                    {CIPHER_KEY_HINTS.map(({ encoded, decoded }) => (
+                    {getActiveCipherHints(currentPair?.encoded ?? "").map(({ encoded, decoded }) => (
                       <div key={encoded} className="flex flex-col items-center gap-0.5">
                         <span className="font-display text-[11px] tracking-wider" style={{ color: "hsl(38 50% 45%)" }}>{encoded}</span>
                         <div className="w-px h-2.5 bg-border/40" />
