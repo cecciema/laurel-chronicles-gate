@@ -354,11 +354,17 @@ export const DeadCorridors = () => {
   useEffect(() => {
     const el = mazeContainerRef.current;
     if (!el) return;
+    const isInteractiveTarget = (target: EventTarget | null): boolean => {
+      if (!(target instanceof HTMLElement)) return false;
+      return !!target.closest("button, a, [role='button']");
+    };
     const onTs = (e: TouchEvent) => {
+      if (phase !== "playing" || isInteractiveTarget(e.target)) return;
       e.preventDefault();
       touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
     };
     const onTm = (e: TouchEvent) => {
+      if (phase !== "playing" || isInteractiveTarget(e.target)) return;
       e.preventDefault();
     };
     const onTe = (e: TouchEvent) => {
