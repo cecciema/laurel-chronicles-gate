@@ -743,7 +743,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
                 onClick={onClose}
                 className="px-8 py-2.5 border border-border text-muted-foreground font-body text-xs tracking-widest uppercase hover:border-primary/40 hover:text-primary transition-colors"
               >
-                Return to the Map
+                Continue
               </button>
             </motion.div>
           </motion.div>
