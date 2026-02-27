@@ -487,7 +487,7 @@ const VialSubstitutionGame = ({ onClose }: { onClose: () => void }) => {
     <section
       ref={gameContainerRef}
       className="py-8 sm:py-12 px-4"
-      style={{ touchAction: "none" }}
+      style={{ touchAction: phase === "playing" ? "none" : "auto" }}
     >
       {/* Steampunk divider */}
       <div className="max-w-2xl mx-auto mb-8 flex items-center gap-4">
