@@ -329,7 +329,7 @@ const Index = () => {
 
 // ── Sample Chapters Reader ────────────────────────────────────────────────────
 const CHAPTERS = [
-  { number: 1, title: "Chapter I: The Wedding", content: `Five Years Prior
+  { number: 1, title: "Chapter I: The Wedding", content: `A Few Years Prior
 
 Even though he had taken care not to wear shoes, Cole felt his rapid steps could still be heard, each time his bare feet touched down on the cool limestone lining the hallway of the old castle. Not just any castle. The Pantheon. Though perhaps it was only the sound of his heart, which pounded rebelliously even after years of training. He could not count on the damn organ to behave. Its loyalty was temperamental at best. Never mind that — he had only a few minutes before the checkout procedure, and he needed to be at her door right now. To see her before tomorrow. Her… his beautiful, too-good-for-him bride. His best friend, his person. His Aeternis. How had he gotten so lucky, to have found her again in this lifetime? They would not leave it to chance again. It was time to make their connection last for all eternity, across every life that followed.
 
