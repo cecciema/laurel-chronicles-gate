@@ -505,9 +505,61 @@ const SampleChapters = () => {
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.4 }}
           >
-            <p className="font-narrative text-[0.9375rem] leading-[1.9] text-foreground/80 text-left whitespace-pre-line">
-              {chapter.content}
-            </p>
+            <div className="font-narrative text-[0.9375rem] leading-[1.9] text-foreground/80">
+  {chapter.content.split("\n").map((line, i) => {
+    const trimmed = line.trim();
+
+    // Section break
+    if (trimmed === "⁂") {
+      return (
+        <p key={i} className="text-center my-6 tracking-widest text-foreground/40">
+          ⁂
+        </p>
+      );
+    }
+
+    // Time stamp / epigraph lines (Ten Years Prior, A Few Years Prior, etc.)
+    if (/^(Ten|A Few|Several|Many|Two|Three|Four|Five|Six|Seven|Eight|Nine|One)\s+Years?\s+(Prior|Later|Before|After)$/i.test(trimmed)) {
+      return (
+        <p key={i} className="text-center font-display text-[10px] tracking-[0.35em] uppercase text-muted-foreground mt-2 mb-6">
+          {trimmed}
+        </p>
+      );
+    }
+
+    // Poem title (all caps, short, no punctuation at end)
+    if (trimmed.length > 0 && trimmed === trimmed.toUpperCase() && trimmed.length < 40 && !/[""]/.test(trimmed)) {
+      return (
+        <p key={i} className="text-center font-display text-sm tracking-[0.2em] text-foreground/70 mt-6 mb-3">
+          {trimmed}
+        </p>
+      );
+    }
+
+    // Poem lines — indented with tab or starts with known poem pattern (short lines ending without period)
+    const isPoemLine = trimmed.length > 0 && trimmed.length < 60 && !trimmed.endsWith(".") && !trimmed.startsWith('"') && !/^(Cole|Alyvia|Jack|Nodden|Loda|Torrin|He |She |The |They |It |Cole|In |On |A |After |Both |")/i.test(trimmed);
+
+    if (isPoemLine) {
+      return (
+        <p key={i} className="text-center font-narrative italic text-foreground/70 leading-[2]">
+          {trimmed}
+        </p>
+      );
+    }
+
+    // Empty line — spacing
+    if (trimmed === "") {
+      return <div key={i} className="h-4" />;
+    }
+
+    // Default prose line
+    return (
+      <p key={i} className="text-left mb-0 leading-[1.9]">
+        {trimmed}
+      </p>
+    );
+  })}
+</div>
           </motion.div>
         </AnimatePresence>
       </div>
