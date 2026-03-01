@@ -329,7 +329,141 @@ const Index = () => {
 
 // ── Sample Chapters Reader ────────────────────────────────────────────────────
 const CHAPTERS = [
-  { number: 1, title: "Chapter I: The Wedding", content: `` },
+  { number: 1, title: "Chapter I: The Wedding", content: `Ten Years Prior
+
+Even though he had taken care not to wear shoes, Cole felt his rapid steps could still be heard, each time his bare feet touched down on the cool limestone lining the hallway of the old castle. Not just any castle. The Pantheon. Though perhaps it was only the sound of his heart, which pounded rebelliously even after years of training. He could not count on the damn organ to behave. Its loyalty was temperamental at best. Never mind that — he had only a few minutes before the checkout procedure, and he needed to be at her door right now. To see her before tomorrow. Her… his beautiful, too-good-for-him bride. His best friend, his person. His Aeternis. How had he gotten so lucky, to have found her again in this lifetime? They would not leave it to chance again. It was time to make their connection last for all eternity, across every life that followed.
+
+The elaborate ceremony tomorrow would form a permanent bond between them. Between their souls, to be exact, for bodies were merely temporary, material, insignificant things. After tomorrow, neither of them would ever be alone again, not even for a passing moment.
+
+Cole nearly broke into a run toward the castle quarter where they had split, where he had last seen her face before the Devotees led her away. He turned down stony corridors, too many to count, amazed that he was finding his way without trouble, as if the link between them had already been formed. As if the thread tugged at his chest with the other end tied to hers, and would lead him to her no matter the distance. He stopped in front of a large metal door and knocked three times, paused, then twice more. Exactly as they had agreed. The door slowly opened, and through the narrow gap, he saw her.
+
+"You are not supposed to see the bride until the ceremony," Alyvia whispered as she opened the door wide, "the scripture says it's bad luck." The corners of her eyes crinkled with her smile.
+
+"Nothing could give us bad luck ever again." He whispered back, arms already reaching out for her.
+
+She looked down, letting his fingers trace the curve of her face. His touch was warm against her cold cheeks.
+
+"I just," she stopped, "I just feel so lucky." She looked up and met his dark brown eyes with her own, glassy and blue. "I can't believe this is really happening." A thin stream of tears slid from the corner of her eye to his fingers.
+
+He tilted her chin up and kissed her mouth, then her forehead. "Me too, my love." He pulled her into him and held on. "Me too."
+
+Alyvia pressed her face into his shoulder, arms tight around his back. "I can't wait to tell my friends about everything. They'll be beside themselves when it's their turn."
+
+"Yeah? Which part are you most excited about?" He loved the way her voice changed when she got like this: lighter, faster, alive with it. He rested his chin on her forehead and swayed gently, the way they used to at school dances at Colegio de la Cruz, where they had spent eight years growing up and falling in love.
+
+"Oh, so many things… the silk dresses, the real flowers, all the other couples in love… and meeting His Sovereigncy in person. Having him conduct our wedding and Apotheosis." She exhaled softly. "I still can't believe it's tomorrow. Ellery and Clara made me promise to tell them everything about the Night of Reflection. They're desperate to know what actually happens in there."
+
+"I'd like to know what you'll be up to tonight myself." He raised an eyebrow.
+
+"I'm not telling you." She laughed quietly. "And I'm not asking about yours either. That's sacred. Between you and your…" she dropped her voice to a whisper, "sex."
+
+He laughed. "Alright, alright. Come here." He held her tighter. "Don't forget your cloak at checkout. It's chilly tonight. I don't want you catching a cold on our wedding day."
+
+She nodded, face buried in his chest.
+
+"I should go back." He kissed her forehead. "It's going to be everything tomorrow. I'll see you on the other side."
+
+"Don't take too long to find me."
+
+"I'll be the first man through that door." A promise.
+
+She smiled at that. Alyvia watched Cole move down the corridor, glancing back at her every few steps, and felt certain — the way you only feel certain about one or two things in a life — that they would always find their way back to each other. She pulled the heavy metal door shut behind her.
+
+⁂
+
+Cole made it back to his room minutes before the knock came. He opened the door to two Pantheon Devotees in dark green robes. They drew back their hoods and bowed. Cole was not prepared for how beautiful they were. They were older than him, perhaps by ten or fifteen years, and he was not used to seeing older women. Whatever time had taken from them, it had left plenty behind.
+
+"Cole Avinas IX." The first woman's voice was soft but carried. Low, yet precise. He straightened at once and dismissed what he had been thinking a moment ago, ashamed to have had the thought the night before his wedding, and more ashamed by the suspicion that this woman had clocked it. Though they probably got that look often.
+
+"I am Loda Alsephina II. This is Torrin Messar VI." The woman gestured at her fellow Devotee, who spared Cole a gentle smile. "We are here to guide you to the next stage of your Apotheosis. Are you ready to begin your Night of Reflection?"
+
+"Yes, of course." He reached for his duffle bag.
+
+"You will not need anything you brought," the second Devotee said. "Everything you will need will be provided inside your Reflection Chamber."
+
+"Oh, okay." Cole set his bag down by the door, and felt childish for packing an overnight bag.
+
+"If you are ready, please follow us." The Devotees stepped back, giving room to Cole to step out.
+
+"Yes, of course." Cole stepped into the hallway and stopped short. There were about ten other men lined along the corridor. He felt immediately foolish — of course the Devotees would not collect each groom individually. There were hundreds of couples participating in the ceremony tomorrow. He fell in at the back of the line, and the group moved. They stopped at another door along the way. The two Devotees knocked, and then another man stepped out and joined the line. They started walking again. Cole glanced back at the newest addition. No one else had acknowledged him.
+
+"Hey," he said, "I'm Cole Avinas."
+
+"Nodden Visse." The man smiled, uncertain. "I had no idea I'd be seeing other people tonight."
+
+"I had the same thought." Cole felt the tension leave his shoulders.
+
+"Do you know how many more of us they're gathering before we go to… wherever they're taking us?"
+
+"I haven't a clue. But I hope we get there soon."
+
+"Yeah well I didn't sign up for a forced march." The man directly in front of Cole turned around, facing him and Nodden. "For what we paid to be here, I expected more comfort and less of this weird shit." He glanced back at the robed figures ahead. "Since I came yesterday, it's been nothing but Devotees gliding around like they're haunting the place. Oh I'm Jack, by the way."
+
+Cole smiled. They had paid a great deal to be here — more than made sense, really. The money could have gone toward a better living unit. But the wedding had been Alyvia's dream since she was small: not just a wedding… an Apotheosis ceremony. Eternal binding of souls, not just "till death do us part." Conducted by His Sovereigncy the Sol Deus Lockland himself — and held at Pantheon Ivory, the oldest of the twelve, the first, the original.
+
+He decided this was funds well spent. After all, he could always make more money. His level II Technologist promotion was coming. And once it did, he'd save fast and upgrade their unit, even if Alyvia had not secured a placement yet and was still classified as Non-Preferential. That word. That absurd euphemism — it did not mean she had no preferences, it meant none of the Magistries had preferred her enough to take her. Well, her time will come. Cole had faith that she would get there.
+
+The group slowed to a stop. Loda Alsephina spoke.
+
+"Gentlemen, we have arrived. The chambers are housed in the hallway behind us. Walk down the corridor, find the door marked with your own Semper, and go inside. Each room has been prepared for you individually. Enjoy your Night of Reflection." She paused and took a moment to look at each of them. "We will see you on the other side."
+
+Both women bowed.
+
+"Good luck, Nodden. You too, Jack." Cole said. "Good to meet you both."
+
+"You betcha." Nodden gave a thumbs up and a wide, slightly goofy grin.
+
+Jack just lifted a hand and walked on, scanning the doors.
+
+⁂
+
+Cole found his door at the end of the corridor — marked "CAIX0504". No handle. He pushed gently and it slid open. He stepped inside and was met with the warm glow of floor lamps and a scent that stopped him in his tracks. He turned back to the hallway. It was already empty and dark, every other man had disappeared into his own chamber, and the Devotee women were gone. Strange. He stepped fully inside.
+
+The door sealed behind him. The light seemed to brighten as it did. The Reflection Chamber — as it was known outside these walls — was not what the name suggested. It was quite large and unhurriedly grand: leather sofas, wooden tables, a tall ceiling with old-fashioned crown molding, floors that looked like hardwood but could not be, for real preserved wood would have cost a fortune per room alone. No windows, but the walls were papered in illustrations of trees and flowering things. It reminded him of Premiere Jude's office, or at least the part of it visible during broadcast speeches.
+
+Cole breathed in the scent slowly, sorting through memory for a match. So curiously nostalgic yet he found nothing — so familiar it almost hurt. It was not pulling up any mental images. It simply made him feel safe, settled, like being held. Like the feeling he experienced meeting Alyvia, when his life's unexpected turns seemed to have delivered him somewhere exact, not a moment too early or too late.
+
+A music note reached him from the adjacent room. Slow, soft, and melodic. A pianoforte, or a recording of one. There would not be a live performance, he thought — that would be wasteful, not efficient at all.
+
+He moved toward the leather chair and the side table beside it. Crystal bottles caught the lamp light, filled with amber liquids ranging from pale gold to dark syrup. He uncorked one and lifted it to his nose. So rich the scent, so decadent. He poured two fingers into the tumbler and sipped. It burned going down and then smoothed everything out behind it.
+
+The large bookshelf was the most interesting thing in the room: built into the wall, floor to ceiling, crowded with titles. He recognized the classics instantly. Then he noticed the others: the banned ones, the books that the authorities had quietly removed from public libraries. Ah, so this is the temptation.
+
+He pulled one from the shelf: The Book of Warslaw: A Collection of Poems of the King's Journey Down into the Underworld.
+
+The book was clearly well-loved: tattered pages, cracked spine that still somehow held. He carried it back to the chair, shrugged off his jacket, and settled in — ankle crossed over one knee, tumbler in hand, book open on his lap. The alcohol eased something in his chest. The music moved through the room like water. He began to read the first poem:
+
+
+As They Ponder
+
+Each midnight hour demons knock on my door,
+And whisper that my faith was built on sand.
+My heart has ceased to argue as before,
+Yet still my fingers reach for her cold hand.
+
+They say a King must never mourn the dead,
+That silence is the portion of the gone.
+I burned their letters, burned what counsel said,
+And kept but one thing: Her, to dwell upon.
+
+What use is crown that could not hold one life?
+So let them come, my demons, at their hour,
+And tell me faith…
+
+
+Cole took another drink and felt his eyelids grow heavy. This is some dark poetry — maybe not the best material to read the night before a wedding. He had so much to look forward to tomorrow. Both of them did. He took another sip, fingers gently tapping the leather armrest to the slow beats of the piano. His eyes grew heavier. Maybe a nap first, he thought, as he looked down at the page. One more sip. And he closed his eyes, still smiling.
+
+⁂
+
+In the early hours of the following day, before sunrise, two men dressed in standard maroon Magistry of Cure uniform entered Cole's Reflection Chamber to retrieve him. His body was already cold — no longer the reliable warmth that Alyvia had pressed herself against on so many nights before.
+
+Cole had been healthy and athletic in life. His body had a high recycling value. The men undressed him, misted his nakedness with preservation tonic and wrapped him in cellophane before sealing him inside a cold temperature-controlled body bag with his Semper printed on the tag. They carried him out and slotted him carefully into the refrigerated truck bed, on top of another body bag tagged NVIII0729.
+
+On the other side of the Pantheon, two identically dressed men came for Alyvia. They found her still holding the champagne flute, her grip rigid. She had been a slight and sickly thing while alive — no Arborwell patron would pay to reuse a body like hers. So they did not bother with the preservation mist. They simply opened the metal box in the back of the utility van and dropped her in. The box was already full however, her head and one arm hung over the side. One of the men grabbed her and turned her sideways, pressing down.
+
+"Damn it, the fucking lid won't shut." He shoved at the other bodies, working to make room. Then he folded her arm inward firmly, without ceremony, unconcerned with the unnatural angle, until it fit.
+
+"Bingo." He pressed the lid down and drove in the nails. "This one's done!" He called to the driver, who raised a hand in acknowledgement as the van pulled away toward the mass burial ground at the center of the Deep Forge.` },
   { number: 2, title: "Chapter II: The Crash", content: `` },
   { number: 3, title: "Chapter III: Pantheon Ivory", content: `` },
   { number: 4, title: "Chapter IV: Chief Magister Remsays", content: `` },
