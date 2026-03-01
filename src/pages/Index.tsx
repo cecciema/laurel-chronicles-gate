@@ -464,9 +464,9 @@ On the other side of the Pantheon, two identically dressed men came for Alyvia. 
 "Damn it, the fucking lid won't shut." He shoved at the other bodies, working to make room. Then he folded her arm inward firmly, without ceremony, unconcerned with the unnatural angle, until it fit.
 
 "Bingo." He pressed the lid down and drove in the nails. "This one's done!" He called to the driver, who raised a hand in acknowledgement as the van pulled away toward the mass burial ground at the center of the Deep Forge.` },
-  { number: 2, title: "Chapter II: The Crash", content: `` },
-  { number: 3, title: "Chapter III: Pantheon Ivory", content: `` },
-  { number: 4, title: "Chapter IV: Chief Magister Remsays", content: `` },
+  { number: 2, title: "Chapter II: Remsays", content: `` },
+  { number: 3, title: "Chapter III: Carmela", content: `` },
+  { number: 4, title: "Chapter IV: Verlaine", content: `` },
 ];
 
 const SampleChapters = () => {
