@@ -551,10 +551,8 @@ export const SemperReview = () => {
                 </button>
                 <button
                   onClick={() => setGameState("idle")}
-                  className="block mx-auto mt-4 font-body text-[9px] tracking-[0.2em] uppercase transition-colors"
-                  style={{ color: "hsl(0 0% 35%)" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(0 0% 50%)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(0 0% 35%)")}
+                  className="block mx-auto mt-4 min-h-[44px] px-6 py-2.5 font-body text-[10px] tracking-[0.2em] uppercase border border-border/40 transition-colors hover:border-primary/40 hover:text-primary"
+                  style={{ color: "hsl(0 0% 50%)" }}
                 >
                   Exit
                 </button>
@@ -693,12 +691,10 @@ export const SemperReview = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 8, duration: 0.6 }}
                   onClick={() => setGameState("idle")}
-                  className="block mx-auto mt-6 font-body text-[9px] tracking-[0.2em] uppercase transition-colors"
-                  style={{ color: "hsl(0 0% 35%)" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(0 0% 50%)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(0 0% 35%)")}
+                  className="block mx-auto mt-6 min-h-[44px] px-6 py-2.5 font-body text-[10px] tracking-[0.2em] uppercase border border-border/40 transition-colors hover:border-primary/40 hover:text-primary"
+                  style={{ color: "hsl(0 0% 50%)" }}
                 >
-                  Exit
+                  Continue
                 </motion.button>
               </motion.div>
             )}
