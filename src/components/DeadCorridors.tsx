@@ -494,9 +494,9 @@ export const DeadCorridors = () => {
         viewport={{ once: true }}
         transition={{ delay: 0.2 }}
         className="max-w-2xl mx-auto bg-card border border-border relative overflow-hidden select-none"
-        style={{ minHeight: 200, touchAction: "none" }}
+        style={{ minHeight: phase === "won" ? 480 : 200, touchAction: phase === "playing" ? "none" : "auto" }}
       >
-        <div className="p-2 sm:p-3 overflow-auto">
+        <div className="p-2 sm:p-3 overflow-auto flex justify-center">
           <MazeCanvas grid={config.grid} exit={config.exit} player={player} enemies={enemies} won={won} />
         </div>
 
@@ -506,7 +506,8 @@ export const DeadCorridors = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="absolute inset-0 bg-background/95 flex flex-col items-center justify-center z-30 gap-6 p-8 text-center"
+              className="absolute inset-0 bg-background/95 flex flex-col items-center z-30 gap-6 p-6 sm:p-8 text-center overflow-y-auto"
+              style={{ justifyContent: "safe center" }}
             >
               <p className="font-display text-xs tracking-[0.25em] text-destructive uppercase">Terminated</p>
               <p className="font-narrative italic text-foreground/70 text-[0.9375rem] leading-[1.8] max-w-xs">
@@ -528,7 +529,8 @@ export const DeadCorridors = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="absolute inset-0 bg-background/92 flex flex-col items-center justify-center z-30 gap-5 p-8 text-center"
+              className="absolute inset-0 bg-background/92 flex flex-col items-center z-30 gap-5 p-6 sm:p-8 text-center overflow-y-auto"
+              style={{ justifyContent: "safe center" }}
             >
               <motion.p
                 initial={{ opacity: 0, y: 8 }}

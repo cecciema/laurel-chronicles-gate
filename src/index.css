@@ -5,8 +5,11 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    cursor: none;
+  /* Hide cursor only on devices with pointer/hover support (not touch) */
+  @media (hover: hover) and (pointer: fine) {
+    * {
+      cursor: none;
+    }
   }
 
   :root {

@@ -618,7 +618,7 @@ const EasterEggGlyph = () => {
       onClick={handleClick}
       aria-hidden="true"
       tabIndex={-1}
-      className="fixed bottom-3 left-3 z-[5] w-6 h-6 flex items-center justify-center select-none"
+      className="fixed bottom-[70px] sm:bottom-3 left-3 z-[5] w-6 h-6 flex items-center justify-center select-none"
       style={{ opacity: 0.15, cursor: "default" }}
     >
       <span className="font-display text-base" style={{ color: "hsl(38 30% 40%)" }}>✦</span>
@@ -637,7 +637,7 @@ const ResetProgressButton = () => {
   return (
     <button
       onClick={handleReset}
-      className="fixed bottom-3 right-3 z-[9999] font-display text-[9px] tracking-[0.15em] uppercase"
+      className="fixed bottom-[70px] sm:bottom-3 right-3 z-[130] font-display text-[9px] tracking-[0.15em] uppercase"
       style={{
         opacity: 0.5,
         border: "1px solid rgba(184, 150, 12, 0.6)",

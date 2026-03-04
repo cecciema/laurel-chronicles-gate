@@ -128,7 +128,7 @@ const CeremonyGrid = ({
   const collectorVialGlow = 0.15 + collectorStage * 0.25;
 
   return (
-    <div className="relative overflow-auto mx-auto" style={{ maxWidth: "100%", overflowX: "auto", overflowY: "auto" }}>
+    <div className="relative overflow-auto mx-auto flex justify-center" style={{ maxWidth: "100%", overflowX: "auto", overflowY: "auto" }}>
       <div
         key={devotees.map(d => `${d.row},${d.col}`).join("|")}
         style={{
