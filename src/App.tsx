@@ -62,34 +62,29 @@ const AppInner = () => {
     }
   };
 
-  if (!onboardingComplete) {
-    return (
-      <>
-        <audio ref={audioRef} loop src="https://cdn.freesound.org/previews/639/639958_13315998-lq.mp3" />
-        <AudioToggle muted={muted} onToggle={toggleAudio} />
-        <GuideOnboarding onComplete={handleOnboardingComplete} />
-      </>
-    );
-  }
-
   return (
     <>
-      {!isTouch && <CustomCursor />}
       <audio ref={audioRef} loop src="https://cdn.freesound.org/previews/639/639958_13315998-lq.mp3" />
       <AudioToggle muted={muted} onToggle={toggleAudio} />
 
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/world" element={<WorldOverview />} />
-        <Route path="/characters" element={<Characters />} />
-        <Route path="/timeline" element={<Timeline />} />
-        <Route path="/map" element={<WorldMap />} />
-        
-        <Route path="/bestiary" element={<Bestiary />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <BestiaryCompletePopup />
+      {!onboardingComplete ? (
+        <GuideOnboarding onComplete={handleOnboardingComplete} />
+      ) : (
+        <>
+          {!isTouch && <CustomCursor />}
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/world" element={<WorldOverview />} />
+            <Route path="/characters" element={<Characters />} />
+            <Route path="/timeline" element={<Timeline />} />
+            <Route path="/map" element={<WorldMap />} />
+            <Route path="/bestiary" element={<Bestiary />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <BestiaryCompletePopup />
+        </>
+      )}
     </>
   );
 };
