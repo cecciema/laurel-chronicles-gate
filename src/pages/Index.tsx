@@ -464,7 +464,119 @@ On the other side of the Pantheon, two identically dressed men came for Alyvia. 
 "Damn it, the fucking lid won't shut." He shoved at the other bodies, working to make room. Then he folded her arm inward firmly, without ceremony, unconcerned with the unnatural angle, until it fit.
 
 "Bingo." He pressed the lid down and drove in the nails. "This one's done!" He called to the driver, who raised a hand in acknowledgement as the van pulled away toward the mass burial ground at the center of the Deep Forge.` },
-  { number: 2, title: "Chapter II: Remsays", content: `` },
+{ number: 2, title: "Chapter II: Remsays", content: `"Good morning, Remsays."
+
+Zeus said it at six-fifteen, the same time every morning, in the same measured tone. Not cheerful nor clinical. Simply present. Remsays had programmed him that way precisely. He did not want to be managed, just informed of the facts.
+
+Remsays opened his eyes to the pale morning light coming through the window shade and lay still for a moment before getting up, taking stock of how his body felt. Shoulders: fine. Lower back: a little tight from the training session two days prior. He flexed both hands once and sat up.
+
+"How did I sleep?"
+
+"Six hours and eleven minutes. Two complete deep cycles. Cortisol on waking is within normal range. You were restless between the fourth and the fifth hour."
+
+"It was the dream."
+
+A pause. Longer than Zeus's pauses usually were. "The same one."
+
+"Yes."
+
+"Would you like me to save it?"
+
+He thought for half a second. "Yes. Flag it and I'll decide later."
+
+"Remsays." Zeus did not typically volunteer observations outside of the briefing sequence. "This is the fourth occurrence in nine days."
+
+"I know."
+
+"The pattern suggests it may be worth addressing."
+
+"Noted. I'll think about it."
+
+He rose and moved to the wall mirror.
+
+One hundred and eighty-four centimeters. Lean muscle, the result of a consistent regimen rather than any particular trendy program. His hair was sandy and had grown a full week past where he liked it, which meant he would take the clipper to it this morning before he left for the Forum.
+
+His eyes, in the mirror, were what they always were: light grey, the color of overcast sky. He had been told, many times and by many different people, that they were unsettling. He had been told other things too. He received compliments the way he received most things: with a polite acknowledgment and no particular change in behavior.
+
+There had been a time, not long ago, when he might have let it all go to his head. He was still young by any measure: twenty-seven, his second revolution not long behind him, and the attention from men and women had started well before he entered the Magistry. The girls at Cambria academy used to find reasons to walk past his study room. The senior officers in his first years at Parliament had found reasons to knock on his door. He was not naive about why. But he had also watched what happened to men who let that kind of attention become their primary navigation. They drifted. They made choices based on the wrong kind of wanting. Remsays had other plans, and they required him to stay sharp.
+
+He turned his chin slightly to examine the cut in better light and touched it gently with two fingers. A clean line, roughly four centimeters, running from just below his cheekbone toward the jaw. Still healing. Another few weeks and it would be gone entirely, the tissue smooth again. He had decided he would not mind if it did leave something behind, but it would not.
+
+The incident had happened during a routine field assessment in the Northwest Quadrant, six months into his tenure as Chief Magister. He had accompanied a team of Paragon researchers into an underwater survey corridor flagged as structurally questionable, against the explicit recommendation of the head Ocean engineer. The engineer had been correct. As the group resurfaced one after another, a panel gave way under pressure and a female researcher was trapped behind it. In her panic she accidentally hooked the oxygen line on the jagged edge of the panel frame. Remsays turned back and pressed himself through the gap before the second panel could close. The serrated metal caught his helmet and opened the cut. She made it through because of the extra seconds that bought her.
+
+The survey data they obtained that day had informed two subsequent patents in marine remediation. Worth it, he had written in his incident report, and meant it. The next day, the researcher had come to his office to thank him in person and stayed longer than the purpose required. He had thanked her in return, then to her surprise, reassigned her to the far regions effective the following week. Her panicking in that corridor was an error he had no interest in reencountering.
+
+He had laid out the clothes the night before: a crisp white button-up, navy trousers. Mornings that required decisions about small things were mornings that wasted energy on small things. While he dressed, Zeus recited the morning brief. Two items from the Magistry of Ocean that would need his sign-off before the Forum session. A scheduling update from Premiere Jude's office confirming the lunch function. And a note from the Sanctorium that Remsays asked Zeus to repeat: the ascension of Sol Deus Lockland of Pantheon Ivory had been formally scheduled in the current lunar cycle. In just three days.
+
+Three days. This was unexpected.
+
+The Sanctorium made decisions that governed their own body on their own timeline and with no obligation to preview them, but the general sense in the Parliament had been that the ascension was still a season away. Three days changed a great many things. It meant thirty days of vacancy in Pantheon Ivory starting later this week, thirty days with no Sol Deus, before the installation of a new one at the solar turn. He could picture the status-climbers already working their brains to see how they might best profit from a quick transition.
+
+He pulled up his calendar and looked at the red circle he had drawn there two weeks ago when the private correspondence had arrived. It was handwritten in small, precise handwriting. The postscript was two words:
+
+Almost time.
+
+He had read that letter standing at his desk and felt something shift in his chest. He had folded it and put it in the locked drawer and gone back to work.
+
+He would refocus on work now too. What he should be thinking about was the speech.
+
+The Paragon Command held a new recruit induction ceremony every season, and he had given this address exactly once before. Three months ago, in the late season, a smaller cohort, and he had spent two weeks preparing for it and then delivered it in a room that felt too large and came away with the uncomfortable sense that he had not made quite the impression he had hoped.
+
+Today's induction mattered more. Not only because the cohort was larger, though it was, or because it was the primary induction of the new cycle, though it was that too. It mattered more because he had spent the last three months thinking about what he had gotten wrong the first time. He was not nervous, particularly, but he understood that the first impression a person made in a room was the one they carried for a long time afterward, and the new Paragons he was about to address would be the next generation of the Magistry's best minds. He wanted the words to be right.
+
+Zeus navigated the car through the early morning streets while he continued to recite the news. An advancement in ocean remediation technology out of the Northwest Quadrant. A procedural update from the Magistry of Peace. Something about atmospheric pressure readings from Pantheon Greenwood that the Magistry of Stars had flagged for cross-reference. Remsays filed it all away without quite listening. The car stopped at the Parliament entrance. Remsays straightened his jacket, checked the time, and stepped out.
+
+⁂
+
+Cannon Place in the morning had its own particular quality. The glass panels of the main entrance caught the early light and threw it across the lobby floor in long strips, and the junior servitors who staffed the front desks always straightened slightly when the doors opened for someone with rank.
+
+The morning unraveled before he reached his office.
+
+Remsays was halfway through the east wing when his watch signaled an urgent flag from the Archive. He took the stairs instead of the elevator and arrived to find Servitor Anwen Visse standing in the doorway of the records anteroom with the expression of someone who had been awake for too long and was bracing for a difficult conversation.
+
+Anwen was not a young man. He had been in the Archive for almost as long as most of the current Paragon class had been alive, and he wore it without complaint, the particular steadiness of someone who had decided early that their work was worth doing carefully for its own sake. He also wore his age without the constant use of booster vials that most servitors of his generation depended on, which Remsays had noticed the first week and had not forgotten. The vials were expensive and the Republic's dispensaries made them easy to obtain, which was a combination that had a predictable effect on people with long service and flagging energy. Anwen appeared to have no interest in them. His stipend went where stipends were supposed to go. Remsays trusted him for that, among other things.
+
+"Tell me," Remsays said.
+
+"The environmental impact records from the Northwest Quadrant coastal survey. Cycles twenty-two through twenty-six. They are not in the primary archive, nor in the secondary backup, and the filing index lists them as transferred to deep storage eighteen months ago. But deep storage has no record of receiving them."
+
+"Who authorized the transfer?"
+
+"That is the other problem, Chief Magister." Anwen looked pained to continue. He swallowed. "The transfer authorization carries the Semper from a servitor who left the Magistry fourteen months ago. He went to Apotheosis in the winter cycle. So we cannot ask him."
+
+Remsays stood quietly for a moment. He was not irritated, exactly, though he had every right to be. These coastal records were fundamental to the remediation modeling that underpinned at least three active Paragon projects. If they were truly gone, those projects would have to revalidate five cycles of assumptions from scratch. Months of work. More importantly, months of time.
+
+"Pull every transfer log from the eighteen-month window. Not just the flagged ones. Everything that touched the archive during that period. And get me the physical access logs for deep storage. Someone signed in."
+
+"Yes, Chief Magister."
+
+Remsays checked his watch. Three hours until he was due at the Premiere's Quarters. "You have two hours."
+
+He worked through the access logs himself while Anwen and the archivist team ran the transfer trail. It was painstaking and largely tedious and he did it because the alternative was handing it off and waiting, and waiting was its own kind of waste. As he worked, another feeling began to move in the back of his head, quieter and more unsettling than the irritation.
+
+What if this were not an error?
+
+He turned it over. A system malfunction was unlikely. The Archive was meticulously logged and managed, and nothing like this had happened before, not in the six months he had been running the department and not in the years of records that preceded him. What was in those cycles of data that could have tempted someone, someone with high clearance, to remove them? And whoever had done it appeared to have used the identity of a man who had gone to Apotheosis over a year ago. The transfer code was his. But the man was gone.
+
+Could someone have imprinted a false Semper? Used a dead servitor's code to move through the system undetected?
+
+He let himself follow the thought for a moment longer than was comfortable, then pulled back from it. The Semper was engraved subdermally. A unique biometric code. It could not be altered or replicated, not by any process available to a civilian. He was letting the strangeness of the situation push him into conclusions the evidence did not support. The simplest answer was still a filing error. He set the thought down and kept working.
+
+It stayed at the edge of his attention anyway, which bothered him more than he wanted to admit.
+
+What emerged, after an hour and forty minutes of cross-referencing, was not the theft he had half-braced for. The records had been misfiled under an obsolete quadrant classification system that predated the current administration. They were in the archive the entire time, three index entries away from where they should have been, invisible to any automated search because the field codes did not match.
+
+Anwen found them first and said nothing for a moment, then looked up at Remsays with the expression of someone who was not sure whether to be relieved or ashamed.
+
+"Fix the index," Remsays said. "And update the standard for how quadrant codes are verified on transfer. I do not want this happening again."
+
+"Yes, Chief Magister. I am sorry for the interruption to your morning."
+
+"You flagged it immediately. That is what I want." He stood and straightened his jacket. "Send the remediated file reference to the three affected Paragon leads before midday."
+
+Remsays went to his office. He only had a short time before the lunch function. He would use the time to review the induction speech one final time. The sabotage idea was still moving somewhere at the back of his head, making him uneasy in a way he could not fully justify and could not entirely dismiss. He stood at the window with the holograph text projected at eye level and ran the words quietly in his head, watching the plaza below fill up with the morning's foot traffic, and thought about how quickly things could change.
+
+Almost time.` },
   { number: 3, title: "Chapter III: Carmela", content: `` },
   { number: 4, title: "Chapter IV: Verlaine", content: `` },
 ];
