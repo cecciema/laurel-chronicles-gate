@@ -577,8 +577,10 @@ Anwen found them first and said nothing for a moment, then looked up at Remsays 
 Remsays went to his office. He only had a short time before the lunch function. He would use the time to review the induction speech one final time. The sabotage idea was still moving somewhere at the back of his head, making him uneasy in a way he could not fully justify and could not entirely dismiss. He stood at the window with the holograph text projected at eye level and ran the words quietly in his head, watching the plaza below fill up with the morning's foot traffic, and thought about how quickly things could change.
 
 Almost time.` },
-  { number: 3, title: "Chapter III: Paragon Command", content: `` },
-  { number: 4, title: "Chapter IV: Lockland", content: `` },
+  { number: 3, title: "Chapter III: Aspen", content: `` },
+  { number: 4, title: "Chapter IV: Paragon Command", content: `` },
+  { number: 5, title: "Chapter V: Lockland", content: `` },
+  { number: 6, title: "Chapter VI: Apotheosis", content: `` },
 ];
 
 const SampleChapters = () => {
