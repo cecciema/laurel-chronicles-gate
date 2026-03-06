@@ -278,7 +278,7 @@ const Index = () => {
                     ✦ Sample Chapters ✦
                   </p>
                   <h2 className="font-display text-xl sm:text-2xl tracking-[0.15em] text-foreground">
-                    Read the First Four Chapters
+                    Read the First Six Chapters
                   </h2>
                   <div className="steampunk-divider max-w-xs mx-auto mt-4" />
                 </div>
