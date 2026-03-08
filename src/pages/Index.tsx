@@ -981,10 +981,17 @@ const SampleChapters = () => {
         );
       }
 
+      // Check if line is all uppercase (common book formatting for scene openers)
+      // If so, convert to sentence case for consistent prose styling
+      const isAllCaps = trimmed.length > 20 && trimmed === trimmed.toUpperCase() && /[A-Z]/.test(trimmed);
+      const displayText = isAllCaps 
+        ? trimmed.charAt(0) + trimmed.slice(1).toLowerCase()
+        : trimmed;
+
       // Default prose
       return (
         <p key={i} className="text-left leading-[1.9] mb-0">
-          {trimmed}
+          {displayText}
         </p>
       );
     });
