@@ -813,7 +813,77 @@ Then he stood and looked back into the hall. The Paragons were where he had put 
 He moved to the center of the room and straightened his jacket.
 
 "As I was saying," he said as he examined each of their faces, "you carry the specific and unglamorous responsibility of Panterra's slow recovery. Welcome to your first day."` },
-  { number: 5, title: "Chapter V: Apotheosis", content: `` },
+ { number: 5, title: "Chapter V: Apotheosis", content: `It was too early in the morning for Death.
+
+Yet Apotheosis always began at the break of dawn. Carmela's eyes opened before any light came through the curtains. She tilted her head toward the clock: four in the morning.
+
+Today has to be perfect, she thought, and rose from her bed.
+
+She could already hear them. The quick steps of Pantheon devotees filling the hallways outside, making the preparations that could not be done ahead of time. She knew what she would find when she opened her door: wreaths and garlands braided from organic branches, delicate leaves and real flowers twisted through the corridor columns. Beautiful, and pointless. The ancient ceremony required them, everything as close to the old days as possible, and within hours they would wilt into useless heaps where engineered plants would have lasted weeks. Tradition was tradition, and one observed it meticulously during Apotheosis.
+
+She had not slept much in the last few days. There was so much to think about, so much still to worry over, even though she knew her checklist had been completed in the correct order and reviewed by other seasoned members of the Pantheon. The second-guessing would not leave her. That nagging conviction that she had missed something important, left it in some corner of her mind where it was unavailable for retrieval.
+
+Today has to be perfect. She washed and dressed methodically, trying to quiet the anxiety.
+
+She finished dressing by wrapping a white sheath cloak around her neck and fastening it at the shoulders with her laurel leaf pins. Silver, the length of her palm. She had polished them the night before; even in the pre-dawn hour they caught the light. Three years ago, the Sanctorium had awarded them to her when she was elevated to Lunary. Since then, it had been her duty to orchestrate the first day of every Apotheosis ceremony held at Ivory: the morning blessing, the day of reverence, the night of reflection. Tomorrow belonged to Lockland. Today belonged to her.
+
+Carmela had entered the Sanctorium nearly two revolutions ago, just after her apex, spending most of those early years as a scribe in the far regions. It was her work reconstituting the Warslaw tablets that caught Lockland's attention. He had been struck by her talent to reproduce any style of writing, in any language, on parchment, on wood, in stone, and requested her for his gallery. She had loved the reassignment and excelled at it. In time she rose to higher positions within Ivory, and when her predecessor Lunary Noelle ascended, she was the natural choice to inherit the silver laurel pins.
+
+She looked at herself in the long mirror to make sure everything looked correct. Her heart was still beating too rapidly. She had conducted this ceremony the year before, and the year before that, but today was different. Today, one of the ascending was Lockland himself. She was heartbroken to lose her mentor, who had become so much more than a mentor, and frightened of what came next. The Sanctorium shared nothing about the new Sol Deus. Not with the devotees, nor even with the Lunaries. They would all learn at the same time as the rest of the world: thirty days from now, on the last day of the solar revolution, when Vixen yielded to Ram and the new year began. Lockland likely knew who was replacing him, but he would never say.
+
+Thirty days. How would they manage without him for thirty days?
+
+Carmela could not recall the last time a Sol Deus had been replaced. It happened so rarely, and she had no way of knowing whether the vacancy had caused unrest in those past transitions. She trusted Sol Deus Thema with her life and was grateful to have her to lean on, but of the other ten Sol Deos she was not certain. Any one of them might see this as an opportunity to maneuver. Carmela had already been thinking through who would make the first approach. Sol Deus Morrison of Rockfall, most likely. She had grown up in his region and revered him once, the way you revered whatever authority was nearest when you were young and had no basis for comparison. Working beside Lockland for three decades had cured her of that. The contrast between the two Sol Deos was not subtle.
+
+Morrison's limping gait and yellowed teeth had always unsettled her. He was a well-known Purist, never a drop of booster draft or any augmentation according to him, which she could respect in principle if it were not for the theater he made of it. There was no honor in choosing to stay damaged when repair was available.
+
+Outside, the bell tower tolled once. The morning prayer bell. Carmela clasped her hands, touched her forehead to her knuckles, then her lips to her thumbs. As she moved through the praying words, her mind drifted back four days, to the Ivory Planetarium.
+
+⁂
+
+She had gone there in the middle of the night, unable to sleep. It was a habit from childhood — the stars had always steadied her. Her favorite star was the Vulpes Alpha, the principal star of the constellation, the bond that held the two vixens together. What she loved about it was this: for such a vital star, it glowed softer than most others around it. It knew its own importance. It did not need to convince anyone.
+
+She had not expected to find him there. Lockland was standing at the center of the observation deck, looking up, and she realized immediately that he had the same idea she did. She walked toward him feeling glad, and then the tears came before she could stop them, arriving at exactly the moment he turned around to look at her.
+
+The graying near his temples had lightened visibly these last few months. He had been quieter in their meetings, more often lost to his own thoughts. She should have been paying closer attention.
+
+"Why, my dear. Why the tears?" He asked it gently. His eyes, usually sharp and bright, looked tired.
+
+He is ready to go, she thought. The knowledge sat in her chest like a stone.
+
+She opened her mouth but could not speak. More tears came even as she tried to stop them.
+
+"Is it because of me?" He asked. She could only nod. He stepped forward and folded her head against his chest, and his arms came around her, warm and steady. He smelled like real lavender. She had always noticed that. Even now, even at his age, his chest felt solid, a product of decades of careful living. They stood there under the open sky until her tears stopped. Then Lockland released her and looked up. Her gaze followed.
+
+"My dear." He said it quietly, the way he said most things. "Do not dwell on what you might think you are losing. Think instead about what is coming. A new era for Pantheon Ivory, perhaps even the Sanctorium. This is worth something. The new Sol Deus is young, and will need guidance to become wise. Your devotion will be more essential than ever. You must counsel well." He sighed. "I wish I could be there for the transition. But as you know, the tradition does not allow it."
+
+"But why must you ascend now? Your body is healthy and your mind is more brilliant than anyone I know." The words came out before she could stop them. She covered her mouth.
+
+Lockland smiled forgivingly. "I thank you. And I won't argue with your high opinion of me. But the fact is, I have had a very good run and I do not want to overstay my welcome. I have been a Sol Deus for over three revolutions. That is a long time to presume that one's presence is still of benefit to those around them."
+
+"You are still needed. You are still wanted."
+
+"Again I thank you." He looked back up at the sky. "We still have a long way to go even at our accelerated pace. Our world needs a more energetic hand to steer it back to health. It is time for new leadership with fresh ideas. I am tired, Carmela. And I am ready. That is the truth of it."
+
+Carmela nodded.
+
+"Influence by calm persuasion. The other Sol Deos will underestimate you — they will think you are only a Lunary. Let them, and use it to your advantage." With this, Lockland moved, stepping toward the center of the planetarium and looked up again at the open sky.
+
+⁂
+
+The bell tower tolled again and drew her back from her reverie. Carmela tucked the memory of that night away with care, knowing she would return to it often. She took a deep breath and made a quiet promise to herself not to disappoint him.
+
+She opened her door and steadied herself for what was to come, today and in the next thirty days. She would make him proud. The hallway was bustling with the quick footsteps of devotees moving in every direction, the scent of fresh laurel and cut wood from the garlands already braided around the corridor columns, the low hum of preparation that had been going on without her while she was still inside her own head. The Pantheon was awake. Carmela straightened the pins at her shoulders and stepped out to meet it.
+
+The amphitheater was already being prepared when she arrived to inspect it. Ivory's ceremonial amphitheater was carved into the natural rock formation at the Pantheon's southern edge. Tiered stone seating descending in wide concentric arcs toward a raised circular dais at the center, open to the sky, flanked on three sides by the sheer faces of the cliff that had been there long before anyone had thought to build a Pantheon against them. Torches had been lit along every tier. Carmela walked along the perimeter of the dais and checked each element against her list. Everything was in order.
+
+The ascendees began arriving.
+
+They came through the main gates in groups. Brought in from the transport stations and surrounding roads by Pantheon escort, some from very far regions, some from nearby. Most had never been to Ivory before. She could tell by the way they took in the architecture: the slow tilting of the head, the paused step, the attention that snagged on the carved stonework or the long corridor columns or the sheer scale of the amphitheater when it first came into view. Carmela had seen this reaction so many times and it had never ceased to move her. She felt proud to be a part of this great Pantheon.
+
+The morning blessing began when the sun cleared the eastern cliff face and the first full light fell across the dais. Carmela stood at Lockland's right as he addressed the assembled ascendees, thousands of them filling the tiered stone seating, their faces upturned and still, quiet and reverent in a way that crowds rarely were. His voice carried without effort. It always had.
+
+She did not let herself look at his face for too long. She needed to hold it together today and she understood her own limits well enough to know which thoughts would undo her if she let them. She closed her eyes and focused on his voice, committing each word to memory, knowing this was the last time she would have the pleasure of being in his company.` },
   { number: 6, title: "Chapter VI: Quinnevere", content: `` },
 ];
 
