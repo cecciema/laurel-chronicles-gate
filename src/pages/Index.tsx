@@ -941,6 +941,12 @@ const SampleChapters = () => {
         );
       }
 
+      // Separator line (docx section divider)
+      if (trimmed === "--" || trimmed === "__" || trimmed === "---") {
+        inPoem = false;
+        return <div key={i} className="h-4" />;
+      }
+
       // Time stamp line
       if (/years?\s+(prior|later|before|after)/i.test(trimmed)) {
         inPoem = false;
