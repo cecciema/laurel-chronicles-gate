@@ -577,7 +577,7 @@ Anwen found them first and said nothing for a moment, then looked up at Remsays 
 Remsays went to his office. He only had a short time before the lunch function. He would use the time to review the induction speech one final time. The sabotage idea was still moving somewhere at the back of his head, making him uneasy in a way he could not fully justify and could not entirely dismiss. He stood at the window with the holograph text projected at eye level and ran the words quietly in his head, watching the plaza below fill up with the morning's foot traffic, and thought about how quickly things could change.
 
 Almost time.` },
-  { number: 3, title: "Chapter III: Aspen", content: `The Forum lunch was held in the Premiere's private dining room on the second floor of Premiere's Quarters, where the floor to ceiling windows looked out over Plaza de Montecito and the afternoon light came in clear and clean. Nine people around a long table: the four Magistry directors, one senior Parliament advisor, two officials from the Sanctorium liaison office, with Premiere Jude at the head, Remsays to his right.
+  { number: 3, title: "Chapter III: Forum District", content: `The Forum lunch was held in the Premiere's private dining room on the second floor of Premiere's Quarters, where the floor to ceiling windows looked out over Plaza de Montecito and the afternoon light came in clear and clean. Nine people around a long table: the four Magistry directors, one senior Parliament advisor, two officials from the Sanctorium liaison office, with Premiere Jude at the head, Remsays to his right.
 
 Remsays had been seated there for six months now, and he still noticed the small adjustments people made the second Jude walked in the room. People tracked Jude without trying to, oriented toward him the way a group of people in a cold room would orient toward the only source of heat. He had understood from early in his career that access to the Premiere was the currency that made everything else in the Forum function.
 
@@ -813,8 +813,8 @@ Then he stood and looked back into the hall. The Paragons were where he had put 
 He moved to the center of the room and straightened his jacket.
 
 "As I was saying," he said as he examined each of their faces, "you carry the specific and unglamorous responsibility of Panterra's slow recovery. Welcome to your first day."` },
-  { number: 5, title: "Chapter V: Lockland", content: `` },
-  { number: 6, title: "Chapter VI: Apotheosis", content: `` },
+  { number: 5, title: "Chapter V: Apotheosis", content: `` },
+  { number: 6, title: "Chapter VI: Quinnevere", content: `` },
 ];
 
 const SampleChapters = () => {
