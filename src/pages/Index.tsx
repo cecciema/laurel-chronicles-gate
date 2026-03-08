@@ -658,7 +658,161 @@ There was no politically sound way to decline. Paragon recruits were permitted t
 Aspen laughed throatily, which was the sound of someone who had been told a version of this before and found it more delightful than chastening. He clapped Remsays once on the shoulder with firmness.
 
 Remsays continued up the stairs and put the conversation behind him. He had forty minutes before he needed to be in the induction hall. He would use them to go over the speech a final time.` },
-  { number: 4, title: "Chapter IV: Paragon Command", content: `` },
+  { number: 4, title: "Chapter IV: Paragon Command", content: `Remsays reviewed the speech on his way down from his office. Not from notes but from memory, running through the structure the way he would check a room before a meeting: looking for places where it could go wrong. The work of the Magistries was long and mostly invisible, and the Paragons were the specific instrument by which new knowledge moved from research into application.
+
+The Black Sea's slow recession from the eastern coastlines was the product of decades of marine and atmospheric work that the enrolled populations of Panterra understood only in the aggregate, if at all. Someone had to tell the people doing that work that it mattered, truly mattered, and tell them in a way that landed, not only as civic obligation but as genuine, passionate, truth. Most of the continent would never know their names. The booster draft allocation would be adjusted based on the work they did, and the people who benefited from that adjustment would have no particular occasion to think about why their quality of life had shifted.
+
+The body could adapt to pretty much anything — if you let it.
+
+The induction hall on the third floor of Cannon Place was not large. It had been designed for ceremony rather than audience. High ceilings, polished stone floor, the Magistry's seal inlaid in the center in the dark tile. The kind of room that absorbed whatever happened inside and kept it there.
+
+Twenty-three recruits in two formations, standing in the stillness, wearing the new Paragon uniforms they had received that morning.
+
+Service staff had set up a refreshment table near the entrance with tea and small plates. Two staff members moved quietly along the room's perimeter with trays, offering refreshments to the small number of sectoral leads gathered near the back wall. Aspen stood among them, hands tucked in his pants pockets, looking comfortable.
+
+Remsays ran his eyes along the formation. He could feel the quality of the room's attention and it was good. These were not people who had drifted in. They had applied, been assessed, been chosen from a pool that was already selective. The best and the brightest of the Republic was here, right now, on the day the most beloved Sol Deus in living memory had announced his departure from the world. They had gotten dressed, taken the skytrain from all four quadrants, and now stood in their formation with their backs straight. He was going to give them something worth the trip.
+
+"Do you have the courage to bring forth the treasure that presides within you?"
+
+He walked in from the back of the room and let his voice project.
+
+The question filled the hall. He walked forward through the center of the formation, taking his time, letting the question sit in the room without rushing to follow it. He looked at the faces that turned to track him. Some were practiced in hiding their nerves, some were not.
+
+"Do you dare to provoke the thoughts that you have buried all these years, and turn them into the fuel which will tinder your creative powers?"
+
+He reached the front and turned.
+
+In the front row on the left side stood one of the taller inductees. Remsays recognized him instantly from his file. Culver Gretell. Twenty-four years old. Marine technologist, experimental nanobot prototype, flagged as exceptional. He was deeply tanned the way of someone who had spent years working outdoors on open water, with the kind of broad, unhurried build that came from actual physical labor. He stood with his weight evenly distributed and his hands loose at his sides, and when Remsays's eyes landed on him, Culver held it without adjustment.
+
+Good.
+
+In his peripheral vision, Remsays also tracked Aspen, who now stood along the wall to his left, arms loosely folded, watching the room rather than the speech.
+
+"Human life is the only life form that can change and repair itself. If you are hurt, you can treat the wound. If you are tired, you may rest. Our continent however, does not have that ability and requires caretakers who will show up day after day, even when they are uncertain, even at times dangerous." He paused. "Especially then. Starting today, that is you."
+
+Remsays moved his gaze along the row of inductees and felt the room tighten into focus, all twenty-three of them with him now.
+
+He was three sentences from closing the speech when he felt it, the particular shift in a room's attention that happened when something was wrong and the room had not yet decided what to do about it.
+
+Then he heard the sound.
+
+It was small. A chair pushed back, too fast. Not the ordinary sound of someone shifting.
+
+He kept speaking. His eyes surveyed.
+
+One of the service staff near the table was acting rigid. The other staff member had drifted toward the far wall and was watching the first one. The tray the first one carried was set down on the table, and the man's hands had gone beneath it.
+
+"Wait." Aspen's voice was not loud. "Step away from the table." He crossed the back of the room in a few strides and put himself between the staff member and the nearest recruits.
+
+The hall went still. The recruits held their formations, which was due to either discipline or shock.
+
+"Paragons," Remsays said, his voice level and carrying. "Move to the north wall. All the way back. Now."
+
+The man at the table did not comply with Aspen's instructions. He straightened, and his hands came up from beneath the tray, and there was something in his left hand that was not a serving implement — it was square and black, and buzzed with a steady hum. The man himself was young, unremarkable looking, the kind of face designed to be forgotten.
+
+"Hands where I can see them." Aspen's voice was calm and precise, already moving closer, his gun drawn and level, the posture of someone whose body had been trained for exactly this kind of moment and had filed it under routine. "You don't have to make this worse than it already is."
+
+The man looked at the device in his hand, then at Aspen, then at the room full of Paragons pressed against the north wall. Something in the calculation shifted.
+
+He ran.
+
+Aspen was already moving before Remsays had fully registered the threat, crossing the back of the hall in two long strides, broad-shouldered and fast in a way that did not announce itself until it was already happening. He caught the man's arm at the doorway. The man spun, pulled a compact revolver out from his vest and fired once. The sound in the enclosed stone hall was sharp and enormous. Aspen went down hard on his right side, his leg folding under him, and for one still second the hall held its breath. He hit the stone floor and still managed to fire two shots at the man running away. One hit the man's shoulder but did not bring him down.
+
+"Zeus," Remsays said, already moving toward Aspen. "Call medical. Third floor, east wing. Urgent."
+
+"How bad." Remsays asked, noting the careful set of Aspen's jaw.
+
+"I've had worse." Aspen tried to smile.
+
+"Stay here. Don't move that leg. Medic is coming." He looked along the line of recruits and found Culver Gretell. "You. With me. Nobody follows."
+
+They ran through the door together and into the east corridor. The man was visible at the far end, forty meters ahead, his catering uniform catching the overhead light as he ran, one arm pressed against his wounded shoulder. Remsays and Culver moved fast, footsteps loud in the narrow space, closing the distance. They nearly had him at the turn, but he threw himself through a side door and by the time they pushed through after him the corridor forked and he was gone, swallowed into the service passages running beneath the building.
+
+"Zeus."
+
+"Here." Zeus's voice came through the feed, measured as always.
+
+"Activate full surveillance on the Cannon Place ground floor. All cameras, heat and motion tracking, live. I need the location of that man in catering uniform, exited through the side door on the left side of the induction hall approximately ninety seconds ago."
+
+A brief pause. Not hesitation, calculation. "Tracking. He entered the west service corridor, moved north, and turned into the storage annex off the kitchen supply hall. He has not exited. Heat signature places him behind the second shelving unit from the north wall. He is stationary."
+
+They crossed back through the side door at a controlled pace, both of them pulling their breathing down, slowing the adrenaline by force of will. Remsays knew the building's layout well enough to navigate it without thinking. The service corridor was narrow and fluorescent-lit, running parallel to the main hall, and it smelled of cleaning solution and warming trays, a thin, institutional smell that coated the back of the throat. Their steps were quiet. They reached the kitchen supply hall and turned north.
+
+Culver gestured at the door they were to go through. Remsays nodded.
+
+The storage annex was dim, lit only by a strip of emergency lighting along the base of the far wall that threw everything above knee height into shadow. Floor-to-ceiling shelving units ran in parallel rows, loaded with supply crates, folded linen, and sealed containers that blocked sightlines in every direction. The air was still and close. Remsays paused just inside the doorway and let his eyes adjust. The man was somewhere in here, that was not in question. But the man had a gun and a wounded shoulder and nothing left to lose, which made the atmosphere of the room considerably less comfortable.
+
+"You could come out now." Remsays said, in an even tone. "You have nowhere else to run."
+
+Nothing.
+
+"I know you were probably forced into doing what you did today. I could lessen your sentencing."
+
+Still nothing.
+
+Remsays sighed. And mouthed to Culver: get ready.
+
+Culver nodded with focus.
+
+Remsays threw his body weight against the shelving unit between them.
+
+The man let out a cry and stumbled out, one hand clutching his wounded shoulder.
+
+Culver lunged. Two hundred pounds of trained, unhesitating force driving the man sideways into the concrete, his wounded shoulder taking the impact first. The man let out a sound that was equal parts shock and pain and went flat. He tried to scramble and couldn't. Culver had one hand locked around his collar and the other planted against the floor, and the man was pinned.
+
+Remsays looked at the man's face for a moment. Frightened now that it was over. Not exactly the face of a professional, which was interesting.
+
+"Who sent you?"
+
+The man said nothing. His breathing was coming in short pulls.
+
+"You are going to answer that question eventually. The only variable is how long it takes."
+
+Nothing.
+
+"You're going to tell me who the fuck sent you!" Remsays slammed the man's head against the stone floor.
+
+The man actually chortled, a wet, rattling sound low in his throat, and when he opened his mouth what came out was not words but something shapeless and wrong. Culver and Remsays held eye contact for half a second. Then both looked back at the man.
+
+He had no tongue. The space where it should have been was old scar tissue, healed smooth and deliberate. This had not been done to him today.
+
+Remsays felt the heat move through him before he had finished processing what he was looking at, and his fist connected with the man's jaw before his mind had fully authorized the decision. Clean, straight, the kind of punch that came from the shoulder. The man's head snapped back and his body went completely slack.
+
+Culver looked up at Remsays.
+
+"He's out." Remsays said, more to himself than to Culver. He straightened and pressed two fingers to his watch. "Zeus, dispatch Peace officers to the kitchen supply hall storage annex. Secure the prisoner. Bring him to the Ironfield."
+
+"Dispatching now. Estimated arrival, four minutes."
+
+Remsays looked at Culver. "Stay with him until they arrive."
+
+Culver held his gaze for a moment, then nodded once. No questions.
+
+"Thanks, you did well."
+
+"Thank you, Chief Magister." Culver replied in earnest.
+
+Remsays walked back through the service corridor and into the induction hall. Aspen was where he had left him, seated now on the floor with his back to the wall, leg extended, his jacket folded and pressed against the wound. The medical team was working on him. Aspen was now somewhat remarkably, making jokes with one of the medics, a pretty redhead with freckles across her nose.
+
+The shot had taken him in the left thigh. Not arterial, from the look of it, but he had his hand pressed hard against it and his jaw was set in the specific way of someone managing pain by refusing to acknowledge it in front of other people.
+
+Remsays crouched next to Aspen and handed him a clear vial of booster draft. "We got him."
+
+Aspen took the vial and swallowed the contents in one gulp. "I knew you would."
+
+"How are you doing?"
+
+"Through and through, but I'll be walking by tomorrow." Aspen said through gritted teeth.
+
+Remsays looked at him for a moment. He thought about the shoulder clap in the corridor, the easy smile at the lunch table, the particular way Aspen always occupied whatever room he was in as though it had been arranged for his benefit. He thought about what it had looked like when Aspen crossed the back of that hall, calmly, toward a man holding a device he did not yet know the nature of, putting himself between the threat and the recruits with no hesitation.
+
+People surprised you.
+
+Then he stood and looked back into the hall. The Paragons were where he had put them, some standing, some seated on the floor, all watching the door he had just come through. He could see it in their faces: the adrenaline coming down.
+
+He moved to the center of the room and straightened his jacket.
+
+"As I was saying," he said as he examined each of their faces, "you carry the specific and unglamorous responsibility of Panterra's slow recovery. Welcome to your first day."` },
   { number: 5, title: "Chapter V: Lockland", content: `` },
   { number: 6, title: "Chapter VI: Apotheosis", content: `` },
 ];
