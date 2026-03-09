@@ -194,7 +194,7 @@ const TOTAL_ROUNDS = 6;
 const TOTAL_LIVES = 3;
 const CHOICE_COUNT = 6;
 const CLUE_COUNT = 3;
-const TIMER_SECONDS = 10;
+const TIMER_SECONDS = 30;
 
 /** Select 6 random questions, ensuring meaningfully different from previous set */
 function selectGameQuestions(prevIds: string[]): QuestionDef[] {
