@@ -44,8 +44,8 @@ const regions = [
   {
     name: "Parliament",
     tag: "THE GOVERNING BODY",
-    description: "The Forum District is the beating heart of civic Panterra. Cannon Palace houses Parliament's chambers, Villa Marina is the Premiere's residence, and Plaza Montecito is where announcements are made to the people. Science, law, technology, and resource allocation all flow outward from here. If Sanctorium governs what happens after death, Parliament governs everything before it.",
-    features: ["Cannon Palace", "Villa Marina", "Plaza Montecito", "The Magistry Sectors"],
+    description: "The Forum District is the beating heart of civic Panterra. Cannon Palace houses Parliament's chambers, Villa Marina is the Premiere's residence, and Plaza de Montecito is where announcements are made to the people. Science, law, technology, and resource allocation all flow outward from here. If Sanctorium governs what happens after death, Parliament governs everything before it.",
+    features: ["Cannon Palace", "Villa Marina", "Plaza de Montecito", "The Magistry Sectors"],
   },
   {
     name: "Sanctorium",
