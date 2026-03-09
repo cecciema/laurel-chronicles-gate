@@ -157,7 +157,7 @@ const ALL_QUESTIONS: QuestionDef[] = [
     ],
   },
   {
-    id: "norstrand", answer: "Nordstrand", image: "char-norstrand",
+    id: "norstrand", answer: "Norstrand", image: "char-norstrand",
     clues: [
       "This person has presided over ceremonies they no longer fully believe in.",
       "This person kissed someone in front of the dead. They have never explained why.",
