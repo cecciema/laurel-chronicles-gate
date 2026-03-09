@@ -884,7 +884,185 @@ They came through the main gates in groups. Brought in from the transport statio
 The morning blessing began when the sun cleared the eastern cliff face and the first full light fell across the dais. Carmela stood at Lockland's right as he addressed the assembled ascendees, thousands of them filling the tiered stone seating, their faces upturned and still, quiet and reverent in a way that crowds rarely were. His voice carried without effort. It always had.
 
 She did not let herself look at his face for too long. She needed to hold it together today and she understood her own limits well enough to know which thoughts would undo her if she let them. She closed her eyes and focused on his voice, committing each word to memory, knowing this was the last time she would have the pleasure of being in his company.` },
-  { number: 6, title: "Chapter VI: Quinnevere", content: `` },
+ { number: 6, title: "Chapter VI: Quinnevere", content: `Quinnevere had been at Pantheon Ivory for six weeks. It still felt like someone else's life. Her assigned tasks for the Day of Reverence were modest, the kind given to someone new enough that Carmela was still learning what she could handle. But she had not been able to sleep past the first grey light, and she had given up trying around the third hour and simply dressed and gone to the scriptorium to sit with the texts she had been working on for the past two weeks. Ancient administrative records to be sure, written in languages that were deleted in the Language Purge. She had to build her translations from inference as much as knowledge. She found it settling, the close work, the way it required her whole attention and left no room for anything else.
+
+She had applied to the Magistry of Ocean first. She had wanted it badly - because that's where Culver was due. She had chosen a path, or rather, he had chosen the path for both of them and she needed it to go in one specific direction. Unfortunately, the divinities had something else planned for her. The rejection had arrived without ceremony, a single formal line, and she had sat with it for two days before she worked up the courage to discuss with Culver. They had cried together, because it meant their lives would now irrevocably separate - the natural result of paths that moved in opposite directions at the same moment.
+
+She considered the difficult decision to apply for a scholar's position at Ivory's scriptorium. Ancient texts, transcription work, research support. Not what she had planned. She wanted to go study the ocean with Culver. But she had read the description of the scholar post and felt something tug at her. A door she hadn't considered opened at exactly the right moment. She had applied the same afternoon and prayed as her options were becoming limited. And she did not want to go through Apotheosis yet, not without Culver.
+
+Culver had ended up in the Northeast quadrant too, assigned to the marine sector out the Magistry of Ocean's research station on the coast. Of course he excelled as expected. He was given resources to test his nanobot prototypes and was immediately exacted by the Paragon Command.
+
+Even though they were not far from each other, as distances in the Republic went, they had no means to contact each other. Sanctorium and Parliament servitors were not permitted to socialize, at least, not openly. That was the law. The only time she may see him is if they were ever in a formal function together. She thought she could start trying to stop loving him to make the years go by easier. But six weeks had gone by and that effort was simply stupid. Still, she had not accounted for how much she would miss him. There was something particular about being here, right now, on the day of Lockland's Apotheosis, surrounded by all the solemnity and ceremony of the Pantheon, that made the missing sit heavier than usual.
+
+The bell tower tolled and she closed the text she had been working on, capped her transcription tool, and went to find Carmela.
+
+She found the Lunary already in motion, moving through the amphitheater's outer perimeter with the focused efficiency of someone running through a memorized list and confirming it against reality. Quinn fell in beside her and said nothing. She had learned quickly that Carmela did not require commentary.
+
+It did not take long for the amphitheater to be filled and the ascendees were settled into their tiered stone seats and the sheer scale of it all made her awe in silence. Thousands of people. All of them here for the same reason, to honor the end of one's physical life and the beginning of the eternal. She did not understand all of it yet. She had spent two weeks in the archive reading about the ceremony's history and she still felt she was standing at the edge of something much larger than what she could see from where she stood.
+
+She noticed the Parliament delegation when they came through the east archway. Navy jackets in a crowd of ivory robes, a practiced formation around two figures at the center. The Premiere was easy to identify. She had seen Jude's face in broadcasts her whole life, the warm gravity of him, the way he looked like a person who had been asked to lead and had taken the order seriously.
+
+The man beside him was less familiar from images and entirely more present in person.
+
+Remsays Lavigne, the Chief Magister. Tall, broad, sandy hair. Not as large as Culver but no mistaking him for less powerful. He had a way of moving that was deliberate without being slow. Even from a distance she could see him taking in the amphitheater, intense and purposeful.
+
+That is who Culver is reporting to now. Her heart skipped a beat at the thought. She tore her gaze away from the Chief Magister, unsure what was causing the tightness in her chest.
+
+After the morning blessing, after Sol Deus Lockland had spoken and Carmela had read from the scripture and the processional hour had moved the ascendees through their first passage of the day, Carmela appeared at Quinn's shoulder and said: "The Premiere has requested a meeting. You will attend and take notes."
+
+"Of course." She followed behind Carmela.
+
+The meeting was held in a reception room off the main corridor, a long table, old stone walls hung with tapestry, the kind of room that had been receiving important visitors for a very long time. When Quinn entered behind Carmela, everyone was already seated. Premiere Jude at the far end, open-faced and attentive. Sol Deus Thema of Pantheon Prisma to his left, composed and precise, the kind of stillness that was not absence but control. Beside Thema, Lunary Gemma sat slightly forward and alert. And to Jude's right shoulder, standing rather than seated, was the Chief Magister.
+
+Up close he was more straightforwardly handsome than she had prepared herself for. His eyes locked on hers, noticing her noticing. She quickly looked down and felt her cheeks burn.
+
+Carmela took her place at the near end of the table and set the scripture box down. "Premiere, Sol Deus Thema. Thank you for honoring Sol Deus Lockland with your presence today."
+
+"The honor is ours," Jude said. Sincerity sitting naturally on a man who had every reason to perform it instead. "Lockland served Panterra with distinction for a very long time." His eyes moved to Quinn with pleasant inquiry of a man who made a practice of noticing everyone in a room.
+
+"This is Quinnevere," Carmela introduced. "She's a talented scholar newly assigned to Ivory's scriptorium. She has been assisting with today's preparations. I'm afraid I've been leaning on her quite heavily." Carmela smiled at Quinn. And for the first time Quinn felt she could breathe in this room full of high ranking officials.
+
+"Quinnevere, what a pretty name." Jude's eyes crinkled as he smiled. "It's a pleasure to meet you."
+
+"Thank you, Premiere." She kept her voice even. She wasn't sure how exactly to address him, she almost did a curtsy. She was also aware, without looking at him directly, of the Chief Magister's gaze moving briefly to her face.
+
+Jude expressed Parliament's confidence in the stability of the transition. He noted that he was looking forward, with what seemed like genuine curiosity, to learning who the divine had chosen as the next Sol Deus. "One of the few genuine surprises left in this work," he said. "The Sanctorium keeps its counsel well."
+
+"That is rather the design," Thema said, "you will find out when the time is right."
+
+Jude laughed. Real, unguarded. "So it is."
+
+He then confirmed Parliament had increased its presence along the eastern shipping routes for the duration of the transition. Trade would not be disrupted. Any criminal activity would be met with immediate enforcement. Carmela received this with quiet relief.
+
+Thema turned toward Remsays. "Chief Magister. I hope you will forgive a question that falls somewhat outside today's occasion." Her voice was measured. "I was sorry to hear about the disruption at the Paragon induction. A troubling event. Is Director Landsrae badly wounded?"
+
+"He is recovering." Remsays replied, after a pause. "The situation is contained. The individual responsible is in our custody."
+
+"Of course." Thema nodded slowly, emphasizing her empathy. Then she looked up as if a new thought just popped into her head. "And the investigation, is Parliament satisfied with its progress?"
+
+"It is still ongoing. But I'm afraid I'm not at liberty to discuss the details of an active investigation." He kept his tone courteous. "I do appreciate the Sanctorium's concern."
+
+"Have you found out who he is working for?" Gemma asked.
+
+"He has not said." Remsays narrowed his eyes, and held his gaze at Gemma.
+
+Jude tilted his head slightly toward Thema, the ease of a man among people he had known for a long time. "Have the Pantheons experienced anything of a similar nature recently? Any security concerns we should be aware of?"
+
+"Nothing of that kind." Thema said.
+
+"Nor at Ivory." Carmela added.
+
+Jude nodded, seemingly satisfied.
+
+"I will say," Remsays continued, measured, "that my team expects to get considerably more out of the man in custody in the coming days. We shall identify his true master before long."
+
+It was a small thing. A fraction of a second. Thema's eyes moved to Gemma and Gemma's moved back. A brief closed circuit. There and gone before anyone who was not already watching for it.
+
+Remsays had been watching for it.
+
+The meeting concluded shortly after. Jude thanked Carmela for Ivory's hospitality and rose, easy and unhurried. Thema and Gemma departed with quiet efficiency.
+
+Remsays spoke before he and Jude reached the door. He addressed Carmela directly.
+
+"Lunary. I hope this won't seem unusual, but I would like to extend an invitation. To you and Quinnevere both, to my office at the Parliament for tea, at your convenience. Ivory's perspective on the transition period would be valuable to the Parliament, and I find that kind of conversation is easier outside a formal setting."
+
+"That is very kind," Carmela said. "We would be happy to."
+
+"I'll have my assistant send the date." He glanced at Quinn once, brief and professional, the glance of a man confirming a practical arrangement. Then he followed Jude into the corridor.
+
+Outside in the corridor, Quinn could hear the Premiere's voice carrying through the stone, lower now, easier.
+
+"Remy."
+
+A pause.
+
+"A beautiful woman is not a problem to be solved. She is simply a beautiful woman. There is no rule against having eyes." Jude's voice carried farther than he realized.
+
+Another pause.
+
+"She's lovely," Jude continued, with the particular patience of a man who had been saying wise things for a very long time, "there is also no rule against a paramour. In case you had forgotten. It's not a scandal. It is simply life."
+
+She could not hear what Remsays said in return. If he said anything at all.
+
+⁂
+
+Walking with Jude, Remsays was not thinking about Quinn. He was thinking about Gemma.
+
+He waited until they had passed the archway and the noise of the amphitheater grounds had risen enough to cover the conversation before he spoke.
+
+"Premiere. The Prisma Lunary."
+
+"Gemma? What about her?"
+
+"She knew about the attacker." He kept his voice even. "I did not share that it was a man, but she already knew."
+
+Jude was quiet for a moment. Around them the peacekeepers maintained their formation with practiced inattention.
+
+"You may be overthinking it," Jude said, carefully, not entirely dismissing what he was hearing. "Information travels to here the same way it travels anywhere. Sanctorium leadership has eyes in Parliament the same way we have eyes in here. Thema has sources."
+
+"Thema asked the question. But Gemma already knew the answer."
+
+"It's your call," Jude said after a moment, "I trust your judgment. I'd just advise care. The Sanctorium is not the Parliament. The rules of engagement are different."
+
+Remsays nodded once. He had already decided. The tea invitation had been a momentary impulse that had clarified into strategy in three seconds. If Gemma's reach extended into Paragon Command's classified security operations, then Remsays wanted the same reach into the Pantheons.
+
+Furthermore, there was still the archive matter, sitting unresolved at the back of his mind: five cycles of missing data, a dead man's Semper. He had been turning it over and he needed someone with access to the Sanctorium's Apotheosis records who might be persuaded, over tea, to help him answer a question without knowing they had answered it.
+
+There was an opportunity here at Ivory while there is no sitting Sol Deus. Carmela was reliable, measured, and capable of discretion. Remsays needed a foot inside the Pantheon, and he would have one shortly.
+
+⁂
+
+Two days later, Remsays's assistant Alexei knocked once and opened the door.
+
+"The Sanctorium visitors are here, sir."
+
+He set down the report he had been reading. "Send them in. And please have chef bring up the tea." He rose to greet them at the door.
+
+It was Gemma who walked in first. Smiling her signature smile. Quinn followed a step behind. She was wearing a rose-colored dress that suited her.
+
+"What a pleasure, Lunary Gemma." Remsays did not skip a beat. He nodded at Quinn.
+
+"I apologize on behalf of Lunary Carmela. She was called to an urgent matter with the council this morning. She sends her regards and asked me to accompany Quinnevere in her place." Gemma's delivery was gracious, but she did not seem sorry at all.
+
+"Please, come in." He led them through the adjoining door into the sitting room and gestured toward the leather sofas. His mind was already working through the adjustment.
+
+Gemma was Thema's. That much was certain. She was here because Thema had wanted ears in this room, which meant Thema was more interested in what Parliament knew about the attacker than she had been willing to show at the Ivory meeting. That was useful. That was, in fact, more useful than Carmela would have been.
+
+Quinn was less certain. She sat with her back straight, hands folded in her lap, taking the room in with a quiet, cataloguing attention that he recognized.
+
+A knock at the sitting room door. Tea. Remsays rose, collected the tray from the servitor, and returned to pour.
+
+He held a cup out toward Quinn. Their fingers touched, and she looked up as she took it, and there was a moment, brief and unguarded, where she seemed like she was deciding what to say. "Thank you, Chief Magister." She said quietly. Small color at the sides of her neck.
+
+"You can call me Remsays." He gave her an encouraging smile.
+
+Jude's voice surfaced in his mind, unbidden.
+
+There is no rule against a paramour. It's not a scandal. It is simply life.
+
+Still, he was not in the habit of using people. That was a line he had never crossed, not in the six months in this office, not in the years before it. He had hard lines and he kept them. But he was also in charge of a command with a classified security breach and a tongueless man in Ironfield who his team had not been able to extract information from for almost a week. Someone in the Sanctorium either sent that man or at least knew who had sent that man.
+
+He would need a moment alone with Quinn.
+
+He handed Gemma her cup and sat.
+
+"Sol Deus Thema sends her warmest regards. She wanted you to know how much she values her relationship with Premiere Jude and you as his most trusted personnel. The alliance she has maintained with the Premiere over the years extends to you as well."
+
+"That's quite a compliment." He turned his cup in his hands. "I am glad to be considered as an extension to our Premiere."
+
+"Personally, I am also looking forward to working closer with you, Remsays. I believe Pantheon Prisma has considerable resources to offer." Gemma held his gaze, pleasant and exact.
+
+"Then I believe it would be a very profitable friendship indeed." He glanced across to Quinn as he said it.
+
+She was watching him over the rim of her cup. Caught, she smiled. The color returned to her neck.
+
+He thought about the five missing cycles of archive records and the dead servitor's Semper. He thought about what he still did not know, and about where the answers might be sitting, three feet away from him, in a rose-colored dress.
+
+He set down his cup, leaned back, and looked at Quinn.
+
+Sometimes collateral damage is unavoidable. And in this case, it may at least be enjoyable.
+
+Then he smiled.` },
 ];
 
 const SampleChapters = () => {
