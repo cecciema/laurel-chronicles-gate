@@ -69,7 +69,7 @@ const ScrollReveal = ({ children, delay = 0, className = "" }: { children: React
 // ─── Main Component ────────────────────────────────────────────────────────────
 const Index = () => {
   const navigate = useNavigate();
-  const [showIntro, setShowIntro] = useState(false);
+  const showIntro = false;
   const mousePos = useRef({ x: 0, y: 0 });
   const bgRef = useRef<HTMLDivElement>(null);
   const midRef = useRef<HTMLDivElement>(null);
