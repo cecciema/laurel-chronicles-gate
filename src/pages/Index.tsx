@@ -514,7 +514,7 @@ The Sanctorium made decisions that governed their own body on their own timeline
 
 He pulled up his calendar and looked at the red circle he had drawn there two weeks ago when the private correspondence had arrived. It was handwritten in small, precise handwriting. The postscript was two words:
 
-Almost time.
+*Almost time.*
 
 He had read that letter standing at his desk and felt something shift in his chest. He had folded it and put it in the locked drawer and gone back to work.
 
@@ -576,7 +576,7 @@ Anwen found them first and said nothing for a moment, then looked up at Remsays 
 
 Remsays went to his office. He only had a short time before the lunch function. He would use the time to review the induction speech one final time. The sabotage idea was still moving somewhere at the back of his head, making him uneasy in a way he could not fully justify and could not entirely dismiss. He stood at the window with the holograph text projected at eye level and ran the words quietly in his head, watching the plaza below fill up with the morning's foot traffic, and thought about how quickly things could change.
 
-Almost time.` },
+*Almost time.*` },
   { number: 3, title: "Chapter III: Forum District", content: `The Forum lunch was held in the Premiere's private dining room on the second floor of Premiere's Quarters, where the floor to ceiling windows looked out over Plaza de Montecito and the afternoon light came in clear and clean. Nine people around a long table: the four Magistry directors, one senior Parliament advisor, two officials from the Sanctorium liaison office, with Premiere Jude at the head, Remsays to his right.
 
 Remsays had been seated there for six months now, and he still noticed the small adjustments people made the second Jude walked in the room. People tracked Jude without trying to, oriented toward him the way a group of people in a cold room would orient toward the only source of heat. He had understood from early in his career that access to the Premiere was the currency that made everything else in the Forum function.
@@ -1060,7 +1060,7 @@ He thought about the five missing cycles of archive records and the dead servito
 
 He set down his cup, leaned back, and looked at Quinn.
 
-Sometimes collateral damage is unavoidable. And in this case, it may at least be enjoyable.
+*Sometimes collateral damage is unavoidable. And in this case, it may at least be enjoyable.*
 
 Then he smiled.` },
 ];
