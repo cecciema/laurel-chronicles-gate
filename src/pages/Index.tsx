@@ -948,7 +948,7 @@ const SampleChapters = () => {
       }
 
       // Time stamp line
-      if (/years?\s+(prior|later|before|after)/i.test(trimmed)) {
+      if (/^(a\s+few\s+)?years?\s+(prior|later|before|after)$/i.test(trimmed)) {
         inPoem = false;
         return (
           <p key={i} className="text-center font-display text-[10px] tracking-[0.35em] uppercase text-muted-foreground mt-2 mb-8">
