@@ -69,7 +69,7 @@ const ScrollReveal = ({ children, delay = 0, className = "" }: { children: React
 // ─── Main Component ────────────────────────────────────────────────────────────
 const Index = () => {
   const navigate = useNavigate();
-  const [showIntro, setShowIntro] = useState(false);
+  const showIntro = false;
   const mousePos = useRef({ x: 0, y: 0 });
   const bgRef = useRef<HTMLDivElement>(null);
   const midRef = useRef<HTMLDivElement>(null);
@@ -980,13 +980,6 @@ const SampleChapters = () => {
           </p>
         );
       }
-
-      // Check if line is all uppercase (common book formatting for scene openers)
-      // If so, convert to sentence case for consistent prose styling
-      const isAllCaps = trimmed.length > 20 && trimmed === trimmed.toUpperCase() && /[A-Z]/.test(trimmed);
-      const displayText = isAllCaps 
-        ? trimmed.charAt(0) + trimmed.slice(1).toLowerCase()
-        : trimmed;
 
       // Default prose
       return (
