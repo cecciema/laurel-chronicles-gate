@@ -991,7 +991,7 @@ const SampleChapters = () => {
       // Default prose
       return (
         <p key={i} className="text-left leading-[1.9] mb-0">
-          {displayText}
+           {trimmed}
         </p>
       );
     });
