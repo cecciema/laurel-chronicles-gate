@@ -1159,10 +1159,17 @@ const SampleChapters = () => {
         );
       }
 
-      // Default prose
+      // Default prose — supports *italic* inline markup
+      const parts = trimmed.split(/(\*[^*]+\*)/g);
       return (
         <p key={i} className="text-left leading-[1.9] mb-0">
-           {trimmed}
+          {parts.map((part, j) =>
+            part.startsWith("*") && part.endsWith("*") ? (
+              <em key={j}>{part.slice(1, -1)}</em>
+            ) : (
+              part
+            )
+          )}
         </p>
       );
     });
