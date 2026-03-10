@@ -1108,7 +1108,7 @@ const SampleChapters = () => {
     let prevBlank = false;
 
     return lines.map((line, i) => {
-      const trimmed = line.trim();
+      const trimmed = line.trim().replace(/—/g, ' - ');
 
       if (trimmed === "⁂") {
         inPoem = false;
