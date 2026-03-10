@@ -549,6 +549,8 @@ Morrison's limping gait and yellowed teeth had always unsettled her. He was a we
 
 Outside, the bell tower tolled once. The morning prayer bell. Carmela clasped her hands, touched her forehead to her knuckles, then her lips to her thumbs. As she moved through the praying words, her mind drifted back four days, to the Ivory Planetarium.
 
+⁂
+
 She had gone there in the middle of the night, unable to sleep. It was a habit from childhood - the stars had always steadied her. Her favorite star was the Vulpes Alpha, the principal star of the constellation, the bond that held the two vixens together. What she loved about it was this: for such a vital star, it glowed softer than most others around it. It knew its own importance. It did not need to convince anyone.
 
 She had not expected to find him there. Lockland was standing at the center of the observation deck, looking up, and she realized immediately that he had the same idea she did. She walked toward him feeling glad, and then the tears came before she could stop them, arriving at exactly the moment he turned around to look at her.
