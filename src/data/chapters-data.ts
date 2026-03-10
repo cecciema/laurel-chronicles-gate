@@ -587,11 +587,7 @@ She opened her door and steadied herself for what was to come, today and in the 
 
 The amphitheater was already being prepared when she arrived to inspect it. Ivory's ceremonial amphitheater was carved into the natural rock formation at the Pantheon's southern edge. Tiered stone seating descending in wide concentric arcs toward a raised circular dais at the center, open to the sky, flanked on three sides by the sheer faces of the cliff that had been there long before anyone had thought to build a Pantheon against them. Torches had been lit along every tier. Carmela walked along the perimeter of the dais and checked each element against her list. Everything was in order.
 
-⁂
-
 The ascendees began arriving. They came through the main gates in groups. Brought in from the transport stations and surrounding roads by Pantheon escort, some from very far regions, some from nearby. Most had never been to Ivory before. She could tell by the way they took in the architecture: the slow tilting of the head, the paused step, the attention that snagged on the carved stonework or the long corridor columns or the sheer scale of the amphitheater when it first came into view. Carmela had seen this reaction so many times and it had never ceased to move her. She felt proud to be a part of this great Pantheon.
-
-⁂
 
 The morning blessing began when the sun cleared the eastern cliff face and the first full light fell across the dais. Carmela stood at Lockland's right as he addressed the assembled ascendees, thousands of them filling the tiered stone seating, their faces upturned and still, quiet and reverent in a way that crowds rarely were. His voice carried without effort. It always had.
 
