@@ -2,7 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import { isTouch } from "@/components/CustomCursor";
-import { ScrollCollection } from "@/components/ChroniclesSystem";
+import { CHAPTERS } from "@/data/chapters-data";
+import manuscriptHero from "@/assets/manuscript-hero.jpg";
 
 // ── ScrollReveal ──────────────────────────────────────────────────────────────
 const ScrollReveal = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
@@ -33,11 +34,6 @@ const ScrollReveal = ({ children, delay = 0, className = "" }: { children: React
     </div>
   );
 };
-
-// ── Chapter data ──────────────────────────────────────────────────────────────
-// This will be populated by moving the CHAPTERS array from Index.tsx
-// For now we import it
-import { CHAPTERS } from "@/data/chapters-data";
 
 // ── SampleChapters Component ──────────────────────────────────────────────────
 const SampleChapters = () => {
@@ -85,7 +81,6 @@ const SampleChapters = () => {
     return lines.map((line, i) => {
       const trimmed = line.trim().replace(/—/g, ' - ');
 
-      // Reset prevBlank for all non-empty lines
       if (trimmed !== "") {
         prevBlank = false;
       }
@@ -201,20 +196,27 @@ const SampleChapters = () => {
 const Manuscript = () => {
   return (
     <Layout>
-      <ScrollCollection />
-      <section className="pt-28 sm:pt-24 pb-16 sm:pb-20 px-5 sm:px-8">
+      {/* Hero Banner */}
+      <div
+        className="relative h-[40vh] sm:h-[50vh] w-full bg-cover bg-center"
+        style={{ backgroundImage: `url(${manuscriptHero})` }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to bottom, transparent, #0f0b06)" }}
+        />
+        <div className="relative z-10 flex flex-col items-center justify-end h-full pb-8">
+          <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
+            ✦ Sample Chapters ✦
+          </p>
+          <h1 className="font-display text-xl sm:text-2xl tracking-[0.15em] text-foreground">
+            Read the First Six Chapters
+          </h1>
+        </div>
+      </div>
+
+      <section className="pb-16 sm:pb-20 pt-10 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-10">
-              <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
-                ✦ Sample Chapters ✦
-              </p>
-              <h1 className="font-display text-xl sm:text-2xl tracking-[0.15em] text-foreground">
-                Read the First Six Chapters
-              </h1>
-              <div className="steampunk-divider max-w-xs mx-auto mt-4" />
-            </div>
-          </ScrollReveal>
           <ScrollReveal delay={0.15}>
             <SampleChapters />
           </ScrollReveal>
