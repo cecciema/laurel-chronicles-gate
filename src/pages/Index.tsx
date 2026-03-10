@@ -287,7 +287,7 @@ const Index = () => {
                 >
                   <Link
                     to={card.to}
-                    className={`block h-full p-4 sm:p-6 bg-card border border-border hover:border-primary/40 transition-all hover:shadow-brass group ${card.to === "/manuscript" ? "flex flex-col items-center justify-center text-center" : ""}`}
+                    className="block h-full p-4 sm:p-6 bg-card border border-border hover:border-primary/40 transition-all hover:shadow-brass group flex flex-col items-center justify-center text-center"
                     style={isTouch ? undefined : { cursor: "none" }}
                   >
                     <h3 className="font-display text-sm tracking-[0.15em] text-primary group-hover:text-brass-glow transition-colors">
