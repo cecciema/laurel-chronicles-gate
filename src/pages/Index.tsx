@@ -1159,7 +1159,7 @@ const SampleChapters = () => {
         return (
           <p
             key={i}
-            className="text-center font-narrative italic text-foreground/70 leading-[2.2] w-full"
+            className="!text-center font-narrative italic text-foreground/70 leading-[2.2] w-full"
           >
             {trimmed}
           </p>
