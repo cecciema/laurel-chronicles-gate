@@ -1105,6 +1105,7 @@ const SampleChapters = () => {
   {(() => {
     const lines = chapter.content.split("\n");
     let inPoem = false;
+    let prevBlank = false;
 
     return lines.map((line, i) => {
       const trimmed = line.trim();
