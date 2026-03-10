@@ -585,8 +585,6 @@ The bell tower tolled again and drew her back from her reverie. Carmela tucked t
 
 She opened her door and steadied herself for what was to come, today and in the next thirty days. She would make him proud. The hallway was bustling with the quick footsteps of devotees moving in every direction, the scent of fresh laurel and cut wood from the garlands already braided around the corridor columns, the low hum of preparation that had been going on without her while she was still inside her own head. The Pantheon was awake. Carmela straightened the pins at her shoulders and stepped out to meet it.
 
-⁂
-
 The amphitheater was already being prepared when she arrived to inspect it. Ivory's ceremonial amphitheater was carved into the natural rock formation at the Pantheon's southern edge. Tiered stone seating descending in wide concentric arcs toward a raised circular dais at the center, open to the sky, flanked on three sides by the sheer faces of the cliff that had been there long before anyone had thought to build a Pantheon against them. Torches had been lit along every tier. Carmela walked along the perimeter of the dais and checked each element against her list. Everything was in order.
 
 ⁂
