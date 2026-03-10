@@ -199,7 +199,7 @@ const Manuscript = () => {
       {/* Hero Banner */}
       <div
         className="relative h-[40vh] sm:h-[50vh] w-full bg-cover"
-        style={{ backgroundImage: `url(${manuscriptHero})`, backgroundPosition: "center 80%" }}
+        style={{ backgroundImage: `url(${manuscriptHero})`, backgroundPosition: "center 20%" }}
       >
         <div
           className="absolute inset-0"
