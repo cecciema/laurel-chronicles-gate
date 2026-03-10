@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import { isTouch } from "@/components/CustomCursor";
+import ParticleCanvas from "@/components/ParticleCanvas";
 import { CHAPTERS } from "@/data/chapters-data";
 import manuscriptHero from "@/assets/manuscript-hero.jpg";
 
@@ -205,6 +206,7 @@ const Manuscript = () => {
           className="absolute inset-0"
           style={{ background: "linear-gradient(to bottom, transparent 50%, #0f0b06)" }}
         />
+        <ParticleCanvas density={0.5} />
         <div className="relative z-10 flex flex-col items-center justify-end h-full pb-8">
           <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
             ✦ Sample Chapters ✦
