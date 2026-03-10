@@ -750,7 +750,7 @@ Nothing.
 
 Still nothing.
 
-Remsays sighed. And mouthed to Culver: get ready.
+Remsays sighed. And mouthed to Culver: *get ready*.
 
 Culver nodded with focus.
 
