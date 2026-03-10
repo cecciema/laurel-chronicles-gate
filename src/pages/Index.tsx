@@ -593,21 +593,21 @@ The Sanctorium had sent two representatives: Lunary Kasen Welliver of Pantheon G
 
 She was a small woman, pretty in a precise and self-possessed way, with shoulder-length blonde hair tucked neatly behind her ear and the kind of composed expression that made it genuinely difficult to tell what she was thinking at any given moment. She wore the formal Lunary robe with the silver laurel leaves pinned to her chest. Remsays had encountered her at two prior functions and had each time come away with the sense that she was paying more attention to the room than her stillness suggested. Therefore Remsays did not trust her, but he did not trust anyone currently on the Sanctorium side.
 
-The Lockland announcement opened the formal business. Aspen dove into it immediately, with the practiced ease of someone who had been preparing his position since the news broke. He questioned with emphasis whether the thirty-day vacancy in Ivory's governance created any regulatory exposure in the eastern territories, and then, before the Sanctorium liaisons could respond, noted that the convoy's three most recent disruptions had all occurred within the eastern corridor. He did not frame it as an accusation, but it was a fact of the Pantheon's weakness that was difficult to deflect. And offered to lend his Northeast Quadrant peace officers to reinforce the shipping routes as well as the Pantheon itself.
+The Lockland announcement opened the formal business. Aspen dove into it immediately, with the practiced ease of someone who had been preparing his position since the news broke. He questioned with emphasis whether the thirty-day vacancy in Ivory's governance created any regulatory exposure in the eastern territories, and then, before the Sanctorium liaisons could respond, noted that the Convoy's three most recent disruptions had all occurred within the eastern corridor. He did not frame it as an accusation, but it was a fact of the Pantheon's weakness that was difficult to deflect. And offered to lend his Northeast Quadrant peace officers to reinforce the shipping routes as well as the Pantheon itself.
 
 "The Sanctorium has full transition protocols for a period such as this," Gemma said. Her voice was measured and unhurried, the voice of someone who had given this answer before and expected to give it again. "Ivory's own sentries are trained for exactly the kind of security that a sacred transition requires. The introduction of Magistry personnel into Ivory grounds during a sacred transition period would be seen by the faithful as an intrusion. I do not think any of us want the devotees feeling as though their grief is being policed."
 
-"With respect, Lunary," Aspen said pleasantly, "I am not talking about policing grief, I am talking about a thirty-day window in which Ivory has no sitting Sol Deus, which is the longest unprotected window the Sanctorium has had in over two decades. The convoy has shown a clear interest in symbolic targets."
+"With respect, Lunary," Aspen said pleasantly, "I am not talking about policing grief, I am talking about a thirty-day window in which Ivory has no sitting Sol Deus, which is the longest unprotected window the Sanctorium has had in over two decades. The Convoy has shown a clear interest in symbolic targets."
 
-A few people showed surprise at the mention of the convoy, a rumored rebellion group that the mass has attributed the unsolved crimes to.
+A few people showed surprise at the mention of the Convoy, a rumored rebellion group that the mass has attributed the unsolved crimes to.
 
-"The convoy," Gemma said, tone inquisitive rather than mocking, "Director Landsrae, am I to believe my ears that you are suggesting the convoy is the culprit behind these so-called interruptions in Ivory's eastern regions? That is pure conspiracy, a lore in the Deep Forge that school masters tell the young children."
+"The Convoy," Gemma said, tone inquisitive rather than mocking, "Director Landsrae, am I to believe my ears that you are suggesting the Convoy is the culprit behind these so-called interruptions in Ivory's eastern regions? That is pure conspiracy, a lore in the Deep Forge that school masters tell the young children."
 
 Aspen spread his hands in a gesture that might precisely be the case. "We cannot afford to ignore any potential piece of intelligence, not at the Magistry of Peace. We have to assume their existence until we have evidence to the contrary, because the cost the other way around is simply unaffordable."
 
 "Regardless, Pantheon Ivory is not unprotected," Gemma sighed, not wanting to debate a rumor so she shifted strategies. Her tone carried the faintest edge now. "Sol Deus Thema will personally oversee continuity of Ivory's operations for the duration of the vacancy. Their sentries will answer to her. I would remind this table that the Sanctorium's jurisdiction over its own grounds is not conditional."
 
-Director Atara Bode of the Northwest Magistry of Ocean set her glass down. "Sol Deus Lockland has been presiding for longer than some of the devotees have been alive. He was beloved by virtually all, not just within the Sanctorium but out here in the Deep Forge and in the Parliament as well. Our people are frightened. The convoy, whether the rumors are to be believed or not, are still smart and sophisticated criminals. They are organized and have shown they can exploit this kind of emotional state. Director Landsrae's concern is worth taking seriously rather than routing it through protocol."
+Director Atara Bode of the Northwest Magistry of Ocean set her glass down. "Sol Deus Lockland has been presiding for longer than some of the devotees have been alive. He was beloved by virtually all, not just within the Sanctorium but out here in the Deep Forge and in the Parliament as well. Our people are frightened. The Convoy, whether the rumors are to be believed or not, are still smart and sophisticated criminals. They are organized and have shown they can exploit this kind of emotional state. Director Landsrae's concern is worth taking seriously rather than routing it through protocol."
 
 "I am not routing it through protocol," Gemma said. "I am routing it through the law."
 
@@ -623,7 +623,7 @@ Premiere Jude had let the conversation run, which was how he always operated: gi
 
 There was a visible easing of tension in Lunaries Gemma and Kasen. Gemma said nothing, but she unfolded her hands.
 
-"Regarding the convoy rebellion," Jude continued, glancing briefly at the table as a whole, "is a matter I want elevated to a separate briefing. Aspen, I want a full incident summary on my desk before the end of the week."
+"Regarding the Convoy rebellion," Jude continued, glancing briefly at the table as a whole, "is a matter I want elevated to a separate briefing. Aspen, I want a full incident summary on my desk before the end of the week."
 
 "Yes sir." Aspen's tone agreeable as always.
 
