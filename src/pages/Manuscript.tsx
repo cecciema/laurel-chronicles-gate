@@ -199,11 +199,11 @@ const Manuscript = () => {
       {/* Hero Banner */}
       <div
         className="relative h-[40vh] sm:h-[50vh] w-full bg-cover"
-        style={{ backgroundImage: `url(${manuscriptHero})`, backgroundPosition: "center 60%" }}
+        style={{ backgroundImage: `url(${manuscriptHero})`, backgroundPosition: "center 80%" }}
       >
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, #0f0b06, transparent 15%, transparent 60%, #0f0b06)" }}
+          style={{ background: "linear-gradient(to bottom, transparent 50%, #0f0b06)" }}
         />
         <div className="relative z-10 flex flex-col items-center justify-end h-full pb-8">
           <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
