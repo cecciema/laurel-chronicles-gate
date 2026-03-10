@@ -272,17 +272,22 @@ const Index = () => {
 
           {/* Navigation Cards */}
           <section className="py-16 px-4 bg-secondary/30">
-            <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+            <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-5 gap-6 items-stretch">
               {[
                 { to: "/world", title: "World Overview", desc: "Explore the Republic's territories, culture, and power structures" },
                 { to: "/characters", title: "Character Database", desc: "Discover the key figures shaping the fate of the world" },
                 { to: "/timeline", title: "Timeline", desc: "Trace the events that brought the Republic to the brink" },
                 { to: "/map", title: "World Map", desc: "Navigate the regions of the Republic" },
+                { to: "/manuscript", title: "Manuscript", desc: "Read the first six chapters of the novel" },
               ].map((card, i) => (
-                <ScrollReveal key={card.to} delay={i * 0.08} className="h-full">
+                <ScrollReveal
+                  key={card.to}
+                  delay={i * 0.08}
+                  className={`h-full ${card.to === "/manuscript" ? "col-span-2 lg:col-span-1" : ""}`}
+                >
                   <Link
                     to={card.to}
-                    className="block h-full p-4 sm:p-6 bg-card border border-border hover:border-primary/40 transition-all hover:shadow-brass group"
+                    className={`block h-full p-4 sm:p-6 bg-card border border-border hover:border-primary/40 transition-all hover:shadow-brass group ${card.to === "/manuscript" ? "min-h-0 sm:min-h-0" : ""}`}
                     style={isTouch ? undefined : { cursor: "none" }}
                   >
                     <h3 className="font-display text-sm tracking-[0.15em] text-primary group-hover:text-brass-glow transition-colors">
