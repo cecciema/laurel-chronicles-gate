@@ -17,6 +17,7 @@ import WorldMap from "./pages/WorldMap";
 
 import NotFound from "./pages/NotFound";
 import Bestiary from "./pages/Bestiary";
+import Manuscript from "./pages/Manuscript";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -79,6 +80,7 @@ const AppInner = () => {
             <Route path="/characters" element={<Characters />} />
             <Route path="/timeline" element={<Timeline />} />
             <Route path="/map" element={<WorldMap />} />
+            <Route path="/manuscript" element={<Manuscript />} />
             <Route path="/bestiary" element={<Bestiary />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
