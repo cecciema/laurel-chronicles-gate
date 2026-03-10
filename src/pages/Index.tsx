@@ -637,7 +637,7 @@ Jude continued, "What is your read?"
 
 Jude nodded once, and looked at Remsays for a moment with an expression that was not quite paternal but on the same spectrum, something that said he was pleased and not surprised to be pleased.
 
-The rest of the lunch moved through its business without incident. Director Tekin Alimetry of Northwest Magistry of Cure raised the quarterly booster vial allocation figures, which produced a brief technical discussion Remsays participated in precisely as much as was necessary. Atara and Aspen argued mildly about an observatory budget line — equipment vs. surveillance. Remsays offered a proposed reallocation that resolved the dispute without requiring either of them to concede, and the table moved on.
+The rest of the lunch moved through its business without incident. Director Tekin Alimetry of Northwest Magistry of Cure raised the quarterly booster draft allocation figures, which produced a brief technical discussion Remsays participated in precisely as much as was necessary. Atara and Aspen argued mildly about an observatory budget line — equipment vs. surveillance. Remsays offered a proposed reallocation that resolved the dispute without requiring either of them to concede, and the table moved on.
 
 Walking out after, Aspen fell into step beside him before Remsays had reached the stairwell.
 
