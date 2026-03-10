@@ -451,7 +451,7 @@ So let them come, my demons, at their hour,
 And tell me faith…
 
 
-Cole took another drink and felt his eyelids grow heavy. This is some dark poetry — maybe not the best material to read the night before a wedding. He had so much to look forward to tomorrow. Both of them did. He took another sip, fingers gently tapping the leather armrest to the slow beats of the piano. His eyes grew heavier. Maybe a nap first, he thought, as he looked down at the page. One more sip. And he closed his eyes, still smiling.
+Cole took another drink and felt his eyelids grow heavy. This is some dark poetry - maybe not the best material to read the night before a wedding. He had so much to look forward to tomorrow. Both of them did. He took another sip, fingers gently tapping the leather armrest to the slow beats of the piano. His eyes grew heavier. Maybe a nap first, he thought, as he looked down at the page. One more sip. And he closed his eyes, still smiling.
 
 ⁂
 
