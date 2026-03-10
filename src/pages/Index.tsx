@@ -1110,6 +1110,11 @@ const SampleChapters = () => {
     return lines.map((line, i) => {
       const trimmed = line.trim().replace(/—/g, ' - ');
 
+      // Reset prevBlank for all non-empty lines
+      if (trimmed !== "") {
+        prevBlank = false;
+      }
+
       if (trimmed === "⁂") {
         inPoem = false;
         return (
@@ -1153,7 +1158,6 @@ const SampleChapters = () => {
         prevBlank = true;
         return <div key={i} className="h-4" />;
       }
-      prevBlank = false;
 
       if (inPoem) {
         return (
