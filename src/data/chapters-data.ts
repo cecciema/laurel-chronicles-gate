@@ -134,6 +134,8 @@ What use is crown that could not hold one life?
 
 So let them come, my demons, at their hour…
 
+⁂
+
 
 Cole took another drink, and felt his eyelids get heavy. This is some dark poetry, maybe not the best material to read before the wedding. He had so much to look forward to tomorrow.
 
