@@ -1101,7 +1101,7 @@ const SampleChapters = () => {
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.4 }}
           >
-           <div className="font-narrative text-[0.9375rem] leading-[1.9] text-foreground/80">
+          <div className="font-narrative text-[0.9375rem] leading-[1.9] text-foreground/80">
   {(() => {
     const lines = chapter.content.split("\n");
     let inPoem = false;
@@ -1109,7 +1109,6 @@ const SampleChapters = () => {
     return lines.map((line, i) => {
       const trimmed = line.trim();
 
-      // Section break
       if (trimmed === "⁂") {
         inPoem = false;
         return (
@@ -1119,48 +1118,51 @@ const SampleChapters = () => {
         );
       }
 
-      // Separator line (docx section divider)
       if (trimmed === "--" || trimmed === "__" || trimmed === "---") {
         inPoem = false;
         return <div key={i} className="h-4" />;
       }
 
-      // Time stamp line
       if (/^(a\s+few\s+)?years?\s+(prior|later|before|after)$/i.test(trimmed)) {
         inPoem = false;
         return (
-          <p key={i} className="text-center font-display text-[10px] tracking-[0.35em] uppercase text-muted-foreground mt-2 mb-8">
+          <p
+            key={i}
+            className="text-center font-display text-[10px] tracking-[0.35em] uppercase text-muted-foreground mt-2 mb-8"
+          >
             {trimmed}
           </p>
         );
       }
 
-      // Poem title — triggers poem mode
       if (trimmed === "As They Ponder") {
         inPoem = true;
         return (
-          <p key={i} className="text-center font-display text-sm tracking-[0.2em] text-foreground/60 mt-8 mb-4">
+          <p
+            key={i}
+            className="text-center font-display text-sm tracking-[0.2em] text-foreground/60 mt-8 mb-4"
+          >
             {trimmed}
           </p>
         );
       }
 
-     // Empty line
-if (trimmed === "") {
-  if (inPoem) inPoem = false; // poem ends on blank line
-  return <div key={i} className="h-4" />;
-}
+      if (trimmed === "") {
+        if (inPoem) inPoem = false;
+        return <div key={i} className="h-4" />;
+      }
 
-      // Poem lines — all centered while inPoem is true
       if (inPoem) {
         return (
-          <p key={i} className="text-center font-narrative italic text-foreground/70 leading-[2.2] w-full">
+          <p
+            key={i}
+            className="block w-full text-center font-narrative italic text-foreground/70 leading-[2.2] mx-auto"
+          >
             {trimmed}
           </p>
         );
       }
 
-      // Default prose — supports *italic* inline markup
       const parts = trimmed.split(/(\*[^*]+\*)/g);
       return (
         <p key={i} className="text-left leading-[1.9] mb-0">
@@ -1176,7 +1178,6 @@ if (trimmed === "") {
     });
   })()}
 </div>
-
           </motion.div>
         </AnimatePresence>
       </div>
