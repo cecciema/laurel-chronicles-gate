@@ -1149,8 +1149,11 @@ const SampleChapters = () => {
       }
 
       if (trimmed === "") {
+        if (inPoem && prevBlank) inPoem = false;
+        prevBlank = true;
         return <div key={i} className="h-4" />;
       }
+      prevBlank = false;
 
       if (inPoem) {
         return (
