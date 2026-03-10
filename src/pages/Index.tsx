@@ -1145,10 +1145,11 @@ const SampleChapters = () => {
         );
       }
 
-      // Empty line
-      if (trimmed === "") {
-        return <div key={i} className="h-4" />;
-      }
+     // Empty line
+if (trimmed === "") {
+  if (inPoem) inPoem = false; // poem ends on blank line
+  return <div key={i} className="h-4" />;
+}
 
       // Poem lines — all centered while inPoem is true
       if (inPoem) {
