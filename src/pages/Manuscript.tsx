@@ -201,7 +201,7 @@ const SampleChapters = () => {
 const Manuscript = () => {
   return (
     <Layout>
-      <ScrollCollection scrollId="manuscript" />
+      <ScrollCollection />
       <section className="pt-28 sm:pt-24 pb-16 sm:pb-20 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
