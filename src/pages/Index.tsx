@@ -780,7 +780,7 @@ Remsays felt the heat move through him before he had finished processing what he
 
 Culver looked up at Remsays.
 
-"He's out." Remsays said, more to himself than to Culver. He straightened and pressed two fingers to his watch. "Zeus, dispatch Peace officers to the kitchen supply hall storage annex. Secure the prisoner. Bring him to the Ironfield."
+"He's out." Remsays said, more to himself than to Culver. He straightened and pressed two fingers to his watch. "Zeus, dispatch Peace officers to the kitchen supply hall storage annex. Secure the prisoner. Bring him to Ironfield."
 
 "Dispatching now. Estimated arrival, four minutes."
 
