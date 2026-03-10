@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import { isTouch } from "@/components/CustomCursor";
+import ParticleCanvas from "@/components/ParticleCanvas";
 import { CHAPTERS } from "@/data/chapters-data";
 import manuscriptHero from "@/assets/manuscript-hero.jpg";
 
