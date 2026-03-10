@@ -269,25 +269,6 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Sample Chapters */}
-          <section className="py-16 sm:py-20 px-5 sm:px-8 border-t border-border/30">
-            <div className="max-w-3xl mx-auto">
-              <ScrollReveal>
-                <div className="text-center mb-10">
-                  <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
-                    ✦ Sample Chapters ✦
-                  </p>
-                  <h2 className="font-display text-xl sm:text-2xl tracking-[0.15em] text-foreground">
-                    Read the First Six Chapters
-                  </h2>
-                  <div className="steampunk-divider max-w-xs mx-auto mt-4" />
-                </div>
-              </ScrollReveal>
-              <ScrollReveal delay={0.15}>
-                <SampleChapters />
-              </ScrollReveal>
-            </div>
-          </section>
 
           {/* Navigation Cards */}
           <section className="py-16 px-4 bg-secondary/30">
