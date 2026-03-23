@@ -63,6 +63,15 @@ const Footer = () => {
           >
             <TikTokIcon />
           </a>
+          <a
+            href="https://laurelcrownsabove.substack.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Substack"
+          >
+            <SubstackIcon />
+          </a>
         </div>
         <div className="flex flex-col gap-[2px]">
           <p
