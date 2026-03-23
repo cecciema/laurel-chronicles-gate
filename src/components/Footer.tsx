@@ -16,6 +16,24 @@ const TikTokIcon = () => (
   </svg>
 );
 
+const SubstackIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M4 4h16" />
+    <path d="M4 8h16" />
+    <path d="M4 12l8 6 8-6" />
+  </svg>
+);
+
 const Footer = () => {
   return (
     <footer
@@ -44,6 +62,15 @@ const Footer = () => {
             aria-label="TikTok"
           >
             <TikTokIcon />
+          </a>
+          <a
+            href="https://laurelcrownsabove.substack.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Substack"
+          >
+            <SubstackIcon />
           </a>
         </div>
         <div className="flex flex-col gap-[2px]">
