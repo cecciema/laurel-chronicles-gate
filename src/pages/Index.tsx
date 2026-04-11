@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
+import GoldDivider from "@/components/GoldDivider";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { QuestTrigger, ScrollCollection, useGame } from "@/components/ChroniclesSystem";
@@ -183,15 +184,15 @@ const Index = () => {
                 <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
                   <Link
                     to="/world"
-                    className="btn-pulse-glow w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow"
-                    style={isTouch ? undefined : { cursor: "none" }}
+                    className="btn-pulse-glow w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow rounded-[2px]"
+                    style={{ ...(isTouch ? {} : { cursor: "none" }), boxShadow: "inset 0 0 0 1px hsl(var(--gold-ancient) / .3)" }}
                   >
                     Enter the Republic
                   </Link>
                   <Link
                     to="/characters"
-                    className="w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 border border-primary/40 text-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/80 transition-colors"
-                    style={isTouch ? undefined : { cursor: "none" }}
+                    className="w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 border text-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/80 transition-colors rounded-[2px]"
+                    style={{ borderColor: "hsl(var(--gold-ancient) / .5)", ...(isTouch ? {} : { cursor: "none" }) }}
                   >
                     Meet the Players
                   </Link>
@@ -231,7 +232,7 @@ const Index = () => {
           <section className="py-16 sm:py-24 px-5 sm:px-4">
             <div className="max-w-4xl mx-auto text-center relative">
               <ScrollReveal>
-                <div className="gold-divider max-w-xs mx-auto mb-8" />
+                <GoldDivider className="max-w-xs mx-auto mb-8" />
               </ScrollReveal>
               <ScrollReveal delay={0.1}>
                 <h2 className="font-display text-2xl sm:text-3xl tracking-[0.1em] text-foreground">
@@ -244,7 +245,7 @@ const Index = () => {
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.3}>
-                <div className="gold-divider max-w-xs mx-auto mt-8" />
+                <GoldDivider className="max-w-xs mx-auto mt-8" />
               </ScrollReveal>
             </div>
           </section>
@@ -255,12 +256,12 @@ const Index = () => {
               <ScrollReveal>
                 <div className="text-center mb-10">
                   <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
-                    ✦ The Chronicles of Panterra ✦
+                    ◆ The Chronicles of Panterra ◆
                   </p>
                   <h2 className="font-display text-xl sm:text-2xl tracking-[0.15em] text-foreground">
                     Fragments of Forbidden Truth
                   </h2>
-                  <div className="gold-divider max-w-xs mx-auto mt-4" />
+                  <GoldDivider className="max-w-xs mx-auto mt-4" />
                 </div>
               </ScrollReveal>
               <ScrollReveal delay={0.1}>
@@ -332,7 +333,7 @@ const EasterEggGlyph = () => {
       className="fixed bottom-[70px] sm:bottom-3 left-3 z-[5] w-6 h-6 flex items-center justify-center select-none"
       style={{ opacity: 0.15, cursor: "default" }}
     >
-      <span className="font-display text-base" style={{ color: "hsl(38 30% 40%)" }}>✦</span>
+      <span className="font-display text-base" style={{ color: "hsl(38 30% 40%)" }}>◆</span>
     </button>
   );
 };
