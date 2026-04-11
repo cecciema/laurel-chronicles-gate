@@ -573,6 +573,7 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
               onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(180, 140, 60, 0.55)"; }}
               onMouseLeave={e => { e.currentTarget.style.border = "1px solid rgba(180, 140, 60, 0.25)"; e.currentTarget.style.borderTop = "1px solid rgba(180, 140, 60, 0.4)"; }}
             >
+              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[rgba(180,140,60,0.5)] to-transparent" />
               {/* Scroll number */}
               <div className="flex items-start justify-between mb-2">
                 <span
