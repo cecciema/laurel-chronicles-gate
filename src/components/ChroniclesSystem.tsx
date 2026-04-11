@@ -342,6 +342,7 @@ const GAME_DEFAULTS: GameContextType = {
   startQuest: () => {},
   completeQuest: () => {},
   solveRiddle: () => {},
+  startRiddle: () => {},
   awardScroll: () => {},
   triggerValoricaReveal: () => {},
 };
