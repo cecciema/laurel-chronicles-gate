@@ -6,6 +6,7 @@ import { HiddenOrb } from "@/components/ChroniclesSystem";
 import { DeadCorridors } from "@/components/DeadCorridors";
 import apotheosisBg from "@/assets/apotheosis.jpg";
 import GuideWhisper from "@/components/GuideWhisper";
+import GoldDivider from "@/components/GoldDivider";
 
 // ── Read unlock state from Chronicles localStorage ─────────────────────────────
 // foundScrolls: updated scroll assignments

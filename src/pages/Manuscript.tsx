@@ -5,6 +5,7 @@ import { isTouch } from "@/components/CustomCursor";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import { CHAPTERS } from "@/data/chapters-data";
 import manuscriptHero from "@/assets/manuscript-hero.jpg";
+import GoldDivider from "@/components/GoldDivider";
 
 // ── ScrollReveal ──────────────────────────────────────────────────────────────
 const ScrollReveal = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {

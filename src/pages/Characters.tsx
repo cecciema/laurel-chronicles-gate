@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
+import GoldDivider from "@/components/GoldDivider";
 import GuideWhisper from "@/components/GuideWhisper";
 import { characters } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";

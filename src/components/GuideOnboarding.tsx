@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { guideCharacters, type GuideCharacter } from "@/data/world-data";
+import GoldDivider from "@/components/GoldDivider";
 import { characterImageMap } from "@/data/guide-images";
 
 // Resolve guide portrait: new guides use a full path string, legacy guides use a key in characterImageMap

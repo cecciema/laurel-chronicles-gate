@@ -7,6 +7,7 @@ import VialSubstitutionGame, { VialSubstitutionTrigger } from "@/components/Vial
 import { characterImageMap } from "@/data/guide-images";
 import { useIsMobile } from "@/hooks/use-mobile";
 import panterraMap from "@/assets/panterra-map.jpg";
+import GoldDivider from "@/components/GoldDivider";
 import heroBg from "@/assets/mining.jpg";
 import { Plus, Minus, RotateCcw } from "lucide-react";
 import GuideWhisper from "@/components/GuideWhisper";
