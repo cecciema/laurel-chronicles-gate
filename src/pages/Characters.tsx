@@ -963,7 +963,7 @@ const Characters = () => {
                               </motion.p>
                             </div>
 
-                            <div className="steampunk-divider" />
+                            <div className="gold-divider" />
 
                             {selectedChar.philosophy && (
                               <div>

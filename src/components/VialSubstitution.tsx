@@ -174,7 +174,7 @@ const CeremonyGrid = ({
                     className="absolute inset-0"
                     style={{
                       background: "radial-gradient(circle, hsl(38 60% 40% / 0.25), transparent 70%)",
-                      animation: "brassPulse 3s ease-in-out infinite",
+                      animation: "goldPulse 3s ease-in-out infinite",
                     }}
                   />
                 )}
@@ -200,7 +200,7 @@ const CeremonyGrid = ({
                           style={{
                             inset: -2,
                             border: `1.5px solid ${ringColor}`,
-                            animation: dist <= 1 ? "brassPulse 1s ease-in-out infinite" : undefined,
+                            animation: dist <= 1 ? "goldPulse 1s ease-in-out infinite" : undefined,
                           }}
                         />
                       )}

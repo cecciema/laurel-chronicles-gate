@@ -476,7 +476,7 @@ const Bestiary = () => {
             transition={{ delay: 1, duration: 0.6 }}
             className="text-center mt-16"
           >
-            <div className="steampunk-divider mb-8" />
+            <div className="gold-divider mb-8" />
             <Link
               to="/"
               className="font-body text-[9px] tracking-[0.3em] uppercase text-muted-foreground/30 hover:text-primary/60 transition-colors"

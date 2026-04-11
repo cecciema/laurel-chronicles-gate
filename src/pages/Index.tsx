@@ -215,7 +215,7 @@ const Index = () => {
               transition={{ delay: 0.8, duration: 1 }}
               className="mt-8"
             >
-              <div className="flex flex-col items-center gap-2 steam-rise">
+              <div className="flex flex-col items-center gap-2 mist-rise">
                 <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-body">
                   Scroll to Explore
                 </span>
@@ -231,7 +231,7 @@ const Index = () => {
           <section className="py-16 sm:py-24 px-5 sm:px-4">
             <div className="max-w-4xl mx-auto text-center relative">
               <ScrollReveal>
-                <div className="steampunk-divider max-w-xs mx-auto mb-8" />
+                <div className="gold-divider max-w-xs mx-auto mb-8" />
               </ScrollReveal>
               <ScrollReveal delay={0.1}>
                 <h2 className="font-display text-2xl sm:text-3xl tracking-[0.1em] text-foreground">
@@ -244,7 +244,7 @@ const Index = () => {
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.3}>
-                <div className="steampunk-divider max-w-xs mx-auto mt-8" />
+                <div className="gold-divider max-w-xs mx-auto mt-8" />
               </ScrollReveal>
             </div>
           </section>
@@ -260,7 +260,7 @@ const Index = () => {
                   <h2 className="font-display text-xl sm:text-2xl tracking-[0.15em] text-foreground">
                     Fragments of Forbidden Truth
                   </h2>
-                  <div className="steampunk-divider max-w-xs mx-auto mt-4" />
+                  <div className="gold-divider max-w-xs mx-auto mt-4" />
                 </div>
               </ScrollReveal>
               <ScrollReveal delay={0.1}>
@@ -287,10 +287,10 @@ const Index = () => {
                 >
                   <Link
                     to={card.to}
-                    className="block h-full p-4 sm:p-6 bg-card border border-border hover:border-primary/40 transition-all hover:shadow-brass group flex flex-col items-center justify-center text-center"
+                    className="block h-full p-4 sm:p-6 bg-card border border-border hover:border-primary/40 transition-all hover:shadow-gold group flex flex-col items-center justify-center text-center"
                     style={isTouch ? undefined : { cursor: "none" }}
                   >
-                    <h3 className="font-display text-sm tracking-[0.15em] text-primary group-hover:text-brass-glow transition-colors">
+                    <h3 className="font-display text-sm tracking-[0.15em] text-primary group-hover:text-gold-glow transition-colors">
                       {card.title}
                     </h3>
                     <p className="mt-2 text-xs sm:text-sm text-muted-foreground font-body">

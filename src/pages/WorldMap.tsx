@@ -450,7 +450,7 @@ const WorldMap = () => {
           >
             Panterra - The Known World
           </motion.h1>
-          <div className="steampunk-divider max-w-xs mx-auto mt-3" />
+          <div className="gold-divider max-w-xs mx-auto mt-3" />
         </div>
 
         <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-4">
@@ -1209,14 +1209,14 @@ const KnownInstitutions = () => (
       transition={{ duration: 0.6 }}
       className="text-center mb-16"
     >
-      <div className="steampunk-divider max-w-xs mx-auto mb-6" />
+      <div className="gold-divider max-w-xs mx-auto mb-6" />
       <h2 className="font-display text-3xl sm:text-4xl tracking-[0.1em] text-foreground">
         THE KNOWN INSTITUTIONS
       </h2>
       <p className="mt-4 text-muted-foreground font-narrative text-lg italic max-w-2xl mx-auto">
         Twelve Pantheons. Four Magistries. One Republic.
       </p>
-      <div className="steampunk-divider max-w-xs mx-auto mt-6" />
+      <div className="gold-divider max-w-xs mx-auto mt-6" />
     </motion.div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
@@ -1234,7 +1234,7 @@ const KnownInstitutions = () => (
           </p>
 
           {/* Magistry card */}
-          <div className="border-2 border-primary/40 bg-card/80 p-4 mb-5 shadow-brass">
+          <div className="border-2 border-primary/40 bg-card/80 p-4 mb-5 shadow-gold">
             <h3 className="font-display text-base sm:text-lg tracking-wide text-primary mb-1">
               {q.magistry}
             </h3>

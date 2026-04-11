@@ -145,7 +145,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
                 className="font-display text-4xl sm:text-6xl tracking-[0.08em] text-foreground leading-tight"
               >
                 LAUREL<br />
-                <span className="text-brass-glow">CROWNS</span><br />
+                <span className="text-gold-glow">CROWNS</span><br />
                 ABOVE
               </motion.h1>
               <motion.div
@@ -154,7 +154,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
                 transition={{ delay: 1.4 }}
                 className="mt-8 space-y-2"
               >
-                <div className="steampunk-divider max-w-xs mx-auto" />
+                <div className="gold-divider max-w-xs mx-auto" />
                 <p className="font-narrative text-lg text-foreground/60 italic mt-6">
                   "You were given everything by the Republic, everything you could ever need..."
                 </p>
@@ -309,7 +309,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
               <h3 className="font-display text-2xl tracking-wide text-foreground">
                 {selected.name}
               </h3>
-              <div className="steampunk-divider max-w-xs mx-auto my-6" />
+              <div className="gold-divider max-w-xs mx-auto my-6" />
               <p className="font-narrative text-base text-foreground/70 italic leading-relaxed mb-8">
                 "{selected.philosophy}"
               </p>
@@ -363,7 +363,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.4 }}
-                className="steampunk-divider max-w-xs mx-auto"
+                className="gold-divider max-w-xs mx-auto"
               />
               <motion.p
                 initial={{ opacity: 0 }}
