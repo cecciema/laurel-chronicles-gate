@@ -13,7 +13,8 @@ const bottomNavItems = [
 const BottomNav = () => {
   const location = useLocation();
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-[140] flex justify-around items-center bg-background/95 backdrop-blur-sm border-t border-border py-2 sm:hidden">
+    <nav className="fixed bottom-0 left-0 right-0 z-[140] flex justify-around items-center bg-background/95 backdrop-blur-sm border-t border-[rgba(180,140,60,0.25)] rounded-none py-2 sm:hidden relative">
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[rgba(180,140,60,0.5)] to-transparent" />
       {bottomNavItems.map(({ path, label, Icon }) => {
         const active = location.pathname === path;
         return (
