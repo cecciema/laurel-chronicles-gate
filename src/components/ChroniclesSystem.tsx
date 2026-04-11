@@ -561,11 +561,17 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: scroll.id * 0.05 }}
               className={cn(
-                "relative border p-4 transition-all duration-300",
+                "relative p-4 transition-all duration-300 rounded-none",
                 found
-                  ? "bg-[#12100a] border-amber-900/50"
-                  : "bg-[#0d0b08] border-border/30"
+                  ? "bg-[#12100a]"
+                  : "bg-[#0d0b08]"
               )}
+              style={{
+                border: "1px solid rgba(180, 140, 60, 0.25)",
+                borderTop: "1px solid rgba(180, 140, 60, 0.4)",
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(180, 140, 60, 0.55)"; }}
+              onMouseLeave={e => { e.currentTarget.style.border = "1px solid rgba(180, 140, 60, 0.25)"; e.currentTarget.style.borderTop = "1px solid rgba(180, 140, 60, 0.4)"; }}
             >
               {/* Scroll number */}
               <div className="flex items-start justify-between mb-2">
