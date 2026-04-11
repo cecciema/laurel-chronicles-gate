@@ -238,7 +238,7 @@ const Index = () => {
         {/* ── Below-fold sections (scroll reveal) ─────────────────────── */}
         <div className="relative z-10 bg-background">
           {/* World teaser */}
-          <section className="py-16 sm:py-24 px-5 sm:px-4">
+          <section className="py-16 sm:py-24 px-5 sm:px-4" style={{ background: "radial-gradient(ellipse at center, rgba(120, 90, 30, 0.06) 0%, transparent 70%)" }}>
             <div className="max-w-4xl mx-auto text-center relative">
               <ScrollReveal>
                 <GoldDivider className="max-w-xs mx-auto mb-8" />
@@ -267,7 +267,7 @@ const Index = () => {
                   <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
                     ◆ The Chronicles of Panterra ◆
                   </p>
-                  <h2 className="font-display text-xl sm:text-2xl tracking-[0.15em] text-foreground">
+                  <h2 className="font-display text-xl sm:text-2xl tracking-[0.2em] text-foreground">
                     Fragments of Forbidden Truth
                   </h2>
                   <GoldDivider className="max-w-xs mx-auto mt-4" />
@@ -297,8 +297,14 @@ const Index = () => {
                 >
                   <Link
                     to={card.to}
-                    className="block h-full p-4 sm:p-6 bg-card border border-border hover:border-primary/40 transition-all hover:shadow-gold group flex flex-col items-center justify-center text-center"
-                    style={isTouch ? undefined : { cursor: "none" }}
+                    className="block h-full p-4 sm:p-6 bg-card transition-all hover:shadow-gold group flex flex-col items-center justify-center text-center rounded-none"
+                    style={{
+                      border: "1px solid rgba(180, 140, 60, 0.25)",
+                      borderTop: "1px solid rgba(180, 140, 60, 0.4)",
+                      ...(isTouch ? {} : { cursor: "none" }),
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(180, 140, 60, 0.5)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.border = "1px solid rgba(180, 140, 60, 0.25)"; e.currentTarget.style.borderTop = "1px solid rgba(180, 140, 60, 0.4)"; }}
                   >
                     <h3 className="font-display text-sm tracking-[0.15em] text-primary group-hover:text-gold-glow transition-colors">
                       {card.title}
