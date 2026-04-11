@@ -778,7 +778,7 @@ const SealedDocumentPuzzle = ({ foundScrolls }: { foundScrolls: number[] }) => {
       {/* Header */}
       <div className="text-center">
         <p className="font-display text-[8px] tracking-[0.4em] uppercase text-amber-600/50 mb-1">
-          ✦ All Fragments Recovered ✦
+          ◆ All Fragments Recovered ◆
         </p>
         <h3 className="font-display text-sm tracking-[0.2em] text-amber-400/90">
           The Sealed Document
@@ -1540,7 +1540,7 @@ const ValoricaRevealModal = ({ onClose }: { onClose: () => void }) => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="font-display text-[9px] tracking-[0.5em] uppercase text-amber-600/50 mb-8"
           >
-            ✦ The Document Opens ✦
+            ◆ The Document Opens ◆
           </motion.div>
           <p
             className="font-display text-xl sm:text-2xl leading-[2] tracking-[0.08em]"

@@ -501,7 +501,7 @@ const TheUnmasked = () => {
               className="font-display text-[9px] tracking-[0.4em] uppercase"
               style={{ color: "hsl(38 50% 50%)" }}
             >
-              ✦ Scroll 9 Recovered ✦
+              ◆ Scroll 9 Recovered ◆
             </motion.p>
 
             {/* Fragment card — parchment style */}
