@@ -147,18 +147,27 @@ const Index = () => {
               </p>
 
               {/* Typewriter headline */}
-              <h1 className="font-display text-[2rem] sm:text-7xl lg:text-8xl tracking-[0.08em] text-foreground leading-tight w-full max-w-full overflow-hidden">
-                <span className="block pb-1" style={{ WebkitTextStroke: "1.5px hsl(0 0% 95%)", color: "hsl(38 72% 50%)" }}>
+              <h1
+                className="font-display text-[2rem] sm:text-7xl lg:text-8xl tracking-[0.08em] leading-tight w-full max-w-full overflow-hidden"
+                style={{
+                  background: "linear-gradient(180deg, #F5EDD6 0%, #C9A84C 45%, #E8D5A3 75%, #8B6914 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  filter: "drop-shadow(0 2px 12px rgba(180, 140, 60, 0.25))",
+                }}
+              >
+                <span className="block pb-1">
                   {line1.displayed}
-                  {!line1.done && <span className="typewriter-cursor">|</span>}
+                  {!line1.done && <span className="typewriter-cursor" style={{ WebkitTextFillColor: "initial" }}>|</span>}
                 </span>
-                <span className="block min-h-[1em] pb-1" style={{ WebkitTextStroke: "1.5px hsl(38 72% 50%)", color: "hsl(25 35% 35%)" }}>
+                <span className="block min-h-[1em] pb-1">
                   {line1.done && line2.displayed}
-                  {line1.done && !line2.done && <span className="typewriter-cursor">|</span>}
+                  {line1.done && !line2.done && <span className="typewriter-cursor" style={{ WebkitTextFillColor: "initial" }}>|</span>}
                 </span>
-                <span className="block min-h-[1em] pb-1" style={{ WebkitTextStroke: "1.5px hsl(38 72% 50%)", color: "hsl(0 0% 95%)" }}>
+                <span className="block min-h-[1em] pb-1">
                   {line2.done && line3.displayed}
-                  {line2.done && !line3.done && <span className="typewriter-cursor">|</span>}
+                  {line2.done && !line3.done && <span className="typewriter-cursor" style={{ WebkitTextFillColor: "initial" }}>|</span>}
                 </span>
               </h1>
             </motion.div>
