@@ -7,6 +7,7 @@ import VialSubstitutionGame, { VialSubstitutionTrigger } from "@/components/Vial
 import { characterImageMap } from "@/data/guide-images";
 import { useIsMobile } from "@/hooks/use-mobile";
 import panterraMap from "@/assets/panterra-map.jpg";
+import GoldDivider from "@/components/GoldDivider";
 import heroBg from "@/assets/mining.jpg";
 import { Plus, Minus, RotateCcw } from "lucide-react";
 import GuideWhisper from "@/components/GuideWhisper";
@@ -450,7 +451,7 @@ const WorldMap = () => {
           >
             Panterra - The Known World
           </motion.h1>
-          <div className="gold-divider max-w-xs mx-auto mt-3" />
+          <GoldDivider className="max-w-xs mx-auto mt-3" />
         </div>
 
         <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-4">
@@ -468,7 +469,7 @@ const WorldMap = () => {
               style={{ color: arborwellUnlocked ? GLOW_BRASS : "#6b7280" }}
             >
               {arborwellUnlocked ? (
-                <><span style={{ textShadow: `0 0 8px rgba(212,168,67,0.6)` }}>✦ Arborwell</span></>
+                <><span style={{ textShadow: `0 0 8px rgba(212,168,67,0.6)` }}>◆ Arborwell</span></>
               ) : (
                 <>◎ <span style={{ filter: "blur(3px)", userSelect: "none" }}>█████████</span> : Unknown</>
               )}
@@ -1209,14 +1210,14 @@ const KnownInstitutions = () => (
       transition={{ duration: 0.6 }}
       className="text-center mb-16"
     >
-      <div className="gold-divider max-w-xs mx-auto mb-6" />
+      <GoldDivider className="max-w-xs mx-auto mb-6" />
       <h2 className="font-display text-3xl sm:text-4xl tracking-[0.1em] text-foreground">
         THE KNOWN INSTITUTIONS
       </h2>
       <p className="mt-4 text-muted-foreground font-narrative text-lg italic max-w-2xl mx-auto">
         Twelve Pantheons. Four Magistries. One Republic.
       </p>
-      <div className="gold-divider max-w-xs mx-auto mt-6" />
+      <GoldDivider className="max-w-xs mx-auto mt-6" />
     </motion.div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">

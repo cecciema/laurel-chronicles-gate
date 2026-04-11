@@ -6,6 +6,7 @@ import { HiddenOrb } from "@/components/ChroniclesSystem";
 import { DeadCorridors } from "@/components/DeadCorridors";
 import apotheosisBg from "@/assets/apotheosis.jpg";
 import GuideWhisper from "@/components/GuideWhisper";
+import GoldDivider from "@/components/GoldDivider";
 
 // ── Read unlock state from Chronicles localStorage ─────────────────────────────
 // foundScrolls: updated scroll assignments
@@ -476,7 +477,7 @@ const Bestiary = () => {
             transition={{ delay: 1, duration: 0.6 }}
             className="text-center mt-16"
           >
-            <div className="gold-divider mb-8" />
+            <GoldDivider className="mb-8" />
             <Link
               to="/"
               className="font-body text-[9px] tracking-[0.3em] uppercase text-muted-foreground/30 hover:text-primary/60 transition-colors"

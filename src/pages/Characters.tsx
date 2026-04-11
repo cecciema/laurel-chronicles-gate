@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
+import GoldDivider from "@/components/GoldDivider";
 import GuideWhisper from "@/components/GuideWhisper";
 import { characters } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
@@ -500,7 +501,7 @@ const TheUnmasked = () => {
               className="font-display text-[9px] tracking-[0.4em] uppercase"
               style={{ color: "hsl(38 50% 50%)" }}
             >
-              ✦ Scroll 9 Recovered ✦
+              ◆ Scroll 9 Recovered ◆
             </motion.p>
 
             {/* Fragment card — parchment style */}
@@ -963,7 +964,7 @@ const Characters = () => {
                               </motion.p>
                             </div>
 
-                            <div className="gold-divider" />
+                            <GoldDivider />
 
                             {selectedChar.philosophy && (
                               <div>

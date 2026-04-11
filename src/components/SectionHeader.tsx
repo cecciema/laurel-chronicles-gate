@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import GoldDivider from "@/components/GoldDivider";
 
 interface SectionHeaderProps {
   title: string;
@@ -15,7 +16,7 @@ const SectionHeader = ({ title, subtitle, children }: SectionHeaderProps) => (
     transition={{ duration: 0.6 }}
     className="text-center mb-16"
   >
-    <div className="gold-divider max-w-xs mx-auto mb-6" />
+    <GoldDivider className="max-w-xs mx-auto mb-6" />
     <h2 className="font-display text-3xl sm:text-4xl tracking-[0.1em] text-foreground">
       {title}
     </h2>
@@ -25,7 +26,7 @@ const SectionHeader = ({ title, subtitle, children }: SectionHeaderProps) => (
       </p>
     )}
     {children}
-    <div className="gold-divider max-w-xs mx-auto mt-6" />
+    <GoldDivider className="max-w-xs mx-auto mt-6" />
   </motion.div>
 );
 

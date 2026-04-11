@@ -625,7 +625,7 @@ export const SemperReview = () => {
                     className="font-body text-[9px] tracking-[0.25em] uppercase mb-4"
                     style={{ color: "hsl(38 60% 50%)" }}
                   >
-                    ✦ Scroll 8 Recovered ✦
+                    ◆ Scroll 8 Recovered ◆
                   </motion.p>
                 )}
 

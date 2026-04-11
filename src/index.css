@@ -146,7 +146,7 @@
 
   .gold-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(var(--gold-ancient) / 0.5), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--gold-ancient) / .35), hsl(var(--gold-ancient) / .6), hsl(var(--gold-ancient) / .35), transparent);
   }
 
   /* Animated gear rotation */

@@ -514,7 +514,8 @@ export const QuestTrigger = ({ className }: { className?: string }) => {
   return (
     <button
       onClick={startQuest}
-      className={cn("px-8 py-3 border border-amber-600/50 bg-black/40 text-amber-500 font-display text-sm tracking-[0.25em] uppercase hover:bg-amber-900/20 hover:border-amber-500 hover:shadow-[0_0_20px_rgba(245,158,11,0.2)] transition-all duration-300", className)}
+      className={cn("px-8 py-3 border bg-black/40 text-amber-500 font-display text-sm tracking-[0.25em] uppercase hover:bg-amber-900/20 hover:border-amber-500 hover:shadow-[0_0_20px_rgba(245,158,11,0.2)] transition-all duration-300 rounded-[2px]", className)}
+      style={{ borderColor: "hsl(var(--gold-ancient) / .5)" }}
     >
       Choose Your Allegiance
     </button>
@@ -777,7 +778,7 @@ const SealedDocumentPuzzle = ({ foundScrolls }: { foundScrolls: number[] }) => {
       {/* Header */}
       <div className="text-center">
         <p className="font-display text-[8px] tracking-[0.4em] uppercase text-amber-600/50 mb-1">
-          ✦ All Fragments Recovered ✦
+          ◆ All Fragments Recovered ◆
         </p>
         <h3 className="font-display text-sm tracking-[0.2em] text-amber-400/90">
           The Sealed Document
@@ -1539,7 +1540,7 @@ const ValoricaRevealModal = ({ onClose }: { onClose: () => void }) => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="font-display text-[9px] tracking-[0.5em] uppercase text-amber-600/50 mb-8"
           >
-            ✦ The Document Opens ✦
+            ◆ The Document Opens ◆
           </motion.div>
           <p
             className="font-display text-xl sm:text-2xl leading-[2] tracking-[0.08em]"

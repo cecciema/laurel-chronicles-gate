@@ -5,6 +5,7 @@ import { isTouch } from "@/components/CustomCursor";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import { CHAPTERS } from "@/data/chapters-data";
 import manuscriptHero from "@/assets/manuscript-hero.jpg";
+import GoldDivider from "@/components/GoldDivider";
 
 // ── ScrollReveal ──────────────────────────────────────────────────────────────
 const ScrollReveal = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
@@ -48,7 +49,7 @@ const SampleChapters = () => {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="gold-divider max-w-xs mx-auto mb-6" />
+      <GoldDivider className="max-w-xs mx-auto mb-6" />
 
       <div className="text-center mb-1">
         <h3 className="font-display text-xl tracking-[0.12em] text-primary">
@@ -58,7 +59,7 @@ const SampleChapters = () => {
       <p className="text-center font-body text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
         Chapter {chapter.number} of {CHAPTERS.length}
       </p>
-      <div className="gold-divider max-w-[120px] mx-auto mb-6" />
+      <GoldDivider className="max-w-[120px] mx-auto mb-6" />
 
       <div
         ref={scrollRef}
@@ -209,7 +210,7 @@ const Manuscript = () => {
         <ParticleCanvas density={0.5} />
         <div className="relative z-10 flex flex-col items-center justify-end h-full pb-8">
           <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
-            ✦ Sample Chapters ✦
+            ◆ Sample Chapters ◆
           </p>
           <h1 className="font-display text-xl sm:text-2xl tracking-[0.15em] text-foreground">
             Read the First Six Chapters
