@@ -154,7 +154,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
                 transition={{ delay: 1.4 }}
                 className="mt-8 space-y-2"
               >
-                <div className="gold-divider max-w-xs mx-auto" />
+                <GoldDivider className="max-w-xs mx-auto" />
                 <p className="font-narrative text-lg text-foreground/60 italic mt-6">
                   "You were given everything by the Republic, everything you could ever need..."
                 </p>
@@ -309,7 +309,7 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
               <h3 className="font-display text-2xl tracking-wide text-foreground">
                 {selected.name}
               </h3>
-              <div className="gold-divider max-w-xs mx-auto my-6" />
+              <GoldDivider className="max-w-xs mx-auto my-6" />
               <p className="font-narrative text-base text-foreground/70 italic leading-relaxed mb-8">
                 "{selected.philosophy}"
               </p>
@@ -363,8 +363,10 @@ const GuideOnboarding = ({ onComplete }: GuideOnboardingProps) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.4 }}
-                className="gold-divider max-w-xs mx-auto"
-              />
+                className="max-w-xs mx-auto"
+              >
+                <GoldDivider className="max-w-xs mx-auto" />
+              </motion.div>
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

@@ -450,7 +450,7 @@ const WorldMap = () => {
           >
             Panterra - The Known World
           </motion.h1>
-          <div className="gold-divider max-w-xs mx-auto mt-3" />
+          <GoldDivider className="max-w-xs mx-auto mt-3" />
         </div>
 
         <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-4">
@@ -468,7 +468,7 @@ const WorldMap = () => {
               style={{ color: arborwellUnlocked ? GLOW_BRASS : "#6b7280" }}
             >
               {arborwellUnlocked ? (
-                <><span style={{ textShadow: `0 0 8px rgba(212,168,67,0.6)` }}>✦ Arborwell</span></>
+                <><span style={{ textShadow: `0 0 8px rgba(212,168,67,0.6)` }}>◆ Arborwell</span></>
               ) : (
                 <>◎ <span style={{ filter: "blur(3px)", userSelect: "none" }}>█████████</span> : Unknown</>
               )}

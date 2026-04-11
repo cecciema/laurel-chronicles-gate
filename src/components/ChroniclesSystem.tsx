@@ -514,7 +514,8 @@ export const QuestTrigger = ({ className }: { className?: string }) => {
   return (
     <button
       onClick={startQuest}
-      className={cn("px-8 py-3 border border-amber-600/50 bg-black/40 text-amber-500 font-display text-sm tracking-[0.25em] uppercase hover:bg-amber-900/20 hover:border-amber-500 hover:shadow-[0_0_20px_rgba(245,158,11,0.2)] transition-all duration-300", className)}
+      className={cn("px-8 py-3 border bg-black/40 text-amber-500 font-display text-sm tracking-[0.25em] uppercase hover:bg-amber-900/20 hover:border-amber-500 hover:shadow-[0_0_20px_rgba(245,158,11,0.2)] transition-all duration-300 rounded-[2px]", className)}
+      style={{ borderColor: "hsl(var(--gold-ancient) / .5)" }}
     >
       Choose Your Allegiance
     </button>
