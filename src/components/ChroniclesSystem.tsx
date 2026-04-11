@@ -329,9 +329,30 @@ interface GameContextType extends GameState {
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
 
+const GAME_DEFAULTS: GameContextType = {
+  foundScrolls: [],
+  questCompleted: false,
+  questArchetype: null,
+  riddlesSolved: 0,
+  valoricaRevealed: false,
+  activeModal: null,
+  activeScrollId: null,
+  foundScroll: () => {},
+  closeModal: () => {},
+  startQuest: () => {},
+  completeQuest: () => {},
+  solveRiddle: () => {},
+  startRiddle: () => {},
+  awardScroll: () => {},
+  triggerValoricaReveal: () => {},
+};
+
 export const useGame = () => {
   const context = useContext(GameContext);
-  if (!context) throw new Error("useGame must be used within a GameProvider");
+  if (!context) {
+    console.warn("useGame called outside GameProvider – using defaults (HMR?)");
+    return GAME_DEFAULTS;
+  }
   return context;
 };
 
