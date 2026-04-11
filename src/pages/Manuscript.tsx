@@ -48,7 +48,7 @@ const SampleChapters = () => {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="steampunk-divider max-w-xs mx-auto mb-6" />
+      <div className="gold-divider max-w-xs mx-auto mb-6" />
 
       <div className="text-center mb-1">
         <h3 className="font-display text-xl tracking-[0.12em] text-primary">
@@ -58,7 +58,7 @@ const SampleChapters = () => {
       <p className="text-center font-body text-[9px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
         Chapter {chapter.number} of {CHAPTERS.length}
       </p>
-      <div className="steampunk-divider max-w-[120px] mx-auto mb-6" />
+      <div className="gold-divider max-w-[120px] mx-auto mb-6" />
 
       <div
         ref={scrollRef}

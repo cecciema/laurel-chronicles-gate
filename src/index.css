@@ -48,22 +48,22 @@
 
     --radius: 0.25rem;
 
-    /* Custom steampunk tokens */
-    --brass: 38 72% 50%;
-    --brass-glow: 38 80% 60%;
-    --copper: 25 80% 45%;
-    --dark-steel: 220 8% 14%;
-    --steam: 38 15% 70%;
-    --decay: 20 15% 25%;
-    --parchment: 38 30% 80%;
+    /* Custom tokens */
+    --gold-ancient: 38 72% 50%;
+    --gold-glow: 38 80% 60%;
+    --ember: 25 80% 45%;
+    --stone-deep: 220 8% 14%;
+    --mist: 38 15% 70%;
+    --moss-shadow: 20 15% 25%;
+    --vellum: 38 30% 80%;
 
     /* Gradients */
-    --gradient-brass: linear-gradient(135deg, hsl(38 72% 50%), hsl(25 80% 45%));
+    --gradient-gold: linear-gradient(135deg, hsl(38 72% 50%), hsl(25 80% 45%));
     --gradient-dark: linear-gradient(180deg, hsl(20 10% 8%), hsl(20 12% 5%));
-    --gradient-steel: linear-gradient(135deg, hsl(220 8% 14%), hsl(20 10% 8%));
+    --gradient-stone: linear-gradient(135deg, hsl(220 8% 14%), hsl(20 10% 8%));
 
     /* Shadows */
-    --shadow-brass: 0 0 30px hsl(38 72% 50% / 0.15);
+    --shadow-gold: 0 0 30px hsl(38 72% 50% / 0.15);
     --shadow-deep: 0 20px 60px hsl(0 0% 0% / 0.5);
     --shadow-glow: 0 0 40px hsl(38 72% 50% / 0.25);
 
@@ -106,29 +106,29 @@
     font-family: 'Crimson Text', serif;
   }
 
-  .text-brass-glow {
-    color: hsl(var(--brass));
-    text-shadow: 0 0 20px hsl(var(--brass) / 0.4);
+  .text-gold-glow {
+    color: hsl(var(--gold-ancient));
+    text-shadow: 0 0 20px hsl(var(--gold-ancient) / 0.4);
   }
 
-  .border-brass {
-    border-color: hsl(var(--brass) / 0.3);
+  .border-gold {
+    border-color: hsl(var(--gold-ancient) / 0.3);
   }
 
-  .bg-brass-gradient {
-    background: var(--gradient-brass);
+  .bg-gold-gradient {
+    background: var(--gradient-gold);
   }
 
   .bg-dark-gradient {
     background: var(--gradient-dark);
   }
 
-  .bg-steel-gradient {
-    background: var(--gradient-steel);
+  .bg-stone-gradient {
+    background: var(--gradient-stone);
   }
 
-  .shadow-brass {
-    box-shadow: var(--shadow-brass);
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
   }
 
   .shadow-glow {
@@ -144,9 +144,9 @@
     filter: brightness(1.15) contrast(1.05) saturate(0.95);
   }
 
-  .steampunk-divider {
+  .gold-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(var(--brass) / 0.5), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--gold-ancient) / 0.5), transparent);
   }
 
   /* Animated gear rotation */
@@ -158,8 +158,8 @@
     animation: gearSpin 15s linear infinite reverse;
   }
 
-  /* Steam particle effect */
-  .steam-rise {
+  /* Mist particle effect */
+  .mist-rise {
     animation: steamRise 4s ease-in-out infinite;
   }
 
@@ -195,7 +195,7 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes brassPulse {
+@keyframes goldPulse {
   0%, 100% {
     box-shadow:
       0 0 12px hsl(38 72% 50% / 0.4),
@@ -221,7 +221,7 @@
 }
 
 .btn-pulse-glow {
-  animation: brassPulse 2.4s ease-in-out infinite;
+  animation: goldPulse 2.4s ease-in-out infinite;
 }
 
 .typewriter-cursor {
