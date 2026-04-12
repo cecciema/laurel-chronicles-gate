@@ -7,6 +7,8 @@ import { DeadCorridors } from "@/components/DeadCorridors";
 import apotheosisBg from "@/assets/apotheosis.jpg";
 import GuideWhisper from "@/components/GuideWhisper";
 import GoldDivider from "@/components/GoldDivider";
+import BottomHero from "@/components/BottomHero";
+import bottomHeroBg from "@/assets/bottom-hero-bestiary.jpg";
 
 // ── Read unlock state from Chronicles localStorage ─────────────────────────────
 // foundScrolls: updated scroll assignments
@@ -376,122 +378,129 @@ const Bestiary = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <div className="relative min-h-screen overflow-hidden">
-        <img src={apotheosisBg} alt="Bestiary" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" style={{ backgroundImage: "linear-gradient(to bottom, transparent 55%, hsl(var(--background)) 100%)" }} />
-      </div>
+      {/* Hero with bestiary header carved into bottom half */}
+      <div
+        className="relative min-h-screen w-full bg-cover"
+        style={{ backgroundImage: `url(${apotheosisBg})`, backgroundPosition: "center top" }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to bottom, transparent 40%, hsl(220 15% 7% / 0.85) 50%, hsl(220 15% 7%) 55%)" }}
+        />
 
-      <div className="pt-8 pb-24 px-4 overflow-x-hidden">
-        <div className="max-w-2xl mx-auto">
+        {/* Header content starting at 50% from top */}
+        <div className="relative z-10 pt-[50vh] pb-16 sm:pb-20 px-5 sm:px-8">
+          <div className="max-w-2xl mx-auto">
 
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="text-center mb-10 relative"
-          >
-            {/* Hidden Orb 3 - Bestiary page scroll */}
-            <HiddenOrb id={3} className="absolute -right-1 top-0" />
-
-            {/* Steampunk divider */}
-            <div className="flex items-center gap-4 mb-8">
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-primary/50">
-                <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1" />
-                <circle cx="10" cy="10" r="4" stroke="currentColor" strokeWidth="1" />
-                <path d="M10 2v4M10 14v4M2 10h4M14 10h4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-              </svg>
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-            </div>
-
-            <h1
-              className="font-display text-3xl sm:text-4xl tracking-[0.1em] mb-4"
-              style={{ color: "hsl(38 72% 50%)" }}
+            {/* Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="text-center mb-10 relative"
             >
-              The Bestiary of Panterra
-            </h1>
-            <p className="font-narrative italic text-[1.0625rem] sm:text-lg text-foreground/60 leading-[1.85] max-w-lg mx-auto">
-              These are not creatures. They are consequences. Every one of them was made by the same system. Every one of them was someone once.
-            </p>
+              {/* Hidden Orb 3 - Bestiary page scroll */}
+              <HiddenOrb id={3} className="absolute -right-1 top-0" />
 
-            <div className="mt-6 flex justify-center">
-              <GuideWhisper page="bestiary" />
-            </div>
+              {/* Steampunk divider */}
+              <div className="flex items-center gap-4 mb-8">
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-primary/50">
+                  <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1" />
+                  <circle cx="10" cy="10" r="4" stroke="currentColor" strokeWidth="1" />
+                  <path d="M10 2v4M10 14v4M2 10h4M14 10h4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+                </svg>
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+              </div>
 
-            {/* Steampunk divider below subtitle */}
-            <div className="flex items-center gap-4 mt-8">
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-              <div className="w-1.5 h-1.5 rotate-45 bg-primary/40" />
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-            </div>
-          </motion.div>
+              <h1
+                className="font-display text-3xl sm:text-4xl tracking-[0.1em] mb-4"
+                style={{ color: "hsl(38 72% 50%)" }}
+              >
+                The Bestiary of Panterra
+              </h1>
+              <p className="font-narrative italic text-[1.0625rem] sm:text-lg text-foreground/60 leading-[1.85] max-w-lg mx-auto">
+                These are not creatures. They are consequences. Every one of them was made by the same system. Every one of them was someone once.
+              </p>
 
-          {/* Monster Cards */}
-          <div className="flex flex-col gap-6">
-            {MONSTERS.map((monster, i) => {
-              const unlocked = monster.scrollId !== null && foundScrolls.includes(monster.scrollId);
-              return (
-                <div key={monster.key}>
-                  <MonsterCard
-                    monster={monster}
-                    unlocked={unlocked}
-                    index={i}
-                  />
-                  {/* Dead Corridors game trigger near The Unmarked card */}
-                  {monster.key === "unmarked" && !unmarkedUnlocked && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.4 }}
-                      className="text-center mt-3 mb-2"
-                    >
-                      <a
-                        href="#dead-corridors"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          document.getElementById("dead-corridors")?.scrollIntoView({ behavior: "smooth" });
-                        }}
-                        className="font-body text-[9px] tracking-[0.3em] uppercase transition-colors"
-                        style={{ color: "hsl(38 50% 40%)" }}
-                        onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(38 72% 55%)")}
-                        onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(38 50% 40%)")}
+              <div className="mt-6 flex justify-center">
+                <GuideWhisper page="bestiary" />
+              </div>
+
+              {/* Steampunk divider below subtitle */}
+              <div className="flex items-center gap-4 mt-8">
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+                <div className="w-1.5 h-1.5 rotate-45 bg-primary/40" />
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+              </div>
+            </motion.div>
+
+            {/* Monster Cards */}
+            <div className="flex flex-col gap-6">
+              {MONSTERS.map((monster, i) => {
+                const unlocked = monster.scrollId !== null && foundScrolls.includes(monster.scrollId);
+                return (
+                  <div key={monster.key}>
+                    <MonsterCard
+                      monster={monster}
+                      unlocked={unlocked}
+                      index={i}
+                    />
+                    {/* Dead Corridors game trigger near The Unmarked card */}
+                    {monster.key === "unmarked" && !unmarkedUnlocked && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4 }}
+                        className="text-center mt-3 mb-2"
                       >
-                        ◈ The Unmarked have been sighted. Enter if you are prepared. ◈
-                      </a>
-                    </motion.div>
-                  )}
-                </div>
-              );
-            })}
+                        <a
+                          href="#dead-corridors"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById("dead-corridors")?.scrollIntoView({ behavior: "smooth" });
+                          }}
+                          className="font-body text-[9px] tracking-[0.3em] uppercase transition-colors"
+                          style={{ color: "hsl(38 50% 40%)" }}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(38 72% 55%)")}
+                          onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(38 50% 40%)")}
+                        >
+                          ◈ The Unmarked have been sighted. Enter if you are prepared. ◈
+                        </a>
+                      </motion.div>
+                    )}
+                  </div>
+                );
+              })}
 
-            {/* The Unnamed */}
-            <UnnamedCard allFiveUnlocked={allFiveUnlocked} />
+              {/* The Unnamed */}
+              <UnnamedCard allFiveUnlocked={allFiveUnlocked} />
+            </div>
+
+            {/* Footer navigation */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.6 }}
+              className="text-center mt-16"
+            >
+              <GoldDivider className="mb-8" />
+              <Link
+                to="/"
+                className="font-body text-[9px] tracking-[0.3em] uppercase text-muted-foreground/30 hover:text-primary/60 transition-colors"
+              >
+                ← Return
+              </Link>
+            </motion.div>
           </div>
 
-          {/* Footer navigation */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.6 }}
-            className="text-center mt-16"
-          >
-            <GoldDivider className="mb-8" />
-            <Link
-              to="/"
-              className="font-body text-[9px] tracking-[0.3em] uppercase text-muted-foreground/30 hover:text-primary/60 transition-colors"
-            >
-              ← Return
-            </Link>
-          </motion.div>
-        </div>
-
-        {/* Dead Corridors game section */}
-        <div id="dead-corridors">
-          <DeadCorridors />
+          {/* Dead Corridors game section */}
+          <div id="dead-corridors">
+            <DeadCorridors />
+          </div>
         </div>
       </div>
+      <BottomHero src={bottomHeroBg} alt="Dark laboratory" />
     </Layout>
   );
 };
