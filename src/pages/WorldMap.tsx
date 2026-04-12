@@ -439,7 +439,7 @@ const WorldMap = () => {
         <ParticleCanvas density={0.5} />
 
         {/* Title centered on hero */}
-        <div className="absolute bottom-[35%] left-0 right-0 flex flex-col items-center justify-center text-center px-4 z-20">
+        <div className="absolute inset-x-0 top-0 pt-[30%] flex flex-col items-center text-center px-4 z-20">
           <SectionHeader
             title="The Panterra Map"
             subtitle="See what secret place you may uncover"
