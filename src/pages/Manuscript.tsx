@@ -201,11 +201,24 @@ const Manuscript = () => {
   return (
     <Layout>
       {/* Hero with chapter reader carved into bottom half */}
-      <div className="relative min-h-[80vh] sm:min-h-screen w-full overflow-hidden">
-        <img src={manuscriptHero} alt="Manuscript" className="absolute inset-0 w-full h-full object-contain object-top" />
+      <div className="relative min-h-[80vh] sm:min-h-screen w-full overflow-hidden bg-background">
+        <img
+          src={manuscriptHero}
+          alt="Manuscript"
+          className="absolute inset-0 h-full w-full object-contain object-top sm:hidden"
+          style={{
+            maskImage: "linear-gradient(to bottom, black 0%, black 22%, rgba(0, 0, 0, 0.72) 30%, transparent 40%)",
+            WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 22%, rgba(0, 0, 0, 0.72) 30%, transparent 40%)",
+          }}
+        />
+        <img
+          src={manuscriptHero}
+          alt="Manuscript"
+          className="absolute inset-0 hidden h-full w-full object-contain object-top sm:block"
+        />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, transparent 0%, transparent 35%, rgba(13, 14, 18, 0.1) 50%, rgba(13, 14, 18, 0.5) 65%, rgba(13, 14, 18, 0.88) 78%, rgb(13, 14, 18) 88%)" }}
+          style={{ background: "linear-gradient(to bottom, hsl(224 16% 6% / 0) 0%, hsl(224 16% 6% / 0) 34%, hsl(224 16% 6% / 0.08) 50%, hsl(224 16% 6% / 0.26) 64%, hsl(224 16% 6% / 0.58) 78%, hsl(224 16% 6% / 0.86) 92%, hsl(224 16% 6%) 100%)" }}
         />
         <ParticleCanvas density={0.5} />
 
