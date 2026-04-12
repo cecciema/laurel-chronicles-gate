@@ -198,33 +198,37 @@ const SampleChapters = () => {
 const Manuscript = () => {
   return (
     <Layout>
-      {/* Hero Banner */}
+      {/* Hero with chapter reader carved into bottom half */}
       <div
         className="relative min-h-screen w-full bg-cover"
         style={{ backgroundImage: `url(${manuscriptHero})`, backgroundPosition: "center 30%" }}
       >
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, transparent 50%, #0f0b06)" }}
+          style={{ background: "linear-gradient(to bottom, transparent 40%, hsl(220 15% 7% / 0.85) 50%, hsl(220 15% 7%) 55%)" }}
         />
         <ParticleCanvas density={0.5} />
-        <div className="relative z-10 flex flex-col items-center justify-end h-full pb-8">
-          <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
-            ◆ Sample Chapters ◆
-          </p>
-          <h1 className="font-display text-xl sm:text-2xl tracking-[0.15em] text-foreground">
-            Read the First Six Chapters
-          </h1>
+
+        {/* Chapter content starting at 50% from top */}
+        <div className="relative z-10 pt-[50vh] pb-16 sm:pb-20 px-5 sm:px-8">
+          <div className="text-center mb-8">
+            <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
+              ◆ Sample Chapters ◆
+            </p>
+            <h1
+              className="font-display text-xl sm:text-2xl tracking-[0.15em] text-white"
+              style={{ textShadow: "0 0 30px rgba(255,255,255,0.4), 0 2px 10px rgba(255,255,255,0.2)" }}
+            >
+              Read the First Six Chapters
+            </h1>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <ScrollReveal delay={0.15}>
+              <SampleChapters />
+            </ScrollReveal>
+          </div>
         </div>
       </div>
-
-      <section className="pb-16 sm:pb-20 pt-10 px-5 sm:px-8">
-        <div className="max-w-3xl mx-auto">
-          <ScrollReveal delay={0.15}>
-            <SampleChapters />
-          </ScrollReveal>
-        </div>
-      </section>
     </Layout>
   );
 };
