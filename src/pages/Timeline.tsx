@@ -325,13 +325,17 @@ const TimelinePage = () => {
         <img src={heroBg} alt="Timeline" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
         <ParticleCanvas density={0.5} />
+
+        {/* Section header centered on hero */}
+        <div className="absolute inset-0 flex items-center justify-center px-4">
+          <SectionHeader
+            title="Timeline of the Republic"
+            subtitle="Three centuries of ambition, conflict, and transformation"
+          />
+        </div>
       </div>
 
       <div className="pb-20 px-4 overflow-x-hidden">
-        <SectionHeader
-          title="Timeline of the Republic"
-          subtitle="Three centuries of ambition, conflict, and transformation"
-        />
 
         <div className="max-w-4xl mx-auto mb-8">
           <GuideWhisper page="timeline" />
