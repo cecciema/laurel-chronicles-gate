@@ -108,7 +108,7 @@
 
   .text-gold-glow {
     color: hsl(var(--gold-ancient));
-    text-shadow: 0 0 20px hsl(var(--gold-ancient) / 0.4);
+    text-shadow: 0 0 20px hsl(var(--gold-ancient) / 0.35);
   }
 
   .border-gold {
@@ -144,9 +144,9 @@
     filter: brightness(1.15) contrast(1.05) saturate(0.95);
   }
 
-  .gold-divider {
+  .gold-divider, .steampunk-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(var(--gold-ancient) / .35), hsl(var(--gold-ancient) / .6), hsl(var(--gold-ancient) / .35), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--gold-ancient) / .3), hsl(var(--gold-ancient) / .55), hsl(var(--gold-ancient) / .3), transparent);
   }
 
   /* Animated gear rotation */
