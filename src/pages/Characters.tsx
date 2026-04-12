@@ -10,6 +10,8 @@ import GuideWhisper from "@/components/GuideWhisper";
 import { characters } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
 import heroBg from "@/assets/pool.jpg";
+import BottomHero from "@/components/BottomHero";
+import bottomHeroBg from "@/assets/bottom-hero-characters.jpg";
 
 // Resolve character portrait: new characters use a full path, legacy ones use a key
 const resolveImage = (image: string): string =>
@@ -1074,6 +1076,7 @@ const Characters = () => {
         {/* The Unmasked - identity mini-game */}
         <TheUnmasked />
       </div>
+      <BottomHero src={bottomHeroBg} alt="Scholar's study" />
     </Layout>
   );
 };

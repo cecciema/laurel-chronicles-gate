@@ -5,6 +5,8 @@ import Layout from "@/components/Layout";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import heroBg from "@/assets/waterfall.jpg";
+import BottomHero from "@/components/BottomHero";
+import bottomHeroBg from "@/assets/bottom-hero-world.jpg";
 import { ForbiddenTransmission } from "@/components/ForbiddenTransmission";
 import GuideWhisper from "@/components/GuideWhisper";
 
@@ -310,6 +312,7 @@ const WorldOverview = () => {
       <div id="forbidden-transmission">
         <ForbiddenTransmission />
       </div>
+      <BottomHero src={bottomHeroBg} alt="Parliament chambers" />
     </Layout>
   );
 };
