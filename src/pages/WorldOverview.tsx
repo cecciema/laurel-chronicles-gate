@@ -93,9 +93,9 @@ const WorldOverview = () => {
   return (
     <Layout>
       {/* Hero */}
-      <div className="relative min-h-[50vh] sm:min-h-screen overflow-hidden">
+      <div className="relative h-[50vh] sm:h-screen overflow-hidden">
         <img src={heroBg} alt="Panterra" className="w-full h-full object-cover" />
-        <div className="absolute bottom-0 left-0 right-0 h-[10%]" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
+        <div className="absolute bottom-0 inset-x-0 h-[10%] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
         <ParticleCanvas density={0.5} />
         <div className="absolute inset-0 flex items-center justify-center px-4">
           <SectionHeader
