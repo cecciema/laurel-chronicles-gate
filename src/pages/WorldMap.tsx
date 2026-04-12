@@ -810,6 +810,9 @@ const WorldMap = () => {
               </div>{/* end zoomable wrapper */}
               </div>{/* end aspect-ratio lock */}
 
+      <div className="pb-28 overflow-x-hidden bg-[#0f0b06] min-h-screen relative">
+        {/* Hidden Orb 5 - Map page scroll */}
+        <HiddenOrb id={5} className="absolute top-24 right-4 sm:right-12 z-20" />
 
 
               {/* ── Zoom controls (bottom-right) ── */}
