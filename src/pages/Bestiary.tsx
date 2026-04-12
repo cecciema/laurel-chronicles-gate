@@ -7,6 +7,8 @@ import { DeadCorridors } from "@/components/DeadCorridors";
 import apotheosisBg from "@/assets/apotheosis.jpg";
 import GuideWhisper from "@/components/GuideWhisper";
 import GoldDivider from "@/components/GoldDivider";
+import BottomHero from "@/components/BottomHero";
+import bottomHeroBg from "@/assets/bottom-hero-bestiary.jpg";
 
 // ── Read unlock state from Chronicles localStorage ─────────────────────────────
 // foundScrolls: updated scroll assignments
