@@ -323,7 +323,7 @@ const TimelinePage = () => {
   return (
     <Layout>
       {/* Hero */}
-      <div className="relative min-h-[70vh] sm:min-h-screen overflow-hidden">
+      <div className="relative min-h-[50vh] sm:min-h-screen overflow-hidden">
         <img src={heroBg} alt="Timeline" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
         <ParticleCanvas density={0.5} />
