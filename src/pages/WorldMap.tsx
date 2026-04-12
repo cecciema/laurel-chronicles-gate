@@ -1149,6 +1149,7 @@ const WorldMap = () => {
       </div>
       </div>
       </div>
+      </div>
     </Layout>
   );
 };
