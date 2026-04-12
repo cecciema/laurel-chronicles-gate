@@ -377,7 +377,7 @@ const Bestiary = () => {
   return (
     <Layout>
       {/* Hero */}
-      <div className="relative h-[40vh] sm:h-[50vh] overflow-hidden">
+      <div className="relative min-h-screen overflow-hidden">
         <img src={apotheosisBg} alt="Bestiary" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" style={{ backgroundImage: "linear-gradient(to bottom, transparent 55%, hsl(var(--background)) 100%)" }} />
       </div>
