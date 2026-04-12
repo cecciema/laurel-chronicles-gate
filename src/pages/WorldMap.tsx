@@ -1148,8 +1148,6 @@ const WorldMap = () => {
         <VialSubstitutionGame onClose={() => {}} />
       </div>
       </div>
-      </div>
-      </div>
     </Layout>
   );
 };
