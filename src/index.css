@@ -13,68 +13,68 @@
   }
 
   :root {
-    /* Dark steampunk republic palette */
-    --background: 20 10% 8%;
-    --foreground: 38 25% 85%;
+    /* Base — deep moonlit stone, not brown */
+    --background: 220 15% 7%;
+    --foreground: 38 20% 88%;
 
-    --card: 20 12% 12%;
-    --card-foreground: 38 25% 85%;
+    /* Card surfaces — cool dark slate */
+    --card: 222 14% 10%;
+    --card-foreground: 38 20% 88%;
 
-    --popover: 20 12% 10%;
-    --popover-foreground: 38 25% 85%;
+    --popover: 222 14% 9%;
+    --popover-foreground: 38 20% 88%;
 
-    /* Brass/Gold primary */
-    --primary: 38 72% 50%;
-    --primary-foreground: 20 10% 8%;
+    /* Primary — antique gold, restrained */
+    --primary: 42 65% 48%;
+    --primary-foreground: 220 15% 7%;
 
-    /* Dark steel */
-    --secondary: 20 8% 18%;
-    --secondary-foreground: 38 20% 75%;
+    /* Secondary — deep cool surface */
+    --secondary: 220 12% 14%;
+    --secondary-foreground: 38 15% 72%;
 
-    /* Muted dark tones */
-    --muted: 20 6% 15%;
-    --muted-foreground: 20 10% 50%;
+    /* Muted */
+    --muted: 220 10% 13%;
+    --muted-foreground: 220 8% 48%;
 
-    /* Copper accent */
-    --accent: 25 80% 45%;
-    --accent-foreground: 38 25% 90%;
+    /* Accent */
+    --accent: 42 55% 40%;
+    --accent-foreground: 38 20% 90%;
 
+    /* Utility */
     --destructive: 0 65% 48%;
     --destructive-foreground: 0 0% 95%;
-
-    --border: 38 20% 20%;
-    --input: 20 10% 18%;
-    --ring: 38 72% 50%;
-
+    --border: 220 12% 18%;
+    --input: 220 12% 15%;
+    --ring: 42 65% 48%;
     --radius: 0rem;
 
-    /* Custom tokens */
-    --gold-ancient: 38 72% 50%;
-    --gold-glow: 38 80% 60%;
-    --ember: 25 80% 45%;
-    --stone-deep: 220 8% 14%;
-    --mist: 38 15% 70%;
-    --moss-shadow: 20 15% 25%;
-    --vellum: 38 30% 80%;
+    /* Semantic tokens */
+    --gold-ancient: 42 65% 48%;
+    --gold-glow: 42 72% 58%;
+    --ember: 30 70% 42%;
+    --stone-deep: 220 12% 12%;
+    --mist: 220 10% 62%;
+    --moss-shadow: 220 10% 18%;
+    --vellum: 38 25% 82%;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(38 72% 50%), hsl(25 80% 45%));
-    --gradient-dark: linear-gradient(180deg, hsl(20 10% 8%), hsl(20 12% 5%));
-    --gradient-stone: linear-gradient(135deg, hsl(220 8% 14%), hsl(20 10% 8%));
+    --gradient-gold: linear-gradient(135deg, hsl(42 65% 48%), hsl(30 70% 42%));
+    --gradient-dark: linear-gradient(180deg, hsl(220 15% 7%), hsl(220 14% 5%));
+    --gradient-stone: linear-gradient(135deg, hsl(220 12% 12%), hsl(220 15% 7%));
 
     /* Shadows */
-    --shadow-gold: 0 0 30px hsl(38 72% 50% / 0.15);
-    --shadow-deep: 0 20px 60px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 40px hsl(38 72% 50% / 0.25);
+    --shadow-gold: 0 0 30px hsl(42 65% 48% / .12);
+    --shadow-glow: 0 0 40px hsl(42 72% 58% / .18);
+    --shadow-deep: 0 4px 32px hsl(220 15% 4% / .8);
 
-    --sidebar-background: 20 12% 10%;
-    --sidebar-foreground: 38 25% 85%;
-    --sidebar-primary: 38 72% 50%;
-    --sidebar-primary-foreground: 20 10% 8%;
-    --sidebar-accent: 20 8% 18%;
-    --sidebar-accent-foreground: 38 20% 75%;
-    --sidebar-border: 38 20% 20%;
-    --sidebar-ring: 38 72% 50%;
+    --sidebar-background: 222 14% 9%;
+    --sidebar-foreground: 38 20% 88%;
+    --sidebar-primary: 42 65% 48%;
+    --sidebar-primary-foreground: 220 15% 7%;
+    --sidebar-accent: 220 12% 14%;
+    --sidebar-accent-foreground: 38 15% 72%;
+    --sidebar-border: 220 12% 18%;
+    --sidebar-ring: 42 65% 48%;
   }
 }
 
@@ -108,7 +108,7 @@
 
   .text-gold-glow {
     color: hsl(var(--gold-ancient));
-    text-shadow: 0 0 20px hsl(var(--gold-ancient) / 0.4);
+    text-shadow: 0 0 20px hsl(var(--gold-ancient) / 0.35);
   }
 
   .border-gold {
@@ -144,9 +144,9 @@
     filter: brightness(1.15) contrast(1.05) saturate(0.95);
   }
 
-  .gold-divider {
+  .gold-divider, .steampunk-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(var(--gold-ancient) / .35), hsl(var(--gold-ancient) / .6), hsl(var(--gold-ancient) / .35), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--gold-ancient) / .3), hsl(var(--gold-ancient) / .55), hsl(var(--gold-ancient) / .3), transparent);
   }
 
   /* Animated gear rotation */
@@ -198,21 +198,21 @@
 @keyframes goldPulse {
   0%, 100% {
     box-shadow:
-      0 0 12px hsl(38 72% 50% / 0.4),
-      0 0 28px hsl(38 72% 50% / 0.25),
-      0 0 50px hsl(25 80% 45% / 0.15);
+      0 0 12px hsl(42 65% 48% / 0.3),
+      0 0 28px hsl(42 65% 48% / 0.15),
+      0 0 50px hsl(30 70% 42% / 0.08);
   }
   50% {
     box-shadow:
-      0 0 20px hsl(38 80% 60% / 0.7),
-      0 0 45px hsl(38 72% 50% / 0.45),
-      0 0 80px hsl(25 80% 45% / 0.3);
+      0 0 20px hsl(42 72% 58% / 0.5),
+      0 0 45px hsl(42 65% 48% / 0.28),
+      0 0 80px hsl(30 70% 42% / 0.15);
   }
 }
 
 @keyframes bestiaryGlowPulse {
-  0%, 100% { box-shadow: 0 0 20px hsl(38 60% 45% / 0.15), 0 0 40px hsl(38 60% 45% / 0.08); }
-  50% { box-shadow: 0 0 30px hsl(38 72% 50% / 0.3), 0 0 60px hsl(38 60% 45% / 0.15); }
+  0%, 100% { box-shadow: 0 0 20px hsl(42 60% 45% / 0.15), 0 0 40px hsl(42 60% 45% / 0.08); }
+  50% { box-shadow: 0 0 30px hsl(42 65% 48% / 0.3), 0 0 60px hsl(42 60% 45% / 0.15); }
 }
 
 @keyframes cursorBlink {
@@ -238,16 +238,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(20 10% 8%);
+  background: hsl(220 15% 7%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(38 72% 50% / 0.3);
+  background: hsl(42 65% 48% / 0.3);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(38 72% 50% / 0.5);
+  background: hsl(42 65% 48% / 0.5);
 }
 
 @media (max-width: 639px) {
@@ -257,7 +257,7 @@
   }
   .btn-pulse-glow {
     animation: none;
-    box-shadow: 0 0 20px hsl(38 72% 50% / 0.4);
+    box-shadow: 0 0 20px hsl(42 65% 48% / 0.4);
   }
   h1 {
     line-height: 1.1;
@@ -271,32 +271,32 @@
 /* ── Map panel custom scrollbar ─────────────────────────────────────────────── */
 .map-panel-scroll {
   scrollbar-width: thin;
-  scrollbar-color: hsl(38 40% 28%) hsl(20 10% 8%);
+  scrollbar-color: hsl(42 40% 28%) hsl(220 15% 7%);
 }
 .map-panel-scroll::-webkit-scrollbar {
   width: 4px;
 }
 .map-panel-scroll::-webkit-scrollbar-track {
-  background: hsl(20 10% 8%);
+  background: hsl(220 15% 7%);
 }
 .map-panel-scroll::-webkit-scrollbar-thumb {
-  background: hsl(38 40% 28%);
+  background: hsl(42 40% 28%);
   border-radius: 2px;
 }
 .map-panel-scroll::-webkit-scrollbar-thumb:hover {
-  background: hsl(38 55% 40%);
+  background: hsl(42 55% 40%);
 }
 
 .chapter-scroll-container::-webkit-scrollbar {
   width: 5px;
 }
 .chapter-scroll-container::-webkit-scrollbar-track {
-  background: hsl(20 10% 8%);
+  background: hsl(220 15% 7%);
 }
 .chapter-scroll-container::-webkit-scrollbar-thumb {
-  background: hsl(38 40% 28%);
+  background: hsl(42 40% 28%);
   border-radius: 2px;
 }
 .chapter-scroll-container::-webkit-scrollbar-thumb:hover {
-  background: hsl(38 55% 40%);
+  background: hsl(42 55% 40%);
 }
