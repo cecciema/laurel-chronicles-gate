@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { HiddenOrb } from "@/components/ChroniclesSystem";
 import { DeadCorridors } from "@/components/DeadCorridors";
-import apotheosisBg from "@/assets/apotheosis.jpg";
+import apotheosisBg from "@/assets/top-hero-bestiary.png";
 import GuideWhisper from "@/components/GuideWhisper";
 import GoldDivider from "@/components/GoldDivider";
 import BottomHero from "@/components/BottomHero";
