@@ -109,7 +109,7 @@ const Index = () => {
         style={isTouch ? undefined : { cursor: "none" }}
       >
         {/* ── Hero Background (parallax layers) ──────────────────────── */}
-        <div className="relative w-full z-0 bg-background min-h-screen">
+        <div className="relative w-full z-0 bg-background min-h-[80vh] sm:min-h-screen">
           {/* Layer 1 - image (most movement) */}
           <div
             ref={bgRef}
@@ -150,7 +150,7 @@ const Index = () => {
 
               {/* Typewriter headline */}
               <h1
-                className="font-display text-[2rem] sm:text-7xl lg:text-8xl tracking-[0.08em] leading-tight w-full max-w-full overflow-hidden text-white"
+                className="font-display text-[3.5rem] sm:text-7xl lg:text-8xl font-bold tracking-[0.08em] leading-tight w-full max-w-full overflow-hidden text-white"
                 style={{
                   textShadow: "0 0 40px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.25), 0 2px 12px rgba(255, 255, 255, 0.3)",
                 }}
