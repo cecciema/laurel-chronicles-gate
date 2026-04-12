@@ -212,7 +212,7 @@ const Manuscript = () => {
         <ParticleCanvas density={0.5} />
 
         {/* Chapter content starting at 50% from top */}
-        <div className="relative z-10 pt-[50vh] pb-16 sm:pb-20 px-5 sm:px-8">
+        <div className="relative z-10 pt-[35vh] sm:pt-[50vh] pb-16 sm:pb-20 px-5 sm:px-8">
           <div className="text-center mb-8">
             <p className="font-display text-[9px] tracking-[0.4em] uppercase text-white/80 mb-2" style={{ textShadow: "0 0 20px rgba(255,255,255,0.4)" }}>
               ◆ Sample Chapters ◆

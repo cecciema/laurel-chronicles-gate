@@ -389,7 +389,7 @@ const Bestiary = () => {
         />
 
         {/* Header content starting at 50% from top */}
-        <div className="relative z-10 pt-[50vh] pb-16 sm:pb-20 px-5 sm:px-8">
+        <div className="relative z-10 pt-[35vh] sm:pt-[50vh] pb-16 sm:pb-20 px-5 sm:px-8">
           <div className="max-w-2xl mx-auto">
 
             {/* Header */}
