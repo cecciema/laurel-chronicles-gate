@@ -32,7 +32,7 @@ const Navigation = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
-              <span className="font-display text-lg tracking-[0.2em] text-primary">
+              <span className="font-display text-xs sm:text-sm md:text-lg leading-tight tracking-[0.2em] text-primary whitespace-nowrap">
                 LAUREL CROWNS ABOVE
               </span>
             </Link>
