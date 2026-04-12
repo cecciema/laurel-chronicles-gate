@@ -379,8 +379,8 @@ const Bestiary = () => {
   return (
     <Layout>
       {/* Hero with bestiary header carved into bottom half */}
-      <div className="relative min-h-[50vh] sm:min-h-screen w-full overflow-hidden">
-        <img src={apotheosisBg} alt="Apotheosis" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center top" }} />
+      <div className="relative min-h-[70vh] sm:min-h-screen w-full overflow-hidden">
+        <img src={apotheosisBg} alt="Apotheosis" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 20%" }} />
         <div
           className="absolute inset-0"
           style={{ background: "linear-gradient(to bottom, transparent 40%, hsl(224 16% 6% / 0.85) 50%, hsl(224 16% 6%) 55%)" }}
