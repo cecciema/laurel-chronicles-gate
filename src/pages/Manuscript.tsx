@@ -205,12 +205,12 @@ const Manuscript = () => {
         <img src={manuscriptHero} alt="Manuscript" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, transparent 40%, hsl(224 16% 6% / 0.85) 50%, hsl(224 16% 6%) 55%)" }}
+          style={{ background: "linear-gradient(to bottom, transparent 60%, hsl(224 16% 6% / 0.85) 75%, hsl(224 16% 6%) 85%)" }}
         />
         <ParticleCanvas density={0.5} />
 
         {/* Chapter content starting at 50% from top */}
-        <div className="relative z-10 pt-[35vh] sm:pt-[50vh] pb-16 sm:pb-20 px-5 sm:px-8">
+        <div className="relative z-10 pt-[55vh] sm:pt-[75vh] pb-16 sm:pb-20 px-5 sm:px-8">
           <div className="text-center mb-8">
             <p className="font-display font-bold text-[9px] tracking-[0.4em] uppercase text-white/80 mb-2" style={{ textShadow: "0 0 20px rgba(255,255,255,0.4)" }}>
               ◆ Sample Chapters ◆
