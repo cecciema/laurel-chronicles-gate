@@ -95,19 +95,11 @@ const WorldOverview = () => {
         <img src={heroBg} alt="Panterra" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 to-background" />
         <ParticleCanvas density={0.5} />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center px-5"
-          >
-            <h1 className="font-display text-[2.625rem] sm:text-[4.6875rem] tracking-[0.1em] text-foreground">
-              PANTERRA
-            </h1>
-            <p className="mt-2 text-muted-foreground font-narrative italic text-xl sm:text-2xl leading-[1.8]">
-              The last continent. The only civilization. Or so they were told.
-            </p>
-          </motion.div>
+        <div className="absolute inset-0 flex items-center justify-center px-4">
+          <SectionHeader
+            title="Panterra"
+            subtitle="The last continent. The only civilization. Or so they were told."
+          />
         </div>
       </div>
 
