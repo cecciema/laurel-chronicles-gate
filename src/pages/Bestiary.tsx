@@ -496,6 +496,7 @@ const Bestiary = () => {
           <div id="dead-corridors">
             <DeadCorridors />
           </div>
+          </div>
       </div>
       <BottomHero src={bottomHeroBg} alt="Dark laboratory" />
     </Layout>
