@@ -448,7 +448,7 @@ const WorldMap = () => {
         </div>
       </div>
 
-      <div className="pb-28 overflow-x-hidden bg-[#0f0b06] min-h-screen relative">
+      <div className="pb-28 overflow-x-hidden bg-background min-h-screen relative">
         {/* Hidden Orb 5 - Map page scroll */}
         <HiddenOrb id={5} className="absolute top-24 right-4 sm:right-12 z-20" />
 
