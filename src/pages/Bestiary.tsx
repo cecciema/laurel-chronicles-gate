@@ -386,9 +386,10 @@ const Bestiary = () => {
           className="absolute bottom-0 inset-x-0 h-[10%] pointer-events-none z-10"
           style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }}
         />
+      </div>
 
-        {/* Header content starting at 50% from top */}
-        <div className="relative z-10 pt-[35vh] sm:pt-[50vh] pb-16 sm:pb-20 px-5 sm:px-8">
+        {/* Header content */}
+        <div className="relative z-10 pb-16 sm:pb-20 px-5 sm:px-8">
           <div className="max-w-2xl mx-auto">
 
             {/* Header */}
@@ -497,8 +498,7 @@ const Bestiary = () => {
           <div id="dead-corridors">
             <DeadCorridors />
           </div>
-          </div>
-      </div>
+        </div>
       <BottomHero src={bottomHeroBg} alt="Dark laboratory" />
     </Layout>
   );
