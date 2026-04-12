@@ -202,7 +202,7 @@ const Manuscript = () => {
     <Layout>
       {/* Hero with chapter reader carved into bottom half */}
       <div
-        className="relative min-h-screen w-full bg-cover"
+        className="relative min-h-[70vh] sm:min-h-screen w-full bg-cover"
         style={{ backgroundImage: `url(${manuscriptHero})`, backgroundPosition: "center 30%" }}
       >
         <div

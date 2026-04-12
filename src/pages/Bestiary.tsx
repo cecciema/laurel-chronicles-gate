@@ -380,7 +380,7 @@ const Bestiary = () => {
     <Layout>
       {/* Hero with bestiary header carved into bottom half */}
       <div
-        className="relative min-h-screen w-full bg-cover"
+        className="relative min-h-[70vh] sm:min-h-screen w-full bg-cover"
         style={{ backgroundImage: `url(${apotheosisBg})`, backgroundPosition: "center top" }}
       >
         <div
