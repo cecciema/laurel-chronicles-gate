@@ -6,7 +6,7 @@ import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
 import heroBg from "@/assets/waterfall.jpg";
 import BottomHero from "@/components/BottomHero";
-import bottomHeroBg from "@/assets/bottom-hero-manuscript.jpg";
+import bottomHeroBg from "@/assets/bottom-hero-world.jpg";
 import { ForbiddenTransmission } from "@/components/ForbiddenTransmission";
 import GuideWhisper from "@/components/GuideWhisper";
 
