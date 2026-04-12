@@ -4,9 +4,9 @@ import Layout from "@/components/Layout";
 import { isTouch } from "@/components/CustomCursor";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import { CHAPTERS } from "@/data/chapters-data";
-import manuscriptHero from "@/assets/manuscript-hero.jpg";
+import manuscriptHero from "@/assets/bottom-hero-map.jpg";
 import BottomHero from "@/components/BottomHero";
-import bottomHeroBg from "@/assets/bottom-hero-map.jpg";
+import bottomHeroBg from "@/assets/manuscript-hero.jpg";
 import GoldDivider from "@/components/GoldDivider";
 
 // ── ScrollReveal ──────────────────────────────────────────────────────────────
