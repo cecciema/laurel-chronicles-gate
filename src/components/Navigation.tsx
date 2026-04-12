@@ -33,10 +33,7 @@ const Navigation = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
               <span className="font-display text-lg tracking-[0.2em] text-primary">
-                LAUREL CROWNS
-              </span>
-              <span className="hidden sm:block text-xs tracking-[0.3em] text-muted-foreground uppercase">
-                Above
+                LAUREL CROWNS ABOVE
               </span>
             </Link>
 
