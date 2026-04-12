@@ -134,7 +134,7 @@ const Index = () => {
           <ParticleCanvas />
 
           {/* ── Hero Content ────────────────────────────────────────────── */}
-          <div className="absolute inset-0 z-[5] flex flex-col items-center justify-center sm:justify-end pt-[25vh] sm:pt-24 pb-6 sm:pb-10 px-6 text-center">
+          <div className="absolute inset-0 z-[5] flex flex-col items-center justify-center sm:justify-end pt-[20vh] sm:pt-24 pb-6 sm:pb-10 px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 30 : 0 }}
