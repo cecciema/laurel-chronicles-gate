@@ -8,6 +8,8 @@ import { SemperReview } from "@/components/SemperReview";
 import { useIsMobile } from "@/hooks/use-mobile";
 import GuideWhisper from "@/components/GuideWhisper";
 import heroBg from "@/assets/botanical.jpg";
+import BottomHero from "@/components/BottomHero";
+import bottomHeroBg from "@/assets/bottom-hero-timeline.jpg";
 
 // ─── Event Data ─────────────────────────────────────────────────────────────────
 

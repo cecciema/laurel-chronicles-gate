@@ -10,6 +10,8 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import panterraMap from "@/assets/panterra-map.jpg";
 import GoldDivider from "@/components/GoldDivider";
 import heroBg from "@/assets/mining.jpg";
+import BottomHero from "@/components/BottomHero";
+import bottomHeroBg from "@/assets/bottom-hero-map.jpg";
 import { Plus, Minus, RotateCcw } from "lucide-react";
 import GuideWhisper from "@/components/GuideWhisper";
 
