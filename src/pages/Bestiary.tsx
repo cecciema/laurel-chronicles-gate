@@ -383,15 +383,11 @@ const Bestiary = () => {
         <img
           src={apotheosisBg}
           alt="Apotheosis"
-          className="absolute inset-0 w-full h-full object-contain object-top"
-          style={{
-            maskImage: "linear-gradient(to bottom, black 0%, black 58%, rgba(0,0,0,0.9) 72%, rgba(0,0,0,0.45) 82%, transparent 92%)",
-            WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 58%, rgba(0,0,0,0.9) 72%, rgba(0,0,0,0.45) 82%, transparent 92%)",
-          }}
+          className="absolute inset-0 w-full h-full object-cover object-top"
         />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, hsl(224 16% 6% / 0) 0%, hsl(224 16% 6% / 0) 38%, hsl(224 16% 6% / 0.14) 56%, hsl(224 16% 6% / 0.38) 70%, hsl(224 16% 6% / 0.72) 84%, hsl(224 16% 6%) 100%)" }}
+          style={{ background: "linear-gradient(to bottom, hsl(224 16% 6% / 0) 0%, hsl(224 16% 6% / 0) 40%, hsl(224 16% 6% / 0.3) 55%, hsl(224 16% 6% / 0.65) 68%, hsl(224 16% 6% / 0.9) 80%, hsl(224 16% 6%) 92%)" }}
         />
 
         {/* Header content starting at 50% from top */}
