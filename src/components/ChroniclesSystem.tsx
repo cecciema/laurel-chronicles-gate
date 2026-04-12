@@ -476,7 +476,7 @@ export const HiddenOrb = ({ id, className }: { id: number; className?: string })
     <motion.button
       onClick={() => foundScroll(id)}
       className={cn(
-        "relative w-3 h-3 sm:w-4 sm:h-4 rounded-full cursor-pointer z-40 group",
+        "relative w-6 h-6 sm:w-8 sm:h-8 rounded-full cursor-pointer z-40 group",
         isFound ? "opacity-20" : "animate-pulse",
         className
       )}
