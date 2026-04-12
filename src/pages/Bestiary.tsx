@@ -383,11 +383,17 @@ const Bestiary = () => {
         <img
           src={apotheosisBg}
           alt="Apotheosis"
-          className="absolute inset-0 w-full h-full object-cover object-top"
+          className="absolute inset-0 w-full h-full object-contain object-top"
         />
+        {/* Full overlay gradient */}
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, hsl(224 16% 6% / 0) 0%, hsl(224 16% 6% / 0) 40%, hsl(224 16% 6% / 0.3) 55%, hsl(224 16% 6% / 0.65) 68%, hsl(224 16% 6% / 0.9) 80%, hsl(224 16% 6%) 92%)" }}
+          style={{ background: "linear-gradient(to bottom, hsl(224 16% 6% / 0) 0%, hsl(224 16% 6% / 0) 38%, hsl(224 16% 6% / 0.14) 56%, hsl(224 16% 6% / 0.38) 70%, hsl(224 16% 6% / 0.72) 84%, hsl(224 16% 6%) 100%)" }}
+        />
+        {/* Extra bottom fade to cover any hard image edge */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-[40%]"
+          style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6% / 0.6) 40%, hsl(224 16% 6%) 80%)" }}
         />
 
         {/* Header content starting at 50% from top */}
