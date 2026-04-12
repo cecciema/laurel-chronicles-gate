@@ -843,7 +843,7 @@ const Characters = () => {
         <ParticleCanvas density={0.5} />
 
         {/* Section header centered on hero */}
-        <div className="absolute inset-0 flex items-center justify-center px-4">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pb-16">
           <div className="relative">
             <SectionHeader
               title="Character Database"

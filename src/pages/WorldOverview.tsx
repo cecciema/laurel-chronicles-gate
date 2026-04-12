@@ -97,7 +97,7 @@ const WorldOverview = () => {
         <img src={heroBg} alt="Panterra" className="w-full h-full object-cover" />
         <div className="absolute bottom-0 inset-x-0 h-[10%] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
         <ParticleCanvas density={0.5} />
-        <div className="absolute inset-0 flex items-center justify-center px-4">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pb-16">
           <SectionHeader
             title="Panterra — The Known World"
             subtitle="The last continent. The only civilization. Or so they were told."
