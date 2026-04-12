@@ -201,7 +201,7 @@ const Manuscript = () => {
   return (
     <Layout>
       {/* Hero with chapter reader carved into bottom half */}
-      <div className="relative min-h-[70vh] sm:min-h-screen w-full overflow-hidden">
+      <div className="relative min-h-[80vh] sm:min-h-screen w-full overflow-hidden">
         <img src={manuscriptHero} alt="Manuscript" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
         <div
           className="absolute inset-0"
