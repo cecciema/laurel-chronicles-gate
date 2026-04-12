@@ -840,8 +840,8 @@ const Characters = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
         <ParticleCanvas density={0.5} />
 
-        {/* Section header overlaid at bottom of hero */}
-        <div className="absolute bottom-0 left-0 right-0 pb-12 px-4">
+        {/* Section header centered on hero */}
+        <div className="absolute inset-0 flex items-center justify-center px-4">
           <div className="relative">
             <SectionHeader
               title="Character Database"
