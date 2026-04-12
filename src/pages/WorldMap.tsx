@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
+import SectionHeader from "@/components/SectionHeader";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import VialSubstitutionGame, { VialSubstitutionTrigger } from "@/components/VialSubstitution";
@@ -438,17 +439,9 @@ const WorldMap = () => {
 
         {/* Title centered on hero */}
         <div className="absolute inset-0 flex items-center justify-center px-4 z-20">
-          <div className="text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="font-display text-xl sm:text-2xl tracking-[0.2em] text-foreground"
-            >
-              Panterra - The Known World
-            </motion.h1>
-            <GoldDivider className="max-w-xs mx-auto mt-3" />
-          </div>
+          <SectionHeader
+            title="Panterra — The Known World"
+          />
         </div>
       </div>
 

@@ -17,11 +17,17 @@ const SectionHeader = ({ title, subtitle, children }: SectionHeaderProps) => (
     className="text-center mb-16"
   >
     <GoldDivider className="max-w-xs mx-auto mb-6" />
-    <h2 className="font-display text-3xl sm:text-4xl tracking-[0.1em] text-foreground">
+    <h2
+      className="font-display text-3xl sm:text-4xl tracking-[0.1em] text-white"
+      style={{ textShadow: "0 0 30px rgba(255,255,255,0.4), 0 2px 10px rgba(255,255,255,0.2)" }}
+    >
       {title}
     </h2>
     {subtitle && (
-      <p className="mt-4 text-muted-foreground font-narrative text-lg italic max-w-2xl mx-auto">
+      <p
+        className="mt-4 font-narrative text-lg italic max-w-2xl mx-auto text-white/70"
+        style={{ textShadow: "0 0 20px rgba(255,255,255,0.25)" }}
+      >
         {subtitle}
       </p>
     )}
