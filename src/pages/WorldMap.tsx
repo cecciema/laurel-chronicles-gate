@@ -435,24 +435,22 @@ const WorldMap = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
         <div className="absolute inset-0 z-10 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 55%, rgba(15,11,6,0.7) 80%, #0f0b06 100%)" }} />
         <ParticleCanvas density={0.5} />
-      </div>
 
-      <div className="pb-28 overflow-x-hidden bg-[#0f0b06] min-h-screen relative">
-        {/* Hidden Orb 5 - Map page scroll */}
-        <HiddenOrb id={5} className="absolute top-24 right-4 sm:right-12 z-20" />
-
-        {/* ── Title ── */}
-        <div className="text-center pt-4 pb-2 px-4">
-          <motion.h1
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="font-display text-xl sm:text-2xl tracking-[0.2em] text-foreground"
-          >
-            Panterra - The Known World
-          </motion.h1>
-          <GoldDivider className="max-w-xs mx-auto mt-3" />
+        {/* Title centered on hero */}
+        <div className="absolute inset-0 flex items-center justify-center px-4 z-20">
+          <div className="text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="font-display text-xl sm:text-2xl tracking-[0.2em] text-foreground"
+            >
+              Panterra - The Known World
+            </motion.h1>
+            <GoldDivider className="max-w-xs mx-auto mt-3" />
+          </div>
         </div>
+      </div>
 
         <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-4">
           <GuideWhisper page="map" />
