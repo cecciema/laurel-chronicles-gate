@@ -839,16 +839,18 @@ const Characters = () => {
         <img src={heroBg} alt="Characters" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
         <ParticleCanvas density={0.5} />
-      </div>
 
-      <div className="pb-20 px-4 overflow-x-hidden">
-        <div className="relative">
-          <SectionHeader
-            title="Character Database"
-            subtitle="The key figures whose choices will shape the fate of Panterra"
-          />
-          <HiddenOrb id={4} className="absolute top-2 right-4 sm:right-12" />
+        {/* Section header overlaid at bottom of hero */}
+        <div className="absolute bottom-0 left-0 right-0 pb-12 px-4">
+          <div className="relative">
+            <SectionHeader
+              title="Character Database"
+              subtitle="The key figures whose choices will shape the fate of Panterra"
+            />
+            <HiddenOrb id={4} className="absolute top-2 right-4 sm:right-12" />
+          </div>
         </div>
+      </div>
 
         <div className="max-w-6xl mx-auto mt-4">
           <div className="mb-8 sm:mb-10 px-4 sm:px-0">
