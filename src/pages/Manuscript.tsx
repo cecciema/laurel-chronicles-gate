@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import { isTouch } from "@/components/CustomCursor";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import { CHAPTERS } from "@/data/chapters-data";
-import manuscriptHero from "@/assets/bottom-hero-map.jpg";
+import manuscriptHero from "@/assets/hero-manuscript.jpeg";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/manuscript-hero.jpg";
 import GoldDivider from "@/components/GoldDivider";
@@ -206,15 +206,11 @@ const Manuscript = () => {
           <img
             src={manuscriptHero}
             alt="Manuscript"
-            className="absolute inset-0 h-full w-full object-contain object-top"
-            style={{
-              maskImage: "linear-gradient(to bottom, hsl(0 0% 0%) 0%, hsl(0 0% 0%) 58%, hsl(0 0% 0% / 0.9) 72%, hsl(0 0% 0% / 0.45) 82%, transparent 92%)",
-              WebkitMaskImage: "linear-gradient(to bottom, hsl(0 0% 0%) 0%, hsl(0 0% 0%) 58%, hsl(0 0% 0% / 0.9) 72%, hsl(0 0% 0% / 0.45) 82%, transparent 92%)",
-            }}
+            className="absolute inset-0 h-full w-full object-cover"
           />
           <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(to bottom, hsl(224 16% 6% / 0) 0%, hsl(224 16% 6% / 0) 38%, hsl(224 16% 6% / 0.14) 56%, hsl(224 16% 6% / 0.38) 70%, hsl(224 16% 6% / 0.72) 84%, hsl(224 16% 6%) 100%)" }}
+            className="absolute bottom-0 left-0 right-0 h-[10%]"
+            style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }}
           />
           <ParticleCanvas density={0.5} />
         </div>

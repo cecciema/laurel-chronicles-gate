@@ -9,7 +9,7 @@ import GoldDivider from "@/components/GoldDivider";
 import GuideWhisper from "@/components/GuideWhisper";
 import { characters } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
-import heroBg from "@/assets/pool.jpg";
+import heroBg from "@/assets/hero-characters.jpeg";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-characters.jpg";
 
@@ -838,8 +838,8 @@ const Characters = () => {
     <Layout>
       {/* Hero */}
       <div className="relative min-h-[50vh] sm:min-h-screen overflow-hidden">
-        <img src={heroBg} alt="Characters" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
+        <img src={heroBg} alt="Characters" className="w-full h-full object-cover" />
+        <div className="absolute bottom-0 left-0 right-0 h-[10%]" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
         <ParticleCanvas density={0.5} />
 
         {/* Section header centered on hero */}

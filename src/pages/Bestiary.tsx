@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { HiddenOrb } from "@/components/ChroniclesSystem";
 import { DeadCorridors } from "@/components/DeadCorridors";
-import apotheosisBg from "@/assets/top-hero-bestiary.png";
+import apotheosisBg from "@/assets/hero-bestiary.jpeg";
 import GuideWhisper from "@/components/GuideWhisper";
 import GoldDivider from "@/components/GoldDivider";
 import BottomHero from "@/components/BottomHero";
@@ -383,17 +383,12 @@ const Bestiary = () => {
         <img
           src={apotheosisBg}
           alt="Apotheosis"
-          className="absolute inset-0 w-full h-full object-contain object-top"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* Full overlay gradient */}
+        {/* Bottom 10% fade to background */}
         <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, hsl(224 16% 6% / 0) 0%, hsl(224 16% 6% / 0) 38%, hsl(224 16% 6% / 0.14) 56%, hsl(224 16% 6% / 0.38) 70%, hsl(224 16% 6% / 0.72) 84%, hsl(224 16% 6%) 100%)" }}
-        />
-        {/* Extra bottom fade to cover any hard image edge */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-[40%]"
-          style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6% / 0.6) 40%, hsl(224 16% 6%) 80%)" }}
+          className="absolute bottom-0 left-0 right-0 h-[10%]"
+          style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }}
         />
 
         {/* Header content starting at 50% from top */}
