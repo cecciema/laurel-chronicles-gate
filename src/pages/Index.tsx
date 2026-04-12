@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { QuestTrigger, ScrollCollection, useGame } from "@/components/ChroniclesSystem";
 import ParticleCanvas from "@/components/ParticleCanvas";
-import heroBg from "@/assets/apotheosis.png";
+import heroBg from "@/assets/hero-enter.jpeg";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-timeline.jpg";
 import { isTouch } from "@/components/CustomCursor";
@@ -127,12 +127,8 @@ const Index = () => {
             className="absolute inset-0 z-[1] pointer-events-none transition-transform duration-100 ease-out"
             style={{ background: "radial-gradient(ellipse at 40% 60%, hsl(38 72% 50% / 0.08) 0%, transparent 60%)" }}
           />
-          {/* Dark overlay */}
-          <div className="absolute inset-0 z-[1] bg-black/40 pointer-events-none" />
-          {/* Bottom blend */}
-          <div className="absolute inset-0 z-[2] pointer-events-none bg-gradient-to-b from-transparent via-transparent via-70% to-background" />
-          {/* Vignette */}
-          <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.75) 100%)" }} />
+          {/* Bottom 10% fade */}
+          <div className="absolute bottom-0 left-0 right-0 h-[10%] z-[2] pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
 
           {/* Particles */}
           <ParticleCanvas />

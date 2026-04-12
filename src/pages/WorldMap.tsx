@@ -9,7 +9,7 @@ import { characterImageMap } from "@/data/guide-images";
 import { useIsMobile } from "@/hooks/use-mobile";
 import panterraMap from "@/assets/panterra-map.jpg";
 import GoldDivider from "@/components/GoldDivider";
-import heroBg from "@/assets/mining.jpg";
+import heroBg from "@/assets/hero-map.jpeg";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-manuscript.jpg";
 import { Plus, Minus, RotateCcw } from "lucide-react";
@@ -435,8 +435,7 @@ const WorldMap = () => {
       {/* Hero */}
       <div className="relative min-h-[50vh] sm:min-h-screen overflow-hidden">
         <img src={heroBg} alt="World Map" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
-        <div className="absolute inset-0 z-10 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 55%, hsl(224 16% 6% / 0.7) 80%, hsl(224 16% 6%) 100%)" }} />
+        <div className="absolute bottom-0 left-0 right-0 h-[10%] z-10 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
         <ParticleCanvas density={0.5} />
 
         {/* Title centered on hero */}

@@ -7,7 +7,7 @@ import SectionHeader from "@/components/SectionHeader";
 import { SemperReview } from "@/components/SemperReview";
 import { useIsMobile } from "@/hooks/use-mobile";
 import GuideWhisper from "@/components/GuideWhisper";
-import heroBg from "@/assets/botanical.jpg";
+import heroBg from "@/assets/hero-timeline.jpeg";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/gothic-chamber.jpeg";
 
@@ -325,7 +325,7 @@ const TimelinePage = () => {
       {/* Hero */}
       <div className="relative min-h-[50vh] sm:min-h-screen overflow-hidden">
         <img src={heroBg} alt="Timeline" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
+        <div className="absolute bottom-0 left-0 right-0 h-[10%]" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
         <ParticleCanvas density={0.5} />
 
         {/* Section header centered on hero */}

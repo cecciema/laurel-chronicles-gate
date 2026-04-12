@@ -4,7 +4,7 @@ import ParticleCanvas from "@/components/ParticleCanvas";
 import Layout from "@/components/Layout";
 import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import SectionHeader from "@/components/SectionHeader";
-import heroBg from "@/assets/waterfall.jpg";
+import heroBg from "@/assets/hero-world.jpeg";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-world.jpg";
 import { ForbiddenTransmission } from "@/components/ForbiddenTransmission";
@@ -94,8 +94,8 @@ const WorldOverview = () => {
     <Layout>
       {/* Hero */}
       <div className="relative min-h-[50vh] sm:min-h-screen overflow-hidden">
-        <img src={heroBg} alt="Panterra" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
+        <img src={heroBg} alt="Panterra" className="w-full h-full object-cover" />
+        <div className="absolute bottom-0 left-0 right-0 h-[10%]" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
         <ParticleCanvas density={0.5} />
         <div className="absolute inset-0 flex items-center justify-center px-4">
           <SectionHeader
