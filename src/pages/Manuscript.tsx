@@ -229,6 +229,7 @@ const Manuscript = () => {
           </div>
         </div>
       </div>
+      <BottomHero src={bottomHeroBg} alt="Archive library" />
     </Layout>
   );
 };

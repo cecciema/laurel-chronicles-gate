@@ -310,6 +310,7 @@ const WorldOverview = () => {
       <div id="forbidden-transmission">
         <ForbiddenTransmission />
       </div>
+      <BottomHero src={bottomHeroBg} alt="Parliament chambers" />
     </Layout>
   );
 };

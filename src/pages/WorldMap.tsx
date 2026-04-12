@@ -1141,6 +1141,7 @@ const WorldMap = () => {
       <div className="px-4">
         <VialSubstitutionGame onClose={() => {}} />
       </div>
+      <BottomHero src={bottomHeroBg} alt="Research corridor" />
     </Layout>
   );
 };

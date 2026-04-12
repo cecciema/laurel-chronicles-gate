@@ -6,6 +6,8 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { QuestTrigger, ScrollCollection, useGame } from "@/components/ChroniclesSystem";
 import ParticleCanvas from "@/components/ParticleCanvas";
 import heroBg from "@/assets/city.jpg";
+import BottomHero from "@/components/BottomHero";
+import bottomHeroBg from "@/assets/bottom-hero-index.jpg";
 import { isTouch } from "@/components/CustomCursor";
 
 // ─── Typewriter Hook ───────────────────────────────────────────────────────────
@@ -313,6 +315,7 @@ const Index = () => {
               ))}
             </div>
           </section>
+          <BottomHero src={bottomHeroBg} alt="Panterra lounge" />
           <Footer />
         </div>
       </div>

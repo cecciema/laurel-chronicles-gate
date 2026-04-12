@@ -732,6 +732,7 @@ const TimelinePage = () => {
           </motion.div>
         </div>
       </div>
+      <BottomHero src={bottomHeroBg} alt="Astral chamber" />
     </Layout>
   );
 };
