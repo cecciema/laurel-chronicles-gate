@@ -378,16 +378,18 @@ const Bestiary = () => {
 
   return (
     <Layout>
-      {/* Hero with bestiary header carved into bottom half */}
-      <div className="relative min-h-[70vh] sm:min-h-screen w-full overflow-hidden">
-        <img src={apotheosisBg} alt="Apotheosis" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 20%" }} />
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, transparent 40%, hsl(224 16% 6% / 0.85) 50%, hsl(224 16% 6%) 55%)" }}
-        />
+      <div className="relative w-full bg-background">
+        {/* Hero with bestiary header carved into bottom half */}
+        <div className="relative h-[70vh] sm:h-screen w-full overflow-hidden">
+          <img src={apotheosisBg} alt="Apotheosis" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 20%" }} />
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to bottom, transparent 40%, hsl(var(--background) / 0.85) 50%, hsl(var(--background)) 55%)" }}
+          />
+        </div>
 
-        {/* Header content starting at 50% from top */}
-        <div className="relative z-10 pt-[35vh] sm:pt-[50vh] pb-16 sm:pb-20 px-5 sm:px-8">
+        {/* Content overlaps the lower half of the hero */}
+        <div className="relative z-10 -mt-[35vh] sm:-mt-[50vh] pb-16 sm:pb-20 px-5 sm:px-8">
           <div className="max-w-2xl mx-auto">
 
             {/* Header */}
@@ -495,6 +497,7 @@ const Bestiary = () => {
           {/* Dead Corridors game section */}
           <div id="dead-corridors">
             <DeadCorridors />
+          </div>
           </div>
         </div>
       </div>
