@@ -440,7 +440,8 @@ const WorldMap = () => {
         {/* Title centered on hero */}
         <div className="absolute inset-0 flex items-center justify-center px-4 z-20">
           <SectionHeader
-            title="Panterra — The Known World"
+            title="The Panterra Map"
+            subtitle="See what secret place you may uncover"
           />
         </div>
       </div>
