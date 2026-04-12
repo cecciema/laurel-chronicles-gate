@@ -205,7 +205,7 @@ const Manuscript = () => {
         <img src={manuscriptHero} alt="Manuscript" className="absolute inset-0 w-full h-full object-contain object-top" />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, transparent 0%, transparent 40%, rgba(13, 14, 18, 0.15) 58%, rgba(13, 14, 18, 0.6) 72%, rgba(13, 14, 18, 0.92) 84%, rgb(13, 14, 18) 93%, rgb(13, 14, 18) 100%)" }}
+          style={{ background: "linear-gradient(to bottom, transparent 0%, transparent 35%, rgba(13, 14, 18, 0.1) 50%, rgba(13, 14, 18, 0.5) 65%, rgba(13, 14, 18, 0.88) 78%, rgb(13, 14, 18) 88%)" }}
         />
         <ParticleCanvas density={0.5} />
 
@@ -222,7 +222,7 @@ const Manuscript = () => {
               Read the First Six Chapters
             </h1>
           </div>
-          <div className="max-w-3xl mx-auto" style={{ background: "rgba(10, 10, 16, 0.65)", backdropFilter: "blur(2px)", padding: "2rem" }}>
+          <div className="max-w-3xl mx-auto" style={{ background: "rgba(13, 14, 18, 0.72)", backdropFilter: "blur(3px)", padding: "2rem", maskImage: "linear-gradient(to bottom, transparent 0%, black 8%)" }}>
             <ScrollReveal delay={0.15}>
               <SampleChapters />
             </ScrollReveal>
