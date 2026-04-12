@@ -200,7 +200,7 @@ const Manuscript = () => {
     <Layout>
       {/* Hero Banner */}
       <div
-        className="relative h-[40vh] sm:h-[50vh] w-full bg-cover"
+        className="relative min-h-screen w-full bg-cover"
         style={{ backgroundImage: `url(${manuscriptHero})`, backgroundPosition: "center 30%" }}
       >
         <div
