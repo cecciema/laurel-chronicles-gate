@@ -95,7 +95,7 @@ const WorldOverview = () => {
       {/* Hero */}
       <div className="relative min-h-[50vh] sm:min-h-screen overflow-hidden">
         <img src={heroBg} alt="Panterra" className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
         <ParticleCanvas density={0.5} />
         <div className="absolute inset-0 flex items-center justify-center px-4">
           <SectionHeader

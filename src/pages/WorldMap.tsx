@@ -436,7 +436,7 @@ const WorldMap = () => {
       <div className="relative min-h-[50vh] sm:min-h-screen overflow-hidden">
         <img src={heroBg} alt="World Map" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 via-60% to-background" />
-        <div className="absolute inset-0 z-10 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 55%, rgba(15,11,6,0.7) 80%, #0f0b06 100%)" }} />
+        <div className="absolute inset-0 z-10 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 55%, hsl(224 16% 6% / 0.7) 80%, hsl(224 16% 6%) 100%)" }} />
         <ParticleCanvas density={0.5} />
 
         {/* Title centered on hero */}
