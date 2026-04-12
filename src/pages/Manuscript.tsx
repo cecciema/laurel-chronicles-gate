@@ -207,7 +207,7 @@ const Manuscript = () => {
       >
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, transparent 40%, hsl(220 15% 7% / 0.85) 50%, hsl(220 15% 7%) 55%)" }}
+          style={{ background: "linear-gradient(to bottom, transparent 40%, hsl(224 16% 6% / 0.85) 50%, hsl(224 16% 6%) 55%)" }}
         />
         <ParticleCanvas density={0.5} />
 
