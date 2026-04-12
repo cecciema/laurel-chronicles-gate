@@ -7,7 +7,7 @@ import { QuestTrigger, ScrollCollection, useGame } from "@/components/Chronicles
 import ParticleCanvas from "@/components/ParticleCanvas";
 import heroBg from "@/assets/city.jpg";
 import BottomHero from "@/components/BottomHero";
-import bottomHeroBg from "@/assets/bottom-hero-index.jpg";
+import bottomHeroBg from "@/assets/bottom-hero-timeline.jpg";
 import { isTouch } from "@/components/CustomCursor";
 
 // ─── Typewriter Hook ───────────────────────────────────────────────────────────
