@@ -99,7 +99,7 @@ const WorldOverview = () => {
         <ParticleCanvas density={0.5} />
         <div className="absolute inset-x-0 top-0 pt-[30%] flex flex-col items-center text-center px-4">
           <SectionHeader
-            title="Panterra — The Known World"
+            title="The Known World"
             subtitle="The last continent. The only civilization. Or so they were told."
           />
         </div>
