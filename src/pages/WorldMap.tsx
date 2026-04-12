@@ -452,7 +452,10 @@ const WorldMap = () => {
         </div>
       </div>
 
-        <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-4">
+      <div className="pb-28 overflow-x-hidden bg-[#0f0b06] min-h-screen relative">
+        {/* Hidden Orb 5 - Map page scroll */}
+        <HiddenOrb id={5} className="absolute top-24 right-4 sm:right-12 z-20" />
+
           <GuideWhisper page="map" />
         </div>
 
