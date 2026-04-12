@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { QuestTrigger, ScrollCollection, useGame } from "@/components/ChroniclesSystem";
 import ParticleCanvas from "@/components/ParticleCanvas";
-import heroBg from "@/assets/city.jpg";
+import heroBg from "@/assets/apotheosis.png";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-timeline.jpg";
 import { isTouch } from "@/components/CustomCursor";
