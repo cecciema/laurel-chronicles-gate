@@ -11,7 +11,7 @@ import panterraMap from "@/assets/panterra-map.jpg";
 import GoldDivider from "@/components/GoldDivider";
 import heroBg from "@/assets/hero-map.jpeg";
 import BottomHero from "@/components/BottomHero";
-import bottomHeroBg from "@/assets/bottom-hero-manuscript.jpg";
+import bottomHeroBg from "@/assets/bottom-hero-map.jpeg";
 import { Plus, Minus, RotateCcw } from "lucide-react";
 import GuideWhisper from "@/components/GuideWhisper";
 

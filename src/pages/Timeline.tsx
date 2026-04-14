@@ -9,7 +9,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import GuideWhisper from "@/components/GuideWhisper";
 import heroBg from "@/assets/hero-timeline.jpeg";
 import BottomHero from "@/components/BottomHero";
-import bottomHeroBg from "@/assets/gothic-chamber.jpeg";
+import bottomHeroBg from "@/assets/bottom-hero-timeline-new.jpeg";
 
 // ─── Event Data ─────────────────────────────────────────────────────────────────
 
