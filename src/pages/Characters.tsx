@@ -11,7 +11,7 @@ import { characters } from "@/data/world-data";
 import { characterImageMap } from "@/data/guide-images";
 import heroBg from "@/assets/hero-characters.jpeg";
 import BottomHero from "@/components/BottomHero";
-import bottomHeroBg from "@/assets/bottom-hero-characters.jpg";
+import bottomHeroBg from "@/assets/bottom-hero-characters-new.jpeg";
 
 // Resolve character portrait: new characters use a full path, legacy ones use a key
 const resolveImage = (image: string): string =>

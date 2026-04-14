@@ -8,7 +8,7 @@ import apotheosisBg from "@/assets/hero-bestiary.jpeg";
 import GuideWhisper from "@/components/GuideWhisper";
 import GoldDivider from "@/components/GoldDivider";
 import BottomHero from "@/components/BottomHero";
-import bottomHeroBg from "@/assets/bottom-hero-bestiary.jpg";
+import bottomHeroBg from "@/assets/bottom-hero-bestiary-new.jpeg";
 
 // ── Read unlock state from Chronicles localStorage ─────────────────────────────
 // foundScrolls: updated scroll assignments

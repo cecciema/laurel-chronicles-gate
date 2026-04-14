@@ -6,7 +6,7 @@ import ParticleCanvas from "@/components/ParticleCanvas";
 import { CHAPTERS } from "@/data/chapters-data";
 import manuscriptHero from "@/assets/hero-manuscript.jpeg";
 import BottomHero from "@/components/BottomHero";
-import bottomHeroBg from "@/assets/manuscript-hero.jpg";
+import bottomHeroBg from "@/assets/bottom-hero-manuscript-new.jpeg";
 import GoldDivider from "@/components/GoldDivider";
 
 // ── ScrollReveal ──────────────────────────────────────────────────────────────
