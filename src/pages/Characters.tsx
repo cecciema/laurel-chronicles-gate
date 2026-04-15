@@ -19,7 +19,7 @@ const resolveImage = (image: string): string =>
 
 // Fixed display order for the character grid
 const CHARACTER_ORDER = [
-  "remsays", "quinn", "thema", "sailor",
+  "remsays", "quinn", "astra", "sailor",
   "kotani", "norstrand", "culver", "carmela",
   "lockland", "gemma", "verlaine", "jude",
   "aspen", "wintry", "cora", "soleil",
@@ -128,7 +128,7 @@ const ALL_QUESTIONS: QuestionDef[] = [
     ],
   },
   {
-    id: "thema", answer: "Thema", image: "char-thema",
+    id: "astra", answer: "Astra", image: "char-astra",
     clues: [
       "This person wears something across their face that others have stopped questioning.",
       "This person governs with amusement. That is either wisdom or something colder.",

@@ -15,7 +15,7 @@ export const GUIDE_CONTENT: Record<string, Record<GuidePage, string>> = {
     map: "Sanctorium's holdings extend well beyond what is marked here. The archives alone occupy territory no Parliament map acknowledges.",
     bestiary: "The Ivory vaults contain records of things Panterra decided not to name. Naming gives them weight. The decision not to name them gave them something worse.",
   },
-  thema: {
+  astra: {
     world: "The Republic is very old and very tired and does not know it yet. I have watched younger things than this believe themselves permanent. They were not.",
     characters: "Everyone you see here has already made their most important choice. Most of them do not realize which one it was.",
     timeline: "I have presided over ceremonies in every era on this record. The ones that were not recorded were more interesting.",

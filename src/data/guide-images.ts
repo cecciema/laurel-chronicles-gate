@@ -4,7 +4,7 @@ import charQuinn from "@/assets/char-quinn.jpg";
 import charCarmela from "@/assets/char-carmela.jpg";
 import charVerlaine from "@/assets/char-verlaine.jpg";
 import charJude from "@/assets/char-jude.jpg";
-import charThema from "@/assets/char-thema.jpg";
+import charAstra from "@/assets/char-astra.jpg";
 import charRemsays from "@/assets/char-remsays.jpg";
 import charSoleil from "@/assets/char-soleil.jpg";
 import charSailor from "@/assets/char-sailor.jpg";
@@ -24,7 +24,7 @@ export const characterImageMap: Record<string, string> = {
   "char-carmela": charCarmela,
   "char-verlaine": charVerlaine,
   "char-jude": charJude,
-  "char-thema": charThema,
+  "char-astra": charAstra,
   "char-remsays": charRemsays,
   "char-soleil": charSoleil,
   "char-sailor": charSailor,
