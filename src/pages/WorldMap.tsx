@@ -43,7 +43,7 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
     { name: "Carmela",          title: "Pantheon Lunary (Ivory)",         image: "char-carmela"  },
     { name: "Verlaine",         title: "Rising Shadow",                   image: "char-verlaine" },
     { name: "Gemma",            title: "Lunary Political Operator",       image: "char-gemma"    },
-    { name: "Sol Deus Thema",   title: "Divine Ruler",                    image: "char-thema"    },
+    { name: "Sol Deus Astra",   title: "Divine Ruler",                    image: "char-astra"    },
   ],
   "parliament": [
     { name: "Chief Magister Remsays", title: "Parliament Chief Magister",  image: "char-remsays" },
@@ -53,7 +53,7 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
     { name: "Wintry",                 title: "Senior Council, Space Sci",  image: "char-wintry"  },
   ],
   "deepforge": [
-    { name: "Sol Deus Thema",   title: "Keeper of Deep Forge",             image: "char-thema"    },
+    { name: "Sol Deus Astra",   title: "Keeper of Deep Forge",             image: "char-astra"    },
     { name: "Culver Gretell",   title: "Paragon of Ocean Magistry",       image: "char-culver"   },
   ],
   "ocean-reaches": [
@@ -67,7 +67,7 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
 
 // ── 12 Pantheons ───────────────────────────────────────────────────────────────
 const PANTHEONS = [
-  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", constellation: "Ram (Aries)",              solDeus: "Thema",     lunary: "Gemma Avinas X",           color: "#ffffff", mapPos: { top: "33%", left: "72%" } },
+  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", constellation: "Ram (Aries)",              solDeus: "Astra",     lunary: "Gemma Avinas X",           color: "#ffffff", mapPos: { top: "33%", left: "72%" } },
   { id: "greenwood",  name: "Greenwood",  quadrant: "Northeast", constellation: "Bull (Taurus)",            solDeus: "Gable",     lunary: "Kasen Welliver II",         color: "#ffffff", mapPos: { top: "29%", left: "78%" } },
   { id: "ivory",      name: "Ivory",      quadrant: "Northeast", constellation: "Fish (Pisces)",            solDeus: "Verlaine",  lunary: "Carmela Faraday VI",        color: "#ffffff", mapPos: { top: "37%", left: "82%" } },
   { id: "mist",       name: "Mist",       quadrant: "Southeast", constellation: "Lioness (Leo)",            solDeus: "Santos",    lunary: "Wolf Bode III",             color: "#ffffff", mapPos: { top: "67%", left: "74%" } },
@@ -1168,7 +1168,7 @@ const QUADRANTS = [
     magistryDesc: "Civil order, conflict resolution, and border enforcement",
     magistryCharacters: ["Aspen"],
     pantheons: [
-      { name: "Prisma", constellation: "Ram (Aries)", solDeus: "Thema" },
+      { name: "Prisma", constellation: "Ram (Aries)", solDeus: "Astra" },
       { name: "Greenwood", constellation: "Bull (Taurus)", solDeus: "Gable" },
       { name: "Ivory", constellation: "Vixens (Pisces)", solDeus: "Lockland" },
     ],

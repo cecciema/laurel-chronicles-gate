@@ -287,7 +287,7 @@ Aspen looked up when Remsays took his seat and offered him the smile that he gav
 
 "Director." Remsays set down his notes, he did not wish to engage in small talk.
 
-The Sanctorium had sent two representatives: Lunary Kasen Welliver of Pantheon Greenwood, whose participation in these functions was routine, and Lunary Gemma Avinas of Pantheon Prisma, whose presence required a brief explanation for anyone unfamiliar. Gemma was Lunary to Sol Deus Thema, the most senior Sol Deus after Lockland, and the figure the Sanctorium was relying on most heavily to manage the Ivory transition.
+The Sanctorium had sent two representatives: Lunary Kasen Welliver of Pantheon Greenwood, whose participation in these functions was routine, and Lunary Gemma Avinas of Pantheon Prisma, whose presence required a brief explanation for anyone unfamiliar. Gemma was Lunary to Sol Deus Astra, the most senior Sol Deus after Lockland, and the figure the Sanctorium was relying on most heavily to manage the Ivory transition.
 
 She was a small woman, pretty in a precise and self-possessed way, with shoulder-length blonde hair tucked neatly behind her ear and the kind of composed expression that made it genuinely difficult to tell what she was thinking at any given moment. She wore the formal Lunary robe with the silver laurel leaves pinned to her chest. Remsays had encountered her at two prior functions and had each time come away with the sense that she was paying more attention to the room than her stillness suggested. Therefore Remsays did not trust her, but he did not trust anyone currently on the Sanctorium side.
 
@@ -303,7 +303,7 @@ A few people showed surprise at the mention of the Convoy, a rumored rebellion g
 
 Aspen spread his hands to gesture that might precisely be the case. "We cannot afford to ignore any potential piece of intelligence, not at the Magistry of Peace. We have to assume their existence until we have evidence to the contrary, because the cost the other way around is simply unaffordable."
 
-"Regardless, Pantheon Ivory is not unprotected," Gemma sighed, not wanting to debate a rumor so she shifted strategies. Her tone with the faintest edge in it now. "Sol Deus Thema will personally oversee continuity of Ivory's operations for the duration of the vacancy. Their sentries will answer to her. I would remind this table that the Sanctorium's jurisdiction over its own grounds is not conditional."
+"Regardless, Pantheon Ivory is not unprotected," Gemma sighed, not wanting to debate a rumor so she shifted strategies. Her tone with the faintest edge in it now. "Sol Deus Astra will personally oversee continuity of Ivory's operations for the duration of the vacancy. Their sentries will answer to her. I would remind this table that the Sanctorium's jurisdiction over its own grounds is not conditional."
 
 Director Atara Bode of the Northwest Magistry of Ocean set her glass down. "Sol Deus Lockland has been presiding for longer than some of the devotees have been alive. He was beloved by virtually all, not just within the Sanctorium but out here in the Deep Forge and in the Parliament as well. Our people are frightened. The Convoy, whether the rumors are to be believed or not, are still smart and sophisticated criminals. They are organized and have shown they can exploit this kind of emotional state. Director Landsrae's concern is worth taking seriously rather than routing it through protocol."
 
@@ -317,7 +317,7 @@ Aspen turned to him slightly and said amiably, "I think what Director Wittaker i
 
 A few people at the table suppressed a snicker.
 
-Premiere Jude had let the conversation run, which was how he always operated: giving the table enough time to reveal what it actually thought before he shaped it. He cleared his throat. "The Sanatorium's jurisdiction over Ivory's grounds is not a question before this table." He said it without looking at Aspen. "What is before this table is whether the Parliament has an obligation to offer additional support to the surrounding eastern territories during the transition period, which is a different conversation entirely and one I am happy to have. I will call on Sol Deus Thema as well as Lunary Carmela of Ivory directly to understand what, if anything, would be welcome from the Parliament's side. What matters to me is that the citizens feel steady during the changeover. Our role is to be present and visible and to continue our work without too much commentary on the succession itself. It isn't our place to do so."
+Premiere Jude had let the conversation run, which was how he always operated: giving the table enough time to reveal what it actually thought before he shaped it. He cleared his throat. "The Sanatorium's jurisdiction over Ivory's grounds is not a question before this table." He said it without looking at Aspen. "What is before this table is whether the Parliament has an obligation to offer additional support to the surrounding eastern territories during the transition period, which is a different conversation entirely and one I am happy to have. I will call on Sol Deus Astra as well as Lunary Carmela of Ivory directly to understand what, if anything, would be welcome from the Parliament's side. What matters to me is that the citizens feel steady during the changeover. Our role is to be present and visible and to continue our work without too much commentary on the succession itself. It isn't our place to do so."
 
 There was a visible easing of tension in Lunaries Gemma and Kasen. Gemma said nothing, but she unfolded her hands.
 
@@ -541,7 +541,7 @@ She looked at herself in the long mirror to make sure everything looked correct.
 
 Thirty days. How would they manage without him for thirty days?
 
-Carmela could not recall the last time a Sol Deus had been replaced. It happened so rarely, and she had no way of knowing whether the vacancy had caused unrest in those past transitions. She trusted Sol Deus Thema with her life and was grateful to have her to lean on, but of the other ten Sol Deos she was not certain. Any one of them might see this as an opportunity to maneuver. Carmela had already been thinking through who would make the first approach.
+Carmela could not recall the last time a Sol Deus had been replaced. It happened so rarely, and she had no way of knowing whether the vacancy had caused unrest in those past transitions. She trusted Sol Deus Astra with her life and was grateful to have her to lean on, but of the other ten Sol Deos she was not certain. Any one of them might see this as an opportunity to maneuver. Carmela had already been thinking through who would make the first approach.
 
 Sol Deus Morrison of Rockfall, most likely. She had grown up in his region and revered him once, the way you revered whatever authority was nearest when you were young and had no basis for comparison. Working beside Lockland for two decades had cured her of that. The contrast between the two Sol Deos was not subtle.
 
@@ -626,13 +626,13 @@ After the morning blessing, after Sol Deus Lockland had spoken and Carmela had r
 
 "Of course." She followed behind Carmela.
 
-The meeting was held in a reception room off the main corridor, a long table, old stone walls hung with tapestry, the kind of room that had been receiving important visitors for a very long time. When Quinn entered behind Carmela, everyone was already seated. Premiere Jude at the far end, open-faced and attentive. Sol Deus Thema of Pantheon Prisma to his left, composed and precise, the kind of stillness that was not absence but control. Beside Thema, Lunary Gemma sat slightly forward and alert. And to Jude's right shoulder, standing rather than seated, was the Chief Magister.
+The meeting was held in a reception room off the main corridor, a long table, old stone walls hung with tapestry, the kind of room that had been receiving important visitors for a very long time. When Quinn entered behind Carmela, everyone was already seated. Premiere Jude at the far end, open-faced and attentive. Sol Deus Astra of Pantheon Prisma to his left, composed and precise, the kind of stillness that was not absence but control. Beside Astra, Lunary Gemma sat slightly forward and alert. And to Jude's right shoulder, standing rather than seated, was the Chief Magister.
 
 Up close he was more straightforwardly handsome than she had prepared herself for. His eyes locked on hers, noticing her noticing. She quickly looked down and felt her cheeks burn.
 
 Carmela took her place at the near end of the table and set the scripture box down.
 
-"Premiere, Sol Deus Thema. Thank you for honoring Sol Deus Lockland with your presence today."
+"Premiere, Sol Deus Astra. Thank you for honoring Sol Deus Lockland with your presence today."
 
 "The honor is ours," Jude said. Sincerity sitting naturally on a man who had every reason to perform it instead. "Lockland served Panterra with distinction for a very long time." His eyes moved to Quinn with pleasant inquiry of a man who made a practice of noticing everyone in a room.
 
@@ -644,17 +644,17 @@ Carmela took her place at the near end of the table and set the scripture box do
 
 Jude expressed Parliament's confidence in the stability of the transition. He noted that he was looking forward, with what seemed like genuine curiosity, to learning who the divine had chosen as the next Sol Deus. "One of the few genuine surprises left in this work," he said. "The Sanctorium keeps its counsel well."
 
-"That is rather the design," Thema said, "you will find out when the time is right."
+"That is rather the design," Astra said, "you will find out when the time is right."
 
 Jude laughed. Real, unguarded. "So it is."
 
 He then confirmed Parliament had increased its presence along the eastern shipping routes for the duration of the transition. Trade would not be disrupted. Any criminal activity would be met with immediate enforcement. Carmela received this with quiet relief.
 
-Thema turned toward Remsays. "Chief Magister. I hope you will forgive a question that falls somewhat outside today's occasion." Her voice was measured. "I was sorry to hear about the disruption at the Paragon induction. A troubling event. Is Director Landsrae badly wounded?"
+Astra turned toward Remsays. "Chief Magister. I hope you will forgive a question that falls somewhat outside today's occasion." Her voice was measured. "I was sorry to hear about the disruption at the Paragon induction. A troubling event. Is Director Landsrae badly wounded?"
 
 "He is recovering." Remsays replied, after a pause. "The situation is contained. The individual responsible is in our custody."
 
-"Of course." Thema nodded slowly, emphasizing her empathy. Then she looked up as if a new thought just popped into her head. "And the investigation, is Parliament satisfied with its progress?"
+"Of course." Astra nodded slowly, emphasizing her empathy. Then she looked up as if a new thought just popped into her head. "And the investigation, is Parliament satisfied with its progress?"
 
 "It is still ongoing. But I'm afraid I'm not at liberty to discuss the details of an active investigation." He kept his tone courteous. "I do appreciate the Sanctorium's concern."
 
@@ -662,9 +662,9 @@ Thema turned toward Remsays. "Chief Magister. I hope you will forgive a question
 
 "He has not said." Remsays narrowed his eyes, and held his gaze at Gemma.
 
-Jude tilted his head slightly toward Thema, the ease of a man among people he had known for a long time. "Have the Pantheons experienced anything of a similar nature recently? Any security concerns we should be aware of?"
+Jude tilted his head slightly toward Astra, the ease of a man among people he had known for a long time. "Have the Pantheons experienced anything of a similar nature recently? Any security concerns we should be aware of?"
 
-"Nothing of that kind." Thema said.
+"Nothing of that kind." Astra said.
 
 "Nor at Ivory." Carmela added.
 
@@ -672,11 +672,11 @@ Jude nodded, seemingly satisfied.
 
 "I will say," Remsays continued, measured, "that my team expects to get considerably more out of the man in custody in the coming days. We shall identify his true master before long."
 
-It was a small thing. A fraction of a second. Thema's eyes moved to Gemma and Gemma's moved back. A brief closed circuit. There and gone before anyone who was not already watching for it.
+It was a small thing. A fraction of a second. Astra's eyes moved to Gemma and Gemma's moved back. A brief closed circuit. There and gone before anyone who was not already watching for it.
 
 Remsays had been watching for it.
 
-The meeting concluded shortly after. Jude thanked Carmela for Ivory's hospitality and rose, easy and unhurried. Thema and Gemma departed with quiet efficiency.
+The meeting concluded shortly after. Jude thanked Carmela for Ivory's hospitality and rose, easy and unhurried. Astra and Gemma departed with quiet efficiency.
 
 Remsays spoke before he and Jude reached the door. He addressed Carmela directly.
 
@@ -716,9 +716,9 @@ He waited until they had passed the archway and the noise of the amphitheater gr
 
 Jude was quiet for a moment. Around them the peacekeepers maintained their formation with practiced inattention.
 
-"You may be overthinking it," Jude said, carefully, not entirely dismissing what he was hearing. "Information travels to here the same way it travels anywhere. Sanctorium leadership has eyes in Parliament the same way we have eyes in here. Thema has sources."
+"You may be overthinking it," Jude said, carefully, not entirely dismissing what he was hearing. "Information travels to here the same way it travels anywhere. Sanctorium leadership has eyes in Parliament the same way we have eyes in here. Astra has sources."
 
-"Thema asked the question. But Gemma already knew the answer."
+"Astra asked the question. But Gemma already knew the answer."
 
 "It's your call," Jude said after a moment, "I trust your judgment. I'd just advise care. The Sanctorium is not the Parliament. The rules of engagement are different."
 
@@ -742,7 +742,7 @@ It was Gemma who walked in first. Smiling her signature smile. Quinn followed a 
 
 "I apologize on behalf of Lunary Carmela. She was called to an urgent matter with the council this morning. She sends her regards and asked me to accompany Quinnevere in her place." Gemma's delivery was gracious, but she did not seem sorry at all.
 
-"Please, come in." He led them through the adjoining door into the sitting room and gestured toward the leather sofas. His mind was already working through the adjustment. Gemma was Thema's. That much was certain. She was here because Thema had wanted ears in this room, which meant Thema was more interested in what Parliament knew about the attacker than she had been willing to show at the Ivory meeting. That was useful. That was, in fact, more useful than Carmela would have been.
+"Please, come in." He led them through the adjoining door into the sitting room and gestured toward the leather sofas. His mind was already working through the adjustment. Gemma was Astra's. That much was certain. She was here because Astra had wanted ears in this room, which meant Astra was more interested in what Parliament knew about the attacker than she had been willing to show at the Ivory meeting. That was useful. That was, in fact, more useful than Carmela would have been.
 
 Quinn was less certain. She sat with her back straight, hands folded in her lap, taking the room in with a quiet, cataloguing attention that he recognized.
 
@@ -762,7 +762,7 @@ He would need a moment alone with Quinn.
 
 He handed Gemma her cup and sat.
 
-"Sol Deus Thema sends her warmest regards. She wanted you to know how much she values her relationship with Premiere Jude and you as his most trusted personnel. The alliance she has maintained with the Premiere over the years extends to you as well."
+"Sol Deus Astra sends her warmest regards. She wanted you to know how much she values her relationship with Premiere Jude and you as his most trusted personnel. The alliance she has maintained with the Premiere over the years extends to you as well."
 
 "That's quite a compliment." He turned his cup in his hands. "I am glad to be considered as an extension to our Premiere."
 
