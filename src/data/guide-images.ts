@@ -24,7 +24,7 @@ export const characterImageMap: Record<string, string> = {
   "char-carmela": charCarmela,
   "char-verlaine": charVerlaine,
   "char-jude": charJude,
-  "char-thema": charThema,
+  "char-astra": charAstra,
   "char-remsays": charRemsays,
   "char-soleil": charSoleil,
   "char-sailor": charSailor,
