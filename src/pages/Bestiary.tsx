@@ -121,7 +121,7 @@ const MONSTERS: MonsterDef[] = [
     name: "The Silencer",
     accentColor: "#ffffff",
     origin: "Selected young. Trained in isolation. Branded on the back of the neck so they cannot be identified in a crowd.",
-    lore: "There are 7 known gaps in the official Panterra Timeline between the Great War and the present day. Historians who investigated 4 of them are no longer practicing. The other 3 investigators retired early, citing health reasons, within the same calendar month.",
+    lore: "There are 7 known gaps in the official Solterra Timeline between the Great War and the present day. Historians who investigated 4 of them are no longer practicing. The other 3 investigators retired early, citing health reasons, within the same calendar month.",
     lockedHint: "The timeline hides more than it reveals.",
     firstEncountered: "Forbidden Transmission - World",
     Silhouette: SilencerSilhouette,
@@ -143,7 +143,7 @@ const MONSTERS: MonsterDef[] = [
     name: "The Unmasked",
     accentColor: "#ffffff",
     origin: "The logical end of a society where a Semper scar is the only proof of existence.",
-    lore: "The Semper scar is Panterra's only proof of identity. It can be replicated. Sanctorium has known this since the third year of the New Republic. The record of that discovery was sealed the same afternoon.",
+    lore: "The Semper scar is Solterra's only proof of identity. It can be replicated. Sanctorium has known this since the third year of the New Republic. The record of that discovery was sealed the same afternoon.",
     lockedHint: "Not everyone wearing a face is the person behind it.",
     firstEncountered: "The Unmasked - Characters",
     Silhouette: UnmaskedSilhouette,
@@ -154,7 +154,7 @@ const MONSTERS: MonsterDef[] = [
     name: "The Lost",
     accentColor: "#ffffff",
     origin: "Someone who crossed the boundary of the mapped world without knowing where they were going. Not dead. Not alive. Just displaced.",
-    lore: "The bio-warfare wasteland beyond Panterra's borders has been uninhabitable since the Great War. Expedition records from years 3, 7, and 12 of the New Republic describe figures moving in the dead zones. The expeditions were classified. The figures were not mentioned in the public summary.",
+    lore: "The bio-warfare wasteland beyond Solterra's borders has been uninhabitable since the Great War. Expedition records from years 3, 7, and 12 of the New Republic describe figures moving in the dead zones. The expeditions were classified. The figures were not mentioned in the public summary.",
     lockedHint: "The record knows more than you do.",
     firstEncountered: "Semper Review - Timeline",
     Silhouette: LostSilhouette,
@@ -303,7 +303,7 @@ const UnnamedCard = ({ allFiveUnlocked }: { allFiveUnlocked: boolean }) => {
           className="text-center mb-4"
         >
           <p className="font-narrative italic text-[0.875rem] leading-[1.8]" style={{ color: "hsl(38 15% 40%)" }}>
-            You have found everything Panterra will let you find. Something remains.
+            You have found everything Solterra will let you find. Something remains.
           </p>
         </motion.div>
       )}
@@ -417,7 +417,7 @@ const Bestiary = () => {
                 className="font-display text-3xl sm:text-4xl tracking-[0.1em] mb-4"
                 style={{ color: "hsl(38 72% 50%)" }}
               >
-                The Bestiary of Panterra
+                The Bestiary of Solterra
               </h1>
               <p className="font-narrative italic text-[1.0625rem] sm:text-lg text-foreground/60 leading-[1.85] max-w-lg mx-auto">
                 These are not creatures. They are consequences. Every one of them was made by the same system. Every one of them was someone once.

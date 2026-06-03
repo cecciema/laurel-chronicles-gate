@@ -241,7 +241,7 @@ export const characters: Character[] = [
     philosophy: "Some truths are only visible to those who have already accepted the end.",
     alignment: "Resigned Witness",
     personality: ["Still", "Ancient", "Unflinching", "Sorrowful"],
-    background: "One of the eleven reigning Sol Deus of Panterra, governing the Southwest Quadrant from Pantheon Canvas. Kotani lost her sister to an Apotheosis ceremony gone catastrophically wrong - a loss that left her parents destroyed and her own understanding of the world permanently altered. She is the only Pantheon God who truly understands what the meteor shower means, and she has made her peace with it.",
+    background: "One of the eleven reigning Sol Deus of Solterra, governing the Southwest Quadrant from Pantheon Canvas. Kotani lost her sister to an Apotheosis ceremony gone catastrophically wrong - a loss that left her parents destroyed and her own understanding of the world permanently altered. She is the only Pantheon God who truly understands what the meteor shower means, and she has made her peace with it.",
     relationships: "Nari - her twin sister, deaf and mute, the person she has always protected. Cora and Jaden Cannon - her parents. Astra - fellow Sol Deus, one of the few she trusts. Norstrand - complicated history, complicated feelings.",
   },
   {
@@ -397,7 +397,7 @@ export const guideCharacters: GuideCharacter[] = [
     startingRegion: "finnrare",
     factionTag: "Pantheon · Northeast Quadrant",
     accentColor: "hsl(200 50% 35%)",
-    welcomeMessage: "I've spent my life building things meant to outlast me. I'm not sure that was wisdom. But it was what I knew. Welcome to Panterra. There are structures here - political, spiritual, institutional - that will shape everything you encounter. I'll show you how they were built. What you decide to do with them is your own affair.",
+    welcomeMessage: "I've spent my life building things meant to outlast me. I'm not sure that was wisdom. But it was what I knew. Welcome to Solterra. There are structures here - political, spiritual, institutional - that will shape everything you encounter. I'll show you how they were built. What you decide to do with them is your own affair.",
   },
   {
     id: "astra",
@@ -496,8 +496,8 @@ export const guideCharacters: GuideCharacter[] = [
 
 
 export const timeline: TimelineEvent[] = [
-  { year: "Age Unknown", title: "Before the Veil", description: "The era before Panterra's protective systems. A world of raw ocean, untamed land, and pre-war civilizations whose knowledge would later be locked inside Pantheon archives.", category: "social" },
-  { year: "Year 0", title: "The Founding of Panterra", description: "The Republic establishes the protected city-state of Panterra, drawing its first boundaries between governed society and the frontier beyond. Parliament's structure is formalized.", category: "political" },
+  { year: "Age Unknown", title: "Before the Veil", description: "The era before Solterra's protective systems. A world of raw ocean, untamed land, and pre-war civilizations whose knowledge would later be locked inside Pantheon archives.", category: "social" },
+  { year: "Year 0", title: "The Founding of Solterra", description: "The Republic establishes the protected city-state of Solterra, drawing its first boundaries between governed society and the frontier beyond. Parliament's structure is formalized.", category: "political" },
   { year: "Year 47", title: "The First Sol Deus Ascension", description: "The Pantheon Sol Deus tier is formally established, elevating its first divine rulers above standard political authority. The separation between spiritual and civic power is institutionalized.", category: "political" },
   { year: "Year 89", title: "The Ocean Accords", description: "Following evidence of accelerating ocean degradation, the Magistry of Ocean is formally chartered. The first Paragon candidates are selected and trained for planetary recovery roles.", category: "technological" },
   { year: "Year 134", title: "The Language Purge", description: "Sanctorium locks away certain ancient texts deemed destabilizing. Pantheon Ivory scholars become the sole authorized interpreters. Dead languages are reclassified as restricted knowledge.", category: "political" },
@@ -511,7 +511,7 @@ export const timeline: TimelineEvent[] = [
 export const worldRegions: WorldRegion[] = [
   {
     id: "panterra",
-    name: "Panterra",
+    name: "Solterra",
     description: "The Republic's protected central city-state - an engineered civilization designed to survive planetary instability. Gleaming institutional architecture masks the controlled nature of every life lived within its borders.",
     faction: "Republic Parliament",
     features: ["Parliament Hall", "Paragon Training Academies", "The Grand Archive", "Controlled Environmental Systems"],
@@ -526,7 +526,7 @@ export const worldRegions: WorldRegion[] = [
   {
     id: "deepforge",
     name: "Deep Forge",
-    description: "Below the visible world, the geothermal nexus that powers Panterra's systems. Ancient carvings predate the Republic. The Sol Deus order watches over it. Something about it is growing unstable.",
+    description: "Below the visible world, the geothermal nexus that powers Solterra's systems. Ancient carvings predate the Republic. The Sol Deus order watches over it. Something about it is growing unstable.",
     faction: "Pantheon Sol Deus",
     features: ["Geothermal Vents", "Ancient Pre-Republic Carvings", "Oracle Chamber", "The Memory Pools"],
   },

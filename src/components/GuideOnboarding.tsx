@@ -11,7 +11,7 @@ const resolveGuideImage = (image: string): string =>
 const welcomeMessages: Record<string, { title: string; body: string }> = {
   analytical: {
     title: "The data is incomplete. So is every map ever drawn of this world.",
-    body: "You've chosen to see clearly. That comes with a cost - you will question things others accept. Welcome to Panterra. The truth is out there if you're willing to look past the doctrine.",
+    body: "You've chosen to see clearly. That comes with a cost - you will question things others accept. Welcome to Solterra. The truth is out there if you're willing to look past the doctrine.",
   },
   poetic: {
     title: "Every archive holds a word no one has read in centuries. You may be the first.",
@@ -39,7 +39,7 @@ const welcomeMessages: Record<string, { title: string; body: string }> = {
   },
   authoritative: {
     title: "This world does not run on philosophy. It runs on decision.",
-    body: "Parliament did not build Panterra by asking permission. Every law, every boundary, every protected corridor was a choice made under pressure. You are about to learn how those choices were made - and at what cost.",
+    body: "Parliament did not build Solterra by asking permission. Every law, every boundary, every protected corridor was a choice made under pressure. You are about to learn how those choices were made - and at what cost.",
   },
   radiant: {
     title: "The ocean doesn't forgive hesitation. Neither does the mission.",

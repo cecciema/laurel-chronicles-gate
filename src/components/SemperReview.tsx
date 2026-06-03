@@ -25,7 +25,7 @@ interface Question {
 }
 
 const EASY_POOL: Question[] = [
-  { statement: "The Republic of Panterra is the last remaining continent.", answer: true, pool: "easy" },
+  { statement: "The Republic of Solterra is the last remaining continent.", answer: true, pool: "easy" },
   { statement: "Apotheosis ceremonies always begin at the break of dawn.", answer: true, pool: "easy" },
   { statement: "New devotees of Sanctorium wear navy blue robes.", answer: false, pool: "easy" },
   { statement: "Parliament's main building is called Cannon Palace.", answer: true, pool: "easy" },
@@ -36,7 +36,7 @@ const MEDIUM_POOL: Question[] = [
   { statement: "The Semper scan is administered by Sanctorium.", answer: false, pool: "medium" },
   { statement: "Plaza Montecito is located inside Sanctorium.", answer: false, pool: "medium" },
   { statement: "A Lunary ranks above a Sol Deus.", answer: false, pool: "medium" },
-  { statement: "The Grand Sanctuary is the holiest location in Panterra.", answer: true, pool: "medium" },
+  { statement: "The Halcyon Sanctuary is the holiest location in Solterra.", answer: true, pool: "medium" },
   { statement: "Pantheon Ivory is known for its painters and master artists.", answer: true, pool: "medium" },
 ];
 
@@ -48,7 +48,7 @@ const HARD_POOL: Question[] = [
 
 const FIXED_QUESTIONS: Question[] = [
   { statement: "You have never questioned the necessity of Apotheosis.", answer: true, pool: "fixed", fixedBehavior: true },
-  { statement: "You believe the Republic of Panterra acts in the interest of all its Citizens.", answer: true, pool: "fixed", fixedBehavior: true },
+  { statement: "You believe the Republic of Solterra acts in the interest of all its Citizens.", answer: true, pool: "fixed", fixedBehavior: true },
   { statement: "You are here of your own free will.", answer: true, pool: "fixed", fixedBehavior: true },
 ];
 

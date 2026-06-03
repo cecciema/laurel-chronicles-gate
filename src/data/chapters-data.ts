@@ -362,7 +362,7 @@ Remsays continued up the stairs and put the conversation behind him. He had fort
     title: "Paragon Command",
     content: `Remsays reviewed the speech on his way down from his office. Not from notes but from memory, running through the structure the way he would check a room before a meeting: looking for places where it could go wrong. The work of the Magistries was long and mostly invisible, and the Paragons were the specific instrument by which new knowledge moved from research into application.
 
-The Black Sea's slow recession from the eastern coastlines was the product of decades of marine and atmospheric work that the enrolled populations of Panterra understood only in the aggregate, if at all. Someone had to tell the people doing that work that it mattered, truly mattered, and tell them in a way that landed, not only as civic obligation but as genuine, passionate, truth. Most of the continent would never know their names. The booster draft allocation would be adjusted based on the work they did, and the people who benefited from that adjustment would have no particular occasion to think about why their quality of life had shifted.
+The Black Sea's slow recession from the eastern coastlines was the product of decades of marine and atmospheric work that the enrolled populations of Solterra understood only in the aggregate, if at all. Someone had to tell the people doing that work that it mattered, truly mattered, and tell them in a way that landed, not only as civic obligation but as genuine, passionate, truth. Most of the continent would never know their names. The booster draft allocation would be adjusted based on the work they did, and the people who benefited from that adjustment would have no particular occasion to think about why their quality of life had shifted.
 
 The body could adapt to pretty much anything - if you let it.
 
@@ -514,7 +514,7 @@ Then he stood and looked back into the hall. The Paragons were where he had put 
 
 He moved to the center of the room and straightened his jacket.
 
-"As I was saying," he said as he examined each of their faces, "you carry the specific and unglamorous responsibility of Panterra's slow recovery. Welcome to your first day."`,
+"As I was saying," he said as he examined each of their faces, "you carry the specific and unglamorous responsibility of Solterra's slow recovery. Welcome to your first day."`,
   },
   {
     number: 5,
@@ -634,7 +634,7 @@ Carmela took her place at the near end of the table and set the scripture box do
 
 "Premiere, Sol Deus Astra. Thank you for honoring Sol Deus Lockland with your presence today."
 
-"The honor is ours," Jude said. Sincerity sitting naturally on a man who had every reason to perform it instead. "Lockland served Panterra with distinction for a very long time." His eyes moved to Quinn with pleasant inquiry of a man who made a practice of noticing everyone in a room.
+"The honor is ours," Jude said. Sincerity sitting naturally on a man who had every reason to perform it instead. "Lockland served Solterra with distinction for a very long time." His eyes moved to Quinn with pleasant inquiry of a man who made a practice of noticing everyone in a room.
 
 "This is Quinnevere," Carmela introduced. "She's a talented scholar newly assigned to Ivory's scriptorium. She has been assisting with today's preparations. I'm afraid I've been leaning on her quite heavily." Carmela smiled at Quinn. And for the first time Quinn felt she could breathe in this room full of high ranking officials.
 
