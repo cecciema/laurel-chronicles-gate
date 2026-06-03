@@ -70,14 +70,14 @@ const PANTHEONS = [
   { id: "prisma",     name: "Prisma",     quadrant: "Northeast", constellation: "Ram (Aries)",              solDeus: "Astra",     lunary: "Gemma Avinas X",           color: "#ffffff", mapPos: { top: "33%", left: "72%" } },
   { id: "greenwood",  name: "Greenwood",  quadrant: "Northeast", constellation: "Bull (Taurus)",            solDeus: "Gable",     lunary: "Kasen Welliver II",         color: "#ffffff", mapPos: { top: "29%", left: "78%" } },
   { id: "ivory",      name: "Ivory",      quadrant: "Northeast", constellation: "Fish (Pisces)",            solDeus: "Verlaine",  lunary: "Carmela Faraday VI",        color: "#ffffff", mapPos: { top: "37%", left: "82%" } },
-  { id: "mist",       name: "Mist",       quadrant: "Southeast", constellation: "Lioness (Leo)",            solDeus: "Santos",    lunary: "Wolf Bode III",             color: "#ffffff", mapPos: { top: "67%", left: "74%" } },
-  { id: "lighthouse", name: "Lighthouse", quadrant: "Southeast", constellation: "Spider (Cancer)",          solDeus: "Coster",    lunary: "Bristol Safo IX",           color: "#ffffff", mapPos: { top: "73%", left: "80%" } },
+  { id: "mist",       name: "Mist",       quadrant: "Northwest", constellation: "Lioness (Leo)",            solDeus: "Santos",    lunary: "Wolf Bode III",             color: "#ffffff", mapPos: { top: "33%", left: "24%" } },
+  { id: "lighthouse", name: "Lighthouse", quadrant: "Northwest", constellation: "Spider (Cancer)",          solDeus: "Coster",    lunary: "Bristol Safo IX",           color: "#ffffff", mapPos: { top: "39%", left: "18%" } },
   { id: "ember",      name: "Ember",      quadrant: "Southeast", constellation: "Warrior (Virgo)",          solDeus: "Finley",    lunary: "Siena Blackridge IV",       color: "#ffffff", mapPos: { top: "63%", left: "82%" } },
   { id: "volcan",     name: "Volcan",     quadrant: "Southwest", constellation: "Scales (Libra)",           solDeus: "Shanren",   lunary: "Rizal Moresea II",          color: "#ffffff", mapPos: { top: "67%", left: "28%" } },
   { id: "rockfall",   name: "Rockfall",   quadrant: "Southwest", constellation: "Scorpion (Scorpio)",       solDeus: "Morrison",  lunary: "Vicente Penna Car XI",      color: "#ffffff", mapPos: { top: "59%", left: "22%" } },
   { id: "canvas",     name: "Canvas",     quadrant: "Southwest", constellation: "Archer (Sagittarius)",     solDeus: "Kotani",    lunary: "Nikolai Panaura III",       color: "#ffffff", mapPos: { top: "73%", left: "20%" } },
-  { id: "hedron",     name: "Hedron",     quadrant: "Northwest", constellation: "Goat (Capricorn)",         solDeus: "Mexia",     lunary: "Iris Belmiteza V",          color: "#ffffff", mapPos: { top: "33%", left: "24%" } },
-  { id: "lumin",      name: "Lumin",      quadrant: "Northwest", constellation: "Water Bearer (Aquarius)",  solDeus: "Nolyn",     lunary: "Nova Auburn IV",            color: "#ffffff", mapPos: { top: "39%", left: "18%" } },
+  { id: "hedron",     name: "Hedron",     quadrant: "Southeast", constellation: "Goat (Capricorn)",         solDeus: "Mexia",     lunary: "Iris Belmiteza V",          color: "#ffffff", mapPos: { top: "67%", left: "74%" } },
+  { id: "lumin",      name: "Lumin",      quadrant: "Southeast", constellation: "Water Bearer (Aquarius)",  solDeus: "Nolyn",     lunary: "Nova Auburn IV",            color: "#ffffff", mapPos: { top: "73%", left: "80%" } },
   { id: "finnrare",   name: "Finnrare",   quadrant: "Northwest", constellation: "Sisters (Gemini)",         solDeus: "Norstrand", lunary: "Reza Centaris XII",         color: "#ffffff", mapPos: { top: "29%", left: "30%" } },
 ];
 
@@ -1157,9 +1157,9 @@ const QUADRANTS = [
     magistryDesc: "Medical systems, biological research, and Citizen health",
     magistryCharacters: ["Cora"],
     pantheons: [
-      { name: "Hedron", constellation: "Sailor (Aquarius)", solDeus: "Mexia" },
-      { name: "Lumin", constellation: "Siren (Capricorn)", solDeus: "Nolyn" },
       { name: "Finnrare", constellation: "Sisters (Gemini)", solDeus: "Norstrand" },
+      { name: "Lighthouse", constellation: "Spider (Cancer)", solDeus: "Coster" },
+      { name: "Mist", constellation: "Lioness (Leo)", solDeus: "Santos" },
     ],
   },
   {
@@ -1190,9 +1190,9 @@ const QUADRANTS = [
     magistryDesc: "Satellite systems, atmospheric monitoring, and boundary maintenance",
     magistryCharacters: ["Wintry"],
     pantheons: [
-      { name: "Mist", constellation: "Lioness (Leo)", solDeus: "Santos" },
-      { name: "Lighthouse", constellation: "Spider (Cancer)", solDeus: "Coster" },
+      { name: "Hedron", constellation: "Goat (Capricorn)", solDeus: "Mexia" },
       { name: "Ember", constellation: "Warrior (Virgo)", solDeus: "Finley" },
+      { name: "Lumin", constellation: "Water Bearer (Aquarius)", solDeus: "Nolyn" },
     ],
   },
 ];
