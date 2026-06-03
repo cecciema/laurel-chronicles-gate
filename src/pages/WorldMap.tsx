@@ -734,7 +734,7 @@ const WorldMap = () => {
 
                 {/* === GRAND SANCTUARY ORB (visible at 1.5x+ zoom) === */}
                 {showOrbs && (
-                  <div className="absolute z-[25]" style={{ top: "23%", left: "69%", transform: "translate(-50%, -50%)" }}>
+                  <div className="absolute z-[25]" style={{ top: "23%", left: "47%", transform: "translate(-50%, -50%)" }}>
                     <button
                       onClick={(e) => { if (!hasDragged.current) { e.stopPropagation(); setSelectedOrb(selectedOrb === "grand-sanctuary" ? null : "grand-sanctuary"); setSelectedPantheon(null); } }}
                       onMouseDown={(e) => e.stopPropagation()}
