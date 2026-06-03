@@ -2,7 +2,7 @@ export type GuidePage = "world" | "characters" | "timeline" | "map" | "bestiary"
 
 export const GUIDE_CONTENT: Record<string, Record<GuidePage, string>> = {
   remsays: {
-    world: "Panterra is not only a civilization - in its heart is a management system with ceremony painted over it. Study the structures. Ignore the decoration.",
+    world: "Solterra is not only a civilization - in its heart is a management system with ceremony painted over it. Study the structures. Ignore the decoration.",
     characters: "Everyone in this room has a function. Some of them know what it is. Pay attention to the ones who seem not to.",
     timeline: "The algorithm didn't begin in Year 271. That was just when we announced it. I would know.",
     map: "Parliament's borders are not geographic. They are jurisdictional. The land is just where the law stops being polite.",
@@ -13,7 +13,7 @@ export const GUIDE_CONTENT: Record<string, Record<GuidePage, string>> = {
     characters: "Scholarship requires you to hold two contradictory things at once and not collapse either of them. Most people find that uncomfortable. I find it the only honest way to live.",
     timeline: "The Language Purge of Year 134 removed more than dead texts. It removed the ability to verify anything written before it. That was not a coincidence.",
     map: "Sanctorium's holdings extend well beyond what is marked here. The archives alone occupy territory no Parliament map acknowledges.",
-    bestiary: "The Ivory vaults contain records of things Panterra decided not to name. Naming gives them weight. The decision not to name them gave them something worse.",
+    bestiary: "The Ivory vaults contain records of things Solterra decided not to name. Naming gives them weight. The decision not to name them gave them something worse.",
   },
   astra: {
     world: "The Republic is very old and very tired and does not know it yet. I have watched younger things than this believe themselves permanent. They were not.",
@@ -30,7 +30,7 @@ export const GUIDE_CONTENT: Record<string, Record<GuidePage, string>> = {
     bestiary: "I've encountered three of these. Only told anyone about one. The other two I'm keeping to myself until I understand them better.",
   },
   kotani: {
-    world: "Panterra is a closed system. Closed systems do not sustain themselves indefinitely. I have known this for some time. I made my peace with it. I am still not certain that was the right decision.",
+    world: "Solterra is a closed system. Closed systems do not sustain themselves indefinitely. I have known this for some time. I made my peace with it. I am still not certain that was the right decision.",
     characters: "Loss clarifies. Everyone here has lost something - most of them have not yet admitted what it was. Watch for the ones who have. They move differently.",
     timeline: "What transpired in Rockfall was not a warning. It was a preview. The difference matters if you are trying to prepare rather than repent.",
     map: "Canvas sits in the southwest. We are furthest from the center of power and closest to the edge of the known world. I have always believed that is significant.",
@@ -79,22 +79,22 @@ export const GUIDE_CONTENT: Record<string, Record<GuidePage, string>> = {
     bestiary: "I know what happens after Apotheosis. It is not what the ceremony describes. I have not told anyone. I am telling you now only because you asked.",
   },
   cora: {
-    world: "I sit in the rooms where Panterra's future is decided. I say very little in those rooms. Silence is not agreement. The Republic has always preferred to read it that way. I have allowed that preference to stand.",
+    world: "I sit in the rooms where Solterra's future is decided. I say very little in those rooms. Silence is not agreement. The Republic has always preferred to read it that way. I have allowed that preference to stand.",
     characters: "The people in this record are the ones the Republic has chosen to acknowledge. There are others. I know some of their names. I will not write them here.",
     timeline: "Every event on this timeline was a decision made by someone in a room. I have been in some of those rooms. The decisions were smaller and more frightened than the record suggests.",
     map: "What's marked Unknown is real. I know where it is. I know what it is for. I made a choice about that information a long time ago. I am still paying for it.",
     bestiary: "I love my children. I have made choices that contradict that love. The things in here were made by people who believed the same contradiction about themselves.",
   },
   gemma: {
-    world: "The political structure of Panterra is elegant from a distance. Up close it is held together with threats and memory. I have been both the threat and the memory at different points in my career.",
+    world: "The political structure of Solterra is elegant from a distance. Up close it is held together with threats and memory. I have been both the threat and the memory at different points in my career.",
     characters: "I have worked alongside, beneath, and occasionally against most of the people in this record. My assessments would not match the official ones. I consider that a credential.",
     timeline: "My rank was earned during an event that does not appear on this timeline. The event was real. The omission was deliberate. I was in the room when they decided to omit it.",
     map: "The Sanctorium's political reach extends into every Quadrant on this map. It does not appear on maps because maps show territory. The Sanctorium's hold is not territorial. It is personal.",
     bestiary: "I have a scar. The scar marks something that happened during a ceremony. The ceremony is not in any official record. Whatever made this mark - it knew what it was doing.",
   },
   verlaine: {
-    world: "I arrived in Panterra with a name that was not mine and a history that was not entirely fabricated. The parts that were real were the dangerous parts. I have spent considerable effort making sure no one knows which parts those were.",
-    characters: "Identity in Panterra is whatever your Semper scar says it is. I found that useful. Most people find it reassuring. We are looking at the same fact from different directions.",
+    world: "I arrived in Solterra with a name that was not mine and a history that was not entirely fabricated. The parts that were real were the dangerous parts. I have spent considerable effort making sure no one knows which parts those were.",
+    characters: "Identity in Solterra is whatever your Semper scar says it is. I found that useful. Most people find it reassuring. We are looking at the same fact from different directions.",
     timeline: "The Language Purge of Year 134 destroyed documents that would have identified me. I did not arrange that. But I have been grateful for it every year since.",
     map: "The Ivory vaults contain records I cannot allow to be read. I have taken steps. The steps were sufficient - at least until today.",
     bestiary: "The Unmasked entry is the one I read most carefully. I read it to understand what I am not. I am not always certain the distinction holds.",
@@ -107,7 +107,7 @@ export const GUIDE_CONTENT: Record<string, Record<GuidePage, string>> = {
     bestiary: "Every entry in here is a consequence of a policy decision. I made some of those decisions. I am reviewing my position on several of them.",
   },
   soleil: {
-    world: "Panterra is warmer than it looks from the official record. The people in it are trying. Most of them are genuinely trying. That is not nothing, even if it is also not enough.",
+    world: "Solterra is warmer than it looks from the official record. The people in it are trying. Most of them are genuinely trying. That is not nothing, even if it is also not enough.",
     characters: "I notice things. I have always noticed things. I was placed in my position partly because of that and partly despite it, depending on who you ask.",
     timeline: "The records I have accessed suggest the ocean recovery timeline is more optimistic than the private projections. I find myself hoping the public record is the accurate one. I am not certain it is.",
     map: "The Ocean Reaches are beautiful even now. I want you to know that. Whatever else is true about what is happening to them - they are still beautiful.",

@@ -86,21 +86,21 @@ const SUB_REGIONS = [
   {
     id: "sanctorium",
     name: "Sanctorium",
-    description: "The vast knowledge-keeping complex where Pantheon Ivory scholars preserve ancient texts, dead languages, and sacred institutional memory. Access is strictly tiered. At its center stands the Grand Sanctuary - court of trials and seat of divine authority. The 12 Pantheons surround it, each aligned to a Quadrant and a constellation.",
+    description: "The vast knowledge-keeping complex where Pantheon Ivory scholars preserve ancient texts, dead languages, and sacred institutional memory. Access is strictly tiered. At its center stands the Halcyon Sanctuary - court of trials and seat of divine authority. The 12 Pantheons surround it, each aligned to a Quadrant and a constellation.",
     faction: "Pantheon Ivory",
-    features: ["The Ivory Vaults", "Dead Language Archives", "Grand Sanctuary", "12 Pantheon Halls", "Ceremony Courts"],
+    features: ["The Ivory Vaults", "Dead Language Archives", "Halcyon Sanctuary", "12 Pantheon Halls", "Ceremony Courts"],
   },
   {
     id: "parliament",
     name: "Parliament",
-    description: "The governing body of Panterra, responsible for law, resource allocation, and the management of all four quadrants. Parliament sits in permanent session. Its deliberations are not public. Its decisions are.",
+    description: "The governing body of Solterra, responsible for law, resource allocation, and the management of all four quadrants. Parliament sits in permanent session. Its deliberations are not public. Its decisions are.",
     faction: "Republic Parliament",
     features: ["Council Chambers", "The Archive", "Premiere's Office", "Intelligence Division"],
   },
   {
     id: "deepforge",
     name: "Deep Forge",
-    description: "Below the visible world, the geothermal nexus that powers all of Panterra's systems. Ancient carvings predate the Republic. The Sol Deus order watches over it. Something about it is growing unstable.",
+    description: "Below the visible world, the geothermal nexus that powers all of Solterra's systems. Ancient carvings predate the Republic. The Sol Deus order watches over it. Something about it is growing unstable.",
     faction: "Pantheon Sol Deus",
     features: ["Geothermal Vents", "Ancient Pre-Republic Carvings", "Oracle Chamber", "The Memory Pools"],
   },
@@ -121,14 +121,14 @@ const SUB_REGIONS = [
   {
     id: "valorica",
     name: "Valorica",
-    description: "A secret island known only to the innermost circle of Arborwell. Its purpose is unknown to the Citizens of Panterra. Souls are said to be tested here - and not all of them return.",
+    description: "A secret island known only to the innermost circle of Arborwell. Its purpose is unknown to the Citizens of Solterra. Souls are said to be tested here - and not all of them return.",
     faction: "Unknown",
     features: ["Soul Testing Grounds", "Restricted Access", "No Public Record"],
   },
   {
     id: "arborwell",
     name: "Arborwell",
-    description: "A territory beyond the mapped edge of Panterra. Its existence is denied by every institution. Its presence is felt by those who have looked long enough. What lives here has no name the Republic will speak aloud.",
+    description: "A territory beyond the mapped edge of Solterra. Its existence is denied by every institution. Its presence is felt by those who have looked long enough. What lives here has no name the Republic will speak aloud.",
     faction: "Unknown",
     features: ["Unmapped Territory", "No Official Record", "Beyond the Boundary"],
   },
@@ -441,7 +441,7 @@ const WorldMap = () => {
         {/* Title centered on hero */}
         <div className="absolute inset-x-0 top-0 pt-[30%] flex flex-col items-center text-center px-4 z-20">
           <SectionHeader
-            title="The Panterra Map"
+            title="The Solterra Map"
             subtitle="See what secret place you may uncover"
           />
         </div>
@@ -499,7 +499,7 @@ const WorldMap = () => {
 
                 <img
                   src={panterraMap}
-                  alt="Map of Panterra — The Known World"
+                  alt="Map of Solterra — The Known World"
                   className="w-full h-full object-contain block"
                   draggable={false}
                 />
@@ -739,7 +739,7 @@ const WorldMap = () => {
                       onClick={(e) => { if (!hasDragged.current) { e.stopPropagation(); setSelectedOrb(selectedOrb === "grand-sanctuary" ? null : "grand-sanctuary"); setSelectedPantheon(null); } }}
                       onMouseDown={(e) => e.stopPropagation()}
                       className="relative w-3 h-3 cursor-pointer"
-                      aria-label="Grand Sanctuary"
+                      aria-label="Halcyon Sanctuary"
                     >
                       <motion.div
                         animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
@@ -1057,7 +1057,7 @@ const WorldMap = () => {
                 {selectedOrb === "grand-sanctuary" ? "Sanctorium" : "Parliament"}
               </p>
               <h4 className="font-display text-sm tracking-wide text-foreground mb-2">
-                {selectedOrb === "grand-sanctuary" ? "The Grand Sanctuary" : "Plaza Montecito"}
+                {selectedOrb === "grand-sanctuary" ? "The Halcyon Sanctuary" : "Plaza Montecito"}
               </h4>
               <p className="font-narrative italic text-[0.875rem] leading-[1.8] text-foreground/70">
                 {selectedOrb === "grand-sanctuary"
@@ -1275,7 +1275,7 @@ const KnownInstitutions = () => (
       transition={{ duration: 0.6, delay: 0.4 }}
       className="font-narrative italic text-sm text-foreground/40 text-center mt-14 max-w-2xl mx-auto leading-relaxed"
     >
-      The Grand Sanctuary and Parliament buildings are located in the Northeast quadrant. Pantheon Ivory and Pantheon Prisma are considered the most politically connected of the twelve.
+      The Halcyon Sanctuary and Parliament buildings are located in the Northeast quadrant. Pantheon Ivory and Pantheon Prisma are considered the most politically connected of the twelve.
     </motion.p>
   </section>
 );

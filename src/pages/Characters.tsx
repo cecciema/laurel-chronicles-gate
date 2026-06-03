@@ -66,7 +66,7 @@ const ALL_QUESTIONS: QuestionDef[] = [
   {
     id: "lockland", answer: "Lockland", image: "char-lockland",
     clues: [
-      "This person smells of something that no longer grows on Panterra.",
+      "This person smells of something that no longer grows on Solterra.",
       "This person chose the moment of their own ending with more care than most people choose anything.",
       "Carmela would have followed this person anywhere. They made sure that never had to happen.",
     ],
@@ -186,7 +186,7 @@ const ALL_QUESTIONS: QuestionDef[] = [
   {
     id: "cora", answer: "Cora", image: "char-cora",
     clues: [
-      "This person sits in rooms where the future of Panterra is decided and says very little.",
+      "This person sits in rooms where the future of Solterra is decided and says very little.",
       "This person loves their children completely and has made choices that contradict that love.",
       "This person knows where Valorica is. They have known for a long time.",
     ],
@@ -465,7 +465,7 @@ const TheUnmasked = () => {
           transition={{ delay: 0.15 }}
           className="mt-3 font-narrative italic text-muted-foreground text-[0.9375rem] leading-[1.8]"
         >
-          Someone in Panterra is not who they claim to be. They never were. Can you see through the mask before it sees through you?
+          Someone in Solterra is not who they claim to be. They never were. Can you see through the mask before it sees through you?
         </motion.p>
       </div>
 
@@ -493,7 +493,7 @@ const TheUnmasked = () => {
               transition={{ delay: 1, duration: 0.8 }}
               className="font-narrative italic text-foreground/50 text-[0.9375rem] leading-[1.8] max-w-sm"
             >
-              You identified all six. In Panterra, the ability to see through a face is either a gift or a curse. You have not yet decided which.
+              You identified all six. In Solterra, the ability to see through a face is either a gift or a curse. You have not yet decided which.
             </motion.p>
 
             <motion.p
@@ -534,7 +534,7 @@ const TheUnmasked = () => {
                 className="font-narrative italic text-[0.875rem] leading-[1.8]"
                 style={{ color: "#4a2e0a" }}
               >
-                "There are 14 Sol Deos positions across Panterra's history. Only 11 constellations are publicly recognized. The other 3 have been erased from all star charts produced after the Great War."
+                "There are 14 Sol Deos positions across Solterra's history. Only 11 constellations are publicly recognized. The other 3 have been erased from all star charts produced after the Great War."
               </p>
             </motion.div>
 
@@ -777,7 +777,7 @@ const TheUnmasked = () => {
                   userSelect: bestiaryUnlocked || alreadyWon ? "text" : "none",
                 }}
               >
-                The Semper scar is Panterra's only proof of identity. It can be replicated. Sanctorium has known this since the third year of the New Republic. The record of that discovery was sealed the same afternoon.
+                The Semper scar is Solterra's only proof of identity. It can be replicated. Sanctorium has known this since the third year of the New Republic. The record of that discovery was sealed the same afternoon.
               </p>
               {!(bestiaryUnlocked || alreadyWon) && (
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -847,7 +847,7 @@ const Characters = () => {
           <div className="relative">
             <SectionHeader
               title="Character Database"
-              subtitle="The key figures whose choices will shape the fate of Panterra"
+              subtitle="The key figures whose choices will shape the fate of Solterra"
             />
             <HiddenOrb id={4} className="absolute top-2 right-4 sm:right-12" />
           </div>

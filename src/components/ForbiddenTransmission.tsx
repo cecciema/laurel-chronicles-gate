@@ -486,7 +486,7 @@ export const ForbiddenTransmission = () => {
             <h3 className="font-display text-base tracking-wide text-foreground">The Silencer</h3>
             <div className="mt-3 relative">
               <p className="font-narrative text-[0.875rem] text-foreground/70 leading-[1.8] transition-all duration-700" style={{ filter: bestiaryUnlocked || alreadyWon ? "none" : "blur(4px)", userSelect: bestiaryUnlocked || alreadyWon ? "text" : "none" }}>
-                There are 7 known gaps in the official Panterra Timeline between the Great War and the present day. Historians who investigated 4 of them are no longer practicing. The other 3 investigators retired early, citing health reasons, within the same calendar month.
+                There are 7 known gaps in the official Solterra Timeline between the Great War and the present day. Historians who investigated 4 of them are no longer practicing. The other 3 investigators retired early, citing health reasons, within the same calendar month.
               </p>
               {!(bestiaryUnlocked || alreadyWon) && (
                 <div className="absolute inset-0 flex items-center justify-center">

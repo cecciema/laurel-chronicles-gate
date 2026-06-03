@@ -79,7 +79,7 @@ const SCROLLS = [
     id: 9,
     title: "The Erased Constellations",
     hint: "Complete a game to unlock",
-    text: "There are 14 Sol Deos positions across Panterra's history. Only 11 constellations are publicly recognized. The other 3 have been erased from all star charts produced after the Great War.",
+    text: "There are 14 Sol Deos positions across Solterra's history. Only 11 constellations are publicly recognized. The other 3 have been erased from all star charts produced after the Great War.",
     source: "Win The Unmasked - Characters page",
     type: "earned" as const,
   },
@@ -126,7 +126,7 @@ interface AllegianceQuestion {
 const ALLEGIANCE_QUESTIONS_SHUFFLEABLE: AllegianceQuestion[] = [
   {
     id: "A",
-    question: "You were born in Panterra. You have never questioned this. Then one day you find a document that suggests the world you were shown is not the whole world. What do you do?",
+    question: "You were born in Solterra. You have never questioned this. Then one day you find a document that suggests the world you were shown is not the whole world. What do you do?",
     answers: [
       { text: "Put it back. The world you were shown has kept you alive.", allegiance: "sanctorium" },
       { text: "Report it to the appropriate authority. If it matters, someone above you should know.", allegiance: "parliament" },
@@ -186,7 +186,7 @@ const ALLEGIANCE_QUESTIONS_SHUFFLEABLE: AllegianceQuestion[] = [
   },
   {
     id: "G",
-    question: "You are given the choice to leave Panterra's mapped world entirely. No one will know. You can never come back. Do you go?",
+    question: "You are given the choice to leave Solterra's mapped world entirely. No one will know. You can never come back. Do you go?",
     answers: [
       { text: "No. Everything that matters to you is here.", allegiance: "sanctorium" },
       { text: "No. You are more useful inside the system than outside it.", allegiance: "parliament" },
@@ -225,7 +225,7 @@ const ALLEGIANCE_DATA: Record<AllegianceId, {
   },
   deepforge: {
     name: "Deep Forge",
-    text: "You are Deep Forge. You were never given the things the others were given and you built your life anyway. The institutions of Panterra were not made for you. That has never stopped you and it never will.",
+    text: "You are Deep Forge. You were never given the things the others were given and you built your life anyway. The institutions of Solterra were not made for you. That has never stopped you and it never will.",
     storageKey: "deepforge-survival-unlocked",
   },
   convoy: {
@@ -235,7 +235,7 @@ const ALLEGIANCE_DATA: Record<AllegianceId, {
   },
   unseen: {
     name: "The Unseen",
-    text: "You do not belong to any of them - not fully, not finally. This is not indecision. This is something rarer. There are people who live outside everything Panterra maps and measures. You would recognize them if you met them. You might already be one.",
+    text: "You do not belong to any of them - not fully, not finally. This is not indecision. This is something rarer. There are people who live outside everything Solterra maps and measures. You would recognize them if you met them. You might already be one.",
     storageKey: "arborwell-hint-unlocked",
   },
 };
@@ -300,7 +300,7 @@ const RIDDLES = [
   },
   {
     id: 3,
-    question: "She arrived at Pantheon Ivory as a nobody. She left carrying gold pins she could not yet wear. She seduced a Sol Deus for a master key. She is the most dangerous person in Panterra, and no one knows it yet. Who is she?",
+    question: "She arrived at Pantheon Ivory as a nobody. She left carrying gold pins she could not yet wear. She seduced a Sol Deus for a master key. She is the most dangerous person in Solterra, and no one knows it yet. Who is she?",
     answers: ["verlaine"]
   }
 ];
@@ -650,7 +650,7 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
           onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
           onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 30% 32%)")}
         >
-          The Bestiary of Panterra →
+          The Bestiary of Solterra →
         </button>
       </div>
 
@@ -983,7 +983,7 @@ export const BestiaryCompletePopup = () => {
           className="font-display text-[8px] tracking-[0.5em] uppercase mb-4"
           style={{ color: "hsl(38 40% 45%)" }}
         >
-          The Chronicles of Panterra
+          The Chronicles of Solterra
         </p>
 
         {/* Cinematic title — word-by-word fade */}
@@ -1021,7 +1021,7 @@ export const BestiaryCompletePopup = () => {
           className="font-narrative italic text-[0.9375rem] sm:text-base leading-[1.9] mb-8"
           style={{ color: "hsl(38 25% 75%)" }}
         >
-          "You have walked every path Panterra laid before you. Every monster has been named. Every consequence recorded. One thing remains that cannot be named."
+          "You have walked every path Solterra laid before you. Every monster has been named. Every consequence recorded. One thing remains that cannot be named."
         </motion.p>
 
         {/* Buttons */}
@@ -1190,12 +1190,12 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: 
       directive: "Head to the World Map and find the Deep Forge territory. Then go meet the characters who call it home. The community is the point - always has been. Get to know them.",
     },
     convoy: {
-      letter: "This message will not be stored. There is no record of your assessment. There is no record of this letter. If you are reading this, you already understand why that matters. You stopped trusting the official version a long time ago. So did we. The difference between you and us is that we've been doing something about it for forty years. You're starting now. Welcome to the only organization in Panterra that knows what the satellite boundary is actually for.",
+      letter: "This message will not be stored. There is no record of your assessment. There is no record of this letter. If you are reading this, you already understand why that matters. You stopped trusting the official version a long time ago. So did we. The difference between you and us is that we've been doing something about it for forty years. You're starting now. Welcome to the only organization in Solterra that knows what the satellite boundary is actually for.",
       attribution: "- No name. You'll understand later.",
       directive: "Your first task is the Enter page. There is something hidden there that most visitors walk past. Find it. The thing we need you to find was placed there by someone who wanted it found - just not by the Republic. Prove you're paying attention.",
     },
     unseen: {
-      letter: "There is no faction waiting for you. There is no letter from a council. There is no directive from a senior official. What there is: a world that could not categorize you, and a very small number of people throughout Panterra's history who also could not be categorized, and who built something outside every map ever drawn. You may already know where it is.",
+      letter: "There is no faction waiting for you. There is no letter from a council. There is no directive from a senior official. What there is: a world that could not categorize you, and a very small number of people throughout Solterra's history who also could not be categorized, and who built something outside every map ever drawn. You may already know where it is.",
       attribution: "- No institution. No record. No seal.",
       directive: "Go anywhere. The Unseen are not assigned paths. But pay attention to what pulls at you - the thing you keep returning to, the page you read twice, the fragment that didn't sit right. That is your directive. The Unseen don't follow orders. They follow instinct. Yours brought you here. Trust it.",
     },

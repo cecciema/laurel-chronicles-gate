@@ -13,7 +13,7 @@ import GuideWhisper from "@/components/GuideWhisper";
 const cornerstoneLaws = [
   { numeral: "I", text: "Let there be One Republic, that the world may know peace and the wars of nations never rise again." },
   { numeral: "II", text: "Let each soul bear One Heir, that the earth may breathe and the burden of life remain light." },
-  { numeral: "III", text: "Let all children belong to Panterra first, that no family may claim what the Republic has given." },
+  { numeral: "III", text: "Let all children belong to Solterra first, that no family may claim what the Republic has given." },
   { numeral: "IV", text: "Let every soul ascend at Apex, that suffering may end and the living may be spared its weight." },
 ];
 
@@ -39,21 +39,21 @@ const regions = [
   {
     name: "Deep Forge",
     tag: "FOUNDATION",
-    description: "Where every Citizen of Panterra begins. The townships, the nurseries, the schools, the training grounds - all of it sits above the oldest infrastructure in the Republic. The forges beneath run day and night. Most people never ask what they are for. The children raised here grow up knowing the warmth of them but not the source. There is a reason this place is called what it is. Most people never find out.",
+    description: "Where every Citizen of Solterra begins. The townships, the nurseries, the schools, the training grounds - all of it sits above the oldest infrastructure in the Republic. The forges beneath run day and night. Most people never ask what they are for. The children raised here grow up knowing the warmth of them but not the source. There is a reason this place is called what it is. Most people never find out.",
     features: ["Township Quarters", "Paragon Academies", "Republic Nurseries", "The Forge Districts"],
     hasOrb: true,
   },
   {
     name: "Parliament",
     tag: "THE GOVERNING BODY",
-    description: "The Forum District is the beating heart of civic Panterra. Cannon Palace houses Parliament's chambers, Villa Marina is the Premiere's residence, and Plaza de Montecito is where announcements are made to the people. Science, law, technology, and resource allocation all flow outward from here. If Sanctorium governs what happens after death, Parliament governs everything before it.",
+    description: "The Forum District is the beating heart of civic Solterra. Cannon Palace houses Parliament's chambers, Villa Marina is the Premiere's residence, and Plaza de Montecito is where announcements are made to the people. Science, law, technology, and resource allocation all flow outward from here. If Sanctorium governs what happens after death, Parliament governs everything before it.",
     features: ["Cannon Palace", "Villa Marina", "Plaza de Montecito", "The Magistry Sectors"],
   },
   {
     name: "Sanctorium",
     tag: "THE SPIRITUAL AUTHORITY",
-    description: "Twelve Pantheons arranged across all four Quadrants, each governed by a Sol Deus and their Lunary. The Grand Sanctuary at the center is the holiest site in Panterra - the seat of the Apotheosis ceremony and the court of divine authority. Access is tiered. Most Citizens see only the outer courts. What happens at the center is not discussed.",
-    features: ["The Twelve Pantheons", "The Grand Sanctuary", "The Ivory Planetarium", "The Sacred Scrolls"],
+    description: "Twelve Pantheons arranged across all four Quadrants, each governed by a Sol Deus and their Lunary. The Halcyon Sanctuary at the center is the holiest site in Solterra - the seat of the Apotheosis ceremony and the court of divine authority. Access is tiered. Most Citizens see only the outer courts. What happens at the center is not discussed.",
+    features: ["The Twelve Pantheons", "The Halcyon Sanctuary", "The Ivory Planetarium", "The Sacred Scrolls"],
   },
   {
     name: "Ocean Reaches",
@@ -94,7 +94,7 @@ const WorldOverview = () => {
     <Layout>
       {/* Hero */}
       <div className="relative h-[50vh] sm:h-screen overflow-hidden">
-        <img src={heroBg} alt="Panterra" className="w-full h-full object-cover" />
+        <img src={heroBg} alt="Solterra" className="w-full h-full object-cover" />
         <div className="absolute bottom-0 inset-x-0 h-[10%] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
         <ParticleCanvas density={0.5} />
         <div className="absolute inset-x-0 top-0 pt-[30%] flex flex-col items-center text-center px-4">
@@ -110,10 +110,10 @@ const WorldOverview = () => {
         <div className="max-w-4xl mx-auto w-full">
           <div className="space-y-6 font-narrative text-[1.0625rem] sm:text-lg text-muted-foreground leading-[1.8] relative">
             <p>
-              Beyond Panterra's borders, the world is dead. Bio-warfare consumed every other continent during the Great War, leaving behind a black sea laced with toxins and a wasteland no living thing has crossed in generations. The satellites above maintain a protective boundary against ultraviolet radiation. Without them, Panterra would follow. Everyone knows this. It is the first thing children are taught.
+              Beyond Solterra's borders, the world is dead. Bio-warfare consumed every other continent during the Great War, leaving behind a black sea laced with toxins and a wasteland no living thing has crossed in generations. The satellites above maintain a protective boundary against ultraviolet radiation. Without them, Solterra would follow. Everyone knows this. It is the first thing children are taught.
             </p>
             <p>
-              Inside the boundary, life is ordered, purposeful, and finite. Two institutions govern everything: Parliament, which controls the body - science, technology, resource allocation, civic law - and Sanctorium, which governs the soul - faith, ceremony, the passage between lives. Together they are called the Dual Reign. Together they have kept Panterra alive for nearly three hundred years.
+              Inside the boundary, life is ordered, purposeful, and finite. Two institutions govern everything: Parliament, which controls the body - science, technology, resource allocation, civic law - and Sanctorium, which governs the soul - faith, ceremony, the passage between lives. Together they are called the Dual Reign. Together they have kept Solterra alive for nearly three hundred years.
             </p>
             <p>
               Every Citizen is born into the system. Every Citizen lives within it. And every Citizen, at the moment their body reaches its Apex, makes the only choice that has ever truly been theirs.
@@ -171,7 +171,7 @@ const WorldOverview = () => {
         </div>
       </section>
 
-      {/* Social Structure — The Order of Panterra */}
+      {/* Social Structure — The Order of Solterra */}
       <section className="py-16 sm:py-20 px-5 sm:px-4">
         <div className="max-w-5xl mx-auto">
           <SectionHeader title="THE ORDER OF PANTERRA" subtitle="Every Citizen has a place. Every place has a purpose." />

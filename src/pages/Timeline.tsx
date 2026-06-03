@@ -31,7 +31,7 @@ const events: TimelineEvent[] = [
     year: "Age Unknown",
     title: "Before the Veil",
     description:
-      "The era before Panterra's protective systems. A world of raw ocean, untamed land, and pre-war civilizations whose knowledge would later be locked inside Pantheon archives. What people believed before the Cornerstones was never recorded. Or it was recorded and is no longer accessible.",
+      "The era before Solterra's protective systems. A world of raw ocean, untamed land, and pre-war civilizations whose knowledge would later be locked inside Pantheon archives. What people believed before the Cornerstones was never recorded. Or it was recorded and is no longer accessible.",
     column: "right",
     order: 0,
   },
@@ -40,16 +40,16 @@ const events: TimelineEvent[] = [
     year: "Age of Ruin",
     title: "The Great War",
     description:
-      "The war that ended the old world has no official start date in the Republic's records. The monarchy fell. The oceans turned. Bio-warfare consumed every continent except one. Panterra survived. The winning side wrote what came next. The losing side was not consulted.",
+      "The war that ended the old world has no official start date in the Republic's records. The monarchy fell. The oceans turned. Bio-warfare consumed every continent except one. Solterra survived. The winning side wrote what came next. The losing side was not consulted.",
     column: "left",
     order: 1,
   },
   {
     category: "political",
     year: "Year 0",
-    title: "The Founding of Panterra",
+    title: "The Founding of Solterra",
     description:
-      "The Republic of Panterra is established as the last governed civilization on the planet. The Four Cornerstone Laws are written. Parliament and Sanctorium are named co-governing powers. The document establishing their equal authority has never been released to the public.",
+      "The Republic of Solterra is established as the last governed civilization on the planet. The Four Cornerstone Laws are written. Parliament and Sanctorium are named co-governing powers. The document establishing their equal authority has never been released to the public.",
     column: "left",
     order: 2,
   },
@@ -94,7 +94,7 @@ const events: TimelineEvent[] = [
     year: "Year 156",
     title: "The First Marked Generation",
     description:
-      "The first generation born entirely under the Semper system comes of age. The last Citizens who remembered life before the mark have died. Panterra has no living memory of what it felt like to exist without one. The Cornerstones stop feeling like laws and start feeling like nature.",
+      "The first generation born entirely under the Semper system comes of age. The last Citizens who remembered life before the mark have died. Solterra has no living memory of what it felt like to exist without one. The Cornerstones stop feeling like laws and start feeling like nature.",
     column: "right",
     order: 7,
   },
@@ -719,7 +719,7 @@ const TimelinePage = () => {
                       userSelect: localStorage.getItem("semper-review-won") === "true" ? "text" : "none",
                     }}
                   >
-                    The bio-warfare wasteland beyond Panterra's borders has been uninhabitable since the Great War. Expedition records from years 3, 7, and 12 of the New Republic describe figures moving in the dead zones. The expeditions were classified. The figures were not mentioned in the public summary.
+                    The bio-warfare wasteland beyond Solterra's borders has been uninhabitable since the Great War. Expedition records from years 3, 7, and 12 of the New Republic describe figures moving in the dead zones. The expeditions were classified. The figures were not mentioned in the public summary.
                   </p>
                   {localStorage.getItem("semper-review-won") !== "true" && (
                     <div className="absolute inset-0 flex items-center justify-center">

@@ -244,7 +244,7 @@ const Index = () => {
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
                 <p className="mt-6 font-narrative text-[1.0625rem] sm:text-lg text-muted-foreground leading-[1.8] max-w-2xl mx-auto w-full">
-                  Panterra was built on the Cornerstone Laws, the bones of the conquered, and the dreams of the powerful. For nearly three centuries, the Republic has maintained order through the Dual Reign - Parliament, Sanctorium, and the Magistries between them. But there are signs of fracture within the order - growing more difficult to ignore by the day. The governed districts rumble with unrest, and yet the powerful still play their lethal games. All round the Known World, whispers of defiance are simmering into an uproar.
+                  Solterra was built on the Cornerstone Laws, the bones of the conquered, and the dreams of the powerful. For nearly three centuries, the Republic has maintained order through the Dual Reign - Parliament, Sanctorium, and the Magistries between them. But there are signs of fracture within the order - growing more difficult to ignore by the day. The governed districts rumble with unrest, and yet the powerful still play their lethal games. All round the Known World, whispers of defiance are simmering into an uproar.
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.3}>
@@ -259,7 +259,7 @@ const Index = () => {
               <ScrollReveal>
                 <div className="text-center mb-10">
                   <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
-                    ◆ The Chronicles of Panterra ◆
+                    ◆ The Chronicles of Solterra ◆
                   </p>
                   <h2 className="font-display text-xl sm:text-2xl tracking-[0.2em] text-foreground">
                     Fragments of Forbidden Truth
@@ -311,7 +311,7 @@ const Index = () => {
               ))}
             </div>
           </section>
-          <BottomHero src={bottomHeroBg} alt="Panterra lounge" />
+          <BottomHero src={bottomHeroBg} alt="Solterra lounge" />
           <Footer />
         </div>
       </div>
