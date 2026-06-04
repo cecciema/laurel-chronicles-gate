@@ -291,7 +291,7 @@
   }
   /* Desaturate & cool-shift warm hero photos at the source */
   .hero-warm-desat {
-    filter: saturate(0.35) hue-rotate(-15deg) brightness(0.62) contrast(1.05);
+    filter: saturate(0.42) hue-rotate(-15deg) brightness(0.78) contrast(1.03);
   }
 
   /* Normalize character portrait brightness/contrast */
