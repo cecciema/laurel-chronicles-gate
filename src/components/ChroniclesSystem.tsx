@@ -522,10 +522,10 @@ export const QuestTrigger = ({ className }: { className?: string }) => {
         </motion.div>
         <button
           onClick={startQuest}
-          className="font-body text-[9px] tracking-[0.2em] uppercase transition-colors"
-          style={{ color: "hsl(38 30% 40%)" }}
-          onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 60% 55%)")}
-          onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 30% 40%)")}
+          className="font-ui text-[9px] tracking-[0.25em] uppercase transition-colors"
+          style={{ color: "hsl(var(--silver) / 0.55)" }}
+          onMouseEnter={e => (e.currentTarget.style.color = "hsl(var(--candlelight-glow))")}
+          onMouseLeave={e => (e.currentTarget.style.color = "hsl(var(--silver) / 0.55)")}
         >
           Retake the Quiz
         </button>
@@ -535,8 +535,7 @@ export const QuestTrigger = ({ className }: { className?: string }) => {
   return (
     <button
       onClick={startQuest}
-      className={cn("px-8 py-3 border bg-black/40 text-amber-500 font-display text-sm tracking-[0.25em] uppercase hover:bg-amber-900/20 hover:border-amber-500 hover:shadow-[0_0_20px_rgba(245,158,11,0.2)] transition-all duration-300 rounded-[2px]", className)}
-      style={{ borderColor: "hsl(var(--gold-ancient) / .5)" }}
+      className={cn("btn-silver-outline px-10 py-3 font-serif-display text-xs sm:text-sm tracking-[0.32em] uppercase rounded-[2px]", className)}
     >
       Choose Your Allegiance
     </button>
