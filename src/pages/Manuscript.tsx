@@ -239,29 +239,36 @@ const Manuscript = () => {
           <img
             src={manuscriptHero}
             alt="Manuscript"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="hero-warm-desat absolute inset-0 h-full w-full object-cover"
           />
+          {/* Fade hero into solid twilight reading field */}
           <div
-            className="absolute bottom-0 left-0 right-0 h-[10%]"
-            style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }}
+            className="absolute bottom-0 left-0 right-0 h-[55%]"
+            style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6% / 0.6) 35%, hsl(224 16% 6%) 80%)" }}
           />
           <ParticleCanvas density={0.5} />
         </div>
 
         {/* Chapter content starting at 50% from top */}
-        <div className="relative z-10 pt-[50vh] sm:pt-[55vh] pb-16 sm:pb-20 px-5 sm:px-8">
+        <div className="relative z-10 pt-[50vh] sm:pt-[55vh] pb-16 sm:pb-20 px-5 sm:px-8 bg-gradient-to-b from-transparent via-background to-background">
           <div className="text-center mb-8">
-            <p className="font-display font-bold text-[9px] tracking-[0.4em] uppercase text-white/80 mb-2" style={{ textShadow: "0 0 20px rgba(255,255,255,0.4)" }}>
-              ◆ Sample Chapters ◆
+            <p className="font-display text-[10px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
+              <span style={{ color: "hsl(var(--crimson-wine) / 0.85)" }}>◆</span>
+              <span className="mx-3">Sample Chapters</span>
+              <span style={{ color: "hsl(var(--crimson-wine) / 0.85)" }}>◆</span>
             </p>
-            <h1
-              className="font-display font-bold text-xl sm:text-2xl tracking-[0.15em] text-white"
-              style={{ textShadow: "0 0 30px rgba(255,255,255,0.4), 0 2px 10px rgba(255,255,255,0.2)" }}
-            >
+            <h1 className="font-display font-bold text-xl sm:text-2xl tracking-[0.15em] text-primary">
               Read the First Six Chapters
             </h1>
           </div>
-          <div className="max-w-3xl mx-auto" style={{ background: "rgba(13, 14, 18, 0.72)", backdropFilter: "blur(3px)", padding: "2rem", maskImage: "linear-gradient(to bottom, transparent 0%, black 8%)" }}>
+          <div
+            className="max-w-3xl mx-auto"
+            style={{
+              background: "hsl(224 16% 6%)",
+              border: "1px solid hsl(var(--silver) / 0.12)",
+              padding: "2.5rem 1.5rem",
+            }}
+          >
             <ScrollReveal delay={0.15}>
               <SampleChapters />
             </ScrollReveal>
