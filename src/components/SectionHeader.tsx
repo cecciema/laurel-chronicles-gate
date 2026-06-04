@@ -18,15 +18,15 @@ const SectionHeader = ({ title, subtitle, children }: SectionHeaderProps) => (
   >
     <GoldDivider className="max-w-xs mx-auto mb-6" />
     <h2
-      className="font-display text-3xl sm:text-4xl tracking-[0.1em] text-white"
-      style={{ textShadow: "0 0 30px rgba(255,255,255,0.4), 0 2px 10px rgba(255,255,255,0.2)" }}
+      className="font-display text-3xl sm:text-4xl tracking-[0.18em] uppercase"
+      style={{ color: "hsl(var(--silver))", textShadow: "0 0 24px hsl(var(--silver) / 0.18)" }}
     >
       {title}
     </h2>
     {subtitle && (
       <p
-        className="mt-4 font-narrative text-lg italic max-w-2xl mx-auto text-white/70"
-        style={{ textShadow: "0 0 20px rgba(255,255,255,0.25)" }}
+        className="mt-4 font-narrative text-lg italic max-w-2xl mx-auto"
+        style={{ color: "hsl(var(--mist) / 0.78)" }}
       >
         {subtitle}
       </p>
