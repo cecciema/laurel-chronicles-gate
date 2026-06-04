@@ -120,8 +120,11 @@ const Index = () => {
                 src={heroBg}
                 alt="The Republic"
                 className="w-full h-full object-cover"
-                style={{ filter: "saturate(0.78) brightness(0.78) contrast(1.05)" }}
+                style={{ filter: "saturate(0.55) brightness(0.7) contrast(1.05) hue-rotate(-15deg)" }}
               />
+              {/* Cool color-grade — multiply ember-violet + halcyon-teal over warm gold image */}
+              <div className="absolute inset-0 pointer-events-none hero-cool-grade" />
+              <div className="absolute inset-0 pointer-events-none hero-cool-grade-overlay" />
             </div>
           </div>
           {/* Layer 2 - jewel-tone atmospheric wash */}
@@ -377,12 +380,12 @@ const ResetProgressButton = () => {
   return (
     <button
       onClick={handleReset}
-      className="fixed bottom-[70px] sm:bottom-3 right-3 z-[130] font-display text-[9px] tracking-[0.15em] uppercase"
+      className="fixed bottom-[70px] sm:bottom-3 right-3 z-[130] font-ui text-[9px] tracking-[0.25em] uppercase transition-colors"
       style={{
-        opacity: 0.5,
-        border: "1px solid rgba(184, 150, 12, 0.6)",
+        opacity: 0.55,
+        border: "1px solid hsl(var(--silver) / 0.4)",
         padding: "4px 12px",
-        color: "hsl(38 60% 55%)",
+        color: "hsl(var(--silver) / 0.8)",
         background: "transparent",
         cursor: "pointer",
       }}
