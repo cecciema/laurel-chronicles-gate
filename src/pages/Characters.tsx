@@ -453,8 +453,8 @@ const TheUnmasked = () => {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-display text-2xl sm:text-3xl tracking-[0.12em]"
-          style={{ color: "hsl(38 72% 55%)" }}
+          className="font-display text-2xl sm:text-3xl tracking-[0.18em] uppercase"
+          style={{ color: "hsl(var(--silver))" }}
         >
           The Unmasked
         </motion.h2>
