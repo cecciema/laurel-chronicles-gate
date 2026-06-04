@@ -244,7 +244,7 @@ const Manuscript = () => {
           {/* Fade hero into solid twilight reading field */}
           <div
             className="absolute bottom-0 left-0 right-0 h-[55%]"
-            style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6% / 0.6) 35%, hsl(224 16% 6%) 80%)" }}
+            style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(250 18% 11% / 0.42) 40%, hsl(250 18% 11%) 88%)" }}
           />
           <ParticleCanvas density={0.5} />
         </div>
@@ -264,7 +264,7 @@ const Manuscript = () => {
           <div
             className="max-w-3xl mx-auto"
             style={{
-              background: "hsl(224 16% 6%)",
+              background: "hsl(var(--card))",
               border: "1px solid hsl(var(--silver) / 0.12)",
               padding: "2.5rem 1.5rem",
             }}
