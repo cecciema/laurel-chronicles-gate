@@ -94,7 +94,7 @@ const WorldOverview = () => {
     <Layout>
       {/* Hero */}
       <div className="relative h-[50vh] sm:h-screen overflow-hidden bg-background">
-        <img src={heroBg} alt="Solterra" className="w-full h-full object-cover" />
+        <img src={heroBg} alt="Solterra" className="w-full h-full object-cover hero-warm-desat" />
         <div className="absolute inset-0 pointer-events-none hero-cool-grade" />
         <div className="absolute inset-0 pointer-events-none hero-cool-grade-overlay" />
         <div className="absolute inset-x-0 top-0 h-[45%] pointer-events-none" style={{ background: "linear-gradient(to bottom, hsl(250 22% 5% / 0.85) 0%, transparent 100%)" }} />

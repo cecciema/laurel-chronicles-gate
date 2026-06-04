@@ -838,7 +838,7 @@ const Characters = () => {
     <Layout>
       {/* Hero */}
       <div className="relative h-[50vh] sm:h-screen overflow-hidden bg-background">
-        <img src={heroBg} alt="Characters" className="w-full h-full object-cover" />
+        <img src={heroBg} alt="Characters" className="w-full h-full object-cover hero-warm-desat" />
         {/* Cool color grade — stopgap until cooler asset */}
         <div className="absolute inset-0 pointer-events-none hero-cool-grade" />
         <div className="absolute inset-0 pointer-events-none hero-cool-grade-overlay" />
