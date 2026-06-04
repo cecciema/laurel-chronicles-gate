@@ -110,25 +110,33 @@ const Index = () => {
       >
         {/* ── Hero Background (parallax layers) ──────────────────────── */}
         <div className="relative w-full z-0 bg-background min-h-[80vh] sm:min-h-screen">
-          {/* Layer 1 - image (most movement) */}
+          {/* Layer 1 - image (parallax + slow haze drift) */}
           <div
             ref={bgRef}
             className="absolute inset-0 z-0 transition-transform duration-75 ease-out"
           >
-            <img
-              src={heroBg}
-              alt="The Republic"
-              className="w-full h-full object-cover"
-            />
+            <div className="absolute inset-0 haze-drift">
+              <img
+                src={heroBg}
+                alt="The Republic"
+                className="w-full h-full object-cover"
+                style={{ filter: "saturate(0.78) brightness(0.78) contrast(1.05)" }}
+              />
+            </div>
           </div>
-          {/* Layer 2 - mid gradient (medium movement) */}
+          {/* Layer 2 - jewel-tone atmospheric wash */}
           <div
             ref={midRef}
-            className="absolute inset-0 z-[1] pointer-events-none transition-transform duration-100 ease-out"
-            style={{ background: "radial-gradient(ellipse at 40% 60%, hsl(38 72% 50% / 0.08) 0%, transparent 60%)" }}
+            className="absolute inset-0 z-[1] pointer-events-none transition-transform duration-100 ease-out atmos-jewel"
           />
-          {/* Bottom 10% fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-[10%] z-[2] pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
+          {/* Top + bottom mist fade */}
+          <div className="absolute inset-0 z-[2] pointer-events-none atmos-mist-overlay" />
+          {/* Vignette */}
+          <div className="absolute inset-0 z-[3] pointer-events-none atmos-vignette" />
+          {/* Film grain */}
+          <div className="absolute inset-0 z-[3] pointer-events-none atmos-grain" />
+          {/* Bottom fade into next section */}
+          <div className="absolute bottom-0 left-0 right-0 h-[14%] z-[3] pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 100%)" }} />
 
           {/* Particles */}
           <ParticleCanvas />
@@ -138,17 +146,19 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 30 : 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
             >
-              <p className="text-xs tracking-[0.5em] text-primary/70 uppercase font-body mb-4">
+              <p className="font-ui text-[10px] sm:text-xs tracking-[0.55em] uppercase mb-6" style={{ color: "hsl(var(--silver) / 0.6)" }}>
                 An Interactive World Experience
               </p>
 
-              {/* Typewriter headline */}
+              {/* Typewriter headline — thin silver Cormorant */}
               <h1
-                className="font-display text-[3rem] sm:text-7xl lg:text-8xl font-bold sm:font-normal tracking-[0.08em] leading-tight w-full max-w-full overflow-hidden text-white"
+                className="font-serif-display text-[2.75rem] sm:text-7xl lg:text-[7.5rem] tracking-[0.18em] sm:tracking-[0.22em] leading-[1.05] w-full max-w-full overflow-hidden"
                 style={{
-                  textShadow: "0 0 40px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.25), 0 2px 12px rgba(255, 255, 255, 0.3)",
+                  fontWeight: 300,
+                  color: "hsl(var(--silver))",
+                  textShadow: "0 0 28px hsl(var(--silver) / 0.25), 0 0 70px hsl(var(--silver) / 0.12), 0 2px 14px hsl(250 22% 4% / 0.6)",
                 }}
               >
                 <span className="block pb-1">
@@ -169,33 +179,41 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: line3.done ? 1 : 0 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 1.6, ease: "easeOut" }}
             >
-              <p className="mt-8 font-narrative text-[1.0625rem] sm:text-xl text-foreground/70 italic max-w-lg mx-auto leading-[1.8] px-5 sm:px-0">
+              <p
+                className="mt-10 font-serif-display italic text-[1.125rem] sm:text-2xl max-w-2xl mx-auto leading-[1.7] px-5 sm:px-0"
+                style={{
+                  fontWeight: 300,
+                  letterSpacing: "0.03em",
+                  color: "hsl(var(--vellum) / 0.78)",
+                  textShadow: "0 1px 18px hsl(250 22% 4% / 0.55)",
+                }}
+              >
                 "The Republic has no secrets. The records are complete. The ceremonies are sacred. You were not supposed to find this."
               </p>
             </motion.div>
 
-            {/* CTA buttons + QuestTrigger */}
-            <div className="mt-12 flex flex-col items-center gap-4 w-full px-6 sm:px-0">
+            {/* CTA buttons + QuestTrigger — thin silver outlined, candlelight on hover */}
+            <div className="mt-12 flex flex-col items-center gap-5 w-full px-6 sm:px-0">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: line3.done ? 1 : 0, y: line3.done ? 0 : 20 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 1.1, ease: "easeOut" }}
                 className="w-full"
               >
                 <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
                   <Link
                     to="/world"
-                    className="btn-pulse-glow w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-[0.2em] uppercase transition-shadow rounded-[2px]"
-                    style={{ ...(isTouch ? {} : { cursor: "none" }), boxShadow: "inset 0 0 0 1px hsl(var(--gold-ancient) / .3)" }}
+                    className="btn-silver-outline w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-10 py-3 font-serif-display text-xs sm:text-sm tracking-[0.32em] uppercase rounded-[2px]"
+                    style={isTouch ? undefined : { cursor: "none" }}
                   >
                     Enter the Republic
                   </Link>
                   <Link
                     to="/characters"
-                    className="w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-8 py-3 border text-foreground font-display text-sm tracking-[0.2em] uppercase hover:border-primary/80 transition-colors rounded-[2px]"
-                    style={{ borderColor: "hsl(var(--gold-ancient) / .5)", ...(isTouch ? {} : { cursor: "none" }) }}
+                    className="btn-silver-outline w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-10 py-3 font-serif-display text-xs sm:text-sm tracking-[0.32em] uppercase rounded-[2px]"
+                    style={isTouch ? undefined : { cursor: "none" }}
                   >
                     Meet the Players
                   </Link>
@@ -205,7 +223,7 @@ const Index = () => {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: line3.done ? 1 : 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: 1, delay: 0.4 }}
                 className="w-full flex justify-center"
               >
                 <QuestTrigger />
@@ -216,14 +234,14 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: line3.done ? 1 : 0 }}
-              transition={{ delay: 0.8, duration: 1 }}
-              className="mt-8"
+              transition={{ delay: 0.8, duration: 1.2 }}
+              className="mt-10"
             >
               <div className="flex flex-col items-center gap-2 mist-rise">
-                <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-body">
+                <span className="font-ui text-[10px] tracking-[0.4em] uppercase" style={{ color: "hsl(var(--silver) / 0.5)" }}>
                   Scroll to Explore
                 </span>
-                <div className="w-px h-8 bg-gradient-to-b from-primary/50 to-transparent" />
+                <div className="w-px h-10" style={{ background: "linear-gradient(to bottom, hsl(var(--silver) / 0.55), transparent)" }} />
               </div>
             </motion.div>
           </div>
