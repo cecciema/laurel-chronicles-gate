@@ -21,14 +21,14 @@ const ParticleCanvas = ({ density = 1 }: { density?: number }) => {
       size: number; alpha: number; alphaDir: number;
     };
 
-    const particleCount = Math.round((window.innerWidth < 640 ? 24 : 65) * density);
+    const particleCount = Math.round((window.innerWidth < 640 ? 12 : 32) * density);
     const particles: Particle[] = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: -(Math.random() * 0.4 + 0.1),
-      size: Math.random() * 2.5 + 0.8,
-      alpha: Math.random() * 0.5 + 0.3,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: -(Math.random() * 0.3 + 0.08),
+      size: Math.random() * 2.2 + 0.7,
+      alpha: Math.random() * 0.28 + 0.08,
       alphaDir: Math.random() > 0.5 ? 1 : -1,
     }));
 
@@ -38,14 +38,14 @@ const ParticleCanvas = ({ density = 1 }: { density?: number }) => {
       particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
-        p.alpha += p.alphaDir * 0.004;
-        if (p.alpha > 0.85 || p.alpha < 0.1) p.alphaDir *= -1;
+        p.alpha += p.alphaDir * 0.003;
+        if (p.alpha > 0.4 || p.alpha < 0.04) p.alphaDir *= -1;
         if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
         if (p.x < -10 || p.x > canvas.width + 10) p.x = Math.random() * canvas.width;
 
         const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 2.5);
-        grad.addColorStop(0, `hsla(38, 80%, 65%, ${p.alpha})`);
-        grad.addColorStop(1, `hsla(25, 70%, 45%, 0)`);
+        grad.addColorStop(0, `hsla(210, 14%, 84%, ${p.alpha})`);
+        grad.addColorStop(1, `hsla(200, 12%, 70%, 0)`);
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size * 2.5, 0, Math.PI * 2);
         ctx.fillStyle = grad;
