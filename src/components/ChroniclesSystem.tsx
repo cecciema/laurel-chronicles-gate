@@ -556,15 +556,18 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
 
       {/* Progress header */}
       <div className="flex items-center justify-between">
-        <p className="font-display text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+        <p className="font-display text-[10px] tracking-[0.3em] uppercase" style={{ color: "hsl(var(--silver) / 0.7)" }}>
           {recovered} of {total} Fragments Recovered
         </p>
         <div className="flex gap-1">
           {SCROLLS.map(s => (
             <div
               key={s.id}
-              className="w-1.5 h-4 rounded-sm transition-all duration-500"
-              style={{ background: foundScrolls.includes(s.id) ? "hsl(38 72% 50%)" : "hsl(38 20% 20%)" }}
+              className="w-1.5 h-4 transition-all duration-500"
+              style={{
+                background: foundScrolls.includes(s.id) ? "hsl(var(--silver))" : "hsl(var(--silver) / 0.18)",
+                boxShadow: foundScrolls.includes(s.id) ? "0 0 6px hsl(var(--candlelight) / 0.45)" : "none",
+              }}
             />
           ))}
         </div>
@@ -581,53 +584,49 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: scroll.id * 0.05 }}
               className={cn(
-                "relative p-4 transition-all duration-300 rounded-none",
-                found
-                  ? "bg-[#12100a]"
-                  : "bg-[#0d0b08]"
+                "relative p-4 transition-all duration-500 rounded-none",
+                found ? "fragment-plate-unlocked" : "fragment-plate-sealed"
               )}
-              style={{
-                border: "1px solid rgba(180, 140, 60, 0.25)",
-                borderTop: "1px solid rgba(180, 140, 60, 0.4)",
-              }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(180, 140, 60, 0.55)"; }}
-              onMouseLeave={e => { e.currentTarget.style.border = "1px solid rgba(180, 140, 60, 0.25)"; e.currentTarget.style.borderTop = "1px solid rgba(180, 140, 60, 0.4)"; }}
             >
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[rgba(180,140,60,0.5)] to-transparent" />
+              <div
+                className="absolute top-0 left-0 right-0 h-px"
+                style={{
+                  background: found
+                    ? "linear-gradient(to right, transparent, hsl(var(--silver) / 0.65), transparent)"
+                    : "linear-gradient(to right, transparent, hsl(var(--silver) / 0.22), transparent)",
+                }}
+              />
               {/* Scroll number */}
               <div className="flex items-start justify-between mb-2">
                 <span
                   className="font-display text-[8px] tracking-[0.35em] uppercase"
-                  style={{ color: found ? "hsl(38 72% 50%)" : "hsl(38 15% 35%)" }}
+                  style={{ color: found ? "hsl(var(--silver))" : "hsl(var(--silver) / 0.35)" }}
                 >
                   Fragment {scroll.id}
                 </span>
                 {found ? (
-                  <Sparkles size={11} className="text-amber-600/60 flex-shrink-0" />
+                  <Sparkles size={11} className="flex-shrink-0" style={{ color: "hsl(var(--candlelight-glow))" }} />
                 ) : (
-                  /* Dimmed glowing orb icon for locked scrolls */
-                  <div className="relative w-3 h-3 flex-shrink-0">
-                    <div className="absolute inset-0 rounded-full bg-amber-800/20 blur-[1px]" />
-                    <div className="absolute inset-0.5 rounded-full bg-amber-900/30" />
-                  </div>
+                  /* Silver hairline seal/lock for sealed fragments */
+                  <Lock size={10} className="flex-shrink-0" style={{ color: "hsl(var(--silver) / 0.4)" }} />
                 )}
               </div>
 
               {found ? (
                 <>
-                  <p className="font-display text-[11px] tracking-wide text-foreground/90 mb-2 leading-snug">
+                  <p className="font-display text-[11px] tracking-wide mb-2 leading-snug" style={{ color: "hsl(var(--silver))" }}>
                     {scroll.title}
                   </p>
-                  <p className="font-narrative italic text-[0.875rem] text-foreground/70 leading-[1.75]">
+                  <p className="font-narrative italic text-[0.875rem] leading-[1.75]" style={{ color: "hsl(var(--foreground) / 0.78)" }}>
                     "{scroll.text}"
                   </p>
                 </>
               ) : (
                 <>
-                  <p className="font-display text-[11px] tracking-wide text-muted-foreground/30 mb-2">
+                  <p className="font-display text-[11px] tracking-wide mb-2" style={{ color: "hsl(var(--silver) / 0.4)" }}>
                     Not yet found
                   </p>
-                  <p className="font-body text-[9px] tracking-wide text-muted-foreground/40 italic">
+                  <p className="font-narrative italic text-[10px] tracking-wide" style={{ color: "hsl(var(--muted-foreground) / 0.75)" }}>
                     ↳ {scroll.hint}
                   </p>
                 </>
@@ -644,10 +643,10 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
       <div className="text-center pt-2">
         <button
           onClick={() => setBestiaryWarning(true)}
-          className="font-narrative italic text-[0.8125rem] transition-colors opacity-50 bg-transparent border-none"
-          style={{ color: "hsl(38 30% 32%)", cursor: "pointer" }}
-          onMouseEnter={e => (e.currentTarget.style.color = "hsl(38 60% 50%)")}
-          onMouseLeave={e => (e.currentTarget.style.color = "hsl(38 30% 32%)")}
+          className="font-narrative italic text-[0.8125rem] transition-colors opacity-70 bg-transparent border-none"
+          style={{ color: "hsl(var(--silver) / 0.55)", cursor: "pointer" }}
+          onMouseEnter={e => (e.currentTarget.style.color = "hsl(var(--candlelight-glow))")}
+          onMouseLeave={e => (e.currentTarget.style.color = "hsl(var(--silver) / 0.55)")}
         >
           The Bestiary of Solterra →
         </button>

@@ -28,13 +28,12 @@ const AudioToggle = ({ muted, onToggle }: { muted: boolean; onToggle: () => void
     animate={{ opacity: 1 }}
     transition={{ delay: 0.5, duration: 0.6 }}
     onClick={onToggle}
-    className="fixed top-4 right-4 z-[150] w-9 h-9 flex items-center justify-center border border-primary/30 bg-background/60 backdrop-blur-sm hover:border-primary/70 transition-colors"
-    style={{ boxShadow: "0 0 12px hsl(38 72% 50% / 0.1)" }}
+    className="btn-silver-outline fixed top-4 right-4 z-[150] w-9 h-9 flex items-center justify-center rounded-full bg-background/60 backdrop-blur-sm"
     aria-label={muted ? "Unmute ambient audio" : "Mute ambient audio"}
   >
     {muted
-      ? <VolumeX size={14} className="text-muted-foreground" />
-      : <Volume2 size={14} className="text-primary" />
+      ? <VolumeX size={14} style={{ color: "hsl(var(--silver) / 0.7)" }} />
+      : <Volume2 size={14} style={{ color: "hsl(var(--silver))" }} />
     }
   </motion.button>
 );

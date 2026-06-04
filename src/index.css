@@ -185,6 +185,49 @@
     background: var(--gradient-silver);
   }
 
+  /* Carved-stone archive plate — used for landing nav cards */
+  .archive-plate {
+    position: relative;
+    background: linear-gradient(180deg, hsl(var(--card)) 0%, hsl(var(--stone-deep)) 100%);
+    border: 1px solid hsl(var(--silver) / 0.18);
+    border-top-color: hsl(var(--silver) / 0.32);
+    transition: transform 500ms ease, border-color 500ms ease, box-shadow 500ms ease, background 500ms ease;
+  }
+  .archive-plate::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to top, hsl(var(--candlelight) / 0) 60%, hsl(var(--candlelight) / 0) 100%);
+    transition: background 500ms ease, box-shadow 500ms ease;
+  }
+  .archive-plate:hover {
+    transform: translateY(-2px);
+    border-color: hsl(var(--silver) / 0.4);
+    background: linear-gradient(180deg, hsl(var(--card)) 0%, hsl(250 22% 8%) 100%);
+    box-shadow:
+      0 -8px 24px -10px hsl(var(--candlelight) / 0.22) inset,
+      0 10px 28px -16px hsl(var(--candlelight) / 0.35),
+      0 0 0 1px hsl(var(--halcyon-teal) / 0.06);
+  }
+
+  /* Fragment plates (Chronicles) */
+  .fragment-plate-unlocked {
+    background: linear-gradient(180deg, hsl(var(--card)) 0%, hsl(var(--stone-deep)) 100%);
+    border: 1px solid hsl(var(--silver) / 0.28);
+    box-shadow:
+      0 0 0 1px hsl(var(--candlelight) / 0.05),
+      0 6px 18px -12px hsl(var(--candlelight) / 0.35);
+  }
+  .fragment-plate-sealed {
+    background: linear-gradient(180deg, hsl(250 18% 8%) 0%, hsl(250 20% 6%) 100%);
+    border: 1px solid hsl(var(--silver) / 0.12);
+    transition: border-color 400ms ease;
+  }
+  .fragment-plate-sealed:hover {
+    border-color: hsl(var(--silver) / 0.22);
+  }
+
   .bg-dark-gradient {
     background: var(--gradient-dark);
   }
