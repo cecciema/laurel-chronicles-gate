@@ -1,12 +1,12 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import CustomCursor, { isTouch } from "@/components/CustomCursor";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Volume2, VolumeX } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import GuideOnboarding, { GUIDE_STORAGE_KEY } from "@/components/GuideOnboarding";
 import { GameProvider, BestiaryCompletePopup } from "@/components/ChroniclesSystem";
 import Index from "./pages/Index";
