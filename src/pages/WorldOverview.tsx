@@ -93,11 +93,14 @@ const WorldOverview = () => {
   return (
     <Layout>
       {/* Hero */}
-      <div className="relative h-[50vh] sm:h-screen overflow-hidden">
-        <img src={heroBg} alt="Solterra" className="w-full h-full object-cover" />
-        <div className="absolute bottom-0 inset-x-0 h-[10%] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
+      <div className="relative h-[50vh] sm:h-screen overflow-hidden bg-background">
+        <img src={heroBg} alt="Solterra" className="w-full h-full object-cover hero-warm-desat" />
+        <div className="absolute inset-0 pointer-events-none hero-cool-grade" />
+        <div className="absolute inset-0 pointer-events-none hero-cool-grade-overlay" />
+        <div className="absolute inset-x-0 top-0 h-[45%] pointer-events-none" style={{ background: "linear-gradient(to bottom, hsl(250 22% 5% / 0.85) 0%, transparent 100%)" }} />
+        <div className="absolute bottom-0 inset-x-0 h-[25%] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 100%)" }} />
         <ParticleCanvas density={0.5} />
-        <div className="absolute inset-x-0 top-0 pt-[30%] flex flex-col items-center text-center px-4">
+        <div className="absolute inset-x-0 top-0 pt-[30%] flex flex-col items-center text-center px-4 z-20">
           <SectionHeader
             title="The Known World"
             subtitle="The last continent. The only civilization. Or so they were told."
@@ -155,11 +158,11 @@ const WorldOverview = () => {
                 />
                 <span
                   className="absolute top-3 right-4 font-display text-[3rem] sm:text-[4rem] leading-none pointer-events-none select-none"
-                  style={{ color: "hsl(38 50% 40% / 0.12)" }}
+                  style={{ color: "hsl(var(--silver) / 0.10)" }}
                 >
                   {law.numeral}
                 </span>
-                <p className="font-display text-[10px] tracking-[0.35em] uppercase mb-4" style={{ color: "hsl(38 50% 45%)" }}>
+                <p className="font-display text-[10px] tracking-[0.35em] uppercase mb-4" style={{ color: "hsl(var(--muted-foreground))" }}>
                   Law {law.numeral}
                 </p>
                 <p className="font-display text-[0.9375rem] sm:text-base leading-[1.9] text-foreground/85 tracking-wide relative z-10">
@@ -183,9 +186,9 @@ const WorldOverview = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="p-6 bg-card border border-border"
+                className="p-6 bg-card border border-border character-card"
               >
-                <span className="text-[10px] tracking-[0.3em] text-primary uppercase font-body">
+                <span className="text-[10px] tracking-[0.3em] uppercase font-body" style={{ color: "hsl(var(--muted-foreground))" }}>
                   {item.level}
                 </span>
                 <h3 className="font-display text-base tracking-wide text-foreground mt-2">
@@ -277,12 +280,12 @@ const WorldOverview = () => {
                 initial={{ opacity: 0, x: 0 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="p-5 sm:p-6 bg-card border border-border hover:border-primary/30 transition-colors relative"
+                className="p-5 sm:p-6 bg-card border border-border character-card relative"
               >
                 {region.hasOrb && <HiddenOrb id={1} className="absolute -right-1 top-1" />}
                 <div className="flex flex-col gap-4">
                   <div className="flex-1">
-                    <span className="text-[10px] tracking-[0.3em] text-primary uppercase font-body">
+                    <span className="text-[10px] tracking-[0.3em] uppercase font-body" style={{ color: "hsl(var(--muted-foreground))" }}>
                       {region.tag}
                     </span>
                     <h3 className="font-display text-xl tracking-wide text-foreground mt-1">
