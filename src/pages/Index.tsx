@@ -279,10 +279,12 @@ const Index = () => {
             <div className="max-w-3xl mx-auto">
               <ScrollReveal>
                 <div className="text-center mb-10">
-                  <p className="font-display text-[9px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
-                    ◆ The Chronicles of Solterra ◆
+                  <p className="font-display text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: "hsl(var(--silver) / 0.55)" }}>
+                    <span className="mx-2" style={{ letterSpacing: "0" }}>·</span>
+                    The Chronicles of Solterra
+                    <span className="mx-2" style={{ letterSpacing: "0" }}>·</span>
                   </p>
-                  <h2 className="font-display text-xl sm:text-2xl tracking-[0.2em] text-foreground">
+                  <h2 className="font-display text-xl sm:text-2xl tracking-[0.2em]" style={{ color: "hsl(var(--silver))", fontWeight: 300 }}>
                     Fragments of Forbidden Truth
                   </h2>
                   <GoldDivider className="max-w-xs mx-auto mt-4" />
@@ -295,8 +297,8 @@ const Index = () => {
           </section>
 
 
-          {/* Navigation Cards */}
-          <section className="py-16 px-4 bg-secondary/30">
+          {/* Navigation Cards — carved-stone archive plates */}
+          <section className="py-16 px-4" style={{ background: "hsl(var(--stone-deep) / 0.5)" }}>
             <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-5 gap-6 items-stretch">
               {[
                 { to: "/world", title: "World Overview", desc: "Explore the Republic's territories, culture, and power structures" },
@@ -312,19 +314,13 @@ const Index = () => {
                 >
                   <Link
                     to={card.to}
-                    className="block h-full p-4 sm:p-6 bg-card transition-all hover:shadow-gold group flex flex-col items-center justify-center text-center rounded-none"
-                    style={{
-                      border: "1px solid rgba(180, 140, 60, 0.25)",
-                      borderTop: "1px solid rgba(180, 140, 60, 0.4)",
-                      ...(isTouch ? {} : { cursor: "none" }),
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(180, 140, 60, 0.5)"; }}
-                    onMouseLeave={e => { e.currentTarget.style.border = "1px solid rgba(180, 140, 60, 0.25)"; e.currentTarget.style.borderTop = "1px solid rgba(180, 140, 60, 0.4)"; }}
+                    className="archive-plate block h-full p-5 sm:p-6 flex flex-col items-center justify-center text-center"
+                    style={isTouch ? undefined : { cursor: "none" }}
                   >
-                    <h3 className="font-display text-sm tracking-[0.15em] text-primary group-hover:text-gold-glow transition-colors">
+                    <h3 className="font-display text-sm tracking-[0.18em] uppercase transition-colors" style={{ color: "hsl(var(--silver))", fontWeight: 400 }}>
                       {card.title}
                     </h3>
-                    <p className="mt-2 text-xs sm:text-sm text-muted-foreground font-body">
+                    <p className="mt-3 text-xs sm:text-sm font-body leading-relaxed" style={{ color: "hsl(var(--muted-foreground))" }}>
                       {card.desc}
                     </p>
                   </Link>
