@@ -14,24 +14,24 @@
 
   :root {
     /* Twilight stone & jewel atmosphere */
-    --background: 250 20% 7%;
+    --background: 250 18% 11%;
     --foreground: 40 28% 90%;
 
-    --card: 250 18% 10%;
+    --card: 250 15% 15%;
     --card-foreground: 40 28% 90%;
 
-    --popover: 250 18% 9%;
+    --popover: 250 16% 13%;
     --popover-foreground: 40 28% 90%;
 
     /* Primary — cool silver-ivory (NOT gold) */
     --primary: 210 14% 84%;
     --primary-foreground: 250 20% 8%;
 
-    --secondary: 250 14% 13%;
+    --secondary: 250 14% 17%;
     --secondary-foreground: 40 18% 78%;
 
-    --muted: 250 10% 13%;
-    --muted-foreground: 220 8% 60%;
+    --muted: 250 12% 18%;
+    --muted-foreground: 220 9% 66%;
 
     /* Accent — restrained candlelight */
     --accent: 36 58% 58%;
