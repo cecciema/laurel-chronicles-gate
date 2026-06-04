@@ -22,9 +22,9 @@ const ZOOM_STEP = 0.3;
 const PINCH_DAMPEN = 0.4; // slow down pinch sensitivity
 
 // ── Region accent colours ──────────────────────────────────────────────────────
-// All regions use white at rest, brass when active - unified palette
+// All regions use silver-ivory at rest, dusky-rose when active - cool/warm-romantic palette
 const GLOW_WHITE = "#ffffff";
-const GLOW_BRASS = "#d4a843";
+const GLOW_BRASS = "#c98aa1"; // dusky-rose (hsl 345 42% 64%) - used for active/hover state only
 
 const REGION_COLORS: Record<string, string> = {
   "sanctorium":    GLOW_BRASS,
@@ -433,9 +433,18 @@ const WorldMap = () => {
   return (
     <Layout>
       {/* Hero */}
-      <div className="relative h-[50vh] sm:h-screen overflow-hidden">
-        <img src={heroBg} alt="World Map" className="w-full h-full object-cover" />
-        <div className="absolute bottom-0 inset-x-0 h-[10%] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
+      <div className="relative h-[50vh] sm:h-screen overflow-hidden bg-background">
+        <img
+          src={heroBg}
+          alt="World Map"
+          className="w-full h-full object-cover"
+          style={{ filter: "saturate(0.55) hue-rotate(-8deg) brightness(0.78) contrast(1.05)" }}
+        />
+        {/* Cool color grade - lighter so the lighthouse beam stays warm */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, hsl(288 30% 45% / 0.22) 0%, hsl(250 30% 18% / 0.22) 50%, hsl(185 38% 42% / 0.22) 100%)", mixBlendMode: "multiply" }} />
+        {/* Top & bottom darkening for title legibility */}
+        <div className="absolute inset-x-0 top-0 h-[45%] pointer-events-none" style={{ background: "linear-gradient(to bottom, hsl(250 22% 5% / 0.85) 0%, transparent 100%)" }} />
+        <div className="absolute bottom-0 inset-x-0 h-[25%] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 100%)" }} />
         <ParticleCanvas density={0.5} />
 
         {/* Title centered on hero */}
@@ -1208,10 +1217,10 @@ const KnownInstitutions = () => (
       className="text-center mb-16"
     >
       <GoldDivider className="max-w-xs mx-auto mb-6" />
-      <h2 className="font-display text-3xl sm:text-4xl tracking-[0.1em] text-foreground">
+      <h2 className="font-display text-3xl sm:text-4xl tracking-[0.1em]" style={{ color: "hsl(var(--silver))", textShadow: "0 0 24px hsl(var(--silver) / 0.18)" }}>
         THE KNOWN INSTITUTIONS
       </h2>
-      <p className="mt-4 text-muted-foreground font-narrative text-lg italic max-w-2xl mx-auto">
+      <p className="mt-4 font-narrative text-lg italic max-w-2xl mx-auto" style={{ color: "hsl(var(--mist) / 0.78)" }}>
         Twelve Pantheons. Four Magistries. One Republic.
       </p>
       <GoldDivider className="max-w-xs mx-auto mt-6" />
@@ -1232,14 +1241,17 @@ const KnownInstitutions = () => (
           </p>
 
           {/* Magistry card */}
-          <div className="border-2 border-primary/40 bg-card/80 p-4 mb-5 shadow-gold">
-            <h3 className="font-display text-base sm:text-lg tracking-wide text-primary mb-1">
+          <div
+            className="p-4 mb-5 character-card bg-card"
+            style={{ border: "1px solid hsl(var(--silver) / 0.28)" }}
+          >
+            <h3 className="font-display text-base sm:text-lg tracking-wide mb-1" style={{ color: "hsl(var(--silver))" }}>
               {q.magistry}
             </h3>
-            <p className="font-narrative italic text-sm text-foreground/70 mb-2">
+            <p className="font-narrative italic text-sm mb-2" style={{ color: "hsl(var(--mist) / 0.78)" }}>
               {q.magistryDesc}
             </p>
-            <p className="font-body text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+            <p className="font-body text-[10px] tracking-[0.2em] uppercase" style={{ color: "hsl(var(--muted-foreground))" }}>
               Key: {q.magistryCharacters.join(", ")}
             </p>
           </div>
@@ -1249,15 +1261,16 @@ const KnownInstitutions = () => (
             {q.pantheons.map((p) => (
                 <div
                   key={p.name}
-                  className="border border-primary/20 bg-card/60 p-3 transition-shadow duration-300 hover:shadow-glow"
+                  className="p-3 character-card bg-card/60"
+                  style={{ border: "1px solid hsl(var(--silver) / 0.18)" }}
                 >
-                  <h4 className="font-display text-sm tracking-wide text-foreground">
+                  <h4 className="font-display text-sm tracking-wide" style={{ color: "hsl(var(--silver))" }}>
                     {p.name}
                   </h4>
-                  <p className="font-body text-[9px] tracking-[0.25em] uppercase text-primary/70 mt-1">
+                  <p className="font-body text-[9px] tracking-[0.25em] uppercase mt-1" style={{ color: "hsl(var(--mist) / 0.72)" }}>
                     {p.constellation}
                   </p>
-                  <p className="font-body text-[9px] text-muted-foreground mt-0.5">
+                  <p className="font-body text-[9px] mt-0.5" style={{ color: "hsl(var(--muted-foreground))" }}>
                     Sol Deus: {p.solDeus}
                   </p>
                 </div>
@@ -1306,7 +1319,7 @@ const UnseenMarker = () => {
           animate={{ opacity: [0.15, 0.4, 0.15], scale: [1, 1.3, 1] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           className="w-full h-full rounded-full"
-          style={{ background: "hsl(38 72% 50%)", boxShadow: "0 0 12px hsl(38 72% 50% / 0.4)" }}
+          style={{ background: "hsl(var(--silver))", boxShadow: "0 0 12px hsl(var(--silver) / 0.45)" }}
         />
       </button>
       <AnimatePresence>
@@ -1316,9 +1329,9 @@ const UnseenMarker = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="absolute z-40 p-4 border max-w-xs"
-            style={{ top: "35%", right: "2%", background: "hsl(20 12% 7% / 0.95)", borderColor: "hsl(38 50% 35% / 0.4)" }}
+            style={{ top: "35%", right: "2%", background: "hsl(250 22% 5% / 0.95)", borderColor: "hsl(var(--silver) / 0.22)" }}
           >
-            <p className="font-narrative italic text-[0.875rem] leading-[1.8]" style={{ color: "hsl(38 30% 65%)" }}>
+            <p className="font-narrative italic text-[0.875rem] leading-[1.8]" style={{ color: "hsl(var(--mist) / 0.78)" }}>
               "Something exists beyond the boundary. It has no name on this map. It has always been there."
             </p>
           </motion.div>
