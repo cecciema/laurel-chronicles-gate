@@ -15,8 +15,10 @@ export default {
     extend: {
       fontFamily: {
         display: ['Cinzel', 'serif'],
-        body: ['Raleway', 'sans-serif'],
-        narrative: ['Crimson Text', 'serif'],
+        body: ['EB Garamond', 'serif'],
+        narrative: ['EB Garamond', 'serif'],
+        'serif-display': ['Cormorant Garamond', 'serif'],
+        ui: ['Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -52,9 +54,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        "gold-ancient": "hsl(var(--gold-ancient))",
-        "gold-glow": "hsl(var(--gold-glow))",
-        ember: "hsl(var(--ember))",
+        "gold-ancient": "hsl(var(--silver))",
+        "gold-glow": "hsl(var(--silver))",
+        ember: "hsl(var(--silver))",
         "stone-deep": "hsl(var(--stone-deep))",
         mist: "hsl(var(--mist))",
         "moss-shadow": "hsl(var(--moss-shadow))",
