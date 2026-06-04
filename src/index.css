@@ -297,7 +297,7 @@
 
   .gold-divider, .steampunk-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(var(--silver) / .25), hsl(var(--silver) / .5), hsl(var(--silver) / .25), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--crimson-wine) / .35), hsl(var(--crimson-wine) / .65), hsl(var(--crimson-wine) / .35), transparent);
   }
 
   /* Animated gear rotation */
