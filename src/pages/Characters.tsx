@@ -887,23 +887,28 @@ const Characters = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: globalIdx * 0.07 }}
                         onClick={() => setSelected(char.id === selected ? null : char.id)}
-                        className={`relative group overflow-hidden aspect-[2/3] border transition-all ${
+                        className={`character-card relative group overflow-hidden aspect-[2/3] border transition-all duration-500 ${
                           selected === char.id
-                            ? "border-primary shadow-glow"
-                            : "border-border hover:border-primary/40"
+                            ? "border-[hsl(var(--silver)/0.65)]"
+                            : "border-[hsl(var(--silver)/0.18)] hover:border-[hsl(var(--silver)/0.4)]"
                         }`}
                       >
                         <img
                           src={resolveImage(char.image)}
                           alt={char.name}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 char-portrait-normalize"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                        <div className="absolute bottom-0 left-0 right-0 p-3">
-                          <p className="font-display text-[10px] sm:text-xs tracking-wider text-foreground leading-tight">
+                        {/* Candlelight rise on hover */}
+                        <div
+                          className="absolute inset-x-0 bottom-0 h-2/3 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                          style={{ background: "linear-gradient(to top, hsl(var(--candlelight) / 0.22), transparent 70%)" }}
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
+                          <p className="font-display text-[10px] sm:text-xs tracking-wider leading-tight" style={{ color: "hsl(var(--silver))" }}>
                             {char.name}
                           </p>
-                          <p className="text-[8px] sm:text-[10px] tracking-wider text-primary uppercase font-body mt-0.5">
+                          <p className="text-[8px] sm:text-[10px] tracking-wider uppercase font-body mt-0.5" style={{ color: "hsl(var(--mist) / 0.7)" }}>
                             {char.title}
                           </p>
                         </div>
