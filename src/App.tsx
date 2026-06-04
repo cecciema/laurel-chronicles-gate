@@ -1,12 +1,12 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import CustomCursor, { isTouch } from "@/components/CustomCursor";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Volume2, VolumeX } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import GuideOnboarding, { GUIDE_STORAGE_KEY } from "@/components/GuideOnboarding";
 import { GameProvider, BestiaryCompletePopup } from "@/components/ChroniclesSystem";
 import Index from "./pages/Index";
@@ -62,6 +62,42 @@ const AppInner = () => {
     }
   };
 
+  // ── Global scroll-reveal observer (Part 8) ──────────────────────────────
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll<HTMLElement>(".reveal").forEach((el) =>
+        el.classList.add("is-visible")
+      );
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    const observeAll = () => {
+      document
+        .querySelectorAll<HTMLElement>(".reveal:not(.is-visible)")
+        .forEach((el) => io.observe(el));
+    };
+    observeAll();
+    const mo = new MutationObserver(observeAll);
+    mo.observe(document.body, { childList: true, subtree: true });
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
+  }, [onboardingComplete]);
+
+  const location = useLocation();
+
   return (
     <>
       <audio ref={audioRef} loop src="https://cdn.freesound.org/previews/639/639958_13315998-lq.mp3" />
@@ -73,16 +109,26 @@ const AppInner = () => {
         <>
           {!isTouch && <CustomCursor />}
           <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/world" element={<WorldOverview />} />
-            <Route path="/characters" element={<Characters />} />
-            <Route path="/timeline" element={<Timeline />} />
-            <Route path="/map" element={<WorldMap />} />
-            <Route path="/manuscript" element={<Manuscript />} />
-            <Route path="/bestiary" element={<Bestiary />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={location.pathname}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <Routes location={location}>
+                <Route path="/" element={<Index />} />
+                <Route path="/world" element={<WorldOverview />} />
+                <Route path="/characters" element={<Characters />} />
+                <Route path="/timeline" element={<Timeline />} />
+                <Route path="/map" element={<WorldMap />} />
+                <Route path="/manuscript" element={<Manuscript />} />
+                <Route path="/bestiary" element={<Bestiary />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </motion.div>
+          </AnimatePresence>
           <BestiaryCompletePopup />
         </>
       )}
