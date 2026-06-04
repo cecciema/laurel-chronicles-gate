@@ -235,12 +235,12 @@
   }
   .archive-plate:hover {
     transform: translateY(-2px);
-    border-color: hsl(var(--silver) / 0.4);
+    border-color: hsl(var(--dusky-rose) / 0.40);
     background: linear-gradient(180deg, hsl(var(--card)) 0%, hsl(250 22% 8%) 100%);
     box-shadow:
-      0 -8px 24px -10px hsl(var(--candlelight) / 0.22) inset,
-      0 10px 28px -16px hsl(var(--candlelight) / 0.35),
-      0 0 0 1px hsl(var(--halcyon-teal) / 0.06);
+      0 -8px 24px -10px hsl(var(--dusky-rose) / 0.22) inset,
+      0 10px 28px -16px hsl(var(--burgundy) / 0.45),
+      0 0 0 1px hsl(var(--crimson-wine) / 0.10);
   }
 
   /* Fragment plates (Chronicles) */
