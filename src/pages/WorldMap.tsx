@@ -828,17 +828,17 @@ const WorldMap = () => {
                   className="w-10 h-10 flex items-center justify-center border transition-all duration-200 rounded-sm"
                   style={{
                     background:  "rgba(10,8,4,0.85)",
-                    borderColor: "hsl(38 40% 30% / 0.6)",
-                    color:       "hsl(38 72% 55%)",
-                    boxShadow:   "0 0 8px hsl(38 72% 50% / 0.15)",
+                    borderColor: "hsl(var(--silver) / 0.30)",
+                    color:       "hsl(var(--silver))",
+                    boxShadow:   "0 0 8px hsl(var(--silver) / 0.15)",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(38 60% 50% / 0.9)";
-                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 12px hsl(38 72% 50% / 0.35)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(var(--dusky-rose) / 0.75)";
+                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 12px hsl(var(--dusky-rose) / 0.35)";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(38 40% 30% / 0.6)";
-                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 8px hsl(38 72% 50% / 0.15)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(var(--silver) / 0.30)";
+                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 8px hsl(var(--silver) / 0.15)";
                   }}
                 >
                   <Plus size={15} strokeWidth={2.5} />
@@ -851,17 +851,17 @@ const WorldMap = () => {
                   className="w-10 h-10 flex items-center justify-center border transition-all duration-200 rounded-sm"
                   style={{
                     background:  "rgba(10,8,4,0.85)",
-                    borderColor: "hsl(38 40% 30% / 0.6)",
-                    color:       "hsl(38 72% 55%)",
-                    boxShadow:   "0 0 8px hsl(38 72% 50% / 0.15)",
+                    borderColor: "hsl(var(--silver) / 0.30)",
+                    color:       "hsl(var(--silver))",
+                    boxShadow:   "0 0 8px hsl(var(--silver) / 0.15)",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(38 60% 50% / 0.9)";
-                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 12px hsl(38 72% 50% / 0.35)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(var(--dusky-rose) / 0.75)";
+                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 12px hsl(var(--dusky-rose) / 0.35)";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(38 40% 30% / 0.6)";
-                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 8px hsl(38 72% 50% / 0.15)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(var(--silver) / 0.30)";
+                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 8px hsl(var(--silver) / 0.15)";
                   }}
                 >
                   <Minus size={15} strokeWidth={2.5} />
@@ -874,17 +874,17 @@ const WorldMap = () => {
                   className="w-10 h-10 flex items-center justify-center border transition-all duration-200 rounded-sm"
                   style={{
                     background:  "rgba(10,8,4,0.85)",
-                    borderColor: "hsl(38 40% 30% / 0.6)",
-                    color:       "hsl(38 72% 55%)",
-                    boxShadow:   "0 0 8px hsl(38 72% 50% / 0.15)",
+                    borderColor: "hsl(var(--silver) / 0.30)",
+                    color:       "hsl(var(--silver))",
+                    boxShadow:   "0 0 8px hsl(var(--silver) / 0.15)",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(38 60% 50% / 0.9)";
-                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 12px hsl(38 72% 50% / 0.35)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(var(--dusky-rose) / 0.75)";
+                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 12px hsl(var(--dusky-rose) / 0.35)";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(38 40% 30% / 0.6)";
-                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 8px hsl(38 72% 50% / 0.15)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(var(--silver) / 0.30)";
+                    (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 8px hsl(var(--silver) / 0.15)";
                   }}
                 >
                   <RotateCcw size={15} strokeWidth={2.5} />
