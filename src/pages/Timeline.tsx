@@ -137,10 +137,10 @@ const events: TimelineEvent[] = [
 ];
 
 const categoryTagColors: Record<Category, { bg: string; text: string }> = {
-  political: { bg: "hsl(38 50% 18% / 0.5)", text: "hsl(38 60% 55%)" },
-  military: { bg: "hsl(0 50% 18% / 0.5)", text: "hsl(0 55% 50%)" },
-  social: { bg: "hsl(35 30% 20% / 0.5)", text: "hsl(35 25% 70%)" },
-  technological: { bg: "hsl(30 50% 18% / 0.5)", text: "hsl(30 60% 50%)" },
+  political: { bg: "hsl(var(--crimson-wine) / 0.18)", text: "hsl(var(--dusky-rose))" },
+  military: { bg: "hsl(var(--burgundy) / 0.28)", text: "hsl(var(--dusky-rose))" },
+  social: { bg: "hsl(var(--silver) / 0.10)", text: "hsl(var(--silver))" },
+  technological: { bg: "hsl(var(--ember-violet) / 0.22)", text: "hsl(var(--blush))" },
 };
 
 const filterBtnColors: Record<string, string> = {
@@ -180,9 +180,9 @@ const EventCard = ({
       }}
       onMouseEnter={(e) => {
         if (side === "left") {
-          e.currentTarget.style.borderLeftColor = "hsl(38 72% 50% / 0.25)";
+          e.currentTarget.style.borderLeftColor = "hsl(var(--dusky-rose) / 0.45)";
         } else {
-          e.currentTarget.style.borderRightColor = "hsl(38 72% 50% / 0.25)";
+          e.currentTarget.style.borderRightColor = "hsl(var(--dusky-rose) / 0.45)";
         }
       }}
       onMouseLeave={(e) => {
@@ -200,11 +200,11 @@ const EventCard = ({
         {event.title}
       </h3>
       <p className="text-[10px] tracking-[0.2em] uppercase font-body mt-1"
-        style={{ color: "hsl(38 40% 45%)" }}>
+        style={{ color: "hsl(var(--muted-foreground))" }}>
         {event.year}
       </p>
       <p className="mt-2 text-sm sm:text-[0.9375rem] font-narrative leading-[1.85]"
-        style={{ color: "hsl(35 20% 75%)" }}>
+        style={{ color: "hsl(var(--mist) / 0.78)" }}>
         {event.description}
       </p>
     </motion.div>
@@ -230,22 +230,22 @@ const DesktopRow = ({
       </div>
 
       {/* Center connector */}
-      <div className="relative flex items-start justify-center pt-5">
+      <div className="relative flex items-start justify-center pt-5 group/node">
         {/* Horizontal connector line */}
         <div
           className="absolute top-[22px] h-px w-[18px]"
           style={{
-            background: "hsl(38 72% 50% / 0.4)",
+            background: "hsl(var(--silver) / 0.35)",
             left: isLeft ? "-2px" : "auto",
             right: isLeft ? "auto" : "-2px",
           }}
         />
         {/* Dot */}
         <div
-          className="w-[10px] h-[10px] rounded-full border-2 z-10 relative"
+          className="w-[10px] h-[10px] rounded-full border-2 z-10 relative transition-colors duration-500 group-hover/node:[border-color:hsl(var(--dusky-rose)/0.85)] group-hover/node:[background:hsl(var(--dusky-rose)/0.35)]"
           style={{
-            borderColor: "hsl(38 72% 50% / 0.6)",
-            background: "hsl(38 72% 50% / 0.2)",
+            borderColor: "hsl(var(--silver) / 0.65)",
+            background: "hsl(var(--silver) / 0.18)",
           }}
         />
         {showOrb && (
@@ -280,14 +280,14 @@ const MobileRow = ({
         <div
           className="w-[10px] h-[10px] rounded-full border-2 z-10"
           style={{
-            borderColor: "hsl(38 72% 50% / 0.6)",
-            background: "hsl(38 72% 50% / 0.2)",
+            borderColor: "hsl(var(--silver) / 0.65)",
+            background: "hsl(var(--silver) / 0.18)",
           }}
         />
         {/* Horizontal connector */}
         <div
           className="absolute top-[22px] left-[22px] h-px w-3"
-          style={{ background: "hsl(38 72% 50% / 0.4)" }}
+          style={{ background: "hsl(var(--silver) / 0.35)" }}
         />
         {showOrb && (
           <HiddenOrb id={2} className="absolute -top-3 left-1/2 -translate-x-1/2 z-20" />
@@ -323,13 +323,16 @@ const TimelinePage = () => {
   return (
     <Layout>
       {/* Hero */}
-      <div className="relative h-[50vh] sm:h-screen overflow-hidden">
+      <div className="relative h-[50vh] sm:h-screen overflow-hidden bg-background">
         <img src={heroBg} alt="Timeline" className="w-full h-full object-cover" />
-        <div className="absolute bottom-0 inset-x-0 h-[10%] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
+        <div className="absolute inset-0 pointer-events-none hero-cool-grade" />
+        <div className="absolute inset-0 pointer-events-none hero-cool-grade-overlay" />
+        <div className="absolute inset-x-0 top-0 h-[45%] pointer-events-none" style={{ background: "linear-gradient(to bottom, hsl(250 22% 5% / 0.85) 0%, transparent 100%)" }} />
+        <div className="absolute bottom-0 inset-x-0 h-[25%] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 100%)" }} />
         <ParticleCanvas density={0.5} />
 
         {/* Section header centered on hero */}
-        <div className="absolute inset-x-0 top-0 pt-[30%] flex flex-col items-center text-center px-4">
+        <div className="absolute inset-x-0 top-0 pt-[30%] flex flex-col items-center text-center px-4 z-20">
           <SectionHeader
             title="Timeline of the Republic"
             subtitle="Three centuries of ambition, conflict, and transformation"
@@ -370,12 +373,12 @@ const TimelinePage = () => {
           {isMobile ? (
             <div
               className="absolute left-[13px] top-0 w-px"
-              style={{ background: "hsl(38 72% 50% / 0.2)", bottom: 200 }}
+              style={{ background: "hsl(var(--silver) / 0.22)", bottom: 200 }}
             />
           ) : (
             <div
               className="absolute left-1/2 -translate-x-px top-0 w-px"
-              style={{ background: "hsl(38 72% 50% / 0.2)", bottom: 200 }}
+              style={{ background: "hsl(var(--silver) / 0.22)", bottom: 200 }}
             />
           )}
 
@@ -414,8 +417,8 @@ const TimelinePage = () => {
               <div
                 className="w-3 h-3 rounded-full"
                 style={{
-                  background: "hsl(38 72% 50% / 0.6)",
-                  boxShadow: "0 0 12px hsl(38 72% 50% / 0.3)",
+                  background: "hsl(var(--silver) / 0.7)",
+                  boxShadow: "0 0 12px hsl(var(--silver) / 0.35)",
                 }}
               />
             </div>
@@ -428,13 +431,13 @@ const TimelinePage = () => {
             >
               <p
                 className="font-display text-[10px] sm:text-xs tracking-[0.25em] uppercase"
-                style={{ color: "hsl(38 60% 55%)" }}
+                style={{ color: "hsl(var(--silver))" }}
               >
                 Year 293 - The Present Hour
               </p>
               <p
                 className="font-narrative italic text-sm sm:text-[0.9375rem] leading-[1.85] mt-3 max-w-2xl mx-auto"
-                style={{ color: "hsl(35 20% 65%)" }}
+                style={{ color: "hsl(var(--mist) / 0.78)" }}
               >
                 The ocean systems grow more unstable. Parliamentary authority and
                 Pantheon power move toward inevitable collision. Secrets long
