@@ -264,7 +264,7 @@ const Manuscript = () => {
           <div
             className="max-w-3xl mx-auto"
             style={{
-              background: "hsl(224 16% 6%)",
+              background: "hsl(var(--card))",
               border: "1px solid hsl(var(--silver) / 0.12)",
               padding: "2.5rem 1.5rem",
             }}
