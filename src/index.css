@@ -289,6 +289,10 @@
     background: linear-gradient(180deg, hsl(288 30% 45% / 0.22), hsl(185 38% 42% / 0.22));
     mix-blend-mode: overlay;
   }
+  /* Desaturate & cool-shift warm hero photos at the source */
+  .hero-warm-desat {
+    filter: saturate(0.35) hue-rotate(-15deg) brightness(0.62) contrast(1.05);
+  }
 
   /* Normalize character portrait brightness/contrast */
   .char-portrait-normalize {
