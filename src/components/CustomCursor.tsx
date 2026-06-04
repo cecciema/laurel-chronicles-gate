@@ -32,17 +32,23 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Inner dot */}
+      {/* Inner dot — silver-ivory default, faint candlelight glow as accent */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-[10px] h-[10px] rounded-full pointer-events-none z-[999]"
-        style={{ background: "hsl(38 80% 60%)", boxShadow: "0 0 8px hsl(38 80% 60%), 0 0 20px hsl(38 72% 50% / 0.5)" }}
+        className="fixed top-0 left-0 w-[8px] h-[8px] rounded-full pointer-events-none z-[999]"
+        style={{
+          background: "hsl(var(--silver))",
+          boxShadow: "0 0 6px hsl(var(--silver) / 0.55), 0 0 14px hsl(var(--candlelight) / 0.18)",
+        }}
       />
-      {/* Outer ring */}
+      {/* Outer ring — silver hairline */}
       <div
         ref={trailRef}
         className="fixed top-0 left-0 w-[28px] h-[28px] rounded-full pointer-events-none z-[998] border"
-        style={{ borderColor: "hsl(38 72% 50% / 0.5)", boxShadow: "0 0 10px hsl(38 72% 50% / 0.2)" }}
+        style={{
+          borderColor: "hsl(var(--silver) / 0.45)",
+          boxShadow: "0 0 8px hsl(var(--silver) / 0.12)",
+        }}
       />
     </>
   );
