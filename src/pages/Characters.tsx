@@ -453,8 +453,8 @@ const TheUnmasked = () => {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-display text-2xl sm:text-3xl tracking-[0.12em]"
-          style={{ color: "hsl(38 72% 55%)" }}
+          className="font-display text-2xl sm:text-3xl tracking-[0.18em] uppercase"
+          style={{ color: "hsl(var(--silver))" }}
         >
           The Unmasked
         </motion.h2>
@@ -837,13 +837,18 @@ const Characters = () => {
   return (
     <Layout>
       {/* Hero */}
-      <div className="relative h-[50vh] sm:h-screen overflow-hidden">
+      <div className="relative h-[50vh] sm:h-screen overflow-hidden bg-background">
         <img src={heroBg} alt="Characters" className="w-full h-full object-cover" />
-        <div className="absolute bottom-0 inset-x-0 h-[10%] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
+        {/* Cool color grade — stopgap until cooler asset */}
+        <div className="absolute inset-0 pointer-events-none hero-cool-grade" />
+        <div className="absolute inset-0 pointer-events-none hero-cool-grade-overlay" />
+        {/* Top & bottom darkening for legibility */}
+        <div className="absolute inset-x-0 top-0 h-[45%] pointer-events-none" style={{ background: "linear-gradient(to bottom, hsl(250 22% 5% / 0.85) 0%, transparent 100%)" }} />
+        <div className="absolute bottom-0 inset-x-0 h-[25%] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 100%)" }} />
         <ParticleCanvas density={0.5} />
 
         {/* Section header centered on hero */}
-        <div className="absolute inset-x-0 top-0 pt-[30%] flex flex-col items-center text-center px-4">
+        <div className="absolute inset-x-0 top-0 pt-[24%] sm:pt-[18%] flex flex-col items-center text-center px-4 z-20">
           <div className="relative">
             <SectionHeader
               title="Character Database"
@@ -882,23 +887,28 @@ const Characters = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: globalIdx * 0.07 }}
                         onClick={() => setSelected(char.id === selected ? null : char.id)}
-                        className={`relative group overflow-hidden aspect-[2/3] border transition-all ${
+                        className={`character-card relative group overflow-hidden aspect-[2/3] border transition-all duration-500 ${
                           selected === char.id
-                            ? "border-primary shadow-glow"
-                            : "border-border hover:border-primary/40"
+                            ? "border-[hsl(var(--silver)/0.65)]"
+                            : "border-[hsl(var(--silver)/0.18)] hover:border-[hsl(var(--silver)/0.4)]"
                         }`}
                       >
                         <img
                           src={resolveImage(char.image)}
                           alt={char.name}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 char-portrait-normalize"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                        <div className="absolute bottom-0 left-0 right-0 p-3">
-                          <p className="font-display text-[10px] sm:text-xs tracking-wider text-foreground leading-tight">
+                        {/* Candlelight rise on hover */}
+                        <div
+                          className="absolute inset-x-0 bottom-0 h-2/3 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                          style={{ background: "linear-gradient(to top, hsl(var(--candlelight) / 0.22), transparent 70%)" }}
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
+                          <p className="font-display text-[10px] sm:text-xs tracking-wider leading-tight" style={{ color: "hsl(var(--silver))" }}>
                             {char.name}
                           </p>
-                          <p className="text-[8px] sm:text-[10px] tracking-wider text-primary uppercase font-body mt-0.5">
+                          <p className="text-[8px] sm:text-[10px] tracking-wider uppercase font-body mt-0.5" style={{ color: "hsl(var(--mist) / 0.7)" }}>
                             {char.title}
                           </p>
                         </div>

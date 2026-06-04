@@ -27,38 +27,50 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-md border-b border-[hsl(var(--silver)/0.18)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
-              <span className="font-display text-xs sm:text-sm md:text-lg leading-tight tracking-[0.2em] text-primary whitespace-nowrap">
+              <span className="font-display text-xs sm:text-sm md:text-lg leading-tight tracking-[0.2em] whitespace-nowrap" style={{ color: "hsl(var(--silver))" }}>
                 LAUREL CROWNS ABOVE
               </span>
             </Link>
 
             {/* Desktop Nav */}
             <div className="hidden sm:flex items-center gap-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`px-3 py-2 text-xs tracking-[0.15em] uppercase transition-colors font-body ${
-                    location.pathname === item.path
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`group relative px-3 py-2 text-xs tracking-[0.15em] uppercase font-body transition-colors duration-300 ${
+                      isActive
+                        ? "text-[hsl(var(--silver))]"
+                        : "text-[hsl(var(--mist)/0.65)] hover:text-[hsl(var(--silver))]"
+                    }`}
+                  >
+                    {item.label}
+                    <span
+                      className={`pointer-events-none absolute left-3 right-3 -bottom-px h-px transition-opacity duration-300 ${
+                        isActive ? "opacity-100" : "opacity-0 group-hover:opacity-70"
+                      }`}
+                      style={{
+                        background: "linear-gradient(90deg, transparent, hsl(var(--candlelight) / 0.85), transparent)",
+                        boxShadow: isActive ? "0 0 8px hsl(var(--candlelight) / 0.5)" : "none",
+                      }}
+                    />
+                  </Link>
+                );
+              })}
               {activeGuide && (
                 <button
                   onClick={handleChangeGuide}
                   title={`Guide: ${activeGuide.name} · Click to change`}
-                  className="ml-2 flex items-center gap-1.5 px-3 py-1.5 border border-primary/30 text-primary/70 hover:border-primary hover:text-primary transition-colors"
+                  className="btn-silver-outline ml-2 flex items-center gap-2 px-3 py-1.5"
                 >
-                  <Compass size={10} />
+                  <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: "hsl(var(--silver))" }} />
                   <span className="text-[9px] tracking-[0.15em] uppercase font-body">{activeGuide.name}</span>
                 </button>
               )}

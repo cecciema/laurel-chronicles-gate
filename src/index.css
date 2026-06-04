@@ -185,6 +185,15 @@
     background: var(--gradient-silver);
   }
 
+  /* Interior character card hover lift */
+  .character-card { transition: transform 600ms ease, border-color 600ms ease, box-shadow 600ms ease; }
+  .character-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -16px hsl(var(--candlelight) / 0.35);
+  }
+
+
+
   /* Carved-stone archive plate — used for landing nav cards */
   .archive-plate {
     position: relative;
