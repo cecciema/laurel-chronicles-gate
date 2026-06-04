@@ -837,13 +837,18 @@ const Characters = () => {
   return (
     <Layout>
       {/* Hero */}
-      <div className="relative h-[50vh] sm:h-screen overflow-hidden">
+      <div className="relative h-[50vh] sm:h-screen overflow-hidden bg-background">
         <img src={heroBg} alt="Characters" className="w-full h-full object-cover" />
-        <div className="absolute bottom-0 inset-x-0 h-[10%] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }} />
+        {/* Cool color grade — stopgap until cooler asset */}
+        <div className="absolute inset-0 pointer-events-none hero-cool-grade" />
+        <div className="absolute inset-0 pointer-events-none hero-cool-grade-overlay" />
+        {/* Top & bottom darkening for legibility */}
+        <div className="absolute inset-x-0 top-0 h-[45%] pointer-events-none" style={{ background: "linear-gradient(to bottom, hsl(250 22% 5% / 0.85) 0%, transparent 100%)" }} />
+        <div className="absolute bottom-0 inset-x-0 h-[25%] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 100%)" }} />
         <ParticleCanvas density={0.5} />
 
         {/* Section header centered on hero */}
-        <div className="absolute inset-x-0 top-0 pt-[30%] flex flex-col items-center text-center px-4">
+        <div className="absolute inset-x-0 top-0 pt-[24%] sm:pt-[18%] flex flex-col items-center text-center px-4 z-20">
           <div className="relative">
             <SectionHeader
               title="Character Database"
