@@ -548,6 +548,8 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
   const [bestiaryWarning, setBestiaryWarning] = useState(false);
   const total = TOTAL_SCROLLS;
   const recovered = foundScrolls.filter(id => id >= 1 && id <= 12).length;
+  // Most-recently-recovered fragment id (single allowed accent on the progress bar)
+  const lastFoundId = foundScrolls.length > 0 ? foundScrolls[foundScrolls.length - 1] : null;
 
   return (
     <div className={cn("space-y-6", className)}>
@@ -560,16 +562,21 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
           {recovered} of {total} Fragments Recovered
         </p>
         <div className="flex gap-1">
-          {SCROLLS.map(s => (
-            <div
-              key={s.id}
-              className="w-1.5 h-4 transition-all duration-500"
-              style={{
-                background: foundScrolls.includes(s.id) ? "hsl(var(--silver))" : "hsl(var(--silver) / 0.18)",
-                boxShadow: foundScrolls.includes(s.id) ? "0 0 6px hsl(var(--candlelight) / 0.45)" : "none",
-              }}
-            />
-          ))}
+          {SCROLLS.map(s => {
+            const isFound = foundScrolls.includes(s.id);
+            const isLatest = isFound && s.id === lastFoundId;
+            return (
+              <div
+                key={s.id}
+                className="w-1.5 h-4 transition-all duration-500"
+                style={{
+                  background: isFound ? "hsl(var(--silver))" : "hsl(var(--silver) / 0.18)",
+                  // Only the most recently recovered segment gets the candlelight tint
+                  boxShadow: isLatest ? "0 0 6px hsl(var(--candlelight) / 0.45)" : "none",
+                }}
+              />
+            );
+          })}
         </div>
       </div>
 
@@ -592,25 +599,31 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
                 className="absolute top-0 left-0 right-0 h-px"
                 style={{
                   background: found
-                    ? "linear-gradient(to right, transparent, hsl(var(--silver) / 0.65), transparent)"
-                    : "linear-gradient(to right, transparent, hsl(var(--silver) / 0.22), transparent)",
+                    ? "linear-gradient(to right, transparent, hsl(var(--silver) / 0.55), transparent)"
+                    : "linear-gradient(to right, transparent, hsl(var(--silver) / 0.18), transparent)",
                 }}
               />
-              {/* Scroll number */}
+              {/* Scroll number — silver-ivory on recovered, muted mist-grey on sealed */}
               <div className="flex items-start justify-between mb-2">
                 <span
                   className="font-display text-[8px] tracking-[0.35em] uppercase"
-                  style={{ color: found ? "hsl(var(--silver))" : "hsl(var(--silver) / 0.35)" }}
+                  style={{
+                    color: found
+                      ? "hsl(var(--primary))"
+                      : "hsl(var(--muted-foreground) / 0.7)",
+                  }}
                 >
                   Fragment {scroll.id}
                 </span>
                 {found ? (
+                  /* Single accent permitted on a recovered fragment */
                   <Sparkles size={11} className="flex-shrink-0" style={{ color: "hsl(var(--candlelight-glow))" }} />
                 ) : (
-                  /* Silver hairline seal/lock for sealed fragments */
-                  <Lock size={10} className="flex-shrink-0" style={{ color: "hsl(var(--silver) / 0.4)" }} />
+                  /* Silver hairline seal/lock — no warm fill */
+                  <Lock size={10} className="flex-shrink-0" style={{ color: "hsl(var(--silver) / 0.28)" }} />
                 )}
               </div>
+
 
               {found ? (
                 <>
