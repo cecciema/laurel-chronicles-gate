@@ -535,7 +535,7 @@ export const QuestTrigger = ({ className }: { className?: string }) => {
   return (
     <button
       onClick={startQuest}
-      className={cn("btn-silver-outline px-10 py-3 font-serif-display text-xs sm:text-sm tracking-[0.32em] uppercase rounded-[2px]", className)}
+      className={cn("btn-romantic px-10 py-3 font-serif-display text-xs sm:text-sm tracking-[0.32em] uppercase rounded-[2px]", className)}
     >
       Choose Your Allegiance
     </button>
