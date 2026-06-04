@@ -58,7 +58,7 @@ const SampleChapters = () => {
           {chapter.title}
         </h3>
       </div>
-      <p className="text-center font-body font-bold text-[9px] tracking-[0.3em] uppercase text-white/80 mb-4" style={{ textShadow: "0 0 20px rgba(255,255,255,0.4)" }}>
+      <p className="text-center font-narrative italic text-[11px] tracking-[0.18em] uppercase text-muted-foreground mb-4">
         Chapter {chapter.number} of {CHAPTERS.length}
       </p>
       <GoldDivider className="max-w-[120px] mx-auto mb-6" />
@@ -76,7 +76,10 @@ const SampleChapters = () => {
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.4 }}
           >
-          <div className="font-narrative text-[0.9375rem] leading-[1.9] text-foreground/80">
+          <div
+            className="font-narrative text-foreground mx-auto"
+            style={{ fontSize: "18.5px", lineHeight: 1.8, maxWidth: "660px" }}
+          >
   {(() => {
     const lines = chapter.content.split("\n");
     let inPoem = false;
@@ -92,7 +95,7 @@ const SampleChapters = () => {
       if (trimmed === "⁂") {
         inPoem = false;
         return (
-          <p key={i} className="text-center my-8 tracking-widest text-foreground/30">
+          <p key={i} className="text-center my-10 tracking-widest" style={{ color: "hsl(var(--crimson-wine) / 0.7)" }}>
             ⁂
           </p>
         );
@@ -108,7 +111,7 @@ const SampleChapters = () => {
         return (
           <p
             key={i}
-            className="text-center font-display text-[10px] tracking-[0.35em] uppercase text-muted-foreground mt-2 mb-8"
+            className="text-center font-narrative italic text-[12px] tracking-[0.28em] uppercase text-muted-foreground mt-2 mb-8"
           >
             {trimmed}
           </p>
@@ -120,7 +123,8 @@ const SampleChapters = () => {
         return (
           <p
             key={i}
-            className="text-center font-display text-sm tracking-[0.2em] text-foreground/60 mt-8 mb-4"
+            className="text-center font-display tracking-[0.2em] text-primary/80 mt-8 mb-4"
+            style={{ fontSize: "15px" }}
           >
             {trimmed}
           </p>
@@ -130,7 +134,7 @@ const SampleChapters = () => {
       if (trimmed === "") {
         if (inPoem && prevBlank) inPoem = false;
         prevBlank = true;
-        return <div key={i} className="h-4" />;
+        return <div key={i} className="h-5" />;
       }
 
       if (inPoem) {
@@ -138,7 +142,7 @@ const SampleChapters = () => {
           <p
             key={i}
             style={{ textAlign: 'center' }}
-            className="font-narrative italic text-foreground/70 leading-[2.2] w-full"
+            className="font-narrative italic text-foreground/80 leading-[2.1] w-full"
           >
             {trimmed}
           </p>
@@ -147,7 +151,7 @@ const SampleChapters = () => {
 
       const parts = trimmed.split(/(\*[^*]+\*)/g);
       return (
-        <p key={i} className="text-left leading-[1.9] mb-0">
+        <p key={i} className="text-left mb-5" style={{ lineHeight: 1.8 }}>
           {parts.map((part, j) =>
             part.startsWith("*") && part.endsWith("*") ? (
               <em key={j}>{part.slice(1, -1)}</em>
@@ -164,12 +168,24 @@ const SampleChapters = () => {
         </AnimatePresence>
       </div>
 
-      <div className="flex items-center justify-center gap-6 mt-8">
+      <div className="flex items-center justify-center gap-6 mt-10">
         <button
           onClick={() => setCurrentIdx((i) => i - 1)}
           disabled={currentIdx === 0}
-          className="font-body text-[10px] tracking-[0.25em] uppercase border border-border/40 px-5 py-2 min-h-[44px] hover:border-primary/40 hover:text-primary transition-colors disabled:opacity-30 disabled:pointer-events-none"
-          style={isTouch ? undefined : { cursor: "none" }}
+          className="font-body text-[10px] tracking-[0.25em] uppercase border px-5 py-2 min-h-[44px] transition-all disabled:opacity-30 disabled:pointer-events-none"
+          style={{
+            borderColor: "hsl(var(--silver) / 0.3)",
+            color: "hsl(var(--silver) / 0.85)",
+            ...(isTouch ? {} : { cursor: "none" }),
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = "hsl(var(--dusky-rose) / 0.55)";
+            e.currentTarget.style.color = "hsl(var(--dusky-rose))";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = "hsl(var(--silver) / 0.3)";
+            e.currentTarget.style.color = "hsl(var(--silver) / 0.85)";
+          }}
         >
           ← Previous Chapter
         </button>
@@ -178,7 +194,12 @@ const SampleChapters = () => {
           {CHAPTERS.map((_, i) => (
             <span
               key={i}
-              className={`block w-1.5 h-1.5 rounded-full transition-colors ${i === currentIdx ? "bg-primary" : "bg-border"}`}
+              className="block w-1.5 h-1.5 rounded-full transition-colors"
+              style={{
+                background: i === currentIdx
+                  ? "hsl(var(--dusky-rose))"
+                  : "hsl(var(--silver) / 0.25)",
+              }}
             />
           ))}
         </div>
@@ -186,8 +207,20 @@ const SampleChapters = () => {
         <button
           onClick={() => setCurrentIdx((i) => i + 1)}
           disabled={currentIdx === CHAPTERS.length - 1}
-          className="font-body text-[10px] tracking-[0.25em] uppercase border border-border/40 px-5 py-2 min-h-[44px] hover:border-primary/40 hover:text-primary transition-colors disabled:opacity-30 disabled:pointer-events-none"
-          style={isTouch ? undefined : { cursor: "none" }}
+          className="font-body text-[10px] tracking-[0.25em] uppercase border px-5 py-2 min-h-[44px] transition-all disabled:opacity-30 disabled:pointer-events-none"
+          style={{
+            borderColor: "hsl(var(--silver) / 0.3)",
+            color: "hsl(var(--silver) / 0.85)",
+            ...(isTouch ? {} : { cursor: "none" }),
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = "hsl(var(--dusky-rose) / 0.55)";
+            e.currentTarget.style.color = "hsl(var(--dusky-rose))";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = "hsl(var(--silver) / 0.3)";
+            e.currentTarget.style.color = "hsl(var(--silver) / 0.85)";
+          }}
         >
           Next Chapter →
         </button>
@@ -206,29 +239,36 @@ const Manuscript = () => {
           <img
             src={manuscriptHero}
             alt="Manuscript"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="hero-warm-desat absolute inset-0 h-full w-full object-cover"
           />
+          {/* Fade hero into solid twilight reading field */}
           <div
-            className="absolute bottom-0 left-0 right-0 h-[10%]"
-            style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6%) 100%)" }}
+            className="absolute bottom-0 left-0 right-0 h-[55%]"
+            style={{ background: "linear-gradient(to bottom, transparent 0%, hsl(224 16% 6% / 0.6) 35%, hsl(224 16% 6%) 80%)" }}
           />
           <ParticleCanvas density={0.5} />
         </div>
 
         {/* Chapter content starting at 50% from top */}
-        <div className="relative z-10 pt-[50vh] sm:pt-[55vh] pb-16 sm:pb-20 px-5 sm:px-8">
+        <div className="relative z-10 pt-[50vh] sm:pt-[55vh] pb-16 sm:pb-20 px-5 sm:px-8 bg-gradient-to-b from-transparent via-background to-background">
           <div className="text-center mb-8">
-            <p className="font-display font-bold text-[9px] tracking-[0.4em] uppercase text-white/80 mb-2" style={{ textShadow: "0 0 20px rgba(255,255,255,0.4)" }}>
-              ◆ Sample Chapters ◆
+            <p className="font-display text-[10px] tracking-[0.4em] uppercase text-muted-foreground mb-2">
+              <span style={{ color: "hsl(var(--crimson-wine) / 0.85)" }}>◆</span>
+              <span className="mx-3">Sample Chapters</span>
+              <span style={{ color: "hsl(var(--crimson-wine) / 0.85)" }}>◆</span>
             </p>
-            <h1
-              className="font-display font-bold text-xl sm:text-2xl tracking-[0.15em] text-white"
-              style={{ textShadow: "0 0 30px rgba(255,255,255,0.4), 0 2px 10px rgba(255,255,255,0.2)" }}
-            >
+            <h1 className="font-display font-bold text-xl sm:text-2xl tracking-[0.15em] text-primary">
               Read the First Six Chapters
             </h1>
           </div>
-          <div className="max-w-3xl mx-auto" style={{ background: "rgba(13, 14, 18, 0.72)", backdropFilter: "blur(3px)", padding: "2rem", maskImage: "linear-gradient(to bottom, transparent 0%, black 8%)" }}>
+          <div
+            className="max-w-3xl mx-auto"
+            style={{
+              background: "hsl(224 16% 6%)",
+              border: "1px solid hsl(var(--silver) / 0.12)",
+              padding: "2.5rem 1.5rem",
+            }}
+          >
             <ScrollReveal delay={0.15}>
               <SampleChapters />
             </ScrollReveal>
