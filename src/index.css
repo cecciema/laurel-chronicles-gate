@@ -149,7 +149,7 @@
     mix-blend-mode: overlay;
   }
   .atmos-vignette {
-    background: radial-gradient(ellipse at center, transparent 55%, hsl(250 22% 4% / 0.7) 100%);
+    background: radial-gradient(ellipse at center, transparent 55%, hsl(250 20% 8% / 0.55) 100%);
   }
 
   /* Silver-ivory outline button with dusky-rose romance glow on hover (Part 3.5) */
