@@ -145,19 +145,19 @@ const Index = () => {
           <ParticleCanvas />
 
           {/* ── Hero Content ────────────────────────────────────────────── */}
-          <div className="absolute inset-0 z-[5] flex flex-col items-center justify-center sm:justify-end pt-[20vh] sm:pt-24 pb-6 sm:pb-10 px-6 text-center">
+          <div className="absolute inset-0 z-[5] flex flex-col items-center justify-center sm:justify-end pt-[14vh] sm:pt-24 pb-6 sm:pb-10 px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 30 : 0 }}
               transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
             >
-              <p className="font-ui text-[10px] sm:text-xs tracking-[0.55em] uppercase mb-6" style={{ color: "hsl(var(--silver) / 0.6)" }}>
+              <p className="font-ui text-[9px] sm:text-xs tracking-[0.5em] sm:tracking-[0.55em] uppercase mb-3 sm:mb-6" style={{ color: "hsl(var(--silver) / 0.6)" }}>
                 An Interactive World Experience
               </p>
 
               {/* Typewriter headline — thin silver Cormorant */}
               <h1
-                className="font-serif-display text-[2.75rem] sm:text-7xl lg:text-[7.5rem] tracking-[0.18em] sm:tracking-[0.22em] leading-[1.05] w-full max-w-full overflow-hidden"
+                className="font-serif-display text-[2rem] sm:text-7xl lg:text-[7.5rem] tracking-[0.16em] sm:tracking-[0.22em] leading-[1.05] w-full max-w-full overflow-hidden"
                 style={{
                   fontWeight: 300,
                   color: "hsl(var(--silver))",
@@ -185,7 +185,7 @@ const Index = () => {
               transition={{ duration: 1.6, ease: "easeOut" }}
             >
               <p
-                className="mt-10 font-serif-display italic text-[1.125rem] sm:text-2xl max-w-2xl mx-auto leading-[1.7] px-5 sm:px-0"
+                className="mt-5 sm:mt-10 font-serif-display italic text-[0.95rem] sm:text-2xl max-w-2xl mx-auto leading-[1.6] sm:leading-[1.7] px-5 sm:px-0"
                 style={{
                   fontWeight: 300,
                   letterSpacing: "0.03em",
@@ -198,24 +198,24 @@ const Index = () => {
             </motion.div>
 
             {/* CTA buttons + QuestTrigger — thin silver outlined, candlelight on hover */}
-            <div className="mt-12 flex flex-col items-center gap-5 w-full px-6 sm:px-0">
+            <div className="mt-6 sm:mt-12 flex flex-col items-center gap-3 sm:gap-5 w-full px-6 sm:px-0">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: line3.done ? 1 : 0, y: line3.done ? 0 : 20 }}
                 transition={{ duration: 1.1, ease: "easeOut" }}
                 className="w-full"
               >
-                <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center w-full">
                   <Link
                     to="/world"
-                    className="btn-silver-outline w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-10 py-3 font-serif-display text-xs sm:text-sm tracking-[0.32em] uppercase rounded-[2px]"
+                    className="btn-silver-outline w-full sm:w-auto text-center min-h-[46px] sm:min-h-[52px] flex items-center justify-center px-8 sm:px-10 py-2.5 sm:py-3 font-serif-display text-[11px] sm:text-sm tracking-[0.28em] sm:tracking-[0.32em] uppercase rounded-[2px]"
                     style={isTouch ? undefined : { cursor: "none" }}
                   >
                     Enter the Republic
                   </Link>
                   <Link
                     to="/characters"
-                    className="btn-silver-outline w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center px-10 py-3 font-serif-display text-xs sm:text-sm tracking-[0.32em] uppercase rounded-[2px]"
+                    className="btn-silver-outline w-full sm:w-auto text-center min-h-[46px] sm:min-h-[52px] flex items-center justify-center px-8 sm:px-10 py-2.5 sm:py-3 font-serif-display text-[11px] sm:text-sm tracking-[0.28em] sm:tracking-[0.32em] uppercase rounded-[2px]"
                     style={isTouch ? undefined : { cursor: "none" }}
                   >
                     Meet the Players
@@ -238,13 +238,13 @@ const Index = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: line3.done ? 1 : 0 }}
               transition={{ delay: 0.8, duration: 1.2 }}
-              className="mt-10"
+              className="mt-5 sm:mt-10"
             >
               <div className="flex flex-col items-center gap-2 mist-rise">
-                <span className="font-ui text-[10px] tracking-[0.4em] uppercase" style={{ color: "hsl(var(--silver) / 0.5)" }}>
+                <span className="font-ui text-[10px] tracking-[0.4em] uppercase" style={{ color: "hsl(var(--silver) / 0.85)" }}>
                   Scroll to Explore
                 </span>
-                <div className="w-px h-10" style={{ background: "linear-gradient(to bottom, hsl(var(--silver) / 0.55), transparent)" }} />
+                <div className="w-px h-8 sm:h-10" style={{ background: "linear-gradient(to bottom, hsl(var(--silver) / 0.7), transparent)" }} />
               </div>
             </motion.div>
           </div>

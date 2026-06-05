@@ -216,7 +216,7 @@ const WorldOverview = () => {
               {/* Tag — always fully visible */}
               <span
                 className="text-[10px] tracking-[0.3em] uppercase font-body transition-colors duration-1000"
-                style={{ color: transmissionWon ? "hsl(38 50% 45%)" : "hsl(0 50% 40%)" }}
+                style={{ color: transmissionWon ? "hsl(var(--candlelight))" : "hsl(var(--crimson-wine))" }}
               >
                 {transmissionWon ? "RECORD RESTORED - CLASSIFIED" : "UNVERIFIED - RECORD DISPUTED"}
               </span>
@@ -242,7 +242,7 @@ const WorldOverview = () => {
                 {transmissionWon ? (
                   <p
                     className="font-narrative italic text-[0.875rem] transition-opacity duration-1000"
-                    style={{ color: "hsl(38 40% 55%)" }}
+                    style={{ color: "hsl(var(--candlelight) / 0.85)" }}
                   >
                     Transmission decoded. Record restored.
                   </p>
@@ -250,14 +250,16 @@ const WorldOverview = () => {
                   <>
                     <p
                       className="font-narrative italic text-[0.875rem]"
-                      style={{ color: "hsl(38 25% 55%)" }}
+                      style={{ color: "hsl(var(--muted-foreground))" }}
                     >
                       This record has been intercepted. Decode the transmission to access it.
                     </p>
                     <button
                       onClick={scrollToTransmission}
-                      className="mt-2 font-display text-[10px] tracking-[0.3em] uppercase transition-colors hover:underline"
-                      style={{ color: "hsl(38 72% 50% / 0.7)" }}
+                      className="mt-2 font-display text-[10px] tracking-[0.3em] uppercase transition-colors duration-300 hover:underline"
+                      style={{ color: "hsl(var(--dusky-rose))" }}
+                      onMouseEnter={e => (e.currentTarget.style.color = "hsl(var(--blush))")}
+                      onMouseLeave={e => (e.currentTarget.style.color = "hsl(var(--dusky-rose))")}
                     >
                       ↓ Forbidden Transmission
                     </button>
