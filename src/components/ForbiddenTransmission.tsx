@@ -272,23 +272,23 @@ export const ForbiddenTransmission = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 3, duration: 0.8 }}
               style={{
-                background: "#e8dcc0",
-                color: "#4a2e0a",
-                border: "2px solid rgba(139,90,43,0.35)",
+                background: "#D8D4CB",
+                color: "#2B2724",
+                border: "1px solid rgba(43,39,36,0.18)",
                 padding: "1.5rem 2rem",
                 maxWidth: "36rem",
                 width: "100%",
                 textAlign: "center",
               }}
             >
-              <p style={{ fontSize: "0.625rem", letterSpacing: "0.35em", textTransform: "uppercase", opacity: 0.6, marginBottom: "0.25rem" }} className="font-display">
+              <p style={{ fontSize: "0.625rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "rgba(80,74,68,0.85)", marginBottom: "0.25rem" }} className="font-display">
                 Fragment 7
               </p>
-              <p style={{ fontSize: "1rem", letterSpacing: "0.1em", marginBottom: "1rem" }} className="font-display">
+              <p style={{ fontSize: "1rem", letterSpacing: "0.1em", marginBottom: "1rem", color: "#6B2434" }} className="font-display">
                 The Embedded Operatives
               </p>
-              <div style={{ height: 1, background: "rgba(139,90,43,0.25)", marginBottom: "1rem" }} />
-              <p style={{ fontStyle: "italic", fontSize: "0.9375rem", lineHeight: 1.8 }} className="font-narrative">
+              <div style={{ height: 1, background: "rgba(120,110,100,0.45)", marginBottom: "1rem" }} />
+              <p style={{ fontStyle: "italic", fontSize: "0.9375rem", lineHeight: 1.8, color: "#2B2724" }} className="font-narrative">
                 "Three Convoy Rebellion operatives were embedded in Parliament's Science Division at the time of the meteor discovery. Their names appear in the attendance records. Their employment history does not exist."
               </p>
             </motion.div>

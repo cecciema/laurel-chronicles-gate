@@ -76,27 +76,27 @@ const Footer = () => {
         <div className="flex flex-col gap-[2px]">
           <p
             className="font-body tracking-[0.22em] uppercase leading-[1.6]"
-            style={{ color: "hsl(30 12% 52%)", fontSize: "10px" }}
+            style={{ color: "hsl(var(--silver) / 0.78)", fontSize: "10px" }}
           >
             LAUREL CROWNS ABOVE - A LIVING WORLD is an original intellectual property of CECILIA MA.
           </p>
           <p
             className="font-body tracking-[0.22em] uppercase leading-[1.6]"
-            style={{ color: "hsl(30 12% 52%)", fontSize: "10px" }}
+            style={{ color: "hsl(var(--muted-foreground))", fontSize: "10px" }}
           >
             © 2026 All rights reserved.
           </p>
           <p
             className="font-body tracking-[0.22em] uppercase leading-[1.6]"
-            style={{ color: "hsl(30 12% 52%)", fontSize: "10px" }}
+            style={{ color: "hsl(var(--muted-foreground))", fontSize: "10px" }}
           >
             For other works please visit{" "}
             <a
               href="https://www.AverydelaCruz.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-all duration-200 hover:underline"
-              style={{ color: "hsl(30 12% 52%)" }}
+              className="transition-colors duration-300 hover:underline"
+              style={{ color: "hsl(var(--dusky-rose))" }}
             >
               AverydelaCruz.com
             </a>

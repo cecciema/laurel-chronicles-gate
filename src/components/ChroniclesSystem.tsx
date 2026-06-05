@@ -1111,25 +1111,31 @@ const ScrollModal = ({ id, count, onClose }: { id: number; count: number; onClos
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative max-w-lg w-full bg-[#e8dcc0] text-amber-950 p-6 sm:p-12 shadow-[0_0_50px_rgba(0,0,0,0.8)] font-narrative border-4 border-double border-amber-900/40"
-        style={{ clipPath: "polygon(0% 0%, 100% 2%, 98% 100%, 2% 98%)" }}
+        className="relative max-w-lg w-full p-6 sm:p-12 font-narrative"
+        style={{
+          background: "#D8D4CB",
+          color: "#2B2724",
+          border: "1px solid rgba(43,39,36,0.18)",
+          boxShadow: "0 24px 60px rgba(0,0,0,0.55)",
+          clipPath: "polygon(0% 0%, 100% 2%, 98% 100%, 2% 98%)",
+        }}
       >
-        <div className="absolute top-2 left-2 text-amber-900/20"><Scroll className="w-6 h-6 sm:w-8 sm:h-8" /></div>
-        <h3 className="text-center font-display text-lg sm:text-xl tracking-[0.2em] mb-1 text-amber-900">
+        <div className="absolute top-2 left-2" style={{ color: "rgba(43,39,36,0.35)" }}><Scroll className="w-6 h-6 sm:w-8 sm:h-8" /></div>
+        <h3 className="text-center font-display text-lg sm:text-xl tracking-[0.2em] mb-1" style={{ color: "#6B2434" }}>
           Fragment {id}
         </h3>
-        <h4 className="text-center font-display text-xs tracking-[0.15em] text-amber-800/60 mb-5 border-b border-amber-900/20 pb-4">
+        <h4 className="text-center font-display text-xs tracking-[0.15em] mb-5 pb-4" style={{ color: "#6B2434", borderBottom: "1px solid rgba(120,110,100,0.45)" }}>
           {scroll?.title}
         </h4>
-        <p className="text-[1.0625rem] sm:text-lg leading-[1.8] italic mb-6 sm:mb-8 font-narrative">
+        <p className="text-[1.0625rem] sm:text-lg leading-[1.8] italic mb-6 sm:mb-8 font-narrative" style={{ color: "#2B2724" }}>
           "{scroll?.text}"
         </p>
-        <div className="text-center text-xs font-body tracking-widest uppercase text-amber-900/60">
+        <div className="text-center text-xs font-body tracking-widest uppercase" style={{ color: "rgba(80,74,68,0.85)" }}>
           {count} of {TOTAL_SCROLLS} Fragments Recovered
         </div>
         {allFound && (
-          <div className="mt-6 pt-5 border-t border-amber-900/20 text-center">
-            <p className="text-[10px] font-display tracking-widest text-amber-900/50 uppercase">
+          <div className="mt-6 pt-5 text-center" style={{ borderTop: "1px solid rgba(120,110,100,0.45)" }}>
+            <p className="text-[10px] font-display tracking-widest uppercase" style={{ color: "rgba(80,74,68,0.75)" }}>
               All fragments recovered - return to the Chronicles to complete the document
             </p>
           </div>
