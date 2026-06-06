@@ -344,7 +344,7 @@ const Index = () => {
       <EasterEggGlyph />
       <ResetProgressButton />
 
-      {/* BottomNav is rendered globally in Layout.tsx */}
+      <BottomNav />
     </>
   );
 };
