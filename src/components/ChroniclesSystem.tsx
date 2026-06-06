@@ -641,7 +641,7 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
                     Not yet found
                   </p>
                   <p className="font-narrative italic text-[10px] tracking-wide" style={{ color: "hsl(var(--muted-foreground) / 0.75)" }}>
-                    ↳ {scroll.hint}
+                    ↳ {(!GAMES_ENABLED && scroll.type === "earned") ? "Hidden somewhere in the world" : scroll.hint}
                   </p>
                 </>
               )}
