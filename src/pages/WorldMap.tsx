@@ -1149,9 +1149,11 @@ const WorldMap = () => {
       <KnownInstitutions />
 
       {/* Vial Substitution game section */}
-      <div className="px-4">
-        <VialSubstitutionGame onClose={() => {}} />
-      </div>
+      {GAMES_ENABLED && (
+        <div className="px-4">
+          <VialSubstitutionGame onClose={() => {}} />
+        </div>
+      )}
       <BottomHero src={bottomHeroBg} alt="Research corridor" />
     </Layout>
   );
