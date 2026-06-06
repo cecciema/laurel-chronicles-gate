@@ -16,7 +16,7 @@ const SCROLLS = [
     id: 1,
     title: "The Southern Burn",
     hint: "Hidden somewhere in the world",
-    text: "The southern hemisphere was not destroyed by war. The burn was controlled. Someone needed it empty.",
+    text: "The south was not destroyed by war. The burn was controlled. Someone needed it empty.",
     source: "World page orb",
     type: "discoverable" as const,
   },
