@@ -63,7 +63,7 @@ const SCROLLS = [
   {
     id: 7,
     title: "The Embedded Operatives",
-    hint: "Hidden somewhere in the world",
+    hint: "Complete a game to unlock",
     text: "Convoy of Reformation operatives were embedded in Parliament before the meteor was found. Their names are in the records. Their histories are not.",
     source: "Win Forbidden Transmission - World page",
     type: "earned" as const,
