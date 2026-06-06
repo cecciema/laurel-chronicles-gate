@@ -35,7 +35,7 @@ const welcomeMessages: Record<string, { title: string; body: string }> = {
   },
   ceremonial: {
     title: "Every great institution was built by those who chose continuity over comfort.",
-    body: "You have entered through the proper door. That matters here. Sanctorium endures not because it is powerful — but because it is patient. I will show you how this world was written, and by whom.",
+    body: "You have entered through the proper door. That matters here. Sanctorium endures not because it is powerful, but because it is patient. I will show you how this world was written, and by whom.",
   },
   authoritative: {
     title: "This world does not run on philosophy. It runs on decision.",
@@ -47,7 +47,7 @@ const welcomeMessages: Record<string, { title: string; body: string }> = {
   },
   precise: {
     title: "I noticed you before you noticed me. That is how it always works.",
-    body: "Insight is not about information — it is about timing. You have arrived at a world full of gatekeepers, and I know all of them. Follow carefully. The most important things happen in the spaces between the official story.",
+    body: "Insight is not about information: it is about timing. You have arrived at a world full of gatekeepers, and I know all of them. Follow carefully. The most important things happen in the spaces between the official story.",
   },
 };
 

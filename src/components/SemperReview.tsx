@@ -28,7 +28,7 @@ const EASY_POOL: Question[] = [
   { statement: "The Republic of Solterra is the last remaining continent.", answer: true, pool: "easy" },
   { statement: "Apotheosis ceremonies always begin at the break of dawn.", answer: true, pool: "easy" },
   { statement: "New devotees of Sanctorium wear navy blue robes.", answer: false, pool: "easy" },
-  { statement: "Parliament's main building is called Cannon Palace.", answer: true, pool: "easy" },
+  { statement: "Parliament's main building is called Cannon Place.", answer: true, pool: "easy" },
   { statement: "There are eleven Pantheons in Sanctorium.", answer: false, pool: "easy" },
 ];
 
@@ -625,7 +625,7 @@ export const SemperReview = () => {
                     className="font-body text-[9px] tracking-[0.25em] uppercase mb-4"
                     style={{ color: "hsl(38 60% 50%)" }}
                   >
-                    ◆ Scroll 8 Recovered ◆
+                    ◆ Fragment 8 Recovered ◆
                   </motion.p>
                 )}
 

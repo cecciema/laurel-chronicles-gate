@@ -469,7 +469,7 @@ const WorldMap = () => {
         <div className="max-w-5xl mx-auto px-3 sm:px-6 mt-4 mb-3">
           <div className="flex flex-wrap gap-x-5 gap-y-1 justify-center">
             <span className="font-body text-[9px] tracking-[0.25em] uppercase text-muted-foreground">
-              Scrolls: {foundScrolls.filter(id => id >= 1 && id <= 12).length}/12
+              Fragments: {foundScrolls.filter(id => id >= 1 && id <= 12).length}/12
             </span>
             <span
               className="font-body text-[9px] tracking-[0.25em] uppercase"

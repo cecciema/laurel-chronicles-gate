@@ -47,25 +47,25 @@ const regions = [
   {
     name: "Parliament",
     tag: "THE GOVERNING BODY",
-    description: "The Forum District is the beating heart of civic Solterra. Cannon Palace houses Parliament's chambers, Villa Marina is the Premiere's residence, and Plaza de Montecito is where announcements are made to the people. Science, law, technology, and resource allocation all flow outward from here. If Sanctorium governs what happens after death, Parliament governs everything before it.",
-    features: ["Cannon Palace", "Villa Marina", "Plaza de Montecito", "The Magistry Sectors"],
+    description: "The Forum District is the beating heart of civic Solterra. Cannon Place houses Parliament's chambers, Villa Marina is the Premiere's residence, and Plaza de Montecito is where announcements are made to the people. Science, law, technology, and resource allocation all flow outward from here. If Sanctorium governs what happens after death, Parliament governs everything before it.",
+    features: ["Cannon Place", "Villa Marina", "Plaza de Montecito", "The Magistry Sectors"],
   },
   {
     name: "Sanctorium",
     tag: "THE SPIRITUAL AUTHORITY",
     description: "Twelve Pantheons arranged across all four Quadrants, each governed by a Sol Deus and their Lunary. The Halcyon Sanctuary at the center is the holiest site in Solterra - the seat of the Apotheosis ceremony and the court of divine authority. Access is tiered. Most Citizens see only the outer courts. What happens at the center is not discussed.",
-    features: ["The Twelve Pantheons", "The Halcyon Sanctuary", "The Ivory Planetarium", "The Sacred Scrolls"],
+    features: ["The Twelve Pantheons", "The Halcyon Sanctuary", "The Ivory Planetarium", "Sacred Scripture"],
   },
   {
     name: "Ocean Reaches",
     tag: "MAGISTRY OF OCEAN - PARLIAMENT DIVISION",
-    description: "The degraded ocean territories under the research and control of the Magistry of Ocean. What was once a living sea is now a black expanse of toxins and chemical waste - the inheritance of the Great War. Parliament funds ongoing recovery efforts. Progress has been slow for decades. Recently, something changed.",
+    description: "The degraded ocean territories under the research and control of the Magistry of Ocean. What was once a living sea is now the Black Sea, a vast expanse of toxins and chemical waste - the inheritance of the Great War. Parliament funds ongoing recovery efforts. Progress has been slow for decades. Recently, something changed.",
     features: ["Research Stations", "Degraded Reef Systems", "Field Laboratories", "The Tide Markers"],
   },
   {
     name: "Borderlands",
     tag: "UNCHARTED - PROCEED WITH CAUTION",
-    description: "Beyond the Republic's governed edge lies what the maps describe as uninhabitable wasteland - scorching desert in the south, glacial ice in the north, and no infrastructure of any kind. Citizens are advised never to attempt crossing. A small number have tried over the years — those who refused Apotheosis and refused service both. The Republic's official record states that none survived. The Republic's official record has been wrong before.",
+    description: "Beyond the Republic's governed edge lies what the maps describe as uninhabitable wasteland - scorching desert in the south, glacial ice in the north, and no infrastructure of any kind. Citizens are advised never to attempt crossing. A small number have tried over the years, those who refused Apotheosis and refused service both. The Republic's official record states that none survived. The Republic's official record has been wrong before.",
     features: ["Survivor Camps", "Pre-War Ruins", "Ungoverned Ocean Channels", "The Unmapped Interior"],
   },
 ];
@@ -114,7 +114,7 @@ const WorldOverview = () => {
         <div className="max-w-4xl mx-auto w-full">
           <div className="space-y-6 font-narrative text-[1.0625rem] sm:text-lg text-muted-foreground leading-[1.8] relative">
             <p>
-              Beyond Solterra's borders, the world is dead. Bio-warfare consumed every other continent during the Great War, leaving behind a black sea laced with toxins and a wasteland no living thing has crossed in generations. The satellites above maintain a protective boundary against ultraviolet radiation. Without them, Solterra would follow. Everyone knows this. It is the first thing children are taught.
+              Beyond Solterra's borders, the world is dead. Bio-warfare consumed every other continent during the Great War, leaving behind the Black Sea laced with toxins and a wasteland no living thing has crossed in generations. The satellites above maintain a protective boundary against ultraviolet radiation. Without them, Solterra would follow. Everyone knows this. It is the first thing children are taught.
             </p>
             <p>
               Inside the boundary, life is ordered, purposeful, and finite. Two institutions govern everything: Parliament, which controls the body - science, technology, resource allocation, civic law - and Sanctorium, which governs the soul - faith, ceremony, the passage between lives. Together they are called the Dual Reign. Together they have kept Solterra alive for nearly three hundred years.
@@ -178,7 +178,7 @@ const WorldOverview = () => {
       {/* Social Structure — The Order of Solterra */}
       <section className="py-16 sm:py-20 px-5 sm:px-4">
         <div className="max-w-5xl mx-auto">
-          <SectionHeader title="THE ORDER OF PANTERRA" subtitle="Every Citizen has a place. Every place has a purpose." />
+          <SectionHeader title="THE ORDER OF SOLTERRA" subtitle="Every Citizen has a place. Every place has a purpose." />
           <div className="space-y-6">
             {socialTiers.map((item, i) => (
               <motion.div
@@ -234,7 +234,7 @@ const WorldOverview = () => {
                   Convoy Rebellion
                 </h3>
                 <p className="mt-3 text-[0.9375rem] sm:text-sm text-muted-foreground font-body leading-[1.8]">
-                  They have no Pantheon. They have no Magistry sector. They hold no seat in Parliament and no pew in any Sol Deus court. They exist in the gaps between the official record — in the unmarked years, the redacted clauses, the Citizens who disappeared without an Apotheosis filing. Convoy Rebellion has been called a rumor for so long that most people stopped asking whether the rumor was true. It is true. It has always been true. They did not form in response to the system. Some believe they helped build it.
+                  They have no Pantheon. They have no Magistry sector. They hold no seat in Parliament and no pew in any Sol Deus court. They exist in the gaps between the official record: in the unmarked years, the redacted clauses, the Citizens who disappeared without an Apotheosis filing. Convoy Rebellion has been called a rumor for so long that most people stopped asking whether the rumor was true. It is true. It has always been true. They did not form in response to the system. Some believe they helped build it.
                 </p>
               </div>
 
@@ -282,7 +282,7 @@ const WorldOverview = () => {
       {/* Regions */}
       <section className="py-16 sm:py-20 px-5 sm:px-4 bg-secondary/20">
         <div className="max-w-5xl mx-auto">
-          <SectionHeader title="THE REGIONS OF PANTERRA" subtitle="Five territories. One Republic. Not everyone agrees on what that means." />
+          <SectionHeader title="THE REGIONS OF SOLTERRA" subtitle="One Republic. Not everyone agrees on what that means." />
           <div className="space-y-6 sm:space-y-8">
             {regions.map((region) => (
               <motion.div

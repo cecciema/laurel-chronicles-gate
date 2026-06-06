@@ -122,7 +122,7 @@ const events: TimelineEvent[] = [
     year: "Year 241",
     title: "The Rockfall Event",
     description:
-      "A meteor shower strikes the far regions near the city of Rockfall during Sol Morrison's reign. The Pantheon Gods knew in advance. The public was told it was divine warning — punishment for sins inherited from the monarchy. The satellites held. The records of what the Pantheon Gods discussed beforehand were sealed the same week.",
+      "A meteor shower strikes the far regions near the city of Rockfall during Sol Morrison's reign. The Sol Deos knew in advance. The public was told it was divine warning: punishment for sins inherited from the monarchy. The satellites held. The records of what the Sol Deos discussed beforehand were sealed the same week.",
     column: "left",
     order: 10,
   },
