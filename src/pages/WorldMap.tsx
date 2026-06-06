@@ -7,7 +7,7 @@ import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import VialSubstitutionGame, { VialSubstitutionTrigger } from "@/components/VialSubstitution";
 import { characterImageMap } from "@/data/guide-images";
 import { useIsMobile } from "@/hooks/use-mobile";
-import panterraMap from "@/assets/panterra-map.jpg";
+
 import GoldDivider from "@/components/GoldDivider";
 import heroBg from "@/assets/hero-map.jpeg";
 import BottomHero from "@/components/BottomHero";
