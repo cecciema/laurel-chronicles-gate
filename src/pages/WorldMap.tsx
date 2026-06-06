@@ -818,8 +818,8 @@ const WorldMap = () => {
               </div>{/* end aspect-ratio lock */}
 
 
-              {/* ── Zoom controls (bottom-right) ── */}
-              <div className="absolute bottom-3 right-3 z-30 flex flex-col gap-1.5">
+              {/* ── Zoom controls (bottom-right, desktop only) ── */}
+              <div className="absolute bottom-3 right-3 z-30 hidden sm:flex flex-col gap-1.5">
                 {/* + */}
                 <button
                   onClick={zoomIn}
