@@ -539,7 +539,7 @@ const TheUnmasked = () => {
               </p>
             </motion.div>
 
-            {(firstWin || !alreadyWon) && (
+            {GAMES_ENABLED && (firstWin || !alreadyWon) && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
