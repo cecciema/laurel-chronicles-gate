@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
+import BottomNav from "@/components/BottomNav";
 import GoldDivider from "@/components/GoldDivider";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
