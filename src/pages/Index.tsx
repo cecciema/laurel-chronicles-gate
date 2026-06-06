@@ -384,13 +384,13 @@ const ResetProgressButton = () => {
   return (
     <button
       onClick={handleReset}
-      className="fixed bottom-[70px] sm:bottom-3 right-3 z-[130] font-ui text-[9px] tracking-[0.25em] uppercase transition-colors"
+      className="fixed bottom-[76px] sm:bottom-3 right-3 z-[130] font-ui text-[9px] tracking-[0.25em] uppercase rounded-full transition-colors"
       style={{
-        opacity: 0.55,
-        border: "1px solid hsl(var(--silver) / 0.4)",
-        padding: "4px 12px",
-        color: "hsl(var(--silver) / 0.8)",
-        background: "transparent",
+        border: "1px solid hsl(var(--silver) / 0.45)",
+        padding: "5px 14px",
+        color: "hsl(var(--silver) / 0.9)",
+        background: "hsl(var(--background))",
+        boxShadow: "0 2px 10px hsl(250 22% 4% / 0.6)",
         cursor: "pointer",
       }}
     >
