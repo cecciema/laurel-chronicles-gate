@@ -580,11 +580,11 @@ export const DeadCorridors = () => {
                   Fragment 11
                 </p>
                 <p style={{ fontSize: "1rem", letterSpacing: "0.1em", marginBottom: "1rem" }} className="font-display">
-                  The Unmarked Ratio
+                  The Incomplete Ratio
                 </p>
                 <div style={{ height: 1, background: "rgba(139,90,43,0.25)", marginBottom: "1rem" }} />
                 <p style={{ fontStyle: "italic", fontSize: "0.9375rem", lineHeight: 1.8 }} className="font-narrative">
-                  "The Unmarked are not accidents. The ratio of incomplete Apotheosis events has remained statistically constant for 60 years. Constant ratios do not happen by chance."
+                  "Not every ascension completes. The share that fails has held steady far too long to be chance. A constant like that is maintained, not random."
                 </p>
               </motion.div>
 
