@@ -9,6 +9,7 @@ import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-world.jpg";
 import { ForbiddenTransmission } from "@/components/ForbiddenTransmission";
 import GuideWhisper from "@/components/GuideWhisper";
+import { GAMES_ENABLED } from "@/config/features";
 
 const cornerstoneLaws = [
   { numeral: "I", text: "Let there be One Republic, that the world may know peace and the wars of nations never rise again." },
@@ -246,7 +247,7 @@ const WorldOverview = () => {
                   >
                     Transmission decoded. Record restored.
                   </p>
-                ) : (
+                ) : GAMES_ENABLED ? (
                   <>
                     <p
                       className="font-narrative italic text-[0.875rem]"
@@ -264,6 +265,13 @@ const WorldOverview = () => {
                       ↓ Forbidden Transmission
                     </button>
                   </>
+                ) : (
+                  <p
+                    className="font-narrative italic text-[0.875rem]"
+                    style={{ color: "hsl(var(--muted-foreground))" }}
+                  >
+                    This record has been sealed. Contents withheld from the public archive.
+                  </p>
                 )}
               </div>
             </motion.div>
@@ -314,9 +322,11 @@ const WorldOverview = () => {
         </div>
       </section>
 
-      <div id="forbidden-transmission">
-        <ForbiddenTransmission />
-      </div>
+      {GAMES_ENABLED && (
+        <div id="forbidden-transmission">
+          <ForbiddenTransmission />
+        </div>
+      )}
       <BottomHero src={bottomHeroBg} alt="Parliament chambers" />
     </Layout>
   );

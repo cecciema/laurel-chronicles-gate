@@ -10,6 +10,7 @@ import GuideWhisper from "@/components/GuideWhisper";
 import heroBg from "@/assets/hero-timeline.jpeg";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-timeline-new.jpeg";
+import { GAMES_ENABLED } from "@/config/features";
 
 // ─── Event Data ─────────────────────────────────────────────────────────────────
 
@@ -642,6 +643,8 @@ const TimelinePage = () => {
             </motion.div>
           )}
 
+        {GAMES_ENABLED && (
+        <>
         {/* Semper Review game section */}
         <div className="max-w-3xl mx-auto mt-16 mb-8">
           {/* Steampunk divider */}
@@ -736,7 +739,10 @@ const TimelinePage = () => {
             </div>
           </motion.div>
         </div>
+        </>
+        )}
       </div>
+
       <BottomHero src={bottomHeroBg} alt="Astral chamber" />
     </Layout>
   );

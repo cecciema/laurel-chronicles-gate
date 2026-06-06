@@ -13,6 +13,7 @@ import heroBg from "@/assets/hero-map.jpeg";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-map.jpeg";
 import { Plus, Minus, RotateCcw } from "lucide-react";
+import { GAMES_ENABLED } from "@/config/features";
 import GuideWhisper from "@/components/GuideWhisper";
 
 // ── Constants ──────────────────────────────────────────────────────────────────
@@ -1148,9 +1149,11 @@ const WorldMap = () => {
       <KnownInstitutions />
 
       {/* Vial Substitution game section */}
-      <div className="px-4">
-        <VialSubstitutionGame onClose={() => {}} />
-      </div>
+      {GAMES_ENABLED && (
+        <div className="px-4">
+          <VialSubstitutionGame onClose={() => {}} />
+        </div>
+      )}
       <BottomHero src={bottomHeroBg} alt="Research corridor" />
     </Layout>
   );

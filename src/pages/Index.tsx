@@ -9,6 +9,7 @@ import heroBg from "@/assets/hero-enter.jpeg";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-enter.jpeg";
 import { isTouch } from "@/components/CustomCursor";
+import { BESTIARY_ENABLED } from "@/config/features";
 
 // ─── Typewriter Hook ───────────────────────────────────────────────────────────
 const useTypewriter = (text: string, speed = 60, startDelay = 800) => {
@@ -346,10 +347,10 @@ const Index = () => {
 const EasterEggGlyph = () => {
   const navigate = useNavigate();
   const { foundScroll } = useGame();
-  
+
   const handleClick = () => {
     foundScroll(6);
-    navigate("/bestiary");
+    if (BESTIARY_ENABLED) navigate("/bestiary");
   };
 
   return (

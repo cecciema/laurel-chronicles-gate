@@ -12,6 +12,7 @@ import { characterImageMap } from "@/data/guide-images";
 import heroBg from "@/assets/hero-characters.jpeg";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-characters-new.jpeg";
+import { GAMES_ENABLED } from "@/config/features";
 
 // Resolve character portrait: new characters use a full path, legacy ones use a key
 const resolveImage = (image: string): string =>
@@ -538,7 +539,7 @@ const TheUnmasked = () => {
               </p>
             </motion.div>
 
-            {(firstWin || !alreadyWon) && (
+            {GAMES_ENABLED && (firstWin || !alreadyWon) && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -1084,7 +1085,7 @@ const Characters = () => {
         </div>
 
         {/* The Unmasked - identity mini-game */}
-        <TheUnmasked />
+        {GAMES_ENABLED && <TheUnmasked />}
       </div>
       <BottomHero src={bottomHeroBg} alt="Scholar's study" />
     </Layout>

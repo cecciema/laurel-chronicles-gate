@@ -4,11 +4,12 @@ import CustomCursor, { isTouch } from "@/components/CustomCursor";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { Volume2, VolumeX } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import GuideOnboarding, { GUIDE_STORAGE_KEY } from "@/components/GuideOnboarding";
 import { GameProvider, BestiaryCompletePopup } from "@/components/ChroniclesSystem";
+import { BESTIARY_ENABLED } from "@/config/features";
 import Index from "./pages/Index";
 import WorldOverview from "./pages/WorldOverview";
 import Characters from "./pages/Characters";
@@ -124,12 +125,15 @@ const AppInner = () => {
                 <Route path="/timeline" element={<Timeline />} />
                 <Route path="/map" element={<WorldMap />} />
                 <Route path="/manuscript" element={<Manuscript />} />
-                <Route path="/bestiary" element={<Bestiary />} />
+                <Route
+                  path="/bestiary"
+                  element={BESTIARY_ENABLED ? <Bestiary /> : <Navigate to="/" replace />}
+                />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </motion.div>
           </AnimatePresence>
-          <BestiaryCompletePopup />
+          {BESTIARY_ENABLED && <BestiaryCompletePopup />}
         </>
       )}
     </>

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Scroll, Lock, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { GAMES_ENABLED, BESTIARY_ENABLED } from "@/config/features";
 
 
 // ── Game win scroll IDs (7–11) ────────────────────────────────────────────────
@@ -640,7 +641,7 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
                     Not yet found
                   </p>
                   <p className="font-narrative italic text-[10px] tracking-wide" style={{ color: "hsl(var(--muted-foreground) / 0.75)" }}>
-                    ↳ {scroll.hint}
+                    ↳ {(!GAMES_ENABLED && scroll.type === "earned") ? "Hidden somewhere in the world" : scroll.hint}
                   </p>
                 </>
               )}
@@ -653,17 +654,19 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
       <SealedDocumentPuzzle foundScrolls={foundScrolls} />
 
       {/* Bestiary subtle footer link */}
-      <div className="text-center pt-2">
-        <button
-          onClick={() => setBestiaryWarning(true)}
-          className="font-narrative italic text-[0.8125rem] transition-colors opacity-70 bg-transparent border-none"
-          style={{ color: "hsl(var(--silver) / 0.55)", cursor: "pointer" }}
-          onMouseEnter={e => (e.currentTarget.style.color = "hsl(var(--candlelight-glow))")}
-          onMouseLeave={e => (e.currentTarget.style.color = "hsl(var(--silver) / 0.55)")}
-        >
-          The Bestiary of Solterra →
-        </button>
-      </div>
+      {BESTIARY_ENABLED && (
+        <div className="text-center pt-2">
+          <button
+            onClick={() => setBestiaryWarning(true)}
+            className="font-narrative italic text-[0.8125rem] transition-colors opacity-70 bg-transparent border-none"
+            style={{ color: "hsl(var(--silver) / 0.55)", cursor: "pointer" }}
+            onMouseEnter={e => (e.currentTarget.style.color = "hsl(var(--candlelight-glow))")}
+            onMouseLeave={e => (e.currentTarget.style.color = "hsl(var(--silver) / 0.55)")}
+          >
+            The Bestiary of Solterra →
+          </button>
+        </div>
+      )}
 
       {/* Bestiary warning modal */}
       <AnimatePresence>
