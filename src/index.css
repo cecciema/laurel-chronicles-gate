@@ -101,6 +101,17 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cinzel', serif;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  /* Ultra-narrow safety net: scale display headings down so long single
+     words (e.g. INSTITUTIONS, CORNERSTONE) fit without horizontal overflow.
+     Desktop sizes are untouched — this only applies at <=380px. */
+  @media (max-width: 380px) {
+    h1 { font-size: clamp(1.4rem, 7.5vw, 2.5rem); }
+    h2 { font-size: clamp(1.2rem, 6.5vw, 2rem); }
+    h3 { font-size: clamp(1.05rem, 5.5vw, 1.5rem); }
   }
 }
 
