@@ -9,6 +9,7 @@ import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-world.jpg";
 import { ForbiddenTransmission } from "@/components/ForbiddenTransmission";
 import GuideWhisper from "@/components/GuideWhisper";
+import { GAMES_ENABLED } from "@/config/features";
 
 const cornerstoneLaws = [
   { numeral: "I", text: "Let there be One Republic, that the world may know peace and the wars of nations never rise again." },
