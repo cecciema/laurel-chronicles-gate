@@ -322,9 +322,11 @@ const WorldOverview = () => {
         </div>
       </section>
 
-      <div id="forbidden-transmission">
-        <ForbiddenTransmission />
-      </div>
+      {GAMES_ENABLED && (
+        <div id="forbidden-transmission">
+          <ForbiddenTransmission />
+        </div>
+      )}
       <BottomHero src={bottomHeroBg} alt="Parliament chambers" />
     </Layout>
   );
