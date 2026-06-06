@@ -501,26 +501,24 @@ const WorldMap = () => {
                 style={{ width: "100%", height: "100%", position: "absolute", top: 0, left: 0, transformOrigin: "center center", willChange: "transform" }}
               >
 
-                {/* Vignette */}
-                <div
-                  className="absolute inset-0 pointer-events-none z-10"
-                  style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.65) 100%)" }}
-                />
-
-                <img
-                  src={panterraMap}
-                  alt="Map of Solterra — The Known World"
-                  className="w-full h-full object-contain block"
-                  draggable={false}
-                />
-
-                {/* Continent pulse glow */}
-                <motion.div
-                  animate={{ opacity: [0.08, 0.18, 0.08] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-0 pointer-events-none z-[1]"
-                  style={{ background: "radial-gradient(ellipse at 50% 50%, #c9a96e22 0%, transparent 65%)" }}
-                />
+                {/* Quadrant diagram — clean cross with thin silver hairlines */}
+                <div className="absolute inset-0 pointer-events-none z-[1]">
+                  {/* Vertical hairline */}
+                  <div
+                    className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2"
+                    style={{ width: "1px", background: "linear-gradient(to bottom, transparent 0%, hsl(var(--silver) / 0.32) 12%, hsl(var(--silver) / 0.32) 88%, transparent 100%)" }}
+                  />
+                  {/* Horizontal hairline */}
+                  <div
+                    className="absolute left-0 right-0 top-1/2 -translate-y-1/2"
+                    style={{ height: "1px", background: "linear-gradient(to right, transparent 0%, hsl(var(--silver) / 0.32) 12%, hsl(var(--silver) / 0.32) 88%, transparent 100%)" }}
+                  />
+                  {/* Quadrant labels */}
+                  <span className="absolute top-4 left-4 font-display text-[10px] tracking-[0.3em]" style={{ color: "hsl(var(--mist) / 0.55)", fontVariant: "small-caps" }}>NORTHWEST</span>
+                  <span className="absolute top-4 right-4 font-display text-[10px] tracking-[0.3em]" style={{ color: "hsl(var(--mist) / 0.55)", fontVariant: "small-caps" }}>NORTHEAST</span>
+                  <span className="absolute bottom-4 left-4 font-display text-[10px] tracking-[0.3em]" style={{ color: "hsl(var(--mist) / 0.55)", fontVariant: "small-caps" }}>SOUTHWEST</span>
+                  <span className="absolute bottom-4 right-4 font-display text-[10px] tracking-[0.3em]" style={{ color: "hsl(var(--mist) / 0.55)", fontVariant: "small-caps" }}>SOUTHEAST</span>
+                </div>
 
                 {/* === SUB-REGION HOTSPOTS === */}
                 {SUB_REGIONS.filter((r) => !["valorica", "arborwell"].includes(r.id)).map((region) => {
