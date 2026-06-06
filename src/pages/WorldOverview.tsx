@@ -178,7 +178,7 @@ const WorldOverview = () => {
       {/* Social Structure — The Order of Solterra */}
       <section className="py-16 sm:py-20 px-5 sm:px-4">
         <div className="max-w-5xl mx-auto">
-          <SectionHeader title="THE ORDER OF PANTERRA" subtitle="Every Citizen has a place. Every place has a purpose." />
+          <SectionHeader title="THE ORDER OF SOLTERRA" subtitle="Every Citizen has a place. Every place has a purpose." />
           <div className="space-y-6">
             {socialTiers.map((item, i) => (
               <motion.div
