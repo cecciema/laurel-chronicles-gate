@@ -80,7 +80,7 @@ const SCROLLS = [
     id: 9,
     title: "The Erased Constellations",
     hint: "Complete a game to unlock",
-    text: "There are 14 Sol Deos positions across Solterra's history. Only 11 constellations are publicly recognized. The other 3 have been erased from all star charts produced after the Great War.",
+    text: "Not every constellation is on the charts. Some Sol Deos positions were erased after the Great War. What you are shown is not the whole sky.",
     source: "Win The Unmasked - Characters page",
     type: "earned" as const,
   },
