@@ -94,9 +94,9 @@ const SCROLLS = [
   },
   {
     id: 11,
-    title: "The Unmarked Ratio",
+    title: "The Incomplete Ratio",
     hint: "Complete a game to unlock",
-    text: "The Unmarked are not accidents. The ratio of incomplete Apotheosis events has remained statistically constant for 60 years. Constant ratios do not happen by chance.",
+    text: "Not every ascension completes. The share that fails has held steady far too long to be chance. A constant like that is maintained, not random.",
     source: "Win Dead Corridors - Bestiary page",
     type: "earned" as const,
   },
