@@ -31,14 +31,14 @@ const Navigation = () => {
         <div className="max-w-7xl mx-auto px-3 sm:px-6">
           <div className="flex items-center justify-between h-16 gap-2">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 min-w-0 flex-shrink" onClick={() => setIsOpen(false)}>
-              <span className="font-display text-[10px] sm:text-sm md:text-lg leading-tight tracking-[0.12em] sm:tracking-[0.2em] whitespace-nowrap" style={{ color: "hsl(var(--silver))" }}>
+            <Link to="/" className="flex items-center gap-3 min-w-0 flex-shrink-0" onClick={() => setIsOpen(false)}>
+              <span className="font-display text-[10px] lg:text-lg leading-tight tracking-[0.12em] lg:tracking-[0.2em] whitespace-nowrap" style={{ color: "hsl(var(--silver))" }}>
                 LAUREL CROWNS ABOVE
               </span>
             </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden sm:flex items-center gap-1">
+            {/* Desktop Nav (≥1024px) */}
+            <div className="hidden lg:flex items-center gap-1 flex-1 justify-center">
               {navItems.map((item) => {
                 const isActive = location.pathname === item.path;
                 return (
@@ -64,6 +64,11 @@ const Navigation = () => {
                   </Link>
                 );
               })}
+            </div>
+
+            {/* Desktop right controls (≥1024px) */}
+            <div className="hidden lg:flex items-center gap-2 flex-shrink-0 pr-12">
+
               {activeGuide && (
                 <button
                   onClick={handleChangeGuide}
@@ -76,8 +81,8 @@ const Navigation = () => {
               )}
             </div>
 
-            {/* Mobile right cluster: guide chip + hamburger, padded to clear floating audio toggle */}
-            <div className="flex sm:hidden items-center gap-1 flex-shrink-0 pr-12">
+            {/* Mobile/tablet right cluster (<1024px): guide chip + hamburger, padded to clear floating audio toggle */}
+            <div className="flex lg:hidden items-center gap-1 flex-shrink-0 pr-12">
               {activeGuide && (
                 <button
                   onClick={handleChangeGuide}
@@ -109,7 +114,7 @@ const Navigation = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="sm:hidden fixed inset-0 z-[60] bg-background flex flex-col"
+            className="lg:hidden fixed inset-0 z-[60] bg-background flex flex-col"
           >
             {/* Top bar with close button */}
             <div className="flex items-center justify-between px-5 h-16 border-b border-border flex-shrink-0">
