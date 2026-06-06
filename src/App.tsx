@@ -133,7 +133,7 @@ const AppInner = () => {
               </Routes>
             </motion.div>
           </AnimatePresence>
-          <BestiaryCompletePopup />
+          {BESTIARY_ENABLED && <BestiaryCompletePopup />}
         </>
       )}
     </>
