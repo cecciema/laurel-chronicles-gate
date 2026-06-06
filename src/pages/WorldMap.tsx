@@ -892,6 +892,30 @@ const WorldMap = () => {
 
             </div>{/* end map container */}
 
+            {/* ── Zoom controls (mobile, below map) ── */}
+            <div className="sm:hidden mt-3 flex flex-row justify-center gap-2">
+              {[
+                { onClick: zoomIn, label: "Zoom in", icon: <Plus size={15} strokeWidth={2.5} /> },
+                { onClick: zoomOut, label: "Zoom out", icon: <Minus size={15} strokeWidth={2.5} /> },
+                { onClick: resetTransform, label: "Reset map view", icon: <RotateCcw size={15} strokeWidth={2.5} /> },
+              ].map((b) => (
+                <button
+                  key={b.label}
+                  onClick={b.onClick}
+                  aria-label={b.label}
+                  className="w-10 h-10 flex items-center justify-center border rounded-sm"
+                  style={{
+                    background:  "rgba(10,8,4,0.9)",
+                    borderColor: "hsl(var(--silver) / 0.30)",
+                    color:       "hsl(var(--silver))",
+                  }}
+                >
+                  {b.icon}
+                </button>
+              ))}
+            </div>
+
+
           {/* === REGION NAV BAR — always visible below map === */}
             <div className="mt-3">
               <div className="flex flex-wrap gap-2 justify-center pb-1">
