@@ -247,7 +247,7 @@ const WorldOverview = () => {
                   >
                     Transmission decoded. Record restored.
                   </p>
-                ) : (
+                ) : GAMES_ENABLED ? (
                   <>
                     <p
                       className="font-narrative italic text-[0.875rem]"
@@ -265,6 +265,13 @@ const WorldOverview = () => {
                       ↓ Forbidden Transmission
                     </button>
                   </>
+                ) : (
+                  <p
+                    className="font-narrative italic text-[0.875rem]"
+                    style={{ color: "hsl(var(--muted-foreground))" }}
+                  >
+                    This record has been sealed. Contents withheld from the public archive.
+                  </p>
                 )}
               </div>
             </motion.div>
