@@ -6,7 +6,7 @@ const bottomNavItems = [
   { path: "/world", label: "World", Icon: Globe },
   { path: "/characters", label: "Characters", Icon: Users },
   { path: "/timeline", label: "Timeline", Icon: Clock },
-  { path: "/map", label: "Map", Icon: Map },
+  { path: "/map", label: "Continent", Icon: Map },
   { path: "/manuscript", label: "Manuscript", Icon: BookOpen },
 ];
 

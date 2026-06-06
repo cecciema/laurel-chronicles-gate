@@ -305,7 +305,7 @@ const Index = () => {
                 { to: "/world", title: "World Overview", desc: "Explore the Republic's territories, culture, and power structures" },
                 { to: "/characters", title: "Character Database", desc: "Discover the key figures shaping the fate of the world" },
                 { to: "/timeline", title: "Timeline", desc: "Trace the events that brought the Republic to the brink" },
-                { to: "/map", title: "World Map", desc: "Navigate the regions of the Republic" },
+                { to: "/map", title: "Continent", desc: "Navigate the four quadrants of the Republic" },
                 { to: "/manuscript", title: "Manuscript", desc: "Read the first six chapters of the novel" },
               ].map((card, i) => (
                 <ScrollReveal

@@ -7,7 +7,7 @@ import { HiddenOrb, useGame } from "@/components/ChroniclesSystem";
 import VialSubstitutionGame, { VialSubstitutionTrigger } from "@/components/VialSubstitution";
 import { characterImageMap } from "@/data/guide-images";
 import { useIsMobile } from "@/hooks/use-mobile";
-import panterraMap from "@/assets/panterra-map.jpg";
+
 import GoldDivider from "@/components/GoldDivider";
 import heroBg from "@/assets/hero-map.jpeg";
 import BottomHero from "@/components/BottomHero";
@@ -68,18 +68,18 @@ const REGION_CHARACTERS: Record<string, { name: string; title: string; image: st
 
 // ── 12 Pantheons ───────────────────────────────────────────────────────────────
 const PANTHEONS = [
-  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", constellation: "Ram (Aries)",              solDeus: "Astra",     lunary: "Gemma Avinas X",           color: "#ffffff", mapPos: { top: "33%", left: "72%" } },
-  { id: "greenwood",  name: "Greenwood",  quadrant: "Northeast", constellation: "Bull (Taurus)",            solDeus: "Gable",     lunary: "Kasen Welliver II",         color: "#ffffff", mapPos: { top: "29%", left: "78%" } },
-  { id: "ivory",      name: "Ivory",      quadrant: "Northeast", constellation: "Fish (Pisces)",            solDeus: "Verlaine",  lunary: "Carmela Faraday VI",        color: "#ffffff", mapPos: { top: "37%", left: "82%" } },
-  { id: "mist",       name: "Mist",       quadrant: "Northwest", constellation: "Lioness (Leo)",            solDeus: "Santos",    lunary: "Wolf Bode III",             color: "#ffffff", mapPos: { top: "33%", left: "24%" } },
-  { id: "lighthouse", name: "Lighthouse", quadrant: "Northwest", constellation: "Spider (Cancer)",          solDeus: "Coster",    lunary: "Bristol Safo IX",           color: "#ffffff", mapPos: { top: "39%", left: "18%" } },
-  { id: "ember",      name: "Ember",      quadrant: "Southeast", constellation: "Warrior (Virgo)",          solDeus: "Finley",    lunary: "Siena Blackridge IV",       color: "#ffffff", mapPos: { top: "63%", left: "82%" } },
-  { id: "volcan",     name: "Volcan",     quadrant: "Southwest", constellation: "Scales (Libra)",           solDeus: "Shanren",   lunary: "Rizal Moresea II",          color: "#ffffff", mapPos: { top: "67%", left: "28%" } },
-  { id: "rockfall",   name: "Rockfall",   quadrant: "Southwest", constellation: "Scorpion (Scorpio)",       solDeus: "Morrison",  lunary: "Vicente Penna Car XI",      color: "#ffffff", mapPos: { top: "59%", left: "22%" } },
-  { id: "canvas",     name: "Canvas",     quadrant: "Southwest", constellation: "Archer (Sagittarius)",     solDeus: "Kotani",    lunary: "Nikolai Panaura III",       color: "#ffffff", mapPos: { top: "73%", left: "20%" } },
-  { id: "hedron",     name: "Hedron",     quadrant: "Southeast", constellation: "Goat (Capricorn)",         solDeus: "Mexia",     lunary: "Iris Belmiteza V",          color: "#ffffff", mapPos: { top: "67%", left: "74%" } },
-  { id: "lumin",      name: "Lumin",      quadrant: "Southeast", constellation: "Water Bearer (Aquarius)",  solDeus: "Nolyn",     lunary: "Nova Auburn IV",            color: "#ffffff", mapPos: { top: "73%", left: "80%" } },
-  { id: "finnrare",   name: "Finnrare",   quadrant: "Northwest", constellation: "Sisters (Gemini)",         solDeus: "Norstrand", lunary: "Reza Centaris XII",         color: "#ffffff", mapPos: { top: "29%", left: "30%" } },
+  { id: "prisma",     name: "Prisma",     quadrant: "Northeast", constellation: "Ram",         solDeus: "Astra",     lunary: "Gemma Avinas X",           color: "#ffffff", mapPos: { top: "33%", left: "72%" } },
+  { id: "greenwood",  name: "Greenwood",  quadrant: "Northeast", constellation: "Ascendant",   solDeus: "Palare",    lunary: "Kasen Welliver II",         color: "#ffffff", mapPos: { top: "29%", left: "78%" } },
+  { id: "ivory",      name: "Ivory",      quadrant: "Northeast", constellation: "Vixens",      solDeus: "Lockland",  lunary: "Carmela Faraday VI",        color: "#ffffff", mapPos: { top: "37%", left: "82%" } },
+  { id: "mist",       name: "Mist",       quadrant: "Northwest", constellation: "Echo",        solDeus: "Ilia",      lunary: "Wolf Bode III",             color: "#ffffff", mapPos: { top: "33%", left: "24%" } },
+  { id: "lighthouse", name: "Lighthouse", quadrant: "Northwest", constellation: "Spider",      solDeus: "Santos",    lunary: "Bristol Safo IX",           color: "#ffffff", mapPos: { top: "39%", left: "18%" } },
+  { id: "ember",      name: "Ember",      quadrant: "Southeast", constellation: "Warrior",     solDeus: "Riordan",   lunary: "Siena Blackridge IV",       color: "#ffffff", mapPos: { top: "63%", left: "82%" } },
+  { id: "volcan",     name: "Volcan",     quadrant: "Southwest", constellation: "Merchant",    solDeus: "Torrin",    lunary: "Rizal Moresea II",          color: "#ffffff", mapPos: { top: "67%", left: "28%" } },
+  { id: "rockfall",   name: "Rockfall",   quadrant: "Southwest", constellation: "River",       solDeus: "Coster",    lunary: "Vicente Penna Car XI",      color: "#ffffff", mapPos: { top: "59%", left: "22%" } },
+  { id: "canvas",     name: "Canvas",     quadrant: "Southwest", constellation: "Archer",      solDeus: "Kotani",    lunary: "Nikolai Panaura III",       color: "#ffffff", mapPos: { top: "73%", left: "20%" } },
+  { id: "hedron",     name: "Hedron",     quadrant: "Southeast", constellation: "Sailor",      solDeus: "Nova",      lunary: "Iris Belmiteza V",          color: "#ffffff", mapPos: { top: "67%", left: "74%" } },
+  { id: "lumin",      name: "Lumin",      quadrant: "Southeast", constellation: "Siren",       solDeus: "Alexei",    lunary: "Nova Auburn IV",            color: "#ffffff", mapPos: { top: "73%", left: "80%" } },
+  { id: "finnrare",   name: "Finnrare",   quadrant: "Northwest", constellation: "Keystone",    solDeus: "Norstrand", lunary: "Reza Centaris XII",         color: "#ffffff", mapPos: { top: "29%", left: "30%" } },
 ];
 
 // ── Sub-region lore data ───────────────────────────────────────────────────────
@@ -437,7 +437,7 @@ const WorldMap = () => {
       <div className="relative h-[50vh] sm:h-screen overflow-hidden bg-background">
         <img
           src={heroBg}
-          alt="World Map"
+          alt="The Solterra Continent"
           className="w-full h-full object-cover"
           style={{ filter: "saturate(0.55) hue-rotate(-8deg) brightness(0.78) contrast(1.05)" }}
         />
@@ -451,8 +451,8 @@ const WorldMap = () => {
         {/* Title centered on hero */}
         <div className="absolute inset-x-0 top-0 pt-[30%] flex flex-col items-center text-center px-4 z-20">
           <SectionHeader
-            title="The Solterra Map"
-            subtitle="See what secret place you may uncover"
+            title="The Solterra Continent"
+            subtitle="Four quadrants. One Republic. See what secret place you may uncover."
           />
         </div>
       </div>
@@ -501,26 +501,24 @@ const WorldMap = () => {
                 style={{ width: "100%", height: "100%", position: "absolute", top: 0, left: 0, transformOrigin: "center center", willChange: "transform" }}
               >
 
-                {/* Vignette */}
-                <div
-                  className="absolute inset-0 pointer-events-none z-10"
-                  style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.65) 100%)" }}
-                />
-
-                <img
-                  src={panterraMap}
-                  alt="Map of Solterra — The Known World"
-                  className="w-full h-full object-contain block"
-                  draggable={false}
-                />
-
-                {/* Continent pulse glow */}
-                <motion.div
-                  animate={{ opacity: [0.08, 0.18, 0.08] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-0 pointer-events-none z-[1]"
-                  style={{ background: "radial-gradient(ellipse at 50% 50%, #c9a96e22 0%, transparent 65%)" }}
-                />
+                {/* Quadrant diagram — clean cross with thin silver hairlines */}
+                <div className="absolute inset-0 pointer-events-none z-[1]">
+                  {/* Vertical hairline */}
+                  <div
+                    className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2"
+                    style={{ width: "1px", background: "linear-gradient(to bottom, transparent 0%, hsl(var(--silver) / 0.32) 12%, hsl(var(--silver) / 0.32) 88%, transparent 100%)" }}
+                  />
+                  {/* Horizontal hairline */}
+                  <div
+                    className="absolute left-0 right-0 top-1/2 -translate-y-1/2"
+                    style={{ height: "1px", background: "linear-gradient(to right, transparent 0%, hsl(var(--silver) / 0.32) 12%, hsl(var(--silver) / 0.32) 88%, transparent 100%)" }}
+                  />
+                  {/* Quadrant labels */}
+                  <span className="absolute top-4 left-4 font-display text-[10px] tracking-[0.3em]" style={{ color: "hsl(var(--mist) / 0.55)", fontVariant: "small-caps" }}>NORTHWEST</span>
+                  <span className="absolute top-4 right-4 font-display text-[10px] tracking-[0.3em]" style={{ color: "hsl(var(--mist) / 0.55)", fontVariant: "small-caps" }}>NORTHEAST</span>
+                  <span className="absolute bottom-4 left-4 font-display text-[10px] tracking-[0.3em]" style={{ color: "hsl(var(--mist) / 0.55)", fontVariant: "small-caps" }}>SOUTHWEST</span>
+                  <span className="absolute bottom-4 right-4 font-display text-[10px] tracking-[0.3em]" style={{ color: "hsl(var(--mist) / 0.55)", fontVariant: "small-caps" }}>SOUTHEAST</span>
+                </div>
 
                 {/* === SUB-REGION HOTSPOTS === */}
                 {SUB_REGIONS.filter((r) => !["valorica", "arborwell"].includes(r.id)).map((region) => {
@@ -1169,9 +1167,9 @@ const QUADRANTS = [
     magistryDesc: "Medical systems, biological research, and Citizen health",
     magistryCharacters: ["Cora"],
     pantheons: [
-      { name: "Finnrare", constellation: "Sisters (Gemini)", solDeus: "Norstrand" },
-      { name: "Lighthouse", constellation: "Spider (Cancer)", solDeus: "Coster" },
-      { name: "Mist", constellation: "Lioness (Leo)", solDeus: "Santos" },
+      { name: "Finnrare", constellation: "Keystone", solDeus: "Norstrand" },
+      { name: "Lighthouse", constellation: "Spider", solDeus: "Santos" },
+      { name: "Mist", constellation: "Echo", solDeus: "Ilia" },
     ],
   },
   {
@@ -1180,9 +1178,9 @@ const QUADRANTS = [
     magistryDesc: "Civil order, conflict resolution, and border enforcement",
     magistryCharacters: ["Aspen"],
     pantheons: [
-      { name: "Prisma", constellation: "Ram (Aries)", solDeus: "Astra" },
-      { name: "Greenwood", constellation: "Bull (Taurus)", solDeus: "Gable" },
-      { name: "Ivory", constellation: "Vixens (Pisces)", solDeus: "Lockland" },
+      { name: "Ivory", constellation: "Vixens", solDeus: "Lockland" },
+      { name: "Prisma", constellation: "Ram", solDeus: "Astra" },
+      { name: "Greenwood", constellation: "Ascendant", solDeus: "Palare" },
     ],
   },
   {
@@ -1191,9 +1189,9 @@ const QUADRANTS = [
     magistryDesc: "Ocean recovery, marine research, and field operations",
     magistryCharacters: ["Culver", "Soleil"],
     pantheons: [
-      { name: "Volcan", constellation: "Merchant (Libra)", solDeus: "Shanren" },
-      { name: "Rockfall", constellation: "Scorpion (Scorpio)", solDeus: "Morrison" },
-      { name: "Canvas", constellation: "Archer (Sagittarius)", solDeus: "Kotani" },
+      { name: "Volcan", constellation: "Merchant", solDeus: "Torrin" },
+      { name: "Canvas", constellation: "Archer", solDeus: "Kotani" },
+      { name: "Rockfall", constellation: "River", solDeus: "Coster" },
     ],
   },
   {
@@ -1202,9 +1200,9 @@ const QUADRANTS = [
     magistryDesc: "Satellite systems, atmospheric monitoring, and boundary maintenance",
     magistryCharacters: ["Wintry"],
     pantheons: [
-      { name: "Hedron", constellation: "Goat (Capricorn)", solDeus: "Mexia" },
-      { name: "Ember", constellation: "Warrior (Virgo)", solDeus: "Finley" },
-      { name: "Lumin", constellation: "Water Bearer (Aquarius)", solDeus: "Nolyn" },
+      { name: "Hedron", constellation: "Sailor", solDeus: "Nova" },
+      { name: "Ember", constellation: "Warrior", solDeus: "Riordan" },
+      { name: "Lumin", constellation: "Siren", solDeus: "Alexei" },
     ],
   },
 ];
