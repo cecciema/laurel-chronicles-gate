@@ -125,7 +125,10 @@ const AppInner = () => {
                 <Route path="/timeline" element={<Timeline />} />
                 <Route path="/map" element={<WorldMap />} />
                 <Route path="/manuscript" element={<Manuscript />} />
-                <Route path="/bestiary" element={<Bestiary />} />
+                <Route
+                  path="/bestiary"
+                  element={BESTIARY_ENABLED ? <Bestiary /> : <Navigate to="/" replace />}
+                />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </motion.div>
