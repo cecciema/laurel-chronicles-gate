@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Scroll, Lock, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { GAMES_ENABLED, BESTIARY_ENABLED } from "@/config/features";
 
 
 // ── Game win scroll IDs (7–11) ────────────────────────────────────────────────
