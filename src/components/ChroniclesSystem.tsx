@@ -72,7 +72,7 @@ const SCROLLS = [
     id: 8,
     title: "The Semper Record",
     hint: "Complete a game to unlock",
-    text: "The Semper review process has been compromised since Year 12 of the New Republic. The review board knows. They have always known.",
+    text: "The Semper review has been compromised since the beginning. The board knows. It has always known.",
     source: "Win Semper Review - Timeline page",
     type: "earned" as const,
   },
