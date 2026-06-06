@@ -1207,7 +1207,7 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: 
     deepforge: {
       letter: "You found us. That's the thing about the Deep Forge - we're not hidden, we're just not where people think to look. We're the neighbors who show up when something breaks. The ones who remember your name and your grandmother's name and what she liked to cook. We've been here the whole time. Pull up a chair.",
       attribution: "- From everyone, on behalf of everyone",
-      directive: "Head to the World Map and find the Deep Forge territory. Then go meet the characters who call it home. The community is the point - always has been. Get to know them.",
+      directive: "Head to the Continent and find the Deep Forge territory. Then go meet the characters who call it home. The community is the point - always has been. Get to know them.",
     },
     convoy: {
       letter: "This message will not be stored. There is no record of your assessment. There is no record of this letter. If you are reading this, you already understand why that matters. You stopped trusting the official version a long time ago. So did we. The difference between you and us is that we've been doing something about it for forty years. You're starting now. Welcome to the only organization in Solterra that knows what the satellite boundary is actually for.",
