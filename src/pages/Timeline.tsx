@@ -643,7 +643,8 @@ const TimelinePage = () => {
             </motion.div>
           )}
 
-        {/* Semper Review game section */}
+        {GAMES_ENABLED && (
+        /* Semper Review game section */
         <div className="max-w-3xl mx-auto mt-16 mb-8">
           {/* Steampunk divider */}
           <div className="max-w-2xl mx-auto mb-12 flex items-center gap-4">
