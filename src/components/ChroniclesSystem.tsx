@@ -654,17 +654,19 @@ export const ScrollCollection = ({ className }: { className?: string }) => {
       <SealedDocumentPuzzle foundScrolls={foundScrolls} />
 
       {/* Bestiary subtle footer link */}
-      <div className="text-center pt-2">
-        <button
-          onClick={() => setBestiaryWarning(true)}
-          className="font-narrative italic text-[0.8125rem] transition-colors opacity-70 bg-transparent border-none"
-          style={{ color: "hsl(var(--silver) / 0.55)", cursor: "pointer" }}
-          onMouseEnter={e => (e.currentTarget.style.color = "hsl(var(--candlelight-glow))")}
-          onMouseLeave={e => (e.currentTarget.style.color = "hsl(var(--silver) / 0.55)")}
-        >
-          The Bestiary of Solterra →
-        </button>
-      </div>
+      {BESTIARY_ENABLED && (
+        <div className="text-center pt-2">
+          <button
+            onClick={() => setBestiaryWarning(true)}
+            className="font-narrative italic text-[0.8125rem] transition-colors opacity-70 bg-transparent border-none"
+            style={{ color: "hsl(var(--silver) / 0.55)", cursor: "pointer" }}
+            onMouseEnter={e => (e.currentTarget.style.color = "hsl(var(--candlelight-glow))")}
+            onMouseLeave={e => (e.currentTarget.style.color = "hsl(var(--silver) / 0.55)")}
+          >
+            The Bestiary of Solterra →
+          </button>
+        </div>
+      )}
 
       {/* Bestiary warning modal */}
       <AnimatePresence>
