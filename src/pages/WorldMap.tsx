@@ -437,7 +437,7 @@ const WorldMap = () => {
       <div className="relative h-[50vh] sm:h-screen overflow-hidden bg-background">
         <img
           src={heroBg}
-          alt="The Solterra Continent"
+          alt="The Solterra Quadrants"
           className="w-full h-full object-cover"
           style={{ filter: "saturate(0.55) hue-rotate(-8deg) brightness(0.78) contrast(1.05)" }}
         />
@@ -451,8 +451,8 @@ const WorldMap = () => {
         {/* Title centered on hero */}
         <div className="absolute inset-x-0 top-0 pt-[30%] flex flex-col items-center text-center px-4 z-20">
           <SectionHeader
-            title="The Solterra Continent"
-            subtitle="Four quadrants. One Republic. See what secret place you may uncover."
+            title="The Solterra Quadrants"
+            subtitle="One Republic. See what secret place you may uncover."
           />
         </div>
       </div>
