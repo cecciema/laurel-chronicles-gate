@@ -22,9 +22,9 @@ const SCROLLS = [
   },
   {
     id: 2,
-    title: "Convoy Rebellion's Origin",
+    title: "The Convoy's Origin",
     hint: "Hidden somewhere in the world",
-    text: "Convoy Rebellion's first recorded communication predates the Great War by 40 years. They did not form in response to the system. They built it.",
+    text: "The Convoy of Reformation did not begin as rebellion. It began as refusal. It was here before the Republic, and the Republic was built to forget it.",
     source: "Timeline page orb",
     type: "discoverable" as const,
   },
