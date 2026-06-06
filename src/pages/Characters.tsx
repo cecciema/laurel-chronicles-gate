@@ -1085,7 +1085,7 @@ const Characters = () => {
         </div>
 
         {/* The Unmasked - identity mini-game */}
-        <TheUnmasked />
+        {GAMES_ENABLED && <TheUnmasked />}
       </div>
       <BottomHero src={bottomHeroBg} alt="Scholar's study" />
     </Layout>
