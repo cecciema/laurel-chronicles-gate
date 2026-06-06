@@ -104,7 +104,7 @@ const SCROLLS = [
     id: 12,
     title: "The Remembered Place",
     hint: "This one was never meant to be found",
-    text: "You kept looking at the thing that was never meant to be found. That says everything about you. Valorica is not a place that was built. It is a place that was remembered.",
+    text: "You kept looking at the thing that was never meant to be found. That says everything about you. Valorica was not built. It was remembered.",
     source: "The Unnamed - Bestiary",
     type: "secret" as const,
   },
