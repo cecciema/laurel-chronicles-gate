@@ -10,6 +10,7 @@ import GuideWhisper from "@/components/GuideWhisper";
 import heroBg from "@/assets/hero-timeline.jpeg";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-timeline-new.jpeg";
+import { GAMES_ENABLED } from "@/config/features";
 
 // ─── Event Data ─────────────────────────────────────────────────────────────────
 
