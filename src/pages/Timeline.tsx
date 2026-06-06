@@ -605,7 +605,7 @@ const TimelinePage = () => {
             </motion.div>
           )}
 
-        {/* Convoy Rebellion */}
+        {/* Convoy of Reformation */}
         {typeof window !== "undefined" &&
           localStorage.getItem("convoy-message-unlocked") === "true" && (
             <motion.div

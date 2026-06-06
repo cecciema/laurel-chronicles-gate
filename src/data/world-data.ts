@@ -158,7 +158,7 @@ export const characters: Character[] = [
     alignment: "The Instrument",
     personality: ["Charismatic", "Brilliant", "Universally Trusted", "Unknowable"],
     background: "Born in Hampshire near Pantheon Lighthouse, Aspen rose through Parliament in just two years to become Director of Peace for the Northeast - a pace that shocked even his supporters. Jude chose him as his successor and had Remsays build an algorithm to ensure his selection appeared fair. He is the first person to present the meteor threat to the board and see it as an opportunity. By the end of book one, someone far more powerful than Jude has already decided what Aspen will do next.",
-    relationships: "Jude - mentor, sponsor, the man who selected him. Sailor - close friend, trusted colleague. Remsays - uneasy alliance, mutual awareness. Convoy Rebellion - the relationship neither of them has named yet.",
+    relationships: "Jude - mentor, sponsor, the man who selected him. Sailor - close friend, trusted colleague. Remsays - uneasy alliance, mutual awareness. Convoy of Reformation - the relationship neither of them has named yet.",
   },
   {
     id: "norstrand",
@@ -219,7 +219,7 @@ export const characters: Character[] = [
   {
     id: "culver",
     name: "Culver",
-    title: "Paragon Engineer",
+    title: "Marine Engineer",
     position: "Magistry of Ocean",
     faction: "Magistry of Ocean",
     alignment: "Analytical Idealist",
@@ -441,7 +441,7 @@ export const guideCharacters: GuideCharacter[] = [
   {
     id: "culver",
     name: "Culver",
-    title: "Paragon Engineer",
+    title: "Marine Engineer",
     magistry: "Magistry of Ocean",
     philosophy: "Truth lives where the tide meets the unknown shore.",
     image: "char-culver",
