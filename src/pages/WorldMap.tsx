@@ -1167,9 +1167,9 @@ const QUADRANTS = [
     magistryDesc: "Medical systems, biological research, and Citizen health",
     magistryCharacters: ["Cora"],
     pantheons: [
-      { name: "Finnrare", constellation: "Sisters (Gemini)", solDeus: "Norstrand" },
-      { name: "Lighthouse", constellation: "Spider (Cancer)", solDeus: "Coster" },
-      { name: "Mist", constellation: "Lioness (Leo)", solDeus: "Santos" },
+      { name: "Finnrare", constellation: "Keystone", solDeus: "Norstrand" },
+      { name: "Lighthouse", constellation: "Spider", solDeus: "Santos" },
+      { name: "Mist", constellation: "Echo", solDeus: "Ilia" },
     ],
   },
   {
@@ -1178,9 +1178,9 @@ const QUADRANTS = [
     magistryDesc: "Civil order, conflict resolution, and border enforcement",
     magistryCharacters: ["Aspen"],
     pantheons: [
-      { name: "Prisma", constellation: "Ram (Aries)", solDeus: "Astra" },
-      { name: "Greenwood", constellation: "Bull (Taurus)", solDeus: "Gable" },
-      { name: "Ivory", constellation: "Vixens (Pisces)", solDeus: "Lockland" },
+      { name: "Ivory", constellation: "Vixens", solDeus: "Lockland" },
+      { name: "Prisma", constellation: "Ram", solDeus: "Astra" },
+      { name: "Greenwood", constellation: "Ascendant", solDeus: "Palare" },
     ],
   },
   {
@@ -1189,9 +1189,9 @@ const QUADRANTS = [
     magistryDesc: "Ocean recovery, marine research, and field operations",
     magistryCharacters: ["Culver", "Soleil"],
     pantheons: [
-      { name: "Volcan", constellation: "Merchant (Libra)", solDeus: "Shanren" },
-      { name: "Rockfall", constellation: "Scorpion (Scorpio)", solDeus: "Morrison" },
-      { name: "Canvas", constellation: "Archer (Sagittarius)", solDeus: "Kotani" },
+      { name: "Volcan", constellation: "Merchant", solDeus: "Torrin" },
+      { name: "Canvas", constellation: "Archer", solDeus: "Kotani" },
+      { name: "Rockfall", constellation: "River", solDeus: "Coster" },
     ],
   },
   {
@@ -1200,9 +1200,9 @@ const QUADRANTS = [
     magistryDesc: "Satellite systems, atmospheric monitoring, and boundary maintenance",
     magistryCharacters: ["Wintry"],
     pantheons: [
-      { name: "Hedron", constellation: "Goat (Capricorn)", solDeus: "Mexia" },
-      { name: "Ember", constellation: "Warrior (Virgo)", solDeus: "Finley" },
-      { name: "Lumin", constellation: "Water Bearer (Aquarius)", solDeus: "Nolyn" },
+      { name: "Hedron", constellation: "Sailor", solDeus: "Nova" },
+      { name: "Ember", constellation: "Warrior", solDeus: "Riordan" },
+      { name: "Lumin", constellation: "Siren", solDeus: "Alexei" },
     ],
   },
 ];
