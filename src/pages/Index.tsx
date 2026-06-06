@@ -346,10 +346,10 @@ const Index = () => {
 const EasterEggGlyph = () => {
   const navigate = useNavigate();
   const { foundScroll } = useGame();
-  
+
   const handleClick = () => {
     foundScroll(6);
-    navigate("/bestiary");
+    if (BESTIARY_ENABLED) navigate("/bestiary");
   };
 
   return (
