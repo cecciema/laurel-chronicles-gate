@@ -230,8 +230,8 @@ const ALLEGIANCE_DATA: Record<AllegianceId, {
     storageKey: "deepforge-survival-unlocked",
   },
   convoy: {
-    name: "Convoy Rebellion",
-    text: "You are Convoy Rebellion. You stopped trusting the version of the world they handed you a long time ago. You are not certain what the truth is. You are certain it is not what you were told.",
+    name: "Convoy of Reformation",
+    text: "You are Convoy of Reformation. You stopped trusting the version of the world they handed you a long time ago. You are not certain what the truth is. You are certain it is not what you were told.",
     storageKey: "convoy-message-unlocked",
   },
   unseen: {
@@ -291,7 +291,7 @@ const AllegianceSymbol = ({ allegiance }: { allegiance: AllegianceId }) => {
 const RIDDLES = [
   {
     id: 1,
-    question: "I am given at your peak and called a mercy. I am performed at dawn in white cloaks and laurel crowns. The Republic calls me a gift. Convoy Rebellion calls me a crime. What am I?",
+    question: "I am given at your peak and called a mercy. I am performed at dawn in white cloaks and laurel crowns. The Republic calls me a gift. Convoy of Reformation calls me a crime. What am I?",
     answers: ["apotheosis", "apex", "the ceremony"]
   },
   {
@@ -1369,7 +1369,7 @@ const QuestModal = ({ onClose, onComplete }: { onClose: () => void; onComplete: 
                     {result === "sanctorium" && "Your devotion has been recorded in the Sanctorium archive."}
                     {result === "parliament" && "Your profile has been flagged for Parliamentary consideration."}
                     {result === "deepforge" && "Your name has been added to the community register."}
-                    {result === "convoy" && "A Convoy Rebellion frequency has been opened for you."}
+                    {result === "convoy" && "A Convoy of Reformation frequency has been opened for you."}
                     {result === "unseen" && "No record of you exists. This is not an accident."}
                   </motion.p>
                 </motion.div>

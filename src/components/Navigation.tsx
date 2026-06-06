@@ -160,7 +160,7 @@ const Navigation = () => {
 
             {/* Footer hint */}
             <div className="px-8 pb-8 text-[10px] tracking-[0.3em] text-muted-foreground/40 uppercase font-body">
-              The Chronicles Quest — Explore to Discover
+              The Chronicles Quest: Explore to Discover
             </div>
           </motion.div>
         )}

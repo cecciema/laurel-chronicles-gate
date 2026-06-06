@@ -225,7 +225,7 @@ export const ForbiddenTransmission = () => {
           Forbidden Transmission
         </motion.h2>
         <motion.p initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }} className="mt-3 font-narrative italic text-muted-foreground text-[0.9375rem] leading-[1.8]">
-          A Convoy Rebellion message has been intercepted. Decode it before the signal is traced. Once they find you, they will erase you from the record entirely.
+          A Convoy of Reformation message has been intercepted. Decode it before the signal is traced. Once they find you, they will erase you from the record entirely.
         </motion.p>
       </div>
 
@@ -289,7 +289,7 @@ export const ForbiddenTransmission = () => {
               </p>
               <div style={{ height: 1, background: "rgba(120,110,100,0.45)", marginBottom: "1rem" }} />
               <p style={{ fontStyle: "italic", fontSize: "0.9375rem", lineHeight: 1.8, color: "#2B2724" }} className="font-narrative">
-                "Three Convoy Rebellion operatives were embedded in Parliament's Science Division at the time of the meteor discovery. Their names appear in the attendance records. Their employment history does not exist."
+                "Three Convoy of Reformation operatives were embedded in Parliament's Science Division at the time of the meteor discovery. Their names appear in the attendance records. Their employment history does not exist."
               </p>
             </motion.div>
 
