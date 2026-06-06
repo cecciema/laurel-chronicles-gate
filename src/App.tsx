@@ -123,7 +123,9 @@ const AppInner = () => {
                 <Route path="/world" element={<WorldOverview />} />
                 <Route path="/characters" element={<Characters />} />
                 <Route path="/timeline" element={<Timeline />} />
-                <Route path="/map" element={<WorldMap />} />
+                <Route path="/quadrants" element={<WorldMap />} />
+                <Route path="/map" element={<Navigate to="/quadrants" replace />} />
+                <Route path="/continent" element={<Navigate to="/quadrants" replace />} />
                 <Route path="/manuscript" element={<Manuscript />} />
                 <Route
                   path="/bestiary"
