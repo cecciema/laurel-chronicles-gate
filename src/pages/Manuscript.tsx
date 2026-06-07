@@ -59,7 +59,7 @@ const SampleChapters = () => {
         </h3>
       </div>
       <p className="text-center font-narrative italic text-[11px] tracking-[0.18em] uppercase text-muted-foreground mb-4">
-        {chapter.number === 1 ? "Prologue" : `Chapter ${chapter.number - 1} of ${CHAPTERS.length - 1}`}
+        {chapter.number === 1 ? "Prologue" : `Chapter ${chapter.number - 1}`}
       </p>
       <GoldDivider className="max-w-[120px] mx-auto mb-6" />
 
@@ -84,6 +84,8 @@ const SampleChapters = () => {
     const lines = chapter.content.split("\n");
     let inPoem = false;
     let prevBlank = false;
+    let epigraphSet = false;
+    let firstProseDone = false;
 
     return lines.map((line, i) => {
       const trimmed = line.trim().replace(/—/g, ' - ');
@@ -106,16 +108,13 @@ const SampleChapters = () => {
         return <div key={i} className="h-4" />;
       }
 
-      if (/^(a\s+few\s+)?years?\s+(prior|later|before|after)$/i.test(trimmed)) {
+      if (trimmed === "[VERSE]") {
+        inPoem = true;
+        return null;
+      }
+      if (trimmed === "[/VERSE]") {
         inPoem = false;
-        return (
-          <p
-            key={i}
-            className="text-center font-narrative italic text-[12px] tracking-[0.28em] uppercase text-muted-foreground mt-2 mb-8"
-          >
-            {trimmed}
-          </p>
-        );
+        return null;
       }
 
       if (trimmed === "As They Ponder") {
@@ -137,6 +136,19 @@ const SampleChapters = () => {
         return <div key={i} className="h-5" />;
       }
 
+      // First non-empty line of chapter → epigraph (centered italic)
+      if (!epigraphSet) {
+        epigraphSet = true;
+        return (
+          <p
+            key={i}
+            className="text-center font-narrative italic text-[12px] tracking-[0.28em] uppercase text-muted-foreground mt-2 mb-8"
+          >
+            {trimmed}
+          </p>
+        );
+      }
+
       if (inPoem) {
         return (
           <p
@@ -150,8 +162,14 @@ const SampleChapters = () => {
       }
 
       const parts = trimmed.split(/(\*[^*]+\*)/g);
+      const isFirstProse = !firstProseDone;
+      if (isFirstProse) firstProseDone = true;
       return (
-        <p key={i} className="text-left mb-5 not-italic" style={{ lineHeight: 1.8 }}>
+        <p
+          key={i}
+          className={`text-left mb-5 not-italic ${isFirstProse ? 'manuscript-dropcap' : ''}`}
+          style={{ lineHeight: 1.8 }}
+        >
           {parts.map((part, j) =>
             part.startsWith("*") && part.endsWith("*") ? (
               <em key={j}>{part.slice(1, -1)}</em>

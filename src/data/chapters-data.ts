@@ -195,124 +195,152 @@ Up front, the driver lifted a hand without looking, and the van pulled away towa
   },
   {
     number: 2,
-    title: "Remsays",
-    content: `"Good morning, Remsays."
+    title: "Quinnevere",
+    content: `Current Day - Year 293 Since Founding
 
-Zeus said it at six-fifteen, the same time every morning, in the same measured tone.
+[VERSE]
+Let there be One Republic.
 
-Not cheerful nor clinical. Simply present. Remsays had programmed him that way precisely. He did not want to be managed, just informed of the facts.
+That the world may know peace and the wars of nations never rise again.
 
-Remsays opened his eyes to the pale morning light coming through the window shade and lay still for a moment before getting up, taking stock of how his body felt. Shoulders: fine. Lower back: a little tight from the training session two days prior. He flexed both hands once and sat up.
+Let each soul bear One Heir.
 
-"How did I sleep?"
+That the planet may breathe and the burden of life remain light.
 
-"Six hours and eleven minutes. Two complete deep cycles. Cortisol on waking is within normal range. You were restless between the fourth and the fifth hour."
+Let all children belong to Solterra First.
 
-"It was the dream."
+That no family may claim what the Republic has given.
 
-A pause. Longer than Zeus's pauses usually were. "The same one."
+Let every soul ascend at Apex.
 
-"Yes."
+That suffering may end and the living may be spared its weight.
+[/VERSE]
 
-"Would you like me to save it?"
+The intoxicating sandalwood smoke whirled around the silent Scriptorium and settled across Quinnevere's shoulders, pooling at the base of her throat, leaving her weightless and faintly euphoric. She traced the text with her fingertips once more, sinking into the lolling comfort of the subtle vibration beneath the vellum's etching.
 
-He thought for half a second. "Yes. Flag it and I'll decide later."
+She could recite the Cornerstone Laws as well as anyone raised in Solterra. They were sung in the Groves and chanted through secondary academy. Many citizens chose to ink a portion onto their bodies before ascending, the Fourth Law the most popular, the Rites of Apex the most popular season for it, since the words were believed to carry power that would strengthen one's Semper as the soul transcended into eternity.
 
-"Remsays." Zeus did not typically volunteer observations outside of the briefing sequence. "This is the fourth occurrence in nine days."
+The Laws were printed on nearly every official Republic publication. That was not unusual. What was unusual, what was special about this book, the Parliament Premiere's Living Biography, was that Semper had been composited into each volume. And not just any Semper. The Premiere's own rare type: the Connective Expression.
 
-"I know."
+To date, or at least according to the print of this Biography, there had been five other documented cases of Connective. Out of a Republic population of almost nine million, only half a dozen of these asset classifications existed. Premiere Jude's was said to be the strongest ever recorded. In his prime and without augmentation, he could connect to hundreds of people, individually and at once. No wonder he had become Premiere of the Republic, ruling on behalf of Parliament, overseeing half of Solterra's continental affairs.
 
-"The pattern suggests it may be worth addressing."
+It was also well acknowledged that his approval rating had never dipped, that he was the most popular secular leader to hold the post in living memory. Quinnevere had wondered, as most citizens did, whether the charisma was mostly that special Semper of his. He had other likable traits, to be sure. A tall man with a kind face, a gentle manner, soft permanent creases at the corners of his eyes. When he spoke during broadcasts it always felt as though he were speaking directly into you. Not just to you, into you. He made you feel seen, chosen, as though the message had been drafted for you alone, even as it went out to the whole continent at once.
 
-"Noted. I'll think about it."
+Now, experiencing the Premiere's Semper firsthand, with her actual hand, Quinn could say without doubt that if anything, he had been holding back. The charisma on the broadcasts was entirely his own, no Semper magnifying it, because here, right now, the tiniest fraction of him woven into this copy gave off the most delicate cadence, humming beneath her fingertips. The most comforting thing she had felt. A liquid fluidity ran under it. A slow melody seeping in through her right index finger, flowing warm up her arm, blooming into harmony somewhere behind her ribs. His Connective strands had found her Receptive base in the dark and taken hold of it. It left her nostalgic, bittersweet, suddenly and stupidly emotional, half convinced she had known him in another life and was already grieving the loss of him.
 
-He rose and moved to the wall mirror.
+Teardrops landed on the back of her hand without warning.
 
-One hundred and eighty-four centimeters. Lean muscle, the result of a consistent regimen rather than any particular trendy program. His hair was sandy and had grown a full week past where he liked it, which meant he would take the clipper to it this morning before he left for the Forum.
+She opened her eyes, wiped them with her sleeve, and glanced around to confirm no one had witnessed her weeping over a library book. For a moment she had forgotten where she was. She had half expected her Archivist peers around her, but the Scriptorium by day was a different creature entirely, long oak tables running the length of the hall, thrumming with the quiet industry of pens on parchment, the collective hum of Semper hanging thick as incense.
 
-His eyes, in the mirror, were what they always were: light grey, the color of overcast sky. He had been told, many times and by many different people, that they were unsettling. He had been told other things too. He received compliments the way he received most things: with a polite acknowledgment and no particular change in behavior.
+At this hour the room belonged to Quinnevere and her companion alone.
 
-There had been a time, not long ago, when he might have let it all go to his head. He was still young by any measure: twenty-seven, his second revolution not long behind him, and the attention from men and women had started well before he entered the Magistry. The girls at Cambria academy used to find reasons to walk past his study room. The senior officers in his first years at Parliament had found reasons to knock on his door. He was not naive about why.
+"Well? How do you feel?" Yara beamed at her across the wide wooden desk, her freckled face gone childlike with the grin. Through Quinn's tears and the shifting candlelight, that eager expression looked like a happy gargoyle. "Come on. Tell me everything." Yara breathed the last word like a woman ordering dessert.
 
-But he had also watched what happened to men who let that kind of attention become their primary navigation. They drifted. They made choices based on the wrong kind of wanting. Remsays had other plans, and they required him to stay sharp.
+"You were right. I'm impressed, I'll admit it." Quinn lifted her hand off the vellum and gestured at it. "This is something else. I never knew you could composite an object and have it linger this long after. It goes well beyond illumination. It's as if he'd just pressed his hand to the page."
 
-He turned his chin slightly to examine the cut in better light and touched it gently with two fingers. A clean line, roughly four centimeters, running from just below his cheekbone toward the jaw. Still healing. Another few weeks and it would be gone entirely, the tissue smooth again. He had decided he would not mind if it did leave something behind, but it would not.
+"Yep. He is something else." Yara sighed, made a production of it, and pressed both hands flat to her heart. "I wish, oh, how I wish, I could get close enough to feel his cadence in person. Just once. Alone. Imagine what the full thing would do to you. It would make you feel like the most protected, favored, cherished, hand-selected creature in all of Solterra."
 
-The incident had happened during a routine field assessment in the Northwest Quadrant, six months into his tenure as Chief Magister. He had accompanied a team of Paragon researchers into an underwater survey corridor flagged as structurally questionable, against the explicit recommendation of the head Ocean engineer. The engineer had been correct. As the group resurfaced one after another, a panel gave way under pressure and a female researcher was trapped behind it. In her panic she accidentally hooked the oxygen line on the jagged edge of the panel frame. Remsays turned back and pressed himself through the gap before the second panel could close. The serrated metal caught his helmet and opened the cut. She made it through because of the extra seconds that bought her.
+"I can see the appeal. You'd come back a changed woman." Quinn smiled. "Although, the withdrawal. Can you imagine the withdrawal? You'd be useless to everyone for a month." She paused. "And isn't he a touch old for you? Handsome for an older man, I grant you. But he's well past Apex."
 
-The survey data they obtained that day had informed two subsequent patents in marine remediation. Worth it, he had written in his incident report, and meant it. The next day, the researcher had come to his office to thank him in person and stayed longer than the purpose required. He had thanked her in return, then to her surprise, reassigned her to the far regions effective the following week. Her panicking in that corridor was an error he had no interest in reencountering.
+Two weeks she had known her new friend, since arriving at Pantheon Ivory on the night of the Silent Tithe, and one of the first things she had learned about the pretty redhead was the thing for the Premiere. The man was Yara's favorite topic by a wide margin. Quinn suspected she showed the Biography to every new recruit, glad of a fresh audience. Well. One could dream. It was unlikely Yara would ever stand in a room with him, but everyone needed something to carry them through the long lonely nights of a Sanctorium servitor.
 
-He had laid out the clothes the night before: a crisp white button-up, navy trousers. Mornings that required decisions about small things were mornings that wasted energy on small things. While he dressed, Zeus recited the morning brief. Two items from the Magistry of Ocean that would need his sign-off before the Forum session. A scheduling update from Premiere Jude's office confirming the lunch function. And a note from the Sanctorium that Remsays asked Zeus to repeat: the ascension of Sol Deus Lockland of Pantheon Ivory had been formally scheduled in the current lunar cycle. In just three days.
+"He is not old. Not even slightly." Yara's grin sharpened. "He's barely past his fourth revolution, which makes him forty-eight, and he's good for another decade or two of leading at least. Parliament Premierships aren't lifetime posts the way Sanctorium ones are, you know. One day he'll retire, and he might want someone to ascend with. And who's to say that someone can't be me?"
 
-Three days. This was unexpected.
+That, strangely, made sense. Quinn had to hand it to her. The girl had thought it through with the rigor of a woman planning a campaign. "Well, if you ever do meet him, do tell him I'm a fan as well. Ask him to composite your laurel pin so you can keep him close to your heart forever."
 
-The Sanctorium made decisions that governed their own body on their own timeline and with no obligation to preview them, but the general sense in the Parliament had been that the ascension was still a season away. Three days changed a great many things. It meant thirty days of vacancy in Pantheon Ivory starting later this week, thirty days with no Sol Deus, before the installation of a new one at the solar turn. He could picture the status-climbers already working their brains to see how they might best profit from a quick transition.
+"You laugh. But I'm fairly sure the Parliament officials will come to pay their respects to His Sovereigncy in the next few days. So there may be a chance encounter sooner than you think." She waggled her eyebrows.
 
-He pulled up his calendar and looked at the red circle he had drawn there two weeks ago when the private correspondence had arrived. It was handwritten in small, precise handwriting. The postscript was two words:
+"On that note, we should retire." Quinn began gathering her transcription tools. "It's late, and Apotheosis prep starts tomorrow."
 
-Almost time.
+"Yes, yes. Damn Apotheosis." Yara slid the Biography back between two other illuminated volumes and fastened her forest green cloak. "My brain is not ready for a whole month of mourning."
 
-He had read that letter standing at his desk and felt something shift in his chest. He had folded it and put it in the locked drawer and gone back to work.
+"I know. Are you anxious about it? His Sovereigncy has been Sol Deus of Ivory for so long. Decades. Who's going to replace him? I can't imagine there are many people with abilities like his." Quinn loosened her hair, tugged it over one shoulder, pulled up her hood, and leaned over to blow out the candle.
 
-He would refocus on work now too. What he should be thinking about was the speech. The Paragon Command held a new recruit induction ceremony every season, and he had given this address exactly once before. Three months ago, in the late season, a smaller cohort, and he had spent two weeks preparing for it and then delivered it in a room that felt too large and came away with the uncomfortable sense that he had not made quite the impression he had hoped.
+Outside, the night air bit sharp. The moon hung half behind the satellite net, its nodes twinkling like stars. The breeze carried the faint salt of the Black Sea, the same wind that used to rattle the shutters back home in Safo. Quinn caught her wandering mind and brought it back.
 
-Today's induction mattered more. Not only because the cohort was larger, though it was, or because it was the primary induction of the new cycle, though it was that too. It mattered more because he had spent the last three months thinking about what he had gotten wrong the first time. He was not nervous, particularly, but he understood that the first impression a person made in a room was the one they carried for a long time afterward, and the new Paragons he was about to address would be the next generation of the Magistry's best minds. He wanted the words to be right.
+"Of course I'm anxious. How could I not be?" Yara muttered as they walked the colonnade toward the residence wing. "Everyone's been a nervous ball of energy since the news. I could barely stand the Semper dissonance in the Solarium earlier. Carmela practically had a meltdown and excused herself."
 
-Zeus navigated the car through the early morning streets while he continued to recite the news. An advancement in ocean remediation technology out of the Northwest Quadrant. A procedural update from the Magistry of Peace. Something about atmospheric pressure readings from Pantheon Greenwood that the Magistry of Stars had flagged for cross-reference. Remsays filed it all away without quite listening. The car stopped at the Parliament entrance. Remsays straightened his jacket, checked the time, and stepped out.
+Quinnevere pulled her cloak tighter. "Do you think Lunary Carmela is up to it? Especially through the vacancy. That she won't be too distraught to be effective?"
 
-Cannon Place in the morning had its own particular quality. The glass panels of the main entrance caught the early light and threw it across the lobby floor in long strips, and the junior servitors who staffed the front desks always straightened slightly when the doors opened for someone with rank.
+"She's been trained for it. But I don't think she's been through a transition before. It was His Sovereigncy who elevated her to Lunary, you know. And it's not as if she can ring up her predecessors for advice."
+
+"No. She can't." Quinn frowned. "But she'll have Sol Deus Astra to lean on. They're coming too, the Pantheon Prisma leadership."
+
+"Ugh." Yara groaned from somewhere deep in her chest. "I am not looking forward to Astra. Or her Lunary Gemma, for that matter. They make my skin crawl. That Projective Semper of theirs is so. So ick. They're so free with it, so rude. The vacancy is going to be hell. They'll work us like mules, and worse, they'll want to turn Ivory upside down for its secrets. Astra will never get another opening like this."
+
+"You think?" Quinn said.
+
+"Oh, I think. I think it very much. And Astra is only the first, because Prisma is our sister Pantheon and the nearest. The others will come too. So many Sanctorium visitors projecting their Semper around, imprinting and compositing, that by the time we seat a new Sol Deus the Ivory Canon won't know whose side it's on."
+
+"You're joking. Tell me you're joking." Quinn had only just made peace with the constant vibration, grateful that at least these old castle walls held Semper steady and swallowed anything unwelcome quickly. The thought of so many strange strands combing through them all day turned her stomach.
+
+"All right, maybe I exaggerate. A little." Yara held up a thumb and finger a hair apart. "But you have to understand the hunger the other Sol Deos feel for the treasures buried in this castle."
+
+"I genuinely had no idea there was jealousy or competition between Sol Deos."
+
+"Oh, enormously. I'd wager some of them celebrated the news today, dreaming of getting a piece of Ivory while the chair sits empty. Lunary Carmela will have her hands full. That much is certain."
+
+"Well. I hope we can be of real help wherever it's needed. I just don't know what to expect. I'm still amazed I'm being asked to take part in Apotheosis at all."
+
+"You shouldn't be. Not after Carmela saw you illuminate. That's her own specialty, you realize. I wasn't the least bit surprised she scooped you up so fast."
+
+"Hmm." Quinn did not sound reassured. "I only hope she doesn't expect too much. I'd never illuminated a thing in my life before coming here. And now she wants me helping prepare the Rooms of Reflection. I've never even set foot in one."
+
+"That's not unusual. People find their abilities sharpen here, or turn up new ones entirely, once they're at the Pantheon. The Halcyon Bible does things to a person. It opens the gate and lets out everything you've got inside you. And the Ivory Canon is held to be the most powerful piece of it." Yara delivered this with great patience and then ruined it with a yawn.
+
+"But how do I know I'll do well? What if I illuminate the wrong object, or the wrong Verse, and wreck someone's ritual?"
+
+Yara bumped her shoulder into Quinn's. "You'll be wonderful. And you won't be alone, they'll pair you with the experienced illuminators, so just copy whatever they do."
+
+"I hope you're right." Quinn sighed.
+
+"Do you feel any different from your first day?"
+
+Quinn considered it. "I'm getting used to the tug. At first I couldn't relax at all. It felt as though someone were always watching me, always listening, spying. But I suppose that's only the Canon doing its amplification."
+
+Yara nodded. "It was just figuring you out. I think the Halcyon's especially awake right now because it can sense His Sovereigncy's ascension. All that power. I do wonder where it goes."
+
+"To the new Sol Deus, I'd assumed?"
+
+"I'm not sure it works like that. Maybe. Or maybe it just sinks back into the Canon until a new Sol Deus is seated. If they've even chosen one yet."
+
+"I suppose we'll find out soon enough." She pressed her fingers to her sternum, where the tug of the Halcyon still sat faintly, and kept walking.
+
+Yara stopped short and turned to her. "Promise you'll tell me everything? What's in the Reflection Chambers. Every detail. I still dream about Apotheosis, you know. The eternal bonding. What it could have been."
+
+"I promise." Quinn squeezed her friend's hands. At the words eternal bonding, her own what-could-have-been rose up, and she pressed it down. Neither of them was likely to get a happily-ever-after now. They had committed to a life in service. Purposeful, certainly. But solitary, meant to be lived out inside these ancient walls.
+
+And archival work was lonely, vast hours spent with large dusty tomes instead of people. Repetitive too, unless one happened to be genuinely obsessed with the Founding and everything that came after. Quinn could say, with growing and only slightly suspicious confidence, that her interest had in fact been increasing. She was at least no longer intimidated by the prospect of reading dormant languages that refused to answer her back.
+
+Even so, she missed her school cohort, the people who had known her long enough to be effortless around. That was a manageable missing. Less manageable was missing *him*. It sat with her most in the evenings, a hollow just below her chest that no amount of late work could fill. The reason for her private whispers this Silent Tithe. The reason she had given up her favorite sweets this year, and the reason she now wished she had sacrificed something she liked rather less. She did not let herself say his name aloud. Somewhere between the Magistry of Ocean's rejection letter and the train to Pantheon Ivory, she had decided that hoping to see him again was a luxury she could no longer afford.
+
+They passed beneath an arch where candlelight flickered over moss-covered stone. Quinn pulled her cloak tighter and followed her friend through. She did not know what the Pantheon would demand in the coming days. She only knew that something in these walls had already begun to ask.
+
+Yara's words about Apotheosis and the vacancy had stirred something Quinn had been working to keep still. By the time she reached her chamber the quiet of the corridor felt too loud. She closed the door behind her and leaned against it, and the weight of the day settled over her shoulders, cold as the stone these walls were cut from.
 
 ⁂
 
-The morning unraveled before he reached his office.
+She had held it together for Yara. She always could, around other people. She could trade jokes about the Premiere's withdrawal symptoms and tease about laurel pins and keep her face arranged into something light, and none of it cost her anything until the door was shut and there was no one left to perform for.
 
-Remsays was halfway through the east wing when his watch signaled an urgent flag from the Archive. He took the stairs instead of the elevator and arrived to find Servitor Anwen Visse standing in the doorway of the records anteroom with the expression of someone who had been awake for too long and was bracing for a difficult conversation.
+She made it as far as the edge of the bed before she slumped onto it and started to cry.
 
-Anwen was not a young man. He had been in the Archive for almost as long as most of the current Paragon class had been alive, and he wore it without complaint, the particular steadiness of someone who had decided early that their work was worth doing carefully for its own sake. He also wore his age without the constant use of booster drafts that most servitors of his generation depended on, which Remsays had noticed the first week and had not forgotten.
+She had tried so hard these last few weeks. And life kept answering with one disappointment after another, one heartbreak after another. When would she be good enough? She had not even wanted to be here. Now she was hours from proving herself useless, from failing to illuminate so much as a teacup, after which the Lunary would surely reassign her to scrubbing the Reflection Room floors as her life's primary function.
 
-The drafts were expensive and the Republic's dispensaries made them easy to obtain, which was a combination that had a predictable effect on people with long service and flagging energy. Anwen appeared to have no interest in them. His stipend went where stipends were supposed to go. Remsays trusted him for that, among other things.
+She rolled onto her back and wiped her eyes. No use pretending she could keep from thinking about him, about the life she had been certain they would have.
 
-"Tell me," Remsays said.
+She had applied to the Magistry of Ocean first. Wanted it badly, because that was where Culver was going. She had chosen a path, or rather he had chosen it for both of them, and she had needed it to bend in exactly that one direction. The divine had planned otherwise. The rejection came without ceremony, a single formal line, and she sat with it two days before she found the courage to tell him. They had cried together. It meant their lives would separate now, the plain arithmetic of two roads forking at the same moment.
 
-"The environmental impact records from the Northwest Quadrant coastal survey. Cycles twenty-two through twenty-six. They are not in the primary archive, nor in the secondary backup, and the filing index lists them as transferred to deep storage eighteen months ago. But deep storage has no record of receiving them.
+The scholar's post at Ivory's Scriptorium had been the hard second choice. Ancient texts, transcription, research support. Nothing she had planned. She had wanted the ocean, and Culver. But reading the description of the post, something had tugged at her, a door she had never thought to try, swinging open at precisely the right moment. She applied that same afternoon and prayed while her options narrowed around her. She was not ready for Apotheosis. Not yet. Not without him.
 
-"Who authorized the transfer?"
+Culver had landed in the Northwest Quadrant, assigned to the marine sector at the Magistry of Ocean's coastal research station. Of course he had excelled. He always did. They handed him resources to test his nanobot prototypes and Paragon Command recruited him almost at once.
 
-"That is the other problem, Chief Magister." Anwen looked pained to continue. He swallowed. "The transfer authorization carries the Semper from a servitor who left the Magistry fourteen months ago. He went to Apotheosis in the winter cycle. So we cannot ask him."
+They were not far apart, as Republic distances went, and it made no difference at all. Sanctorium and Parliament servitors were not permitted to socialize, at least not openly. That was the law. The only chance she might see him was a formal function with both their institutions present, and there had been none. She had told herself she could simply stop loving him, that it would make the days lighter.
 
-Remsays stood quietly for a moment. He was not irritated, exactly, though he had every right to be. These coastal records were fundamental to the remediation modeling that underpinned at least three active Paragon projects. If they were truly gone, those projects would have to revalidate five cycles of assumptions from scratch. Months of work. More importantly, months of time.
+Weeks of trying had proven the effort pointless. She had not braced for the missing, the physical ache of being cut off from the person she had loved since she was a girl. And there was something about being here, now, on the very edge of Sol Deus Lockland's Apotheosis, steeped in all the solemnity and ceremony of the Pantheon, that pressed the ache down harder than usual. All this machinery of eternal devotion, and the one person she wanted was a quadrant away and forbidden.
 
-"Pull every transfer log from the eighteen-month window. Not just the flagged ones. Everything that touched the archive during that period. And get me the physical access logs for deep storage. Someone signed in."
+She pulled the blanket over her face. Wondered what Culver was doing at this exact moment. Whether he was struggling at all. Whether he missed her. Whether he might ever blunder his way into a position he had no business holding, the same as she had with illumination, and find himself crying alone in a stone room about it.
 
-"Yes, Chief Magister."
-
-Remsays checked his watch. Three hours until he was due at the Premiere's Quarters. "You have two hours."
-
-He worked through the access logs himself while Anwen and the archivist team ran the transfer trail. It was painstaking and largely tedious and he did it because the alternative was handing it off and waiting, and waiting was its own kind of waste. As he worked, another feeling began to move in the back of his head, quieter and more unsettling than the irritation.
-
-What if this were not an error?
-
-He turned it over. A system malfunction was unlikely. The Archive was meticulously logged and managed, and nothing like this had happened before, not in the six months he had been running the department and not in the years of records that preceded him. What was in those cycles of data that could have tempted someone, someone with high clearance, to remove them? And whoever had done it appeared to have used the identity of a man who had gone to Apotheosis over a year ago. The transfer code was his. But the man was gone.
-
-Could someone have imprinted a false Semper? Used a dead servitor's code to move through the system undetected?
-
-He let himself follow the thought for a moment longer than was comfortable, then pulled back from it. The Semper was engraved subdermally. A unique biometric code. It could not be altered or replicated, not by any process available to a civilian. He was letting the strangeness of the situation push him into conclusions the evidence did not support. The simplest answer was still a filing error. He set the thought down and kept working.
-
-It stayed at the edge of his attention anyway, which bothered him more than he wanted to admit.
-
-What emerged, after an hour and forty minutes of cross-referencing, was not the theft he had half-braced for. The records had been misfiled under an obsolete quadrant classification system that predated the current administration. They were in the archive the entire time, three index entries away from where they should have been, invisible to any automated search because the field codes did not match.
-
-Anwen found them first and said nothing for a moment, then looked up at Remsays with the expression of someone who was not sure whether to be relieved or ashamed.
-
-"Fix the index," Remsays said. "And update the standard for how quadrant codes are verified on transfer. I do not want this happening again."
-
-"Yes, Chief Magister. I am sorry for the interruption to your morning."
-
-"You flagged it immediately. That is what I want." He stood and straightened his jacket. "Send the remediated file reference to the three affected Paragon leads before midday."
-
-Remsays went to his office. He only had a short time before the lunch function. He would use the time to review the induction speech one more time. The sabotage idea was still moving somewhere at the back of his head, making him uneasy in a way he could not fully justify and could not entirely dismiss. He stood at the window with the holograph text projected at eye level and ran the words quietly in his head, watching the plaza below fill up with the morning's foot traffic, and thought about how quickly things could change.
-
-Almost time.`,
+She lay like that a while, the composited warmth of the Premiere's Biography still faint in her right hand, the hollow below her chest no smaller for all the work she had done that day. Then she wiped her face, because tomorrow started early, and she could not afford red eyes for it.`,
   },
   {
     number: 3,

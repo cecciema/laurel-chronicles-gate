@@ -524,3 +524,12 @@
 .chapter-scroll-container::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--dusky-rose) / 0.7);
 }
+
+.manuscript-dropcap::first-letter {
+  font-family: 'Cinzel', serif;
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.9;
+  padding: 0.1em 0.12em 0 0;
+  color: hsl(var(--primary));
+}
