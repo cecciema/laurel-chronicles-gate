@@ -116,6 +116,11 @@ const SampleChapters = () => {
         inPoem = false;
         return null;
       }
+      if (trimmed === "[NOEPIGRAPH]") {
+        epigraphSet = true;
+        return null;
+      }
+
 
       if (trimmed === "As They Ponder") {
         inPoem = true;

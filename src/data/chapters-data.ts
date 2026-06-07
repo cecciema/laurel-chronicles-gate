@@ -344,89 +344,226 @@ She lay like that a while, the composited warmth of the Premiere's Biography sti
   },
   {
     number: 3,
-    title: "Forum District",
-    content: `The Forum lunch was held in the Premiere's private dining room on the second floor of Premiere's Quarters, where the floor to ceiling windows looked out over Plaza de Montecito and the afternoon light came in clear and clean. Nine people around a long table: the four Magistry directors, one senior Parliament advisor, two officials from the Sanctorium liaison office, with Premiere Jude at the head, Remsays to his right.
+    title: "Remsays",
+    content: `[NOEPIGRAPH]
 
-Remsays had been seated there for six months now, and he still noticed the small adjustments people made the second Jude walked in the room. People tracked Jude without trying to, oriented toward him then the way a group of people in a cold room would orient toward the only source of heat. He had understood from early in his career that access to the Premiere was the currency that made everything else in the Forum function.
+The glass panels at the main entrance of Cannon Place caught the early light and threw it across the lobby floor in long strips, and the junior servitors at the front desks straightened when the doors opened for someone with rank. They bowed to Remsays in unison as he passed. He returned it with the barest incline of his head, precise, sufficient, enough to remind every one of them exactly who he was and no more.
 
-What Remsays had not fully anticipated was how much he would find himself studying the Premiere, trying to understand the specific quality that made a room of capable and ambitious people follow Jude with something that looked more like relief than mere deference. Remsays had spent considerable time thinking about how Jude produced this effect, because it was not simply rank or decades of tenure. It was how Jude did everything with attention, the way he gave it to whomever was speaking, without the fractional distribution that most powerful people couldn't quite suppress. When Jude was listening to you, you had the impression that your particular problem was the only problem on the continent.
+He was not trying to be cold. Anything warmer would attract unwanted attention. He had never been naive about why the girls at Cambria Academy had found reasons to walk past his study room, or why the senior officers in his first year at Parliament had found reasons to knock on his door. He had watched what happened to men who let that kind of attention become their compass. They drifted. They wanted the wrong things and made their choices around the wanting. Remsays had other plans, and a promise he had made at seventeen, and both required him sharp.
 
-Chief Peace Director Aspen Landsrae was already seated when Remsays arrived. He was around Remsays's age, perhaps a year or two older, with dark olive skin, black hair cropped close to his head, and the kind of easy, assembled handsomeness that made people want to look at him. He was broadly built, the shoulders and arms of someone who maintained his body seriously. Though Remsays had suspected, over months of working adjacent to him, that Aspen's build was likely unnaturally obtained. But to each of their own. The augment market was not illegal, only frowned upon.
+The morning unraveled before he reached his office.
 
-Aspen looked up when Remsays took his seat and offered him the smile that he gave to everyone. "Chief Magister. Good afternoon."
+While he dressed, Zeus recited the brief. Two items from the Magistry of Ocean needing sign-off before the Forum session. A scheduling note from Premiere Jude’s office confirming the Confluence meeting.
 
-"Director." Remsays set down his notes, he did not wish to engage in small talk.
+And a message from the Sanctorium that Remsays made Zeus repeat. The ascension of Sol Deus Lockland of Pantheon Ivory had been formally scheduled for the coming Ram’s Turn. In three days.
 
-The Sanctorium had sent two representatives: Lunary Kasen Welliver of Pantheon Greenwood, whose participation in these functions was routine, and Lunary Gemma Avinas of Pantheon Prisma, whose presence required a brief explanation for anyone unfamiliar. Gemma was Lunary to Sol Deus Astra, the most senior Sol Deus after Lockland, and the figure the Sanctorium was relying on most heavily to manage the Ivory transition.
+Three days. Unexpected.
 
-She was a small woman, pretty in a precise and self-possessed way, with shoulder-length blonde hair tucked neatly behind her ear and the kind of composed expression that made it genuinely difficult to tell what she was thinking at any given moment. She wore the formal Lunary robe with the silver laurel leaves pinned to her chest. Remsays had encountered her at two prior functions and had each time come away with the sense that she was paying more attention to the room than her stillness suggested. Therefore Remsays did not trust her, but he did not trust anyone currently on the Sanctorium side.
+The Sanctorium governed its own body on its own timeline and owed Parliament no preview of its decisions, but the sense around the Forum had been that the ascension was still a season away. Three days changed a great deal. Thirty days of vacancy at Pantheon Ivory beginning this week, thirty days with no seated Sol Deus before a new one was installed at the solar turn. He could already picture the status-climbers turning the problem over, working out how to profit from a fast transition.
 
-The Lockland announcement opened the formal business. Aspen dove into it immediately, with the practiced ease of someone who had been preparing his position since the news broke. He questioned with emphasis whether the thirty-day vacancy in Ivory's governance created any regulatory exposure in the eastern territories, and then, before the Sanctorium liaisons could respond, noted that the Convoy's three most recent disruptions had all occurred within the eastern corridor. He did not frame it as an accusation, but it was a fact of the Pantheon's weakness that was difficult to deflect. And offered to lend his Northeast Quadrant peace officers to reinforce the shipping routes as well as the Pantheon itself.
+He pulled up his calendar and looked at the red circle he had drawn there two weeks ago, the morning the private correspondence had arrived. Small, precise handwriting. A message of two words.
 
-"The Sanctorium has full transition protocols for a period such as this," Gemma said. Her voice was measured and unhurried, the voice of someone who had given this answer before and expected to give it again. "Ivory's own sentries are trained for exactly the kind of security that a sacred transition requires. The introduction of Magistry personnel into Ivory grounds during a sacred transition period would be seen by the faithful as an intrusion. I do not think any of us want the devotees feeling as though their grief is being policed."
+*Almost time.*
 
-"With respect, Lunary," Aspen said pleasantly, "I am not talking about policing grief, I am talking about a thirty-day window in which Ivory has no sitting Sol Deus, which is the longest unprotected window the Sanctorium has had in over two decades. The Convoy has shown a clear interest in symbolic targets."
+He had read it once, standing at his desk, and felt something move under his sternum. The faint Semper signature beneath the ink, familiar even now. He had folded the letter, locked it in the drawer, and gone back to work.
 
-A few people showed surprise at the mention of the Convoy, a rumored rebellion group that the mass has attributed the unsolved crimes to.
+He would do the same now. What he should be thinking about was the speech.
 
-"The Convoy," Gemma said, tone inquisitive rather than mocking, "Director Landsrae, am I to believe my ears that you are suggesting the Convoy is the culprit behind these so-called interruptions in Ivory's eastern regions? That is pure conspiracy, a lore in the Deep Forge that school masters tell the young children."
+Paragon Command held a recruit induction every season, and he had given this address exactly once, three months ago in the Harvest Cycle, a smaller cohort. He had prepared for it, delivered it in a room that felt too large, and come away certain he had not landed it the way he intended.
 
-Aspen spread his hands to gesture that might precisely be the case. "We cannot afford to ignore any potential piece of intelligence, not at the Magistry of Peace. We have to assume their existence until we have evidence to the contrary, because the cost the other way around is simply unaffordable."
+This induction mattered more. Not only because the cohort was larger, though it was, and not only because it opened the new cycle, though it did that too. It mattered because he had spent three months turning over what he had gotten wrong the first time. He was not nervous exactly, but he understood that the first impression a person made in a room was the one they carried a long time after, and these new Paragons would be the next generation of the Magistry’s best minds. He wanted the words right.
 
-"Regardless, Pantheon Ivory is not unprotected," Gemma sighed, not wanting to debate a rumor so she shifted strategies. Her tone with the faintest edge in it now. "Sol Deus Astra will personally oversee continuity of Ivory's operations for the duration of the vacancy. Their sentries will answer to her. I would remind this table that the Sanctorium's jurisdiction over its own grounds is not conditional."
+He was halfway through the east wing when his watch threw an urgent flag from the Ocean Archive. He took the stairs two at a time and found Llewellyn at the door of the records anteroom, fidgeting, drawn, awake too long. The record officer’s Receptive Semper guttered and skipped, worn thin.
 
-Director Atara Bode of the Northwest Magistry of Ocean set her glass down. "Sol Deus Lockland has been presiding for longer than some of the devotees have been alive. He was beloved by virtually all, not just within the Sanctorium but out here in the Deep Forge and in the Parliament as well. Our people are frightened. The Convoy, whether the rumors are to be believed or not, are still smart and sophisticated criminals. They are organized and have shown they can exploit this kind of emotional state. Director Landsrae's concern is worth taking seriously rather than routing it through protocol."
+Remsays slowed before he reached him, reading the man’s face and bracing for the worst.
 
-"I am not routing it through protocol," Gemma said. "I am routing it through the law."
+Llewellyn was not young. He had been in the Archive longer than some of the current Paragon class had been alive, steady and reliable across every one of those years, and he carried his age mostly without the booster drafts most servitors of his generation leaned on. The drafts were cheap to obtain from the Magistry of Cure’s dispensaries and easy to come to depend on, and Llewellyn had simply never bothered.
+
+He set a hand on the old man’s arm, warm and deliberate, and let a thin pulse of his own vibration move through the contact, just enough to steady the tremor without crowding it. Llewellyn’s erratic frequency settled a fraction under his touch. “Tell me.”
+
+Llewellyn swallowed. “The environmental impact records from the Northwest Quadrant coastal survey. Rotations twenty-two through twenty-six. They are not in the primary archive, nor the secondary backup. The filing index lists them transferred to deep storage eighteen days ago. But deep storage has no record of receiving them.”
+
+“Why transfer active experimental records to deep storage at all. Who authorized the transfer?”
+
+“That is the other trouble, Chief Magister.” Llewellyn dabbed sweat from his forehead with his sleeve, and it plainly pained him to continue. “The transfer authorization carried the codice of a servitor who left the Magistry a year ago. She went to Apotheosis in the last Siren Cycle. So we cannot ask her.”
+
+Remsays stood still a moment, then began to pace the hallway in slow, even strides. Not irritated, exactly, though he had the right to be. The coastal records underpinned the remediation modeling for at least three active Paragon projects. If they were truly gone, those projects would have to rebuild five rotations of assumptions from nothing. Months of work. Months of time.
+
+But it was impossible. He had updated the Archive’s security algorithm himself. Codice was sub-dermal, biometric, biologically unique. It could not be forged, copied, or used after death. Not by any process that existed in Solterra.
+
+He ran a hand over his hair, calmed his breathing, and came back to stand in front of the old officer.
+
+“Hold still for me.” He placed two fingers on Llewellyn’s shoulder.
+
+Llewellyn went rigid, because he knew what was coming.
+
+Remsays closed his eyes. Slowly, he pushed thin strands of his Adaptive core outward, a calibrated reach, his vibration narrowing to a point and driving inward through the hand still resting on Llewellyn’s shoulder, threading past the surface of the man and into the places a person keeps things.
+
+Llewellyn’s breath caught. It was nothing like the annual physical, where a Cure technician brushed your frequency and noted the readout. This was a cold sweep through the private rooms of a person’s heart, every corner turned over without asking.
+
+*What are you not telling me.*
+
+Llewellyn made a small sound. His Receptive base had nothing to brace with, no wall to raise, and the Adaptive Semper moved through him unobstructed, turning over everything it passed. His watery eyes filled. “I am not hiding anything, Chief Magister.” The words came thin and wet. “I have not betrayed Paragon Command. Please.”
+
+Remsays held it a beat longer, until he was certain, and then drew the reach back out evenly, the way you withdraw a blade rather than yank it. He left the hand where it was, gentled the pressure, gave the shoulder one brief steadying press. “I’m sorry. It had to be done.”
+
+Llewellyn sagged, drained, but nodded. He did not resent it. He had served long enough to know the Chief Magister never means to harm, only to get to the truth.
+
+“A filing error, then.” Remsays’s voice came low and certain, though he did not believe it. “Pull every transfer log from the twenty-day window. Not only the flagged ones. Everything that touched the Archive in that period. Get me the physical access logs for deep storage. Put the whole team on it.” He paused. “And have Noah prepare a full personnel file on the ascended servitor.”
+
+“Yes, Chief Magister.”
+
+He checked his watch. Three hours until the Confluence at the Premiere’s Quarters. “You have two hours.”
+
+Remsays worked the access logs himself while Llewellyn and the team ran the transfer trail. Tedious, painstaking, and he did it anyway, because the alternative was handing it off and waiting, and he did not wait well. As he worked, the other feeling moved at the back of his skull, quieter than irritation and far worse.
+
+What if it was not an error.
+
+He turned it over. A system malfunction was extremely unlikely. The Archive was meticulously logged and managed to the letter, and nothing like this had happened in the six months he had run the department or in the years of records before him. What sat in those rotations that could tempt someone with high clearance to lift them. And whoever had done it used the identity of a woman a year gone to Apotheosis. Her codice, but the woman was gone.
+
+He followed the thought a little past comfort. Codice was lasered onto the forearm at birth, bound to the DNA of the one who carried it and no other, degrading the moment Semper left the body. It could not be altered or replicated. Not by a civilian, not by anyone, really. He was letting strangeness push him toward conclusions the evidence would not hold.
+
+The simplest answer was a coding error. He set it down and kept working.
+
+It stayed at the edge of his attention regardless, which bothered him more than he would have admitted aloud.
+
+What surfaced, after an hour and forty minutes of cross-referencing, was anticlimactic. The records had been misfiled under an obsolete quadrant classification that predated the current administration. They had been in the Archive the entire time, three index entries from where they belonged, invisible to any automated search because the field codes did not match.
+
+Llewellyn found them first. He said nothing for a moment, then looked up with relief and embarrassment both.
+
+“Fix the index,” Remsays said, already straightening his jacket. “And revise the standard for how quadrant codes are verified on transfer. I don’t want this again.”
+
+“Yes, Chief Magister. I’m sorry for the interruption to your morning.”
+
+“You flagged it the moment you saw it. That is exactly what I want from you.” He met the officer’s eyes and let the warmth land, because the man had earned it and was still frightened. “Send the remediated reference to the three affected Paragon leads before midday. Go home after. You’ve been awake all night.”
+
+Llewellyn nodded, lighter now, the problem solved as far as he could see it. Remsays watched him go.
+
+A filing error explained where the records had gone. It explained nothing about how a dead woman’s codice had authorized their transfer. Two separate problems, and Llewellyn had only ever been looking at one.
+
+A codice did not reactivate. *It could not.* And one had. That was not a clerical mistake and it was not paranoia. It meant that somewhere between a dead woman’s forearm and a transfer log in his Archive, something existed that the entire architecture of the Republic said could not exist.
+
+He would not be saying any of this to Llewellyn. Llewellyn would only lie awake with it, and he had done nothing to deserve that. Noah, at least, would understand the difference.
+
+He turned and walked toward his office in the upper east wing. Not much time before the Confluence. He stood at the window with the induction speech projected at eye level, ran the words quietly in his head, watched the plaza fill with the day’s foot traffic, and could not for one moment stop turning over the dead woman’s codice.
+
+He hated loose ends. He would get to the truth.
+
+⁂
+
+The meeting was held in the Confluence Room on the second floor of the Premiere’s Quarters, where the floor-to-ceiling windows looked out over Plaza de Montecito and the afternoon light came in clear and clean.
+
+Chief Peace Director Aspen Landsrae was already seated when Remsays arrived. He was around Remsays’s age, perhaps a year or two older, with dark olive skin, black hair cropped close to his head, and an easy handsomeness that made people want to keep looking. Broad and muscular, though Remsays had suspected, over months of working adjacent to him, that the build was augmented, Clear Tonic and careful maintenance. The man wore it well.
+
+Aspen glanced up as Remsays took the seat beside him and offered the same assembled smile he gave everyone.
+
+“Chief Magister of Paragon Command.” The voice was low, pleasant. “Good afternoon.”
+
+“Director.” Remsays set down his notes and did not invite further conversation.
+
+The Sanctorium had sent only two. Lunary Kasen Welliver of Pantheon Greenwood, whose attendance at these functions was routine, and Lunary Gemma Avinas of Pantheon Prisma, whose presence wanted a word of explanation for anyone unfamiliar, since Sol Deus Astra had overnight become the figure the Sanctorium was leaning on most heavily to manage the Ivory transition.
+
+Small, blonde, self-possessed. Silver laurel leaves at her collar for her Lunary station, pinned to a forest-green robe. Remsays had met Gemma twice, and each time he came away certain her calmness was a weapon. He did not trust her. Then again, he trusted no one on the Sanctorium side.
+
+Premiere Jude came in with Director Atara Bode of the Magistry of Ocean, Northwest Quadrant, his head bent toward her, giving her his whole attention as they crossed the room. Atara was flushed by the time she sat. Not an uncommon effect of close proximity to the Premiere.
+
+Jude did not take his chair right away. He stopped at the head of the table and looked around at all of them, unhurried, and said, “Thank you for coming on a heavy morning. I know where your minds are. Mine is there too.” He let that sit a moment, and somehow the whole room felt addressed individually, each person privately certain the Premiere meant them.
+
+Remsays counted the room out of habit. Eleven around the long table. Six Magistry directors, one senior Parliament advisor, the two from the Sanctorium, Jude at the head, himself at Jude’s right. Six months into the role and still aware of the small involuntary shifts that went through a room the instant the Premiere entered it. People tracked Jude even as they tried not to, bodies turning toward him like iron filings to a magnet.
+
+Remsays had learned early that access to the Premiere was currency. What he had not expected was how often he caught himself studying the man, trying to name the exact quality that made capable, ambitious people lean toward him as though a moment of his attention could warm the blood in their veins.
+
+Sol Deus Lockland’s ascension opened the meeting. Everyone said the correct things about the loss to the Republic, and once enough time had passed that the room felt it had paid its respects, the talk turned practical. Aspen went in at once, smooth as ever, raising the vulnerability the thirty-day Ivory vacancy posed to the collective peace. His concern sounded reasonable. Reasonable enough to cover the fact that he was already positioning Magistry of Peace officers outside Pantheon grounds to reinforce the eastern shipping routes.
+
+Before the Sanctorium liaisons could answer, Aspen added that the three most recent disruptions had all fallen within the corridor between Pantheons Greenwood and Ivory, Sanctorium jurisdiction, and that the cost of the lost transit was borne by Parliament alone. He did not frame it as an accusation. But it was a plain fact of the Pantheons’ weakness, and a costly one, and it gave him an official reason to be concerned and an official reason to supplement the Sanctorium’s security.
+
+Remsays followed it with half an ear while the low, steady vibration of Jude’s Connective brushed against his Adaptive core. He kept his face still. The sensation settled low in his gut, familiar but unwelcome. Jude’s frequency never demanded. It invited. And every person at this table but Remsays had long since accepted the invitation.
+
+Aspen was a fine orator and usually left a room with what he came for. His voice stayed even until his gaze slid to Lunary Gemma. Then he paused and gave her the floor.
+
+“The Sanctorium has full transition protocols for a period such as this,” Gemma said, measured and even. But Remsays caught the faint color that rose along the line of her throat as Aspen leaned in and fixed his attention on her. “Ivory’s own sentries are trained for exactly the security a sacred transition requires. The introduction of Magistry personnel onto Ivory grounds during such a time would be read by the faithful as an intrusion. I do not think any of us want the devotees feeling their grief is being policed.”
+
+“With respect, Lunary,” Aspen said pleasantly, “I am not talking about policing grief. I am talking about a thirty-day window in which Ivory has no sitting Sol Deus, the longest unprotected stretch the Sanctorium has had in over two decades.” His eyes stayed on her a fraction too long. “The Convoy has shown a clear interest in symbolic targets.”
+
+A few people startled at the word Convoy, the rumored rebellion the masses had pinned every unsolved crime on.
+
+“The Convoy of Reformation?” Gemma said, curious rather than mocking. “Director Landsrae, am I to believe my ears, that you are naming the Convoy as the hand behind these so-called interruptions in Ivory’s eastern regions? That is pure conspiracy. Lore from the Groves that schoolmasters frighten children with.”
+
+Aspen spread his hands, the gesture suggesting it might be exactly the case. “We cannot afford to ignore a piece of intelligence, not at the Magistry of Peace. We have to assume their existence until we have evidence otherwise, because the cost of being wrong the other way is simply unaffordable. I only mean to offer our help. Not to dictate the path we choose together.”
+
+Gemma’s lips curved, small and sharp. “And yet here you are, installing Magistry personnel to patrol sacred ground during a transition. How generous. One might almost think you were looking for an excuse to step inside Pantheon Ivory.”
+
+Aspen’s gaze dropped to her mouth for the space of one breath, then lifted. “One might almost think you were afraid I’d see something I shouldn’t.”
+
+The Premiere let it pass with faint amusement. He had chaired a great many meetings and knew the difference between heat that mattered and heat that did not.
+
+“Regardless, Pantheon Ivory is not unprotected,” Gemma said, looking away from Aspen, unwilling to argue a rumor and shifting her ground. An edge came into her tone now. “Her Sovereigncy Sol Deus Astra of Pantheon Prisma, and might I remind the table that Prisma is sister Pantheon to Ivory, and that Sol Deus Astra was herself trained by Sol Deus Lockland, will personally oversee continuity of Ivory’s operations for the length of the vacancy. She studied at Ivory. She knows its inner workings intimately. Ivory’s sentries will answer to her. I would also remind this table that the Sanctorium’s authority over its own grounds is not conditional.”
+
+Director Atara Bode set her glass down. “Sol Deus Lockland has presided longer than some of the devotees have been alive. He is beloved. Not only inside the Sanctorium. Out there across all four Quadrants, and here in Parliament too. Our people are anxious. The Convoy, rumor or not, are clever and organized criminals, and they have shown they can exploit exactly this kind of feeling. Director Landsrae’s concern deserves to be taken seriously, not simply routed through protocol.”
+
+“I am not routing it through protocol,” Gemma said. “I am routing it through the law.”
 
 Director Matos Wittaker of the Southeast Magistry of Stars made a sound in his throat that was not quite agreement and not quite objection.
 
-Aspen turned to him slightly and said amiably, "I think what Director Wittaker is suggesting is that the law and the current threat landscape may not be perfectly calibrated to one another."
+Aspen turned to him a little and said amiably, “I believe what Director Wittaker means is that the law and the current threat landscape may not be perfectly calibrated to one another.”
 
-"Director Landsrae is an excellent interpreter of my silences." Matos said drily.
+“Director Landsrae is an excellent interpreter of my silences,” Wittaker said dryly.
 
-A few people at the table suppressed a snicker.
+A few people around the table smothered a laugh, and Jude let himself smile with them, which made the laughter feel permitted, and warmer for it.
 
-Premiere Jude had let the conversation run, which was how he always operated: giving the table enough time to reveal what it actually thought before he shaped it. He cleared his throat. "The Sanatorium's jurisdiction over Ivory's grounds is not a question before this table." He said it without looking at Aspen. "What is before this table is whether the Parliament has an obligation to offer additional support to the surrounding eastern territories during the transition period, which is a different conversation entirely and one I am happy to have. I will call on Sol Deus Astra as well as Lunary Carmela of Ivory directly to understand what, if anything, would be welcome from the Parliament's side. What matters to me is that the citizens feel steady during the changeover. Our role is to be present and visible and to continue our work without too much commentary on the succession itself. It isn't our place to do so."
+He had let the whole exchange run, which was how he always worked, giving the table room to show what it actually thought before he shaped it. Now he leaned back.
 
-There was a visible easing of tension in Lunaries Gemma and Kasen. Gemma said nothing, but she unfolded her hands.
+“The Sanctorium’s jurisdiction over Ivory’s grounds is not a question before this table.” He said it without looking at Aspen, and without any sting, so that it landed as a fact rather than a rebuke. “What is before this table is whether Parliament has an obligation to offer additional support to the surrounding eastern territories during the transition. That is a different conversation, and one I am glad to have. I will call on Sol Deus Astra tomorrow, and on Lunary Carmela of Ivory directly, to learn what, if anything, would be welcome from our side.” He looked down the table, taking each of them in turn. “What matters to me is that our citizens feel steady through the change. Our work is to be present, to be visible, and to carry on without too much noise about the succession itself. That part is not ours to narrate.”
 
-"Regarding the Convoy rebellion," Jude continued, glancing briefly at the table as a whole, "is a matter I want elevated to a separate briefing. Aspen, I want a full incident summary on my desk before the end of the week."
+The tension eased visibly down the length of the table. Gemma’s shoulders came down, though the color in her face lingered. Aspen’s gaze flicked to her one last time before he set his expression back to professional warmth.
 
-"Yes sir." Aspen's tone agreeable as always.
+It was a small thing, but Remsays noticed it every time. Jude could take a room that had been pulling in four directions and, with a few sentences and no apparent effort, leave everyone in it feeling they had been heard and were on the same side. People did not merely defer to him. They wanted his good opinion. They left his meetings lighter than they came.
 
-Jude's eyes moved to Remsays. "The Paragon induction this afternoon."
+“As for the Convoy rebellion, or Reformation. Whatever they are calling themselves this season.” Jude went on, glancing around at the table, and a couple of people smiled at the dryness. “I want this elevated to a separate briefing. We do not ignore a rumor of threat if there is something we can do about it. A rumor spreads like wildfire through the Quadrants, and frightened citizens should not be left to reason it out alone. That is what we are for.” His eyes moved to Aspen. “A full incident summary on my desk before the end of the day.”
 
-Remsays looked up from his notes.
+“Yes, sir.” Aspen, agreeable as always.
 
-Jude continued, "What is your read?"
+With that settled, Jude turned to Remsays. “The Paragon induction. Two days out.”
 
-"A good day for it," Remsays said. "The recruits chose to be here and were chosen to be here. On a day when everyone is thinking about what comes after, I would rather they leave the Forum feeling purposeful."
+Remsays looked up from his notes and met his gaze. “Sir.”
 
-Jude nodded once, and looked at Remsays for a moment with an expression that was not quite paternal but on the same spectrum, something that said he was pleased and not surprised to be pleased.
+“What’s your read on it?”
 
-The rest of the lunch moved through its business without incident. Director Tekin Alimetry of Northwest Magistry of Cure raised the quarterly booster draft allocation figures, which produced a brief technical discussion Remsays participated in a precisely as much as was necessary. Atara and Aspen argued mildly about an observatory budget line - equipment vs. surveillance. Remsays offered a proposed reallocation that resolved the dispute without requiring either of them to concede, and the table moved on.
+“A good day for it,” Remsays said. “The recruits are chosen to be here. On a morning when everyone will be thinking about what comes after, I would rather they walk out of the Forum feeling there is something worth staying for.”
 
-Walking out after, Aspen fell into step beside him before Remsays had reached the stairwell,
+Jude considered that, and a slow warmth came into his expression. “You know, the year I was inducted into Parliament service, the man who swore us in spent his whole address telling us how many of us would wash out by winter.” He shook his head, amused at the memory. “I have remembered it for twenty-five years, and not fondly. Give them the other thing, Remsays. They will carry whatever you hand them a long time. I have proof.”
 
-"Well done in there, Remy." He said it easily, the warmth already assembled. "You're getting good at this."
+“I intend to,” Remsays said.
 
-Remsays thanked him. He had, in the early months of his tenure, entertained the idea that he and Aspen might become friends. They were close in age, in rank, and had both risen faster than most people around them thought was appropriate for their years. But Remsays had noticed quickly with disappointment, that Aspen flattered everyone in his path and delivered the flattery with the same sincerity regardless of who was on the receiving end. It was not dishonesty exactly, but Remsays found it exhausting in practice.
+“I know you do.” Jude held the look a moment, and it was not quite paternal but on the same spectrum, pleased, and unsurprised to be pleased, threaded with a quiet approval that tightened Remsays’s chest in spite of himself. He hated how good it felt, and he could not entirely explain why a word from this particular man landed where almost nothing else did. “I have watched a few people sit in that chair you are in. Most of them spend the first year deciding what they want from it. You are the rare one who arrived already knowing.” He let that rest, then added, lighter, “It makes you very restful to sit beside. The last three people in your chair did not have the gift, and our meetings ran twice as long for it.”
 
-"Do you mind if I come to the induction ceremony?" Aspen asked, in the light tone of someone who had already decided to come.
+The rest of the Confluence moved through its business without incident. Director Tekin Alimetry of the Northwest Magistry of Cure raised the quarterly booster draft allocation figures, which set off a short technical discussion Remsays took part in as needed. Atara and Aspen argued mildly over an observatory budget line, equipment against surveillance, and Remsays offered a reallocation that resolved it without making either of them concede. The table moved on.
 
-Remsays looked at him. "Are you already making moves on my people before they've finished their first day?"
+Walking out after, Aspen fell into step beside him before Remsays reached the stairwell.
 
-Aspen smiled with his whole face. "Just want to see the new talent. I want to feel hopeful for the Republic's future."
+“Well done in there, Remy.” The nickname landed soft, familiar. Aspen’s hand brushed his shoulder once, firm and brief. “You’re getting good at this.”
 
-There was no politically sound way to decline. Paragon recruits were permitted to transfer if their talents served another Magistry better. And Remsays felt he had nothing to hide from a man he simply did not entirely trust.
+“I had a quiet meeting handed to me,” Remsays said. “You did the actual sparring.” He let a dry edge in. “With the Lunary, especially. That was a great deal of security strategy for a woman you spent the whole hour looking at. If you wanted an invitation onto Ivory grounds, there were cheaper ways to ask than deploying half your officers.”
 
-"Then you are welcome," Remsays said. "Tone your charm down a notch. I don't need the new recruits fanning over the almighty Aspen Landsrae just yet."
+Aspen laughed, unembarrassed, delighted to have been caught. “I contain multitudes.”
 
-Aspen laughed throatily, which was the sound of someone who had been told a version of this before and found it more delightful than chastening. He clapped Remsays once on the shoulder with firmness.
+In the early weeks of his tenure Remsays had entertained the idea that he and Aspen might become friends. They were close in age and rank, both risen faster than most people thought seemly for their years. But Remsays had noticed early, with some disappointment, that Aspen flattered everyone in his path and delivered each flattery with identical sincerity, whoever stood at the other end of it. Not dishonesty exactly. Just exhausting in practice.
 
-Remsays continued up the stairs and put the conversation behind him. He had forty minutes before he needed to be in the induction hall. He would use them to go over the speech a final time.`,
+“Mind if I sit in on the induction?” Aspen asked, already smiling as though the answer could only be yes.
+
+Remsays looked at him, grey eyes narrowing. “Are you making moves on my recruits before they’ve finished their first day?”
+
+Aspen’s grin widened. “Only want to see the new talent. I like to feel hopeful for the Republic’s future.”
+
+There was no politically sound way to decline. Paragon recruits could transfer if their talents fit another Magistry better, and Remsays had nothing to hide from a man he simply did not entirely trust.
+
+“Then you’re welcome,” he said. “Tone the charm down a notch. I don’t need the new blood swooning over the almighty Aspen Landsrae before they’ve sworn in.”
+
+Aspen laughed, finding the words far more delightful than chastening, and clapped him once on the shoulder.
+
+Remsays went on up the stairs and put the conversation behind him. His mind returned to the dead woman’s codice.`,
   },
+
   {
     number: 4,
     title: "Paragon Command",
