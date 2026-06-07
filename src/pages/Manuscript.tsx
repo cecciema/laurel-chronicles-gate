@@ -59,7 +59,7 @@ const SampleChapters = () => {
         </h3>
       </div>
       <p className="text-center font-narrative italic text-[11px] tracking-[0.18em] uppercase text-muted-foreground mb-4">
-        {chapter.number === 1 ? "Prologue" : `Chapter ${chapter.number - 1} of ${CHAPTERS.length - 1}`}
+        {chapter.number === 1 ? "Prologue" : `Chapter ${chapter.number - 1}`}
       </p>
       <GoldDivider className="max-w-[120px] mx-auto mb-6" />
 
