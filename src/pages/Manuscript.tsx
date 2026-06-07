@@ -151,7 +151,7 @@ const SampleChapters = () => {
 
       const parts = trimmed.split(/(\*[^*]+\*)/g);
       return (
-        <p key={i} className="text-left mb-5" style={{ lineHeight: 1.8 }}>
+        <p key={i} className="text-left mb-5 not-italic" style={{ lineHeight: 1.8 }}>
           {parts.map((part, j) =>
             part.startsWith("*") && part.endsWith("*") ? (
               <em key={j}>{part.slice(1, -1)}</em>
