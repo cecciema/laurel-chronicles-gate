@@ -14,9 +14,9 @@ The corridor was lit at long intervals by candle sconces set into the stone, eac
 
 He had taken care not to wear shoes, and still his steps seemed to carry, each press of his bare feet against the cool limestone returning to him down the length of the hall.
 
-Though perhaps it was only his heart, which pounded rebelliously even after years of training. He could not count on the damn organ to behave. Its loyalty was temperamental at best. Never mind that. He had only a few minutes before the checkout procedure, and he needed to be at her door now, to see her before the ritual tomorrow.
+Though perhaps it was only his heart, which pounded rebelliously even after years of training. He could not count on the damn organ to behave. Its loyalty was temperamental at best. *Never mind that.* He had only a few minutes before the checkout procedure, and he needed to be at her door *now*, to see her before the ritual tomorrow.
 
-Her. His beautiful, too-good-for-him bride. His best friend, his person, his Aeternis. How had he gotten so lucky, to find her again in this lifetime? They would not leave it to chance again. It was time to make their connection last for all eternity, across every life that followed.
+*Her.* His beautiful, too-good-for-him bride. His best friend, his person, his Aeternis. How had he gotten so lucky, to find her again in this lifetime? They would not leave it to chance again. It was time to make their connection last for all eternity, across every life that followed.
 
 The ceremony tomorrow would form a permanent bond between Cole and his beloved. Between their souls, to be exact, for bodies were temporary, material, insignificant things. After tomorrow neither of them would ever be alone again, not even for a passing moment.
 
@@ -132,7 +132,7 @@ A single note reached him from the adjacent room. Slow, soft, melodic. A piano, 
 
 He moved toward the leather chair and the side table beside it. Crystal bottles caught the lamplight, filled with amber liquids from pale gold to dark syrup. He uncorked one and lifted it to his nose. So rich, so decadent. He poured two fingers into the tumbler and sipped. It burned going down, then smoothed everything behind it.
 
-The bookshelf was the most interesting thing in the room, built into the wall, floor to ceiling, crowded with titles. He recognized the classics at once. Then he noticed the others. The banned ones, the books that the Republic authorities had pulled from the public libraries. Ah. So this is the temptation. He drew one from the shelf.
+The bookshelf was the most interesting thing in the room, built into the wall, floor to ceiling, crowded with titles. He recognized the classics at once. Then he noticed the others. The banned ones, the books that the Republic authorities had pulled from the public libraries. *Ah. So this is the temptation.* He drew one from the shelf.
 
 The Book of Warslaw: A Collection of Poems of the King's Journey Down into the Underworld.
 
