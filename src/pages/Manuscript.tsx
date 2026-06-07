@@ -59,7 +59,7 @@ const SampleChapters = () => {
         </h3>
       </div>
       <p className="text-center font-narrative italic text-[11px] tracking-[0.18em] uppercase text-muted-foreground mb-4">
-        Chapter {chapter.number} of {CHAPTERS.length}
+        {chapter.number === 1 ? "Prologue" : `Chapter ${chapter.number - 1} of ${CHAPTERS.length - 1}`}
       </p>
       <GoldDivider className="max-w-[120px] mx-auto mb-6" />
 
@@ -258,7 +258,7 @@ const Manuscript = () => {
               <span style={{ color: "hsl(var(--crimson-wine) / 0.85)" }}>◆</span>
             </p>
             <h1 className="font-display font-bold text-xl sm:text-2xl tracking-[0.15em] text-primary">
-              Read the First Six Chapters
+              Read Season One: Prologue + Chapters 1 - 5
             </h1>
           </div>
           <div
