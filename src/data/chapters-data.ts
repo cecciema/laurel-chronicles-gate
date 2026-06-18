@@ -1167,189 +1167,318 @@ He moved to the center of the room and straightened his jacket.
   },
   {
     number: 6,
-    title: "Quinnevere",
-    content: `Quinnevere had been at Pantheon Ivory for six weeks. It still felt like someone else's life.
+    title: "Sailor",
+    content: `[NOEPIGRAPH]
 
-Her assigned tasks for the Day of Reverence were modest, the kind given to someone new enough that Carmela was still learning what she could handle. But she had not been able to sleep past the first grey light, and she had given up trying around the third hour and simply dressed and gone to the scriptorium to sit with the texts she had been working on for the past two weeks.
+“Behind you!”
 
-Ancient administrative records to be sure, written in languages that were deleted in the Language Purge. She had to build her translations from inference as much as knowledge. She found it settling, the close work, the way it required her whole attention and left no room for anything else.
+Sailor barely had time to jump off the narrow sidewalk before the electric scooter zoomed past.
 
-She had applied to the Magistry of Ocean first. She had wanted it badly - because that's where Culver was due. She had chosen a path, or rather, he had chosen the path for both of them and she needed it to go in one specific direction. Unfortunately, the divinities had something else planned for her. The rejection had arrived without ceremony, a single formal line, and she had sat with it for two days before she worked up the courage to discuss with Culver. They had cried together, because it meant their lives would now irrevocably separate - the natural result of paths that moved in opposite directions at the same moment.
+“Sorry, Sailor! I’m late for Master Rhode’s!” Grip yelled over his shoulder, already disappearing around the corner.
 
-She considered the difficult decision to apply for a scholar's position at Ivory's scriptorium. Ancient texts, transcription work, research support. Not what she had planned. She wanted to go study the ocean with Culver. But she had read the description of the scholar post and felt something tug at her. A door she hadn't considered opened at exactly the right moment. She had applied the same afternoon and prayed as her options were becoming limited. And she did not want to go through Apotheosis yet, not without Culver.
+Sailor recognized the boy’s voice and smiled despite himself. Grip was sweet, loyal, and a menace on two wheels. If he was heading to Rhode House, Captain Rickard was probably already there. Which meant Sailor’s debrief might have a bigger audience than he’d planned.
 
-Culver had ended up in the Northeast quadrant too, assigned to the marine sector out the Magistry of Ocean's research station on the coast. Of course he excelled as expected. He was given resources to test his nanobot prototypes and was immediately exacted by the Paragon Command.
+He hopped back onto the sidewalk, his package still secured under his arm, and continued toward Sanctum. The artificial sky overhead showed a clean map of constellations and satellite nodes, with a soft amber glow that was supposed to mimic night. Down here you couldn’t tell the difference anyway. Long-term Deep Forge residents moved like they belonged to the dark. And not just from their pale complexion. Strangely, it was because they seemed happier, more content. Surface agents like himself, by contrast, tended to get antsy once they’d been underground for some time.
 
-Even though they were not far from each other, as distances in the Republic went, they had no means to contact each other. Sanctorium and Parliament servitors were not permitted to socialize, at least, not openly. That was the law. The only time she may see him is if they were ever in a formal function together. She thought she could start trying to stop loving him to make the years go by easier. But six weeks had gone by and that effort was simply stupid. Still, she had not accounted for how much she would miss him. There was something particular about being here, right now, on the day of Lockland's Apotheosis, surrounded by all the solemnity and ceremony of the Pantheon, that made the missing sit heavier than usual.
+The thing nobody told you about the Deep Forge was the noise.
 
-The bell tower tolled and she closed the text she had been working on, capped her transcription tool, and went to find Carmela.
+Sailor had grown up thinking of it as the place at the bottom of everything, the great industrial underbelly where the Republic sent the work it did not want to look at, the reprocessing, the recycling, the slow churning of waste into the materials that kept the upper quadrants clean.
 
-She found the Lunary already in motion, moving through the amphitheater's outer perimeter with the focused efficiency of someone running through a memorized list and confirming it against reality. Quinn fell in beside her and said nothing. She had learned quickly that Carmela did not require commentary.
+He had somehow imagined it quiet, like the bottom of the ocean was supposed to be quiet. He had been wrong about that, as he had been wrong about most things before he came down here. The Forge never stopped. The foundries ran in shifts that did not end, and the sound of them came up through the floor of every room he had slept in for the past two years, a low mechanical heartbeat you stopped hearing only when you had been inside it long enough.
 
-It did not take long for the amphitheater to be filled and the ascendees were settled into their tiered stone seats and the sheer scale of it all made her awe in silence. Thousands of people. All of them here for the same reason, to honor the end of one's physical life and the beginning of the eternal. She did not understand all of it yet. She had spent two weeks in the archive reading about the ceremony's history and she still felt she was standing at the edge of something much larger than what she could see from where she stood.
+He had stopped hearing it months ago. That was how he knew he had become one of them. What he heard instead, when he listened for it, was the water. The faint hush of it somewhere beyond the walls, salt in the air on the lower passages, the slow exhale of the ocean against stone the Republic had no records of and no reason to look for. Sanctum sat against it.
 
-She noticed the Parliament delegation when they came through the east archway. Navy jackets in a crowd of ivory robes, a practiced formation around two figures at the center. The Premiere was easy to identify. She has seen Jude's face in broadcasts her whole life, the warm gravity of him, the way he looked like a person who had been asked to lead and had taken the order seriously.
+Sailor turned right at the same corner as Grip. He could see the city lights of Sanctum flickering in the distance. It would be faster by bike, though he did not particularly wish to arrive in a hurry. But he missed *the beauty*. So he doubled back one block to his own storage unit, unlocked the chains, and lifted the metal accordion door.
 
-The man beside him was less familiar from images and entirely more present in person. Remsays Lavigne, the Chief Magister. Tall, broad, sandy hair. Not as large as Culver but no mistaking him for less powerful. He had a way of moving that was deliberate without being slow. Even from a distance she could see him taking in the amphitheater, intense and purposeful.
-
-That is who Culver is reporting to now. Her heart skipped a beat at the thought. She tore her gaze away from the Chief Magister, unsure what was causing the tightness in her chest.
-
-After the morning blessing, after Sol Deus Lockland had spoken and Carmela had read from the scripture and the processional hour had moved the ascendees through their first passage of the day, Carmela appeared at Quinn's shoulder and said: "The Premiere has requested a meeting. You will attend and take notes."
-
-"Of course." She followed behind Carmela.
-
-The meeting was held in a reception room off the main corridor, a long table, old stone walls hung with tapestry, the kind of room that had been receiving important visitors for a very long time. When Quinn entered behind Carmela, everyone was already seated. Premiere Jude at the far end, open-faced and attentive. Sol Deus Astra of Pantheon Prisma to his left, composed and precise, the kind of stillness that was not absence but control. Beside Astra, Lunary Gemma sat slightly forward and alert. And to Jude's right shoulder, standing rather than seated, was the Chief Magister.
-
-Up close he was more straightforwardly handsome than she had prepared herself for. His eyes locked on hers, noticing her noticing. She quickly looked down and felt her cheeks burn.
-
-Carmela took her place at the near end of the table and set the scripture box down.
-
-"Premiere, Sol Deus Astra. Thank you for honoring Sol Deus Lockland with your presence today."
-
-"The honor is ours," Jude said. Sincerity sitting naturally on a man who had every reason to perform it instead. "Lockland served Solterra with distinction for a very long time." His eyes moved to Quinn with pleasant inquiry of a man who made a practice of noticing everyone in a room.
-
-"This is Quinnevere," Carmela introduced. "She's a talented scholar newly assigned to Ivory's scriptorium. She has been assisting with today's preparations. I'm afraid I've been leaning on her quite heavily." Carmela smiled at Quinn. And for the first time Quinn felt she could breathe in this room full of high ranking officials.
-
-"Quinnevere, what a pretty name." Jude's eyes crinkled as he smiled. "It's a pleasure to meet you."
-
-"Thank you, Premiere." She kept her voice even. She wasn't sure how exactly to address him, she almost did a curtsy. She was also aware, without looking at him directly, of the Chief Magister's gaze moving briefly to her face.
-
-Jude expressed Parliament's confidence in the stability of the transition. He noted that he was looking forward, with what seemed like genuine curiosity, to learning who the divine had chosen as the next Sol Deus. "One of the few genuine surprises left in this work," he said. "The Sanctorium keeps its counsel well."
-
-"That is rather the design," Astra said, "you will find out when the time is right."
-
-Jude laughed. Real, unguarded. "So it is."
-
-He then confirmed Parliament had increased its presence along the eastern shipping routes for the duration of the transition. Trade would not be disrupted. Any criminal activity would be met with immediate enforcement. Carmela received this with quiet relief.
-
-Astra turned toward Remsays. "Chief Magister. I hope you will forgive a question that falls somewhat outside today's occasion." Her voice was measured. "I was sorry to hear about the disruption at the Paragon induction. A troubling event. Is Director Landsrae badly wounded?"
-
-"He is recovering." Remsays replied, after a pause. "The situation is contained. The individual responsible is in our custody."
-
-"Of course." Astra nodded slowly, emphasizing her empathy. Then she looked up as if a new thought just popped into her head. "And the investigation, is Parliament satisfied with its progress?"
-
-"It is still ongoing. But I'm afraid I'm not at liberty to discuss the details of an active investigation." He kept his tone courteous. "I do appreciate the Sanctorium's concern."
-
-"Have you found out who he is working for?" Gemma asked.
-
-"He has not said." Remsays narrowed his eyes, and held his gaze at Gemma.
-
-Jude tilted his head slightly toward Astra, the ease of a man among people he had known for a long time. "Have the Pantheons experienced anything of a similar nature recently? Any security concerns we should be aware of?"
-
-"Nothing of that kind." Astra said.
-
-"Nor at Ivory." Carmela added.
-
-Jude nodded, seemingly satisfied.
-
-"I will say," Remsays continued, measured, "that my team expects to get considerably more out of the man in custody in the coming days. We shall identify his true master before long."
-
-It was a small thing. A fraction of a second. Astra's eyes moved to Gemma and Gemma's moved back. A brief closed circuit. There and gone before anyone who was not already watching for it.
-
-Remsays had been watching for it.
-
-The meeting concluded shortly after. Jude thanked Carmela for Ivory's hospitality and rose, easy and unhurried. Astra and Gemma departed with quiet efficiency.
-
-Remsays spoke before he and Jude reached the door. He addressed Carmela directly.
-
-"Lunary. I hope this won't seem unusual, but I would like to extend an invitation. To you and Quinnevere both, to my office at the Parliament for tea, at your convenience. Ivory's perspective on the transition period would be valuable to the Parliament, and I find that kind of conversation is easier outside a formal setting."
-
-"That is very kind," Carmela said. "We would be happy to."
-
-"I'll have my assistant send the date." He glanced at Quinn once, brief and professional, the glance of a man confirming a practical arrangement. Then he follows Jude into the corridor.
-
-Outside in the corridor, Quinn could hear the Premiere's voice carrying through the stone, lower now, easier.
-
-"Remy."
-
-A pause.
-
-"A beautiful woman is not a problem to be solved. She is simply a beautiful woman.
-
-There is no rule against having eyes." Jude's voice carried farther than he realized.
-
-Another pause.
-
-"She's lovely," Jude continued, with the particular patience of a man who had been saying wise things for a very long time, "there is also no rule against a paramour. In case you had forgotten. It's not a scandal. It is simply life."
-
-She could not hear what Remsays said in return. If he said anything at all.
+The silver beauty was there, waiting patiently. Sailor ran his fingers along the supple leather, feeling the faint remnants of Semper residue from his last mission. The adrenaline had left its marker like a perfume, vibration baked into the grain. He swung a leg over and revved the engine. The roar of it drew passersby to turn toward him. He clicked his helmet shut, secured the package on his back, and rode off toward the inner city.
 
 ⁂
 
-Walking with Jude, Remsays was not thinking about Quinn. He was thinking about Gemma.
+Rhode House was four levels down from the main thoroughfare, in a section of the old conduit district that the Republic’s surveillance had written off as structurally unsound and stopped monitoring decades ago. The conduits themselves were older than the surveillance system that had abandoned them. Older than the Republic. Sailor had stopped noticing the carvings cut into the stone along the lower passages, the long lines of a language nobody he knew could read. The Republic had spent three centuries scrubbing such things from the surface. Down here they remained.
 
-He waited until they had passed the archway and the noise of the amphitheater grounds had risen enough to cover the conversation before he spoke.
+A few hundred people lived in Rhode House at any given time, more when an operation was staging, fewer when the leadership scattered them across the other houses to keep the numbers from concentrating. Tonight it was full. There had been an operation few days ago and the crews were back and the common room had the loose, over-tuned energy of people who had done something dangerous and gotten away with it.
 
-"Premiere. The Prisma Lunary."
+Sailor came down the access stairs with his Semper already pulling at him whenever there were this many people in one room. He had never learned to fully close it. Some advanced Projective types could, could draw the broadcast in, keep it tucked against the body, release it only when they chose. His had never worked like that. Whatever he felt went into the room whether he wanted it there or not, and right now what he felt was tired and uneasy, and he could see it landing on the people nearest the stairs before he had said a word to them, a faint dimming of their good mood as he passed. He felt guilt over it, and would spend more time training to control his Semper.
 
-"Gemma? What about her?"
+He went directly to his sponsor’s office.
 
-"She knew about the attacker." He kept his voice even. "I did not share that it was a man, but she already knew."
+“Sailor.” Iger looked up from the ledger he was reading, adjusting his glasses. “We were starting to think you’d defected back to the surface.”
 
-Jude was quiet for a moment. Around them the peacekeepers maintained their formation with practiced inattention.
+“Still here.” He pulled out the chair across from him and sat down. “Where’s Daniel? I need to file the route report before the leads meet.”
 
-"You may be overthinking it," Jude said, carefully, not entirely dismissing what he was hearing. "Information travels to here the same way it travels anywhere. Sanctorium leadership has eyes in Parliament the same way we have eyes in here. Astra has sources."
+“Daniel’s asleep. You can give it to him in the morning, the leads aren’t meeting till second shift.” Iger pushed a tin cup toward him, and took a swig from his own. There was something in it that the Forge brewed out of fermented grain mash and called liquor, and that Sailor had learned to drink because refusing it marked you as someone who still thought of themselves as separate. “Sit. You look like the surface chewed you up.”
 
-"Astra asked the question. But Gemma already knew the answer."
+He drank. It was terrible, as it always was. The warmth came up behind it anyway.
 
-"It's your call," Jude said after a moment, "I trust your judgment. I'd just advise care. The Sanctorium is not the Parliament. The rules of engagement are different."
+“You hear what happened in the Parliament?” Sailor said, sliding a slate across the desk. “Earlier today. Somebody hit Paragon Command. Middle of an induction ceremony, full of new recruits, the Chief Magister himself in the room.”
 
-Remsays nodded once. He had already decided. The tea invitation had been a momentary impulse that had clarified into strategy in three seconds. If Gemma's reach extended into Paragon Command's classified security operations, then Remsays wanted the same reach the Pantheons.
+Iger’s brows furrowed. “One of ours?”
 
-Furthermore, there was still the archive matter, sitting unresolved at the back of his mind: 5 cycles of missing data, a dead man's Semper. He had been turning it inside his mind and he needed someone with access to the Sanctorium's Apotheosis records who might be persuaded, over tea, to help him answer a question without knowing they had answered it.
+“That’s the thing.” Sailor did not look up from the slate. “No. Not one of ours.”
 
-There was an opportunity here at Ivory while there is no sitting Sol Deus. Carmela was reliable, measured, and capable of discretion. Remsays needed a foot inside the Pantheon, and he would have one shortly.
+“You’re sure? Could be a different squad.”
+
+Sailor shook his head. “I’m quite sure. I move every eastern crew that’s active and I’d know if anybody was anywhere near the Forum District, and nobody was. More than that,” he turned the slate so Iger could see it, though the markings meant nothing to him. Iger was not a mission man. His main responsibility had always been to keep track of their fuel and food supplies. But Sailor appreciated the old man’s interest. And Sailor knew that these conversations kept the old man feeling relevant. “The leads are sure. That’s part of why they came down tonight. Somebody also hit the surface two days ago and left it dressed up to look like us.”
+
+Iger leaned back slowly. “Left it how.”
+
+“There was a marker. The V. Burned into the ground at the scene, plain as anything, where the surveillance would be sure to catch it. We don’t do that. You know we don’t do that. We have never once left a signature at something that hurt people. Somebody who knows how we work wanted the surface to believe we’d gotten sloppy and violent at the exact moment Ivory is about to go dark.”
+
+“Who.”
+
+“That,” Sailor said, turning the slate back, “is the right question. Somebody wants a war between the surface and the Convoy, and they want it now, and they are willing to spend the lives of a room full of new recruits to start it.”
+
+Iger removed his glasses and rubbed his eyes. “Boy. You have a lot to report tonight.”
+
+Sailor took a swig of the liquor. “God, this batch is terrible. I need to eat. Join me in the dining commons?” He rose from his seat.
+
+“No, you go. I need to finish up reviewing the ledger.” Iger said. “Keep up the good work, Sailor. I’m proud of you.”
+
+Sailor smiled at the old man. “I wouldn’t let you down. You know that. You saved my life.”
+
+Iger batted the air. “Bah, no such thing. You just needed a hand.”
+
+Sailor gave a nod and closed the door behind him.
 
 ⁂
 
-Two days later, Remsays's assistant Alexei knocked once and opened the door.
+Sailor went through the kitchen, thinking how to sweet-talk the baker out of a couple extra honey rolls. When he got there, he was disappointed to find the kitchen closed. So he went into the main dining hall and found his friends Kira and Elucien. They weren’t alone.
 
-"The Sanctorium visitors are here, sir."
+There were four of them at the table. Marc, who ran logistics for the western routes and had been in the Convoy longer than almost anyone, long enough that he had served under the man before the Admiral, the one whose name the senior operatives still said quietly and the junior ones had been told not to ask about. Kira and Elucien, who had come down together from the agricultural districts two years ago and were the closest thing Sailor had to friends in the house. A new one, a girl named Tinsle, who could not have been more than seventeen or eighteen and who watched the room with wide-eyed attention.
 
-He set down the report he had been reading. "Send them in. And please have chef bring up the tea." He rose to greet them at the door.
+They were talking about Apotheosis. They were always, eventually, talking about Apotheosis.
 
-It was Gemma who walked in first. Smiling her signature smile. Quinn followed a step behind. She was wearing a rose-colored dress that suited her.
+“You’re back.” Elucien spotted him first, stood, and gave him a hug.
 
-"What a pleasure, Lunary Gemma." Remsays did not skip a beat. He nodded at Quinn.
+“We thought you were dead. Or captured.” Kira made a face and tossed a honey roll at him. “Saved you one.”
 
-"I apologize on behalf of Lunary Carmela. She was called to an urgent matter with the council this morning. She sends her regards and asked me to accompany Quinnevere in her place." Gemma's delivery was gracious, but she did not seem sorry at all.
+“What would you have done with it if I hadn’t come back?” Sailor asked, chewing. Oh, sweet God, the roll was perfection.
 
-"Please, come in." He led them through the adjoining door into the sitting room and gestured toward the leather sofas. His mind was already working through the adjustment. Gemma was Astra's. That much was certain. She was here because Astra had wanted ears in this room, which meant Astra was more interested in what Parliament knew about the attacker than she had been willing to show at the Ivory meeting. That was useful. That was, in fact, more useful than Carmela would have been.
+“I was secretly hoping for seconds.” Kira smiled. “All I’m saying,” she continued on, “is that if I’d known what I know now, I wouldn’t have spent half my youth saving for it. Two years of wages. Two years. For a ceremony I now know is a slaughterhouse with good catering.”
 
-Quinn was less certain. She sat with her back straight, hands folded in her lap, taking the room in with a quiet, cataloguing attention that he recognized.
+“You don’t know that,” Elucien said. “Not for certain.”
 
-A knock at the sitting room door. Tea. Remsays rose, collected the tray from the servitor, and returned to pour.
+“I know what the documentation says. You’ve read the same files I have.”
 
-He held a cup out toward Quinn. Their fingers touched, and she looked up as she took it, and there was a moment, brief and unguarded, where she seemed like she was deciding what to say. "Thank you, Chief Magister." She said quietly. Small color at the sides of her neck.
+“Reading a file isn’t the same as,” Elucien stopped, and something complicated moved across her face. “My school brother did it. Four years ago. Registered with his aeternis, saved for it, the whole thing. I got a letter saying he’d ascended and that I should be happy for him.” She turned the cup in her hands. “I was happy for him. For two years I was happy for him.”
 
-"You can call me Remsays." He gave her an encouraging smile.
+Nobody said anything for a moment. Sailor felt the grief come off Elucien in a wave and felt his own Semper answer it, reaching toward her without her permission, and he pulled it back as hard as he could and managed only to make it worse. Elucien glanced at him. She knew what he was. They all did. She gave him a small tired smile that meant it was alright, that she did not mind being felt by him, and Sailor looked down at his cup.
 
-Jude's voice surfaced in his mind, unbidden. There is no rule against a paramour. It's not a scandal. It is simply life.
+“The ones still dreaming about it are the ones who break my heart,” Marc said quietly. “You see them come down here, brand new, still talking about which Pantheon they want, still wondering whether you get to choose your Reflection Room music.” He shook his head. “Tinsle. No offense.”
 
-Still, he was not in the habit of using people. That was a line he had never crossed, not in the six months in this office, not in the years before it. He had hard lines and he kept them. But he was also in charge of a command with a classified security breach and a tongueless man in Ironfield who his team had not been able to extract information from for almost a week.
+Tinsle flushed. “I never said I still wanted it.”
 
-Someone in the Sanctoriun either sent that man or at least knew who had sent that man.
+“You did, though. Last week. You said the part that scared you wasn’t the dying, it was whether you’d get matched to the right person.”
 
-He would need a moment alone with Quinn.
+“That was before I,” the girl stopped. “I didn’t know, then.”
 
-He handed Gemma her cup and sat.
+“None of us knew,” Marc said, not unkindly. “That’s the whole design. You’re not supposed to know until you’re past the point where knowing helps.” He set his cup down. “It was a quieter operation before. Years back. We’d just sit with what we knew and pass it down. Then the harvesting got worse, and somebody in this house decided sitting wasn’t going to be the answer anymore.” He shrugged. “Now look at us.”
 
-"Sol Deus Astra sends her warmest regards. She wanted you to know how much she values her relationship with Premiere Jude and you as his most trusted personnel. The alliance she has maintained with the Premiere over the years extends to you as well."
+Sailor drank and let the conversation move around him. This was the thing about the Convoy that the Republic could never understand and never would: it was not, at its center, an army. It was a room full of people who had each, separately, found out the same terrible thing, and had come down to the bottom of the world because they could not keep living above it pretending they had not. The fighting was incidental. The fighting was what you did after the grief had nowhere else to go.
 
-"That's quite a compliment." He turned his cup in his hands. "I am glad to be considered as an extension to our Premiere."
+“Anyway,” Kira said, pulling the mood back up by force, “can we talk about something that isn’t the slow-motion murder of everyone we grew up with? Elucien. Tell them what you said about him.”
 
-"Personally, I am also looking forward to working closer with you, Remsays. I believe Pantheon Prisma has considerable resources to offer." Gemma held his gaze, pleasant and exact.
+Elucien groaned. “I am not.”
 
-"Then I believe it would be a very profitable friendship indeed." He glanced across to Quinn as he said it.
+“She has a theory,” Kira announced to the table, “about the Admiral.”
 
-She was watching him over the rim of her cup. Caught, she smiled. The color returned to her neck.
+“It is not a theory.” Elucien was going pink now, the grief of a minute ago folded away into something lighter, which was how people survived down here, by moving fast between emotions. “It is an observation. There is a difference.”
 
-He thought about the five missing cycles of archive records and the dead servitor's Semper. He thought about what he still did not know, and about where the answers might be sitting, three feet away from him, in a rose-colored dress.
+“Tell them the observation, then.”
 
-He set down his cup, leaned back, and looked at Quinn.
+“The observation,” Elucien said with dignity, “is that whoever designed those training fatigues understood exactly what they were doing across the Admiral’s shoulders. That is all. That is the entire observation.”
 
-Sometimes collateral damage is unavoidable. And in this case, it may at least be enjoyable.
+Kira cackled. Tinsle went scarlet. Marc, in the corner, made a low sound that might have been a laugh.
 
-Then he smiled.`,
+“You are both going to get us all reassigned to toilet duty,” Sailor said, but he was smiling.
+
+“I’m only saying what everyone with eyes has already noticed,” Elucien said. “The man could put his boots under my bunk any night of the week.”
+
+“Elucien.”
+
+“What! He’s not here. He cannot hear me. And even if he could, he’s heard worse, a man who looks like that has heard everything.” She took a drink. “It’s the forearms for me, honestly. The shoulders are doing a lot but it’s the forearms that finish the argument. The man rows. Have you seen him on the lower water? You don’t get forearms like that from filing reports.”
+
+Sailor found himself smiling despite everything, the first real smile of the night. This was the other thing about the Convoy that the Republic would never understand. People did not become saints down here. They became more themselves.
+
+“He’s actually here, by the way,” Marc said. “Hektor. Came in tonight. He’s down in the foundry hall with the eastern leads.”
+
+The table shifted. Even Kira’s grin faltered into something more alert.
+
+“Here here?” Elucien said. “Like, in the building.”
+
+“In the foundry hall. I saw him come up through the lower entrance an hour ago.” The lower entrance meant the docks. Hektor had come in by water, which he often did.
+
+“You let me say the thing about the forearms while he was in the building.”
+
+“I didn’t let you do anything,” Marc said mildly. “You did that entirely on your own.”
+
+Sailor was no longer quite listening. Because Marc was right, he could feel it now that it was named, the thing he had been registering at the edge of his attention since he came down the stairs and mistaken for the general over-tuned energy of a full house. It was not that. It was him. Rooms, buildings even, felt different when Hektor was somewhere inside them.
+
+He had felt it before. Everyone in the Convoy had. It was the first thing anyone told you about the Admiral, that you would feel him before you saw him, and that it would not feel as you expected. Sailor had expected, the first time, something like what he felt from the Republic’s powerful elites in the broadcasts, the ones whose Semper pushed outward and arranged the people around them into an audience. Cajole. Command. Pressure. The sense of being moved into position by something larger than yourself.
+
+Hektor’s Semper did not do that. That was the thing Sailor had never been able to explain to himself, and the reason he had never fully settled his feelings about the man. Hektor’s Connective did not push. It found. Somewhere down in the foundry hall the Admiral was talking to the eastern leads and his Semper was reaching out through the building like water, finding every person in it individually, and what it produced in each of them was not the sense of being steered but the sense of being known. Seen. Counted. As if somewhere in his attention Hektor was holding the very shape of you and had decided you mattered.
+
+It was the most effective thing Sailor had ever felt and he did not trust it for exactly that reason.
+
+The Republic’s elites made you feel like part of a crowd. Hektor made you feel like the only person in the room. Sailor was not sure the second one was less of a trick than the first. He was only sure it worked better.
+
+“I’m going to go look,” Tinsle said, already half-standing, the girl unable to help herself.
+
+“You are going to sit down,” Kira said, “and you are not going to gawk at the Admiral through the foundry hall doorway like a tourist. He came down to work. Let him work.”
+
+Tinsle sat.
+
+“So. Did you hear the news?” Kira asked Sailor.
+
+“Which one are you referring to?”
+
+“The Sol Deus of Ivory, of course. Have you been living under a rock?” Kira elbowed him.
+
+“Oh, you mean the biggest news of the century? Yes, of course I’ve heard.”
+
+“No, not just the ascension. It’s what *they’re* planning.” Kira lifted a brow and tilted her chin.
+
+Sailor turned to see that Captain Rickard had walked in with Master Rhode, deep in conversation. People gave them a wide berth as they passed.
+
+“What are they planning?” Sailor asked, voice low.
+
+Kira shrugged. “Hell if I know. Not like they consult the likes of me.”
+
+“I heard it’s an extraction.” Elucien said.
+
+“Who’s the target?”
+
+“No one knows officially. But the Lunary would be my guess. After the Sol Deus ascends, the Lunary takes charge for the thirty-day vacancy. So it would make sense to get her out. Then the Pantheon has no leadership, which means the Ivory Canon is left without a guardian.”
+
+Sailor nodded, following the logic. He gripped his package without thinking.
+
+“So. How was it up there?” Marc asked.
+
+“Complicated. We’re being framed for an attack at the Paragon induction.”
+
+Marc frowned.
+
+Sailor sighed. “Not one of ours. But someone wanted it to look like we did. And they left a Semper jammer behind. So now the Parliament thinks we’re escalating.”
+
+“Oh shit.” Elucien said.
+
+“Oh *shit*.” Kira said, louder, her eyes going wide.
+
+Sailor realized she was reacting to something behind him, and turned around. Oh. *He’s* here.
+
+Six-foot-five of deliberate power, black clothes, leather boots, gold eyes sweeping the hall. Hektor walked into the dining commons, and the room went quiet. His gaze landed on Sailor for a fraction of a second, then moved on. Captain Rickard and Master Rhode stopped mid-stride and turned back to greet him, patting him on the back, clearly elated that the hero of Convoy had returned safely to the nest.
+
+Sailor felt his stomach tighten.
+
+“Damn. Is it me, or did he get even more muscular?” Kira breathed.
+
+“You’re drooling.” Elucien said. “Please have a little respect for yourself in front of us.”
+
+“Oh please. What I want is for him to disrespect me all over.” Kira winked. “Cover me in it.”
+
+“You are disgusting.” Elucien enunciated.
+
+“You’re just jealous that Hektor touched my back and not yours. Two weeks ago, when he passed us in the hallway.”
+
+“That’s because you were in his way.” Elucien rolled her eyes.
+
+“All I can tell you is, that touch sent shivers up and down my spine. I felt it for days after.” Kira closed her eyes, savoring the memory. “His touch lights something inside you.”
+
+“Okay, do you need a moment alone?” Elucien asked. “Please stop making that face in public. There are children here.”
+
+Tinsle snickered.
+
+Kira let out a fake moan and started cackling.
+
+Sailor looked back at Hektor, and was startled to find Hektor already looking at him. Hektor held his gaze, and Sailor found it hard to look away. Something about those golden eyes: reaching, inviting. Sailor shook his head, breaking the contact. Damn. Hektor’s Connective was strong. And Sailor knew, with a sinking certainty, that he had been summoned. His stomach twisted into a knot.
+
+Sailor exhaled through his nose and realized his pulse was up.
+
+Kira bumped his arm. “You okay? You went all quiet.”
+
+“I’m fine.” He wasn’t. “Just… long couple of weeks.”
+
+Elucien’s voice dropped. “You think Hektor knows about the jammer? About the false mark?”
+
+Sailor watched Hektor disappear down the side corridor with Rickard and Rhode.
+
+“I think,” he said slowly, “that he knows a lot of things. And I think some of them are going to get people killed.”
+
+He stood, the half-eaten roll forgotten. “I need to report in.”
+
+Kira caught his wrist. “Be careful. Whatever’s coming… it’s not going to stay clean.”
+
+Sailor gave her a small, tired smile. “Nothing down here ever does.”
+
+He left them there. Kira still half-dreaming about a leader who could make a person feel chosen, Elucien already worrying, both of them still carrying the ghost of an Apotheosis they would never be allowed to have.
+
+⁂
+
+Sailor walked toward the strategy room with the package against his side and the imprint of those golden eyes still humming under his skin.
+
+The corridor sloped slightly downward as he walked, designed by engineers who had understood that the ocean was nearby and had wanted the doors that led to it on the lowest level. The room was the largest open space in the house, a former smelting floor with the equipment long stripped out, the high ceiling lost in shadow above the work lamps. Sailor came in along the upper walkway that ran the perimeter - where he had a clear sightline down - and he stopped at the rail.
+
+Hektor was at the far end with four of the eastern leads around a table covered in route maps. Sailor recognized the shape of the coastlines on the maps. Eastern shipping lanes. The lower water routes that ran beneath the Pantheons. Routes the Republic did not know existed.
+
+Hektor looked up.
+
+Across the whole length of the strategy room, directly at Sailor.
+
+“Sailor, is it?” Hektor smiled easily.
+
+“Yes, Admiral.” Sailor walked toward them, aware of their eyes on him and their Semper assessing his.
+
+“Please, sit. Make yourself comfortable. We’re almost finished.” Then Hektor turned back to the leads and spoke with them for a few more moments. The leads gathered their slates and maps, each giving Sailor a lingering glance as they walked out.
+
+Hektor pulled up a chair next to Sailor, completely relaxed. “Long ride down?”
+
+“Long enough.” Sailor set the package on the table between them.
+
+Hektor glanced at it but did not reach for it yet. “I heard you took your bike. Captain Rickard said something about you nearly running over Grip on your way in.”
+
+“Grip nearly ran over me, sir. For the record.”
+
+Hektor laughed. It was a low sound, easy. “That sounds about right. Boy hasn’t met a corner he can’t take at speed.” He nodded at the package. “Show me what you brought.”
+
+Sailor unwrapped the package and handed it over.
+
+The small cracked vase looked dainty in Hektor’s large hands. He closed his eyes and enclosed it in his palms. After a moment, Hektor opened his eyes and examined the vase again.
+
+“She has real potential.” Hektor placed the vase on the long table. “That’s exactly the kind of raw potential that could tip the outcome of a war. How did you find her?”
+
+“By luck. She’s in my cohort. We were getting assessed at intake, and she was able to illuminate on her first try.”
+
+“Remarkable.” Hektor said. “How easily can she be turned?”
+
+Sailor thought for a moment, then shook his head slowly. “She’s established an alliance to the Pantheon. Grown too fond of the Lunary, I’m afraid.”
+
+“Then I’m afraid we may have to extract them both.” Hektor said, still with smiling eyes.
+
+“Extractions can be dangerous. We cannot guarantee their safety.”
+
+“I understand. But we cannot risk to have someone so potentially powerful on the side of the Sanctorium either.”
+
+Sailor immediately understood the implication. If the junior illuminator could not be brought into the Convoy, she would have to be eliminated entirely. He was not surprised by the order. He was surprised at his own reaction, at the absence of any flare in his Semper, at how his hands stayed steady in his lap as if he had not heard what he just heard.
+
+“Thank you, Sailor. You’ve done well. And your contact inside the Parliament. Is she reliable?”
+
+“Very much so.”
+
+“You are sure.”
+
+“I trust her with my life, sir.”
+
+Hektor nodded and placed his hand on Sailor’s shoulder. Sailor’s wild Projective flared on contact, immediately rejecting the probe.
+
+“I wasn’t…” Hektor said, lifting his hand and showing both palms in mock surrender. “I trust you.”
+
+“I apologize, sir. Old habits…”
+
+“No need.” Hektor’s smile creased the corners of his eyes. “I’m aware of your past. Some of us learned to keep our Semper to ourselves before we learned to walk. Doesn’t go away just because you’ve come home.” He paused, then added, “You may go.”
+
+Sailor swallowed and got up. His face was hot from wrongfully thinking the Convoy Admiral would employ Parliament tactics. He paused at the door and looked back. Hektor was looking back at the vase. His hand rested over it again, gently, how a person might cover a sleeping bird. Sailor walked out.
+
+He walked along the upper walkway toward the corridor that led back to the common rooms. Somewhere far above, in Pantheon Ivory, the junior illuminator was probably asleep by now, her hands probably tucked under her cheek, completely unaware that Sailor had just changed her destiny.`,
+
   },
 ];
