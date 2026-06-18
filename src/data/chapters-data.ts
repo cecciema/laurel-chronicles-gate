@@ -566,162 +566,291 @@ Remsays went on up the stairs and put the conversation behind him. His mind retu
 
   {
     number: 4,
-    title: "Paragon Command",
-    content: `Remsays reviewed the speech on his way down from his office. Not from notes but from memory, running through the structure the way he would check a room before a meeting: looking for places where it could go wrong. The work of the Magistries was long and mostly invisible, and the Paragons were the specific instrument by which new knowledge moved from research into application.
+    title: "Quinnevere",
+    content: `[NOEPIGRAPH]
+“Oh God.” Quinn muttered, as the dainty vase cracked, a faint blue line spreading through the white porcelain like a vein.
 
-The Black Sea's slow recession from the eastern coastlines was the product of decades of marine and atmospheric work that the enrolled populations of Solterra understood only in the aggregate, if at all. Someone had to tell the people doing that work that it mattered, truly mattered, and tell them in a way that landed, not only as civic obligation but as genuine, passionate, truth. Most of the continent would never know their names. The booster draft allocation would be adjusted based on the work they did, and the people who benefited from that adjustment would have no particular occasion to think about why their quality of life had shifted.
+Amaro came over and picked it up. He raised it toward the stained-glass window so the morning light passed through.
 
-The body could adapt to pretty much anything - if you let it.
+“Ah. I can see the problem.” He beckoned her closer, one hand holding the vase to the light, the other pointing at the center of the crack. “You were very close this time. Just a little off center. You want to anchor the Semper at the center of the vase, where it first came into being. That is how you channel the Halcyon through. Everything from nothing.”
 
-The induction hall on the third floor of Cannon Place was not large. It had been designed for ceremony rather than audience. High ceilings, polished stone floor, the Magistry's seal inlaid in the center in the dark tile. The kind of room that absorbed whatever happened inside and kept it there.
+“I understand it conceptually. I just have a hard time *finding* the center.” Quinn looked at the three other cracked vases on her table, the sum of a morning's work. At least this one had not split clean open like the others. “I put a dot on the bottom and concentrated on it. Still didn't work.”
 
-Twenty-three recruits in two formations, standing in the stillness, wearing the new Paragon uniforms they had received that morning.
+“That is because you are trying to find the center with your eyes.” Amaro's voice stayed gentle. “That is not how illumination works, and it is not how Semper works. You find it with your *heart*.”
 
-Service staff had set up a refreshment table near the entrance with tea and small plates. Two staff members moved quietly along the room's perimeter with trays, offering refreshments to the small number of sectoral leads gathered near the back wall. Aspen stood among them, hands tucked in his pants pockets, looking comfortable.
+“And does the heart come with instructions, or am I meant to improvise?”
 
-Remsays ran his eyes along the formation. He could feel the quality of the room's attention and it was good. These were not people who had drifted in. They had applied, been assessed, been chosen from a pool that was already selective. The best and the brightest of the Republic was here, right now, on the day the most beloved Sol Deus in living memory had announced his departure from the world. They had gotten dressed, taken the skytrain from all four quadrants, and now stood in their formation with their backs straight. He was going to give them something worth the trip.
+Amaro smiled, unbothered. He had been a senior illuminator a long time and Semper science was his favorite subject, which meant he could not be slighted out of it. “To connect with an object, you connect with its maker. That is where the heart is.”
 
-"Do you have the courage to bring forth the treasure that presides within you?"
+Quinn liked Amaro. His flowery talk was another matter, and she was beginning to wish, fervently, that someone had thought to record a step-by-step. “Right. And one connects with the maker how, exactly.”
 
-He walked in from the back of the room and let his voice project.
+“Close your eyes. Yes, close them, trust me. Open your palms.”
 
-The question filled the hall. He walked forward through the center of the formation, taking his time, letting the question sit in the room without rushing to follow it. He looked at the faces that turned to track him. Some were practiced in hiding their nerves, some were not.
+She let out a sigh, and obeyed.
 
-"Do you dare to provoke the thoughts that you have buried all these years, and turn them into the fuel which will tinder your creative powers?"
+“Slow the breath. One inhale, slow, a slower exhale. Again. Clear the mind, make room for understanding. One more. Good. Exhale.”
 
-He reached the front and turned.
+He set the cracked vase in her palms.
 
-In the front row on the left side stood one of the taller inductees. Remsays recognized him instantly from his file. Culver Gretell. Twenty-four years old. Marine technologist, experimental nanobot prototype, flagged as exceptional. He was deeply tanned the way of someone who had spent years working outdoors on open water, with the kind of broad, unhurried build that came from actual physical labor. He stood with his weight evenly distributed and his hands loose at his sides, and when Remsays's eyes landed on him, Culver held it without adjustment.
+“Hold it gently. It is a living thing. You think it an inanimate object, but there is still life in it. It can still speak to you. Care for it. Trust it, and ask it to trust you.”
 
-Good.
+She tried. She felt nothing. No hum, no tug, no whisper of life, just cool porcelain and the faint ache starting behind her eyes.
 
-In his peripheral vision, Remsays also tracked Aspen, who now stood along the wall to his left, arms loosely folded, watching the room rather than the speech.
+“Now picture the artist who made it. The love they poured in, wanting only to make something beautiful, to bring a little pleasure to whoever looked at it. Picture the vase rising out of dust and Semper and that love, becoming the thing it is. Dust twirling, Semper whirling. Anything?”
 
-"Human life is the only life form that can change and repair itself. If you are hurt, you can treat the wound. If you are tired, you may rest. Our continent however, does not have that ability and requires caretakers who will show up day after day, even when they are uncertain, even at times dangerous." He paused. "Especially then. Starting today, that is you."
+She wanted very badly to say yes. She shook her head instead and let her shoulders drop.
 
-Remsays moved his gaze along the row of inductees and felt the room tighten into focus, all twenty-three of them with him now.
+“It is all right. Sometimes it takes a while. The center is the heart. Ask it to show itself. Go on, ask in your mind.”
 
-He was three sentences from closing the speech when he felt it, the particular shift in a room's attention that happened when something was wrong and the room had not yet decided what to do about it.
+She asked. By then she was thoroughly defeated and could hear nothing but the other illuminators behind her, the low collective hum of them working, their Semper moving through their objects at a frequency she could almost catch at the edge of her own, like music through a wall. She pressed her palms tighter around the vase. Not a flicker. The contrast was maddening, a whole room of people doing the thing she could not, and the unfairness of it sharpened the longer she sat in it. She opened her eyes and pushed the loose hair behind her ears.
 
-Then he heard the sound.
+“Amaro. I don't think it's working.”
 
-It was small. A chair pushed back, too fast. Not the ordinary sound of someone shifting.
+“Hmm.” He took the vase back and held it to the light. “Well. At least you did not crack it further.”
 
-He kept speaking. His eyes surveyed.
+“Ugh.”
 
-One of the service staff near the table was acting rigid. The other staff member had drifted toward the far wall and was watching the first one. The tray the first one carried was set down on the table, and the man's hands had gone beneath it.
+He laughed. “So how did you do it the first time? With Lunary Carmela watching?”
 
-"Wait." Aspen's voice was not loud. "Step away from the table." He crossed the back of the room in a few strides and put himself between the staff member and the nearest recruits.
+“I wish I could tell you.” She slumped forward onto her arms. “I had just arrived. Just finished intake. The Lunary happened to be observing our group. I don't think I knew what I was doing at all. I touched the source object, a copy of the Ivory Canon, and then the glass bottle, and the thing just lit up. I put no effort into it. The Semper went through me. I was only a channel, a conduit.”
 
-The hall went still. The recruits held their formations, which was due to either discipline or shock.
+“Which is precisely what an illuminator is. A conduit. So you did something right.”
 
-"Paragons," Remsays said, his voice level and carrying. "Move to the north wall. All the way back. Now."
+“How am I to help prepare the Rooms of Reflection if I can't manage one vase?”
 
-The man at the table did not comply with Aspen's instructions. He straightened, and his hands came up from beneath the tray, and there was something in his left hand that was not a serving implement - it was square and black, and buzzed with a steady hum. The man himself was young, unremarkable looking, the kind of face designed to be forgotten.
+“Perhaps by not trying so hard.” He turned the little vase over in his hands. “For one thing, I have never seen anyone illuminate that well on a first attempt. You are a natural, there is no question. The Halcyon is selective about who it chooses to carry its energy. It chose you, and it gave you the surest sign it could. What is happening now is only a test. To see whether you are someone who treasures the gift or gives up on it. So keep showing up. Show your heart is in it. It will come.”
 
-"Hands where I can see them." Aspen's voice was calm and precise, already moving closer, his gun drawn and level, the posture of someone whose body had been trained for exactly this kind of moment and had filed it under routine. "You don't have to make this worse than it already is."
+“Will it come by nightfall? Because that is when the Lunary wants us on the Rooms.”
 
-The man looked at the device in his hand, then at Aspen, then at the room full of Paragons pressed against the north wall. Something in the calculation shifted.
+Amaro patted the back of her hand. “Trust yourself. And trust the Halcyon.”
 
-He ran.
+⁂
 
-Aspen was already moving before Remsays had fully registered the threat, crossing the back of the hall in two long strides, broad-shouldered and fast in a way that did not announce itself until it was already happening. He caught the man's arm at the doorway. The man spun, pulled a compact revolver out from his vest and fired once. The sound in the enclosed stone hall was sharp and enormous. Aspen went down hard on his right side, his leg folding under him, and for one still second the hall held its breath. He hit the stone floor and still managed to fire two shots at the man running away. One hit the man's shoulder but did not bring him down.
+The afternoon bell tolled and she rubbed her tired eyes, splashed cold water on her face, fastened her cloak, and went to find Carmela.
 
-"Zeus," Remsays said, already moving toward Aspen. "Call medical. Third floor, east wing. Urgent."
+The Lunary was already in motion, moving along the amphitheater's upper perimeter with focused efficiency. Quinn fell in beside the other devotees, took up a basket of roses as they had, and said nothing. She had learned quickly that Carmela did not want commentary, and there was something restful in being around a woman who simply expected you to keep up.
 
-"How bad." Remsays asked, noting the careful set of Aspen's jaw.
+She watched Carmela press a hand to the amphitheater seats, murmuring a few words each time. That was her ritual. Every illuminator developed one of their own to reach the power quickly, and Carmela's was so spare it barely looked like effort. The seats took the light instantly under her palm.
 
-"I've had worse." Aspen tried to smile.
+Carmela finished the last seat in the row and turned to them. “The roses in your baskets are already illuminated. Place one on each seat. See if you can strengthen the charge as you go.”
 
-"Stay here. Don't move that leg. Medic is coming." He looked along the line of recruits and found Culver Gretell. "You. With me. Nobody follows."
+The devotees spread out.
 
-They ran through the door together and into the east corridor. The man was visible at the far end, forty meters ahead, his catering uniform catching the overhead light as he ran, one arm pressed against his wounded shoulder. Remsays and Culver moved fast, footsteps loud in the narrow space, closing the distance. They nearly had him at the turn, but he threw himself through a side door and by the time they pushed through after him the corridor forked and he was gone, swallowed into the service passages running beneath the building.
+“Quinnevere. With me.” Carmela said it gently. “I learned you had some trouble illuminating earlier.”
 
-"Zeus."
+Quinn opened her mouth, found nothing useful in it, and closed it again.
 
-"Here." Zeus's voice came through the feed, measured as always.
+“Amaro said nothing, before you blame him. I saw the cracked vases. And I felt your Semper, reaching and not catching.”
 
-"Activate full surveillance on the Cannon Place ground floor. All cameras, heat and motion tracking, live. I need the location of that man in catering uniform, exited through the side door on the left side of the induction hall approximately ninety seconds ago."
+“I'm sorry, Lunary.” Quinn's face had gone deep red, her eyes on the stone floor.
 
-A brief pause. Not hesitation, calculation. "Tracking. He entered the west service corridor, moved north, and turned into the storage annex off the kitchen supply hall. He has not exited. Heat signature places him behind the second shelving unit from the north wall. He is stationary."
+“Don't be. You've only begun. Semper science is still a mystery to all of us, myself included.” Carmela considered her. “May I ask you something personal. What did you leave behind, to come here?”
 
-They crossed back through the side door at a controlled pace, both of them pulling their breathing down, slowing the adrenaline by force of will. Remsays knew the building's layout well enough to navigate it without thinking. The service corridor was narrow and fluorescent-lit, running parallel to the main hall, and it smelled of cleaning solution and warming trays, a thin, institutional smell that coated the back of the throat. Their steps were quiet. They reached the kitchen supply hall and turned north.
+The question caught her off guard, and she answered it more honestly than she meant to. “A person… And a place I'd thought my life was going to happen in. Neither of them turned out to be mine to keep.”
 
-Culver gestured at the door they were to go through. Remsays nodded.
+“Mm.” Carmela stepped in and took Quinn's hands. “Let me show you something.”
 
-The storage annex was dim, lit only by a strip of emergency lighting along the base of the far wall that threw everything above knee height into shadow. Floor-to-ceiling shelving units ran in parallel rows, loaded with supply crates, folded linen, and sealed containers that blocked sightlines in every direction. The air was still and close. Remsays paused just inside the doorway and let his eyes adjust. The man was somewhere in here, that was not in question. But the man had a gun and a wounded shoulder and nothing left to lose, which made the atmosphere of the room considerably less comfortable.
+The scent reached Quinn first, warm cinnamon, something sweet under it, and then a feeling rose up through her chest, unbidden, a deep golden ache of longing and tenderness that she had not asked for and could not push back down. Carmela had not put a single thought in her head. She had only lifted the frequency, turned some quiet dial toward the place where Quinn kept the things she missed, and Quinn's own mind rushed in to fill it.
 
-"You could come out now." Remsays said, in an even tone. "You have nowhere else to run."
+The Colegio de la Cruz schoolyard. A cold morning. A paper bag warm between her hands and Culver's, honey leaking through the wax before either of them could stop it, the two of them laughing so hard they had to lean on each other. The weight of his shoulder against hers. She had not thought of it in months, had worked not to, and here it was, complete, brought up not as a picture Carmela could see but as a feeling Carmela had simply given her permission to have.
 
-Nothing.
+Tears came.
 
-"I know you were probably forced into doing what you did today. I could lessen your sentencing."
+“There, there.” Carmela said softly, releasing the frequency. “I cannot tell what you saw. That is yours. I only opened the door. Now.” She nodded at the basket. “Take a rose. Hold whatever just came up, do not put it away, and place it.”
 
-Still nothing.
+Quinn wiped her face with the back of her wrist, held the flower stem between two fingers, and crouched to the nearest seat. She did not reach for the center with her eyes this time. She held the feeling instead, the honey and the laughing and the leaning, the missing of him, the whole golden weight of it, and she pressed the petals to the stone.
 
-Remsays sighed. And mouthed to Culver: get ready.
+It caught.
 
-Culver nodded with focus.
+Warmth bloomed out from under her fingertips, a low clear note threading up her arm, the rose petals' edges brightening as the charge took and held and spread a hand's width across the seat before it settled. Real. Unmistakable. Nothing like the dead porcelain that morning.
 
-Remsays threw his body weight against the shelving unit between them.
+She sat back on her heels and stared at it.
 
-The man let out a cry and stumbled out, one hand clutching his wounded shoulder.
+“Ah.” Carmela's voice held quiet satisfaction. “There it is.”
 
-Culver lunged. Two hundred pounds of trained, unhesitating force driving the man sideways into the concrete, his wounded shoulder taking the impact first. The man let out a sound that was equal parts shock and pain and went flat. He tried to scramble and couldn't. Culver had one hand locked around his collar and the other planted against the floor, and the man was pinned.
+“It was in the feeling… Not the technique.”
 
-Remsays looked at the man's face for a moment. Frightened now that it was over. Not exactly the face of a professional, which was interesting.
+“That was the right feeling.” Carmela crouched beside her. “You were taught to find the center, and the center is real, but it is not a place you locate with your mind. It is a place you reach through something you actually feel. This morning you sat with a vase and felt nothing but frustration, and frustration is thin, it has no anchor. Just now you held something true. It does not have to be a happy thing. Yours plainly was not, at the end. Pain anchors as well as joy, sometimes better.” She studied Quinn. “Your first day, when it poured out of you so easily. You had just arrived, nervous, grieving, full to the brim with everything you were leaving behind. You were not trying to illuminate. You were simply too full of real feeling for it not to move through you.”
 
-"Who sent you?"
+Quinn looked at the glowing seat, then at the basket in her hands, and felt the whole thing reorganize in her head and her heart. There was a key she had been holding the entire time.
 
-The man said nothing. His breathing was coming in short pulls.
+“So the trick,” she said slowly, “is to stop pretending I don't miss the things I miss.”
 
-"You are going to answer that question eventually. The only variable is how long it takes."
+“The trick,” Carmela said, rising and offering a hand up, “is to stop believing your feelings are in the way of the work. They are actually the foundation of it.” She squeezed Quinn's hand once. “Now. Down the row. While you have it.”
 
-Nothing.
+Quinn went down the row, and one by one the seats took the light under her hands. It got easier as she went. She stopped reaching for the center with her mind and simply kept the ache open, let it run down her arm and into the stone, and the petals brightened one after another like small answered questions. By the tenth seat she had stopped bracing against the feeling and started, almost, to enjoy it, the strange relief of being allowed to want what she wanted. For the first time since the train to Ivory, she felt useful. She felt like herself.
 
-"You're going to tell me who the fuck sent you!" Remsays slammed the man's head against the stone floor.
+She was crouched over a seat near the lower tier, a rose warming under her fingers, when the doors at the east archway opened and the Parliament delegation came through.
 
-The man actually chortled, a wet, rattling sound low in his throat, and when he opened his mouth what came out was not words but something shapeless and wrong. Culver and Remsays held eye contact for half a second. Then both looked back at the man.
+Navy jackets moving in a crowd of forest-green robes, a practiced formation around two figures at the center. The Premiere was easy to pick out even at this distance. She had seen his face in broadcasts her whole life, the warm gravity of him, a man who had been asked to lead and had taken the charge seriously.
 
-He had no tongue. The space where it should have been was old scar tissue, healed smooth and deliberate. This had not been done to him today.
+The young man beside him was less familiar from images and far more present in person. It was the Chief Magister. Tall, broad-shouldered, sandy hair. Not as densely built as Culver, but there was no mistaking the quiet power in how he moved. Deliberate. Controlled. Even across the length of the amphitheater she could see him taking the place in, his gaze moving over the tiers of seats, intent and focused, until it passed over her, and her breath caught before she looked back down at the flower in her hand.
 
-Remsays felt the heat move through him before he had finished processing what he was looking at, and his fist connected with the man's jaw before his mind had fully authorized the decision. Clean, straight, the kind of punch that came from the shoulder. The man's head snapped back and his body went completely slack.
+Something tightened in her chest, low and clear, almost like the pull she had just been channeling into the stone, except she had not reached for it and it had not come from her.
 
-Culver looked up at Remsays.
+“The Premiere has requested a meeting,” Carmela said, beside her now. “You'll attend and take notes.”
 
-"He's out." Remsays said, more to himself than to Culver. He straightened and pressed two fingers to his watch. "Zeus, dispatch Peace officers to the kitchen supply hall storage annex. Secure the prisoner. Bring him to Ironfield."
+“Yes, Lunary.” She set the basket down and followed.
 
-"Dispatching now. Estimated arrival, four minutes."
+⁂
 
-Remsays looked at Culver. "Stay with him until they arrive."
+The Ivory reception room sat just off the main corridor, tall metal doors, a long table, old stone walls hung with woven tapestries of the divine Empress. A room that had been receiving important visitors for a very long time. When Quinn entered behind Carmela, everyone was already seated - almost everyone. The Premiere at the far end, open-faced and attentive. Sol Deus Astra of Pantheon Prisma at his left, composed and reverent. Beside her, Lunary Gemma, sitting slightly forward and alert. At the Premiere's right shoulder, standing rather than seated, was the Chief Magister.
 
-Culver held his gaze for a moment, then nodded once. No questions.
+Up close he was more straightforwardly handsome than she had braced for. A foot taller than her at least, navy jacket open at the collar over a crisp white shirt pulled taut over his chest, hair slightly tousled from the wind. One side of his mouth was tipped up, because his eyes were already on her, catching her in the act of studying him. She looked down and felt her cheeks go hot, and was annoyed at herself. He shifted his weight and folded his arms.
 
-"Thanks, you did well."
+Carmela took the near end of the table and set down the scripture box. “Premiere, Chief Magister, Sol Deus Astra, Lunary Gemma. Thank you for honoring Pantheon Ivory with your presence.”
 
-"Thank you, Chief Magister." Culver replied in earnest.
+“The honor is ours.” The Premiere replied. Sincerity sat naturally on a man who had every reason to perform it instead. “His Sovereigncy served Solterra with distinction for a very, very long time. I can only hope to emulate his legacy one day.” His eyes moved to Quinn with pleasant inquiry.
 
-Remsays walked back through the service corridor and into the induction hall. Aspen was where he had left him, seated now on the floor with his back to the wall, leg extended, his jacket folded and pressed against the wound. The medical team was working on him. Aspen was now somewhat remarkably, making jokes with one of the medics, a pretty redhead with freckles across her nose.
+“This is Quinnevere,” Carmela said. “A truly talented scholar, newly assigned to Ivory's scriptorium. She has been assisting with our preparations. I'm afraid I've been leaning on her quite heavily.”
 
-The shot had taken him in the left thigh. Not arterial, from the look of it, but he had his hand pressed hard against it and his jaw was set in the specific way of someone managing pain by refusing to acknowledge it in front of other people.
+“Quinnevere… What a lovely name.” The Premiere's eyes crinkled. “A pleasure to meet you.”
 
-Remsays crouched next to Aspen and handed him a clear vial of booster draft. "We got him."
+“Thank you, Premiere.” She kept her voice even. She was not certain how to address him and decided against the curtsy her knees had half-begun, since no one else was bowing and a scholar who curtsied at a table would only draw eyes she did not want. She was aware, without looking at him, of the Chief Magister's gaze touching her face and moving off.
 
-Aspen took the vial and swallowed the contents in one gulp. "I knew you would."
+“And where is Sol Deus Lockland?” the Premiere asked.
 
-"How are you doing?"
+“In private reflection.” Sadness moved over Carmela's face. “He has been these several days. I don't believe he will receive anyone before the ascension.”
 
-"Through and through, but I'll be walking by tomorrow." Aspen said through gritted teeth.
+“Ah. Forgive me, I am not well versed in Sanctorium protocol. I had hoped to be in His Sovereigncy's presence one last time. Now I regret not coming sooner.” He sighed. “He will be missed. By everyone. By you most of all, I imagine.” He looked at Carmela with real kindness.
 
-Remsays looked at him for a moment. He thought about the shoulder clap in the corridor, the easy smile at the lunch table, the particular way Aspen always occupied whatever room he was in as though it had been arranged for his benefit. He thought about what it had looked like when Aspen crossed the back of that hall, calmly, toward a man holding a device he did not yet know the nature of, putting himself between the threat and the recruits with no hesitation.
+Carmela nodded her thanks. “It was a shock to us all, that he chose to ascend this season. We knew his health was declining, of course. We still thought there were a few seasons left to him yet.” She touched the corner of her eye. “I don't mean to question His Sovereigncy's decision. The great divinity works in ways we are not meant to follow.”
 
-People surprised you.
+The Premiere nodded slowly, and his gaze traveled from Carmela to Quinn, and a wash of calm and serenity moved through her. Quinn had always been sensitive to Semper projection and had never enjoyed being steered by it. But much like his printed Biography, the Premiere's Connective made her feel seen and understood rather than controlled, and she let herself rest in the feeling of it, even as some small careful part of her noted that this was exactly what made it dangerous. Beside her, she saw Carmela's shoulders relax. He was sending the older woman comfort too.
 
-Then he stood and looked back into the hall. The Paragons were where he had put them, some standing, some seated on the floor, all watching the door he had just come through. He could see it in their faces: the adrenaline coming down.
+A knock came at the metal door. The devotee beside it opened it a crack, saw who it was, and opened it wide.
 
-He moved to the center of the room and straightened his jacket.
+“Aspen. And Noah.” The Premiere said, sounding surprised.
 
-"As I was saying," he said as he examined each of their faces, "you carry the specific and unglamorous responsibility of Solterra's slow recovery. Welcome to your first day."`,
+Two men stepped in. Quinn recognized one of them.
+
+“Premiere. Sol Deus.” Peace Director Landsrae bowed deeply to Sol Deus Astra. “Lunaries.” A bow to Gemma and Carmela. He did not appear to notice Quinn at all. The other man bowed to everyone and walked to stand next to the Chief Magister.
+
+“What a pleasure to have you join us, Director Landsrae, and Officer Pentarous.” Sol Deus Astra's voice was silk and carried not a trace of pleasure.
+
+It was the first thing Quinn noticed, and it made her pay closer attention to the rest. Director Landsrae's eyes went to the Chief Magister, who gave him nothing back. And Lunary Gemma, who had been composed, lowered her gaze the moment the Director stepped in and kept it lowered, which seemed to Quinn an odd thing for a woman of her poise to do over a Parliament colleague arriving late.
+
+“Forgive our tardiness. I got the memo late.” The Director's glance flicked again to the Chief Magister, who declined to acknowledge it.
+
+“You're not late at all, you're right on time,” the Premiere said. “And will you young men please sit? You're making me nervous, hovering over us like hawks.” He gestured at them. They sat.
+
+Which put the Chief Magister directly across from Quinn. She risked a glance and was glad to find him turned toward the Premiere. The relief lasted only a second, and then he turned and looked at her directly. He was striking up close, the cut on his cheek the one imperfect line in an otherwise unfair set of features. Those grey eyes held hers, unblinking, unnerving, and somehow more invitation than challenge. *God, what is wrong with me.* Quinn thought, and still could not be the first to look away.
+
+“Quinnevere.”
+
+“Yes?” She turned so fast her hair whipped across her shoulder.
+
+“There are pen and paper in the scripture box.”
+
+“Oh. Yes.” She produced them with as much composure as she could gather and began to take notes, grateful for somewhere to put her hands and her eyes.
+
+The Premiere expressed Parliament's confidence in the stability of the transition. He said he was looking forward, with what seemed genuine curiosity, to learning whom the divine had chosen as the next Sol Deus. “One of the few real surprises left in this work,” he said. “The Sanctorium keeps its counsel well.”
+
+“That is rather the design,” Sol Deus Astra said. “You will find out when the time is right.”
+
+The Premiere laughed, real and unguarded. “So it is. So it is.” Then, “Well, old friend. You know as well as I the difficult matters we must come to.” The warmth thinned out of his voice, and the change was sharp enough that Quinn looked up from her notes.
+
+Sol Deus Astra shifted to face him. “The Convoy business?”
+
+The Premiere sighed his agreement and said nothing, leaving the silence for Sol Deus Astra to fill. It was Lunary Gemma who filled it instead.
+
+“We have seen no proof the Convoy even exists. It is a story told and retold, and not one officially documented incident since the Founding.” She said it to the Premiere, but her eyes moved to the Director Landsrae.
+
+The Premiere cleared his throat. “Except. Now there is.”
+
+Carmela and Quinn both looked to him in alarm.
+
+“I am sorry to bring this into gentle company. Remy, will you please pass around the briefing?”
+
+The Chief Magister stood and slid the papers across the table.
+
+Quinn reached for her copy as his hand moved. For a suspended second his fingers hovered just above hers, close enough that she felt the warmth coming off his skin, close enough to catch cedarwood and something else beneath it. His hand was steady. She could see the fine scar across one knuckle.
+
+A low, clear pull moved through her chest, sharper than before.
+
+She drew her hand back too quickly.
+
+When she glanced up, his eyes were once again on her face. Not accusing. Attentive. It was enough to send heat up her neck. He sat back without comment, unreadable again.
+
+Quinn stared at the paper in front of her, pulse still tripping over itself. She made herself read the words on it rather than feel the man across from her, which took more discipline than she wanted to admit. Whatever that pull had been, it was not the Premiere's gentle Connective, and it was nothing she had felt in two weeks inside a humming castle. She set it aside to be uneasy about later and gave the briefing her attention.
+
+“This can't be.” Carmela breathed. “It just happened? Just outside our east entrance?”
+
+“I'm afraid so.”
+
+“How do you know it's the Convoy and not some random attacker?”
+
+“Chiefly the marker they left behind.” Director Landsrae pointed to a photograph of the encircled letter V, burned black into the grass beside the main road. “They have grown bolder, and now they leave a signature for us to find. They're telling us they are done hiding.”
+
+“This is unbelievable. How many people were hurt?” Carmela asked.
+
+“Just one. We don't believe they meant to harm this time, only to steal. They took control of three tactical wagons. We were fortunate the main cargo was piping and not ammunition.” Director Landsrae turned a hand. “Another operation only a few days ago, on the eastern trail nearer Pantheon Prisma, took mostly food and fuel. Next time we may not be so lucky.”
+
+A silence settled.
+
+“Now, I understand both Pantheon Ivory and Pantheon Prisma keep extremely capable sentries of your own,” the Premiere said, setting the tone. “And it is not Parliament's place to assess the strength of Sanctorium troops during normal times. I am, however, deeply concerned about the thirty-day vacancy between His Sovereigncy's ascension and the installation of the new Sol Deus. Without a sitting Sol Deus, we believe Pantheon Ivory becomes extremely vulnerable to Convoy attacks.”
+
+“What do you think they are after?” Quinn asked, half surprised at herself for speaking.
+
+Carmela glanced at her, not unkindly, and Quinn held still rather than shrink from having spoken.
+
+“A good question.” The Premiere answered as though he meant it. “We don't know exactly. We know they are criminals living outside the system. We believe many of them have become unmarked… surgically removed their codice so our surveillance cannot trace them. We can only deduce, for now, that they reject the laws of the Republic and have moved past simple disruption. They are becoming dangerous.”
+
+“And do you have a proposal to make before this table?” Sol Deus Astra asked, tilting her chin toward him.
+
+“Yes. A dual effort, of sorts. Respectfully, the Magistry of Peace can send reinforcement to Pantheon Ivory. Starting now and continuing until the incoming Sol Deus decides Ivory no longer needs the added protection.”
+
+“We agreed at the Confluence yesterday that Pantheon Ivory is the Sanctorium's jurisdiction.” Lunary Gemma said.
+
+“Indeed.” It was Director Landsrae who responded. “Parliament would increase its presence chiefly along the eastern shipping routes for the duration of the transition, to ensure trade is not disrupted and that criminal activity is met with immediate enforcement.”
+
+“And I am sure it would be only a matter of time before the Magistry of Peace decided the grounds inside the Pantheon wanted protection too. All for smoke and rumor.” Lunary Gemma returned.
+
+Director Landsrae's jaw tightened. He leaned forward, both hands flat on the table. “We have intelligence. Intelligence I trust. Intelligence I will stake my name on, that the Convoy of Reformation is very much real. Their leadership has become structured. These are no longer disorganized bandits. They are a highly efficient, highly specialized organization with a hierarchy.” He tilted his head and turned to Sol Deus Astra. “They have amassed a greater following, gaining speed as they do. In the past we have not paid them much attention. We can no longer afford that ignorance. It would be negligent to pretend they do not have the ultimate goal of tearing the Republic down. They are no longer surviving. They are on the offensive. These trade disruptions, a euphemism if there ever was one, are clear signs they are preparing for something big.”
+
+A chill ran through the room and pulled the loose attention into focus. His point made, Director Landsrae shrugged and sat back, reeling in his resonance, with one last glance at Lunary Gemma, which she pointedly ignored.
+
+Whatever stood between the Peace Director and Lunary Gemma, they had landed on opposite sides of this table and neither was enjoying it. And Sol Deus Astra had not said three sentences in her own defense, letting Gemma carry the whole fight while she sat composed and clean-handed above it. Quinn wondered why the Sanctorium would argue so hard against accepting its own protection.
+
+“What is your view, Lunary Carmela?” the Premiere asked.
+
+Carmela looked around the room, her gaze settling on Sol Deus Astra. Something unspoken passed between them. “I appreciate Parliament's offer of support, truly I do. I also believe Pantheon Ivory should remain sovereign, as it has for hundreds of years. This castle was the divine Empress Edennessi's home. She and the Halcyon will protect us.”
+
+Director Landsrae opened his mouth. The Premiere made a small motion with one hand, and the Director bit back whatever he had meant to say.
+
+The Premiere's expression went solemn. He nodded once, as though deciding something. When he looked up the warmth had returned to his face, and he smiled.
+
+“No one here can argue that you know Pantheon Ivory better than anyone at this table. You shall have my vote of confidence. You shall also have Parliament's support the moment you change your mind.”
+
+“That means more than you know.” Carmela said it and meant it. “I will be sure to convey your support to His Sovereigncy.”
+
+“May the Halcyon protect us all.” The Premiere was still warm, without a trace of disappointment or hostility. “And good luck with the Apotheosis. Sol Deus Lockland will be deeply missed. I will say my prayers for him nightly.” With that he stood; the Chief Magister, Director Landsrae, and the other young officer with him.
+
+Quinn watched them say their goodbyes to Sol Deus Astra and Carmela. Lunary Gemma stayed seated, her eyes downcast, and Quinn was fairly sure now that she understood why, even if she did not know the particulars.
+
+The Chief Magister spoke before he and the Premiere reached the door, addressing Carmela directly.
+
+“Lunary Carmela. I hope this won't seem unusual, but I'd like to call on Pantheon Ivory from time to time. Whatever our formal involvement, Ivory's perspective on the transition would be a valuable education for the Parliament, and I find that kind of conversation comes easier outside a formal setting.”
+
+“That is very kind, and I quite agree.” Carmela said. “You are welcome to call any time.”
+
+He glanced at Quinn once, brief and professional, and followed the Premiere into the corridor.
+
+Sol Deus Astra and the two Lunaries walked back in and talked among themselves, out of Quinn's hearing.
+
+Quinn exhaled. That had been intense. Before she could pack up the scripture box, she heard the Premiere's voice carry through the stone from the corridor, lighter now, easier.
+
+“Remy.”
+
+A pause.
+
+“A beautiful woman is not a problem to be solved. She is simply a beautiful woman. There is no rule against having eyes.” The Premiere's voice carried farther than he realized.
+
+Another pause.
+
+“She's lovely,” he continued, patient, unhurried, a man who had been saying wise things for a very long time, “and there is also no rule against a paramour. In case you'd forgotten. It is not a scandal. It is simply life.”
+
+She could not hear what the Chief Magister said in return. If he said anything at all.`,
   },
   {
     number: 5,
