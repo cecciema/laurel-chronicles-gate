@@ -854,80 +854,316 @@ She could not hear what the Chief Magister said in return. If he said anything a
   },
   {
     number: 5,
-    title: "Apotheosis",
-    content: `It was too early in the morning for Death.
+    title: "Remsays",
+    content: `[NOEPIGRAPH]
 
-Yet Apotheosis always began at the break of dawn. Carmela's eyes opened before any light came through the curtains. She tilted her head toward the clock: four in the morning.
+“Good morning, Remsays.”
 
-Today has to be perfect, she thought, and rose from her bed.
+Zeus said it at six-fifteen, the same time every morning, in the same measured tone. Not cheerful, not clinical. Simply present. Remsays had programmed him that way on purpose. He did not want to be managed, only informed, and reminded that he was not entirely alone inside his residence.
 
-She could already hear them. The quick steps of Pantheon devotees filling the hallways outside, making the preparations that could not be done ahead of time. She knew what she would find when she opened her door: wreaths and garlands braided from organic branches, delicate leaves and real flowers twisted through the corridor columns. Beautiful, and pointless. The ancient ceremony required them, everything as close to the old days as possible, and within hours they would wilt into useless heaps where engineered plants would have lasted weeks.
+Remsays opened his eyes against the pale light through the window shade and lay still a moment, taking stock of how his body felt. Shoulders fine. Lower back a little tight from the training session two days back. He flexed both hands once and sat up.
 
-Tradition was tradition, and one observed it meticulously during Apotheosis.
+“How did I sleep?” He already knew.
 
-She had not slept much in the last few days. There was so much to think about, so much still to worry over, even though she knew her checklist had been completed in the correct order and reviewed by other seasoned members of the Pantheon. The second-guessing would not leave her. That nagging conviction that she had missed something important, left it in some corner of her mind where it was unavailable for retrieval.
+“Four hours and eleven minutes. One complete deep cycle. Cortisol on waking within normal range. You were restless between the third and fourth hour.”
 
-Today has to be perfect. She washed and dressed methodically, trying to quiet the anxiety.
+“It was the dream.” He sighed.
 
-She finished dressing by wrapping a white sheath cloak around her neck and fastening it at the shoulders with her laurel leaf pins. Silver, the length of her palm. She had polished them the night before; even in the pre-dawn hour they caught the light. Three years ago, the Sanctorium had awarded them to her when she was elevated to Lunary. Since then, it had been her duty to orchestrate the first day of every Apotheosis ceremony held at Ivory: the morning blessing, the day of reverence, the night of reflection. Tomorrow belonged to Lockland. Today belonged to her.
+A pause. Longer than Zeus’s pauses usually ran. “The same one. With the veiled woman.”
 
-Carmela had entered the Sanctorium nearly two revolutions ago, just after her apex, spending most of those early years as a scribe in the far regions. It was her work reconstituting the Warslaw tablets that caught Lockland's attention. He had been struck by her talent to reproduce any style of writing, in any language, on parchment, on wood, in stone, and requested her for his gallery. She had loved the reassignment and excelled at it. In time she rose to higher positions within Ivory, and when her predecessor Lunary Noelle ascended, she was the natural choice to inherit the silver laurel pins.
+“Yes.”
 
-She looked at herself in the long mirror to make sure everything looked correct. Her heart was still beating too rapidly. She had conducted this ceremony the year before, and the year before that, but today was different. Today, one of the ascending was Lockland himself. She was heartbroken to lose her mentor, who had become so much more than a mentor, and frightened of what came next. The Sanctorium shared nothing about the new Sol Deus. Not with the devotees, nor even with the Lunaries. They would all learn at the same time as the rest of the world: thirty days from now, on the last day of the solar revolution, when Vixen yielded to Ram and the new year began. Lockland likely knew who was replacing him, but he would never say.
+“Would you like me to save it?”
 
-Thirty days. How would they manage without him for thirty days?
+He thought for half a second. “Yes. Flag it. I’ll decide later.”
 
-Carmela could not recall the last time a Sol Deus had been replaced. It happened so rarely, and she had no way of knowing whether the vacancy had caused unrest in those past transitions. She trusted Sol Deus Astra with her life and was grateful to have her to lean on, but of the other ten Sol Deos she was not certain. Any one of them might see this as an opportunity to maneuver. Carmela had already been thinking through who would make the first approach.
+“Remsays.” Zeus did not often volunteer anything outside the briefing sequence. “This is the fourth occurrence in nine days.”
 
-Sol Deus Morrison of Rockfall, most likely. She had grown up in his region and revered him once, the way you revered whatever authority was nearest when you were young and had no basis for comparison. Working beside Lockland for two decades had cured her of that. The contrast between the two Sol Deos was not subtle.
+“I know.” He yawned.
 
-Morrison's limping gait and yellowed teeth had always unsettled her. He was a well-known Purist, never a drop of booster draft or any augmentation according to him, which she could respect in principle if it were not for the theater he made of it. There was no honor in choosing to stay damaged when repair was available.
+“The pattern suggests it may be worth addressing.”
 
-Outside, the bell tower tolled once. The morning prayer bell. Carmela clasped her hands, touched her forehead to her knuckles, then her lips to her thumbs. As she moved through the praying words, her mind drifted back four days, to the Ivory Planetarium.
+“Noted. I’ll think about it.”
+
+He rose and went to the wall mirror, turned his chin to catch the cut in better light, and touched it with two fingers. A clean line, two inches, running from below the cheekbone toward the jaw. Still healing. A few more days and it would be gone, the tissue smooth again.
+
+He had taken it two months into his tenure, in a flooded survey corridor in the Northwest Quadrant he’d had no business entering, against the ocean engineer’s explicit advice. The engineer had been right. A pressure panel gave way as the team surfaced and pinned a researcher behind it, her oxygen line snagged on the broken frame. Remsays forced himself back through the gap before the second panel could close, and the serrated edge caught his helmet and opened his cheek. She lived because of the seconds it bought her. The medics fussed over his cut and ignored her blood pressure, which annoyed him more than the wound did.
+
+The survey data they pulled that day seeded two marine remediation patents. Worth it, he had written in the report, and meant it. He had reassigned the researcher to the far regions the following week. Her panic in that corridor was a variable he had no wish to meet twice.
+
+He was not callous. He simply could not afford to linger over everyone who wanted his attention. He had plans. A promise. He needed to stay on task.
+
+His mind drifted, against his will, to the previous afternoon. The scholar at Pantheon Ivory. Quinnevere.
+
+He could still call up the exact moment her hand had nearly met his. The warmth of her skin hovering just under his fingers. How fast she had pulled back, as though caught at something. The pulse jumping at the base of her throat. The half-second her eyes came up to his face before she looked away.
+
+Remsays moved his thumb slowly over the spot on his left hand where the ghost of that heat still sat.
+
+He had spent years training himself not to notice such things, not to clock the bodies of people who wanted something from him. It was necessary. Clean. He had built his whole life on that discipline, and here he stood replaying the near-touch of a woman’s fingers like a green recruit who had never learned where to keep his attention.
+
+He exhaled through his nose and stilled the hand.
+
+It was nothing. A passing reaction to an unfamiliar face in a high-pressure room. Not worth examining.
+
+And still, when he pulled on his jacket, the image came again without asking, the straight line of her spine across the table, the effort it plainly cost her not to look at him, the faint tremor in her hand when she finally took the paper.
+
+He shook his head once, sharp, as if the motion could shake the thought loose.
+
+From the inside pocket of his jacket he took the letter he had carried there two days now. He kept it close because he wanted something of hers near his heart. He read it again, though there were only two words on it. She had used the same stationery as when they were fifteen, the small folded card with the dried sprig pressed into the center, their old signal. He folded it once more and returned it to his breast pocket.
+
+Then there was the codice.
+
+The third thing, and the most stubborn. He turned from the mirror, reached for his coat, and let his thoughts go back to the previous evening, and Noah.
+
+Noah had come in without knocking, which only Noah did, and only when he meant to deliver something in person. He had been Remsays’s first officer since the appointment, and at Paragon a good three years longer than that, which meant he had watched Remsays arrive over the heads of men twice his age and had decided, for reasons he had never bothered to explain, to be glad of it rather than sour. Noah was fair-haired and easy in his body, quick with a joke in rooms where no one else would risk one, and most people who met him took a while to notice that the clowning sat on top of one of the sharpest minds in the Magistry. It was the main reason Remsays trusted him.
+
+Noah laid the folder on the desk and said nothing while Remsays opened it. Inside was the personnel file on the ascended servitor.
+
+Remsays read it once. Then again. Biometric record, codice imprint, dates, the Apotheosis confirmation from Pantheon Ivory, all of it consistent. The woman had ascended fourteen months ago.
+
+“There’s no irregularity in the paperwork,” Remsays said.
+
+“No.” Noah had drifted to the window, hands in his pockets, watching the lights of the Forum District. “Which is the irregularity. People are messy. Clean is what you get when someone tidied up after.”
+
+“Which means either the codice was used by someone with access to her biometric file before she ascended. Or.”
+
+“Or someone’s worked out how to use a codice with no body attached to it.” Noah did not turn from the glass. “Which is impossible.”
+
+“Which is impossible.”
+
+Neither of them said anything for a moment.
+
+“Have you ever heard of it being done,” Remsays asked.
+
+“No.”
+
+“Theoretically.”
+
+Noah turned around at that. “There are rumors. Augmentation work that operated at the codice level rather than the tissue level. Nothing documented, because the people who would know are not the kind who write things down.” He let that sit. “I can chase it. Quietly. But if it’s real, Remy, it isn’t a clerical problem. It’s the kind of thing that ends careers for the crime of having looked at it.”
+
+“Convoy?”
+
+Noah did not answer, which was an answer.
+
+“I need a source inside Pantheon Ivory,” Remsays said. “Someone with access to the ascension records vaults. Someone who wouldn’t be noticed if they went looking.”
+
+“You already met her this afternoon.” Noah said it very dry, and Remsays did not give him the satisfaction of looking up from the folder.
+
+“That isn’t what she’s for.”
+
+“No, of course not.” A beat. “Though it’d do you no harm if it were.” Noah came back from the window and dropped into the chair across the desk, uninvited, at home there. “I watched you in that reception, you know. So did Aspen. You went all of two shades more human when the scholar looked at you, and then you spent the rest of the meeting punishing yourself for it.” He spread his hands. “It’s allowed, Remy. A man can notice a pretty girl and still run his Magistry. The two are not mutually exclusive. I do it constantly.”
+
+“You do a great many things constantly.”
+
+“And I sleep more than four hours a night, which one of us does.” Noah grinned, then let it ease. “I’m only saying. You hold the line so hard you’ve forgotten the line is yours to move. Aspen certainly hasn’t forgotten.” He tipped his head. “You watched him in there too. All that strategy for Ivory’s security, aimed at a Lunary he couldn’t take his eyes off. He fully intends to find an excuse onto those grounds, and it will have very little to do with the Convoy. The man’s going to fraternize straight across the aisle into the Sanctorium and call it diplomacy.”
+
+“That’s Aspen’s affair,” Remsays said. “Not mine.”
+
+“It could be yours. That’s my whole point. You’re allowed a life that isn’t the job.” Noah stood, stretched, unbothered by Remsays’s flatness, used to it. “Come out with us next time. Club Aldenmere, end of the week. Aspen’s going, half the Peace directorate, decent music for once. You sit in a corner with a drink you don’t finish and you let the rest of us be embarrassing around you. Blow off a little of whatever it is you carry around all day. You’ll be sharper Monday for it, I promise you, and I’m rarely wrong about the things that matter, only the things that don’t.”
+
+Remsays almost smiled. “I’ll consider it.”
+
+“You’ll consider it.” Noah was already at the door. “You consider everything. One of these days you’re going to accidentally enjoy yourself and it’ll frighten the whole building.” He paused with a hand on the frame. “Chase the codice quietly, send your scholar nothing she’d have to lie about, and come to Aldenmere. In that order. Goodnight, Chief Magister.”
+
+He let himself out.
+
+Remsays sat with the folder a while longer after he had gone.
+
+He pulled on his coat now and straightened the cuffs with more force than necessary.
+
+The letter in his pocket. The codice. The source he needed inside Pantheon Ivory. Three separate problems, three reasons he had slept four hours. He would not add a fourth, whatever Noah thought he was allowed.
+
+“Zeus. The car.”
+
+“At the entrance.”
+
+Zeus took the car through the early streets and went on reciting the morning. An advance in ocean remediation out of the Northwest Quadrant. A procedural note from the Magistry of Peace. Something from Pantheon Greenwood about atmospheric pressure readings that the Magistry of Stars wanted cross-referenced. Remsays took it in without quite listening. The car stopped at the Parliament entrance. He straightened his jacket, checked the time, and stepped out.
 
 ⁂
 
-She had gone there in the middle of the night, unable to sleep. It was a habit from childhood - the stars had always steadied her. Her favorite star was the Vulpes Alpha, the principal star of the constellation, the bond that held the two vixens together. What she loved about it was this: for such a vital star, it glowed softer than most others around it. It knew its own importance. It did not need to convince anyone.
+The induction hall on the third floor of Cannon Place was not large. It had been built for ceremony rather than audience. High ceilings, polished stone floor, the Magistry’s seal inlaid at the center of the dark tile. A room that absorbed whatever happened inside it and kept it there.
 
-She had not expected to find him there. Lockland was standing at the center of the observation deck, looking up, and she realized immediately that he had the same idea she did. She walked toward him feeling glad, and then the tears came before she could stop them, arriving at exactly the moment he turned around to look at her.
+Twenty-three recruits stood in two formations, silent and still, in the new Paragon uniforms they had been issued that morning. Three inductees in the front row had tracked Remsays since the moment he entered, quick appreciative glances flicking between him and Aspen at the back wall. He let none of it touch his face. Noah stood a little apart near the front, fair head bent, murmuring something to a visibly nervous young recruit that made the boy’s shoulders come down half an inch. Noah had a gift for that. He could make a frightened person feel, in few words, that they were among friends.
 
-The graying near his temples had lightened visibly these last few months. He had been quieter in their meetings, more often lost to his own thoughts. She should have been paying closer attention.
+Service staff had set a refreshment table near the entrance with tea and small plates. Two of them moved along the room’s perimeter with trays for the handful of sectoral leads gathered at the back. Aspen stood among the leads, hands in his pockets, comfortable.
 
-"Why, my dear. Why the tears?" He asked it gently. His eyes, usually sharp and bright, looked tired.
+Remsays ran his eyes down the formation, and felt something close to pride move through him. The quality of the room’s attention was good. Focused, disciplined, warmer wherever it landed on him. These were not people who had drifted in. They had applied, been assessed, been chosen from a pool already cut narrow. He could see it in how they stood, in the clean lines of shoulder and spine, in bodies trained and maintained and answerable to their owners, understanding that a person’s Semper was only ever as disciplined as the body that carried it.
 
-He is ready to go, she thought. The knowledge sat in her chest like a stone.
+They had taken the skytrain in from all four quadrants just after the most beloved Sol Deus in living memory announced his departure from the world, and they had dressed and come and squared their backs. He would give them something worth the trip.
 
-She opened her mouth but could not speak. More tears came even as she tried to stop them.
+“Do you have the courage to bring forth the treasure that resides within you?”
 
-"Is it because of me?" He asked. She could only nod. He stepped forward and folded her head against his chest, and his arms came around her, warm and steady. He smelled like real lavender. She had always noticed that. Even now, even at his age, his chest felt solid, a product of decades of careful living. They stood there under the open sky until her tears stopped. Then Lockland released her and looked up. Her gaze followed.
+He started forward from the back of the room and let his voice fill the hall.
 
-"My dear." He said it quietly, the way he said most things. "Do not dwell on what you might think you are losing. Think instead about what is coming. A new era for Pantheon Ivory, perhaps even the Sanctorium. This is worth something. The new Sol Deus is young, and will need guidance to become wise. Your devotion will be more essential than ever. You must counsel well." He sighed. "I wish I could be there for the transition. But as you know, the tradition does not allow it."
+The question landed and spread. He moved through the center of the formation without hurry, letting it sit, not rushing to answer it for them. He read the faces that turned to follow him. Some were practiced at hiding nerves, some were not. One recruit’s attention sharpened to a point. Another swayed forward a fraction before catching himself.
 
-"But why must you ascend now? Your body is healthy and your mind is more brilliant than anyone I know." The words came out before she could stop them. She covered her mouth.
+“Do you dare to provoke the thoughts you have buried all these years, and turn them into the fuel that will kindle your creative powers?”
 
-Lockland smiled forgivingly. "I thank you. And I won't argue with your high opinion of me. But the fact is, I have had a very good run and I do not want to overstay my welcome. I have been a Sol Deus for over three revolutions. That is a long time to presume that one's presence is still of benefit to those around them.
+He reached the front and turned.
 
-"You are still needed. You are still wanted."
+“Look at the Black Sea.” He let the line sit a moment, because none of them had expected to begin there. “Every one of you has watched it pull back from the western coastlines a little further each year. You have been told it is recovering. It is. What you have not been told, because the continent has no occasion to think about it, is that the recovery is not weather and it is not luck. It is the work of people. Decades of marine and atmospheric labor, done by men and women whose names not one citizen in a thousand will ever learn.” He moved as he spoke. “The black water retreats. The booster allocation shifts. Somewhere lives grow a little easier, and they will never once wonder why. That is this work. You will give your whole lives to it, and the people you save will not know your faces.”
 
-"Again I thank you." He looked back up at the sky. "We still have a long way to go even at our accelerated pace. Our world needs a more energetic hand to steer it back to health. It is time for new leadership with fresh ideas. I am tired, Carmela. And I am ready. That is the truth of it."
+He watched it land.
 
-Carmela nodded.
+“I am not here to promise you recognition. There is none. I am here to tell you the work is worth doing anyway, and that the not being seen is not the cost of it but the proof of it. Human life is the only life that can change and repair itself. If you are hurt, you may treat the wound. If you are tired, you may rest. Our continent experiences no such mercy. It needs caretakers who will show up day after day, even uncertain, even at times dangerous.” He let it settle. “Especially then. As of today, that is you.”
 
-"Influence by calm persuasion. The other Sol Deos will underestimate you - they will think you are only a Lunary. Let them, and use it to your advantage." With this, Lockland moved, stepping toward the center of the planetarium and looked up again at the open sky.
+His eyes moved as he spoke, and in the front row, left side, came to rest a moment on one of the taller inductees. He knew him at once from the file. Culver Gretell. Twenty-two. Marine sector, experimental nanobot prototype, flagged exceptional. Deeply tanned from years of work on open water, dense in build, the body of a man shaped by labor rather than vanity. He stood with his weight evenly set and his hands loose, and when Remsays’s eyes came to him he held the look. A man comfortable being seen. Good.
 
-⁂
+At the edge of his vision Remsays kept Aspen too, along the left wall now, arms loosely folded, watching the room rather than the speech.
 
-The bell tower tolled again and drew her back from her reverie. Carmela tucked the memory of that night away with care, knowing she would return to it often. She took a deep breath and made a quiet promise to herself not to disappoint him.
+He drew his gaze down the row, and the room tightened to a point, all twenty-three of them with him at once.
 
-She opened her door and steadied herself for what was to come, today and in the next thirty days. She would make him proud. The hallway was bustling with the quick footsteps of devotees moving in every direction, the scent of fresh laurel and cut wood from the garlands already braided around the corridor columns, the low hum of preparation that had been going on without her while she was still inside her own head. The Pantheon was awake. Carmela straightened the pins at her shoulders and stepped out to meet it.
+He was three sentences from closing when he felt it. A shift in the room’s attention, the disturbance that runs through people when something is wrong and no one has yet decided what to do.
 
-The amphitheater was already being prepared when she arrived to inspect it. Ivory's ceremonial amphitheater was carved into the natural rock formation at the Pantheon's southern edge. Tiered stone seating descending in wide concentric arcs toward a raised circular dais at the center, open to the sky, flanked on three sides by the sheer faces of the cliff that had been there long before anyone had thought to build a Pantheon against them. Torches had been lit along every tier. Carmela walked along the perimeter of the dais and checked each element against her list. Everything was in order.
+Then the sound. Small. A chair pushed back too fast. Not a body merely shifting its weight.
 
-The ascendees began arriving. They came through the main gates in groups. Brought in from the transport stations and surrounding roads by Pantheon escort, some from very far regions, some from nearby. Most had never been to Ivory before. She could tell by the way they took in the architecture: the slow tilting of the head, the paused step, the attention that snagged on the carved stonework or the long corridor columns or the sheer scale of the amphitheater when it first came into view. Carmela had seen this reaction so many times and it had never ceased to move her. She felt proud to be a part of this great Pantheon.
+Remsays kept speaking. His eyes moved across the hall.
 
-The morning blessing began when the sun cleared the eastern cliff face and the first full light fell across the dais. Carmela stood at Lockland's right as he addressed the assembled ascendees, thousands of them filling the tiered stone seating, their faces upturned and still, quiet and reverent in a way that crowds rarely were. His voice carried without effort. It always had.
+One of the service staff by the table had gone rigid. The second had drifted toward the far wall and was watching the first. The first man set his tray down on the table, and his hands moved beneath it.
 
-She did not let herself look at his face for too long. She needed to hold it together today and she understood her own limits well enough to know which thoughts would undo her if she let them. She closed her eyes and focused on his voice, committing each word to memory, knowing this was the last time she would have the pleasure of being in his company.`,
+“Stop what you’re doing.” Aspen’s voice was not loud, but it carried authority from someone who expected to be obeyed. He was already crossing the back of the room, putting himself between the staff member and the nearest recruits. “Step away from the table.”
+
+The hall went still.
+
+“Noah.” Remsays did not need to raise his voice.
+
+Noah was already moving. “Paragons, on me.” Easy, almost cheerful, pitched to keep two dozen frightened people from becoming a stampede. He swept an arm wide and herded the formations back toward the north wall, his body between the recruits and the table the whole way, talking the entire time in that light steady patter that left no room for panic. “Nice and orderly, that’s it, back you go, nothing for you to do here but stay out of the Chief Magister’s way. You there, breathe. You’re all right. Eyes on me, not on him.”
+
+The recruits moved. They held together because Noah held them together.
+
+“Paragons stay at the north wall,” Remsays said, level and carrying, and the last of the drift stopped.
+
+The man in the catering uniform straightened slowly. His hands came up from under the tray; his right hand held a compact pistol, and he did not hesitate. He fired into the room, fast and wild, three shots that cracked through the stone hall like the place was coming apart. The first went high into the far wall. The second splintered a chair where a recruit had stood a breath before Noah pulled her back. The third punched a hole in the refreshment table and sent tea and porcelain across the floor.
+
+Aspen had his gun out and level before the third casing hit the tile, advancing on the man from the side, his body trained for precisely this. “Drop it. Hands where I can see them.” His voice was calm. “You’ve hit no one. Keep it that way and you live through the morning.”
+
+Screaming now, recruits dropping, Noah driving the whole formation down and behind him with both arms. The man swung the pistol across the room hunting a clean shot, his other hand still gripping something square and black that buzzed with a steady hum.
+
+“Down, all of you, down,” Remsays said, and the command in his voice put them on the floor.
+
+The man looked at his pistol, then at Aspen’s level barrel, then at the recruits banked against the far wall behind Noah’s outstretched arm. Something in his face changed.
+
+He ran.
+
+Aspen moved, crossing the hall in two long strides. He almost caught the man’s arm at the doorway. The man spun, brought the pistol back around and fired once. The sound in the enclosed stone hall was enormous. Aspen went down hard on his left side, the leg folding under him. He hit the floor and still put two shots into the fleeing man, one of which caught his shoulder but did not stop him.
+
+“Zeus.” Remsays was already moving. “Medical, third floor east wing, urgent.” He was at Aspen’s side in three steps and down on one knee. “How bad.”
+
+“I’ve had worse.” Aspen tried for a smile and mostly found it.
+
+“Stay down. Don’t move that leg. Medic’s coming.” He came back to his feet and his eyes found Culver at the wall, who had not looked away. “Gretell. With me. Nobody else.”
+
+Noah caught his eye across the hall and gave a single short nod. *The recruits are mine, go.* Remsays went.
+
+They came through the door into the east corridor at a dead run. The man was about twenty yards ahead, catering whites flashing under the lights, one arm clamped to his ruined shoulder. Remsays and Culver closed hard, footsteps loud in the narrow space. They nearly had him at the turn before he flung himself through a side door, and by the time they shouldered through after him into the short stairwell that dropped to the service level, the corridor forking below, he was gone into the passages running beneath the building.
+
+“Zeus.”
+
+“Here.” Measured, as always.
+
+“Full surveillance, Cannon Place ground floor. All cameras, heat and motion, live. The man in catering uniform, out the side door of the induction hall ninety seconds ago. Find him.”
+
+A brief pause. Not hesitation, calculation. “Tracking. West service corridor, north, into the storage annex off the kitchen supply hall. He has not exited. Heat signature behind the second shelving unit from the north wall. Stationary.”
+
+They took the service stairs at a controlled pace, both pulling their breathing down by force of will. Remsays knew the building well enough to move through it without thought. The corridor ran narrow and fluorescent beside the main hall and smelled of cleaning solution. Their steps were quiet. They reached the kitchen supply hall and turned north.
+
+Culver caught his eye and tipped his head at the annex door, a question. Remsays nodded once. Together, then.
+
+The storage annex was dim, a single strip of emergency lighting along the base of the far wall throwing everything above knee height into shadow. Shelving ran floor to ceiling in parallel rows, crates and folded linen and sealed containers blocking every sightline. The air sat close and still. Remsays paused inside the doorway and let his eyes adjust. The man was in here, that much was certain. The man also had a gun, a wrecked shoulder, and nothing left to lose.
+
+“You could come out now,” Remsays said, even tone. “There’s nowhere left to run.”
+
+Nothing.
+
+“I expect you were forced into this. Tell me who, and I can see your sentence reduced.”
+
+Still nothing.
+
+Remsays exhaled, met Culver’s eyes across the dark, and mouthed it. Ready.
+
+Culver set his weight, silent, a coiled and absolute readiness in him. He gave a single nod.
+
+Remsays threw his shoulder into the shelving unit between them and drove it over.
+
+The man cried out and stumbled into the open, one hand clutched to his bleeding shoulder, and Culver was already there. Over two hundred pounds of trained, unhesitating force took the man sideways into the concrete, the wounded shoulder striking first. The man made a sound that was half shock and half pain and went flat to the floor. He scrabbled once and got nowhere. Culver had a fist locked in his collar and his other hand braced against the stone, and the man was pinned as neatly as anything Remsays had seen done.
+
+“He’s not going anywhere.” Culver breathed, no adrenaline cracking through it, a man who had handled larger things in worse conditions. “Take your time.”
+
+Remsays crouched and looked into the man’s face. Frightened, now that it was finished. Not the face of a professional. That was worth noting.
+
+“Who sent you?”
+
+Nothing. The man’s breath came in short pulls.
+
+“You’ll answer eventually. The only thing undecided is how long it takes you to get there.”
+
+Nothing.
+
+“You’re going to tell me who the fuck sent you.” Remsays took the man’s collar and cracked his head once against the stone floor, hard.
+
+The man made a wet rattling sound low in his throat, almost a laugh, and when his mouth came open what spilled out was not speech but something shapeless and wrong. Culver’s eyes snapped up to Remsays. For half a second the two of them simply looked at each other. Then both looked back down.
+
+He had no tongue. The space where it had been was old scar tissue, healed smooth and deliberate. Not done today. Done long ago, and well.
+
+Remsays understood several things in the same instant, and the heat went through him faster than thought, and his fist came around and met the man’s jaw before any part of him had signed off on the decision. Clean, straight, driven from the shoulder. The man’s head snapped and his body went slack against the floor.
+
+The annex was very quiet.
+
+Remsays stayed crouched a moment, his knuckles stinging, and looked at his own hand as if it belonged to someone else.
+
+Culver had not moved, still pinning a man who no longer needed pinning, watching Remsays with a steady careful attention that held no judgment in it at all.
+
+Remsays reached into the man’s jacket, the right pocket and then the left, and closed his fingers around the square black device.
+
+The instant he held it his Semper spasmed, a sick lurching wrongness up the length of his arm, his own frequency stuttering. A Semper disruptor. Crude by the feel of it, but real, the kind of thing that had no business in a caterer’s pocket. He wrapped it in a towel and held it away from his body, and his Semper steadied as the distance grew.
+
+Culver watched him do it and said nothing, which Remsays appreciated.
+
+“Thank you,” he said, and meant it for more than the tackle. “You kept your head in there.”
+
+A flicker at the corner of Culver’s mouth, gone as fast. “You did most of the heavy moving. I just landed on him.”
+
+Remsays straightened, the device still held away from him, and said to his watch. “Zeus. Peace officers to the kitchen supply hall storage annex. Secure the prisoner, alive, and take him to Ironfield. He is to be examined by a medic before anyone questions him.” A beat. “Note in the file that he has no tongue, and that it is an old injury.”
+
+“Dispatching. Arrival in four minutes.”
+
+“Stay with him until they come,” Remsays told Culver. “If he wakes, he does not leave that floor.”
+
+Remsays came back through the service corridor, walked up flights of stairs, and back into the induction hall. Aspen sat against the wall where he had left him, legs out straight, his folded jacket pressed to the wound, the medical team around him. Noah stood a few feet off with the recruits gathered loosely behind him, still between them and the rest of the room out of habit, still talking, keeping the mood from tipping. Whatever he was saying had a couple of them almost smiling.
+
+Aspen, of course, was flirting with one of the medics. A brunette, freckles across her nose.
+
+He tried a smile up at her as she knelt and pressed a compress to the wound. “Have to say, this is a hell of a way to get a woman’s attention, isn’t it?” Her face went pinker. His grin widened, easy even through the pain. “Keep looking at me like that and I’ll start thinking it was worth getting shot for.” Her laugh came soft and flustered and she ducked her head.
+
+The shot had taken him in the left thigh. Not arterial, but he had a hand pressed hard to it and his jaw was set tight, a man managing pain by refusing to show it.
+
+Remsays crouched and put a vial of clear tonic in his hand. “We got him.”
+
+Aspen tipped it back in one swallow. “Never doubted it.”
+
+“How are you.”
+
+“Through and through. Walking by tomorrow.” Through his teeth.
+
+“Convoy?” Remsays said, low.
+
+A slight nod.
+
+Remsays took out the black square device. he had turned it off but still kept it wrapped in the towel, and held it where only Aspen could see it. “He was carrying this.” He watched Aspen’s face. “The moment I touched it, it felt like my Semper folded in half. It’s a disruptor. A jammer.”
+
+Aspen’s easy expression went still. He looked at the thing a long moment. “That’s not bandits robbing a supply wagon,” he said quietly.
+
+“No,” Remsays said. “It isn’t. The man had his tongue cut out, a while ago from the looks of it, carrying a device that shouldn’t exist, sent into a room full of my recruits on the morning after Sol Deus Lockland announces his ascension to the public.” He rewrapped the towel over it. “I don’t believe in that much coincidence. I want to review everything Peace has on the Convoy. Not the public Parliament file. The real one.”
+
+“You’ll have it.” Aspen managed a ghost of the grin even now. “Remind me to get shot more often. You’ve said more to me in five minutes than in the last six months.”
+
+“Don’t make a habit of it.” Remsays stood and looked over the hall.
+
+Noah caught his eye and gave him a small nod, the room’s fine, and went back to the recruits. The Paragons watched Remsays from where Noah had kept them, the adrenaline visibly draining out of their faces now, replaced by something steadier.
+
+He moved to the center of the room and straightened his jacket.
+
+“As I was saying.” He looked from face to face, and let them see he was relaxed, that the floor was his and the morning was already back in hand. “You carry the unglamorous responsibility of Solterra’s slow recovery.” A pause. “You have just learned, sooner than most cohorts do, that it is not always a quiet calling. Welcome to your first day.”`,
   },
   {
     number: 6,
