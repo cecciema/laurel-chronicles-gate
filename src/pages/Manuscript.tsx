@@ -259,26 +259,50 @@ const SampleChapters = () => {
           ))}
         </div>
 
-        <button
-          onClick={() => setCurrentIdx((i) => i + 1)}
-          disabled={currentIdx === CHAPTERS.length - 1}
-          className="font-body text-[10px] tracking-[0.25em] uppercase border px-5 py-2 min-h-[44px] transition-all disabled:opacity-30 disabled:pointer-events-none"
-          style={{
-            borderColor: "hsl(var(--silver) / 0.3)",
-            color: "hsl(var(--silver) / 0.85)",
-            ...(isTouch ? {} : { cursor: "none" }),
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = "hsl(var(--dusky-rose) / 0.55)";
-            e.currentTarget.style.color = "hsl(var(--dusky-rose))";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = "hsl(var(--silver) / 0.3)";
-            e.currentTarget.style.color = "hsl(var(--silver) / 0.85)";
-          }}
-        >
-          Next Chapter →
-        </button>
+        {currentIdx === CHAPTERS.length - 1 ? (
+          <a
+            href="https://laurelcrownsabove.substack.com/p/season-two-chapter-six"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body text-[10px] tracking-[0.25em] uppercase border px-5 py-2 min-h-[44px] inline-flex items-center transition-all"
+            style={{
+              borderColor: "hsl(var(--silver) / 0.3)",
+              color: "hsl(var(--silver) / 0.85)",
+              ...(isTouch ? {} : { cursor: "none" }),
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "hsl(var(--dusky-rose) / 0.55)";
+              e.currentTarget.style.color = "hsl(var(--dusky-rose))";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "hsl(var(--silver) / 0.3)";
+              e.currentTarget.style.color = "hsl(var(--silver) / 0.85)";
+            }}
+          >
+            Continue on Substack →
+          </a>
+        ) : (
+          <button
+            onClick={() => setCurrentIdx((i) => i + 1)}
+            className="font-body text-[10px] tracking-[0.25em] uppercase border px-5 py-2 min-h-[44px] transition-all disabled:opacity-30 disabled:pointer-events-none"
+            style={{
+              borderColor: "hsl(var(--silver) / 0.3)",
+              color: "hsl(var(--silver) / 0.85)",
+              ...(isTouch ? {} : { cursor: "none" }),
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "hsl(var(--dusky-rose) / 0.55)";
+              e.currentTarget.style.color = "hsl(var(--dusky-rose))";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "hsl(var(--silver) / 0.3)";
+              e.currentTarget.style.color = "hsl(var(--silver) / 0.85)";
+            }}
+          >
+            Next Chapter →
+          </button>
+        )}
+
       </div>
     </div>
   );
