@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import { isTouch } from "@/components/CustomCursor";
@@ -166,22 +166,54 @@ const SampleChapters = () => {
         );
       }
 
-      const parts = trimmed.split(/(\*[^*]+\*)/g);
       const isFirstProse = !firstProseDone;
       if (isFirstProse) firstProseDone = true;
+
+      let working = trimmed;
+      let leadQuote: string | null = null;
+      if (isFirstProse) {
+        const m = working.match(/^([“"‘'])/);
+        if (m) {
+          leadQuote = m[1];
+          working = working.slice(1);
+        }
+      }
+      const parts = working.split(/(\*[^*]+\*)/g);
+      const renderParts = (startIdx = 0) =>
+        parts.map((part, j) =>
+          part.startsWith("*") && part.endsWith("*") ? (
+            <em key={`p${j}`}>{part.slice(1, -1)}</em>
+          ) : (
+            <React.Fragment key={`p${j}`}>{part}</React.Fragment>
+          )
+        );
+
+      if (isFirstProse) {
+        // Extract first letter for explicit drop-cap span, keep any leading quote inline-sized
+        const first = parts[0];
+        if (typeof first === "string" && first.length > 0) {
+          const letter = first.charAt(0);
+          const rest = first.slice(1);
+          return (
+            <p key={i} className="text-left mb-5 not-italic" style={{ lineHeight: 1.8 }}>
+              {leadQuote && <span className="dropcap-quote">{leadQuote}</span>}
+              <span className="dropcap-letter">{letter}</span>
+              {rest}
+              {parts.slice(1).map((part, j) =>
+                part.startsWith("*") && part.endsWith("*") ? (
+                  <em key={`p${j}`}>{part.slice(1, -1)}</em>
+                ) : (
+                  <React.Fragment key={`p${j}`}>{part}</React.Fragment>
+                )
+              )}
+            </p>
+          );
+        }
+      }
+
       return (
-        <p
-          key={i}
-          className={`text-left mb-5 not-italic ${isFirstProse ? 'manuscript-dropcap' : ''}`}
-          style={{ lineHeight: 1.8 }}
-        >
-          {parts.map((part, j) =>
-            part.startsWith("*") && part.endsWith("*") ? (
-              <em key={j}>{part.slice(1, -1)}</em>
-            ) : (
-              part
-            )
-          )}
+        <p key={i} className="text-left mb-5 not-italic" style={{ lineHeight: 1.8 }}>
+          {renderParts()}
         </p>
       );
     });

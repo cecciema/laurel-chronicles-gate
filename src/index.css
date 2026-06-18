@@ -533,3 +533,20 @@
   padding: 0.1em 0.12em 0 0;
   color: hsl(var(--primary));
 }
+
+.dropcap-letter {
+  font-family: 'Cinzel', serif;
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.9;
+  padding: 0.1em 0.12em 0 0;
+  color: hsl(var(--primary));
+}
+
+.dropcap-quote {
+  float: left;
+  font-size: 1.4em;
+  line-height: 1;
+  padding: 0.15em 0.05em 0 0;
+  color: hsl(var(--foreground));
+}
