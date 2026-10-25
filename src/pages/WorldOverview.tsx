@@ -53,7 +53,7 @@ const regions = [
   {
     name: "Sanctorium",
     tag: "THE SPIRITUAL AUTHORITY",
-    description: "Twelve Pantheons arranged across all four Quadrants, each governed by a Sol Deus and their Lunary. The Halcyon Sanctuary at the center is the holiest site in Elysii - the seat of the Apotheosis ceremony and the court of divine authority. Access is tiered. Most Citizens see only the outer courts. What happens at the center is not discussed.",
+    description: "Twelve Pantheons arranged across all four Quadrants, each governed by a Sol Deus and their Lunary. The Halcyon Sanctuary, in the Northwest quadrant, is the holiest site in Elysii - the seat of the Apotheosis ceremony and the court of divine authority. Access is tiered. Most Citizens see only the outer courts. What happens at the center is not discussed.",
     features: ["The Twelve Pantheons", "The Halcyon Sanctuary", "The Ivory Planetarium", "The Canons"],
   },
   {
