@@ -8,6 +8,7 @@ import manuscriptHero from "@/assets/hero-manuscript.jpeg";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-manuscript-new.jpeg";
 import GoldDivider from "@/components/GoldDivider";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 // ── ScrollReveal ──────────────────────────────────────────────────────────────
 const ScrollReveal = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
