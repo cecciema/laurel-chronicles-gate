@@ -1251,6 +1251,33 @@ const KnownInstitutions = () => (
       <GoldDivider className="max-w-xs mx-auto mt-6" />
     </motion.div>
 
+    {/* Forum District - fifth Magistry */}
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="mb-12"
+    >
+      <p className="font-body text-[10px] tracking-[0.35em] uppercase text-muted-foreground mb-4">
+        FORUM DISTRICT
+      </p>
+      <div
+        className="p-4 character-card bg-card max-w-lg"
+        style={{ border: "1px solid hsl(var(--silver) / 0.28)" }}
+      >
+        <h3 className="font-display text-base sm:text-lg tracking-wide mb-1" style={{ color: "hsl(var(--silver))" }}>
+          Paragon Command
+        </h3>
+        <p className="font-narrative italic text-sm mb-2" style={{ color: "hsl(var(--mist) / 0.78)" }}>
+          Command of the Paragon program and the Paragon Academies
+        </p>
+        <p className="font-body text-[10px] tracking-[0.2em] uppercase" style={{ color: "hsl(var(--muted-foreground))" }}>
+          Key: Remsays
+        </p>
+      </div>
+    </motion.div>
+
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
       {QUADRANTS.map((q, qi) => (
         <motion.div
