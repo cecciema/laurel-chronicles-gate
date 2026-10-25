@@ -550,3 +550,18 @@
   padding: 0.15em 0.05em 0 0;
   color: hsl(var(--foreground));
 }
+
+/* Newsletter (Substack embed) — cross-origin iframe rendered onto the dark field */
+.archive-signup-frame {
+  display: block;
+  width: 100%;
+  height: 360px;
+  border: 0;
+  filter: invert(1) hue-rotate(180deg);
+}
+
+@media (max-width: 640px) {
+  .archive-signup-frame {
+    height: 590px;
+  }
+}

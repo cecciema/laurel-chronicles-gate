@@ -8,6 +8,7 @@ import manuscriptHero from "@/assets/hero-manuscript.jpeg";
 import BottomHero from "@/components/BottomHero";
 import bottomHeroBg from "@/assets/bottom-hero-manuscript-new.jpeg";
 import GoldDivider from "@/components/GoldDivider";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 // ── ScrollReveal ──────────────────────────────────────────────────────────────
 const ScrollReveal = ({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) => {
@@ -223,6 +224,12 @@ const SampleChapters = () => {
         </AnimatePresence>
       </div>
 
+      {chapter.number === 1 && (
+        <div className="mt-10">
+          <NewsletterSignup />
+        </div>
+      )}
+
       <div className="flex items-center justify-center gap-6 mt-10">
         <button
           onClick={() => setCurrentIdx((i) => i - 1)}
@@ -337,7 +344,7 @@ const Manuscript = () => {
               <span style={{ color: "hsl(var(--crimson-wine) / 0.85)" }}>◆</span>
             </p>
             <h1 className="font-display font-bold text-xl sm:text-2xl tracking-[0.15em] text-primary">
-              Prologue + Chapters 1 - 5
+              Prologue and Chapters 1 to 5
             </h1>
           </div>
           <div
