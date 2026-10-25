@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import BottomNav from "@/components/BottomNav";
 import GoldDivider from "@/components/GoldDivider";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { QuestTrigger, ScrollCollection, useGame } from "@/components/ChroniclesSystem";
@@ -304,6 +305,11 @@ const Index = () => {
             </div>
           </section>
 
+
+          {/* Newsletter signup — Substack embed */}
+          <section className="py-16 sm:py-20 px-5 sm:px-8 border-t border-border/30">
+            <NewsletterSignup />
+          </section>
 
           {/* Navigation Cards — carved-stone archive plates */}
           <section className="py-16 px-4" style={{ background: "hsl(var(--stone-deep) / 0.5)" }}>
