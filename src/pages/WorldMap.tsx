@@ -137,7 +137,7 @@ const SUB_REGIONS = [
 
 // ── Hotspot positions (percentage-based) ──────────────────────────────────────
 const HOTSPOT_POSITIONS: Record<string, React.CSSProperties> = {
-  "sanctorium":    { top: "10%", left: "58%", width: "22%", height: "26%" },
+  "sanctorium":    { top: "10%", left: "30%", width: "18%", height: "24%" },
   "parliament":    { top: "36%", left: "56%", width: "18%", height: "18%" },
   "deepforge":     { top: "50%", left: "36%", width: "20%", height: "26%" },
   "ocean-reaches": { top: "15%", left: "5%",  width: "24%", height: "38%" },
@@ -149,7 +149,7 @@ const VALORICA_STYLE: React.CSSProperties   = { top: "68%", left: "48%", width: 
 
 // ── Region auto-zoom targets ────────────────────────────────────────────────────
 const REGION_FOCUS: Record<string, { x: number; y: number }> = {
-  "sanctorium":    { x: 0.65, y: 0.15 },
+  "sanctorium":    { x: 0.39, y: 0.22 },
   "parliament":    { x: 0.65, y: 0.45 },
   "deepforge":     { x: 0.46, y: 0.60 },
   "ocean-reaches": { x: 0.14, y: 0.35 },
@@ -1246,7 +1246,7 @@ const KnownInstitutions = () => (
         THE KNOWN INSTITUTIONS
       </h2>
       <p className="mt-4 font-narrative text-lg italic max-w-2xl mx-auto" style={{ color: "hsl(var(--mist) / 0.78)" }}>
-        Twelve Pantheons. Four Magistries. One Republic.
+        Twelve Pantheons. Five Magistries. One Republic.
       </p>
       <GoldDivider className="max-w-xs mx-auto mt-6" />
     </motion.div>
@@ -1313,7 +1313,7 @@ const KnownInstitutions = () => (
       transition={{ duration: 0.6, delay: 0.4 }}
       className="font-narrative italic text-sm text-foreground/40 text-center mt-14 max-w-2xl mx-auto leading-relaxed"
     >
-      The Halcyon Sanctuary and Parliament buildings are located in the Northeast quadrant. Pantheon Ivory and Pantheon Prisma are considered the most politically connected of the twelve.
+      The Halcyon Sanctuary is located in the Northwest quadrant. Parliament's buildings are located in the Northeast quadrant. Pantheon Ivory and Pantheon Prisma are considered the most politically connected of the twelve.
     </motion.p>
   </section>
 );
