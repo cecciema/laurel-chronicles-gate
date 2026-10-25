@@ -273,7 +273,7 @@ const Index = () => {
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
                 <p className="mt-6 font-narrative text-[1.0625rem] sm:text-lg text-muted-foreground leading-[1.8] max-w-2xl mx-auto w-full">
-                  Solterra was built on the Cornerstone Laws, the bones of the conquered, and the dreams of the powerful. For nearly three centuries, the Republic has maintained order through the Dual Reign: Parliament, which governs the body through its Magistries, and Sanctorium, which governs the soul. But there are signs of fracture within the order - growing more difficult to ignore by the day. The governed districts rumble with unrest, and yet the powerful still play their lethal games. All around the Known World, whispers of defiance are simmering into an uproar.
+                  Elysii was built on the Cornerstone Laws, the bones of the conquered, and the dreams of the powerful. For nearly three centuries, the Republic has maintained order through the Dual Reign: Parliament, which governs the body through its Magistries, and Sanctorium, which governs the soul. But there are signs of fracture within the order - growing more difficult to ignore by the day. The governed districts rumble with unrest, and yet the powerful still play their lethal games. All around the continent, whispers of defiance are simmering into an uproar.
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.3}>
@@ -289,7 +289,7 @@ const Index = () => {
                 <div className="text-center mb-10">
                   <p className="font-display text-[9px] tracking-[0.4em] uppercase mb-3" style={{ color: "hsl(var(--silver) / 0.55)" }}>
                     <span className="mx-2" style={{ letterSpacing: "0" }}>·</span>
-                    The Chronicles of Solterra
+                    The Chronicles of Elysii
                     <span className="mx-2" style={{ letterSpacing: "0" }}>·</span>
                   </p>
                   <h2 className="font-display text-xl sm:text-2xl tracking-[0.2em]" style={{ color: "hsl(var(--silver))", fontWeight: 300 }}>
@@ -336,7 +336,7 @@ const Index = () => {
               ))}
             </div>
           </section>
-          <BottomHero src={bottomHeroBg} alt="Solterra lounge" />
+          <BottomHero src={bottomHeroBg} alt="Elysii lounge" />
           <Footer />
         </div>
       </div>
