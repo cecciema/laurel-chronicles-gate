@@ -94,14 +94,14 @@ const SUB_REGIONS = [
   {
     id: "parliament",
     name: "Parliament",
-    description: "The governing body of Solterra, responsible for law, resource allocation, and the management of all four quadrants. Parliament sits in permanent session. Its deliberations are not public. Its decisions are.",
+    description: "The governing body of Elysii, responsible for law, resource allocation, and the management of all four quadrants. Parliament sits in permanent session. Its deliberations are not public. Its decisions are.",
     faction: "Republic Parliament",
     features: ["Council Chambers", "The Archive", "Premiere's Office", "Intelligence Division"],
   },
   {
     id: "deepforge",
     name: "Deep Forge",
-    description: "Below the visible world, the geothermal nexus that powers all of Solterra's systems. Ancient carvings predate the Republic. The Sol Deus order watches over it. Something about it is growing unstable.",
+    description: "Below the visible world, the geothermal nexus that powers all of Elysii's systems. Ancient carvings predate the Republic. The Sol Deus order watches over it. Something about it is growing unstable.",
     faction: "Pantheon Sol Deus",
     features: ["Geothermal Vents", "Ancient Pre-Republic Carvings", "Oracle Chamber", "The Memory Pools"],
   },
@@ -122,14 +122,14 @@ const SUB_REGIONS = [
   {
     id: "valorica",
     name: "Valorica",
-    description: "A secret island known only to the innermost circle of Arborwell. Its purpose is unknown to the Citizens of Solterra. Souls are said to be tested here - and not all of them return.",
+    description: "A secret island known only to the innermost circle of Arborwell. Its purpose is unknown to the Citizens of Elysii. Souls are said to be tested here - and not all of them return.",
     faction: "Unknown",
     features: ["Soul Testing Grounds", "Restricted Access", "No Public Record"],
   },
   {
     id: "arborwell",
     name: "Arborwell",
-    description: "A territory beyond the mapped edge of Solterra. Its existence is denied by every institution. Its presence is felt by those who have looked long enough. What lives here has no name the Republic will speak aloud.",
+    description: "A territory beyond the mapped edge of Elysii. Its existence is denied by every institution. Its presence is felt by those who have looked long enough. What lives here has no name the Republic will speak aloud.",
     faction: "Unknown",
     features: ["Unmapped Territory", "No Official Record", "Beyond the Boundary"],
   },
@@ -437,7 +437,7 @@ const WorldMap = () => {
       <div className="relative h-[50vh] sm:h-screen overflow-hidden bg-background">
         <img
           src={heroBg}
-          alt="The Solterra Quadrants"
+          alt="The Elysii Quadrants"
           className="w-full h-full object-cover"
           style={{ filter: "saturate(0.55) hue-rotate(-8deg) brightness(0.78) contrast(1.05)" }}
         />
@@ -451,7 +451,7 @@ const WorldMap = () => {
         {/* Title centered on hero */}
         <div className="absolute inset-x-0 top-0 pt-[30%] flex flex-col items-center text-center px-4 z-20">
           <SectionHeader
-            title="The Solterra Quadrants"
+            title="The Elysii Quadrants"
             subtitle="One Republic. See what secret place you may uncover."
           />
         </div>

@@ -207,7 +207,7 @@ Let each soul bear One Heir.
 
 That the planet may breathe and the burden of life remain light.
 
-Let all children belong to Solterra First.
+Let all children belong to Elysii First.
 
 That no family may claim what the Republic has given.
 
@@ -218,11 +218,11 @@ That suffering may end and the living may be spared its weight.
 
 The intoxicating sandalwood smoke whirled around the silent Scriptorium and settled across Quinnevere's shoulders, pooling at the base of her throat, leaving her weightless and faintly euphoric. She traced the text with her fingertips once more, sinking into the lolling comfort of the subtle vibration beneath the vellum's etching.
 
-She could recite the Cornerstone Laws as well as anyone raised in Solterra. They were sung in the Groves and chanted through secondary academy. Many citizens chose to ink a portion onto their bodies before ascending, the Fourth Law the most popular, the Rites of Apex the most popular season for it, since the words were believed to carry power that would strengthen one's Semper as the soul transcended into eternity.
+She could recite the Cornerstone Laws as well as anyone raised in Elysii. They were sung in the Groves and chanted through secondary academy. Many citizens chose to ink a portion onto their bodies before ascending, the Fourth Law the most popular, the Rites of Apex the most popular season for it, since the words were believed to carry power that would strengthen one's Semper as the soul transcended into eternity.
 
 The Laws were printed on nearly every official Republic publication. That was not unusual. What was unusual, what was special about this book, the Parliament Premiere's Living Biography, was that Semper had been composited into each volume. And not just any Semper. The Premiere's own rare type: the Connective Expression.
 
-To date, or at least according to the print of this Biography, there had been five other documented cases of Connective. Out of a Republic population of almost nine million, only half a dozen of these asset classifications existed. Premiere Jude's was said to be the strongest ever recorded. In his prime and without augmentation, he could connect to hundreds of people, individually and at once. No wonder he had become Premiere of the Republic, ruling on behalf of Parliament, overseeing half of Solterra's continental affairs.
+To date, or at least according to the print of this Biography, there had been five other documented cases of Connective. Out of a Republic population of almost nine million, only half a dozen of these asset classifications existed. Premiere Jude's was said to be the strongest ever recorded. In his prime and without augmentation, he could connect to hundreds of people, individually and at once. No wonder he had become Premiere of the Republic, ruling on behalf of Parliament, overseeing half of Elysii's continental affairs.
 
 It was also well acknowledged that his approval rating had never dipped, that he was the most popular secular leader to hold the post in living memory. Quinnevere had wondered, as most citizens did, whether the charisma was mostly that special Semper of his. He had other likable traits, to be sure. A tall man with a kind face, a gentle manner, soft permanent creases at the corners of his eyes. When he spoke during broadcasts it always felt as though he were speaking directly into you. Not just to you, into you. He made you feel seen, chosen, as though the message had been drafted for you alone, even as it went out to the whole continent at once.
 
@@ -238,7 +238,7 @@ At this hour the room belonged to Quinnevere and her companion alone.
 
 "You were right. I'm impressed, I'll admit it." Quinn lifted her hand off the vellum and gestured at it. "This is something else. I never knew you could composite an object and have it linger this long after. It goes well beyond illumination. It's as if he'd just pressed his hand to the page."
 
-"Yep. He is something else." Yara sighed, made a production of it, and pressed both hands flat to her heart. "I wish, oh, how I wish, I could get close enough to feel his cadence in person. Just once. Alone. Imagine what the full thing would do to you. It would make you feel like the most protected, favored, cherished, hand-selected creature in all of Solterra."
+"Yep. He is something else." Yara sighed, made a production of it, and pressed both hands flat to her heart. "I wish, oh, how I wish, I could get close enough to feel his cadence in person. Just once. Alone. Imagine what the full thing would do to you. It would make you feel like the most protected, favored, cherished, hand-selected creature in all of Elysii."
 
 "I can see the appeal. You'd come back a changed woman." Quinn smiled. "Although, the withdrawal. Can you imagine the withdrawal? You'd be useless to everyone for a month." She paused. "And isn't he a touch old for you? Handsome for an older man, I grant you. But he's well past Apex."
 
@@ -389,7 +389,7 @@ Llewellyn swallowed. “The environmental impact records from the Northwest Quad
 
 Remsays stood still a moment, then began to pace the hallway in slow, even strides. Not irritated, exactly, though he had the right to be. The coastal records underpinned the remediation modeling for at least three active Paragon projects. If they were truly gone, those projects would have to rebuild five rotations of assumptions from nothing. Months of work. Months of time.
 
-But it was impossible. He had updated the Archive’s security algorithm himself. Codice was sub-dermal, biometric, biologically unique. It could not be forged, copied, or used after death. Not by any process that existed in Solterra.
+But it was impossible. He had updated the Archive’s security algorithm himself. Codice was sub-dermal, biometric, biologically unique. It could not be forged, copied, or used after death. Not by any process that existed in Elysii.
 
 He ran a hand over his hair, calmed his breathing, and came back to stand in front of the old officer.
 
@@ -700,7 +700,7 @@ Up close he was more straightforwardly handsome than she had braced for. A foot 
 
 Carmela took the near end of the table and set down the scripture box. “Premiere, Chief Magister, Sol Deus Astra, Lunary Gemma. Thank you for honoring Pantheon Ivory with your presence.”
 
-“The honor is ours.” The Premiere replied. Sincerity sat naturally on a man who had every reason to perform it instead. “His Sovereigncy served Solterra with distinction for a very, very long time. I can only hope to emulate his legacy one day.” His eyes moved to Quinn with pleasant inquiry.
+“The honor is ours.” The Premiere replied. Sincerity sat naturally on a man who had every reason to perform it instead. “His Sovereigncy served Elysii with distinction for a very, very long time. I can only hope to emulate his legacy one day.” His eyes moved to Quinn with pleasant inquiry.
 
 “This is Quinnevere,” Carmela said. “A truly talented scholar, newly assigned to Ivory's scriptorium. She has been assisting with our preparations. I'm afraid I've been leaning on her quite heavily.”
 
@@ -1163,7 +1163,7 @@ Noah caught his eye and gave him a small nod, the room’s fine, and went back t
 
 He moved to the center of the room and straightened his jacket.
 
-“As I was saying.” He looked from face to face, and let them see he was relaxed, that the floor was his and the morning was already back in hand. “You carry the unglamorous responsibility of Solterra’s slow recovery.” A pause. “You have just learned, sooner than most cohorts do, that it is not always a quiet calling. Welcome to your first day.”`,
+“As I was saying.” He looked from face to face, and let them see he was relaxed, that the floor was his and the morning was already back in hand. “You carry the unglamorous responsibility of Elysii’s slow recovery.” A pause. “You have just learned, sooner than most cohorts do, that it is not always a quiet calling. Welcome to your first day.”`,
   },
   {
     number: 6,
