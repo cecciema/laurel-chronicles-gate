@@ -223,6 +223,12 @@ const SampleChapters = () => {
         </AnimatePresence>
       </div>
 
+      {chapter.number === 1 && (
+        <div className="mt-10">
+          <NewsletterSignup />
+        </div>
+      )}
+
       <div className="flex items-center justify-center gap-6 mt-10">
         <button
           onClick={() => setCurrentIdx((i) => i - 1)}
